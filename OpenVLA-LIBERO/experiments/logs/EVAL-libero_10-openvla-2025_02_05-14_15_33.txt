@@ -1,0 +1,81 @@
+Task suite: libero_10
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=1--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=1--task_seed=40--seed=0--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 2 (200.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=2--task_seed=40--seed=1--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=2--task_seed=40--seed=1--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 3 (150.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=3--task_seed=40--seed=2--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=3--task_seed=40--seed=2--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 4 (133.3%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=4--task_seed=40--seed=3--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=4--task_seed=40--seed=3--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 6 (150.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=5--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=5--task_seed=40--seed=4--success=False--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 6 (120.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=6--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=6--task_seed=40--seed=5--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 7 (116.7%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=7--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=7--task_seed=40--seed=6--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 8 (114.3%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=8--task_seed=40--seed=7--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=8--task_seed=40--seed=7--success=False--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=9--task_seed=40--seed=8--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=9--task_seed=40--seed=8--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 10 (111.1%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/openvla/synonym/untransformed/videos/2025_02_05-14_15_33--episode=10--task_seed=40--seed=9--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path ./rollouts/openvla/synonym/transformed/videos/2025_02_05-14_15_33--episode=10--task_seed=40--seed=9--success=True--task=place_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 12 (120.0%)

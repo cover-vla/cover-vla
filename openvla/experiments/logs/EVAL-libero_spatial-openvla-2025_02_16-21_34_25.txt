@@ -1,0 +1,41 @@
+Task suite: libero_spatial
+
+Task: pick
+Starting episode 1...
+Caught exception: 'numpy.ndarray' object has no attribute 'clone'
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-21_34_25--episode=1--success=False--task=pick.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: pick
+Starting episode 2...
+Caught exception: 'numpy.ndarray' object has no attribute 'clone'
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-21_34_25--episode=2--success=False--task=pick.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: pick
+Starting episode 3...
+Caught exception: 'numpy.ndarray' object has no attribute 'clone'
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-21_34_25--episode=3--success=False--task=pick.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: pick
+Starting episode 4...
+Caught exception: 'numpy.ndarray' object has no attribute 'clone'
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-21_34_25--episode=4--success=False--task=pick.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: pick
+Starting episode 5...
+Caught exception: 'numpy.ndarray' object has no attribute 'clone'
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-21_34_25--episode=5--success=False--task=pick.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)

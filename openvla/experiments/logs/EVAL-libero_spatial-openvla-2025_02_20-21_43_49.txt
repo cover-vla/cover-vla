@@ -1,0 +1,35 @@
+Task suite: libero_spatial
+
+Task: black the it on plate the the place between and and up pick plate the bowl ramekin
+Starting episode 1...
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: ramekin plate between the it place bowl and black on the pick the and up plate the
+Starting episode 2...
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: black next pick the place and it up plate on to bowl the the ramekin
+Starting episode 1...
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: on the place to bowl plate the black pick and the it ramekin up next
+Starting episode 2...
+Success: False
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+Current task success rate: 0.0
+Current total success rate: 0.5
+
+Task: table on up the and it pick plate the black bowl from center place
+Starting episode 1...
+Success: False
+# episodes completed so far: 5
+# successes: 2 (40.0%)

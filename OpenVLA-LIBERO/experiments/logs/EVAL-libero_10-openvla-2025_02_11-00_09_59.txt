@@ -1,0 +1,821 @@
+Task suite: libero_10
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=1--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=1--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 2 (200.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=2--task_seed=40--seed=1--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=2--task_seed=40--seed=1--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=3--task_seed=40--seed=2--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=3--task_seed=40--seed=2--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=4--task_seed=40--seed=3--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=4--task_seed=40--seed=3--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=5--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=5--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=6--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=6--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 3 (50.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=7--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=7--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 3 (42.9%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=8--task_seed=40--seed=7--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=8--task_seed=40--seed=7--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=9--task_seed=40--seed=8--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=9--task_seed=40--seed=8--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 4 (44.4%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=10--task_seed=40--seed=9--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=10--task_seed=40--seed=9--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 5 (50.0%)
+Current task success rate: 0.5
+Current total success rate: 0.5
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=11--task_seed=40--seed=0--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=11--task_seed=40--seed=0--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 6 (54.5%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=12--task_seed=40--seed=1--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=12--task_seed=40--seed=1--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 8 (66.7%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=13--task_seed=40--seed=2--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=13--task_seed=40--seed=2--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 9 (69.2%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=14--task_seed=40--seed=3--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=14--task_seed=40--seed=3--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 10 (71.4%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=15--task_seed=40--seed=4--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=15--task_seed=40--seed=4--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 11 (73.3%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=16--task_seed=40--seed=5--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=16--task_seed=40--seed=5--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 11 (68.8%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=17--task_seed=40--seed=6--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=17--task_seed=40--seed=6--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 12 (70.6%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=18--task_seed=40--seed=7--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=18--task_seed=40--seed=7--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 13 (72.2%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=19--task_seed=40--seed=8--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=19--task_seed=40--seed=8--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 14 (73.7%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=20--task_seed=40--seed=9--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=20--task_seed=40--seed=9--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 16 (80.0%)
+Current task success rate: 1.1
+Current total success rate: 0.8
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=21--task_seed=40--seed=0--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=21--task_seed=40--seed=0--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 18 (85.7%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=22--task_seed=40--seed=1--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=22--task_seed=40--seed=1--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 19 (86.4%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=23--task_seed=40--seed=2--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=23--task_seed=40--seed=2--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 20 (87.0%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=24--task_seed=40--seed=3--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=24--task_seed=40--seed=3--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 22 (91.7%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=25--task_seed=40--seed=4--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=25--task_seed=40--seed=4--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 24 (96.0%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=26--task_seed=40--seed=5--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=26--task_seed=40--seed=5--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 24 (92.3%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=27--task_seed=40--seed=6--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=27--task_seed=40--seed=6--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 24 (88.9%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=28--task_seed=40--seed=7--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=28--task_seed=40--seed=7--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 24 (85.7%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=29--task_seed=40--seed=8--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=29--task_seed=40--seed=8--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 26 (89.7%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=30--task_seed=40--seed=9--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=30--task_seed=40--seed=9--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 28 (93.3%)
+Current task success rate: 1.2
+Current total success rate: 0.9333333333333333
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=31--task_seed=40--seed=0--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=31--task_seed=40--seed=0--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 29 (93.5%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=32--task_seed=40--seed=1--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=32--task_seed=40--seed=1--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 30 (93.8%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=33--task_seed=40--seed=2--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=33--task_seed=40--seed=2--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 33
+# successes: 30 (90.9%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=34--task_seed=40--seed=3--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=34--task_seed=40--seed=3--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 30 (88.2%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=35--task_seed=40--seed=4--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=35--task_seed=40--seed=4--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 35
+# successes: 30 (85.7%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=36--task_seed=40--seed=5--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=36--task_seed=40--seed=5--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 31 (86.1%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=37--task_seed=40--seed=6--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=37--task_seed=40--seed=6--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 31 (83.8%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=38--task_seed=40--seed=7--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=38--task_seed=40--seed=7--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 32 (84.2%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=39--task_seed=40--seed=8--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=39--task_seed=40--seed=8--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 32 (82.1%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=40--task_seed=40--seed=9--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=40--task_seed=40--seed=9--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Success: False
+# episodes completed so far: 40
+# successes: 32 (80.0%)
+Current task success rate: 0.4
+Current total success rate: 0.8
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=41--task_seed=40--seed=0--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=41--task_seed=40--seed=0--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 33 (80.5%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=42--task_seed=40--seed=1--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=42--task_seed=40--seed=1--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 34 (81.0%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=43--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=43--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: False
+# episodes completed so far: 43
+# successes: 34 (79.1%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=44--task_seed=40--seed=3--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=44--task_seed=40--seed=3--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 35 (79.5%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=45--task_seed=40--seed=4--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=45--task_seed=40--seed=4--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 36 (80.0%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=46--task_seed=40--seed=5--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=46--task_seed=40--seed=5--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 38 (82.6%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=47--task_seed=40--seed=6--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=47--task_seed=40--seed=6--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 39 (83.0%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=48--task_seed=40--seed=7--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=48--task_seed=40--seed=7--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 39 (81.2%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=49--task_seed=40--seed=8--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=49--task_seed=40--seed=8--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 40 (81.6%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=50--task_seed=40--seed=9--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=50--task_seed=40--seed=9--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 40 (80.0%)
+Current task success rate: 0.8
+Current total success rate: 0.8
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=51--task_seed=40--seed=0--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=51--task_seed=40--seed=0--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: False
+# episodes completed so far: 51
+# successes: 40 (78.4%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=52--task_seed=40--seed=1--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=52--task_seed=40--seed=1--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 52
+# successes: 41 (78.8%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=53--task_seed=40--seed=2--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=53--task_seed=40--seed=2--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: False
+# episodes completed so far: 53
+# successes: 41 (77.4%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=54--task_seed=40--seed=3--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=54--task_seed=40--seed=3--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: False
+# episodes completed so far: 54
+# successes: 41 (75.9%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=55--task_seed=40--seed=4--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=55--task_seed=40--seed=4--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 42 (76.4%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=56--task_seed=40--seed=5--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=56--task_seed=40--seed=5--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 56
+# successes: 44 (78.6%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=57--task_seed=40--seed=6--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=57--task_seed=40--seed=6--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: False
+# episodes completed so far: 57
+# successes: 44 (77.2%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=58--task_seed=40--seed=7--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=58--task_seed=40--seed=7--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 58
+# successes: 45 (77.6%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=59--task_seed=40--seed=8--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=59--task_seed=40--seed=8--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 59
+# successes: 46 (78.0%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=60--task_seed=40--seed=9--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=60--task_seed=40--seed=9--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Success: True
+# episodes completed so far: 60
+# successes: 47 (78.3%)
+Current task success rate: 0.7
+Current total success rate: 0.7833333333333333
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=61--task_seed=40--seed=0--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=61--task_seed=40--seed=0--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 61
+# successes: 49 (80.3%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=62--task_seed=40--seed=1--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=62--task_seed=40--seed=1--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: False
+# episodes completed so far: 62
+# successes: 50 (80.6%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=63--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=63--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: False
+# episodes completed so far: 63
+# successes: 50 (79.4%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=64--task_seed=40--seed=3--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=64--task_seed=40--seed=3--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 64
+# successes: 52 (81.2%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=65--task_seed=40--seed=4--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=65--task_seed=40--seed=4--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 65
+# successes: 53 (81.5%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=66--task_seed=40--seed=5--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=66--task_seed=40--seed=5--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 66
+# successes: 54 (81.8%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=67--task_seed=40--seed=6--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=67--task_seed=40--seed=6--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: False
+# episodes completed so far: 67
+# successes: 54 (80.6%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=68--task_seed=40--seed=7--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=68--task_seed=40--seed=7--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 68
+# successes: 55 (80.9%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=69--task_seed=40--seed=8--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=69--task_seed=40--seed=8--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: False
+# episodes completed so far: 69
+# successes: 56 (81.2%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=70--task_seed=40--seed=9--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=70--task_seed=40--seed=9--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Success: True
+# episodes completed so far: 70
+# successes: 57 (81.4%)
+Current task success rate: 1.0
+Current total success rate: 0.8142857142857143
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=71--task_seed=40--seed=0--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=71--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 71
+# successes: 58 (81.7%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=72--task_seed=40--seed=1--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=72--task_seed=40--seed=1--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 72
+# successes: 59 (81.9%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=73--task_seed=40--seed=2--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=73--task_seed=40--seed=2--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 73
+# successes: 61 (83.6%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=74--task_seed=40--seed=3--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=74--task_seed=40--seed=3--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 74
+# successes: 62 (83.8%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=75--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=75--task_seed=40--seed=4--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 75
+# successes: 63 (84.0%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=76--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=76--task_seed=40--seed=5--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 76
+# successes: 64 (84.2%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=77--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=77--task_seed=40--seed=6--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 77
+# successes: 65 (84.4%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=78--task_seed=40--seed=7--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=78--task_seed=40--seed=7--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 78
+# successes: 66 (84.6%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=79--task_seed=40--seed=8--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=79--task_seed=40--seed=8--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 79
+# successes: 67 (84.8%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=80--task_seed=40--seed=9--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=80--task_seed=40--seed=9--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 80
+# successes: 68 (85.0%)
+Current task success rate: 1.1
+Current total success rate: 0.85
+
+Task: put both moka pots on the stove
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=81--task_seed=40--seed=0--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=81--task_seed=40--seed=0--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 81
+# successes: 69 (85.2%)
+
+Task: put both moka pots on the stove
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=82--task_seed=40--seed=1--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=82--task_seed=40--seed=1--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 82
+# successes: 70 (85.4%)
+
+Task: put both moka pots on the stove
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=83--task_seed=40--seed=2--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=83--task_seed=40--seed=2--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 83
+# successes: 70 (84.3%)
+
+Task: put both moka pots on the stove
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=84--task_seed=40--seed=3--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=84--task_seed=40--seed=3--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 84
+# successes: 71 (84.5%)
+
+Task: put both moka pots on the stove
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=85--task_seed=40--seed=4--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=85--task_seed=40--seed=4--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 85
+# successes: 71 (83.5%)
+
+Task: put both moka pots on the stove
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=86--task_seed=40--seed=5--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=86--task_seed=40--seed=5--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 86
+# successes: 71 (82.6%)
+
+Task: put both moka pots on the stove
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=87--task_seed=40--seed=6--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=87--task_seed=40--seed=6--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 87
+# successes: 72 (82.8%)
+
+Task: put both moka pots on the stove
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=88--task_seed=40--seed=7--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=88--task_seed=40--seed=7--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 88
+# successes: 73 (83.0%)
+
+Task: put both moka pots on the stove
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=89--task_seed=40--seed=8--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=89--task_seed=40--seed=8--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 89
+# successes: 73 (82.0%)
+
+Task: put both moka pots on the stove
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=90--task_seed=40--seed=9--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=90--task_seed=40--seed=9--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 90
+# successes: 73 (81.1%)
+Current task success rate: 0.5
+Current total success rate: 0.8111111111111111
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=91--task_seed=40--seed=0--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=91--task_seed=40--seed=0--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 91
+# successes: 74 (81.3%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=92--task_seed=40--seed=1--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=92--task_seed=40--seed=1--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 92
+# successes: 75 (81.5%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=93--task_seed=40--seed=2--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=93--task_seed=40--seed=2--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 93
+# successes: 76 (81.7%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=94--task_seed=40--seed=3--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=94--task_seed=40--seed=3--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 94
+# successes: 77 (81.9%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=95--task_seed=40--seed=4--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=95--task_seed=40--seed=4--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: False
+# episodes completed so far: 95
+# successes: 77 (81.1%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=96--task_seed=40--seed=5--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=96--task_seed=40--seed=5--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 96
+# successes: 78 (81.2%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=97--task_seed=40--seed=6--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=97--task_seed=40--seed=6--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: False
+# episodes completed so far: 97
+# successes: 78 (80.4%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=98--task_seed=40--seed=7--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=98--task_seed=40--seed=7--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: False
+# episodes completed so far: 98
+# successes: 78 (79.6%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=99--task_seed=40--seed=8--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=99--task_seed=40--seed=8--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: True
+# episodes completed so far: 99
+# successes: 80 (80.8%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/untransformed/videos/2025_02_11-00_09_59--episode=100--task_seed=40--seed=9--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/interpolation/transformed/videos/2025_02_11-00_09_59--episode=100--task_seed=40--seed=9--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Success: False
+# episodes completed so far: 100
+# successes: 80 (80.0%)
+Current task success rate: 0.7
+Current total success rate: 0.8

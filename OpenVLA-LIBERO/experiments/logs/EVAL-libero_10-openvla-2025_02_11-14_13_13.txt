@@ -1,0 +1,81 @@
+Task suite: libero_10
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 1...
+Success: True
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+Current task success rate: 1.0
+Current total success rate: 0.5
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 1...
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+Current task success rate: 0.0
+Current total success rate: 0.3333333333333333
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 1...
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+Current task success rate: 0.0
+Current total success rate: 0.25
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 1...
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+Current task success rate: 0.0
+Current total success rate: 0.2
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 1...
+Success: True
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+Current task success rate: 1.0
+Current total success rate: 0.3333333333333333
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 1...
+Success: False
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+Current task success rate: 0.0
+Current total success rate: 0.2857142857142857
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 1...
+Success: False
+# episodes completed so far: 8
+# successes: 2 (25.0%)
+Current task success rate: 0.0
+Current total success rate: 0.25
+
+Task: put both moka pots on the stove
+Starting episode 1...
+Success: False
+# episodes completed so far: 9
+# successes: 2 (22.2%)
+Current task success rate: 0.0
+Current total success rate: 0.2222222222222222
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 1...
+Success: False
+# episodes completed so far: 10
+# successes: 2 (20.0%)
+Current task success rate: 0.0
+Current total success rate: 0.2

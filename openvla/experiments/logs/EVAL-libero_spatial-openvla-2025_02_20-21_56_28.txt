@@ -1,0 +1,21 @@
+Task suite: libero_spatial
+
+Task: black the it on plate the the place between and and up pick plate the bowl ramekin
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/1/2025_02_20-21_56_28--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: between the plate and bowl the up and the it place pick the on ramekin plate black
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/2/2025_02_20-21_56_28--episode=2--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: it ramekin on the to bowl pick next black plate and up the place the
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/3/2025_02_20-21_56_28--episode=3--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4

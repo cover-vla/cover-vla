@@ -1,0 +1,161 @@
+Task suite: libero_spatial
+
+Task: black the it on plate the the place between and and up pick plate the bowl ramekin
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/1/2025_02_20-22_15_00--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: between the plate and bowl the up and the it place pick the on ramekin plate black
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/2/2025_02_20-22_15_00--episode=2--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: it ramekin on the to bowl pick next black plate and up the place the
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/3/2025_02_20-22_15_00--episode=3--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: to it up on ramekin place pick the the black bowl next plate and the
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/4/2025_02_20-22_15_00--episode=4--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+Current task success rate: 0.0
+Current total success rate: 0.5
+
+Task: and black up it bowl place on pick table center plate from the the
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/5/2025_02_20-22_15_00--episode=5--success=False--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: and place table the black it from on pick the center bowl up plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/6/2025_02_20-22_15_00--episode=6--success=False--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+Current task success rate: 0.0
+Current total success rate: 0.3333333333333333
+
+Task: on the place box the plate it bowl black pick cookie up and the on
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/7/2025_02_20-22_15_00--episode=7--success=False--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+
+Task: black the place it pick cookie up and on on bowl box the the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/8/2025_02_20-22_15_00--episode=8--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+Current task success rate: 0.5
+Current total success rate: 0.375
+
+Task: black top up it and bowl cabinet place wooden the on plate the the the pick of drawer in
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/9/2025_02_20-22_15_00--episode=9--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 3 (33.3%)
+
+Task: on bowl drawer in the wooden of place and up it pick the the top black the plate cabinet
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/10/2025_02_20-22_15_00--episode=10--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 3 (30.0%)
+Current task success rate: 0.0
+Current total success rate: 0.3
+
+Task: it the on bowl and ramekin on the the plate black up pick place
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/11/2025_02_20-22_15_00--episode=11--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 4 (36.4%)
+
+Task: on and black pick it place the ramekin plate on the the up bowl
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/12/2025_02_20-22_15_00--episode=12--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 4 (33.3%)
+Current task success rate: 0.5
+Current total success rate: 0.3333333333333333
+
+Task: plate pick black to the it the the next cookie bowl place up on and box
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/13/2025_02_20-22_15_00--episode=13--success=False--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 4 (30.8%)
+
+Task: bowl and up the the pick box next plate cookie it black place to on the
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/14/2025_02_20-22_15_00--episode=14--success=False--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 4 (28.6%)
+Current task success rate: 0.0
+Current total success rate: 0.2857142857142857
+
+Task: bowl pick the plate the and stove place it black up the on on
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/15/2025_02_20-22_15_00--episode=15--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 4 (26.7%)
+
+Task: the on bowl pick and on place the stove black the plate it up
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/16/2025_02_20-22_15_00--episode=16--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 4 (25.0%)
+Current task success rate: 0.0
+Current total success rate: 0.25
+
+Task: up next it plate black to bowl place the and on pick the plate the
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/17/2025_02_20-22_15_00--episode=17--success=False--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 4 (23.5%)
+
+Task: plate and next the the on up bowl pick place black to the it plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/18/2025_02_20-22_15_00--episode=18--success=False--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 4 (22.2%)
+Current task success rate: 0.0
+Current total success rate: 0.2222222222222222
+
+Task: black pick the on up bowl the the cabinet and place wooden on it plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/19/2025_02_20-22_15_00--episode=19--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 4 (21.1%)
+
+Task: cabinet the and black bowl on place pick up wooden it the the plate on
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/random_shuffle/20/2025_02_20-22_15_00--episode=20--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 4 (20.0%)
+Current task success rate: 0.0
+Current total success rate: 0.2

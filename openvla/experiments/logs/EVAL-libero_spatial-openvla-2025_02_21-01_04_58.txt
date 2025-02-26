@@ -1,0 +1,161 @@
+Task suite: libero_spatial
+
+Task: Bowl up the black pick between the plate and the ramekin and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/1/2025_02_21-01_04_58--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Bowl up the black pick between the plate and the ramekin and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/2/2025_02_21-01_04_58--episode=2--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: Bowl up the black pick next to the ramekin and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/3/2025_02_21-01_04_58--episode=3--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: Bowl up the black pick next to the ramekin and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/4/2025_02_21-01_04_58--episode=4--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: Bowl up the black pick from table center and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/5/2025_02_21-01_04_58--episode=5--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: Bowl up the black pick from table center and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/6/2025_02_21-01_04_58--episode=6--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: Bowl up the black pick on the cookie box and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/7/2025_02_21-01_04_58--episode=7--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 7 (100.0%)
+
+Task: Bowl up the black pick on the cookie box and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/8/2025_02_21-01_04_58--episode=8--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: Bowl up the black pick in the top drawer of the wooden cabinet and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/9/2025_02_21-01_04_58--episode=9--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+
+Task: Bowl up the black pick in the top drawer of the wooden cabinet and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/10/2025_02_21-01_04_58--episode=10--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 8 (80.0%)
+Current task success rate: 0.0
+Current total success rate: 0.8
+
+Task: Bowl up the black pick on the ramekin and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/11/2025_02_21-01_04_58--episode=11--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 9 (81.8%)
+
+Task: Bowl up the black pick on the ramekin and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/12/2025_02_21-01_04_58--episode=12--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 10 (83.3%)
+Current task success rate: 1.0
+Current total success rate: 0.8333333333333334
+
+Task: Bowl up the black pick next to the cookie box and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/13/2025_02_21-01_04_58--episode=13--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 11 (84.6%)
+
+Task: Bowl up the black pick next to the cookie box and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/14/2025_02_21-01_04_58--episode=14--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 12 (85.7%)
+Current task success rate: 1.0
+Current total success rate: 0.8571428571428571
+
+Task: Bowl up the black pick on the stove and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/15/2025_02_21-01_04_58--episode=15--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 13 (86.7%)
+
+Task: Bowl up the black pick on the stove and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/16/2025_02_21-01_04_58--episode=16--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 13 (81.2%)
+Current task success rate: 0.5
+Current total success rate: 0.8125
+
+Task: Bowl up the black pick next to the plate and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/17/2025_02_21-01_04_58--episode=17--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 14 (82.4%)
+
+Task: Bowl up the black pick next to the plate and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/18/2025_02_21-01_04_58--episode=18--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 15 (83.3%)
+Current task success rate: 1.0
+Current total success rate: 0.8333333333333334
+
+Task: Bowl up the black pick on the wooden cabinet and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/19/2025_02_21-01_04_58--episode=19--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 16 (84.2%)
+
+Task: Bowl up the black pick on the wooden cabinet and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/libero_spatial/verb_noun_shuffle/20/2025_02_21-01_04_58--episode=20--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 16 (80.0%)
+Current task success rate: 0.5
+Current total success rate: 0.8

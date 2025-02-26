@@ -1,0 +1,821 @@
+Task suite: libero_10
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=1--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=1--task_seed=40--seed=0--success=False--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=2--task_seed=40--seed=1--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=2--task_seed=40--seed=1--success=True--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=3--task_seed=40--seed=2--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=3--task_seed=40--seed=2--success=True--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=4--task_seed=40--seed=3--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=4--task_seed=40--seed=3--success=True--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 5 (125.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=5--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=5--task_seed=40--seed=4--success=False--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=6--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=6--task_seed=40--seed=5--success=False--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=7--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=7--task_seed=40--seed=6--success=False--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 5 (71.4%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=8--task_seed=40--seed=7--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=8--task_seed=40--seed=7--success=False--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 5 (62.5%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=9--task_seed=40--seed=8--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=9--task_seed=40--seed=8--success=True--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 7 (77.8%)
+
+Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=10--task_seed=40--seed=9--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=10--task_seed=40--seed=9--success=True--task=do_not_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+Current task success rate: 0.9
+Current total success rate: 0.9
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=11--task_seed=40--seed=0--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=11--task_seed=40--seed=0--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 11 (100.0%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=12--task_seed=40--seed=1--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=12--task_seed=40--seed=1--success=False--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 12 (100.0%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=13--task_seed=40--seed=2--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=13--task_seed=40--seed=2--success=False--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 13 (100.0%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=14--task_seed=40--seed=3--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=14--task_seed=40--seed=3--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 15 (107.1%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=15--task_seed=40--seed=4--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=15--task_seed=40--seed=4--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 16 (106.7%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=16--task_seed=40--seed=5--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=16--task_seed=40--seed=5--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 17 (106.2%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=17--task_seed=40--seed=6--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=17--task_seed=40--seed=6--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 19 (111.8%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=18--task_seed=40--seed=7--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=18--task_seed=40--seed=7--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 21 (116.7%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=19--task_seed=40--seed=8--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=19--task_seed=40--seed=8--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 23 (121.1%)
+
+Task: put both the cream cheese box and the butter in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=20--task_seed=40--seed=9--success=True--task=put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=20--task_seed=40--seed=9--success=True--task=do_not_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 25 (125.0%)
+Current task success rate: 1.6
+Current total success rate: 1.25
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=21--task_seed=40--seed=0--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=21--task_seed=40--seed=0--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 27 (128.6%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=22--task_seed=40--seed=1--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=22--task_seed=40--seed=1--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 29 (131.8%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=23--task_seed=40--seed=2--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=23--task_seed=40--seed=2--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 31 (134.8%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=24--task_seed=40--seed=3--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=24--task_seed=40--seed=3--success=False--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 32 (133.3%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=25--task_seed=40--seed=4--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=25--task_seed=40--seed=4--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 34 (136.0%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=26--task_seed=40--seed=5--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=26--task_seed=40--seed=5--success=False--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 34 (130.8%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=27--task_seed=40--seed=6--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=27--task_seed=40--seed=6--success=False--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 34 (125.9%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=28--task_seed=40--seed=7--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=28--task_seed=40--seed=7--success=False--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 34 (121.4%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=29--task_seed=40--seed=8--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=29--task_seed=40--seed=8--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 36 (124.1%)
+
+Task: turn on the stove and put the moka pot on it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=30--task_seed=40--seed=9--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=30--task_seed=40--seed=9--success=True--task=do_not_turn_on_the_stove_and_put_the_moka_pot_on_it_.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 38 (126.7%)
+Current task success rate: 1.3
+Current total success rate: 1.2666666666666666
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=31--task_seed=40--seed=0--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=31--task_seed=40--seed=0--success=True--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 40 (129.0%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=32--task_seed=40--seed=1--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=32--task_seed=40--seed=1--success=True--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 41 (128.1%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=33--task_seed=40--seed=2--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=33--task_seed=40--seed=2--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 33
+# successes: 41 (124.2%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=34--task_seed=40--seed=3--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=34--task_seed=40--seed=3--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 41 (120.6%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=35--task_seed=40--seed=4--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=35--task_seed=40--seed=4--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 35
+# successes: 41 (117.1%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=36--task_seed=40--seed=5--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=36--task_seed=40--seed=5--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 42 (116.7%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=37--task_seed=40--seed=6--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=37--task_seed=40--seed=6--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 42 (113.5%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=38--task_seed=40--seed=7--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=38--task_seed=40--seed=7--success=True--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 43 (113.2%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=39--task_seed=40--seed=8--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=39--task_seed=40--seed=8--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 43 (110.3%)
+
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=40--task_seed=40--seed=9--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=40--task_seed=40--seed=9--success=False--task=do_not_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_.mp4
+Success: False
+# episodes completed so far: 40
+# successes: 43 (107.5%)
+Current task success rate: 0.5
+Current total success rate: 1.075
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=41--task_seed=40--seed=0--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=41--task_seed=40--seed=0--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 43 (104.9%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=42--task_seed=40--seed=1--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=42--task_seed=40--seed=1--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 44 (104.8%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=43--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=43--task_seed=40--seed=2--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: False
+# episodes completed so far: 43
+# successes: 44 (102.3%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=44--task_seed=40--seed=3--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=44--task_seed=40--seed=3--success=True--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 46 (104.5%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=45--task_seed=40--seed=4--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=45--task_seed=40--seed=4--success=True--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 48 (106.7%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=46--task_seed=40--seed=5--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=46--task_seed=40--seed=5--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 49 (106.5%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=47--task_seed=40--seed=6--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=47--task_seed=40--seed=6--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 50 (106.4%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=48--task_seed=40--seed=7--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=48--task_seed=40--seed=7--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 50 (104.2%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=49--task_seed=40--seed=8--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=49--task_seed=40--seed=8--success=True--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 52 (106.1%)
+
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=50--task_seed=40--seed=9--success=False--task=put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=50--task_seed=40--seed=9--success=False--task=do_not_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 52 (104.0%)
+Current task success rate: 0.9
+Current total success rate: 1.04
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=51--task_seed=40--seed=0--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=51--task_seed=40--seed=0--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: False
+# episodes completed so far: 51
+# successes: 53 (103.9%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=52--task_seed=40--seed=1--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=52--task_seed=40--seed=1--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 52
+# successes: 55 (105.8%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=53--task_seed=40--seed=2--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=53--task_seed=40--seed=2--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: False
+# episodes completed so far: 53
+# successes: 56 (105.7%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=54--task_seed=40--seed=3--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=54--task_seed=40--seed=3--success=False--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: False
+# episodes completed so far: 54
+# successes: 56 (103.7%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=55--task_seed=40--seed=4--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=55--task_seed=40--seed=4--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 58 (105.5%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=56--task_seed=40--seed=5--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=56--task_seed=40--seed=5--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 56
+# successes: 60 (107.1%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=57--task_seed=40--seed=6--success=False--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=57--task_seed=40--seed=6--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: False
+# episodes completed so far: 57
+# successes: 61 (107.0%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=58--task_seed=40--seed=7--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=58--task_seed=40--seed=7--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 58
+# successes: 63 (108.6%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=59--task_seed=40--seed=8--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=59--task_seed=40--seed=8--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 59
+# successes: 65 (110.2%)
+
+Task: pick up the book and place it in the back compartment of the caddy
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=60--task_seed=40--seed=9--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=60--task_seed=40--seed=9--success=True--task=do_not_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_.mp4
+Success: True
+# episodes completed so far: 60
+# successes: 67 (111.7%)
+Current task success rate: 1.5
+Current total success rate: 1.1166666666666667
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=61--task_seed=40--seed=0--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=61--task_seed=40--seed=0--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 61
+# successes: 68 (111.5%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=62--task_seed=40--seed=1--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=62--task_seed=40--seed=1--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: False
+# episodes completed so far: 62
+# successes: 68 (109.7%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=63--task_seed=40--seed=2--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=63--task_seed=40--seed=2--success=True--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: False
+# episodes completed so far: 63
+# successes: 69 (109.5%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=64--task_seed=40--seed=3--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=64--task_seed=40--seed=3--success=True--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 64
+# successes: 71 (110.9%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=65--task_seed=40--seed=4--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=65--task_seed=40--seed=4--success=True--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 65
+# successes: 73 (112.3%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=66--task_seed=40--seed=5--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=66--task_seed=40--seed=5--success=True--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 66
+# successes: 75 (113.6%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=67--task_seed=40--seed=6--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=67--task_seed=40--seed=6--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: False
+# episodes completed so far: 67
+# successes: 75 (111.9%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=68--task_seed=40--seed=7--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=68--task_seed=40--seed=7--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 68
+# successes: 76 (111.8%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=69--task_seed=40--seed=8--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=69--task_seed=40--seed=8--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: False
+# episodes completed so far: 69
+# successes: 76 (110.1%)
+
+Task: put the white mug on the plate and put the chocolate pudding to the right of the plate
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=70--task_seed=40--seed=9--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=70--task_seed=40--seed=9--success=False--task=do_not_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_.mp4
+Success: True
+# episodes completed so far: 70
+# successes: 77 (110.0%)
+Current task success rate: 1.0
+Current total success rate: 1.1
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=71--task_seed=40--seed=0--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=71--task_seed=40--seed=0--success=True--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 71
+# successes: 78 (109.9%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=72--task_seed=40--seed=1--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=72--task_seed=40--seed=1--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 72
+# successes: 79 (109.7%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=73--task_seed=40--seed=2--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=73--task_seed=40--seed=2--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 73
+# successes: 80 (109.6%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=74--task_seed=40--seed=3--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=74--task_seed=40--seed=3--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_.mp4
+Success: True
+# episodes completed so far: 74
+# successes: 81 (109.5%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=75--task_seed=40--seed=4--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=75--task_seed=40--seed=4--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_.mp4
+Success: False
+# episodes completed so far: 75
+# successes: 81 (108.0%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=76--task_seed=40--seed=5--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=76--task_seed=40--seed=5--success=True--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 76
+# successes: 82 (107.9%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=77--task_seed=40--seed=6--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=77--task_seed=40--seed=6--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 77
+# successes: 82 (106.5%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=78--task_seed=40--seed=7--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=78--task_seed=40--seed=7--success=True--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_.mp4
+Success: True
+# episodes completed so far: 78
+# successes: 84 (107.7%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=79--task_seed=40--seed=8--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=79--task_seed=40--seed=8--success=True--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: False
+# episodes completed so far: 79
+# successes: 85 (107.6%)
+
+Task: put both the alphabet soup and the cream cheese box in the basket
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=80--task_seed=40--seed=9--success=True--task=put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=80--task_seed=40--seed=9--success=False--task=do_not_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.mp4
+Success: True
+# episodes completed so far: 80
+# successes: 86 (107.5%)
+Current task success rate: 0.9
+Current total success rate: 1.075
+
+Task: put both moka pots on the stove
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=81--task_seed=40--seed=0--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=81--task_seed=40--seed=0--success=False--task=do_not_put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 81
+# successes: 87 (107.4%)
+
+Task: put both moka pots on the stove
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=82--task_seed=40--seed=1--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=82--task_seed=40--seed=1--success=True--task=do_not_put_both_moka_pots_on_the_stove_.mp4
+Success: True
+# episodes completed so far: 82
+# successes: 89 (108.5%)
+
+Task: put both moka pots on the stove
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=83--task_seed=40--seed=2--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=83--task_seed=40--seed=2--success=False--task=do_not_put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 83
+# successes: 89 (107.2%)
+
+Task: put both moka pots on the stove
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=84--task_seed=40--seed=3--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=84--task_seed=40--seed=3--success=True--task=do_not_put_both_moka_pots_on_the_stove.mp4
+Success: True
+# episodes completed so far: 84
+# successes: 91 (108.3%)
+
+Task: put both moka pots on the stove
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=85--task_seed=40--seed=4--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=85--task_seed=40--seed=4--success=False--task=do_not_put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 85
+# successes: 91 (107.1%)
+
+Task: put both moka pots on the stove
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=86--task_seed=40--seed=5--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=86--task_seed=40--seed=5--success=True--task=do_not_put_both_moka_pots_on_the_stove.mp4
+Success: False
+# episodes completed so far: 86
+# successes: 92 (107.0%)
+
+Task: put both moka pots on the stove
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=87--task_seed=40--seed=6--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=87--task_seed=40--seed=6--success=False--task=do_not_put_both_moka_pots_on_the_stove_.mp4
+Success: False
+# episodes completed so far: 87
+# successes: 92 (105.7%)
+
+Task: put both moka pots on the stove
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=88--task_seed=40--seed=7--success=True--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=88--task_seed=40--seed=7--success=False--task=do_not_put_both_moka_pots_on_the_stove_.mp4
+Success: True
+# episodes completed so far: 88
+# successes: 93 (105.7%)
+
+Task: put both moka pots on the stove
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=89--task_seed=40--seed=8--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=89--task_seed=40--seed=8--success=True--task=do_not_put_both_moka_pots_on_the_stove_.mp4
+Success: False
+# episodes completed so far: 89
+# successes: 94 (105.6%)
+
+Task: put both moka pots on the stove
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=90--task_seed=40--seed=9--success=False--task=put_both_moka_pots_on_the_stove.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=90--task_seed=40--seed=9--success=True--task=do_not_put_both_moka_pots_on_the_stove_.mp4
+Success: False
+# episodes completed so far: 90
+# successes: 95 (105.6%)
+Current task success rate: 0.9
+Current total success rate: 1.0555555555555556
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 1...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=91--task_seed=40--seed=0--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=91--task_seed=40--seed=0--success=False--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 91
+# successes: 96 (105.5%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 2...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=92--task_seed=40--seed=1--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=92--task_seed=40--seed=1--success=True--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 92
+# successes: 98 (106.5%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 3...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=93--task_seed=40--seed=2--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=93--task_seed=40--seed=2--success=True--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 93
+# successes: 100 (107.5%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 4...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=94--task_seed=40--seed=3--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=94--task_seed=40--seed=3--success=True--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 94
+# successes: 102 (108.5%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 5...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=95--task_seed=40--seed=4--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=95--task_seed=40--seed=4--success=True--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: False
+# episodes completed so far: 95
+# successes: 103 (108.4%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 6...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=96--task_seed=40--seed=5--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=96--task_seed=40--seed=5--success=True--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 96
+# successes: 105 (109.4%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 7...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=97--task_seed=40--seed=6--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=97--task_seed=40--seed=6--success=False--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: False
+# episodes completed so far: 97
+# successes: 105 (108.2%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 8...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=98--task_seed=40--seed=7--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=98--task_seed=40--seed=7--success=False--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: False
+# episodes completed so far: 98
+# successes: 105 (107.1%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 9...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=99--task_seed=40--seed=8--success=True--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=99--task_seed=40--seed=8--success=False--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: True
+# episodes completed so far: 99
+# successes: 106 (107.1%)
+
+Task: put the yellow and white mug in the microwave and close it
+Starting episode 10...
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/untransformed/videos/2025_02_09-13_23_39--episode=100--task_seed=40--seed=9--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_close_it.mp4
+Saved rollout MP4 at path /data/xilun/rollouts/openvla/negation/transformed/videos/2025_02_09-13_23_39--episode=100--task_seed=40--seed=9--success=False--task=do_not_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_.mp4
+Success: False
+# episodes completed so far: 100
+# successes: 106 (106.0%)
+Current task success rate: 1.1
+Current total success rate: 1.06

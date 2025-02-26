@@ -1,0 +1,36 @@
+Task suite: libero_spatial
+
+Task: black the it on plate the the place between and and up pick plate the bowl ramekin
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-22_18_59--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: the it ramekin between plate bowl the up the plate pick black and the and place on
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-22_18_59--episode=2--success=False--task=black_the_it_on_plate_the_the_place_between_and_an.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: and ramekin black up the the plate the the it on place pick and plate between bowl
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-22_18_59--episode=3--success=False--task=the_it_ramekin_between_plate_bowl_the_up_the_plate.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: between and the plate on the and the the ramekin plate bowl black pick up it place
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-22_18_59--episode=4--success=False--task=and_ramekin_black_up_the_the_plate_the_the_it_on_p.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: pick bowl up plate place the the black the ramekin the and plate between and it on
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-22_18_59--episode=5--success=True--task=between_and_the_plate_on_the_and_the_the_ramekin_p.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 2 (40.0%)
