@@ -1,6 +1,0 @@
-Task suite: libero_10
-
-Task: put both the alphabet soup and the tomato sauce in the basket
-Starting episode 1...
-Caught exception: 'NoneType' object has no attribute 'lower'
-Saved rollout MP4 at path ./rollouts/openvla/interpolation/untransformed/videos/2025_02_05-12_32_05--episode=1--task_seed=40--seed=0--success=True--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.mp4
