@@ -89,7 +89,8 @@ class FinetuneConfig:
 
     # Fine-tuning Parameters
     batch_size: int = 16                                            # Fine-tuning batch size
-    max_steps: int = 200_000                                        # Max number of fine-tuning steps
+    # max_steps: int = 200_000                                        # Max number of fine-tuning steps
+    max_steps: int = 50_000                                        # Max number of fine-tuning steps
     save_steps: int = 5000                                          # Interval for checkpoint saving
     learning_rate: float = 5e-4                                     # Fine-tuning learning rate
     grad_accumulation_steps: int = 1                                # Gradient accumulation steps
@@ -170,8 +171,12 @@ def finetune(cfg: FinetuneConfig) -> None:
     )
     
     # Initialize Contrastive Loss
-    # contrastive_loss = ConditionalContrastiveLoss()
-    clip_loss = CLIPStyleContrastiveLoss()
+    if cfg.loss_type == 'both_clip':
+        contrastive_loss = CLIPStyleContrastiveLoss()
+    elif cfg.loss_type == 'both_cond':
+        contrastive_loss = ConditionalContrastiveLoss()
+    elif cfg.loss_type == 'auto':
+        contrastive_loss = None
 
     # Device Placement =>> note that BitsAndBytes automatically handles for quantized training
     if cfg.use_quantization:
@@ -278,15 +283,11 @@ def finetune(cfg: FinetuneConfig) -> None:
                 )
                 loss = output.loss
             
-            # neg_loss = contrastive_loss(output.projector_features, input_ids_embeddings, trans_input_ids_embeddings, batch['transform_types'])
-            neg_loss = clip_loss(output.projector_features, input_ids_embeddings, trans_input_ids_embeddings, batch['transform_types'])
             
-            if cfg.loss_type == 'both_clip':
+            
+            if cfg.loss_type == 'both_clip' or cfg.loss_type == 'both_cond':
+                neg_loss = contrastive_loss(output.projector_features, input_ids_embeddings, trans_input_ids_embeddings, batch['transform_types'])
                 loss += neg_loss
-            elif cfg.loss_type == 'contrastive':
-                loss = neg_loss
-            elif cfg.loss_type == 'clip':
-                loss = neg_loss
             elif cfg.loss_type == 'auto':
                 loss = output.loss
             # print("neg_loss", neg_loss)
