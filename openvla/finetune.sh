@@ -24,92 +24,92 @@ CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 v
 --grad_accumulation_steps 1 \
 --learning_rate 5e-4 \
 --image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
 --save_steps 5000 \
 --loss_type "both_clip"
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
 
-CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
---vla_path "openvla/openvla-7b" \
---data_root_dir "./modified_libero_rlds" \
---dataset_name libero_spatial_no_noops \
---run_root_dir "./run/libero_spatial/" \
---adapter_tmp_dir "./run/libero_spatial/adapter" \
---lora_rank 32 \
---batch_size 10 \
---grad_accumulation_steps 1 \
---learning_rate 5e-4 \
---image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
---save_steps 5000 \
---loss_type "both_cond"
+# CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
+# --vla_path "openvla/openvla-7b" \
+# --data_root_dir "./modified_libero_rlds" \
+# --dataset_name libero_spatial_no_noops \
+# --run_root_dir "./run/libero_spatial/" \
+# --adapter_tmp_dir "./run/libero_spatial/adapter" \
+# --lora_rank 32 \
+# --batch_size 10 \
+# --grad_accumulation_steps 1 \
+# --learning_rate 5e-4 \
+# --image_aug True \
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
+# --save_steps 5000 \
+# --loss_type "both_cond"
 
-CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
---vla_path "openvla/openvla-7b" \
---data_root_dir "./modified_libero_rlds" \
---dataset_name libero_spatial_no_noops \
---run_root_dir "./run/libero_spatial/" \
---adapter_tmp_dir "./run/libero_spatial/adapter" \
---lora_rank 32 \
---batch_size 10 \
---grad_accumulation_steps 1 \
---learning_rate 5e-4 \
---image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
---save_steps 5000 \
---loss_type "auto"
-
-
-CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
---vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
---data_root_dir "./modified_libero_rlds" \
---dataset_name libero_spatial_no_noops \
---run_root_dir "./run/libero_spatial/" \
---adapter_tmp_dir "./run/libero_spatial/adapter" \
---lora_rank 32 \
---batch_size 10 \
---grad_accumulation_steps 1 \
---learning_rate 5e-4 \
---image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
---save_steps 5000 \
---loss_type "both_clip"
-
-CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
---vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
---data_root_dir "./modified_libero_rlds" \
---dataset_name libero_spatial_no_noops \
---run_root_dir "./run/libero_spatial/" \
---adapter_tmp_dir "./run/libero_spatial/adapter" \
---lora_rank 32 \
---batch_size 10 \
---grad_accumulation_steps 1 \
---learning_rate 5e-4 \
---image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
---save_steps 5000 \
---loss_type "both_cond"
+# CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
+# --vla_path "openvla/openvla-7b" \
+# --data_root_dir "./modified_libero_rlds" \
+# --dataset_name libero_spatial_no_noops \
+# --run_root_dir "./run/libero_spatial/" \
+# --adapter_tmp_dir "./run/libero_spatial/adapter" \
+# --lora_rank 32 \
+# --batch_size 10 \
+# --grad_accumulation_steps 1 \
+# --learning_rate 5e-4 \
+# --image_aug True \
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
+# --save_steps 5000 \
+# --loss_type "auto"
 
 
-CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
---vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
---data_root_dir "./modified_libero_rlds" \
---dataset_name libero_spatial_no_noops \
---run_root_dir "./run/libero_spatial/" \
---adapter_tmp_dir "./run/libero_spatial/adapter" \
---lora_rank 32 \
---batch_size 10 \
---grad_accumulation_steps 1 \
---learning_rate 5e-4 \
---image_aug True \
---wandb_project openvla \
---wandb_entity willhan327 \
---save_steps 5000 \
---loss_type "auto"
+# CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
+# --vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
+# --data_root_dir "./modified_libero_rlds" \
+# --dataset_name libero_spatial_no_noops \
+# --run_root_dir "./run/libero_spatial/" \
+# --adapter_tmp_dir "./run/libero_spatial/adapter" \
+# --lora_rank 32 \
+# --batch_size 10 \
+# --grad_accumulation_steps 1 \
+# --learning_rate 5e-4 \
+# --image_aug True \
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
+# --save_steps 5000 \
+# --loss_type "both_clip"
+
+# CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
+# --vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
+# --data_root_dir "./modified_libero_rlds" \
+# --dataset_name libero_spatial_no_noops \
+# --run_root_dir "./run/libero_spatial/" \
+# --adapter_tmp_dir "./run/libero_spatial/adapter" \
+# --lora_rank 32 \
+# --batch_size 10 \
+# --grad_accumulation_steps 1 \
+# --learning_rate 5e-4 \
+# --image_aug True \
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
+# --save_steps 5000 \
+# --loss_type "both_cond"
+
+
+# CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
+# --vla_path "openvla/openvla-7b-finetuned-libero-spatial" \
+# --data_root_dir "./modified_libero_rlds" \
+# --dataset_name libero_spatial_no_noops \
+# --run_root_dir "./run/libero_spatial/" \
+# --adapter_tmp_dir "./run/libero_spatial/adapter" \
+# --lora_rank 32 \
+# --batch_size 10 \
+# --grad_accumulation_steps 1 \
+# --learning_rate 5e-4 \
+# --image_aug True \
+# --wandb_project openvla \
+# --wandb_entity willhan327 \
+# --save_steps 5000 \
+# --loss_type "auto"
 
 # CUDA_VISIBLE_DEVICES=2,3,7 torchrun --standalone --nnodes 1 --nproc-per-node 3 vla-scripts/finetune.py \
 # --vla_path "openvla/openvla-7b-finetuned-libero-spatial" \

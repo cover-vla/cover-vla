@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=2,3,4,5 uv run scripts/serve_policy.py --env LIBERO
+CUDA_VISIBLE_DEVICES=7 uv run scripts/serve_policy.py --env LIBERO

@@ -170,12 +170,6 @@ def eval_libero(args: Args) -> None:
                         # Query model to get action
                         result = client.infer(element)
                         action_chunk = result["actions"]
-                        # lang_logits = result["language_prefix_logits"]
-                        # token_probs = result["token_probs"]
-                        # print('ACTION CHUNK SHAPE', action_chunk.shape)
-                        # print('ACTION CHUNK', action_chunk)
-                        # print('LANG LOGITS SHAPE', lang_logits.shape)
-                        # print('TOKEN PROBS SHAPE', token_probs.shape)
                         assert (
                             len(action_chunk) >= args.replan_steps
                         ), f"We want to replan every {args.replan_steps} steps, but policy only predicts {len(action_chunk)} steps."
@@ -214,12 +208,6 @@ def eval_libero(args: Args) -> None:
 
             # Save a replay video of the episode
             suffix = "success" if done else "failure"
-            # task_segment = task_description.replace(" ", "_")
-            # imageio.mimwrite(
-            #     pathlib.Path(args.video_out_path) / f"rollout_{task_segment}_{suffix}.mp4",
-            #     [np.asarray(x) for x in replay_images],
-            #     fps=10,
-            # )
             
             save_rollout_video(
                 [np.asarray(x) for x in replay_images], total_episodes, success=suffix, 
