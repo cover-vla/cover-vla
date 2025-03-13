@@ -56,11 +56,18 @@ class VLA_CLIP(nn.Module):
         
         # The number of patches depends on the CLIP model's vision transformer
         # For ViT-B/32, the image is divided into 7x7=49 patches (for 224x224 images)
-        # For ViT-B/16, it would be 14x14=196 patches
-        # You're using ViT-B/32, so num_img_patches should be 49
         self.text_aware_visual_extraction = TextAwareVisualExtraction(
-            num_img_patches=49,  # Changed from 103 to 49 for ViT-B/32
+            num_img_patches=49,  # For ViT-B/32
             vision_dim=512
+        )
+        
+        # Create action projection layers in __init__ so they're properly tracked
+        # Determine action dimension from your dataset (e.g., 7 for a 7-DOF robot)
+        self.action_dim = 7  # Adjust based on your actual action dimension
+        self.action_projection = nn.Sequential(
+            nn.Linear(self.action_dim, 16),
+            nn.ReLU(),
+            nn.Linear(16, 512)  # Match CLIP's embedding dimension
         )
         
     def extract_clip_features(self, images, text):
@@ -101,7 +108,6 @@ class VLA_CLIP(nn.Module):
         
         # Process patch features from activations
         patch_features = activations['image_patches'][1:, :, :]  # Shape: (num_patches, batch_size, embedding_dim)
-        patch_features = patch_features.permute(1, 0, 2)
         
         # Apply layer normalization and projection if needed
         if hasattr(self.clip.visual, 'ln_post'):
@@ -111,8 +117,8 @@ class VLA_CLIP(nn.Module):
             patch_features = patch_features @ self.clip.visual.proj
             
         # Normalize features
+        patch_features = patch_features.permute(1, 0, 2)
         patch_features = patch_features / patch_features.norm(dim=-1, keepdim=True)
-        
         # Get text features from activations
         text_features = activations['text_features']
         
@@ -139,15 +145,18 @@ class VLA_CLIP(nn.Module):
         # Normalize features
         enhanced_image_features = enhanced_image_features / enhanced_image_features.norm(dim=-1, keepdim=True)
         
-        # Get action features - properly tokenize the actions
-        action_texts = [str(a) for a in actions]  # Convert each action to string
-        action_tokens = clip.tokenize(action_texts).to(image.device)  # Tokenize and move to device
-        action_features = self.clip.encode_text(action_tokens)
-        action_features = action_features / action_features.norm(dim=-1, keepdim=True)
+        # Convert actions to tensors
+        action_tensors = torch.stack([torch.tensor(a, device=image.device) for a in actions])
+        
+        # Project action tensors using the properly initialized projection layers
+        projected_actions = self.action_projection(action_tensors.float())
+        
+        # Normalize action features
+        projected_actions = projected_actions / projected_actions.norm(dim=-1, keepdim=True)
         
         # Get logits
-        image_logits = torch.matmul(enhanced_image_features, action_features.T)
-        action_logits = torch.matmul(action_features, enhanced_image_features.T)
+        image_logits = torch.matmul(enhanced_image_features, projected_actions.T)
+        action_logits = torch.matmul(projected_actions, enhanced_image_features.T)
         
         return image_logits, action_logits
         
@@ -223,8 +232,8 @@ def train_clip(
             ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
 
             # Normalize the logits using temperature scaling (default in CLIP)
-            logits_per_image = logits_per_image / 0.07  # CLIP default temperature
-            logits_per_action = logits_per_action / 0.07  # Ensure same scaling
+            logits_per_image = logits_per_image / 0.04
+            logits_per_action = logits_per_action / 0.04 
 
             # Compute symmetric contrastive loss
             loss = (nn.CrossEntropyLoss()(logits_per_image, ground_truth) + 
@@ -255,48 +264,58 @@ def save_finetuned_clip(model, save_path):
 
 if __name__ == "__main__":
     # load libero dataset
-    libero_path = "/home/xilun/LIBERO/libero/datasets/libero_spatial"
-    dataset_dict = {}
+    libero_base_path = "/home/xilun/LIBERO/libero/datasets"
     
-    for task in os.listdir(libero_path):
-        if not task.endswith('.hdf5'):
-            continue
+    dataset_dict = {}
+    # Get all subdirectories in the datasets folder
+    dataset_folders = [f for f in os.listdir(libero_base_path) 
+                      if os.path.isdir(os.path.join(libero_base_path, f))]
+    
+    # Process each dataset folder
+    for folder in dataset_folders:
+        folder_path = os.path.join(libero_base_path, folder)
+        print(f"\nLoading dataset folder: {folder}")
+        
+        # Process each task file in the folder
+        for task in os.listdir(folder_path):
+            if not task.endswith('.hdf5'):
+                continue
+                
+            # Extract task name without .hdf5 extension as the language instruction
+            language_instruction = task.replace('.hdf5', '')
+            dataset_dict[language_instruction] = {
+                'actions': [],
+                'images': []
+            }
             
-        # Extract task name without .hdf5 extension as the language instruction
-        language_instruction = task.replace('.hdf5', '')
-        dataset_dict[language_instruction] = {
-            'actions': [],
-            'images': []
-        }
-        
-        task_path = os.path.join(libero_path, task)
-        print(f"Loading task: {task}")
-        
-        with h5py.File(task_path, 'r') as f:
-            for demo_key in f['data'].keys():
-                demo_data = f['data'][demo_key]
+            task_path = os.path.join(folder_path, task)
+            print(f"Loading task: {task}")
+            
+            with h5py.File(task_path, 'r') as f:
+                for demo_key in f['data'].keys():
+                    demo_data = f['data'][demo_key]
+                    
+                    # Get actions data
+                    actions = demo_data['actions'][()]
+                    dataset_dict[language_instruction]['actions'].append(actions)
+                    
+                    # Get observation data
+                    obs_group = demo_data['obs']
+                    obs_data = obs_group['agentview_rgb'][()]
+                    dataset_dict[language_instruction]['images'].append(obs_data)
+                    
                 
-                # Get actions data
-                actions = demo_data['actions'][()]
-                dataset_dict[language_instruction]['actions'].append(actions)
-                
-                # Get observation data
-                # Since 'obs' is a group with 7 members, we need to handle it appropriately
-                obs_group = demo_data['obs']
-                obs_data = obs_group['agentview_rgb'][()]
-                dataset_dict[language_instruction]['images'].append(obs_data)
-                
-        print(f"Processed {task}: {len(dataset_dict[language_instruction]['actions'])} demonstrations")
-        print(f"Total images: {len(dataset_dict[language_instruction]['images'])}")
+            print(f"Processed {task}: {len(dataset_dict[language_instruction]['actions'])} demonstrations")
+            print(f"Total images: {len(dataset_dict[language_instruction]['images'])}")
     
     SAVE_PATH = "finetuned_clip.pt"
     
     print("Starting training...")
     finetuned_model = train_clip(
         dataset_dict=dataset_dict,
-        num_epochs=10,
-        batch_size=32,
-        learning_rate=1e-7,
+        num_epochs=15,
+        batch_size=64,
+        learning_rate=1e-5,
         weight_decay=0.2
     )
     
