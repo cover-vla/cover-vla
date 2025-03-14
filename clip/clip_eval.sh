@@ -1,0 +1,1 @@
+python vla_clip_inference.py --model_path finetuned_clip.pt

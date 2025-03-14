@@ -10,23 +10,52 @@ import os
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 from tqdm import tqdm
 from model import TextAwareVisualExtraction, AttentionPooling, ModelConfig
+import numpy as np
 
 class CustomDataset(Dataset):
-    def __init__(self, dataset_dict):
+    def __init__(self, dataset_dict, trajectory_length=20):
         """
         Args:
             dataset_dict: Dictionary containing language instructions and corresponding image sequences
+            trajectory_length: Number of past actions to include in each trajectory
         """
         self.samples = []
+        self.trajectory_length = trajectory_length
         
-        # Flatten the dataset into (image, text) pairs
+        # Flatten the dataset into (image, text, action_trajectory) triplets
         for instruction, data in dataset_dict.items():
-            images = data['images']  # Shape: (103, 128, 128, 3)
-            # Use each frame in the sequence as a separate training example
+            images = data['images']
             actions = data['actions']
+            
             for i, img_seq in enumerate(images):
-                for j, frame in enumerate(img_seq):  # Now frame is (128, 128, 3)
-                    self.samples.append((frame, instruction, actions[i][j]))
+                for j, frame in enumerate(img_seq):
+                    # Create action trajectory (past actions)
+                    action_trajectory = []   
+                    # Add past actions, padding with zeros if not enough history
+                    for k in range(j - self.trajectory_length, j):
+                        if k < 0:
+                            if j > 0:  # If we have at least one valid action
+                                action_trajectory.append(actions[i][0])  # Use the first action
+                            else:
+                                if k == j - 1:  # Last position before current frame
+                                    # Use zeros (neutral action) instead of padding token
+                                    action_trajectory.append(np.zeros(actions[i][0].shape))
+                                else:
+                                    action_trajectory.append(np.ones(actions[i][0].shape) * -5.0)  # Padding for earlier positions
+                        else:
+                            action_trajectory.append(actions[i][k])
+                    
+                    # Convert to numpy array for consistency
+                    action_trajectory = np.array(action_trajectory)
+                    
+                    # Verify that not all values are padding
+                    if np.all(action_trajectory[:, 0] == -5.0):
+                        print(f"Warning: Found all-padding trajectory for instruction {instruction}, fixing...")
+                        # Force at least one non-padding value
+                        action_trajectory[-1] = np.zeros(action_trajectory[-1].shape)
+                    
+                    # Add to samples
+                    self.samples.append((frame, instruction, action_trajectory))
         
         # Get CLIP's image preprocessing pipeline
         self.preprocess = Compose([
@@ -41,19 +70,21 @@ class CustomDataset(Dataset):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        image, caption, action = self.samples[idx]
+        image, caption, action_trajectory = self.samples[idx]
         
         # Convert numpy array to PIL Image
         image = Image.fromarray(image.astype('uint8'))
         image = self.preprocess(image)
         
-        return image, caption, action
+        return image, caption, action_trajectory
 
 
 class VLA_CLIP(nn.Module):
     def __init__(self, model_config):
         super().__init__()
         self.clip = model_config.clip_model
+        # for param in self.clip.parameters():
+        #     param.requires_grad = False
         
         text_pooling_output_dim = model_config.text_pooling_output_dim
         pooling_heads = model_config.pooling_heads
@@ -90,12 +121,38 @@ class VLA_CLIP(nn.Module):
         
         self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
         
+        # Add a projection layer to match dimensions
+        # self.input_projection = nn.Sequential(
+        #     nn.Linear(self.f_t_dim, 64),
+        #     nn.ReLU(),
+        #     nn.Linear(64, vision_pooling_output_dim)
+        # )
         self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
         
-        # Create action projection layers in __init__ so they're properly tracked
-        # Determine action dimension from your dataset (e.g., 7 for a 7-DOF robot)
+        # Create action trajectory processing components
         self.action_dim = model_config.action_dim
-        self.action_projection = nn.Linear(self.action_dim, vision_pooling_output_dim)
+        self.trajectory_length = model_config.trajectory_length
+        
+        # Create an embedding for the padding token
+        self.padding_embedding = nn.Parameter(torch.randn(vision_pooling_output_dim))
+        
+        # Process each action in the trajectory
+        self.action_encoder = nn.Linear(self.action_dim, 128)
+        
+        # Process the entire trajectory with a transformer
+        self.trajectory_encoder = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(
+                d_model=128,
+                nhead=4,
+                dim_feedforward=256,
+                batch_first=True
+            ),
+            num_layers=2
+        )
+        
+        # Final projection to match vision_pooling_output_dim
+        self.trajectory_projection = nn.Linear(128, vision_pooling_output_dim)
+        
         self.activation = {}
         def get_activation(name):
             def hook(model, input, output):
@@ -128,51 +185,65 @@ class VLA_CLIP(nn.Module):
         with torch.no_grad():
             _ = self.clip.encode_text(text)
             _ = self.clip.encode_image(images)
-            
         text_features = self.activation['text_features'].permute(1, 0, 2)
         text_features = self.clip.ln_final(text_features).type(self.clip.dtype) @ self.clip.text_projection
-        text_features = text_features / text_features.norm(dim=-1, keepdim=True) # (B, first_k_tokens, text_dim)
+        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
         # Process patch features from activations
         patch_features = self.activation['image_patches'][0]
         patch_features = patch_features.permute(1, 0, 2)[:, 1:, :]  # Shape: (batch_size, num_patches, embedding_dim)
         if hasattr(self.clip.visual, 'proj') and self.clip.visual.proj is not None:
             patch_features = patch_features @ self.clip.visual.proj
-            
-        # Normalize features
+    
         patch_features = patch_features / patch_features.norm(dim=-1, keepdim=True)
-        
         return patch_features, text_features
         
-    def forward(self, image, text, actions):
+    def forward(self, image, text, action_trajectories):
         # Extract patch-level features and text features
         patch_features, text_features = self.extract_clip_features(image, text)
-        
         # Process through text-aware visual extraction
         text_aware_features = self.text_aware_visual_extraction(patch_features, text_features)
         vision_token = self.vision_poolings(text_aware_features)
         
         text_token = self.text_pooling(text_features)
-        
         combined_features = torch.cat([text_token, vision_token], dim=-1)
-        
         # Normalize features
         combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-        
+        # Project combined features
         combined_features = self.input_projection(combined_features)
+        # Convert action trajectories to tensors if needed
+        if not isinstance(action_trajectories, torch.Tensor):
+            # Handle different possible input types
+            if isinstance(action_trajectories, list):
+                if isinstance(action_trajectories[0], np.ndarray):
+                    action_trajectories = [torch.tensor(traj, device=image.device) for traj in action_trajectories]
+                action_trajectories = torch.stack(action_trajectories)
+            else:
+                action_trajectories = torch.tensor(action_trajectories, device=image.device)
         
-        # Convert actions to tensors
-        action_tensors = torch.stack([torch.tensor(a, device=image.device) for a in actions])
-        
-        # Project action tensors using the properly initialized projection layers
-        projected_actions = self.action_projection(action_tensors.float())
-        
-        # Normalize action features
-        projected_actions = projected_actions / projected_actions.norm(dim=-1, keepdim=True)
+        # Create padding mask (True where padding exists)
+        padding_mask = (action_trajectories[:, :, 0] == -5.0).to(image.device)  # Ensure mask is on the same device
+        # Encode each action in the trajectory
+        # Reshape to process all actions at once
+        traj_shape = action_trajectories.shape
+        flat_actions = action_trajectories.reshape(-1, self.action_dim).to(image.device)
+        encoded_actions = self.action_encoder(flat_actions.float())
+        encoded_actions = encoded_actions.reshape(traj_shape[0], traj_shape[1], -1)
+        # Process with transformer
+        encoded_trajectory = self.trajectory_encoder(encoded_actions, src_key_padding_mask=padding_mask) 
+        # Pool across time dimension (mean of non-padding tokens)
+        # Create a mask for non-padding tokens (1 for real, 0 for padding)
+        non_padding_mask = (~padding_mask).float().unsqueeze(-1).clamp(min=1e-6)
+        # Apply mask and take mean
+        pooled_trajectory = (encoded_trajectory * non_padding_mask).sum(dim=1) / non_padding_mask.sum(dim=1)
+        # Final projection
+        projected_trajectory = self.trajectory_projection(pooled_trajectory.float())
+        # Normalize
+        projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
         
         # Get logits
-        image_logits = torch.matmul(combined_features, projected_actions.T)
-        action_logits = torch.matmul(projected_actions, combined_features.T)
-        
+        image_logits = torch.matmul(combined_features, projected_trajectory.T)
+        action_logits = torch.matmul(projected_trajectory, combined_features.T)
+        # input()
         return image_logits, action_logits
         
 def train_clip(
@@ -185,7 +256,6 @@ def train_clip(
 ):
     # Load the CLIP model
     clip_model, _ = clip.load("ViT-B/32", device=device, jit=False)
-    
     # Create model configuration
     model_config = ModelConfig(clip_model=clip_model)
     
@@ -246,18 +316,16 @@ def train_clip(
             # Forward pass
             logits_per_image, logits_per_action = model(images, texts, actions)
             
-
             # CLIP uses contrastive loss, meaning each image should match its corresponding text
             ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
 
             # Normalize the logits using temperature scaling (default in CLIP)
             logits_per_image = logits_per_image / 0.04
             logits_per_action = logits_per_action / 0.04 
-
             # Compute symmetric contrastive loss
             loss = (nn.CrossEntropyLoss()(logits_per_image, ground_truth) + 
                     nn.CrossEntropyLoss()(logits_per_action, ground_truth)) / 2
-  
+
             # Backward pass and optimize
             loss.backward()
             optimizer.step()
@@ -327,7 +395,7 @@ if __name__ == "__main__":
             print(f"Processed {task}: {len(dataset_dict[language_instruction]['actions'])} demonstrations")
             print(f"Total images: {len(dataset_dict[language_instruction]['images'])}")
     
-    SAVE_PATH = "finetuned_clip.pt"
+    SAVE_PATH = "finetuned_clip_trajectory.pt"
     
     print("Starting training...")
     finetuned_model = train_clip(
