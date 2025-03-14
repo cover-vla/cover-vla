@@ -54,6 +54,8 @@ class VLA_CLIP(nn.Module):
     def __init__(self, model_config):
         super().__init__()
         self.clip = model_config.clip_model
+        for param in self.clip.parameters():
+            param.requires_grad = False
         
         text_pooling_output_dim = model_config.text_pooling_output_dim
         pooling_heads = model_config.pooling_heads
