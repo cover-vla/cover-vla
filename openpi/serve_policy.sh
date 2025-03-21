@@ -1,1 +1,0 @@
-CUDA_VISIBLE_DEVICES=7 uv run scripts/serve_policy.py --env LIBERO
