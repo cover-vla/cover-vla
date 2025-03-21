@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 *.pt
+*.pkl
 
 # Distribution / packaging
 .Python
@@ -27,6 +28,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+wandb/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
