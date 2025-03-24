@@ -27,6 +27,7 @@ import draccus
 import numpy as np
 import tqdm
 from libero.libero import benchmark
+from PIL import Image
 
 import wandb
 
@@ -51,6 +52,7 @@ from experiments.robot.robot_utils import (
 )
 sys.path.append("/home/xilun/vla-comp/clip_verifier/scripts")
 from vla_clip_inference import VLA_CLIP_Inference
+from lang_transform import LangTransform
 
 @dataclass
 class GenerateConfig:
@@ -89,6 +91,8 @@ class GenerateConfig:
     
     clip_model_path: str = "/home/xilun/vla-comp/clip_verifier/bash/model_checkpoints/clip_action_encoder_only_positive_only_augmented_dataset_final.pt"
 
+    language_transformation: bool = False
+    language_transformation_type: str = "synonym"
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -147,6 +151,9 @@ def eval_libero(cfg: GenerateConfig) -> None:
     # Get expected image dimensions
     resize_size = get_image_resize_size(cfg)
 
+    if cfg.language_transformation:
+        language_transform = LangTransform()
+
     # Start evaluation
     total_episodes, total_successes = 0, 0
     for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
@@ -157,9 +164,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
         # Initialize LIBERO environment and task description
         env, task_description = get_libero_env(task, cfg.model_family, resolution=256)
-        # Start episodes
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
+            if cfg.language_transformation:
+                task_description = language_transform.transform(task_description, cfg.language_transformation_type)
+            
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
 
@@ -257,6 +266,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 task_description=task_description, 
                 log_file=log_file,
                 score_list=score_list,
+                language_transformation=cfg.language_transformation,
+                language_transformation_type=cfg.language_transformation_type,
             )
 
             # Log current results

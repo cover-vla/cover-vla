@@ -58,13 +58,17 @@ def get_libero_image(obs, resize_size):
     return img
 
 
-def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, score_list=None):
+def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, score_list=None, language_transformation=False, language_transformation_type=None):
     """Saves an MP4 replay of an episode."""
     rollout_dir = f"./rollouts/{DATE}"
+    if language_transformation:
+        rollout_dir = f"./rollouts/{DATE}/{language_transformation_type}"
+    else:
+        rollout_dir = f"./rollouts/{DATE}/original"
     os.makedirs(rollout_dir, exist_ok=True)
-    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
-    mp4_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.mp4"
-    score_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.pkl"
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.mp4"
+    score_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.pkl"
     video_writer = imageio.get_writer(mp4_path, fps=30)
     for img in rollout_images:
         video_writer.append_data(img)

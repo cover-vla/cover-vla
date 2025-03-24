@@ -19,6 +19,14 @@
 #     echo "----------------------------------------"
 # done
 
+CUDA_VISIBLE_DEVICES=3 python experiments/robot/libero/run_libero_eval.py \
+  --model_family openvla \
+  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+  --task_suite_name libero_spatial \
+  --center_crop True \
+  --language_transformation True \
+  --language_transformation_type synonym
+
 
 CUDA_VISIBLE_DEVICES=3 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \

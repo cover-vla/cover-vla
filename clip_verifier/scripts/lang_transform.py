@@ -88,7 +88,7 @@ class LangTransform:
     #         return file_contents[0].strip()
         
     def get_system_prompt(self, transform_type):
-        with open(f'../system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
+        with open(f'/home/xilun/vla-comp/clip_verifier/system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
             return file.read()
         
     def get_set_of_words(self, path_to_ep_stat = './experiments/robot/libero/unique_words.json'):
