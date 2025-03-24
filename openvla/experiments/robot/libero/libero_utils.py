@@ -1,15 +1,13 @@
 """Utils for evaluating policies in LIBERO simulation environments."""
 
-import json
 import math
 import os
-
+import pickle
 import imageio
 import numpy as np
 import tensorflow as tf
 from libero.libero import get_libero_path
 from libero.libero.envs import OffScreenRenderEnv
-from PIL import Image, ImageDraw
 
 from experiments.robot.robot_utils import (
     DATE,
@@ -60,113 +58,24 @@ def get_libero_image(obs, resize_size):
     return img
 
 
-# def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
-#     """Saves an MP4 replay of an episode."""
-#     rollout_dir = f"./rollouts/{DATE}"
-#     os.makedirs(rollout_dir, exist_ok=True)
-#     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
-#     mp4_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.mp4"
-#     video_writer = imageio.get_writer(mp4_path, fps=30)
-#     for img in rollout_images:
-#         video_writer.append_data(img)
-#     video_writer.close()
-#     print(f"Saved rollout MP4 at path {mp4_path}")
-#     if log_file is not None:
-#         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
-#     return mp4_path
-
-def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, captions=None,
-                       transform = None, task_suite_name = None):
-
-    rollout_dir = f"./rollouts/{task_suite_name}/{transform}/{idx}"
+def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, score_list=None):
+    """Saves an MP4 replay of an episode."""
+    rollout_dir = f"./rollouts/{DATE}"
     os.makedirs(rollout_dir, exist_ok=True)
-    processed_task_description = (
-        task_description.lower()
-        .replace(" ", "_")
-        .replace("\n", "_")
-        .replace(".", "_")[:50]
-    )
-    base_filename = f"{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}"
-    mp4_path = f"{rollout_dir}/{base_filename}.mp4"
-    video_writer = imageio.get_writer(mp4_path, fps=15)
-    
-    save_dic = {
-        "transform": transform,
-        "task_description": task_description,
-        "success": bool(success),
-        "mp4_path": mp4_path,
-        "captions": captions,
-    }
-    
-    margin = 20
-    line_height = 15 
-    top_margin = 10  
-    gap = 5          
-
-    def wrap_text(text, width):
-
-        words = text.split()
-        lines = []
-        current_line = []
-        current_length = 0
-        for word in words:
-            extra = 1 if current_line else 0
-            if current_length + extra + len(word) <= width:
-                current_line.append(word)
-                current_length += extra + len(word)
-            else:
-                if current_line:
-                    lines.append(' '.join(current_line))
-                current_line = [word]
-                current_length = len(word)
-        if current_line:
-            lines.append(' '.join(current_line))
-        return lines
-
-    first_img = rollout_images[0]
-    max_text_width = first_img.shape[1] - (2 * margin)
-    chars_per_line = max_text_width // 6
-
-    banner_text_static = f"Orig. Text - {task_description}"
-    static_lines = wrap_text(banner_text_static, chars_per_line)
-    
-    max_caption_lines = 0
-    for frame_idx, caption in enumerate(captions):
-        caption_text = f"Frame {frame_idx} - Trans. Text - {caption}"
-        caption_lines = wrap_text(caption_text, chars_per_line)
-        max_caption_lines = max(max_caption_lines, len(caption_lines))
-        
-    fixed_banner_height = top_margin + len(static_lines) * line_height + gap + max_caption_lines * line_height + top_margin
-
-    for frame_idx, img in enumerate(rollout_images):
-        extended_img = np.full((img.shape[0] + fixed_banner_height, img.shape[1], 3), 255, dtype=np.uint8)
-        extended_img[int(fixed_banner_height):, :] = img
-        
-        pil_img = Image.fromarray(extended_img)
-        draw = ImageDraw.Draw(pil_img)
-        
-        y = top_margin
-        for line in static_lines:
-            draw.text((margin, y), line, fill=(0, 0, 0))
-            y += line_height
-        
-        y += gap
-        caption_text = f"Frame {frame_idx} - Trans. Text - {captions[frame_idx]}"
-        caption_lines = wrap_text(caption_text, chars_per_line)
-        for line in caption_lines:
-            draw.text((margin, y), line, fill=(0, 0, 0))
-            y += line_height
-        
-        video_writer.append_data(np.array(pil_img))
-    
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
+    mp4_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.mp4"
+    score_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.pkl"
+    video_writer = imageio.get_writer(mp4_path, fps=30)
+    for img in rollout_images:
+        video_writer.append_data(img)
     video_writer.close()
     print(f"Saved rollout MP4 at path {mp4_path}")
     if log_file is not None:
         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
-    
-    with open(f"{rollout_dir}/{base_filename}.json", "w") as f:
-        json.dump(save_dic, f)
-    
+    if score_list is not None:
+        with open(score_path, "wb") as f:
+            pickle.dump(score_list, f)
+        print(f"Saved score list at path {score_path}")
     return mp4_path
 
 def quat2axisangle(quat):

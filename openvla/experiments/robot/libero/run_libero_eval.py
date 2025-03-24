@@ -49,8 +49,8 @@ from experiments.robot.robot_utils import (
     normalize_gripper_action,
     set_seed_everywhere,
 )
-
-from experiments.robot.lang_transform import LangTransform
+sys.path.append("/home/xilun/vla-comp/clip_verifier/scripts")
+from vla_clip_inference import VLA_CLIP_Inference
 
 @dataclass
 class GenerateConfig:
@@ -71,7 +71,7 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = "libero_spatial"          # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 10                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 2                    # Number of rollouts per task
+    num_trials_per_task: int = 10                  # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -87,15 +87,8 @@ class GenerateConfig:
 
     # fmt: on
     
-    lang_transform: str = 'no_transform'
-    
-    save_rollout_video: bool = True
+    clip_model_path: str = "/home/xilun/vla-comp/clip_verifier/bash/model_checkpoints/clip_action_encoder_only_positive_only_augmented_dataset_final.pt"
 
-
-def compare_arrays_with_delta(array1, array2, delta = 0.01):
-    diff = np.abs(array1 - array2)
-    exceeds_delta = np.any(diff > delta)
-    return exceeds_delta
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -112,7 +105,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     # Load model
     model = get_model(cfg)
-
+    
+    clip_inference_model = VLA_CLIP_Inference(cfg.clip_model_path, trajectory_mode = False)
     # [OpenVLA] Check that the model contains the action un-normalization key
     if cfg.model_family == "openvla":
         # In some cases, the key must be manually modified (e.g. after training on a modified version of the dataset
@@ -145,25 +139,19 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     # Initialize LIBERO task suite
     benchmark_dict = benchmark.get_benchmark_dict()
-    # print('benchmark_dict', benchmark_dict)
     task_suite = benchmark_dict[cfg.task_suite_name]()
-    # print('cfg.task_suite_name', cfg.task_suite_name)
-    # print('task_suite', task_suite)
     num_tasks_in_suite = task_suite.n_tasks
-    # print(f"Task suite: {cfg.task_suite_name}")
+    print(f"Task suite: {cfg.task_suite_name}")
     log_file.write(f"Task suite: {cfg.task_suite_name}\n")
 
     # Get expected image dimensions
     resize_size = get_image_resize_size(cfg)
-    
-    lang_transform = LangTransform()
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
     for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
         # Get task
         task = task_suite.get_task(task_id)
-
         # Get default LIBERO initial states
         initial_states = task_suite.get_task_init_states(task_id)
 
@@ -171,22 +159,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         env, task_description = get_libero_env(task, cfg.model_family, resolution=256)
         # Start episodes
         task_episodes, task_successes = 0, 0
-        original_task_description = task_description
         for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
-            
-            if cfg.lang_transform != 'no_transform' and cfg.lang_transform != 'interpolation':
-                print('before task_description', original_task_description)
-                task_description = lang_transform.transform(original_task_description, cfg.lang_transform)
-                print('after task_description', task_description)
-        
-            elif cfg.lang_transform == 'interpolation':
-                task_description_list = original_task_description.split()
-                max_steps_interp = len(task_description_list)
-                count_interp = 0 
-                task_description = task_description_list[count_interp]
-                dummy_action = np.zeros((7))
-            captions = []
-            
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
 
@@ -199,6 +172,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             # Setup
             t = 0
             replay_images = []
+            score_list = []
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -235,8 +209,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
                         ),
                     }
-                    
-                    
+
                     # Query model to get action
                     action = get_action(
                         cfg,
@@ -245,20 +218,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         task_description,
                         processor=processor,
                     )
-                    
-                    if cfg.lang_transform == 'interpolation':
-                        if count_interp == 0:
-                            dummy_action = action.copy()
-                        if compare_arrays_with_delta(dummy_action, action):
-                            dummy_action = action.copy()
-                        else:
-                            count_interp += 1
-                            if count_interp >= max_steps_interp:
-                                task_description = ' '.join(task_description_list)
-                            else:
-                                task_description = ' '.join(task_description_list[:count_interp])
+
                     # Normalize gripper action [0,1] -> [-1,+1] because the environment expects the latter
-                    captions.append(task_description)
                     action = normalize_gripper_action(action, binarize=True)
 
                     # [OpenVLA] The dataloader flips the sign of the gripper action to align with other datasets
@@ -278,15 +239,25 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     print(f"Caught exception: {e}")
                     log_file.write(f"Caught exception: {e}\n")
                     break
+                
+                clip_img = img[::-1, ::-1]
+                # Get image logits
+                image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
+                # print(f"Image logits: {image_logits}")
+                score_list.append(image_logits)
 
             task_episodes += 1
             total_episodes += 1
 
             # Save a replay video of the episode
-            if cfg.save_rollout_video:
-                save_rollout_video(
-                    replay_images, total_episodes, success=done, task_description=original_task_description, 
-                    log_file=log_file, captions=captions, transform = cfg.lang_transform, task_suite_name = cfg.task_suite_name)
+            save_rollout_video(
+                replay_images, 
+                total_episodes, 
+                success=done, 
+                task_description=task_description, 
+                log_file=log_file,
+                score_list=score_list,
+            )
 
             # Log current results
             print(f"Success: {done}")

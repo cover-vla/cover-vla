@@ -13,6 +13,8 @@
 <hr style="border: 2px solid gray;"></hr>
 
 ## Latest Updates
+- [2025-03-03] OFT (Optimized Fine-Tuning recipe for VLAs) was recently released! Compared to vanilla OpenVLA fine-tuning, OFT enables 25-50x faster inference speed, higher task success rates, multiple input images, and high-frequency bimanual robot control. Unlike FAST, OFT uses continuous actions for greater model quality. See project website [here](https://openvla-oft.github.io/).
+- [2025-01-16] The FAST action tokenizer was recently released! Compared to vanilla OpenVLA-style 256-bin action discretization, FAST allows action chunks to be compressed into fewer tokens, speeding up inference by up to 15x when using discrete robot actions. See project website [here](https://www.physicalintelligence.company/research/fast).
 - [2024-10-15] Added a [VLA Performance Troubleshooting](#vla-performance-troubleshooting) section to the README with best practices for debugging poor VLA performance after fine-tuning.
 - [2024-09-04] Added LIBERO simulation benchmark fine-tuning experiments to paper (see v2 on [arXiv](https://arxiv.org/abs/2406.09246));
   added instructions for reproducing OpenVLA results in [LIBERO Simulation Benchmark Evaluations](#libero-simulation-benchmark-evaluations) section
@@ -148,6 +150,8 @@ to generate actions, and actions alone).
 
 ## Fine-Tuning OpenVLA via LoRA
 
+**(2025-03-03 Update: We recommend trying the new OFT recipe for fine-tuning OpenVLA to produce faster and more successful policies. See project website [here](https://openvla-oft.github.io/).)**
+
 In this section, we discuss fine-tuning OpenVLA using Low-Rank Adaptation (LoRA) via the Hugging Face `transformers` library,
 which is recommended if you do not have sufficient compute to fully fine-tune a 7B-parameter model. The main script for LoRA
 fine-tuning is `vla-scripts/finetune.py`. (If you instead wish to do full fine-tuning, please see the
@@ -212,6 +216,8 @@ please visit the [VLA Troubleshooting](#vla-troubleshooting) section or search f
 (including "Closed" issues). If you cannot find a similar issue there, feel free to create a new issue.
 
 ## Fully Fine-Tuning OpenVLA
+
+**(2025-03-03 Update: We recommend trying the new OFT recipe for fine-tuning OpenVLA to produce faster and more successful policies. See project website [here](https://openvla-oft.github.io/).)**
 
 In this section, we discuss <ins>fully fine-tuning</ins> OpenVLA (all 7.5 billion parameters) via native PyTorch Fully Sharded Data Parallel (FSDP)
 using the [Prismatic VLMs](https://github.com/TRI-ML/prismatic-vlms) training script. Full fine-tuning is more advanced/involved and is only recommended
@@ -480,7 +486,12 @@ python experiments/robot/bridge/run_bridgev2_eval.py \
   --pretrained_checkpoint openvla/openvla-7b
 ```
 
-If you run into any problems with evaluations, please file a GitHub Issue.
+If you run into an error such as `ModuleNotFoundError: No module named 'moviepy.editor'`, you can work around it by fixing the
+moviepy version to an older version, v1.0.3, in the bridge_data_robot repo's requirements.txt file
+[here](https://github.com/rail-berkeley/bridge_data_robot/blob/main/widowx_envs/requirements.txt). I.e., simply replace `moviepy`
+with `moviepy==1.0.3` in the requirements.txt file. Then, go back to the first step above and restart the WidowX Docker container;
+it should be rebuilt with the older moviepy version.
+```
 
 
 ### LIBERO Simulation Benchmark Evaluations

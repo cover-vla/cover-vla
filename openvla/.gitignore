@@ -151,9 +151,3 @@ data/
 # Rollout videos and wandb logs
 rollouts/
 wandb/
-
-
-# API Keys
-api_keys.txt
-
-modified_libero_rlds/

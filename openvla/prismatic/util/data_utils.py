@@ -99,7 +99,7 @@ class PaddedCollatorForActionPrediction:
     pixel_values_dtype: torch.dtype = torch.float32
 
     def __call__(self, instances: Sequence[Dict[str, torch.Tensor]]) -> Dict[str, torch.Tensor]:
-        input_ids, labels, trans_input_ids, transform_types = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels", "trans_input_ids", "transform_types"))
+        input_ids, labels = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels"))
         pixel_values = [instance["pixel_values"] for instance in instances]
         if "dataset_name" in instances[0]:
             dataset_names = [instance["dataset_name"] for instance in instances]
@@ -111,10 +111,9 @@ class PaddedCollatorForActionPrediction:
         assert self.padding_side == "right", f"Invalid Tokenizer `{self.padding_side = }`"
         input_ids = pad_sequence(input_ids, batch_first=True, padding_value=self.pad_token_id)
         labels = pad_sequence(labels, batch_first=True, padding_value=IGNORE_INDEX)
-        trans_input_ids = pad_sequence(trans_input_ids, batch_first=True, padding_value=self.pad_token_id)
+
         # Truncate (if necessary)
-        input_ids, labels, trans_input_ids = input_ids[:, : self.model_max_length], labels[:, : self.model_max_length], trans_input_ids[:, : self.model_max_length]
-        
+        input_ids, labels = input_ids[:, : self.model_max_length], labels[:, : self.model_max_length]
 
         # Get `attention_mask` by checking for `pad_token_id`
         attention_mask = input_ids.ne(self.pad_token_id)
@@ -137,8 +136,6 @@ class PaddedCollatorForActionPrediction:
             input_ids=input_ids,
             attention_mask=attention_mask,
             labels=labels,
-            trans_input_ids=trans_input_ids,
-            transform_types=transform_types,
         )
         if dataset_names is not None:
             output["dataset_names"] = dataset_names

@@ -255,7 +255,6 @@ class PrismaticForConditionalGeneration(PrismaticPreTrainedModel):
         self.post_init()
 
     # === `PreTrainedModel` Boilerplate ===
-    
     def get_input_embeddings(self) -> nn.Module:
         return self.language_model.get_input_embeddings()
 

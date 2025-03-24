@@ -49,9 +49,6 @@ from prismatic.extern.hf.configuration_prismatic import OpenVLAConfig
 from prismatic.extern.hf.modeling_prismatic import OpenVLAForActionPrediction
 from prismatic.extern.hf.processing_prismatic import PrismaticImageProcessor, PrismaticProcessor
 
-from experiments.robot.lang_transform import LangTransform
-from prismatic.util.contrast_loss import ConditionalContrastiveLoss, CLIPStyleContrastiveLoss
-
 # Sane Defaults
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -78,8 +75,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 @dataclass
 class FinetuneConfig:
     # fmt: off
-    # vla_path: str = "openvla/openvla-7b"                            # Path to OpenVLA model (on HuggingFace Hub)
-    vla_path: str = "openvla/openvla-7b-finetuned-libero-spatial"
+    vla_path: str = "openvla/openvla-7b"                            # Path to OpenVLA model (on HuggingFace Hub)
 
     # Directory Paths
     data_root_dir: Path = Path("datasets/open-x-embodiment")        # Path to Open-X dataset directory
@@ -89,8 +85,7 @@ class FinetuneConfig:
 
     # Fine-tuning Parameters
     batch_size: int = 16                                            # Fine-tuning batch size
-    # max_steps: int = 200_000                                        # Max number of fine-tuning steps
-    max_steps: int = 50_000                                        # Max number of fine-tuning steps
+    max_steps: int = 200_000                                        # Max number of fine-tuning steps
     save_steps: int = 5000                                          # Interval for checkpoint saving
     learning_rate: float = 5e-4                                     # Fine-tuning learning rate
     grad_accumulation_steps: int = 1                                # Gradient accumulation steps
@@ -113,7 +108,6 @@ class FinetuneConfig:
     run_id_note: Optional[str] = None                               # Extra note for logging, Weights & Biases
 
     # fmt: on
-    loss_type: str = "contrastive"
 
 
 @draccus.wrap()
@@ -131,7 +125,6 @@ def finetune(cfg: FinetuneConfig) -> None:
         f"{cfg.vla_path.split('/')[-1]}+{cfg.dataset_name}"
         f"+b{cfg.batch_size * cfg.grad_accumulation_steps}"
         f"+lr-{cfg.learning_rate}"
-        f"+loss-{cfg.loss_type}"
     )
     if cfg.use_lora:
         exp_id += f"+lora-r{cfg.lora_rank}+dropout-{cfg.lora_dropout}"
@@ -169,14 +162,6 @@ def finetune(cfg: FinetuneConfig) -> None:
         low_cpu_mem_usage=True,
         trust_remote_code=True,
     )
-    
-    # Initialize Contrastive Loss
-    if cfg.loss_type == 'both_clip':
-        contrastive_loss = CLIPStyleContrastiveLoss()
-    elif cfg.loss_type == 'both_cond':
-        contrastive_loss = ConditionalContrastiveLoss()
-    elif cfg.loss_type == 'auto':
-        contrastive_loss = None
 
     # Device Placement =>> note that BitsAndBytes automatically handles for quantized training
     if cfg.use_quantization:
@@ -226,7 +211,6 @@ def finetune(cfg: FinetuneConfig) -> None:
         processor.tokenizer,
         image_transform=processor.image_processor.apply_transform,
         prompt_builder_fn=PurePromptBuilder if "v01" not in cfg.vla_path else VicunaV15ChatPromptBuilder,
-        lang_transform=LangTransform(),
     )
     vla_dataset = RLDSDataset(
         cfg.data_root_dir,
@@ -268,13 +252,6 @@ def finetune(cfg: FinetuneConfig) -> None:
         optimizer.zero_grad()
         for batch_idx, batch in enumerate(dataloader):
             with torch.autocast("cuda", dtype=torch.bfloat16):
-                # Get embeddings by first getting the embedding layer, then applying it to input_ids
-                embedding_layer = vla.module.language_model.get_input_embeddings()
-                trans_input_ids_embeddings = embedding_layer(batch['trans_input_ids'].to(device_id))
-                # print("trans_input_ids_embeddings", trans_input_ids_embeddings.shape)
-                input_ids_embeddings = embedding_layer(batch['input_ids'].to(device_id))
-                # print("input_ids_embeddings", input_ids_embeddings.shape)
-                
                 output: CausalLMOutputWithPast = vla(
                     input_ids=batch["input_ids"].to(device_id),
                     attention_mask=batch["attention_mask"].to(device_id),
@@ -282,19 +259,9 @@ def finetune(cfg: FinetuneConfig) -> None:
                     labels=batch["labels"],
                 )
                 loss = output.loss
-            
-            
-            
-            if cfg.loss_type == 'both_clip' or cfg.loss_type == 'both_cond':
-                neg_loss = contrastive_loss(output.projector_features, input_ids_embeddings, trans_input_ids_embeddings, batch['transform_types'])
-                loss += neg_loss
-            elif cfg.loss_type == 'auto':
-                loss = output.loss
-            # print("neg_loss", neg_loss)
 
             # Normalize loss to account for gradient accumulation
             normalized_loss = loss / cfg.grad_accumulation_steps
-            
 
             # Backward pass
             normalized_loss.backward()

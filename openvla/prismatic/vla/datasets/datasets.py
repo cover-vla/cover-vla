@@ -4,11 +4,11 @@ datasets.py
 Lightweight PyTorch Dataset Definition for wrapping RLDS TFDS Pipeline; just defines transform from RLDS default
 format to OpenVLA, IterableDataset shim.
 """
-import dataclasses
+
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Tuple, Type
-import json
+
 import numpy as np
 import torch
 from PIL import Image
@@ -23,8 +23,6 @@ from prismatic.vla.datasets.rlds import make_interleaved_dataset, make_single_da
 from prismatic.vla.datasets.rlds.oxe import OXE_NAMED_MIXTURES, get_oxe_dataset_kwargs_and_weights
 from prismatic.vla.datasets.rlds.utils.data_utils import NormalizationType
 
-from experiments.robot.lang_transform import LangTransform
-
 # HuggingFace Default / LLaMa-2 IGNORE_INDEX (for labels)
 IGNORE_INDEX = -100
 
@@ -35,25 +33,14 @@ class RLDSBatchTransform:
     base_tokenizer: PreTrainedTokenizerBase
     image_transform: ImageTransform
     prompt_builder_fn: Type[PromptBuilder]
-    lang_transform: LangTransform
     predict_stop_token: bool = True
-    
-    ### List of transformations
-    list_of_lang_transforms: list[str] = dataclasses.field(
-        default_factory=lambda: ["random_shuffle", "synonym_noun", "synonym_verb",
-                                 "antonym_verb", "negation", 'out_set']
-    )
 
     def __call__(self, rlds_batch: Dict[str, Any]) -> Dict[str, Any]:
         """Converts a RLDS batch to the format expected by the OpenVLA collator/models."""
         dataset_name, action = rlds_batch["dataset_name"], rlds_batch["action"][0]
-        img = Image.fromarray(rlds_batch["observation"]["image_primary"][0]) # one image
+        img = Image.fromarray(rlds_batch["observation"]["image_primary"][0])
         lang = rlds_batch["task"]["language_instruction"].decode().lower()
-        
-        ### Apply transformations
-        chosen_transform = np.random.choice(self.list_of_lang_transforms)
-        trans_lang = self.lang_transform.transform(lang, chosen_transform)
-        
+
         # Construct Chat-based Prompt =>> Input is default query + language instruction, output are the action tokens
         prompt_builder = self.prompt_builder_fn("openvla")
         conversation = [
@@ -62,18 +49,6 @@ class RLDSBatchTransform:
         ]
         for turn in conversation:
             prompt_builder.add_turn(turn["from"], turn["value"])
-            
-        ### Trans prompt builder
-        trans_prompt_builder = self.prompt_builder_fn("openvla")
-        trans_conversation = [
-            {"from": "human", "value": f"What action should the robot take to {trans_lang}?"},
-            {"from": "gpt", "value": self.action_tokenizer(action)},
-        ]
-        for turn in trans_conversation:
-            trans_prompt_builder.add_turn(turn["from"], turn["value"])
-        trans_input_ids = self.base_tokenizer(trans_prompt_builder.get_prompt(), add_special_tokens=True).input_ids
-        # print("trans_input_ids", trans_input_ids)
-        ###
 
         # Tokenize (w/ `base_tokenizer`)
         input_ids = self.base_tokenizer(prompt_builder.get_prompt(), add_special_tokens=True).input_ids
@@ -81,7 +56,7 @@ class RLDSBatchTransform:
 
         # Tensorize =>> Run Image Transform to get `pixel_values` =>> Return
         #   =>> IMPORTANT :: IF WE'RE USING HF LLM.forward(..., labels=labels), SHIFTING HAPPENS _INSIDE_ MODEL!
-        input_ids, labels, trans_input_ids = torch.tensor(input_ids), torch.tensor(labels), torch.tensor(trans_input_ids)
+        input_ids, labels = torch.tensor(input_ids), torch.tensor(labels)
         pixel_values = self.image_transform(img)
 
         # [CRITICAL] We do not want to take the loss for anything but the predicted action tokens!
@@ -89,9 +64,7 @@ class RLDSBatchTransform:
         if not self.predict_stop_token:
             labels[-1] = IGNORE_INDEX
 
-        return dict(pixel_values=pixel_values, input_ids=input_ids, labels=labels, 
-                    dataset_name=dataset_name, trans_input_ids=trans_input_ids,
-                    transform_types=chosen_transform)
+        return dict(pixel_values=pixel_values, input_ids=input_ids, labels=labels, dataset_name=dataset_name)
 
 
 class RLDSDataset(IterableDataset):
