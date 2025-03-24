@@ -73,7 +73,7 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = "libero_spatial"          # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 10                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 10                  # Number of rollouts per task
+    num_trials_per_task: int = 30                  # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -162,10 +162,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
         # Get default LIBERO initial states
         initial_states = task_suite.get_task_init_states(task_id)
 
-        # Initialize LIBERO environment and task description
-        env, task_description = get_libero_env(task, cfg.model_family, resolution=256)
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
+            # Initialize LIBERO environment and task description
+            env, task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=episode_idx)
+            
             if cfg.language_transformation:
                 task_description = language_transform.transform(task_description, cfg.language_transformation_type)
             

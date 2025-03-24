@@ -324,7 +324,7 @@ def train_clip(
             })
         
         # Save checkpoint every 10 epochs
-        if (epoch + 1) % 10 == 0:
+        if (epoch + 1) % 50 == 0:
             checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved at {checkpoint_path}")
@@ -363,7 +363,6 @@ if __name__ == "__main__":
         except ImportError:
             print("Warning: wandb not installed. Running without wandb logging.")
             args.use_wandb = False
-    
     # Load dataset
     if args.augmented_dataset and os.path.exists(args.augmented_dataset):
         print(f"Loading augmented dataset from {args.augmented_dataset}...")
