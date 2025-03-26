@@ -9,7 +9,6 @@ from tqdm import tqdm
 from model import TextAwareVisualExtraction, ModelConfig
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 import matplotlib.pyplot as plt
-import cv2
 import argparse
 
 
@@ -26,7 +25,7 @@ class VLA_CLIP_Inference:
         self.model = self._init_model(model_path, device, use_transformer)
         self.device = device
         
-                # Get CLIP's image preprocessing pipeline
+        # Get CLIP's image preprocessing pipeline
         self.preprocess = Compose([
             Resize(224, interpolation=Image.BICUBIC),
             CenterCrop(224),
@@ -75,6 +74,13 @@ class VLA_CLIP_Inference:
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
+            # image.save("original_image_online_predict.png")
+            
+            # # Process the image and save the processed tensor
+            # img_tensor = self.preprocess(image)
+            # from torchvision.utils import save_image
+            # save_image(img_tensor, "processed_image_online_predict.png")
+            # input()
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
         # Tokenize instruction
@@ -104,7 +110,6 @@ class VLA_CLIP_Inference:
             image: PIL Image or numpy array
             instruction: String instruction
             possible_actions: List of numerical action arrays or action trajectories
-            action_history: Optional action history (for trajectory mode)
             
         Returns:
             predicted_action: The most likely action
@@ -113,6 +118,14 @@ class VLA_CLIP_Inference:
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
+            # Save the original image before preprocessing
+            # image.save("original_image.png")
+            
+            # # Process the image and save the processed tensor
+            # img_tensor = self.preprocess(image)
+            # from torchvision.utils import save_image
+            # save_image(img_tensor, "processed_image.png")
+            # input()
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
         # Tokenize instruction

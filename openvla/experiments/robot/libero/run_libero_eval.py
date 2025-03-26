@@ -253,7 +253,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 clip_img = img[::-1, ::-1]
                 # Get image logits
                 image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
-                # print(f"Image logits: {image_logits}")
                 score_list.append(image_logits)
 
             task_episodes += 1

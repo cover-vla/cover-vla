@@ -19,7 +19,7 @@
 #     echo "----------------------------------------"
 # done
 
-CUDA_VISIBLE_DEVICES=4 python experiments/robot/libero/run_libero_eval.py \
+CUDA_VISIBLE_DEVICES=6 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \
   --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
   --task_suite_name libero_spatial \
