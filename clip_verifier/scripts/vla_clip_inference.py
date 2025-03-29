@@ -59,7 +59,7 @@ class VLA_CLIP_Inference:
         return model
     
     
-    def online_predict(self, image, instruction, action):
+    def online_predict(self, image, instruction, actions):
         """
         Output the image logits for the given image, instruction, and action
         
@@ -74,13 +74,7 @@ class VLA_CLIP_Inference:
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
-            # image.save("original_image_online_predict.png")
-            
-            # # Process the image and save the processed tensor
-            # img_tensor = self.preprocess(image)
-            # from torchvision.utils import save_image
-            # save_image(img_tensor, "processed_image_online_predict.png")
-            # input()
+
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
         # Tokenize instruction
@@ -90,17 +84,26 @@ class VLA_CLIP_Inference:
             # Assume it's already tokenized
             text_tokens = instruction.to(self.device)
             
-        # Convert action to tensor
-        action_tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
         
         with torch.no_grad():
+            action_tensors = []
+            for action in actions:
+                # Convert to tensor
+                tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
+                action_tensors.append(tensor)
+            
+            # Stack tensors into a batch
+            action_batch = torch.stack(action_tensors)
             # Run inference with single actions
-            image_logits, _ = self.model(image_tensor, text_tokens, action_tensor)
+            image_logits, _ = self.model(image_tensor, text_tokens, action_batch)
             
             # Get scores from image_logits
             scores = image_logits.cpu().numpy()[0]
+            # Get predicted action
+            predicted_idx = scores.argmax()
+            predicted_action = actions[predicted_idx]
         
-        return scores
+        return scores, predicted_action
     
     def predict(self, image, instruction, possible_actions, action_history=None):
         """

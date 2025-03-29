@@ -30,6 +30,7 @@ from libero.libero import benchmark
 from PIL import Image
 
 import wandb
+import torch
 
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
@@ -50,7 +51,7 @@ from experiments.robot.robot_utils import (
     normalize_gripper_action,
     set_seed_everywhere,
 )
-sys.path.append("/home/xilun/vla-comp/clip_verifier/scripts")
+sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
 from vla_clip_inference import VLA_CLIP_Inference
 from lang_transform import LangTransform
 
@@ -73,7 +74,7 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = "libero_spatial"          # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 10                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 30                  # Number of rollouts per task
+    num_trials_per_task: int = 10                  # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -89,10 +90,12 @@ class GenerateConfig:
 
     # fmt: on
     
-    clip_model_path: str = "/home/xilun/vla-comp/clip_verifier/bash/model_checkpoints/clip_action_encoder_only_positive_only_augmented_dataset_final.pt"
+    clip_model_path: str = "/home/xilun/vla-comp/clip_verifier/bash/model_checkpoints/spatial_clip_action_encoder_only_augmented_dataset_epoch_100.pt"
 
     language_transformation: bool = False
     language_transformation_type: str = "synonym"
+    
+    clip_action_iter: int = 20
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -183,6 +186,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             t = 0
             replay_images = []
             score_list = []
+            action_list = []
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -219,23 +223,28 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
                         ),
                     }
-
-                    # Query model to get action
-                    action = get_action(
-                        cfg,
-                        model,
-                        observation,
-                        task_description,
-                        processor=processor,
-                    )
-
-                    # Normalize gripper action [0,1] -> [-1,+1] because the environment expects the latter
-                    action = normalize_gripper_action(action, binarize=True)
-
-                    # [OpenVLA] The dataloader flips the sign of the gripper action to align with other datasets
-                    # (0 = close, 1 = open), so flip it back (-1 = open, +1 = close) before executing the action
-                    if cfg.model_family == "openvla":
-                        action = invert_gripper_action(action)
+                        
+                    clip_img = obs["agentview_image"]
+                        
+                    action_list = []
+                    # print(f"Filtering actions with CLIP for {cfg.clip_action_iter} iterations")
+                    for _ in range(cfg.clip_action_iter):
+                        iteration_action = get_action(
+                            cfg,
+                            model,
+                            observation,
+                            task_description,
+                            processor=processor,
+                        )
+                        iteration_action = normalize_gripper_action(iteration_action, binarize=True)
+                        if cfg.model_family == "openvla":
+                            iteration_action = invert_gripper_action(iteration_action)
+                            # if iteration_action is not tensor, convert to tensor
+                            if not isinstance(iteration_action, torch.Tensor):
+                                iteration_action = torch.tensor(iteration_action)
+                        action_list.append(iteration_action)
+                    ## pass action to clip
+                    iteration_image_logits, action = clip_inference_model.online_predict(clip_img, task_description, action_list)
 
                     # Execute action in environment
                     obs, reward, done, info = env.step(action.tolist())
@@ -250,10 +259,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     log_file.write(f"Caught exception: {e}\n")
                     break
                 
-                clip_img = img[::-1, ::-1]
-                # Get image logits
-                image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
-                score_list.append(image_logits)
 
             task_episodes += 1
             total_episodes += 1
@@ -266,8 +271,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 task_description=task_description, 
                 log_file=log_file,
                 score_list=score_list,
+                action_list=action_list,
                 language_transformation=cfg.language_transformation,
                 language_transformation_type=cfg.language_transformation_type,
+                clip_filtered_actions=cfg.clip_action_iter > 1,
             )
 
             # Log current results
