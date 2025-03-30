@@ -226,7 +226,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         
                     clip_img = obs["agentview_image"]
                         
-                    action_list = []
+                    iteration_action_list = []
                     # print(f"Filtering actions with CLIP for {cfg.clip_action_iter} iterations")
                     for _ in range(cfg.clip_action_iter):
                         iteration_action = get_action(
@@ -242,10 +242,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             # if iteration_action is not tensor, convert to tensor
                             if not isinstance(iteration_action, torch.Tensor):
                                 iteration_action = torch.tensor(iteration_action)
-                        action_list.append(iteration_action)
+                        iteration_action_list.append(iteration_action)
                     ## pass action to clip
-                    iteration_image_logits, action = clip_inference_model.online_predict(clip_img, task_description, action_list)
-
+                    iteration_image_logits, action = clip_inference_model.online_predict(clip_img, task_description, iteration_action_list)
+                    score_list.append(iteration_image_logits)
+                    action_list.append(action)
                     # Execute action in environment
                     obs, reward, done, info = env.step(action.tolist())
                     if done:

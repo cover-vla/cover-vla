@@ -1,0 +1,721 @@
+Task suite: libero_spatial
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=2--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=3--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=4--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=5--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=6--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=7--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 7 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=8--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=9--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 9 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=10--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 10 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=11--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=12--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 11 (91.7%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=13--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 12 (92.3%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=14--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 12 (85.7%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=15--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 13 (86.7%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=16--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 14 (87.5%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=17--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 15 (88.2%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=18--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 16 (88.9%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=19--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 16 (84.2%)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=20--success=True--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 17 (85.0%)
+Current task success rate: 0.7
+Current total success rate: 0.85
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=21--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 18 (85.7%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=22--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 19 (86.4%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=23--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 20 (87.0%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=24--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 21 (87.5%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=25--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 22 (88.0%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=26--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 26
+# successes: 23 (88.5%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=27--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 27
+# successes: 24 (88.9%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=28--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 28
+# successes: 25 (89.3%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=29--success=False--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 25 (86.2%)
+
+Task: pick up the black bowl from table center and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=30--success=True--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 26 (86.7%)
+Current task success rate: 0.9
+Current total success rate: 0.8666666666666667
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=31--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 27 (87.1%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=32--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 32
+# successes: 28 (87.5%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=33--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 29 (87.9%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=34--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 34
+# successes: 30 (88.2%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=35--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 31 (88.6%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=36--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 32 (88.9%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=37--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 37
+# successes: 33 (89.2%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=38--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 38
+# successes: 34 (89.5%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=39--success=False--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 34 (87.2%)
+
+Task: pick up the black bowl on the cookie box and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=40--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 35 (87.5%)
+Current task success rate: 0.9
+Current total success rate: 0.875
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=41--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 41
+# successes: 36 (87.8%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=42--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 42
+# successes: 36 (85.7%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=43--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 37 (86.0%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=44--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 44
+# successes: 37 (84.1%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=45--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 38 (84.4%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=46--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 39 (84.8%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=47--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 40 (85.1%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=48--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 48
+# successes: 41 (85.4%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=49--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 42 (85.7%)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=50--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 50
+# successes: 43 (86.0%)
+Current task success rate: 0.8
+Current total success rate: 0.86
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=51--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 51
+# successes: 44 (86.3%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=52--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 52
+# successes: 45 (86.5%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=53--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 53
+# successes: 46 (86.8%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=54--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 54
+# successes: 47 (87.0%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=55--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 48 (87.3%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=56--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 56
+# successes: 49 (87.5%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=57--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 57
+# successes: 50 (87.7%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=58--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 58
+# successes: 51 (87.9%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=59--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 59
+# successes: 52 (88.1%)
+
+Task: pick up the black bowl on the ramekin and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=60--success=True--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 60
+# successes: 53 (88.3%)
+Current task success rate: 1.0
+Current total success rate: 0.8833333333333333
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=61--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 61
+# successes: 54 (88.5%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=62--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 62
+# successes: 55 (88.7%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=63--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 63
+# successes: 56 (88.9%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=64--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 64
+# successes: 57 (89.1%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=65--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 65
+# successes: 58 (89.2%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=66--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 66
+# successes: 59 (89.4%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=67--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 67
+# successes: 60 (89.6%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=68--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 68
+# successes: 61 (89.7%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=69--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 69
+# successes: 62 (89.9%)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=70--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 70
+# successes: 63 (90.0%)
+Current task success rate: 1.0
+Current total success rate: 0.9
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=71--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 71
+# successes: 64 (90.1%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=72--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 72
+# successes: 65 (90.3%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=73--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 73
+# successes: 66 (90.4%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=74--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 74
+# successes: 67 (90.5%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=75--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 75
+# successes: 68 (90.7%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=76--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 76
+# successes: 69 (90.8%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=77--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 77
+# successes: 70 (90.9%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=78--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 78
+# successes: 70 (89.7%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=79--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 79
+# successes: 71 (89.9%)
+
+Task: pick up the black bowl on the stove and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=80--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 80
+# successes: 71 (88.8%)
+Current task success rate: 0.8
+Current total success rate: 0.8875
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=81--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 81
+# successes: 72 (88.9%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=82--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 82
+# successes: 73 (89.0%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=83--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 83
+# successes: 74 (89.2%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=84--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 84
+# successes: 75 (89.3%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=85--success=False--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 85
+# successes: 75 (88.2%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=86--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 86
+# successes: 76 (88.4%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=87--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 87
+# successes: 77 (88.5%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=88--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 88
+# successes: 78 (88.6%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=89--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 89
+# successes: 79 (88.8%)
+
+Task: pick up the black bowl next to the plate and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=90--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 90
+# successes: 80 (88.9%)
+Current task success rate: 0.9
+Current total success rate: 0.8888888888888888
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=91--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 91
+# successes: 81 (89.0%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=92--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 92
+# successes: 82 (89.1%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=93--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 93
+# successes: 83 (89.2%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=94--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 94
+# successes: 84 (89.4%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=95--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 95
+# successes: 85 (89.5%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=96--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 96
+# successes: 86 (89.6%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=97--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 97
+# successes: 86 (88.7%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=98--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 98
+# successes: 86 (87.8%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=99--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 99
+# successes: 86 (86.9%)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_False/original/episode=100--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 100
+# successes: 87 (87.0%)
+Current task success rate: 0.7
+Current total success rate: 0.87

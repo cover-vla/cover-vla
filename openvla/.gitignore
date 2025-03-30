@@ -151,3 +151,4 @@ data/
 # Rollout videos and wandb logs
 rollouts/
 wandb/
+my_dataset/
