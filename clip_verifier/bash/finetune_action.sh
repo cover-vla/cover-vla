@@ -12,7 +12,7 @@ CUDA_VISIBLE_DEVICES=0 python ../scripts/finetune.py \
     --epochs 150 \
     --batch_size 128 \
     --lr 7e-5 \
-    --save_name spatial_clip_action_encoder_only_augmented_dataset \
+    --save_name spatial_clip \
     --dataset_path /home/xilun/LIBERO/libero/datasets \
     --dataset_folders libero_spatial \
     --augmented_dataset ../augmented_datasets/libero_spatial.pkl \

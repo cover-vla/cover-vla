@@ -103,7 +103,7 @@ class VLA_CLIP_Inference:
             predicted_idx = scores.argmax()
             predicted_action = actions[predicted_idx]
         
-        return scores, predicted_action
+        return scores
     
     def predict(self, image, instruction, possible_actions, action_history=None):
         """

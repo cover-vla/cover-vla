@@ -5,6 +5,10 @@ import json
 import re
 import os
 import numpy as np
+import cv2
+import base64
+from PIL import Image
+import io
 
 class LangTransform:
     def __init__(self):
@@ -14,15 +18,71 @@ class LangTransform:
                                'verb_noun_shuffle', 'in_set', 'out_set']
 
     ### MAIN FUNCTIONS
+    
+    def extract_reworded_instructions(self, text):
+        lines = text.strip().splitlines()
+        instructions = []
+        recording = False
 
-    def transform(self, curr_instruction, transform_type):
+        for line in lines:
+            line = line.strip()
+
+            if line == "Reworded Instructions:":
+                recording = True
+                continue
+
+            if recording:
+                if line and line[0].isdigit() and line[1] == '.':
+                    # Remove the number and dot, keep the rest
+                    instructions.append(line[3:].strip())
+                elif line == "":
+                    continue
+                else:
+                    break  # Stop if the format breaks
+
+        return instructions
+    
+    def get_clip_synonym(self, instruction, batch_number=1):
+        instruction = f"""
+            Given the attached image, first describe the scene, including the objects and their spatial relationships.
+
+            Then, based on the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
+            - Convey the same objective as the original
+            - Are consistent with the scene
+            - Use clear, natural language
+
+            Format your response as:
+
+            Image Description:
+            <One or two sentences describing the scene, e.g., objects present, spatial relationships, robot arm position, etc.>
+
+            Original Instruction:
+            <The user-provided instruction>
+
+            Reworded Instructions:
+            1. <Alternative phrasing 1>
+            2. <Alternative phrasing 2>
+            ...
+            {batch_number}. <Alternative phrasing {batch_number}>
+            """
+        return instruction
+
+    def transform(self, curr_instruction, transform_type, batch_number=1, image=None):
         
         if transform_type in self.gpt_transforms:
-            return self.gpt_transform(curr_instruction, transform_type)
+            response = self.gpt_transform(curr_instruction, transform_type, batch_number=1, image=image)
         elif transform_type == 'random_shuffle':
-            return self.rand_shuffle_transform(curr_instruction)
+            response = self.rand_shuffle_transform(curr_instruction)
         elif transform_type == 'no_transform':
-            return curr_instruction
+            response = curr_instruction
+        
+        if batch_number > 1:
+            batch_responses = self.gpt_transform(curr_instruction, transform_type, batch_number=batch_number, image=image)
+            print ("raw generated responses:")
+            print (batch_responses)
+            return self.extract_reworded_instructions(batch_responses)
+        else:
+            return response
     
     ### TRANSFORM FUNCTIONS
     def sample_transform(self, instruction, transform_type):
@@ -33,6 +93,20 @@ class LangTransform:
     def get_json_transforms(self):
         json_transforms = self.open_json('./experiments/robot/libero/negative_set.json')
         return json_transforms
+    
+    def encode_image_for_openai(self, image: np.ndarray) -> str:
+        # Convert to PIL
+        pil_image = Image.fromarray(image)
+
+        buffer = io.BytesIO()
+        pil_image.save(buffer, format='PNG')
+
+        # Get raw bytes and encode to base64
+        img_bytes = buffer.getvalue()
+        img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+        
+        return f"data:image/png;base64,{img_base64}"
+
     
     def rand_shuffle_transform(self, instruction):
         while True:
@@ -49,7 +123,7 @@ class LangTransform:
             if shuffled_instruction != instruction:
                 return shuffled_instruction
 
-    def gpt_transform(self, instruction, transform_type):
+    def gpt_transform(self, instruction, transform_type, batch_number, image=None):
         system_prompt = self.get_system_prompt(transform_type)
         if transform_type == 'out_set':
             t = 0.8
@@ -61,6 +135,25 @@ class LangTransform:
             instruction = f"Given this instruction: {instruction}, please reword it using only the following words {unique_words}"
         else:
             t = 0.1
+        
+        if batch_number > 1:
+            t = 0.8
+            system_prompt = self.get_system_prompt('clip_synonym')
+            instruction = self.get_clip_synonym(instruction, batch_number=batch_number)
+
+        # Create the messages list with content array
+        message_content = [{'type': 'text', 'text': instruction}]    
+        # Add image to message content if provided
+        if image is not None and batch_number > 1:
+            image_base64 = self.encode_image_for_openai(image)
+            
+            # Create data URL with proper object format
+            message_content.append({
+                'type': 'image_url',
+                'image_url': {
+                    'url': image_base64
+                }
+                })
         messages = [
             {
                 "role": "system",
@@ -68,7 +161,7 @@ class LangTransform:
             },
             {
                 "role": "user",
-                "content": [{'type' : 'text', 'text' : instruction}]
+                "content": message_content
             }
         ]
         # print ("API key: ",self.client.api_key)
@@ -91,7 +184,7 @@ class LangTransform:
         with open(f'/home/xilun/vla-clip/clip_verifier/system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
             return file.read()
         
-    def get_set_of_words(self, path_to_ep_stat = './experiments/robot/libero/unique_words.json'):
+    def get_set_of_words(self, path_to_ep_stat = '/home/xilun/vla-clip/clip_verifier/scripts/unique_words.json'):
         set_of_words = self.open_json(path_to_ep_stat)
         return set_of_words
     

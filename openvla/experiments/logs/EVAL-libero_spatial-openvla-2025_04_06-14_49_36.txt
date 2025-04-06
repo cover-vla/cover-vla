@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: ['', '', '1. Lift the dark dish situated amidst the dishware and small container, then set it onto the dishware.', '2. Grab the dark vessel found among the platter and small dish, then position it over the platter.', '3. Take hold of the dark container located in the gap of the platter and small cup, and lay it over the platter.', '4. Seize the dark receptacle nestled amid the platter and small bowl, then rest it onto the platter.', '5. Elevate the dark holder from within the platter and small pot, and settle it over the platter.']
+Starting episode 1...

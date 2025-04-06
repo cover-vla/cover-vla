@@ -57,12 +57,9 @@ def get_libero_image(obs, resize_size):
     return img
 
 
-def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, score_list=None, action_list=None, language_transformation=False, language_transformation_type=None, clip_filtered_actions=False):
+def save_rollout_video(rollout_images, idx, success, task_description, log_file=None, score_list=None, action_list=None, language_transformation_type=None, clip_filtered_actions=False):
     """Saves an MP4 replay of an episode."""
-    if language_transformation:
-        rollout_dir = f"./rollouts/clip_filter_{clip_filtered_actions}/{language_transformation_type}"
-    else:
-        rollout_dir = f"./rollouts/clip_filter_{clip_filtered_actions}/original"
+    rollout_dir = f"./rollouts/clip_filter_{clip_filtered_actions}/{language_transformation_type}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
     mp4_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.mp4"

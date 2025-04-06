@@ -24,12 +24,13 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
         'synonym', 
         'antonym', 
         'negation', 
-        'verb_noun_shuffle', 
-        'random_shuffle'
+        # 'verb_noun_shuffle', 
+        # 'random_shuffle',
+        'out_set'
     ]
     
     # Dictionary to track which transformations create positive vs negative examples
-    positive_transforms = ['synonym']
+    positive_transforms = ['synonym','out_set']
     negative_transforms = ['negation','antonym','verb_noun_shuffle','random_shuffle']
     
     # Create the augmented dataset dictionary
@@ -132,9 +133,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Augment dataset with language transformations')
     parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
                         help='Path to the dataset')
-    parser.add_argument('--dataset_folders', nargs='+', default=['libero_90'],
+    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_90.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_spatial.pkl',
                         help='Path to save the augmented dataset')
     
     args = parser.parse_args()

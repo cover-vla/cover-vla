@@ -92,10 +92,9 @@ class GenerateConfig:
     
     clip_model_path: str = "/home/xilun/vla-comp/clip_verifier/bash/model_checkpoints/spatial_clip_action_encoder_only_augmented_dataset_epoch_100.pt"
 
-    language_transformation: bool = False
     language_transformation_type: str = "synonym"
     
-    clip_action_iter: int = 20
+    clip_action_iter: int = 1
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -154,8 +153,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     # Get expected image dimensions
     resize_size = get_image_resize_size(cfg)
 
-    if cfg.language_transformation:
-        language_transform = LangTransform()
+    language_transform = LangTransform()
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
@@ -169,19 +167,21 @@ def eval_libero(cfg: GenerateConfig) -> None:
         for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
             # Initialize LIBERO environment and task description
             env, task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=episode_idx)
-            
-            if cfg.language_transformation:
-                task_description = language_transform.transform(task_description, cfg.language_transformation_type)
-            
-            print(f"\nTask: {task_description}")
-            log_file.write(f"\nTask: {task_description}\n")
-
             # Reset environment
             env.reset()
 
             # Set initial states
             obs = env.set_init_state(initial_states[episode_idx])
+            reword_img = get_libero_image(obs, resize_size)
+            
+            task_description = language_transform.transform(task_description, cfg.language_transformation_type, 1)
+            if cfg.clip_action_iter > 1:
+                task_description = language_transform.transform(task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
 
+            
+            print(f"\nTask: {task_description}")
+            log_file.write(f"\nTask: {task_description}\n")
+            
             # Setup
             t = 0
             replay_images = []
@@ -201,39 +201,58 @@ def eval_libero(cfg: GenerateConfig) -> None:
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
             while t < max_steps + cfg.num_steps_wait:
-                try:
-                    # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
-                    # and we need to wait for them to fall
-                    if t < cfg.num_steps_wait:
-                        obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
-                        t += 1
-                        continue
+                # try:
+                # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
+                # and we need to wait for them to fall
+                if t < cfg.num_steps_wait:
+                    obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
+                    t += 1
+                    continue
 
-                    # Get preprocessed image
-                    img = get_libero_image(obs, resize_size)
+                # Get preprocessed image
+                img = get_libero_image(obs, resize_size)
 
-                    # Save preprocessed image for replay video
-                    replay_images.append(img)
+                # Save preprocessed image for replay video
+                replay_images.append(img)
 
-                    # Prepare observations dict
-                    # Note: OpenVLA does not take proprio state as input
-                    observation = {
-                        "full_image": img,
-                        "state": np.concatenate(
-                            (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
-                        ),
-                    }
-                        
-                    clip_img = obs["agentview_image"]
-                        
+                # Prepare observations dict
+                # Note: OpenVLA does not take proprio state as input
+                observation = {
+                    "full_image": img,
+                    "state": np.concatenate(
+                        (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
+                    ),
+                }
+                    
+                clip_img = obs["agentview_image"]
+
+                if cfg.clip_action_iter == 1:
+                    action = get_action(
+                        cfg,
+                        model,
+                        observation,
+                        task_description,
+                        processor=processor,
+                    )
+                    action = normalize_gripper_action(action, binarize=True)
+                    if cfg.model_family == "openvla":
+                        action = invert_gripper_action(action)
+                    if not isinstance(action, torch.Tensor):
+                        action = torch.tensor(action)
+                    image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
+                    score_list.append(image_logits)
+                    action_list.append(action)
+                    
+                else:
+                    iteration_score_list = []
                     iteration_action_list = []
-                    # print(f"Filtering actions with CLIP for {cfg.clip_action_iter} iterations")
-                    for _ in range(cfg.clip_action_iter):
+                    iteration_task_description_list = []
+                    for i in range(cfg.clip_action_iter):
                         iteration_action = get_action(
                             cfg,
                             model,
                             observation,
-                            task_description,
+                            task_description[i],
                             processor=processor,
                         )
                         iteration_action = normalize_gripper_action(iteration_action, binarize=True)
@@ -242,23 +261,32 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             # if iteration_action is not tensor, convert to tensor
                             if not isinstance(iteration_action, torch.Tensor):
                                 iteration_action = torch.tensor(iteration_action)
+                        iteration_image_logits = clip_inference_model.online_predict(clip_img, task_description[i], iteration_action)
+                        iteration_score_list.append(iteration_image_logits)
                         iteration_action_list.append(iteration_action)
-                    ## pass action to clip
-                    iteration_image_logits, action = clip_inference_model.online_predict(clip_img, task_description, iteration_action_list)
-                    score_list.append(iteration_image_logits)
+                        iteration_task_description_list.append(task_description[i])
+                    iteration_score_list = np.stack(iteration_score_list, axis=0)
+                    index = np.argmax(iteration_score_list, axis=0)
+                    action = iteration_action_list[index]
+                    save_task_description = iteration_task_description_list[index]
+                    score_list.append(iteration_score_list[index])
                     action_list.append(action)
-                    # Execute action in environment
-                    obs, reward, done, info = env.step(action.tolist())
-                    if done:
-                        task_successes += 1
-                        total_successes += 1
-                        break
-                    t += 1
-
-                except Exception as e:
-                    print(f"Caught exception: {e}")
-                    log_file.write(f"Caught exception: {e}\n")
+                    # print (f"iteration_score_list: {iteration_score_list}")
+                    # print (f"iteration_action_list: {iteration_action_list}")
+                    # print (f"iteration_task_description_list: {iteration_task_description_list}")
+                    # input()
+                # Execute action in environment
+                obs, reward, done, info = env.step(action.tolist())
+                if done:
+                    task_successes += 1
+                    total_successes += 1
                     break
+                t += 1
+
+                # except Exception as e:
+                #     print(f"Caught exception: {e}")
+                #     log_file.write(f"Caught exception: {e}\n")
+                #     break
                 
 
             task_episodes += 1
@@ -269,11 +297,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 replay_images, 
                 total_episodes, 
                 success=done, 
-                task_description=task_description, 
+                task_description=task_description if cfg.clip_action_iter <= 1 else save_task_description, 
                 log_file=log_file,
                 score_list=score_list,
                 action_list=action_list,
-                language_transformation=cfg.language_transformation,
                 language_transformation_type=cfg.language_transformation_type,
                 clip_filtered_actions=cfg.clip_action_iter > 1,
             )

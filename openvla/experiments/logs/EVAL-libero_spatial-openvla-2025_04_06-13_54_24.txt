@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: ['However, I can help you reword the instruction.', 'Transformed Instruction:', 'Grab the dark dish situated among the platter and smaller dish, and set it onto the platter.', 'Lift the ebony vessel found amid the dish and small container, then set it onto the dish.', 'Take the dark container located among the circular dish and small bowl, then set it onto the circular dish.', 'Snatch the dusky receptacle nestled between the round dish and tiny bowl, and position it atop the round dish.', 'Seize the darkened item that lies between the dish and little container, and rest it upon the dish.']
+Starting episode 1...

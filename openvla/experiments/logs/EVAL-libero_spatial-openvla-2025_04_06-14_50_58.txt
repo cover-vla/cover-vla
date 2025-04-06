@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: ['', '', '1. Grab the dark dish situated among the dishware and set it onto the dishware.', '2. Lift the ebony container nestled amid the ceramic pieces and arrange it atop the ceramic piece.', '3. Take the dark round item positioned with the other serving items and rest it upon the other serving item.', '4. Hold the dark serving piece that is amid the other items and lay it atop the other item.', '5. Seize the dark vessel that is with the other dishes and situate it onto the other dish.']
+Starting episode 1...

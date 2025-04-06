@@ -100,7 +100,7 @@ def process_folder(folder_path, folder_name):
         
         # Calculate average score for this trajectory (using non-zero scores only)
         if score_list:
-            non_zero_scores = [score[0] for score in score_list if score[0] != 0]
+            non_zero_scores = [score for score in score_list if score != 0]
             avg_score = np.mean(non_zero_scores) if non_zero_scores else 0
             episode_length = len(score_list)  # Get episode length
             
@@ -257,13 +257,13 @@ def plot_time_series(ax, folder, data, is_subplot=True):
     # Accumulate non-zero scores and actions for each timestep
     for series, action_series in zip(success_series, success_action_series):
         for t, (score, action) in enumerate(zip(series, action_series)):
-            if score[0] != 0:  # Only include non-zero scores
+            if score != 0:  # Only include non-zero scores
                 success_scores_by_timestep[t].append(score)
                 success_actions_by_timestep[t].append(action)
     
     for series, action_series in zip(failure_series, failure_action_series):
         for t, (score, action) in enumerate(zip(series, action_series)):
-            if score[0] != 0:  # Only include non-zero scores
+            if score != 0:  # Only include non-zero scores
                 failure_scores_by_timestep[t].append(score)
                 failure_actions_by_timestep[t].append(action)
     
