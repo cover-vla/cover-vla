@@ -1,0 +1,90 @@
+Task suite: libero_spatial
+
+Task: ['Raise the dark dish located among the platter and small dish, then position it over the platter.', 'Pick up the dark dish found between the platter and small dish, then lay it over the platter.', 'Elevate the dark dish placed amongst the platter and small dish, then arrange it over the platter.', 'Grasp the dark dish nestled between the platter and small dish, then rest it over the platter.', 'Hoist the dark dish between the platter and small dish, then put it over the platter.']
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=1--success=True--task=pick_up_the_dark_dish_found_between_the_platter_and_small_dish,_then_lay_it_over_the_platter_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: ['Grab the dark dish located among the dishware and move this dishware onto another dish.', 'Take hold of the dark dish found with the dishes and transfer this dish to another one.', 'Seize the dark dish placed with the other dishes and shift this dishware over to another dish.', 'Capture the dark dish positioned among the dishes and relocate this dishware to a different dish.', 'Lift the dark dish arranged with the dishware and carry this dishware over to another dish.']
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=2--success=False--task=capture_the_dark_dish_positioned_among_the_dishes_and_relocate_this_dishware_to_a_different_dish_.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: ['Take the dark dish located between the large platter and the small dish and put it over the platter.', 'Lift the dark dish from its spot between the large and small dishes and move it onto the platter.', 'Pick up the dark dish that is in the middle of the platter and small dish, and move it over to rest on the platter.', 'Retrieve the dark dish placed between the large and small dishes, and move it over to the platter.', 'Hold the dark dish located amid the platter and the small dish, then position it over the platter.']
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=3--success=False--task=take_the_dark_dish_located_between_the_large_platter_and_the_small_dish_and_put_it_over_the_platter_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: ['Raise the dark dish located between the larger dish and the small one, then move it over the larger dish.', "Pick up the dark dish that's placed in the middle of the large and small dishes, and put it over the large one.", 'Elevate the dark dish found among the bigger and smaller dishes, and transfer it onto the bigger dish.', 'Grab the dark dish in the center of the two dishes and move it to the large dish.', 'Lift the dark dish from its spot between the big dish and the small one, and position it over the big dish.']
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=4--success=False--task=elevate_the_dark_dish_found_among_the_bigger_and_smaller_dishes,_and_transfer_it_onto_the_bigger_dish_.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: ['Take the ebony dish between the other items and set it onto the dishes.', 'Lift the ebony dish among the items, then position it on the dishes.', 'Seize the ebony dish in the grouping, then place it over the dishes.', 'Retrieve the ebony dish from the arrangement and lay it over the dishes.', 'Hold the ebony dish in the collection, then rest it above the dishes.']
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=5--success=True--task=lift_the_ebony_dish_among_the_items,_then_position_it_on_the_dishes_.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: ['Raise the dark dish found among the other dishes and the smaller one, then put this dish on another dish.', 'Pick up the dark dish located between the other dishes and the small one, and set it over another dish.', 'Take the dark dish placed with the other dishes and the little one, and lay it on a different dish.', 'Grasp the dark dish positioned among the dishes and the small dish, then rest it over an additional dish.', 'Move the dark dish that is among the dishes and the smaller one, and relocate it onto another dish.']
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=6--success=False--task=pick_up_the_dark_dish_located_between_the_other_dishes_and_the_small_one,_and_set_it_over_another_dish_.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+
+Task: ['Raise the dark dish found between the saucer and the small dish, then place it over the saucer.', 'Take the dark dish situated among the saucer and the small dish, and position it above the saucer.', 'Pick up the dark dish located between the saucer and the small dish, then move it to rest on the saucer.', 'Grab the dark dish placed among the saucer and the small dish, and put it over the saucer.', 'Elevate the dark dish found between the saucer and the small dish, then arrange it to sit on the saucer.']
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=7--success=True--task=elevate_the_dark_dish_found_between_the_saucer_and_the_small_dish,_then_arrange_it_to_sit_on_the_saucer_.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 3 (42.9%)
+
+Task: ['Lift the dark dish found among the platter and smaller dish, then position it over the platter.', 'Take hold of the dark dish situated between the platter and smaller dish, and move it over the platter.', 'Retrieve the dark dish nestled between the platter and small dish, placing it over the platter.', 'Seize the dark dish located with the platter and small dish nearby, and raise it above the platter.', 'Acquire the dark dish placed near the platter and lesser dish, then elevate it over the platter.']
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=8--success=False--task=take_hold_of_the_dark_dish_situated_between_the_platter_and_smaller_dish,_and_move_it_over_the_platter_.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+
+Task: ['Take the dark dish found among the platter and small dish, then position it over the platter.', 'Lift the dark dish, which is placed amongst the platter and small dish, and put it over the platter.', 'Select the dark dish located with the platter and small dish, then move it over the platter.', 'Pick up the dark dish sitting with the platter and small dish, and arrange it over the platter.', 'Secure the dark dish in the group with the platter and small dish, and shift it over the platter.']
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=9--success=True--task=lift_the_dark_dish,_which_is_placed_amongst_the_platter_and_small_dish,_and_put_it_over_the_platter_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 4 (44.4%)
+
+Task: ['Lift the dark dish found among the platter and smaller dish, then move it onto the platter.', 'Take hold of the dark dish located with the platter and little dish, and raise it over the platter.', 'Seize the dark dish placed near the platter and other dish, and shift it higher than the platter.', 'Get the dark dish lying with the platter and small dish, and carry it over the platter.', 'Reach for the dark dish between the platter and small dish, and elevate it above the platter.']
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=10--success=True--task=take_hold_of_the_dark_dish_located_with_the_platter_and_little_dish,_and_raise_it_over_the_platter_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 5 (50.0%)
+Current task success rate: 0.5
+Current total success rate: 0.5
+
+Task: ['Elevate the dark dish near the tiny container and set it onto the other dishes.', 'Raise the dark-colored dish adjacent to the little container and move it over to the dishware.', 'Pick up the dark dish located by the small container and shift it onto the other dish items.', "Hoist the dark dish that's next to the small vessel and align it with the dish collection.", 'Take the dark dish close to the compact container and transfer it onto the dishes.']
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=11--success=False--task=hoist_the_dark_dish_that's_next_to_the_small_vessel_and_align_it_with_the_dish_collection_.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 5 (45.5%)
+
+Task: ['Raise the dark dish near the small container and put it over the large dish.', 'Pick up the dark dish close to the small container and move it over the big platter.', 'Elevate the dark dish adjacent to the small container and place it on the large serving dish.', 'Grab the dark dish next to the small container and position it over the big plate.', 'Take the dark dish beside the small container and transfer it onto the large serving piece.']
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/clip_filter_True/out_set/episode=12--success=False--task=elevate_the_dark_dish_adjacent_to_the_small_container_and_place_it_on_the_large_serving_dish_.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 5 (41.7%)
+
+Task: []
+Starting episode 3...

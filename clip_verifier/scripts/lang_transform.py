@@ -49,12 +49,12 @@ class LangTransform:
             Then, based on the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
             - Convey the same objective as the original
             - Are consistent with the scene
-            - Use clear, natural language
+            - Use clear and simple, natural language
 
             Format your response as:
 
             Image Description:
-            <One or two sentences describing the scene, e.g., objects present, spatial relationships, robot arm position, etc.>
+            <One or two sentences describing the scene, e.g., objects present, spatial relationships, etc.>
 
             Original Instruction:
             <The user-provided instruction>
@@ -154,6 +154,7 @@ class LangTransform:
                     'url': image_base64
                 }
                 })
+            
         messages = [
             {
                 "role": "system",

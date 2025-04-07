@@ -177,8 +177,17 @@ def eval_libero(cfg: GenerateConfig) -> None:
             task_description = language_transform.transform(task_description, cfg.language_transformation_type, 1)
             if cfg.clip_action_iter > 1:
                 task_description = language_transform.transform(task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
-
-            
+                length = len(task_description)
+                counter = 0
+                while length != cfg.clip_action_iter:
+                    print ("Generated task description is not valid, generating again...")
+                    task_description = language_transform.transform(task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
+                    length = len(task_description)
+                    counter += 1
+                    if counter > 5:
+                        print ("Failed to generate valid task description after 5 attempts, exiting...")
+                        break
+                    
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
             
@@ -201,92 +210,92 @@ def eval_libero(cfg: GenerateConfig) -> None:
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
             while t < max_steps + cfg.num_steps_wait:
-                # try:
+                try:
                 # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
                 # and we need to wait for them to fall
-                if t < cfg.num_steps_wait:
-                    obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
-                    t += 1
-                    continue
+                    if t < cfg.num_steps_wait:
+                        obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
+                        t += 1
+                        continue
 
-                # Get preprocessed image
-                img = get_libero_image(obs, resize_size)
+                    # Get preprocessed image
+                    img = get_libero_image(obs, resize_size)
 
-                # Save preprocessed image for replay video
-                replay_images.append(img)
+                    # Save preprocessed image for replay video
+                    replay_images.append(img)
 
-                # Prepare observations dict
-                # Note: OpenVLA does not take proprio state as input
-                observation = {
-                    "full_image": img,
-                    "state": np.concatenate(
-                        (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
-                    ),
-                }
-                    
-                clip_img = obs["agentview_image"]
+                    # Prepare observations dict
+                    # Note: OpenVLA does not take proprio state as input
+                    observation = {
+                        "full_image": img,
+                        "state": np.concatenate(
+                            (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]), obs["robot0_gripper_qpos"])
+                        ),
+                    }
+                        
+                    clip_img = obs["agentview_image"]
 
-                if cfg.clip_action_iter == 1:
-                    action = get_action(
-                        cfg,
-                        model,
-                        observation,
-                        task_description,
-                        processor=processor,
-                    )
-                    action = normalize_gripper_action(action, binarize=True)
-                    if cfg.model_family == "openvla":
-                        action = invert_gripper_action(action)
-                    if not isinstance(action, torch.Tensor):
-                        action = torch.tensor(action)
-                    image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
-                    score_list.append(image_logits)
-                    action_list.append(action)
-                    
-                else:
-                    iteration_score_list = []
-                    iteration_action_list = []
-                    iteration_task_description_list = []
-                    for i in range(cfg.clip_action_iter):
-                        iteration_action = get_action(
+                    if cfg.clip_action_iter == 1:
+                        action = get_action(
                             cfg,
                             model,
                             observation,
-                            task_description[i],
+                            task_description,
                             processor=processor,
                         )
-                        iteration_action = normalize_gripper_action(iteration_action, binarize=True)
+                        action = normalize_gripper_action(action, binarize=True)
                         if cfg.model_family == "openvla":
-                            iteration_action = invert_gripper_action(iteration_action)
-                            # if iteration_action is not tensor, convert to tensor
-                            if not isinstance(iteration_action, torch.Tensor):
-                                iteration_action = torch.tensor(iteration_action)
-                        iteration_image_logits = clip_inference_model.online_predict(clip_img, task_description[i], iteration_action)
-                        iteration_score_list.append(iteration_image_logits)
-                        iteration_action_list.append(iteration_action)
-                        iteration_task_description_list.append(task_description[i])
-                    iteration_score_list = np.stack(iteration_score_list, axis=0)
-                    index = np.argmax(iteration_score_list, axis=0)
-                    action = iteration_action_list[index]
-                    save_task_description = iteration_task_description_list[index]
-                    score_list.append(iteration_score_list[index])
-                    action_list.append(action)
-                    # print (f"iteration_score_list: {iteration_score_list}")
-                    # print (f"iteration_action_list: {iteration_action_list}")
-                    # print (f"iteration_task_description_list: {iteration_task_description_list}")
-                    # input()
-                # Execute action in environment
-                obs, reward, done, info = env.step(action.tolist())
-                if done:
-                    task_successes += 1
-                    total_successes += 1
-                    break
-                t += 1
+                            action = invert_gripper_action(action)
+                        if not isinstance(action, torch.Tensor):
+                            action = torch.tensor(action)
+                        image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
+                        score_list.append(image_logits)
+                        action_list.append(action)
+                        
+                    else:
+                        iteration_score_list = []
+                        iteration_action_list = []
+                        iteration_task_description_list = []
+                        for i in range(cfg.clip_action_iter):
+                            iteration_action = get_action(
+                                cfg,
+                                model,
+                                observation,
+                                task_description[i],
+                                processor=processor,
+                            )
+                            iteration_action = normalize_gripper_action(iteration_action, binarize=True)
+                            if cfg.model_family == "openvla":
+                                iteration_action = invert_gripper_action(iteration_action)
+                                # if iteration_action is not tensor, convert to tensor
+                                if not isinstance(iteration_action, torch.Tensor):
+                                    iteration_action = torch.tensor(iteration_action)
+                            iteration_image_logits = clip_inference_model.online_predict(clip_img, task_description[i], iteration_action)
+                            iteration_score_list.append(iteration_image_logits)
+                            iteration_action_list.append(iteration_action)
+                            iteration_task_description_list.append(task_description[i])
+                        iteration_score_list = np.stack(iteration_score_list, axis=0)
+                        index = np.argmax(iteration_score_list, axis=0)
+                        action = iteration_action_list[index]
+                        save_task_description = iteration_task_description_list[index]
+                        score_list.append(iteration_score_list[index])
+                        action_list.append(action)
+                        # print (f"iteration_score_list: {iteration_score_list}")
+                        # print (f"iteration_action_list: {iteration_action_list}")
+                        # print (f"iteration_task_description_list: {iteration_task_description_list}")
+                        # input()
+                    # Execute action in environment
+                    obs, reward, done, info = env.step(action.tolist())
+                    if done:
+                        task_successes += 1
+                        total_successes += 1
+                        break
+                    t += 1
 
-                # except Exception as e:
-                #     print(f"Caught exception: {e}")
-                #     log_file.write(f"Caught exception: {e}\n")
-                #     break
+                except Exception as e:
+                    print(f"Caught exception: {e}")
+                    log_file.write(f"Caught exception: {e}\n")
+                    break
                 
 
             task_episodes += 1
