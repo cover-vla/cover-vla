@@ -95,10 +95,14 @@ class GenerateConfig:
     language_transformation_type: str = "synonym"
     
     clip_action_iter: int = 1
-    
     beta: float = 0.05
-    
     alignment_text: str = "transformed" # "original" or "transformed"
+
+    use_gradient_optimization: bool = False          # Whether to use gradient-based optimization
+    optimization_iterations: int = 100               # Number of optimization iterations
+    optimization_lr: float = 5e-2                    # Learning rate
+    optimization_temperature: float = 0.07           # Temperature
+    optimization_reg_weight: float = 0.1            # Regularization weight
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -129,9 +133,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
     processor = None
     if cfg.model_family == "openvla":
         processor = get_processor(cfg)
-
-    # Initialize local logging
-    run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-action_iter_{cfg.clip_action_iter}-beta_{cfg.beta}-alignment_{cfg.alignment_text}"
+    if cfg.use_gradient_optimization:
+        run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-alignment_{cfg.alignment_text}-gradient_optimization_{cfg.use_gradient_optimization}"
+    else:
+        run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-action_iter_{cfg.clip_action_iter}-beta_{cfg.beta}-alignment_{cfg.alignment_text}"
     if cfg.run_id_note is not None:
         run_id += f"--{cfg.run_id_note}"
     os.makedirs(cfg.local_log_dir, exist_ok=True)
@@ -244,7 +249,65 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         
                     clip_img = obs["agentview_image"]
 
-                    if cfg.clip_action_iter == 1:
+                    # Three distinct optimization paths
+                    if cfg.use_gradient_optimization:
+
+                        optimized_action, best_score = clip_inference_model.optimize_action_gradient(
+                            clip_img, 
+                            task_description, 
+                            num_iterations=cfg.optimization_iterations, 
+                            lr=cfg.optimization_lr, 
+                            temperature=cfg.optimization_temperature,
+                            reg_weight=cfg.optimization_reg_weight
+                        )
+                        action = normalize_gripper_action(optimized_action, binarize=True)
+                        if cfg.model_family == "openvla":
+                            action = invert_gripper_action(action)
+                        if not isinstance(action, torch.Tensor):
+                            action = torch.tensor(action)
+                        
+                        score_list.append(best_score)
+                        action_list.append(action)
+                        
+                    elif cfg.clip_action_iter > 1:
+                        # Use sampling-based optimization (existing method)
+                        iteration_action_list = []
+                        task_description_list = []
+                        
+                        # Generate multiple samples
+                        for i in range(cfg.clip_action_iter):
+                            iteration_action = get_action(
+                                cfg,
+                                model,
+                                observation,
+                                task_description[i],
+                                processor=processor,
+                            )
+                            iteration_action = normalize_gripper_action(iteration_action, binarize=True)
+                            if cfg.model_family == "openvla":
+                                iteration_action = invert_gripper_action(iteration_action)
+                                if not isinstance(iteration_action, torch.Tensor):
+                                    iteration_action = torch.tensor(iteration_action)
+                        
+                            iteration_action_list.append(iteration_action)
+                            task_description_list.append(task_description[i])
+                        
+                        aligned_task_description = original_task_description if cfg.alignment_text == "original" else first_task_description
+                        
+                        # Filter using CLIP scores
+                        iteration_image_logits, action, predicted_task_description = clip_inference_model.online_predict(
+                            clip_img, 
+                            aligned_task_description, 
+                            iteration_action_list, 
+                            task_description_list,
+                            softmax=True, 
+                            beta=cfg.beta
+                        )
+                        score_list.append(iteration_image_logits)
+                        action_list.append(action)
+                        
+                    else:
+                        # No optimization, just use the base action
                         action = get_action(
                             cfg,
                             model,
@@ -257,34 +320,15 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             action = invert_gripper_action(action)
                         if not isinstance(action, torch.Tensor):
                             action = torch.tensor(action)
-                        image_logits = clip_inference_model.online_predict(clip_img, task_description, action)
+                        
+                        image_logits, _, _ = clip_inference_model.online_predict(
+                            clip_img, 
+                            task_description, 
+                            [action]
+                        )
                         score_list.append(image_logits)
                         action_list.append(action)
-                        
-                    else:
-                        iteration_action_list = []
-                        for i in range(cfg.clip_action_iter):
-                            iteration_action = get_action(
-                                cfg,
-                                model,
-                                observation,
-                                task_description[i],
-                                processor=processor,
-                            )
-                            iteration_action = normalize_gripper_action(iteration_action, binarize=True)
-                            if cfg.model_family == "openvla":
-                                iteration_action = invert_gripper_action(iteration_action)
-                                # if iteration_action is not tensor, convert to tensor
-                                if not isinstance(iteration_action, torch.Tensor):
-                                    iteration_action = torch.tensor(iteration_action)
-                        
-                            iteration_action_list.append(iteration_action)
-                        
-                        aligned_task_description = original_task_description if cfg.alignment_text == "original" else first_task_description
-                        iteration_image_logits, action, predicted_task_description = clip_inference_model.online_predict(clip_img, aligned_task_description, iteration_action_list, task_description, softmax=True, beta=cfg.beta)
-                        # Optionally log score
-                        score_list.append(iteration_image_logits) 
-                        action_list.append(action)
+
                     # Execute action in environment
                     obs, reward, done, info = env.step(action.tolist())
                     if done:

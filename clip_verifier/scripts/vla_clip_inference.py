@@ -10,6 +10,7 @@ from model import TextAwareVisualExtraction, ModelConfig
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 import matplotlib.pyplot as plt
 import argparse
+import torch.nn.functional as F
 
 
 class VLA_CLIP_Inference:
@@ -58,61 +59,197 @@ class VLA_CLIP_Inference:
         model.float()  # Ensure model is in float32 precision
         return model
     
+    def decode_text_embed(self, text_embed, clip_model):
+        """
+        Decodes optimized text embeddings to the nearest token IDs using cosine similarity.
+        """
+        with torch.no_grad():
+            token_embeddings = clip_model.token_embedding.weight  # [vocab_size, dim]
+            token_embeddings = token_embeddings / token_embeddings.norm(dim=-1, keepdim=True)  # normalize
+            text_embed = text_embed.squeeze(0)  # [seq_len, dim]
+            text_embed = text_embed / text_embed.norm(dim=-1, keepdim=True)
+
+            # Cosine similarity between each optimized token and all vocab tokens
+            similarities = text_embed @ token_embeddings.T  # [seq_len, vocab_size]
+            nearest_token_ids = similarities.argmax(dim=-1)  # [seq_len]
+
+            # Convert to list and remove padding tokens if needed
+            token_ids = nearest_token_ids.tolist()
+            text = clip.tokenize.decode(token_ids)
+            return text
+
     
-    def online_predict(self, image, instruction, actions, task_description_list=[],softmax=False, beta=0.5):
+    def optimize_action_and_instruction(self, image, instruction, num_iterations=100, lr=5e-2, temperature=0.07, reg_weight=0.1):
         """
-        Output the image logits for the given image, instruction, and action
-        
-        Args:
-            image: PIL Image or numpy array
-            instruction: String instruction
-            action: Numerical action array
-            
-        Returns:
-            image_logits: The image logits for the given image, instruction, and action
+        Jointly optimize action and instruction to maximize CLIP similarity with a fixed image.
         """
-        # Preprocess image
+        if isinstance(image, np.ndarray):
+            image = Image.fromarray(image.astype('uint8'))
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+
+        # Tokenize text and get learnable embeddings
+        tokenized = clip.tokenize([instruction]).to(self.device)
+        text_embed = self.model.clip.token_embedding(tokenized).detach().clone().requires_grad_(True)
+        original_text_embed = text_embed.clone().detach()
+
+        # Learnable raw action vector (before tanh)
+        action_dim = self.model.action_dim
+        raw_action = torch.randn((1, action_dim), device=self.device, requires_grad=True)
+        original_raw_action = raw_action.clone().detach()
+
+        # Optimizer over both
+        optimizer = torch.optim.Adam([raw_action, text_embed], lr=lr)
+
+        best_similarity = float('-inf')
+        best_action = None
+        best_text_embed = None
+
+        # Encoder for custom text embedding
+        def encode_text_from_embedding(embedding):
+            x = embedding + self.model.clip.positional_embedding
+            x = x.permute(1, 0, 2)
+            x = self.model.clip.transformer(x)
+            x = x.permute(1, 0, 2)
+            x = self.model.clip.ln_final(x)
+            x = x[torch.arange(x.shape[0]), tokenized.argmax(dim=-1)]
+            return x @ self.model.clip.text_projection
+
+        for step in range(num_iterations):
+            optimizer.zero_grad()
+
+            # Text feature
+            text_features = encode_text_from_embedding(text_embed)
+            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+
+            # Image feature (fixed)
+            with torch.no_grad():
+                image_features = self.model.clip.encode_image(image_tensor)
+                image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+
+            # Combined CLIP feature
+            patch_features, _ = self.model.extract_clip_features(image_tensor, tokenized)
+            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features.unsqueeze(1))
+            vision_token = self.model.vision_poolings(text_aware_features)
+            text_token = self.model.text_pooling(text_features.unsqueeze(1))
+            combined_features = torch.cat([text_token, vision_token], dim=-1)
+            combined_features = self.model.input_projection(combined_features)
+            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
+
+            # Project action
+            action = torch.tanh(raw_action)
+            projected_action = self.model.action_projection(action)
+            projected_action = projected_action / projected_action.norm(dim=-1, keepdim=True)
+
+            # CLIP similarity score
+            similarity = (combined_features @ projected_action.T).squeeze() / temperature
+
+            # Regularization to keep close to original instruction & action
+            text_reg = F.mse_loss(text_embed, original_text_embed)
+            action_reg = F.mse_loss(raw_action, original_raw_action)
+            loss = -similarity + reg_weight * (text_reg + action_reg)
+
+            loss.backward()
+            optimizer.step()
+
+            if similarity.item() > best_similarity:
+                best_similarity = similarity.item()
+                best_action = action.detach().clone()
+                best_text_embed = text_embed.detach().clone()
+
+            if step % 10 == 0:
+                print(f"Step {step:03d} | sim: {similarity.item():.4f}")
+                
+        # Decode optimized text embedding
+        decoded_text = self.decode_text_embed(best_text_embed, self.model.clip)
+
+        return best_action, decoded_text, best_similarity
+
+
+    
+    def optimize_action_gradient(self, image, instruction, num_iterations=100, lr=5e-2, temperature=0.07, reg_weight=0.1):
+        """
+        Optimize action vector using gradient-based optimization of CLIP similarity.
+        Fixes image and instruction; optimizes action (bounded via tanh) to align with image-text embedding.
+        """
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
 
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+        tokenized = clip.tokenize([instruction]).to(self.device)
+
+        with torch.no_grad():
+            patch_features, text_features = self.model.extract_clip_features(image_tensor, tokenized)
+            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features)
+            vision_token = self.model.vision_poolings(text_aware_features)
+            text_token = self.model.text_pooling(text_features)
+            combined_features = torch.cat([text_token, vision_token], dim=-1)
+            combined_features = self.model.input_projection(combined_features)
+            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
+
+        # Initialize raw action tensor (before tanh)
+        action_dim = self.model.action_dim
+        raw_action = torch.randn((1, action_dim), device=self.device, requires_grad=True)
+        original_raw_action = raw_action.clone().detach()
+
+        optimizer = torch.optim.Adam([raw_action], lr=lr)
+
+        best_similarity = float('-inf')
+        best_action = None
+
+        for step in range(num_iterations):
+            optimizer.zero_grad()
+
+            # Apply tanh to keep action in [-1, 1]
+            action = torch.tanh(raw_action)
+
+            projected_action = self.model.action_projection(action)
+            projected_action = projected_action / projected_action.norm(dim=-1, keepdim=True)
+
+            similarity = (combined_features @ projected_action.T).squeeze() / temperature
+            reg_loss = F.mse_loss(raw_action, original_raw_action)  # regularize unbounded latent
+            loss = -similarity + reg_weight * reg_loss
+
+            loss.backward()
+            optimizer.step()
+
+            if similarity.item() > best_similarity:
+                best_similarity = similarity.item()
+                best_action = action.detach().clone()  # save the *bounded* action
+
+        return best_action, best_similarity
+
+
+    def online_predict(self, image, instruction, actions, task_description_list=[], softmax=False, beta=0.5):
+        """
+        Output the image logits for the given image, instruction, and action.
+        """
+
+        text_input = clip.tokenize(instruction).to(self.device) if isinstance(instruction, str) else instruction.to(self.device)
         
-        # Tokenize instruction
-        if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device)
-        else:
-            # Assume it's already tokenized
-            text_tokens = instruction.to(self.device)
-            
+        # Preprocess image
+        if isinstance(image, np.ndarray):
+            image = Image.fromarray(image.astype('uint8'))
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
         with torch.no_grad():
             action_tensors = []
             for action in actions:
-                # Convert to tensor
                 tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
                 action_tensors.append(tensor)
             
-            # Stack tensors into a batch
             action_batch = torch.stack(action_tensors)
-            # Run inference with single actions
-            image_logits, _ = self.model(image_tensor, text_tokens, action_batch)
+            image_logits, _ = self.model(image_tensor, text_input, action_batch)
             
-            # Get scores from image_logits
             scores = image_logits.cpu().numpy()[0]
             if softmax:
-                # Compute softmax
                 weights = np.exp(scores / beta)
                 weights = weights / np.sum(weights)
-
-                # Sample an index based on softmax weights
                 sampled_idx = np.random.choice(len(weights), p=weights)
-
             else:
-                # Get predicted action
                 sampled_idx = scores.argmax()
             
             predicted_action = actions[sampled_idx]
-            predicted_task_description = task_description_list[sampled_idx]
+            predicted_task_description = task_description_list[sampled_idx] if task_description_list else None
 
         return scores, predicted_action, predicted_task_description
     
