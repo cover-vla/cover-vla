@@ -29,3 +29,8 @@ Guidelines:
 - Use correct grammar and clear structure.
 - Keep outputs concise, consistent, and logically sound.
 - Ensure all instructions align with what is visible in the image.
+
+Examples of reworded instructions from other scenes:
+Scene 1. Stack the right bowl on the left bowl and place them in the tray
+Scene 2. Pick up the cream cheese box and put it in the basket
+Scene 3. Put the right moka pot on the stove

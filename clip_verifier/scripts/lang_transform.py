@@ -15,7 +15,7 @@ class LangTransform:
         self.api_key = os.getenv('OPENAI_API_KEY')
         self.client = OpenAI(api_key = self.api_key)
         self.gpt_transforms = ['synonym', 'antonym', 'negation', 
-                               'verb_noun_shuffle', 'in_set', 'out_set']
+                               'verb_noun_shuffle', 'in_set', 'out_set', 'rephrase']
 
     ### MAIN FUNCTIONS
     
@@ -32,15 +32,17 @@ class LangTransform:
                 continue
 
             if recording:
-                if line and line[0].isdigit() and line[1] == '.':
-                    # Remove the number and dot, keep the rest
-                    instructions.append(line[3:].strip())
+                if line and line.split()[0][:-1].isdigit() and line.split()[0].endswith('.'):
+                    # Remove the leading number and dot
+                    instruction_text = ' '.join(line.split()[1:])
+                    instructions.append(instruction_text)
                 elif line == "":
                     continue
                 else:
-                    break  # Stop if the format breaks
+                    break
 
         return instructions
+
     
     def get_clip_synonym(self, instruction, batch_number=1):
         instruction = f"""
@@ -78,7 +80,6 @@ class LangTransform:
         
         if batch_number > 1:
             batch_responses = self.gpt_transform(curr_instruction, transform_type, batch_number=batch_number, image=image)
-            print ("raw generated responses:")
             print (batch_responses)
             return self.extract_reworded_instructions(batch_responses)
         else:
@@ -137,7 +138,7 @@ class LangTransform:
             t = 0.1
         
         if batch_number > 1:
-            t = 0.8
+            t = 0.3
             system_prompt = self.get_system_prompt('clip_synonym')
             instruction = self.get_clip_synonym(instruction, batch_number=batch_number)
 
@@ -170,7 +171,7 @@ class LangTransform:
             model = 'gpt-4o',
             messages = messages,
             temperature = t,
-            max_tokens = 250
+            max_tokens = 400
         )
         return response.choices[0].message.content
 

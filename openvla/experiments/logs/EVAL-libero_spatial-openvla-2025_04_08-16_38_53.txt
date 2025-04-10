@@ -1,0 +1,141 @@
+Task suite: libero_spatial
+
+Task: ['Lift the dark dish found among the saucer and the small dish, then position it over the saucer.', 'Take hold of the dark dish located with the saucer and the small dish, then rest it upon the saucer.', 'Grab the dark dish placed with the saucer and the small dish, then move it over the saucer.', 'Seize the dark dish that is among the saucer and the small dish, then lay it over the saucer.', 'Hold the dark dish found with the saucer and the small dish, then settle it over the saucer.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: ['Raise the dark dish located with the saucer and small dish, then position it over the saucer.', 'Take the dark dish found with the saucer and small dish, and lay it over the saucer.', 'Move the dark dish that is with the saucer and small dish, and rest it over the saucer.', 'Grab the dark dish placed with the saucer and small dish, and arrange it over the saucer.', 'Elevate the dark dish near the saucer and small dish, and settle it over the saucer.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0
+
+Task: ['Raise the dark dish near the small one and position it over the dishware.', 'Move the dark dish adjacent to the small dish and arrange it over the dishware.', 'Elevate the dark dish close to the small dish and place it over the dishware.', 'Take the dark dish next to the small one and put it over the dishware.', 'Pick up the dark dish by the small dish and lay it over the dishware.']
+Starting episode 1...
+Success: True
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: ['Lift the dark dish near the small dish and move it above the platter.', 'Take the dark dish close to the small dish and transfer it over the platter.', 'Pick the dark dish beside the small dish and position it above the platter.', 'Hold the dark dish next to the small dish and carry it over the platter.', 'Move the dark dish by the small dish and shift it above the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+Current task success rate: 0.5
+Current total success rate: 0.25
+
+Task: ['Raise the dark dish in the center and position it above the serving dish.', 'Move the centrally placed dark dish and rest it over the serving dish.', 'Elevate the dark dish from the middle and arrange it over the serving dish.', 'Take the central dark dish and lay it above the serving dish.', 'Hoist the dark dish from the center and align it over the serving dish.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+
+Task: ['Raise the dark dish from the center and lay it onto the serving dish.', 'Move the dark dish from the middle and place it onto the serving dish.', 'Elevate the dark dish from the center area and position it on the serving dish.', 'Take the dark dish from the central spot and put it onto the serving dish.', 'Pick up the dark dish from the middle and rest it on the serving dish.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+Current task success rate: 0.0
+Current total success rate: 0.16666666666666666
+
+Task: ['Raise the dark dish sitting over the biscuit container and move it onto a platter.', 'Take the dark dish located above the biscuit container and transfer it onto a platter.', 'Elevate the dark dish positioned over the biscuit container and relocate it onto a platter.', 'Pick up the dark dish found above the biscuit container and shift it onto a platter.', 'Move the dark dish that is on top of the biscuit container and carry it onto a platter.']
+Starting episode 1...
+Success: True
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+
+Task: ['Lift the dark dish resting on the carton and put it onto another dish.', 'Take the dish above the carton and move it to another piece of dishware.', 'Remove the dish sitting on the carton and transfer it to another dish.', 'Pick up the dish from the carton and lay it on another dish.', 'Get the dish from the carton and position it onto another dish.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 8
+# successes: 2 (25.0%)
+Current task success rate: 0.5
+Current total success rate: 0.25
+
+Task: ['Get the dark dish from the top of the storage unit and put it on the platter.', 'Take the dark dish found on the storage unit and lay it on the platter.', 'Move the dark dish from the storage unit to the platter.', 'Grab the dark dish resting on the storage unit and position it on the platter.', 'Lift the dark dish off the storage unit and arrange it on the platter.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 9
+# successes: 2 (22.2%)
+
+Task: ['Get the dark dish from the highest part of the storage and put it on the platter.', 'Take the dark dish from the top of the storage and place it on the platter.', 'Lift the dark dish from the upper area of the storage and set it on the platter.', 'Grab the dark dish from the highest spot of the storage and position it on the platter.', 'Move the dark dish from the topmost section of the storage to the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 10
+# successes: 2 (20.0%)
+Current task success rate: 0.0
+Current total success rate: 0.2
+
+Task: ['Raise the dark dish sitting over the small one and move it onto the dishware stack.', 'Take the dark dish from above the smaller dish and relocate it to the dishware.', "Elevate the dark dish that's on the small dish and transfer it to the dishware.", 'Move the dark dish lying on the small dish and position it with the dishware.', 'Pick up the dark dish from the small dish and shift it to join the dishware.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 11
+# successes: 2 (18.2%)
+
+Task: ['Raise the dark dish resting above the small dish and move it onto the serving dish.', 'Take the dark dish from above the small dish and relocate it to the serving dish.', 'Elevate the dark dish that is on the small dish and transfer it to the serving dish.', 'Pick the dark dish from the small dish and shift it to the serving dish.', 'Move the dark dish off the small dish and position it onto the serving dish.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 12
+# successes: 2 (16.7%)
+Current task success rate: 0.0
+Current total success rate: 0.16666666666666666
+
+Task: ['Raise the dark dish beside the biscuit package and move it onto a serving dish.', 'Take the dark dish near the biscuit package and transfer it onto a serving piece.', 'Elevate the dark dish close to the biscuit package and shift it onto a serving item.', 'Pick up the dark dish next to the biscuit package and relocate it onto a serving surface.', 'Hoist the dark dish by the biscuit package and place it onto a serving area.']
+Starting episode 1...
+Success: True
+# episodes completed so far: 13
+# successes: 3 (23.1%)
+
+Task: ['Lift the dark dish near the biscuit container and move it onto the platter.', 'Take the dark dish by the biscuit container and position it over the platter.', 'Pick the dark dish close to the biscuit container and lay it over the platter.', 'Hold the dark dish next to the biscuit container and transfer it over the platter.', 'Move the dark dish adjacent to the biscuit container and rest it over the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 14
+# successes: 3 (21.4%)
+Current task success rate: 0.5
+Current total success rate: 0.21428571428571427
+
+Task: ['Raise the dark dish sitting over the cooker and lay it onto a platter.', 'Take the dark dish from the cooker and move it onto a platter.', 'Elevate the dark dish above the cooker and transfer it to a platter.', 'Grab the dark dish positioned on the cooker and shift it to a platter.', 'Hoist the dark dish located over the cooker and relocate it to a platter.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 15
+# successes: 3 (20.0%)
+
+Task: ['Take the dark dish sitting above the cooking appliance and move it onto a dishware item.', 'Lift the dark dish from the cooking appliance and transfer it onto a dishware piece.', 'Grab the dark dish located on the cooking appliance and shift it onto a dishware.', 'Remove the dark dish from its spot on the cooking appliance and relocate it onto a dishware.', 'Collect the dark dish positioned over the cooking appliance and relocate it onto a dishware.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 16
+# successes: 3 (18.8%)
+Current task success rate: 0.0
+Current total success rate: 0.1875
+
+Task: ['Raise the dark dish beside the other dishes and position it above them.', 'Move the dark dish near the dishes and place it over the dishes.', 'Take the dark dish close to the other items and arrange it on top of them.', 'Elevate the dark dish next to the dishes and put it over them.', 'Pick up the dark dish near the dishware and lay it above the dishware.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 17
+# successes: 3 (17.6%)
+
+Task: ['Raise the dark dish beside the platter and move it over the platter.', 'Take the dark dish near the platter and position it above the platter.', 'Elevate the dark dish close to the platter and place it over the platter.', 'Pick up the dark dish next to the platter and lay it on top of the platter.', 'Move the dark dish by the platter and arrange it over the platter.']
+Starting episode 2...
+Success: True
+# episodes completed so far: 18
+# successes: 4 (22.2%)
+Current task success rate: 0.5
+Current total success rate: 0.2222222222222222
+
+Task: ['Lift the dark dish from the storage unit and lower it onto the platter.', 'Raise the dark dish from its spot on the storage unit and move it onto the platter.', 'Take the dark dish off the storage unit and lay it on the platter.', 'Move the dark dish from the storage unit and drop it onto the platter.', 'Grab the dark dish from the storage unit and settle it onto the platter.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 19
+# successes: 4 (21.1%)
+
+Task: ['Take the dark dish lying on the surface and move it onto the platter.', 'Lift the dark dish from the surface and transfer it to the platter.', 'Grab the dark dish sitting on the surface and relocate it to the platter.', 'Collect the dark dish from the surface and position it on the platter.', 'Remove the dark dish from the surface and shift it to the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 20
+# successes: 4 (20.0%)
+Current task success rate: 0.0
+Current total success rate: 0.2

@@ -1,4 +1,0 @@
-Task suite: libero_spatial
-
-Task: ['Take the dark dish located among the platter and ceramic dish, then put it above the platter.', 'Lift the dark dish that is found between the platter and ceramic dish, and position it on the platter.', 'Move the dark dish, which is located between the platter and ceramic dish, and place it over the platter.', 'Pick up the dark dish from its spot between the platter and ceramic dish, and lay it over the platter.', 'Seize the dark dish that lies between the platter and ceramic dish, and move it onto the platter.']
-Starting episode 1...

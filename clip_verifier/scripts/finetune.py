@@ -281,12 +281,13 @@ def train_clip(
             # Forward pass
             logits_per_image, logits_per_action = model(images, texts, actions)
             
+            ## Version 1
             # CLIP uses contrastive loss, meaning each image should match its corresponding text
             ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
 
             # Normalize the logits using temperature scaling (default in CLIP)
-            logits_per_image = logits_per_image / 0.04
-            logits_per_action = logits_per_action / 0.04 
+            logits_per_image = logits_per_image / 0.07
+            logits_per_action = logits_per_action / 0.07 
             # Compute symmetric contrastive loss
             loss = (nn.CrossEntropyLoss()(logits_per_image, ground_truth) + 
                     nn.CrossEntropyLoss()(logits_per_action, ground_truth)) / 2

@@ -59,7 +59,7 @@ class VLA_CLIP_Inference:
         return model
     
     
-    def online_predict(self, image, instruction, actions):
+    def online_predict(self, image, instruction, actions, task_description_list=[],softmax=False, beta=0.5):
         """
         Output the image logits for the given image, instruction, and action
         
@@ -99,11 +99,22 @@ class VLA_CLIP_Inference:
             
             # Get scores from image_logits
             scores = image_logits.cpu().numpy()[0]
-            # Get predicted action
-            predicted_idx = scores.argmax()
-            predicted_action = actions[predicted_idx]
-        
-        return scores
+            if softmax:
+                # Compute softmax
+                weights = np.exp(scores / beta)
+                weights = weights / np.sum(weights)
+
+                # Sample an index based on softmax weights
+                sampled_idx = np.random.choice(len(weights), p=weights)
+
+            else:
+                # Get predicted action
+                sampled_idx = scores.argmax()
+            
+            predicted_action = actions[sampled_idx]
+            predicted_task_description = task_description_list[sampled_idx]
+
+        return scores, predicted_action, predicted_task_description
     
     def predict(self, image, instruction, possible_actions, action_history=None):
         """
@@ -121,14 +132,7 @@ class VLA_CLIP_Inference:
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
-            # Save the original image before preprocessing
-            # image.save("original_image.png")
-            
-            # # Process the image and save the processed tensor
-            # img_tensor = self.preprocess(image)
-            # from torchvision.utils import save_image
-            # save_image(img_tensor, "processed_image.png")
-            # input()
+
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
         # Tokenize instruction
@@ -300,7 +304,7 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
                 break
         # Run prediction
         predicted_action, scores = inference_model.predict(
-            ground_truth_frame, ground_truth_instruction, action_trajectory_pool, action_history=ground_truth_action_trajectory
+            ground_truth_frame, ground_truth_instruction, action_trajectory_pool,
         )
         
         # Check if prediction is correct
@@ -396,7 +400,7 @@ if __name__ == "__main__":
                         help='Whether to use trajectory mode')
     parser.add_argument('--num_samples', type=int, default=30,
                         help='Number of samples to test')
-    parser.add_argument('--action_pool_size', type=int, default=30,
+    parser.add_argument('--action_pool_size', type=int, default=2,
                         help='Size of the action pool for each test sample')
     parser.add_argument('--libero_path', type=str, default="/home/xilun/LIBERO/libero/datasets",
                         help='Path to LIBERO dataset')

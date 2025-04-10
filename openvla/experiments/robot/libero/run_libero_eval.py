@@ -74,7 +74,7 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = "libero_spatial"          # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 10                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 10                  # Number of rollouts per task
+    num_trials_per_task: int = 3                  # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -95,6 +95,10 @@ class GenerateConfig:
     language_transformation_type: str = "synonym"
     
     clip_action_iter: int = 1
+    
+    beta: float = 0.05
+    
+    alignment_text: str = "transformed" # "original" or "transformed"
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -127,7 +131,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         processor = get_processor(cfg)
 
     # Initialize local logging
-    run_id = f"EVAL-{cfg.task_suite_name}-{cfg.model_family}-{DATE_TIME}"
+    run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-action_iter_{cfg.clip_action_iter}-beta_{cfg.beta}-alignment_{cfg.alignment_text}"
     if cfg.run_id_note is not None:
         run_id += f"--{cfg.run_id_note}"
     os.makedirs(cfg.local_log_dir, exist_ok=True)
@@ -166,30 +170,35 @@ def eval_libero(cfg: GenerateConfig) -> None:
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
             # Initialize LIBERO environment and task description
-            env, task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=episode_idx)
+            env, task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=0)
+            original_task_description = task_description
+            print(f"\nOriginal Task: {task_description}")
+            log_file.write(f"\nOriginal Task: {task_description}\n")
             # Reset environment
             env.reset()
 
             # Set initial states
             obs = env.set_init_state(initial_states[episode_idx])
             reword_img = get_libero_image(obs, resize_size)
-            
             task_description = language_transform.transform(task_description, cfg.language_transformation_type, 1)
+            first_task_description = task_description
+            print(f"\nTransformed Task: {first_task_description}")
+            log_file.write(f"\nTransformed Task: {first_task_description}\n")
             if cfg.clip_action_iter > 1:
-                task_description = language_transform.transform(task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
+                task_description = language_transform.transform(first_task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
                 length = len(task_description)
                 counter = 0
                 while length != cfg.clip_action_iter:
                     print ("Generated task description is not valid, generating again...")
-                    task_description = language_transform.transform(task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
+                    task_description = language_transform.transform(first_task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
                     length = len(task_description)
                     counter += 1
                     if counter > 5:
                         print ("Failed to generate valid task description after 5 attempts, exiting...")
                         break
                     
-            print(f"\nTask: {task_description}")
-            log_file.write(f"\nTask: {task_description}\n")
+            print(f"\nSynthesized Task: {task_description}")
+            log_file.write(f"\nSynthesized Task: {task_description}\n")
             
             # Setup
             t = 0
@@ -253,9 +262,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         action_list.append(action)
                         
                     else:
-                        iteration_score_list = []
                         iteration_action_list = []
-                        iteration_task_description_list = []
                         for i in range(cfg.clip_action_iter):
                             iteration_action = get_action(
                                 cfg,
@@ -270,20 +277,14 @@ def eval_libero(cfg: GenerateConfig) -> None:
                                 # if iteration_action is not tensor, convert to tensor
                                 if not isinstance(iteration_action, torch.Tensor):
                                     iteration_action = torch.tensor(iteration_action)
-                            iteration_image_logits = clip_inference_model.online_predict(clip_img, task_description[i], iteration_action)
-                            iteration_score_list.append(iteration_image_logits)
+                        
                             iteration_action_list.append(iteration_action)
-                            iteration_task_description_list.append(task_description[i])
-                        iteration_score_list = np.stack(iteration_score_list, axis=0)
-                        index = np.argmax(iteration_score_list, axis=0)
-                        action = iteration_action_list[index]
-                        save_task_description = iteration_task_description_list[index]
-                        score_list.append(iteration_score_list[index])
+                        
+                        aligned_task_description = original_task_description if cfg.alignment_text == "original" else first_task_description
+                        iteration_image_logits, action, predicted_task_description = clip_inference_model.online_predict(clip_img, aligned_task_description, iteration_action_list, task_description, softmax=True, beta=cfg.beta)
+                        # Optionally log score
+                        score_list.append(iteration_image_logits) 
                         action_list.append(action)
-                        # print (f"iteration_score_list: {iteration_score_list}")
-                        # print (f"iteration_action_list: {iteration_action_list}")
-                        # print (f"iteration_task_description_list: {iteration_task_description_list}")
-                        # input()
                     # Execute action in environment
                     obs, reward, done, info = env.step(action.tolist())
                     if done:
@@ -302,17 +303,17 @@ def eval_libero(cfg: GenerateConfig) -> None:
             total_episodes += 1
 
             # Save a replay video of the episode
-            save_rollout_video(
-                replay_images, 
-                total_episodes, 
-                success=done, 
-                task_description=task_description if cfg.clip_action_iter <= 1 else save_task_description, 
-                log_file=log_file,
-                score_list=score_list,
-                action_list=action_list,
-                language_transformation_type=cfg.language_transformation_type,
-                clip_filtered_actions=cfg.clip_action_iter > 1,
-            )
+            # save_rollout_video(
+            #     replay_images, 
+            #     total_episodes, 
+            #     success=done, 
+            #     task_description=task_description if cfg.clip_action_iter <= 1 else predicted_task_description, 
+            #     log_file=log_file,
+            #     score_list=score_list,
+            #     action_list=action_list,
+            #     language_transformation_type=cfg.language_transformation_type,
+            #     clip_filtered_actions=cfg.clip_action_iter > 1,
+            # )
 
             # Log current results
             print(f"Success: {done}")

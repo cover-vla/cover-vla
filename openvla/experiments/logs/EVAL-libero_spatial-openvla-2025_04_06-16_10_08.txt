@@ -1,4 +1,0 @@
-Task suite: libero_spatial
-
-Task: ['Lift the dark-colored dish that is in the middle of the dishware and set it down over the dishware.', 'Grab the dark container located among the dishes and set it atop the dishes.', 'Take the dark serving item situated among the other items and rest it atop the dishware.', 'Hold the dark dish placed centrally among the items and position it over the stack of dishes.', 'Fetch the dark piece that is among the other items and lay it over the other dishware.']
-Starting episode 1...

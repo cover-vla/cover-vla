@@ -1,4 +1,0 @@
-Task suite: libero_spatial
-
-Task: ['', '', 'Image Description:', 'A robot arm is positioned on a table. On the table, there are two bowls, two small containers, a set of three stacked plates, and a packet of food. The black bowl is situated between the plates and a small container.', '', '1. Lift the dark dish located amid the stacked plates and the small container, then set it onto the stack of plates.', '2. Take the dark-colored dish from its spot nestled between the dishes and the container, then put it over the dishes.', '3. Grasp the dark-colored item found among the dishware and the small pot, then relocate it atop the dishware.', '4. Move the darker item positioned in the gap between the dish stack and the small container, placing it over the stack.', '5. Pick the dark piece placed in the space separating the dish set and the smaller container, then transfer it onto the dish set.']
-Starting episode 1...

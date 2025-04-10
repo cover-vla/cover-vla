@@ -1,0 +1,97 @@
+Task suite: libero_spatial
+
+Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish located between the platter and the small bowl, and set it onto the platter.
+
+Synthesized Task: ["Pick up the dark dish that's between the platter and the small bowl, and place it on the platter.", 'Move the dark dish from between the platter and the small bowl onto the platter.', 'Take the dark dish situated between the platter and the small bowl and put it on the platter.', 'Grab the dark dish found between the platter and the small bowl, then set it on the platter.', 'Lift the dark dish that is between the platter and the small bowl and place it on top of the platter.']
+Starting episode 1...
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter.
+
+Synthesized Task: ["Pick up the dark dish that's between the platter and the small bowls, and place it on the platter.", 'Move the dark dish from its spot between the platter and bowls, and put it on the platter.', 'Take the dark dish located between the platter and the small bowls, and lay it on the platter.', 'Grab the dark dish in the middle of the platter and bowls, and set it on top of the platter.', 'Lift the dark dish found between the platter and the small bowls, and position it on the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter.
+
+Synthesized Task: ['Pick up the dark dish between the platter and the small bowl, and place it on the platter.', 'Move the dark dish from its spot between the platter and the small bowl onto the platter.', 'Take the dark dish located between the platter and the small bowl, and put it on the platter.', "Grab the dark dish that's between the platter and the small bowl, and lay it on the platter.", 'Lift the dark dish from between the platter and the small bowl, and set it on top of the platter.']
+Starting episode 3...
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+Current task success rate: 0.3333333333333333
+Current total success rate: 0.3333333333333333
+
+Original Task: pick up the black bowl next to the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish beside the small bowl and set it on the platter.
+
+Synthesized Task: ['Pick up the dark dish next to the small bowl and place it on the platter.', 'Move the dark dish by the small bowl and put it on the platter.', 'Take the dark dish near the small bowl and set it on the platter.', 'Grab the dark dish that is beside the small bowl and lay it on the platter.', 'Raise the dark dish close to the small bowl and position it on the platter.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Original Task: pick up the black bowl next to the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish beside the small bowl and set it on the platter.
+
+Synthesized Task: ['Pick up the dark dish next to the small bowl and place it on the platter.', 'Move the dark dish that is beside the small bowl onto the platter.', 'Take the dark dish near the small bowl and put it on the platter.', 'Grab the dark dish by the small bowl and set it on the platter.', 'Lift the dark dish close to the small bowl and position it on the platter.']
+Starting episode 2...
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+
+Original Task: pick up the black bowl next to the ramekin and place it on the plate
+
+Transformed Task: Lift the dark dish beside the small bowl and set it on the platter.
+
+Synthesized Task: ['"Pick up the dark dish next to the small bowl and place it on the platter."', '"Take the dark dish near the small bowl and put it on the platter."', '"Move the dark dish beside the small bowl onto the platter."', '"Grab the dark dish by the small bowl and set it on the platter."', '"Lift the dark dish adjacent to the small bowl and lay it on the platter."']
+Starting episode 3...
+Success: False
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+Current task success rate: 0.0
+Current total success rate: 0.16666666666666666
+
+Original Task: pick up the black bowl from table center and place it on the plate
+
+Transformed Task: Lift the dark dish from the middle of the table and set it on the platter.
+
+Synthesized Task: ['Pick up the dark dish from the center of the table and place it on the platter.', 'Move the dark dish from the middle of the table to the platter.', "Take the dark dish from the table's center and put it on the platter.", 'Grab the dark dish from the middle and set it down on the platter.', 'Lift the dark dish from the table and position it on the platter.']
+Starting episode 1...
+Success: False
+# episodes completed so far: 7
+# successes: 1 (14.3%)
+
+Original Task: pick up the black bowl from table center and place it on the plate
+
+Transformed Task: Lift the dark dish from the middle of the table and set it on the platter.
+
+Synthesized Task: ['Pick up the dark dish from the center of the table and place it on the platter.', 'Move the dark dish from the middle of the table to the platter.', "Take the dark dish from the table's center and put it on the platter.", 'Grab the dark dish from the middle and lay it on the platter.', 'Lift the dark dish from the center of the table and position it on the platter.']
+Starting episode 2...
+Success: True
+# episodes completed so far: 8
+# successes: 2 (25.0%)
+
+Original Task: pick up the black bowl from table center and place it on the plate
+
+Transformed Task: Lift the dark dish from the middle of the table and set it on the platter.
+
+Synthesized Task: ['Pick up the dark dish from the center of the table and place it on the platter.', 'Move the dark dish from the middle of the table to the platter.', "Take the dark dish from the table's center and put it on the platter.", 'Grab the dark dish from the table and set it down on the platter.', 'Remove the dark dish from the middle of the table and position it on the platter.']
+Starting episode 3...
+Success: False
+# episodes completed so far: 9
+# successes: 2 (22.2%)
+Current task success rate: 0.3333333333333333
+Current total success rate: 0.2222222222222222
