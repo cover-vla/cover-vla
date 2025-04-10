@@ -1,6 +1,0 @@
-Task suite: libero_spatial
-
-Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
-
-Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter.
-Starting episode 1...

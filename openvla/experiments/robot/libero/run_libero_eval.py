@@ -25,7 +25,7 @@ from typing import Optional, Union
 
 import draccus
 import numpy as np
-import tqdm
+from tqdm import tqdm
 from libero.libero import benchmark
 from PIL import Image
 
@@ -94,15 +94,22 @@ class GenerateConfig:
 
     language_transformation_type: str = "synonym"
     
-    clip_action_iter: int = 1
-    beta: float = 0.05
     alignment_text: str = "transformed" # "original" or "transformed"
 
+    # Gradient optimization
     use_gradient_optimization: bool = False          # Whether to use gradient-based optimization
-    optimization_iterations: int = 100               # Number of optimization iterations
-    optimization_lr: float = 5e-2                    # Learning rate
+    optimize_both_action_and_text: bool = False      # Whether to optimize both action and text
+    optimization_iterations: int = 20               # Number of optimization iterations
+    optimization_lr: float = 1e-3                    # Learning rate
     optimization_temperature: float = 0.07           # Temperature
     optimization_reg_weight: float = 0.1            # Regularization weight
+    topk: int = 1
+    
+    # Sampling-based optimization
+    sampling_based_optimization: bool = False      # Whether to use sampling-based optimization
+    clip_action_iter: int = 1
+    beta: float = 0.05
+
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -116,6 +123,9 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     # [OpenVLA] Set action un-normalization key
     cfg.unnorm_key = cfg.task_suite_name
+    
+    # check assertion on optimization 
+    assert not (cfg.use_gradient_optimization and cfg.sampling_based_optimization), "Cannot use both gradient optimization and sampling-based optimization!"
 
     # Load model
     model = get_model(cfg)
@@ -134,7 +144,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     if cfg.model_family == "openvla":
         processor = get_processor(cfg)
     if cfg.use_gradient_optimization:
-        run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-alignment_{cfg.alignment_text}-gradient_optimization_{cfg.use_gradient_optimization}"
+        run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-topk_{cfg.topk}-alignment_{cfg.alignment_text}-gradient_optimization_{cfg.use_gradient_optimization}-update_text_{cfg.optimize_both_action_and_text}"
     else:
         run_id = f"EVAL-{cfg.task_suite_name}-{cfg.language_transformation_type}-action_iter_{cfg.clip_action_iter}-beta_{cfg.beta}-alignment_{cfg.alignment_text}"
     if cfg.run_id_note is not None:
@@ -143,7 +153,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     local_log_filepath = os.path.join(cfg.local_log_dir, run_id + ".txt")
     log_file = open(local_log_filepath, "w")
     print(f"Logging to local log file: {local_log_filepath}")
-
+    
     # Initialize Weights & Biases logging as well
     if cfg.use_wandb:
         wandb.init(
@@ -166,14 +176,14 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
-    for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
+    for task_id in tqdm(range(num_tasks_in_suite)):
         # Get task
         task = task_suite.get_task(task_id)
         # Get default LIBERO initial states
         initial_states = task_suite.get_task_init_states(task_id)
 
         task_episodes, task_successes = 0, 0
-        for episode_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
+        for episode_idx in tqdm(range(cfg.num_trials_per_task)):
             # Initialize LIBERO environment and task description
             env, task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=0)
             original_task_description = task_description
@@ -189,7 +199,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             first_task_description = task_description
             print(f"\nTransformed Task: {first_task_description}")
             log_file.write(f"\nTransformed Task: {first_task_description}\n")
-            if cfg.clip_action_iter > 1:
+            if cfg.sampling_based_optimization:
                 task_description = language_transform.transform(first_task_description, cfg.language_transformation_type, cfg.clip_action_iter, reword_img)
                 length = len(task_description)
                 counter = 0
@@ -202,9 +212,9 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         print ("Failed to generate valid task description after 5 attempts, exiting...")
                         break
                     
-            print(f"\nSynthesized Task: {task_description}")
-            log_file.write(f"\nSynthesized Task: {task_description}\n")
-            
+                print(f"\nSynthesized Task: {task_description}")
+                log_file.write(f"\nSynthesized Task: {task_description}\n")
+                
             # Setup
             t = 0
             replay_images = []
@@ -223,13 +233,15 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
-            while t < max_steps + cfg.num_steps_wait:
-                try:
-                # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
-                # and we need to wait for them to fall
+            with tqdm(total=max_steps + cfg.num_steps_wait, desc="Episode Progress") as pbar:
+                while t < max_steps + cfg.num_steps_wait:
+                    # try:
+                    # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
+                    # and we need to wait for them to fall
                     if t < cfg.num_steps_wait:
                         obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
                         t += 1
+                        pbar.update(1)
                         continue
 
                     # Get preprocessed image
@@ -248,28 +260,83 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     }
                         
                     clip_img = obs["agentview_image"]
-
+                    
+                    aligned_task_description = original_task_description if cfg.alignment_text == "original" else first_task_description
+                     
                     # Three distinct optimization paths
                     if cfg.use_gradient_optimization:
+                        if cfg.optimize_both_action_and_text:
+                            optimized_action, optimized_text, best_score = clip_inference_model.optimize_action_and_instruction(
+                                clip_img, 
+                                aligned_task_description, 
+                                num_iterations=cfg.optimization_iterations, 
+                                lr=cfg.optimization_lr, 
+                                temperature=cfg.optimization_temperature,
+                                reg_weight=cfg.optimization_reg_weight,
+                                topk=cfg.topk
+                            )
+                            print("Optimized text: " + optimized_text)
+                            log_file.write("Optimized text: " + optimized_text + "\n")
+                            
+                            action = get_action(
+                                cfg,
+                                model,
+                                observation,
+                                optimized_text,
+                                processor=processor,
+                            )
+                            action = normalize_gripper_action(action, binarize=True)
+                            optimized_action = normalize_gripper_action(optimized_action, binarize=True)
+                            if cfg.model_family == "openvla":
+                                action = invert_gripper_action(action)
+                                optimized_action = invert_gripper_action(optimized_action)
+                                
+                            print ("difference between optimized action and original action: ", np.linalg.norm(optimized_action - action))
+                            log_file.write("difference between optimized action and original action: " + str(np.linalg.norm(optimized_action - action)) + "\n")
+     
+                            if not isinstance(action, torch.Tensor):
+                                action = torch.tensor(action)
 
-                        optimized_action, best_score = clip_inference_model.optimize_action_gradient(
-                            clip_img, 
-                            task_description, 
-                            num_iterations=cfg.optimization_iterations, 
-                            lr=cfg.optimization_lr, 
-                            temperature=cfg.optimization_temperature,
-                            reg_weight=cfg.optimization_reg_weight
-                        )
-                        action = normalize_gripper_action(optimized_action, binarize=True)
-                        if cfg.model_family == "openvla":
-                            action = invert_gripper_action(action)
-                        if not isinstance(action, torch.Tensor):
-                            action = torch.tensor(action)
+                        else:
+                            vla_action = get_action(
+                                cfg,
+                                model,
+                                observation,
+                                aligned_task_description,
+                                processor=processor,
+                            )
+                            image_logits, _, _ = clip_inference_model.online_predict(
+                                clip_img, 
+                                aligned_task_description, 
+                                [vla_action]
+                            )
+                            optimized_action, best_score = clip_inference_model.optimize_action_gradient(
+                                clip_img, 
+                                aligned_task_description, 
+                                vla_action=vla_action,
+                                num_iterations=cfg.optimization_iterations, 
+                                lr=cfg.optimization_lr, 
+                                temperature=cfg.optimization_temperature,
+                                reg_weight=cfg.optimization_reg_weight
+                            )
+                            action = normalize_gripper_action(optimized_action, binarize=True)
+                            if cfg.model_family == "openvla":
+                                action = invert_gripper_action(action)
+                            if not isinstance(action, torch.Tensor):
+                                action = torch.tensor(action)
+                                
+                            # do the softmax based on the image logits and the best_score
+                            scores = [image_logits[0], best_score]
+                            actions = [vla_action, optimized_action]
+                            weights = np.exp(scores) / np.sum(np.exp(scores))
+                            index = np.random.choice(len(weights), p=weights)
+                            selected_score = scores[index]
+                            action = actions[index]
                         
-                        score_list.append(best_score)
+                        score_list.append(selected_score)
                         action_list.append(action)
                         
-                    elif cfg.clip_action_iter > 1:
+                    elif cfg.sampling_based_optimization:
                         # Use sampling-based optimization (existing method)
                         iteration_action_list = []
                         task_description_list = []
@@ -292,8 +359,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             iteration_action_list.append(iteration_action)
                             task_description_list.append(task_description[i])
                         
-                        aligned_task_description = original_task_description if cfg.alignment_text == "original" else first_task_description
-                        
+       
                         # Filter using CLIP scores
                         iteration_image_logits, action, predicted_task_description = clip_inference_model.online_predict(
                             clip_img, 
@@ -312,7 +378,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             cfg,
                             model,
                             observation,
-                            task_description,
+                            aligned_task_description,
                             processor=processor,
                         )
                         action = normalize_gripper_action(action, binarize=True)
@@ -320,10 +386,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             action = invert_gripper_action(action)
                         if not isinstance(action, torch.Tensor):
                             action = torch.tensor(action)
-                        
+
                         image_logits, _, _ = clip_inference_model.online_predict(
                             clip_img, 
-                            task_description, 
+                            aligned_task_description, 
                             [action]
                         )
                         score_list.append(image_logits)
@@ -336,12 +402,12 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         total_successes += 1
                         break
                     t += 1
+                    pbar.update(1)
 
-                except Exception as e:
-                    print(f"Caught exception: {e}")
-                    log_file.write(f"Caught exception: {e}\n")
-                    break
-                
+                    # except Exception as e:
+                    #     print(f"Caught exception: {e}")
+                    #     log_file.write(f"Caught exception: {e}\n")
+                    #     break
 
             task_episodes += 1
             total_episodes += 1
@@ -351,12 +417,13 @@ def eval_libero(cfg: GenerateConfig) -> None:
             #     replay_images, 
             #     total_episodes, 
             #     success=done, 
-            #     task_description=task_description if cfg.clip_action_iter <= 1 else predicted_task_description, 
+            #     task_description=aligned_task_description, 
             #     log_file=log_file,
             #     score_list=score_list,
             #     action_list=action_list,
             #     language_transformation_type=cfg.language_transformation_type,
-            #     clip_filtered_actions=cfg.clip_action_iter > 1,
+            #     sampling_based_optimization=cfg.sampling_based_optimization,
+            #     gradient_based_optimization=cfg.use_gradient_optimization,
             # )
 
             # Log current results

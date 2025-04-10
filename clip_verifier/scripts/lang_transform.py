@@ -138,7 +138,7 @@ class LangTransform:
             t = 0.1
         
         if batch_number > 1:
-            t = 0.3
+            t = 0.1
             system_prompt = self.get_system_prompt('clip_synonym')
             instruction = self.get_clip_synonym(instruction, batch_number=batch_number)
 

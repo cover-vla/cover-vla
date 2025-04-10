@@ -11,6 +11,8 @@ from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normal
 import matplotlib.pyplot as plt
 import argparse
 import torch.nn.functional as F
+from clip.simple_tokenizer import SimpleTokenizer
+
 
 
 class VLA_CLIP_Inference:
@@ -21,6 +23,8 @@ class VLA_CLIP_Inference:
         # Set mode (trajectory or single action)
         self.trajectory_mode = trajectory_mode
         self.trajectory_length = trajectory_length
+        
+        self.tokenizer = SimpleTokenizer()
         
         # Initialize the VLA_CLIP model
         self.model = self._init_model(model_path, device, use_transformer)
@@ -59,42 +63,69 @@ class VLA_CLIP_Inference:
         model.float()  # Ensure model is in float32 precision
         return model
     
-    def decode_text_embed(self, text_embed, clip_model):
+    def decode_text_embed(self, text_embed, topk=1):
         """
-        Decodes optimized text embeddings to the nearest token IDs using cosine similarity.
+        Decodes optimized text embeddings to the nearest token IDs using top-k sampling.
+        Cleans special tokens and stops decoding at <|endoftext|>.
         """
         with torch.no_grad():
-            token_embeddings = clip_model.token_embedding.weight  # [vocab_size, dim]
-            token_embeddings = token_embeddings / token_embeddings.norm(dim=-1, keepdim=True)  # normalize
+            token_embeddings = self.clip_model.token_embedding.weight  # [vocab_size, dim]
+            token_embeddings = token_embeddings / token_embeddings.norm(dim=-1, keepdim=True)
+
             text_embed = text_embed.squeeze(0)  # [seq_len, dim]
             text_embed = text_embed / text_embed.norm(dim=-1, keepdim=True)
 
-            # Cosine similarity between each optimized token and all vocab tokens
-            similarities = text_embed @ token_embeddings.T  # [seq_len, vocab_size]
-            nearest_token_ids = similarities.argmax(dim=-1)  # [seq_len]
+            decoded_token_ids = []
 
-            # Convert to list and remove padding tokens if needed
-            token_ids = nearest_token_ids.tolist()
-            text = clip.tokenize.decode(token_ids)
-            return text
+            for token_vec in text_embed:
+                similarities = token_vec @ token_embeddings.T  # [vocab_size]
+                if topk == 1:
+                    token_id = similarities.argmax().item()
+                else:
+                    topk_vals, topk_idxs = similarities.topk(topk)
+                    token_id = topk_idxs[torch.randint(0, topk, (1,)).item()].item()
+                decoded_token_ids.append(token_id)
+
+                # Stop if <|endoftext|>
+                if token_id == self.tokenizer.encoder.get("<|endoftext|>"):
+                    break
+
+            # Remove <|startoftext|> if present at the beginning
+            if decoded_token_ids and decoded_token_ids[0] == self.tokenizer.encoder.get("<|startoftext|>"):
+                decoded_token_ids = decoded_token_ids[1:]
+                
+            if decoded_token_ids and decoded_token_ids[-1] == self.tokenizer.encoder.get("<|endoftext|>"):
+                decoded_token_ids = decoded_token_ids[:-1]
+
+            # Decode to string
+            return self.tokenizer.decode(decoded_token_ids)
 
     
-    def optimize_action_and_instruction(self, image, instruction, num_iterations=100, lr=5e-2, temperature=0.07, reg_weight=0.1):
+    def optimize_action_and_instruction(self, 
+                                        image, 
+                                        instruction, 
+                                        num_iterations=500, 
+                                        lr=1e-3, 
+                                        temperature=0.07, 
+                                        reg_weight=0.1,
+                                        topk=5):
         """
         Jointly optimize action and instruction to maximize CLIP similarity with a fixed image.
         """
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+                # Tokenize text and get learnable embeddings
+        
+        tokenized = clip.tokenize(instruction).to(self.device)
+        original_text_embed = self.clip_model.token_embedding(tokenized).detach().clone()
+        text_embed = original_text_embed + 0.1 * torch.randn_like(original_text_embed)
+        text_embed.requires_grad_()
 
-        # Tokenize text and get learnable embeddings
-        tokenized = clip.tokenize([instruction]).to(self.device)
-        text_embed = self.model.clip.token_embedding(tokenized).detach().clone().requires_grad_(True)
-        original_text_embed = text_embed.clone().detach()
 
         # Learnable raw action vector (before tanh)
         action_dim = self.model.action_dim
-        raw_action = torch.randn((1, action_dim), device=self.device, requires_grad=True)
+        raw_action = torch.randn(action_dim, device=self.device, requires_grad=True)
         original_raw_action = raw_action.clone().detach()
 
         # Optimizer over both
@@ -106,13 +137,13 @@ class VLA_CLIP_Inference:
 
         # Encoder for custom text embedding
         def encode_text_from_embedding(embedding):
-            x = embedding + self.model.clip.positional_embedding
+            x = embedding + self.clip_model.positional_embedding
             x = x.permute(1, 0, 2)
-            x = self.model.clip.transformer(x)
+            x = self.clip_model.transformer(x)
             x = x.permute(1, 0, 2)
-            x = self.model.clip.ln_final(x)
+            x = self.clip_model.ln_final(x)
             x = x[torch.arange(x.shape[0]), tokenized.argmax(dim=-1)]
-            return x @ self.model.clip.text_projection
+            return x @ self.clip_model.text_projection
 
         for step in range(num_iterations):
             optimizer.zero_grad()
@@ -123,7 +154,7 @@ class VLA_CLIP_Inference:
 
             # Image feature (fixed)
             with torch.no_grad():
-                image_features = self.model.clip.encode_image(image_tensor)
+                image_features = self.clip_model.encode_image(image_tensor)
                 image_features = image_features / image_features.norm(dim=-1, keepdim=True)
 
             # Combined CLIP feature
@@ -153,20 +184,20 @@ class VLA_CLIP_Inference:
 
             if similarity.item() > best_similarity:
                 best_similarity = similarity.item()
-                best_action = action.detach().clone()
+                best_action = action.detach().clone().cpu().numpy()
                 best_text_embed = text_embed.detach().clone()
 
-            if step % 10 == 0:
-                print(f"Step {step:03d} | sim: {similarity.item():.4f}")
+            # if step % 100 == 0:
+            #     print(f"Step {step:03d} | sim: {similarity.item():.4f}")
                 
         # Decode optimized text embedding
-        decoded_text = self.decode_text_embed(best_text_embed, self.model.clip)
+        decoded_text = self.decode_text_embed(best_text_embed, topk=topk)
 
         return best_action, decoded_text, best_similarity
 
 
     
-    def optimize_action_gradient(self, image, instruction, num_iterations=100, lr=5e-2, temperature=0.07, reg_weight=0.1):
+    def optimize_action_gradient(self, image, instruction, vla_action, num_iterations=500, lr=1e-3, temperature=0.07, reg_weight=0.1):
         """
         Optimize action vector using gradient-based optimization of CLIP similarity.
         Fixes image and instruction; optimizes action (bounded via tanh) to align with image-text embedding.
@@ -175,7 +206,7 @@ class VLA_CLIP_Inference:
             image = Image.fromarray(image.astype('uint8'))
 
         image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        tokenized = clip.tokenize([instruction]).to(self.device)
+        tokenized = clip.tokenize(instruction).to(self.device)
 
         with torch.no_grad():
             patch_features, text_features = self.model.extract_clip_features(image_tensor, tokenized)
@@ -187,8 +218,7 @@ class VLA_CLIP_Inference:
             combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
 
         # Initialize raw action tensor (before tanh)
-        action_dim = self.model.action_dim
-        raw_action = torch.randn((1, action_dim), device=self.device, requires_grad=True)
+        raw_action = torch.tensor(vla_action, dtype=torch.float32, device=self.device, requires_grad=True)
         original_raw_action = raw_action.clone().detach()
 
         optimizer = torch.optim.Adam([raw_action], lr=lr)
@@ -211,10 +241,14 @@ class VLA_CLIP_Inference:
 
             loss.backward()
             optimizer.step()
+            
+            # if step % 10 == 0:
+            #     print(f"Step {step:03d} | sim: {similarity.item():.4f}")
+                # print(f"Step {step:03d} | action: {action.detach().clone()}")
 
             if similarity.item() > best_similarity:
                 best_similarity = similarity.item()
-                best_action = action.detach().clone()  # save the *bounded* action
+                best_action = action.detach().cpu().numpy()  # save the *bounded* action
 
         return best_action, best_similarity
 
@@ -274,7 +308,7 @@ class VLA_CLIP_Inference:
         
         # Tokenize instruction
         if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device)
+            text_tokens = self.model.clip.tokenize(instruction).to(self.device)
         else:
             # Assume it's already tokenized
             text_tokens = instruction.to(self.device)
