@@ -22,15 +22,16 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
     ######## Select the transformations to use ########
     transformations = [
         'synonym', 
-        'antonym', 
-        'negation', 
+        # 'antonym', 
+        # 'negation', 
         # 'verb_noun_shuffle', 
         # 'random_shuffle',
-        'out_set'
+        'out_set',
+        'rephrase'
     ]
     
     # Dictionary to track which transformations create positive vs negative examples
-    positive_transforms = ['synonym','out_set']
+    positive_transforms = ['synonym','out_set','rephrase']
     negative_transforms = ['negation','antonym','verb_noun_shuffle','random_shuffle']
     
     # Create the augmented dataset dictionary
@@ -52,6 +53,11 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
                 
             # Extract task name without .hdf5 extension as the language instruction
             original_instruction = task.replace('.hdf5', '').replace('_', ' ')
+            # remove capital letter and space and number
+            original_instruction = ''.join(char for char in original_instruction if not char.isupper() and not char.isdigit())
+            # if there are space before the first letter, remove it
+            while original_instruction[0].isspace():
+                original_instruction = original_instruction[1:]
             # Add original instruction to dataset
             augmented_dataset[original_instruction] = {
                 'actions': [],
@@ -85,7 +91,6 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
                     
                     # Get actions data
                     actions = demo_data['actions'][()]
-                    
                     # Get observation data
                     obs_group = demo_data['obs']
                     obs_data = obs_group['agentview_rgb'][()]
@@ -96,6 +101,7 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
                     
                     # Add to transformed instructions
                     for transform_type, transformed_text in transformed_instructions.items():
+                        # print ("transformed_text", transformed_text)
                         if transform_type in positive_transforms:
                             # For positive transforms, keep the same actions
                             augmented_dataset[transformed_text]['actions'].append(actions)
@@ -125,7 +131,6 @@ def augment_dataset(dataset_path, dataset_folders, output_path):
     print(f"Saving augmented dataset to {output_path}...")
     with open(output_path, 'wb') as f:
         pickle.dump(augmented_dataset, f)
-    
     print("Done!")
     return augmented_dataset
 
@@ -133,9 +138,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Augment dataset with language transformations')
     parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
                         help='Path to the dataset')
-    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial'],
+    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial', 'libero_90', 'libero_goal', 'libero_object'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_spatial.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_all_positive.pkl',
                         help='Path to save the augmented dataset')
     
     args = parser.parse_args()

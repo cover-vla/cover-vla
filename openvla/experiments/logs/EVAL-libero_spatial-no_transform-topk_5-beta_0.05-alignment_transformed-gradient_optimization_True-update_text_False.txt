@@ -1,0 +1,14 @@
+Task suite: libero_spatial
+
+Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+
+Transformed Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 1...
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Original Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+
+Transformed Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 2...

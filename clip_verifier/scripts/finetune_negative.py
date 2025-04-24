@@ -188,6 +188,7 @@ def train_clip(
     checkpoint_dir = "checkpoints",
     use_wandb = False,
     resume_checkpoint = None,
+    validation_split = 0.1,
 ):
     # Initialize wandb if enabled
     if use_wandb:
@@ -200,6 +201,7 @@ def train_clip(
             "epochs": num_epochs,
             "batch_size": batch_size,
             "device": device,
+            "validation_split": validation_split,
         })
     
     # Create checkpoint directory if it doesn't exist
@@ -250,82 +252,172 @@ def train_clip(
     print(f"Number of parameter groups: {len(optimizer.param_groups)}")
     print(f"Parameters in optimizer: {sum(len(g['params']) for g in optimizer.param_groups)}")
     
-    # Prepare dataset and dataloader
+    # Prepare dataset and split into train/validation
     dataset = CustomDataset(dataset_dict)
-    print ("dataset length", len(dataset))
-    dataloader = DataLoader(
-        dataset, 
+    print("Dataset length", len(dataset))
+    
+    # Split dataset into training and validation
+    dataset_size = len(dataset)
+    val_size = int(validation_split * dataset_size)
+    train_size = dataset_size - val_size
+    
+    train_dataset, val_dataset = torch.utils.data.random_split(
+        dataset, [train_size, val_size], 
+        generator=torch.Generator().manual_seed(42)
+    )
+    
+    print(f"Training set size: {len(train_dataset)}")
+    print(f"Validation set size: {len(val_dataset)}")
+    
+    train_dataloader = DataLoader(
+        train_dataset, 
         batch_size=batch_size, 
         shuffle=True,
-        num_workers=8  # Match CPU thread count
+        num_workers=8
+    )
+    
+    val_dataloader = DataLoader(
+        val_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=8
     )
     
     # Training loop with tqdm
-    model.train()
     epoch_pbar = tqdm(range(start_epoch, num_epochs), desc="Training epochs")
     
+    best_val_loss = float('inf')
     for epoch in epoch_pbar:
-        total_loss = 0
-        batch_pbar = tqdm(dataloader, desc=f"Epoch {epoch}", leave=False)
+        # Training phase
+        model.train()
+        total_train_loss = 0
+        train_batch_pbar = tqdm(train_dataloader, desc=f"Epoch {epoch} (Train)", leave=False)
         
-        for batch_idx, (images, texts, actions) in enumerate(batch_pbar):
+        for batch_idx, (images, texts, actions) in enumerate(train_batch_pbar):
             images = images.to(device)
             texts = clip.tokenize(texts).to(device)
-            if batch_idx == 0:  # Print memory usage after first batch
-                print(f"\nMemory after loading first batch:")
-                print(f"GPU memory allocated: {torch.cuda.memory_allocated() / 1024**2:.2f} MB")
-                print(f"GPU memory reserved: {torch.cuda.memory_reserved() / 1024**2:.2f} MB")
+            actions = actions.to(device)
+            
+            negative_texts = texts.clone().to(device)
+            negative_images = images.clone().to(device)
+            negative_actions = actions + torch.randn_like(actions) * 0.5
+
+            
+            input_images = torch.cat([images, negative_images], dim=0)
+            input_texts = torch.cat([texts, negative_texts], dim=0)
+            input_actions = torch.cat([actions, negative_actions], dim=0)
             
             # Zero the parameter gradients
             optimizer.zero_grad()
             # Forward pass
-            logits_per_image, logits_per_action = model(images, texts, actions)
+            logits_per_image, logits_per_action = model(input_images, input_texts, input_actions)
             
-            ## Version 1
-            # CLIP uses contrastive loss, meaning each image should match its corresponding text
             ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
 
-            # Normalize the logits using temperature scaling (default in CLIP)
-            logits_per_image = logits_per_image / 0.07
-            logits_per_action = logits_per_action / 0.07 
-            # Compute symmetric contrastive loss
-            loss = (nn.CrossEntropyLoss()(logits_per_image, ground_truth) + 
-                    nn.CrossEntropyLoss()(logits_per_action, ground_truth)) / 2
+            # Step 3: Standard contrastive loss on GTs
+            loss_i2t = nn.CrossEntropyLoss()(logits_per_image[:len(images), :len(images)], ground_truth)
+            loss_a2t = nn.CrossEntropyLoss()(logits_per_action[:len(images), :len(images)], ground_truth)
 
+            # Step 4: Explicit **negative loss**
+            neg_logits_i2t = logits_per_image[:len(images), len(images):]
+            neg_logits_a2t = logits_per_action[:len(images), len(images):]
+
+            eps = 1e-6
+            neg_loss_i2t = -torch.log(1 - torch.sigmoid(neg_logits_i2t) + eps).mean()
+            neg_loss_a2t = -torch.log(1 - torch.sigmoid(neg_logits_a2t) + eps).mean()
+
+            # Combine
+            loss = (loss_i2t + loss_a2t) / 2 + 0.2 * (neg_loss_i2t + neg_loss_a2t) / 2
+                  
             # Backward pass and optimize
             loss.backward()
             optimizer.step()
             
-            total_loss += loss.item()
+            total_train_loss += loss.item()
             
             # Log metrics to wandb if enabled
             if use_wandb:
                 wandb.log({
-                    "batch_loss": loss.item(),
-                    "batch": batch_idx + epoch * len(dataloader)
+                    "train_batch_loss": loss.item(),
+                    "batch": batch_idx + epoch * len(train_dataloader)
                 })
             
-            # Check optimizer state after backward
-            if batch_idx == 0:
-                print("\nAfter first backward pass:")
-                print(f"Optimizer state dict size: {len(optimizer.state_dict()['state'])}")
-                print(f"GPU memory allocated: {torch.cuda.memory_allocated() / 1024**2:.2f} MB")
-            
             # Update progress bar
-            batch_pbar.set_postfix({'loss': f'{loss.item():.4f}'})
+            train_batch_pbar.set_postfix({'loss': f'{loss.item():.4f}'})
         
-        avg_loss = total_loss / len(dataloader)
-        epoch_pbar.set_postfix({'avg_loss': f'{avg_loss:.4f}'})
+        avg_train_loss = total_train_loss / len(train_dataloader)
+        
+        # Validation phase
+        model.eval()
+        total_val_loss = 0
+        val_batch_pbar = tqdm(val_dataloader, desc=f"Epoch {epoch} (Val)", leave=False)
+        
+        with torch.no_grad():
+            for batch_idx, (images, texts, actions) in enumerate(val_batch_pbar):
+                images = images.to(device)
+                texts = clip.tokenize(texts).to(device)
+                actions = actions.to(device)
+                
+                negative_texts = texts.clone().to(device)
+                negative_images = images.clone().to(device)
+                negative_actions = actions + torch.randn_like(actions) * 0.6
+
+                input_images = torch.cat([images, negative_images], dim=0)
+                input_texts = torch.cat([texts, negative_texts], dim=0)
+                input_actions = torch.cat([actions, negative_actions], dim=0)
+                
+                # Forward pass
+                logits_per_image, logits_per_action = model(input_images, input_texts, input_actions)
+                
+                ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
+
+                # Calculate validation loss
+                loss_i2t = nn.CrossEntropyLoss()(logits_per_image[:len(images), :len(images)], ground_truth)
+                loss_a2t = nn.CrossEntropyLoss()(logits_per_action[:len(images), :len(images)], ground_truth)
+
+                neg_logits_i2t = logits_per_image[:len(images), len(images):]
+                neg_logits_a2t = logits_per_action[:len(images), len(images):]
+
+                eps = 1e-6
+                neg_loss_i2t = -torch.log(1 - torch.sigmoid(neg_logits_i2t) + eps).mean()
+                neg_loss_a2t = -torch.log(1 - torch.sigmoid(neg_logits_a2t) + eps).mean()
+
+                # Combine
+                val_loss = (loss_i2t + loss_a2t) / 2 + 0.2 * (neg_loss_i2t + neg_loss_a2t) / 2
+                
+                total_val_loss += val_loss.item()
+                
+                # Update progress bar
+                val_batch_pbar.set_postfix({'loss': f'{val_loss.item():.4f}'})
+        
+        avg_val_loss = total_val_loss / len(val_dataloader)
+        
+        # Update main progress bar
+        epoch_pbar.set_postfix({
+            'train_loss': f'{avg_train_loss:.4f}', 
+            'val_loss': f'{avg_val_loss:.4f}'
+        })
         
         # Log epoch metrics to wandb if enabled
         if use_wandb:
             wandb.log({
                 "epoch": epoch,
-                "epoch_avg_loss": avg_loss,
+                "train_loss": avg_train_loss,
+                "val_loss": avg_val_loss,
             })
         
-        # Save checkpoint every 10 epochs
-        if (epoch + 1) % 5 == 0:
+        # Save best model based on validation loss
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            best_model_path = os.path.join(checkpoint_dir, f"{save_name}_best.pt")
+            torch.save(model.state_dict(), best_model_path)
+            print(f"New best model saved with validation loss: {best_val_loss:.4f}")
+            
+            if use_wandb:
+                wandb.run.summary["best_val_loss"] = best_val_loss
+        
+        # Save regular checkpoint every epoch
+        if (epoch + 1) % 1 == 0:
             checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
             torch.save(model.state_dict(), checkpoint_path)
             print(f"Checkpoint saved at {checkpoint_path}")
@@ -354,6 +446,7 @@ if __name__ == "__main__":
     parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial'], help='Dataset folders to use')
     parser.add_argument('--augmented_dataset', type=str, default=None, 
                         help='Path to augmented dataset file (if None, will use regular dataset)')
+    parser.add_argument('--validation_split', type=float, default=0.1, help='Fraction of data to use for validation')
     
     args = parser.parse_args()
     
@@ -429,6 +522,7 @@ if __name__ == "__main__":
         checkpoint_dir=args.checkpoint_dir,
         use_wandb=args.use_wandb,
         resume_checkpoint=args.resume,
+        validation_split=args.validation_split,
     )
     
     print("Saving final model...")

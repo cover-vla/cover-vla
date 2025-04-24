@@ -24,6 +24,41 @@ class CustomDataset(Dataset):
         self.samples = []
         self.trajectory_length = trajectory_length
         
+        # # Flatten the dataset into (image, text, action_trajectory) triplets
+        # for instruction, data in dataset_dict.items():
+        #     images = data['images']
+        #     actions = data['actions']
+            
+        #     for i, img_seq in enumerate(images):
+        #         for j, frame in enumerate(img_seq):
+        #             # Create action trajectory (past actions)
+        #             action_trajectory = []   
+        #             # Add past actions, padding with zeros if not enough history
+        #             for k in range(j - self.trajectory_length, j):
+        #                 if k < 0:
+        #                     # if j > 0:  # If we have at least one valid action
+        #                     #     action_trajectory.append(actions[i][0])  # Use the first action
+        #                     # else:
+        #                     #     if k == j - 1:  # Last position before current frame
+        #                     #         # Use zeros (neutral action) instead of padding token
+        #                     #         action_trajectory.append(np.zeros(actions[i][0].shape))
+        #                     #     else:
+        #                     action_trajectory.append(np.ones(actions[i][0].shape) * -5.0)  # Padding for earlier positions
+        #                 else:
+        #                     action_trajectory.append(actions[i][k])
+                    
+        #             # Convert to numpy array for consistency
+        #             action_trajectory = np.array(action_trajectory)
+                    
+        #             # Verify that not all values are padding
+        #             if np.all(action_trajectory[:, 0] == -5.0):
+        #                 print(f"Warning: Found all-padding trajectory for instruction {instruction}, fixing...")
+        #                 # Force at least one non-padding value
+        #                 action_trajectory[-1] = np.zeros(action_trajectory[-1].shape)
+                    
+        #             # Add to samples
+        #             self.samples.append((frame, instruction, action_trajectory))
+        
         # Flatten the dataset into (image, text, action_trajectory) triplets
         for instruction, data in dataset_dict.items():
             images = data['images']
@@ -31,32 +66,16 @@ class CustomDataset(Dataset):
             
             for i, img_seq in enumerate(images):
                 for j, frame in enumerate(img_seq):
-                    # Create action trajectory (past actions)
-                    action_trajectory = []   
-                    # Add past actions, padding with zeros if not enough history
-                    for k in range(j - self.trajectory_length, j):
-                        if k < 0:
-                            if j > 0:  # If we have at least one valid action
-                                action_trajectory.append(actions[i][0])  # Use the first action
-                            else:
-                                if k == j - 1:  # Last position before current frame
-                                    # Use zeros (neutral action) instead of padding token
-                                    action_trajectory.append(np.zeros(actions[i][0].shape))
-                                else:
-                                    action_trajectory.append(np.ones(actions[i][0].shape) * -5.0)  # Padding for earlier positions
-                        else:
-                            action_trajectory.append(actions[i][k])
+                    # Skip if not enough future actions to form a trajectory
+                    if j + self.trajectory_length > len(actions[i]):
+                        continue  # Skip this sample
+
+                    # Create action trajectory from current time step onward
+                    action_trajectory = actions[i][j : j + self.trajectory_length]
                     
                     # Convert to numpy array for consistency
                     action_trajectory = np.array(action_trajectory)
                     
-                    # Verify that not all values are padding
-                    if np.all(action_trajectory[:, 0] == -5.0):
-                        print(f"Warning: Found all-padding trajectory for instruction {instruction}, fixing...")
-                        # Force at least one non-padding value
-                        action_trajectory[-1] = np.zeros(action_trajectory[-1].shape)
-                    
-                    # Add to samples
                     self.samples.append((frame, instruction, action_trajectory))
         
         # Get CLIP's image preprocessing pipeline
@@ -86,9 +105,6 @@ class VLA_CLIP(nn.Module):
         super().__init__()
         self.clip = model_config.clip_model
         for name, param in self.clip.named_parameters():
-            # if 'text_projection' in name:
-            #     param.requires_grad = True
-            # else:
             param.requires_grad = False
             
         text_pooling_output_dim = model_config.text_pooling_output_dim
@@ -137,13 +153,11 @@ class VLA_CLIP(nn.Module):
         
         # Process each action in the trajectory
         hidden_dim = 128  # Use a reasonable hidden dimension
-        transformer_input_dim = self.action_dim
         self.action_encoder = nn.Linear(self.trajectory_length * self.action_dim, vision_pooling_output_dim)
+        self.single_step_action_encoder = nn.Linear(self.action_dim, vision_pooling_output_dim)
         
         self.complex_action_encoder = nn.Sequential(
-            nn.Linear(self.trajectory_length * self.action_dim, 128),
-            nn.ReLU(),
-            nn.Linear(128, 256),
+            nn.Linear(self.trajectory_length * self.action_dim, 256),
             nn.ReLU(),
             nn.Linear(256, vision_pooling_output_dim)
         )
@@ -151,16 +165,17 @@ class VLA_CLIP(nn.Module):
         # Process the entire trajectory with a transformer
         self.trajectory_encoder = nn.TransformerEncoder(
             nn.TransformerEncoderLayer(
-                d_model=transformer_input_dim,  # Match the hidden dimension from action_encoder
-                nhead=1,  # Number of attention heads (must divide hidden_dim evenly)
+                d_model=vision_pooling_output_dim,  # Match the hidden dimension from action_encoder
+                nhead=8,  # Number of attention heads (must divide hidden_dim evenly)
                 dim_feedforward=hidden_dim * 2,
-                batch_first=True
+                batch_first=True,
+                dropout=0.1
             ),
-            num_layers=2
+            num_layers=4
         )
         
         # Final projection to match vision_pooling_output_dim
-        self.trajectory_projection = nn.Linear(transformer_input_dim, vision_pooling_output_dim)
+        self.trajectory_projection = nn.Linear(vision_pooling_output_dim, vision_pooling_output_dim)
         
         self.use_transformer = use_transformer
         
@@ -235,9 +250,9 @@ class VLA_CLIP(nn.Module):
         padding_mask = (action_trajectories[:, :, 0] == -5.0).to(image.device)  # Ensure mask is on the same device
         # Encode each action in the trajectory
         if self.use_transformer:
-            # Process with transformer
-            action_trajectories = action_trajectories.float().to(image.device)
-            encoded_trajectory = self.trajectory_encoder(action_trajectories, src_key_padding_mask=padding_mask)
+            # encode each step in the trajectory
+            encoded_trajectory = self.single_step_action_encoder(action_trajectories.float().to(image.device))
+            encoded_trajectory = self.trajectory_encoder(encoded_trajectory, src_key_padding_mask=padding_mask)
             
             # find the last non-padding token
             batch_indices = torch.arange(encoded_trajectory.size(0), device=encoded_trajectory.device)
@@ -409,11 +424,9 @@ def train_clip(
                 "epoch_avg_loss": avg_loss,
             })
         
-        # Save checkpoint every 10 epochs
-        if (epoch + 1) % 10 == 0:
-            checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
-            torch.save(model.state_dict(), checkpoint_path)
-            print(f"Checkpoint saved at {checkpoint_path}")
+        checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
+        torch.save(model.state_dict(), checkpoint_path)
+        print(f"Checkpoint saved at {checkpoint_path}")
     
     # Close wandb run if enabled
     if use_wandb:

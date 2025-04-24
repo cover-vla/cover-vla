@@ -1,0 +1,6 @@
+Task suite: libero_10
+
+Original Task: put both the alphabet soup and the tomato sauce in the basket
+
+Transformed Task: put both the alphabet soup and the tomato sauce in the basket
+Starting episode 1...

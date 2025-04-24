@@ -20,6 +20,7 @@ class CustomDataset(Dataset):
             dataset_dict: Dictionary containing language instructions and corresponding image sequences
         """
         self.samples = []
+        
         # Flatten the dataset into (image, text) pairs
         for instruction, data in dataset_dict.items():
             images = data['images']  # Shape: (103, 128, 128, 3)
@@ -75,6 +76,7 @@ class VLA_CLIP(nn.Module):
             num_img_patches=self.num_img_patches,  # For ViT-B/32
             vision_dim=vision_dim,
         )
+        
         # Components
         self.text_pooling = AttentionPooling(
             text_dim, 
@@ -90,15 +92,25 @@ class VLA_CLIP(nn.Module):
             pooling_layers, 
             num_readouts=self.num_readouts
         )
-        
-        self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
-        
-        self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
+        self.raw_vision_pooling = AttentionPooling(
+            vision_dim,
+            vision_pooling_output_dim,
+            pooling_heads,
+            pooling_layers,
+            num_readouts=self.num_readouts
+        )
         
         # Create action projection layers in __init__ so they're properly tracked
         # Determine action dimension from your dataset (e.g., 7 for a 7-DOF robot)
         self.action_dim = model_config.action_dim
         self.action_projection = nn.Linear(self.action_dim, vision_pooling_output_dim)
+        
+        self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
+        self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
+        self.text_projection = nn.Linear(text_pooling_output_dim, vision_pooling_output_dim)
+
+        self.action_image_feature = nn.Linear(vision_pooling_output_dim + vision_pooling_output_dim, vision_pooling_output_dim)
+        
         self.activation = {}
         def get_activation(name):
             def hook(model, input, output):
@@ -149,32 +161,28 @@ class VLA_CLIP(nn.Module):
     def forward(self, image, text, actions):
         # Extract patch-level features and text features
         patch_features, text_features = self.extract_clip_features(image, text)
-        
         # Process through text-aware visual extraction
         text_aware_features = self.text_aware_visual_extraction(patch_features, text_features)
         vision_token = self.vision_poolings(text_aware_features)
         
         text_token = self.text_pooling(text_features)
+        text_token = self.text_projection(text_token)
+
+        text_token = text_token / text_token.norm(dim=-1, keepdim=True)
         
-        combined_features = torch.cat([text_token, vision_token], dim=-1)
-        
-        combined_features = self.input_projection(combined_features)
-        
-        # Normalize features
-        combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-        
-        # Convert actions to tensors
+        # Project raw actions
         action_tensors = torch.stack([torch.tensor(a, device=image.device) for a in actions])
-        
-        # Project action tensors using the properly initialized projection layers
-        projected_actions = self.action_projection(action_tensors.float())
-        
-        # Normalize action features
-        projected_actions = projected_actions / projected_actions.norm(dim=-1, keepdim=True)
-        
+        projected_actions = self.action_projection(action_tensors.float())  # [B, D]
+        # raw_vision_token = self.raw_vision_pooling(patch_features)
+        # raw_vision_token = raw_vision_token / raw_vision_token.norm(dim=-1, keepdim=True)
+        action_image_feature = self.action_image_feature(torch.cat([projected_actions, vision_token], dim=-1))
+        action_image_feature = action_image_feature / action_image_feature.norm(dim=-1, keepdim=True)
         # Get logits
-        image_logits = torch.matmul(combined_features, projected_actions.T)
-        action_logits = torch.matmul(projected_actions, combined_features.T)
+        image_logits = torch.matmul(text_token, action_image_feature.T)
+        action_logits = torch.matmul(action_image_feature, text_token.T)
+        
+        # print the sum of the projected actions
+        # print(f"Sum of projected actions: {projected_actions.sum()}")
         
         return image_logits, action_logits
         
@@ -252,7 +260,6 @@ def train_clip(
     
     # Prepare dataset and dataloader
     dataset = CustomDataset(dataset_dict)
-    print ("dataset length", len(dataset))
     dataloader = DataLoader(
         dataset, 
         batch_size=batch_size, 
@@ -325,10 +332,10 @@ def train_clip(
             })
         
         # Save checkpoint every 10 epochs
-        if (epoch + 1) % 5 == 0:
-            checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
-            torch.save(model.state_dict(), checkpoint_path)
-            print(f"Checkpoint saved at {checkpoint_path}")
+        # if (epoch + 1) % 1 == 0:
+        checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
+        torch.save(model.state_dict(), checkpoint_path)
+        print(f"Checkpoint saved at {checkpoint_path}")
     
     # Close wandb run if enabled
     if use_wandb:

@@ -104,9 +104,9 @@ class VLA_CLIP_Inference:
     def optimize_action_and_instruction(self, 
                                         image, 
                                         instruction, 
+                                        vla_action,
                                         num_iterations=500, 
                                         lr=1e-3, 
-                                        temperature=0.07, 
                                         reg_weight=0.1,
                                         topk=5):
         """
@@ -123,9 +123,7 @@ class VLA_CLIP_Inference:
         text_embed.requires_grad_()
 
 
-        # Learnable raw action vector (before tanh)
-        action_dim = self.model.action_dim
-        raw_action = torch.randn(action_dim, device=self.device, requires_grad=True)
+        raw_action = torch.tensor(vla_action, dtype=torch.float32, device=self.device, requires_grad=True)
         original_raw_action = raw_action.clone().detach()
 
         # Optimizer over both
@@ -167,12 +165,12 @@ class VLA_CLIP_Inference:
             combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
 
             # Project action
-            action = torch.tanh(raw_action)
+            action = torch.clamp(raw_action, -1, 1)
             projected_action = self.model.action_projection(action)
             projected_action = projected_action / projected_action.norm(dim=-1, keepdim=True)
 
             # CLIP similarity score
-            similarity = (combined_features @ projected_action.T).squeeze() / temperature
+            similarity = (combined_features @ projected_action.T).squeeze()
 
             # Regularization to keep close to original instruction & action
             text_reg = F.mse_loss(text_embed, original_text_embed)
@@ -197,7 +195,7 @@ class VLA_CLIP_Inference:
 
 
     
-    def optimize_action_gradient(self, image, instruction, vla_action, num_iterations=500, lr=1e-3, temperature=0.07, reg_weight=0.1):
+    def optimize_action_gradient(self, image, instruction, vla_action, num_iterations=500, lr=1e-3, reg_weight=0.1, topk=5, beta=0.5):
         """
         Optimize action vector using gradient-based optimization of CLIP similarity.
         Fixes image and instruction; optimizes action (bounded via tanh) to align with image-text embedding.
@@ -219,38 +217,48 @@ class VLA_CLIP_Inference:
 
         # Initialize raw action tensor (before tanh)
         raw_action = torch.tensor(vla_action, dtype=torch.float32, device=self.device, requires_grad=True)
-        original_raw_action = raw_action.clone().detach()
+        original_raw_action = raw_action.clone()
 
         optimizer = torch.optim.Adam([raw_action], lr=lr)
 
-        best_similarity = float('-inf')
-        best_action = None
 
+        batch_similarity = []
+        batch_action = []
+        save_frequency = num_iterations // topk
         for step in range(num_iterations):
             optimizer.zero_grad()
 
-            # Apply tanh to keep action in [-1, 1]
-            action = torch.tanh(raw_action)
+            # Apply clip to keep action in [-1, 1]
+            action = torch.clamp(raw_action, -1, 1)
+            action[0][..., -1] = torch.sign(action[0][..., -1])
 
-            projected_action = self.model.action_projection(action)
-            projected_action = projected_action / projected_action.norm(dim=-1, keepdim=True)
+            projected_action = self.model.action_projection(action.float())
+            combined_action_vision_features = torch.cat([vision_token, projected_action], dim=-1)
+            combined_action_vision_features = self.model.action_image_projection(combined_action_vision_features)
+            
+            combined_action_vision_features = combined_action_vision_features / combined_action_vision_features.norm(dim=-1, keepdim=True)
 
-            similarity = (combined_features @ projected_action.T).squeeze() / temperature
+            # similarity = (combined_features @ projected_action.T).squeeze() / temperature
+            similarity = (combined_features @ combined_action_vision_features.T).squeeze()
             reg_loss = F.mse_loss(raw_action, original_raw_action)  # regularize unbounded latent
             loss = -similarity + reg_weight * reg_loss
 
             loss.backward()
             optimizer.step()
             
-            # if step % 10 == 0:
-            #     print(f"Step {step:03d} | sim: {similarity.item():.4f}")
-                # print(f"Step {step:03d} | action: {action.detach().clone()}")
-
-            if similarity.item() > best_similarity:
-                best_similarity = similarity.item()
-                best_action = action.detach().cpu().numpy()  # save the *bounded* action
-
-        return best_action, best_similarity
+            if step % save_frequency == 0:
+                batch_similarity.append(similarity.item())
+                batch_action.append(action[0].clone())   
+        # weights = np.exp(np.array(batch_similarity) / beta)
+        # weights = weights / np.sum(weights)
+        # sampled_idx = np.random.choice(len(weights), p=weights)
+        
+        similarities = torch.tensor(batch_similarity, dtype=torch.float32, device=self.device)
+        weights = torch.softmax(similarities / beta, dim=0)
+        sampled_idx = torch.multinomial(weights, num_samples=1).item()
+        print (f"original score: {batch_similarity[0]}, optimized score: {batch_similarity[sampled_idx]}")
+        print (f"original action: {original_raw_action[0],batch_action[sampled_idx]}")
+        return batch_action[sampled_idx], batch_similarity[sampled_idx]
 
 
     def online_predict(self, image, instruction, actions, task_description_list=[], softmax=False, beta=0.5):
@@ -287,7 +295,7 @@ class VLA_CLIP_Inference:
 
         return scores, predicted_action, predicted_task_description
     
-    def predict(self, image, instruction, possible_actions, action_history=None):
+    def predict(self, image, instruction, possible_actions):
         """
         Predict the most likely action given an image and instruction
         
@@ -300,6 +308,7 @@ class VLA_CLIP_Inference:
             predicted_action: The most likely action
             action_scores: Dictionary mapping actions to scores
         """
+
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
@@ -308,7 +317,7 @@ class VLA_CLIP_Inference:
         
         # Tokenize instruction
         if isinstance(instruction, str):
-            text_tokens = self.model.clip.tokenize(instruction).to(self.device)
+            text_tokens = clip.tokenize(instruction).to(self.device)
         else:
             # Assume it's already tokenized
             text_tokens = instruction.to(self.device)
@@ -320,6 +329,7 @@ class VLA_CLIP_Inference:
             for action in possible_actions:
                 # Convert to tensor
                 tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
+                # tensor[0] = tensor[0] * 1 + tensor[0]
                 action_tensors.append(tensor)
             
             # Stack tensors into a batch
@@ -346,7 +356,8 @@ def load_libero_dataset(libero_base_path):
     # Get all subdirectories in the datasets folder
     dataset_folders = [f for f in os.listdir(libero_base_path) 
                       if os.path.isdir(os.path.join(libero_base_path, f))]
-    dataset_folders = ["libero_spatial"]
+    # dataset_folders = ["libero_spatial"]
+    dataset_folders = ["libero_10"]
     # Process each dataset folder
     for folder in dataset_folders:
         folder_path = os.path.join(libero_base_path, folder)
@@ -359,6 +370,11 @@ def load_libero_dataset(libero_base_path):
                 
             # Extract task name without .hdf5 extension as the language instruction
             language_instruction = task.replace('.hdf5', '').replace('_', ' ')
+            # remove capital letter and space and number
+            language_instruction = ''.join(char for char in language_instruction if not char.isupper() and not char.isdigit())
+            # if there are space before the first letter, remove it
+            while language_instruction[0].isspace():
+                language_instruction = language_instruction[1:]
             dataset_dict[language_instruction] = {
                 'actions': [],
                 'images': []
@@ -436,6 +452,7 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
     else:
         samples = []
         action_trajectories = []
+        image_trajectories = []
         for instruction, data in dataset_dict.items():
             images = data['images']
             actions = data['actions']
@@ -443,7 +460,7 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
                 for j, frame in enumerate(img_seq):
                     samples.append((frame, instruction, actions[i][j]))
                     action_trajectories.append(actions[i][j])
-    
+                    image_trajectories.append(img_seq)
     # Randomly sample test points
     random.seed(42)  # For reproducibility
     sampled_indices = random.sample(range(len(samples)), min(num_samples, len(samples)))
@@ -452,21 +469,18 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
     results = []
     for idx in tqdm(sampled_indices, desc="Testing samples"):
         ground_truth_frame, ground_truth_instruction, ground_truth_action_trajectory = samples[idx]
-        
         # Create action pool with ground truth action
         action_trajectory_pool = [ground_truth_action_trajectory]
-        
         # Sample additional action trajectories for the pool
         other_trajectories = [a for i, a in enumerate(action_trajectories) 
                              if i != idx and not np.array_equal(a, ground_truth_action_trajectory)]
-        
+
         if other_trajectories and action_pool_size > 1:
             sampled_trajectories = random.sample(other_trajectories, min(action_pool_size - 1, len(other_trajectories)))
             action_trajectory_pool.extend(sampled_trajectories)
-        
+
         # Shuffle the action pool
         random.shuffle(action_trajectory_pool)
-        
         # Find index of ground truth in the shuffled action pool
         ground_truth_idx = None
         for i, traj in enumerate(action_trajectory_pool):
@@ -475,7 +489,7 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
                 break
         # Run prediction
         predicted_action, scores = inference_model.predict(
-            ground_truth_frame, ground_truth_instruction, action_trajectory_pool,
+            ground_truth_frame, ground_truth_instruction, action_trajectory_pool
         )
         
         # Check if prediction is correct
@@ -491,7 +505,6 @@ def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples
             'scores': scores,
             'correct': is_correct,
         })
-    
     return results
 
 def display_results(results):
@@ -569,9 +582,9 @@ if __name__ == "__main__":
                         help='Path to the trained model file')
     parser.add_argument('--trajectory_mode', action='store_true',
                         help='Whether to use trajectory mode')
-    parser.add_argument('--num_samples', type=int, default=30,
+    parser.add_argument('--num_samples', type=int, default=10,
                         help='Number of samples to test')
-    parser.add_argument('--action_pool_size', type=int, default=2,
+    parser.add_argument('--action_pool_size', type=int, default=20,
                         help='Size of the action pool for each test sample')
     parser.add_argument('--libero_path', type=str, default="/home/xilun/LIBERO/libero/datasets",
                         help='Path to LIBERO dataset')

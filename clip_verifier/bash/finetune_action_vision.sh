@@ -8,13 +8,13 @@
 #     --use_wandb
 
 
-CUDA_VISIBLE_DEVICES=0 python ../scripts/finetune.py \
-    --epochs 50 \
-    --batch_size 1024 \
-    --lr 2e-4 \
-    --save_name All_clip \
+CUDA_VISIBLE_DEVICES=0 python ../scripts/finetune_action_image.py \
+    --epochs 5 \
+    --batch_size 512 \
+    --lr 7e-5 \
+    --save_name all_clip_action_vision \
     --dataset_path /home/xilun/LIBERO/libero/datasets \
-    --augmented_dataset ../augmented_datasets/libero_all_positive.pkl \
+    --augmented_dataset ../augmented_datasets/libero_all.pkl \
     --use_wandb
 
 # CUDA_VISIBLE_DEVICES=3 python ../scripts/finetune.py \
