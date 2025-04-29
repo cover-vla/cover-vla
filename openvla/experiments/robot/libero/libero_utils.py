@@ -57,23 +57,15 @@ def get_libero_image(obs, resize_size):
     return img
 
 
-def save_rollout_video(rollout_images, idx, success, 
-                       task_description, log_file=None, score_list=None, action_list=None, 
-                       language_transformation_type=None, 
-                       sampling_based_optimization=False,
-                       gradient_based_optimization=False):
+def save_rollout_video(rollout_images, idx, success, transform_type,
+                       task_description, log_file=None, score_list=None, action_list=None):
     
     """Saves an MP4 replay of an episode."""
-    if sampling_based_optimization:
-        rollout_dir = f"./rollouts/sampling_based_optimization/{language_transformation_type}"
-    elif gradient_based_optimization:
-        rollout_dir = f"./rollouts/gradient_based_optimization/{language_transformation_type}"
-    else:
-        rollout_dir = f"./rollouts/no_optimization/{language_transformation_type}"
+    rollout_dir = f"./rollouts/{transform_type}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
-    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.mp4"
-    data_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.pkl"
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--score={round(np.nanmean(score_list), 3) if score_list else None}--task={processed_task_description}.mp4"
+    data_path = f"{rollout_dir}/episode={idx}--success={success}--score={round(np.nanmean(score_list), 3) if score_list else None}--task={processed_task_description}.pkl"
     video_writer = imageio.get_writer(mp4_path, fps=30)
     for img in rollout_images:
         video_writer.append_data(img)

@@ -1,8 +1,0 @@
-Task suite: libero_spatial
-
-Task: black the it on plate the the place between and and up pick plate the bowl ramekin
-Starting episode 1...
-Saved rollout MP4 at path ./rollouts/2025_02_16/2025_02_16-23_15_41--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
-Success: True
-# episodes completed so far: 1
-# successes: 1 (100.0%)

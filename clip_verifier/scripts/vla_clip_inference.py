@@ -1,33 +1,35 @@
 import torch
 import clip
 from PIL import Image
-import h5py
 import os
 import numpy as np
 import random
 from tqdm import tqdm
 from model import TextAwareVisualExtraction, ModelConfig
+from finetune_trajectory import VLA_CLIP
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
-import matplotlib.pyplot as plt
 import argparse
 import torch.nn.functional as F
 from clip.simple_tokenizer import SimpleTokenizer
+import pickle
 
-
+ACTION_PADDING_VALUE = -5.0 # Define padding value globally
 
 class VLA_CLIP_Inference:
-    def __init__(self, model_path, trajectory_mode=True, trajectory_length=20, device="cuda" if torch.cuda.is_available() else "cpu", use_transformer=False):
+    def __init__(self, model_path, history_length, use_transformer=False, device="cuda" if torch.cuda.is_available() else "cpu"):
         # Load the base CLIP model
-        self.clip_model, self.preprocess = clip.load("ViT-B/32", device=device, jit=False)
+        self.clip_model, _ = clip.load("ViT-B/32", device=device, jit=False)
         
-        # Set mode (trajectory or single action)
-        self.trajectory_mode = trajectory_mode
-        self.trajectory_length = trajectory_length
+        # --- Configuration specific to trajectory model ---
+        self.trajectory_mode = True # Hardcoded for this script version
+        self.history_length = history_length
+        self.use_transformer = use_transformer
+        # --------------------------------------------------
         
         self.tokenizer = SimpleTokenizer()
         
-        # Initialize the VLA_CLIP model
-        self.model = self._init_model(model_path, device, use_transformer)
+        # Initialize the VLA_CLIP model for trajectories
+        self.model = self._init_model(model_path, device)
         self.device = device
         
         # Get CLIP's image preprocessing pipeline
@@ -39,28 +41,20 @@ class VLA_CLIP_Inference:
                      (0.26862954, 0.26130258, 0.27577711))
         ])
     
-    def _init_model(self, model_path, device, use_transformer):
-        # Initialize the appropriate model based on mode
-        if self.trajectory_mode:
-            from finetune_trajectory import VLA_CLIP
-        else:
-            from finetune import VLA_CLIP
+    def _init_model(self, model_path, device):
+        # Initialize the trajectory model
+        # ModelConfig needs history_length
+        model_config = ModelConfig(clip_model=self.clip_model, history_length=self.history_length)
         
-        # Create model configuration
-        from model import ModelConfig
-        model_config = ModelConfig(clip_model=self.clip_model)
-        
-        # Set trajectory parameters if in trajectory mode
-        if self.trajectory_mode:
-            model_config.trajectory_length = self.trajectory_length
-        
-        # Initialize model
-        model = VLA_CLIP(model_config, use_transformer=use_transformer).to(device)
+        # Initialize model using the imported VLA_CLIP from finetune_trajectory
+        model = VLA_CLIP(model_config, use_transformer=self.use_transformer).to(device)
         
         # Load trained weights
+        print(f"Loading model weights from: {model_path}")
         model.load_state_dict(torch.load(model_path, map_location=device), strict=True)
         model.eval()  # Set to evaluation mode
         model.float()  # Ensure model is in float32 precision
+        print("Model loaded successfully.")
         return model
     
     def decode_text_embed(self, text_embed, topk=1):
@@ -100,409 +94,244 @@ class VLA_CLIP_Inference:
             # Decode to string
             return self.tokenizer.decode(decoded_token_ids)
 
-    
-    def optimize_action_and_instruction(self, 
-                                        image, 
-                                        instruction, 
-                                        vla_action,
-                                        num_iterations=500, 
-                                        lr=1e-3, 
-                                        reg_weight=0.1,
-                                        topk=5):
+
+    def predict(self, image, instruction, possible_action_histories):
         """
-        Jointly optimize action and instruction to maximize CLIP similarity with a fixed image.
-        """
-        if isinstance(image, np.ndarray):
-            image = Image.fromarray(image.astype('uint8'))
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-                # Tokenize text and get learnable embeddings
-        
-        tokenized = clip.tokenize(instruction).to(self.device)
-        original_text_embed = self.clip_model.token_embedding(tokenized).detach().clone()
-        text_embed = original_text_embed + 0.1 * torch.randn_like(original_text_embed)
-        text_embed.requires_grad_()
+        Predict the most likely action history given an image and instruction.
 
-
-        raw_action = torch.tensor(vla_action, dtype=torch.float32, device=self.device, requires_grad=True)
-        original_raw_action = raw_action.clone().detach()
-
-        # Optimizer over both
-        optimizer = torch.optim.Adam([raw_action, text_embed], lr=lr)
-
-        best_similarity = float('-inf')
-        best_action = None
-        best_text_embed = None
-
-        # Encoder for custom text embedding
-        def encode_text_from_embedding(embedding):
-            x = embedding + self.clip_model.positional_embedding
-            x = x.permute(1, 0, 2)
-            x = self.clip_model.transformer(x)
-            x = x.permute(1, 0, 2)
-            x = self.clip_model.ln_final(x)
-            x = x[torch.arange(x.shape[0]), tokenized.argmax(dim=-1)]
-            return x @ self.clip_model.text_projection
-
-        for step in range(num_iterations):
-            optimizer.zero_grad()
-
-            # Text feature
-            text_features = encode_text_from_embedding(text_embed)
-            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-
-            # Image feature (fixed)
-            with torch.no_grad():
-                image_features = self.clip_model.encode_image(image_tensor)
-                image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-
-            # Combined CLIP feature
-            patch_features, _ = self.model.extract_clip_features(image_tensor, tokenized)
-            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features.unsqueeze(1))
-            vision_token = self.model.vision_poolings(text_aware_features)
-            text_token = self.model.text_pooling(text_features.unsqueeze(1))
-            combined_features = torch.cat([text_token, vision_token], dim=-1)
-            combined_features = self.model.input_projection(combined_features)
-            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-
-            # Project action
-            action = torch.clamp(raw_action, -1, 1)
-            projected_action = self.model.action_projection(action)
-            projected_action = projected_action / projected_action.norm(dim=-1, keepdim=True)
-
-            # CLIP similarity score
-            similarity = (combined_features @ projected_action.T).squeeze()
-
-            # Regularization to keep close to original instruction & action
-            text_reg = F.mse_loss(text_embed, original_text_embed)
-            action_reg = F.mse_loss(raw_action, original_raw_action)
-            loss = -similarity + reg_weight * (text_reg + action_reg)
-
-            loss.backward()
-            optimizer.step()
-
-            if similarity.item() > best_similarity:
-                best_similarity = similarity.item()
-                best_action = action.detach().clone().cpu().numpy()
-                best_text_embed = text_embed.detach().clone()
-
-            # if step % 100 == 0:
-            #     print(f"Step {step:03d} | sim: {similarity.item():.4f}")
-                
-        # Decode optimized text embedding
-        decoded_text = self.decode_text_embed(best_text_embed, topk=topk)
-
-        return best_action, decoded_text, best_similarity
-
-
-    
-    def optimize_action_gradient(self, image, instruction, vla_action, num_iterations=500, lr=1e-3, reg_weight=0.1, topk=5, beta=0.5):
-        """
-        Optimize action vector using gradient-based optimization of CLIP similarity.
-        Fixes image and instruction; optimizes action (bounded via tanh) to align with image-text embedding.
-        """
-        if isinstance(image, np.ndarray):
-            image = Image.fromarray(image.astype('uint8'))
-
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        tokenized = clip.tokenize(instruction).to(self.device)
-
-        with torch.no_grad():
-            patch_features, text_features = self.model.extract_clip_features(image_tensor, tokenized)
-            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features)
-            vision_token = self.model.vision_poolings(text_aware_features)
-            text_token = self.model.text_pooling(text_features)
-            combined_features = torch.cat([text_token, vision_token], dim=-1)
-            combined_features = self.model.input_projection(combined_features)
-            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-
-        # Initialize raw action tensor (before tanh)
-        raw_action = torch.tensor(vla_action, dtype=torch.float32, device=self.device, requires_grad=True)
-        original_raw_action = raw_action.clone()
-
-        optimizer = torch.optim.Adam([raw_action], lr=lr)
-
-
-        batch_similarity = []
-        batch_action = []
-        save_frequency = num_iterations // topk
-        for step in range(num_iterations):
-            optimizer.zero_grad()
-
-            # Apply clip to keep action in [-1, 1]
-            action = torch.clamp(raw_action, -1, 1)
-            action[0][..., -1] = torch.sign(action[0][..., -1])
-
-            projected_action = self.model.action_projection(action.float())
-            combined_action_vision_features = torch.cat([vision_token, projected_action], dim=-1)
-            combined_action_vision_features = self.model.action_image_projection(combined_action_vision_features)
-            
-            combined_action_vision_features = combined_action_vision_features / combined_action_vision_features.norm(dim=-1, keepdim=True)
-
-            # similarity = (combined_features @ projected_action.T).squeeze() / temperature
-            similarity = (combined_features @ combined_action_vision_features.T).squeeze()
-            reg_loss = F.mse_loss(raw_action, original_raw_action)  # regularize unbounded latent
-            loss = -similarity + reg_weight * reg_loss
-
-            loss.backward()
-            optimizer.step()
-            
-            if step % save_frequency == 0:
-                batch_similarity.append(similarity.item())
-                batch_action.append(action[0].clone())   
-        # weights = np.exp(np.array(batch_similarity) / beta)
-        # weights = weights / np.sum(weights)
-        # sampled_idx = np.random.choice(len(weights), p=weights)
-        
-        similarities = torch.tensor(batch_similarity, dtype=torch.float32, device=self.device)
-        weights = torch.softmax(similarities / beta, dim=0)
-        sampled_idx = torch.multinomial(weights, num_samples=1).item()
-        print (f"original score: {batch_similarity[0]}, optimized score: {batch_similarity[sampled_idx]}")
-        print (f"original action: {original_raw_action[0],batch_action[sampled_idx]}")
-        return batch_action[sampled_idx], batch_similarity[sampled_idx]
-
-
-    def online_predict(self, image, instruction, actions, task_description_list=[], softmax=False, beta=0.5):
-        """
-        Output the image logits for the given image, instruction, and action.
-        """
-
-        text_input = clip.tokenize(instruction).to(self.device) if isinstance(instruction, str) else instruction.to(self.device)
-        
-        # Preprocess image
-        if isinstance(image, np.ndarray):
-            image = Image.fromarray(image.astype('uint8'))
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        
-        with torch.no_grad():
-            action_tensors = []
-            for action in actions:
-                tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
-                action_tensors.append(tensor)
-            
-            action_batch = torch.stack(action_tensors)
-            image_logits, _ = self.model(image_tensor, text_input, action_batch)
-            
-            scores = image_logits.cpu().numpy()[0]
-            if softmax:
-                weights = np.exp(scores / beta)
-                weights = weights / np.sum(weights)
-                sampled_idx = np.random.choice(len(weights), p=weights)
-            else:
-                sampled_idx = scores.argmax()
-            
-            predicted_action = actions[sampled_idx]
-            predicted_task_description = task_description_list[sampled_idx] if task_description_list else None
-
-        return scores, predicted_action, predicted_task_description
-    
-    def predict(self, image, instruction, possible_actions):
-        """
-        Predict the most likely action given an image and instruction
-        
         Args:
             image: PIL Image or numpy array
             instruction: String instruction
-            possible_actions: List of numerical action arrays or action trajectories
-            
-        Returns:
-            predicted_action: The most likely action
-            action_scores: Dictionary mapping actions to scores
-        """
+            possible_action_histories: List of numpy action history arrays (Shape [H, D])
 
+        Returns:
+            predicted_history: The most likely action history (numpy array)
+            history_scores: Dictionary mapping history index (str) to score (float)
+        """
+        # Preprocess image
+        if isinstance(image, np.ndarray):
+            # Assume it's already rotated correctly if loaded from our augmented dataset
+            image = Image.fromarray(image.astype('uint8'))
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device) # Shape (1, C, H, W)
+
+        # Tokenize instruction
+        if isinstance(instruction, str):
+            text_tokens = clip.tokenize(instruction).to(self.device) # Shape (1, SeqLen)
+        else:
+            # Assume it's already tokenized tensor
+            text_tokens = instruction.to(self.device)
+
+        with torch.no_grad():
+            # Convert action histories to a batch tensor
+            # List of (H, D) arrays -> Tensor (PoolSize, H, D)
+            history_batch = torch.tensor(np.array(possible_action_histories), dtype=torch.float32).to(self.device)
+
+            # The model's forward pass needs image/text repeated for each action history
+            num_histories = history_batch.shape[0]
+            image_batch = image_tensor.repeat(num_histories, 1, 1, 1) # Shape (PoolSize, C, H, W)
+            text_batch = text_tokens.repeat(num_histories, 1)       # Shape (PoolSize, SeqLen)
+
+            # Run inference
+            # Model expects (B, H, D) actions, where B is batch size (here PoolSize)
+            # It calculates (B, B) logits internally, but we only need the diagonal
+            # Let's adapt the call slightly or interpret the result carefully.
+            # A simpler approach: process one history at a time? No, less efficient.
+            # Let's trust the model's internal contrastive calculation and extract the relevant scores.
+
+            # Pass the batch to the model. It should handle the comparison internally.
+            # The output logits_per_image will be (PoolSize, PoolSize).
+            # The score for image_i vs action_j is logits_per_image[i, j]
+            # Since image is repeated, image_i is the same image.
+            # So, score for the single input image vs action_j is logits_per_image[0, j] (or any i)
+            image_logits, action_logits = self.model(image_batch, text_batch, history_batch)
+
+            # Extract scores of the single image against all action histories in the pool
+            scores = image_logits[0, :].cpu().numpy() # Get first row, shape (PoolSize,)
+
+            # Get predicted action history
+            predicted_idx = scores.argmax()
+            predicted_history = possible_action_histories[predicted_idx] # Return numpy array
+
+        # Create a dictionary of scores for all histories in the pool
+        history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
+
+        return predicted_history, history_scores
+
+    # --- New Method for Scoring ---
+    def get_history_score(self, image, instruction, action_history):
+        """
+        Calculates the VLA-CLIP similarity score between an image/instruction
+        and a given action history.
+
+        Args:
+            image: PIL Image or numpy array (expects correct orientation).
+            instruction: String instruction.
+            action_history: Numpy array action history (H, D), potentially padded.
+
+        Returns:
+            score: Float similarity score.
+        """
         # Preprocess image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device) # Shape (1, C, H, W)
 
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        
         # Tokenize instruction
         if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device)
+            text_tokens = clip.tokenize(instruction).to(self.device) # Shape (1, SeqLen)
         else:
-            # Assume it's already tokenized
             text_tokens = instruction.to(self.device)
-            
-        # Single action mode
+
+        # Prepare action history tensor
+        # Input history should already be padded if necessary by the caller
+        history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device) # Shape (1, H, D)
+
         with torch.no_grad():
-            # Convert actions to tensors
-            action_tensors = []
-            for action in possible_actions:
-                # Convert to tensor
-                tensor = torch.tensor(action, dtype=torch.float32).to(self.device)
-                # tensor[0] = tensor[0] * 1 + tensor[0]
-                action_tensors.append(tensor)
+            # --- Get Combined Image/Text Embedding ---
+            # Use the model's internal methods, assuming batch size 1
+            patch_features, text_features = self.model.extract_clip_features(image_tensor, text_tokens)
+            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features) # text_features might need unsqueeze(1) if model expects (B, N, D)
+            # Check model's text_aware_visual_extraction input expectation if error occurs
+            if text_features.ndim == 2: text_features = text_features.unsqueeze(1) # Ensure (B, N_txt, D)
             
-            # Stack tensors into a batch
-            action_batch = torch.stack(action_tensors)
-            # Run inference with single actions
-            image_logits, _ = self.model(image_tensor, text_tokens, action_batch)
-            
-            # Get scores from image_logits
-            scores = image_logits.cpu().numpy()[0]
-            
-            # Get predicted action
-            predicted_idx = scores.argmax()
-            predicted_action = possible_actions[predicted_idx]
-        
-        # Create a dictionary of action scores for all actions in the pool
-        action_scores = {str(i): float(scores[i]) for i in range(len(scores))}
-        
-        return predicted_action, action_scores
+            vision_token = self.model.vision_poolings(text_aware_features)
+            text_token = self.model.text_pooling(text_features) # Check model's text_pooling input expectation
+            combined_features = torch.cat([text_token, vision_token], dim=-1)
+            combined_features = self.model.input_projection(combined_features) # Shape (1, E)
+            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
+            # --- End Image/Text Embedding ---
 
-def load_libero_dataset(libero_base_path):
-    """Load the LIBERO dataset from all folders in the datasets directory"""
-    dataset_dict = {}
-    
-    # Get all subdirectories in the datasets folder
-    dataset_folders = [f for f in os.listdir(libero_base_path) 
-                      if os.path.isdir(os.path.join(libero_base_path, f))]
-    # dataset_folders = ["libero_spatial"]
-    dataset_folders = ["libero_10"]
-    # Process each dataset folder
-    for folder in dataset_folders:
-        folder_path = os.path.join(libero_base_path, folder)
-        print(f"\nLoading dataset folder: {folder}")
-        
-        # Process each task file in the folder
-        for task in os.listdir(folder_path):
-            if not task.endswith('.hdf5'):
-                continue
-                
-            # Extract task name without .hdf5 extension as the language instruction
-            language_instruction = task.replace('.hdf5', '').replace('_', ' ')
-            # remove capital letter and space and number
-            language_instruction = ''.join(char for char in language_instruction if not char.isupper() and not char.isdigit())
-            # if there are space before the first letter, remove it
-            while language_instruction[0].isspace():
-                language_instruction = language_instruction[1:]
-            dataset_dict[language_instruction] = {
-                'actions': [],
-                'images': []
-            }
-            
-            task_path = os.path.join(folder_path, task)
-            print(f"Loading task: {task}")
-            
-            with h5py.File(task_path, 'r') as f:
-                for demo_key in f['data'].keys():
-                    demo_data = f['data'][demo_key]
-                    
-                    # Get actions data
-                    actions = demo_data['actions'][()]
-                    dataset_dict[language_instruction]['actions'].append(actions)
-                    
-                    # Get observation data
-                    obs_group = demo_data['obs']
-                    obs_data = obs_group['agentview_rgb'][()]
-                    dataset_dict[language_instruction]['images'].append(obs_data)
-                    
-            print(f"Processed {task}: {len(dataset_dict[language_instruction]['actions'])} demonstrations")
-    
-    return dataset_dict
+            # --- Get Action History Embedding ---
+            # Re-use the forward pass logic for action encoding part
+            action_histories_input = history_tensor # Shape (1, H, D)
+            projected_trajectory = None
+            if self.model.use_transformer:
+                padding_mask = (action_histories_input[:, :, 0] == ACTION_PADDING_VALUE) # Use the defined constant
+                encoded_steps = self.model.single_step_action_encoder(action_histories_input)
+                encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
+                transformer_output_permuted = self.model.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
+                transformer_output = transformer_output_permuted.permute(1, 0, 2)
+                mask_expanded = (~padding_mask).unsqueeze(-1).float()
+                summed_features = (transformer_output * mask_expanded).sum(dim=1)
+                num_non_padded = mask_expanded.sum(dim=1)
+                num_non_padded = torch.clamp(num_non_padded, min=1e-9)
+                projected_trajectory = summed_features / num_non_padded
+            else:
+                flat_actions = action_histories_input.reshape(1, -1)
+                projected_trajectory = self.model.complex_action_encoder(flat_actions)
 
-def sample_and_test(dataset_dict, model_path, trajectory_mode=False, num_samples=10, action_pool_size=20, trajectory_length=20, use_transformer=False):
+            projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True) # Shape (1, E)
+            # --- End Action History Embedding ---
+
+            # Calculate Similarity Score (dot product)
+            score = torch.matmul(combined_features, projected_trajectory.T).squeeze().item()
+
+        return score
+
+def sample_and_test(augmented_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20):
     """
-    Sample random data points and test the model with a limited action pool
-    
+    Sample random data points from the augmented dataset and test the trajectory model.
+
     Args:
-        dataset_dict: Dictionary containing the dataset
-        model_path: Path to the trained model
-        trajectory_mode: Whether to use trajectory mode or single action mode
-        num_samples: Number of samples to test
-        action_pool_size: Size of the action pool for each test sample
-        trajectory_length: Length of action trajectories (for trajectory mode)
+        augmented_dataset_dict: Dictionary loaded from the augmented dataset .pkl file.
+        model_path: Path to the trained trajectory model.
+        history_length: Expected length of action histories.
+        use_transformer: Whether the loaded model uses a transformer.
+        num_samples: Number of samples to test.
+        action_pool_size: Size of the action pool (including ground truth) for each test sample.
     """
     # Initialize the inference model
-    inference_model = VLA_CLIP_Inference(model_path, trajectory_mode=trajectory_mode, trajectory_length=trajectory_length, use_transformer=use_transformer)
-    
-    if trajectory_mode:
-        samples = []
-        action_trajectories = []
-    
-        # Flatten the dataset into (image, text, action_trajectory) triplets
-        for instruction, data in dataset_dict.items():
-            images = data['images']
-            actions = data['actions']
+    inference_model = VLA_CLIP_Inference(model_path,
+                                        history_length=history_length,
+                                        use_transformer=use_transformer)
 
-            for i, img_seq in enumerate(images):
-                for j, frame in enumerate(img_seq):
-                    # Create action trajectory (past actions)
-                    action_trajectory = []   
-                    # Add past actions, padding with zeros if not enough history
-                    for k in range(j - trajectory_length + 1, j):
-                        if k < 0:
-                            action_trajectory.append(np.ones(actions[i][0].shape) * -5.0)  # Padding for earlier positions
-                        else:
-                            action_trajectory.append(actions[i][k])
-                    
-                    # Add current action to complete the trajectory
-                    action_trajectory.append(actions[i][j])
-                    
-                    # Convert to numpy array for consistency
-                    action_trajectory = np.array(action_trajectory)
-                    
-                    # Verify that not all values are padding
-                    if np.all(action_trajectory[:, 0] == -5.0):
-                        # Force at least one non-padding value
-                        action_trajectory[-1] = np.zeros(action_trajectory[-1].shape)
-                    
-                    # Add to samples
-                    samples.append((frame, instruction, action_trajectory))
-                    action_trajectories.append(action_trajectory)
-    else:
-        samples = []
-        action_trajectories = []
-        image_trajectories = []
-        for instruction, data in dataset_dict.items():
-            images = data['images']
-            actions = data['actions']
-            for i, img_seq in enumerate(images):
-                for j, frame in enumerate(img_seq):
-                    samples.append((frame, instruction, actions[i][j]))
-                    action_trajectories.append(actions[i][j])
-                    image_trajectories.append(img_seq)
+    # --- Prepare flat list of samples and all histories for pooling ---
+    all_samples = []
+    all_histories = [] # Collect all pos and neg histories for random pooling
+    print("Flattening dataset for evaluation...")
+    for instruction, data in tqdm(augmented_dataset_dict.items()):
+        instruction_samples = data.get('samples', [])
+        for sample_data in instruction_samples:
+            image = sample_data.get('image')
+            pos_hist = sample_data.get('pos_action_hist')
+            neg_hist = sample_data.get('neg_action_hist')
+            if image is not None and pos_hist is not None and neg_hist is not None:
+                # Store the core tuple for sampling test points
+                all_samples.append((image, instruction, pos_hist, neg_hist))
+                # Add both histories to the global pool
+                all_histories.append(pos_hist)
+                all_histories.append(neg_hist)
+
+    if not all_samples:
+        print("Error: No valid samples found in the dataset.")
+        return []
+    if not all_histories:
+        print("Error: No valid action histories found for pooling.")
+        return []
+    print(f"Total samples for testing: {len(all_samples)}")
+    print(f"Total histories for pooling: {len(all_histories)}")
+
     # Randomly sample test points
     random.seed(42)  # For reproducibility
-    sampled_indices = random.sample(range(len(samples)), min(num_samples, len(samples)))
-    
-    # Test each sampled point
+    sampled_indices = random.sample(range(len(all_samples)), min(num_samples, len(all_samples)))
+
     results = []
     for idx in tqdm(sampled_indices, desc="Testing samples"):
-        ground_truth_frame, ground_truth_instruction, ground_truth_action_trajectory = samples[idx]
-        # Create action pool with ground truth action
-        action_trajectory_pool = [ground_truth_action_trajectory]
-        # Sample additional action trajectories for the pool
-        other_trajectories = [a for i, a in enumerate(action_trajectories) 
-                             if i != idx and not np.array_equal(a, ground_truth_action_trajectory)]
+        # Get the ground truth data for this sample
+        gt_image, gt_instruction, gt_pos_hist, gt_neg_hist = all_samples[idx]
 
-        if other_trajectories and action_pool_size > 1:
-            sampled_trajectories = random.sample(other_trajectories, min(action_pool_size - 1, len(other_trajectories)))
-            action_trajectory_pool.extend(sampled_trajectories)
+        # --- Create Action History Pool ---
+        action_history_pool = []
+        # 1. Add the ground truth positive history
+        action_history_pool.append(gt_pos_hist)
+        gt_pos_hist_added = True
 
-        # Shuffle the action pool
-        random.shuffle(action_trajectory_pool)
-        # Find index of ground truth in the shuffled action pool
-        ground_truth_idx = None
-        for i, traj in enumerate(action_trajectory_pool):
-            if np.array_equal(traj, ground_truth_action_trajectory):
-                ground_truth_idx = i
+        # 2. Add the ground truth negative history (if pool size > 1)
+        if action_pool_size > 1:
+            action_history_pool.append(gt_neg_hist)
+
+        # 3. Sample additional random histories (avoiding exact duplicates of gt_pos/gt_neg)
+        num_needed = action_pool_size - len(action_history_pool)
+        if num_needed > 0:
+            # Create a temporary pool of candidates excluding the exact GTs for this sample
+            candidate_pool = [h for h in all_histories if not np.array_equal(h, gt_pos_hist) and not np.array_equal(h, gt_neg_hist)]
+            if len(candidate_pool) > 0:
+                 num_to_sample = min(num_needed, len(candidate_pool))
+                 sampled_histories = random.sample(candidate_pool, num_to_sample)
+                 action_history_pool.extend(sampled_histories)
+            else:
+                 print(f"Warning: Not enough unique histories in dataset to fill pool for sample {idx}. Pool size: {len(action_history_pool)}")
+
+
+        # Shuffle the pool and find the index of the ground truth *positive* history
+        random.shuffle(action_history_pool)
+        ground_truth_idx_in_pool = None
+        for i, hist in enumerate(action_history_pool):
+            if np.array_equal(hist, gt_pos_hist):
+                ground_truth_idx_in_pool = i
                 break
+        # --- End Pool Creation ---
+
+        if ground_truth_idx_in_pool is None and gt_pos_hist_added:
+             print(f"Warning: Ground truth positive history lost during pooling/shuffling for sample {idx}? This shouldn't happen.")
+             # Handle this case maybe by skipping or forcing GT in? For now, just warn.
+
         # Run prediction
-        predicted_action, scores = inference_model.predict(
-            ground_truth_frame, ground_truth_instruction, action_trajectory_pool
+        predicted_history, scores = inference_model.predict(
+            gt_image, gt_instruction, action_history_pool
         )
-        
-        # Check if prediction is correct
-        is_correct = np.array_equal(predicted_action, ground_truth_action_trajectory)
-        
+
+        # Check if prediction matches the ground truth positive history
+        is_correct = np.array_equal(predicted_history, gt_pos_hist)
+
         results.append({
-            'image': ground_truth_frame,
-            'instruction': ground_truth_instruction,
-            'ground_truth': ground_truth_action_trajectory,
-            'ground_truth_idx': ground_truth_idx,  # This is now the index in the shuffled pool
-            'prediction': predicted_action,
-            'action_pool_size': len(action_trajectory_pool),
-            'scores': scores,
+            'image': gt_image,
+            'instruction': gt_instruction,
+            'ground_truth_pos': gt_pos_hist, # Store the positive GT
+            'ground_truth_idx': ground_truth_idx_in_pool, # Index of POSITIVE GT in pool
+            'prediction': predicted_history,
+            'action_pool_size': len(action_history_pool),
+            'scores': scores, # scores keyed by pool index (str)
             'correct': is_correct,
         })
     return results
@@ -511,128 +340,112 @@ def display_results(results):
     """Display the results of the sample_and_test function"""
     correct = 0
     ranks = []
-    
+    l2_distances = []
+
+    print("\n--- Evaluation Results ---")
     for i, result in enumerate(results):
         print(f"\nSample {i+1}:")
-        print(f"Instruction: {result['instruction']}")
-        print(f"Action pool size: {result['action_pool_size']}")
-        print(f"Ground truth index: {result['ground_truth_idx']}")
-        # print(f"Ground truth action: {result['ground_truth'][0]} to {result['ground_truth'][-1]}")
-        # print(f"Predicted action: {result['prediction'][0]} to {result['prediction'][-1]}")
-        print(f"Ground truth action: {result['ground_truth']}")
-        print(f"Predicted action: {result['prediction']}")
-        print (f"Score: {result['scores']}")
-        print(f"Correct: {result['correct']}")
-        
-        # Calculate L2 distance between prediction and ground truth
-        if isinstance(result['prediction'], np.ndarray) and isinstance(result['ground_truth'], np.ndarray):
-            # Flatten arrays for distance calculation
+        print(f"  Instruction: {result['instruction']}")
+        print(f"  Action pool size: {result['action_pool_size']}")
+        print(f"  Ground truth (Pos Hist) index in pool: {result['ground_truth_idx']}")
+
+        # Optional: Print start/end of histories if too long
+        gt_str = f"Start: {result['ground_truth_pos'][0]}, End: {result['ground_truth_pos'][-1]}"
+        pred_str = f"Start: {result['prediction'][0]}, End: {result['prediction'][-1]}"
+        # print(f"  Ground truth action hist: {gt_str}")
+        # print(f"  Predicted action hist:  {pred_str}")
+
+        print(f"  Correct (Predicted == GT Pos): {result['correct']}")
+
+        # Calculate L2 distance between prediction and ground truth pos history
+        if isinstance(result['prediction'], np.ndarray) and isinstance(result['ground_truth_pos'], np.ndarray):
             pred_flat = result['prediction'].flatten()
-            gt_flat = result['ground_truth'].flatten()
-            
-            # Ensure same length
-            min_len = min(len(pred_flat), len(gt_flat))
-            l2_dist = np.linalg.norm(pred_flat[:min_len] - gt_flat[:min_len])
-            print(f"L2 distance: {l2_dist:.4f}")
-        
-        # Display top predictions
+            gt_flat = result['ground_truth_pos'].flatten()
+            l2_dist = np.linalg.norm(pred_flat - gt_flat)
+            print(f"  L2 distance (Pred vs GT Pos): {l2_dist:.4f}")
+            l2_distances.append(l2_dist)
+
+        # Display top predictions from the pool
         scores = result['scores']
-        sorted_scores = sorted([(int(k), v) for k, v in scores.items()], key=lambda x: x[1], reverse=True)
-        print("Top predictions (index: score):")
-        for idx, score in sorted_scores[:5]:  # Show top 5 predictions
-            print(f"  {idx}: {score:.4f}")
-        
-        # Calculate rank of ground truth
-        if result['ground_truth_idx'] is not None:
-            gt_idx_str = str(result['ground_truth_idx'])
-            if gt_idx_str in scores:
-                gt_score = scores[gt_idx_str]
-                rank = sum(1 for _, score in scores.items() if float(score) > gt_score) + 1
+        try:
+            # Convert string keys to int for sorting if necessary
+            scores_int_keys = {int(k): v for k, v in scores.items()}
+            sorted_scores = sorted(scores_int_keys.items(), key=lambda item: item[1], reverse=True)
+            print("  Top predictions (pool_index: score):")
+            for pool_idx, score in sorted_scores[:5]:
+                print(f"    {pool_idx}: {score:.4f}")
+
+            # Calculate rank of ground truth positive history
+            if result['ground_truth_idx'] is not None:
+                gt_score = scores_int_keys.get(result['ground_truth_idx'], -float('inf'))
+                rank = sum(1 for score in scores_int_keys.values() if score > gt_score) + 1
                 ranks.append(rank)
-        
+                print(f"  Rank of Ground Truth (Pos): {rank}")
+
+        except ValueError:
+             print("  Error processing scores for ranking (invalid format?).")
+
+
         if result['correct']:
             correct += 1
-    
+
     # Calculate overall accuracy and mean rank
     accuracy = correct / len(results) if results else 0
-    mean_rank = sum(ranks) / len(ranks) if ranks else 0
-    
-    print(f"\nOverall accuracy: {accuracy:.2f} ({correct}/{len(results)})")
-    print(f"Mean rank of ground truth: {mean_rank:.2f}")
-    
-    # # Optional: Display some images with predictions
-    # fig, axes = plt.subplots(2, 2, figsize=(12, 10))
-    # axes = axes.flatten()
-    
-    # for i, ax in enumerate(axes):
-    #     if i < len(results):
-    #         ax.imshow(results[i]['image'])
-    #         ax.set_title(f"Instruction: {results[i]['instruction'][:20]}...\n" +
-    #                      f"GT idx: {results[i]['ground_truth_idx']}, Correct: {results[i]['correct']}")
-    #         ax.axis('off')
-    
-    # plt.tight_layout()
-    # plt.savefig('prediction_samples.png')
-    # print("Sample images saved to 'prediction_samples.png'")
+    mean_rank = np.mean(ranks) if ranks else float('nan')
+    mean_l2 = np.mean(l2_distances) if l2_distances else float('nan')
+
+    print("-" * 25)
+    print(f"Overall accuracy: {accuracy:.3f} ({correct}/{len(results)})")
+    print(f"Mean rank of ground truth positive history: {mean_rank:.3f}")
+    print(f"Mean L2 distance (Prediction vs GT Pos): {mean_l2:.4f}")
+    print("-" * 25)
+
+    # --- Optional: Display images (kept commented out) ---
+    # ...
 
 if __name__ == "__main__":
-    # Create argument parser
-    parser = argparse.ArgumentParser(description='VLA-CLIP Inference')
-    parser.add_argument('--model_path', type=str, default="finetuned_clip_trajectory.pt",
-                        help='Path to the trained model file')
-    parser.add_argument('--trajectory_mode', action='store_true',
-                        help='Whether to use trajectory mode')
-    parser.add_argument('--num_samples', type=int, default=10,
-                        help='Number of samples to test')
-    parser.add_argument('--action_pool_size', type=int, default=20,
-                        help='Size of the action pool for each test sample')
-    parser.add_argument('--libero_path', type=str, default="/home/xilun/LIBERO/libero/datasets",
-                        help='Path to LIBERO dataset')
-    parser.add_argument('--augmented_path', type=str, default=None,
-                        help='Path to the augmented dataset pickle file')
-    parser.add_argument('--trajectory_length', type=int, default=20,
-                        help='Length of action trajectories (for trajectory mode)')
-    parser.add_argument('--use_transformer', action='store_true',
-                        help='Whether to use the transformer model')
+    # This block is for running vla_clip_inference.py directly for evaluation.
     
-    # Parse arguments
-    args = parser.parse_args()
-    
-    # Path to LIBERO dataset
-    libero_path = args.libero_path
-    
-    # Path to trained model
-    model_path = args.model_path
-    
-    # Set trajectory mode based on model type if not explicitly specified
-    trajectory_mode = args.trajectory_mode
-    if trajectory_mode is None:
-        trajectory_mode = "trajectory" in model_path
-    
-    # Load dataset
-    print("Loading dataset...")
-    if args.augmented_path:
-        # Load augmented dataset from pickle file
-        import pickle
-        with open(args.augmented_path, 'rb') as f:
-            dataset_dict = pickle.load(f)
-        print(f"Loaded augmented dataset from {args.augmented_path}")
+    parser = argparse.ArgumentParser(description='VLA-CLIP Trajectory Model Inference')
+    # Model and Training Params
+    parser.add_argument('--model_path', type=str, required=True, help='Path to the trained trajectory model file (.pt)')
+    parser.add_argument('--history_length', type=int, required=True, help='Action history length used during training (must match dataset)')
+    parser.add_argument('--use_transformer', action='store_true', help='Specify if the loaded model uses a Transformer action encoder')
 
-    else:
-        # Load original LIBERO dataset
-        dataset_dict = load_libero_dataset(libero_path)
-    
-    # Sample and test with a limited action pool
-    print(f"\nTesting model on random samples with limited action pool (trajectory mode: {trajectory_mode})...")
+    # Dataset
+    parser.add_argument('--augmented_dataset', type=str, required=True, help='Path to the augmented dataset .pkl file (with pos/neg histories)')
+
+    # Evaluation Params
+    parser.add_argument('--num_samples', type=int, default=100, help='Number of samples to test for evaluation') # Increased default
+    parser.add_argument('--action_pool_size', type=int, default=50, help='Size of the action history pool (including GT) for each test sample') # Increased default
+
+    args = parser.parse_args()
+
+    # Load augmented dataset
+    print(f"Loading dataset: {args.augmented_dataset}")
+    if not os.path.exists(args.augmented_dataset):
+        print(f"Error: Dataset file not found at {args.augmented_dataset}")
+        exit(1)
+    try:
+        with open(args.augmented_dataset, 'rb') as f:
+            dataset_dict = pickle.load(f)
+        print(f"Loaded dataset with {len(dataset_dict)} instructions.")
+    except Exception as e:
+        print(f"Error loading pickle file: {e}")
+        exit(1)
+
+    # Run evaluation
+    print(f"\nStarting evaluation (if run directly)...")
+    # Note: This direct execution might fail with relative imports.
+    #       It's better to run evaluation through run_libero_eval.py or a dedicated script.
     results = sample_and_test(
-        dataset_dict, 
-        model_path, 
-        trajectory_mode=trajectory_mode, 
-        num_samples=args.num_samples, 
-        action_pool_size=args.action_pool_size,
-        trajectory_length=args.trajectory_length,
-        use_transformer=args.use_transformer
+        augmented_dataset_dict=dataset_dict,
+        model_path=args.model_path,
+        history_length=args.history_length,
+        use_transformer=args.use_transformer,
+        num_samples=args.num_samples,
+        action_pool_size=args.action_pool_size
     )
-    
+
     # Display results
     display_results(results)

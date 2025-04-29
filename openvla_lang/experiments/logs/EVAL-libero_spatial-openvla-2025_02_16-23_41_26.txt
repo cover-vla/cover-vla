@@ -1,4 +1,0 @@
-Task suite: libero_spatial
-
-Task: pick
-Starting episode 1...

@@ -1,0 +1,263 @@
+Task suite: libero_spatial
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 1/5)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/episode=1--success=True--score=0.438--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=91, AvgScore=0.438
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 2/5)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/episode=2--success=True--score=0.435--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=True, Steps=170, AvgScore=0.435
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 3/5)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/episode=3--success=True--score=0.428--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=True, Steps=79, AvgScore=0.428
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 4/5)
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/episode=4--success=True--score=0.435--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=True, Steps=123, AvgScore=0.435
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 5/5)
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/episode=5--success=True--score=0.408--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=77, AvgScore=0.408
+Task 0 ('pick up the black bowl between the plate and the ramekin and place it on the plate') Success Rate: 1.00 (5/5)
+
+Task: pick up the black bowl next to the ramekin and place it on the plate (Trial 1/5)
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/episode=6--success=False--score=0.281--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=False, Steps=210, AvgScore=0.281
+
+Task: pick up the black bowl next to the ramekin and place it on the plate (Trial 2/5)
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/episode=7--success=True--score=0.408--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=True, Steps=99, AvgScore=0.408
+
+Task: pick up the black bowl next to the ramekin and place it on the plate (Trial 3/5)
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/episode=8--success=True--score=0.363--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=119, AvgScore=0.363
+
+Task: pick up the black bowl next to the ramekin and place it on the plate (Trial 4/5)
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/episode=9--success=True--score=0.456--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 9: Success=True, Steps=146, AvgScore=0.456
+
+Task: pick up the black bowl next to the ramekin and place it on the plate (Trial 5/5)
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/episode=10--success=True--score=0.442--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 10: Success=True, Steps=125, AvgScore=0.442
+Task 1 ('pick up the black bowl next to the ramekin and place it on the plate') Success Rate: 0.80 (4/5)
+
+Task: pick up the black bowl from table center and place it on the plate (Trial 1/5)
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts/episode=11--success=True--score=0.331--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 11: Success=True, Steps=177, AvgScore=0.331
+
+Task: pick up the black bowl from table center and place it on the plate (Trial 2/5)
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts/episode=12--success=True--score=0.318--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 12: Success=True, Steps=117, AvgScore=0.318
+
+Task: pick up the black bowl from table center and place it on the plate (Trial 3/5)
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts/episode=13--success=True--score=0.343--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 13: Success=True, Steps=108, AvgScore=0.343
+
+Task: pick up the black bowl from table center and place it on the plate (Trial 4/5)
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts/episode=14--success=True--score=0.311--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 14: Success=True, Steps=118, AvgScore=0.311
+
+Task: pick up the black bowl from table center and place it on the plate (Trial 5/5)
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts/episode=15--success=True--score=0.315--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 15: Success=True, Steps=148, AvgScore=0.315
+Task 2 ('pick up the black bowl from table center and place it on the plate') Success Rate: 1.00 (5/5)
+
+Task: pick up the black bowl on the cookie box and place it on the plate (Trial 1/5)
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts/episode=16--success=True--score=0.325--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 16: Success=True, Steps=84, AvgScore=0.325
+
+Task: pick up the black bowl on the cookie box and place it on the plate (Trial 2/5)
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts/episode=17--success=True--score=0.39--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 17: Success=True, Steps=97, AvgScore=0.390
+
+Task: pick up the black bowl on the cookie box and place it on the plate (Trial 3/5)
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts/episode=18--success=True--score=0.293--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 18: Success=True, Steps=77, AvgScore=0.293
+
+Task: pick up the black bowl on the cookie box and place it on the plate (Trial 4/5)
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts/episode=19--success=False--score=0.101--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 19: Success=False, Steps=210, AvgScore=0.101
+
+Task: pick up the black bowl on the cookie box and place it on the plate (Trial 5/5)
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts/episode=20--success=True--score=0.228--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 20: Success=True, Steps=91, AvgScore=0.228
+Task 3 ('pick up the black bowl on the cookie box and place it on the plate') Success Rate: 0.80 (4/5)
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate (Trial 1/5)
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts/episode=21--success=True--score=0.424--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 21: Success=True, Steps=129, AvgScore=0.424
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate (Trial 2/5)
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts/episode=22--success=True--score=0.405--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 22: Success=True, Steps=140, AvgScore=0.405
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate (Trial 3/5)
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts/episode=23--success=True--score=0.403--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 23: Success=True, Steps=127, AvgScore=0.403
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate (Trial 4/5)
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts/episode=24--success=False--score=0.432--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 24: Success=False, Steps=210, AvgScore=0.432
+
+Task: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate (Trial 5/5)
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts/episode=25--success=False--score=0.38--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 25: Success=False, Steps=210, AvgScore=0.380
+Task 4 ('pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate') Success Rate: 0.60 (3/5)
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 1/5)
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts/episode=26--success=True--score=0.458--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 26: Success=True, Steps=105, AvgScore=0.458
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 2/5)
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts/episode=27--success=True--score=0.462--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 27: Success=True, Steps=87, AvgScore=0.462
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 3/5)
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts/episode=28--success=True--score=0.466--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 28: Success=True, Steps=81, AvgScore=0.466
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 4/5)
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts/episode=29--success=True--score=0.443--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 29: Success=True, Steps=84, AvgScore=0.443
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 5/5)
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts/episode=30--success=True--score=0.451--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 30: Success=True, Steps=87, AvgScore=0.451
+Task 5 ('pick up the black bowl on the ramekin and place it on the plate') Success Rate: 1.00 (5/5)
+
+Task: pick up the black bowl next to the cookie box and place it on the plate (Trial 1/5)
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts/episode=31--success=True--score=0.316--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 31: Success=True, Steps=104, AvgScore=0.316
+
+Task: pick up the black bowl next to the cookie box and place it on the plate (Trial 2/5)
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts/episode=32--success=False--score=0.421--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 32: Success=False, Steps=210, AvgScore=0.421
+
+Task: pick up the black bowl next to the cookie box and place it on the plate (Trial 3/5)
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts/episode=33--success=True--score=0.263--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 33: Success=True, Steps=92, AvgScore=0.263
+
+Task: pick up the black bowl next to the cookie box and place it on the plate (Trial 4/5)
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts/episode=34--success=True--score=0.419--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 34: Success=True, Steps=100, AvgScore=0.419
+
+Task: pick up the black bowl next to the cookie box and place it on the plate (Trial 5/5)
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts/episode=35--success=True--score=0.314--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 35: Success=True, Steps=101, AvgScore=0.314
+Task 6 ('pick up the black bowl next to the cookie box and place it on the plate') Success Rate: 0.80 (4/5)
+
+Task: pick up the black bowl on the stove and place it on the plate (Trial 1/5)
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts/episode=36--success=True--score=0.402--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 36: Success=True, Steps=115, AvgScore=0.402
+
+Task: pick up the black bowl on the stove and place it on the plate (Trial 2/5)
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts/episode=37--success=True--score=0.357--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 37: Success=True, Steps=122, AvgScore=0.357
+
+Task: pick up the black bowl on the stove and place it on the plate (Trial 3/5)
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts/episode=38--success=True--score=0.325--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 38: Success=True, Steps=113, AvgScore=0.325
+
+Task: pick up the black bowl on the stove and place it on the plate (Trial 4/5)
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts/episode=39--success=True--score=0.382--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 39: Success=True, Steps=128, AvgScore=0.382
+
+Task: pick up the black bowl on the stove and place it on the plate (Trial 5/5)
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts/episode=40--success=True--score=0.391--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 40: Success=True, Steps=114, AvgScore=0.391
+Task 7 ('pick up the black bowl on the stove and place it on the plate') Success Rate: 1.00 (5/5)
+
+Task: pick up the black bowl next to the plate and place it on the plate (Trial 1/5)
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts/episode=41--success=True--score=0.359--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 41: Success=True, Steps=132, AvgScore=0.359
+
+Task: pick up the black bowl next to the plate and place it on the plate (Trial 2/5)
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts/episode=42--success=False--score=0.414--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 42: Success=False, Steps=210, AvgScore=0.414
+
+Task: pick up the black bowl next to the plate and place it on the plate (Trial 3/5)
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts/episode=43--success=False--score=0.12--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 43: Success=False, Steps=210, AvgScore=0.120
+
+Task: pick up the black bowl next to the plate and place it on the plate (Trial 4/5)
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts/episode=44--success=True--score=0.278--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 44: Success=True, Steps=101, AvgScore=0.278
+
+Task: pick up the black bowl next to the plate and place it on the plate (Trial 5/5)
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts/episode=45--success=False--score=0.27--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 45: Success=False, Steps=210, AvgScore=0.270
+Task 8 ('pick up the black bowl next to the plate and place it on the plate') Success Rate: 0.40 (2/5)
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate (Trial 1/5)
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts/episode=46--success=True--score=0.462--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 46: Success=True, Steps=117, AvgScore=0.462
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate (Trial 2/5)
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts/episode=47--success=False--score=0.276--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 47: Success=False, Steps=210, AvgScore=0.276
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate (Trial 3/5)
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts/episode=48--success=True--score=0.41--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 48: Success=True, Steps=121, AvgScore=0.410
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate (Trial 4/5)
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts/episode=49--success=True--score=0.447--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 49: Success=True, Steps=133, AvgScore=0.447
+
+Task: pick up the black bowl on the wooden cabinet and place it on the plate (Trial 5/5)
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts/episode=50--success=True--score=0.453--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 50: Success=True, Steps=110, AvgScore=0.453
+Task 9 ('pick up the black bowl on the wooden cabinet and place it on the plate') Success Rate: 0.80 (4/5)
+
+Overall Success Rate: 0.820 (41/50)

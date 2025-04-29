@@ -251,7 +251,8 @@ def train_clip(
     use_wandb = False,
     resume_checkpoint = None,
     validation_split = 0.1,
-    neg_loss_weight: float = 0.2 # Add weight parameter
+    neg_loss_weight: float = 0.2, # Add weight parameter
+    loss_type: str = "positive_only" # "positive_only" or "negative_only" or "all"
 ):
     # Initialize wandb if enabled
     if use_wandb:
@@ -380,6 +381,14 @@ def train_clip(
         val_dataset, batch_size=batch_size, shuffle=False, num_workers=8, pin_memory=True
     )
     
+    # Define loss function for positive pairs (applied only to diagonal)
+    # Using BCEWithLogitsLoss is generally more numerically stable than Sigmoid + BCELoss
+    positive_loss_fn = nn.BCEWithLogitsLoss()
+    # Define loss function for negative pairs (applied to the whole block)
+    # We want to push logits corresponding to negative pairs towards -inf (prob=0)
+    # -log(1 - sigmoid(logit)) is equivalent to BCEWithLogitsLoss with target 0
+    negative_loss_fn = nn.BCEWithLogitsLoss() 
+
     # Training loop
     epoch_pbar = tqdm(range(start_epoch, num_epochs), desc="Training epochs")
     best_val_loss = float('inf')
@@ -413,30 +422,41 @@ def train_clip(
             # logits_per_action shape: (2*B, 2*B)
 
             # --- Loss Calculation ---
-            # Ground truth for positive contrastive loss (aligns i-th image/text with i-th positive action)
-            ground_truth = torch.arange(current_batch_size, dtype=torch.long, device=device)
+            # Target for positive pairs (diagonal) should be 1
+            positive_targets = torch.ones(current_batch_size, device=device)
+            # Target for negative pairs (off-diagonal blocks) should be 0
+            negative_targets_i2t = torch.zeros_like(logits_per_image[:current_batch_size, current_batch_size:], device=device)
+            negative_targets_a2t = torch.zeros_like(logits_per_action[:current_batch_size, current_batch_size:], device=device)
 
-            # Positive Contrastive Loss (Image/Text vs Positive Action)
+
+            # Positive Loss (Image/Text vs Positive Action) - Applied only to the diagonal
             # Compare top-left block: (pos_img/txt features) vs (pos_action features)
-            loss_i2t_pos = nn.CrossEntropyLoss()(logits_per_image[:current_batch_size, :current_batch_size], ground_truth)
-            loss_a2t_pos = nn.CrossEntropyLoss()(logits_per_action[:current_batch_size, :current_batch_size], ground_truth)
+            diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
+            diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
+            
+            loss_i2t_pos = positive_loss_fn(diag_logits_i2t_pos, positive_targets)
+            loss_a2t_pos = positive_loss_fn(diag_logits_a2t_pos, positive_targets)
             
             # Explicit Negative Loss (Image/Text vs Negative Action)
             # Compare top-right block: (pos_img/txt features) vs (neg_action features)
-            # We want sim(pos_img/txt_i, neg_action_i) to be low.
             neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]
             neg_logits_a2t = logits_per_action[:current_batch_size, current_batch_size:]
 
-            eps = 1e-6
-            # Apply loss to all pairs in the block (push positive image/text away from all negative actions in batch)
-            neg_loss_i2t = -torch.log(1 - torch.sigmoid(neg_logits_i2t) + eps).mean()
-            neg_loss_a2t = -torch.log(1 - torch.sigmoid(neg_logits_a2t) + eps).mean()
+            # Apply BCE loss: push similarity between positive img/txt and negative actions towards 0
+            neg_loss_i2t = negative_loss_fn(neg_logits_i2t, negative_targets_i2t)
+            neg_loss_a2t = negative_loss_fn(neg_logits_a2t, negative_targets_a2t)
             
             # Combine losses
-            # Contrastive loss averages image->text and text->image directions
-            # Negative loss averages image->text and text->image directions
-            loss = (loss_i2t_pos + loss_a2t_pos) / 2 + neg_loss_weight * (neg_loss_i2t + neg_loss_a2t) / 2
-                  
+            # Average the two directions for positive and negative losses separately
+            if loss_type == "positive_only":
+                loss = (loss_i2t_pos + loss_a2t_pos) / 2
+            elif loss_type == "negative_only":
+                loss = neg_loss_weight * (neg_loss_i2t + neg_loss_a2t) / 2
+            elif loss_type == "all":
+                loss = (loss_i2t_pos + loss_a2t_pos) / 2 + neg_loss_weight * (neg_loss_i2t + neg_loss_a2t) / 2
+            else:
+                raise ValueError(f"Invalid loss type: {loss_type}")
+            
             loss.backward()
             
             # Gradient Clipping (optional but often helpful)
@@ -446,7 +466,9 @@ def train_clip(
             
             total_train_loss += loss.item()
             
-            if use_wandb: wandb.log({"train_batch_loss": loss.item()}) # Log simplified batch loss
+            if use_wandb: wandb.log({"train_batch_loss": loss.item(), 
+                                      "train_pos_loss": (loss_i2t_pos + loss_a2t_pos).item() / 2,
+                                      "train_neg_loss": (neg_loss_i2t + neg_loss_a2t).item() / 2 }) 
             train_batch_pbar.set_postfix({'loss': f'{loss.item():.4f}'})
         
         avg_train_loss = total_train_loss / len(train_dataloader)
@@ -454,6 +476,8 @@ def train_clip(
         # --- Validation Phase ---
         model.eval()
         total_val_loss = 0
+        total_val_pos_loss = 0
+        total_val_neg_loss = 0
         val_batch_pbar = tqdm(val_dataloader, desc=f"Epoch {epoch} (Val)", leave=False)
         
         with torch.no_grad():
@@ -471,29 +495,42 @@ def train_clip(
                 
                 logits_per_image, logits_per_action = model(input_images, input_texts, input_actions)
                 
-                ground_truth = torch.arange(current_batch_size, dtype=torch.long, device=device)
+                # --- Validation Loss Calculation (mirrors training) ---
+                positive_targets = torch.ones(current_batch_size, device=device)
+                negative_targets_i2t = torch.zeros_like(logits_per_image[:current_batch_size, current_batch_size:], device=device)
+                negative_targets_a2t = torch.zeros_like(logits_per_action[:current_batch_size, current_batch_size:], device=device)
 
-                loss_i2t_pos = nn.CrossEntropyLoss()(logits_per_image[:current_batch_size, :current_batch_size], ground_truth)
-                loss_a2t_pos = nn.CrossEntropyLoss()(logits_per_action[:current_batch_size, :current_batch_size], ground_truth)
+                diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
+                diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
+
+                loss_i2t_pos = positive_loss_fn(diag_logits_i2t_pos, positive_targets)
+                loss_a2t_pos = positive_loss_fn(diag_logits_a2t_pos, positive_targets)
                 
                 neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]
                 neg_logits_a2t = logits_per_action[:current_batch_size, current_batch_size:]
 
-                eps = 1e-6
-                neg_loss_i2t = -torch.log(1 - torch.sigmoid(neg_logits_i2t) + eps).mean()
-                neg_loss_a2t = -torch.log(1 - torch.sigmoid(neg_logits_a2t) + eps).mean()
+                neg_loss_i2t = negative_loss_fn(neg_logits_i2t, negative_targets_i2t)
+                neg_loss_a2t = negative_loss_fn(neg_logits_a2t, negative_targets_a2t)
 
                 val_loss = (loss_i2t_pos + loss_a2t_pos) / 2 + neg_loss_weight * (neg_loss_i2t + neg_loss_a2t) / 2
                 
                 total_val_loss += val_loss.item()
+                total_val_pos_loss += (loss_i2t_pos + loss_a2t_pos).item() / 2
+                total_val_neg_loss += (neg_loss_i2t + neg_loss_a2t).item() / 2
                 val_batch_pbar.set_postfix({'loss': f'{val_loss.item():.4f}'})
         
         avg_val_loss = total_val_loss / len(val_dataloader)
+        avg_val_pos_loss = total_val_pos_loss / len(val_dataloader)
+        avg_val_neg_loss = total_val_neg_loss / len(val_dataloader)
         
         epoch_pbar.set_postfix({'train_loss': f'{avg_train_loss:.4f}', 'val_loss': f'{avg_val_loss:.4f}'})
         
         if use_wandb:
-            wandb.log({"epoch": epoch, "train_loss": avg_train_loss, "val_loss": avg_val_loss})
+            wandb.log({"epoch": epoch, 
+                       "train_loss": avg_train_loss, 
+                       "val_loss": avg_val_loss,
+                       "val_pos_loss": avg_val_pos_loss,
+                       "val_neg_loss": avg_val_neg_loss})
         
         # Save best model
         if avg_val_loss < best_val_loss:
@@ -538,8 +575,9 @@ if __name__ == "__main__":
     parser.add_argument('--augmented_dataset', type=str, required=True, # Make augmented dataset path required
                         help='Path to augmented dataset pickle file')
     parser.add_argument('--validation_split', type=float, default=0.1, help='Fraction of data to use for validation')
-    parser.add_argument('--neg_loss_weight', type=float, default=0.2, help='Weight for the explicit negative loss term')
-
+    parser.add_argument('--neg_loss_weight', type=float, default=0.5, help='Weight for the explicit negative loss term')
+    parser.add_argument('--loss_type', type=str, default="positive_only", help='Type of loss to use')
+    
     args = parser.parse_args()
     
     # Import wandb only if needed
@@ -583,7 +621,8 @@ if __name__ == "__main__":
         use_wandb=args.use_wandb,
         resume_checkpoint=args.resume,
         validation_split=args.validation_split,
-        neg_loss_weight=args.neg_loss_weight # Pass the weight
+        neg_loss_weight=args.neg_loss_weight, # Pass the weight
+        loss_type=args.loss_type # Pass the loss type
     )
     
     if finetuned_model:

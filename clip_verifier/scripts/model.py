@@ -123,7 +123,7 @@ class ModelConfig:
         pooling_layers=4,
         num_readouts=1,
         action_dim=7,
-        trajectory_length=20,
+        history_length=20,
     ):
         self.clip_model = clip_model
         self.text_pooling_output_dim = text_pooling_output_dim
@@ -132,4 +132,4 @@ class ModelConfig:
         self.pooling_layers = pooling_layers
         self.num_readouts = num_readouts
         self.action_dim = action_dim
-        self.trajectory_length = trajectory_length
+        self.history_length = history_length
