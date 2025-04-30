@@ -84,6 +84,8 @@ class GenerateConfig:
     vla_clip_traj_model_path: Optional[str] = None         # Path to the trajectory VLA-CLIP model
     vla_clip_history_length: int = 10                      # History length (MUST match model training)
     vla_clip_use_transformer: bool = True                 # Does the trajectory model use a transformer?
+    clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
+    clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
@@ -96,7 +98,7 @@ class GenerateConfig:
     unnorm_key: Optional[str] = None
 
     # langauge transform
-    lang_transform: str = "rephrase"
+    lang_transform_type: str = "rephrase"    # Which transform type to generate candidates? 'rephrase' is likely best.
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -165,7 +167,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     total_episodes, total_successes = 0, 0
     
-    # langauge transform
     lang_transform = LangTransform()
 
     for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
@@ -175,7 +176,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm(range(cfg.num_trials_per_task), desc="Trials", leave=False):
             env, original_task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=0)
-            task_description = lang_transform.transform(original_task_description, cfg.lang_transform)
+            task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
             log_file.write(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})\n")
 
@@ -198,6 +199,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
             pbar = tqdm(total=max_steps, desc="Episode Progress")
 
             all_scores = []
+            all_actions = []
+
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)
@@ -212,38 +215,109 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 replay_images.append(img_for_vla)
                 observation = {"full_image": img_for_vla}
 
-                vla_action = get_action(
-                    cfg, model, observation, task_description, processor=processor
-                )
-                vla_action = normalize_gripper_action(vla_action, binarize=True)
-                if cfg.model_family == "openvla":
-                    vla_action = invert_gripper_action(vla_action)
-                action_to_execute = vla_action
-
+                action_to_execute = None
                 current_vla_clip_score = None
-                if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer:
-                    current_hist_len = len(executed_action_history)
-                    num_padding = cfg.vla_clip_history_length - current_hist_len
 
-                    padded_history_list = []
-                    for _ in range(num_padding):
-                        padded_history_list.append(padding_action_vector)
-                    padded_history_list.extend(list(executed_action_history))
+                if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer and cfg.clip_select_action_num_candidates > 1:
+                    # 1) build list of candidate instructions
+                    num_to_generate = cfg.clip_select_action_num_candidates - 1
+                    if num_to_generate > 0:
+                        additional = lang_transform.transform(task_description,
+                                                            cfg.lang_transform_type,
+                                                            batch_number=num_to_generate)
+                        candidate_instructions = [task_description] + additional
+                    else:
+                        candidate_instructions = [task_description]
 
-                    if not padded_history_list:
-                        padded_history_list = [padding_action_vector] * cfg.vla_clip_history_length
+                    # 2) generate actions for each candidate
+                    predicted_actions = []
+                    for instr in candidate_instructions:
+                        a = get_action(cfg, model, observation, instr, processor=processor)
+                        a = normalize_gripper_action(a, binarize=True)
+                        if cfg.model_family == "openvla":
+                            a = invert_gripper_action(a)
+                        predicted_actions.append(a)
 
-                    history_for_scoring = np.array(padded_history_list, dtype=np.float32)
-                    current_vla_clip_score = vla_clip_scorer.get_history_score(
-                        img_for_clip,
-                        task_description,
-                        history_for_scoring
+                    # 3) for each predicted action, build a correctly padded history + candidate
+                    scores = []
+                    padded_histories = []
+                    for a in predicted_actions:
+                        hist_list = list(executed_action_history)
+                        H = cfg.vla_clip_history_length
+                        # reserve one slot for the new action a
+                        num_pad = H - len(hist_list) - 1
+                        # pad on the left, then take only the last (H-1) history items if too long
+                        past = [padding_action_vector] * max(0, num_pad) \
+                            + hist_list[-(H-1):]
+                        padded = np.array(past + [a.copy()], dtype=np.float32)  # shape (H, action_dim)
+
+                        padded_histories.append(padded)
+
+                        idx = len(scores)
+                        s = vla_clip_scorer.get_history_score(
+                                img_for_clip,
+                                candidate_instructions[idx],
+                                padded
+                            ).detach().cpu().numpy()
+                        scores.append(s)
+
+                    scores = np.array(scores).squeeze()
+
+                    if cfg.clip_select_action_strategy == "highest_score":
+                        best_candidate_idx = np.argmax(scores)
+                        action_to_execute = predicted_actions[best_candidate_idx]
+                        current_vla_clip_score = scores[best_candidate_idx]
+                        current_history_for_scoring = padded_histories[best_candidate_idx]
+                        if best_candidate_idx != 0:
+                            print(f"  [t={t}] Selected action via: '{candidate_instructions[best_candidate_idx]}' (Score: {current_vla_clip_score:.3f})")
+                    elif cfg.clip_select_action_strategy == "softmax_sample":
+                        valid_scores = np.array([s for s in scores if s > -np.inf])
+                        if len(valid_scores) == 0:
+                            print("Warning: All candidate scores are invalid (-inf). Defaulting to original instruction action.")
+                            action_to_execute = predicted_actions[0]
+                            current_vla_clip_score = -np.inf
+                        else:
+                            temperature = 1.0
+                            probabilities = torch.softmax(torch.tensor(valid_scores) / temperature, dim=0).numpy()
+                            valid_indices = [i for i, s in enumerate(scores) if s > -np.inf]
+                            chosen_valid_idx = np.random.choice(len(valid_indices), p=probabilities)
+                            chosen_original_idx = valid_indices[chosen_valid_idx]
+
+                            action_to_execute = predicted_actions[chosen_original_idx]
+                            current_vla_clip_score = scores[chosen_original_idx]
+                            if chosen_original_idx != 0:
+                                print(f"  [t={t}] Sampled action via: '{candidate_instructions[chosen_original_idx]}' (Score: {current_vla_clip_score:.3f}, Prob: {probabilities[chosen_valid_idx]:.3f})")
+
+                else:
+                    action_to_execute = get_action(
+                        cfg, model, observation, original_task_description, processor=processor
                     )
-                    all_scores.append(current_vla_clip_score)
+                    action_to_execute = normalize_gripper_action(action_to_execute, binarize=True)
+                    if cfg.model_family == "openvla":
+                        action_to_execute = invert_gripper_action(action_to_execute)
+
+                    if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer:
+                        current_hist_len = len(executed_action_history)
+                        num_padding = cfg.vla_clip_history_length - current_hist_len
+                        current_padded_history_list = []
+                        for _ in range(num_padding):
+                            current_padded_history_list.append(padding_action_vector)
+                        current_padded_history_list.extend(list(executed_action_history))
+                        if not current_padded_history_list:
+                            current_padded_history_list = [padding_action_vector] * cfg.vla_clip_history_length
+                        current_history_for_scoring = np.array(current_padded_history_list, dtype=np.float32)
+                        current_vla_clip_score = vla_clip_scorer.get_history_score(
+                            img_for_clip,
+                            original_task_description,
+                            current_history_for_scoring
+                        ).detach().cpu().numpy()[0]
 
                 action_to_execute_list = action_to_execute.tolist()
                 obs, reward, done, info = env.step(action_to_execute_list)
                 executed_action_history.append(np.array(action_to_execute_list))
+
+                all_scores.append(current_vla_clip_score if current_vla_clip_score is not None and current_vla_clip_score > -np.inf else np.nan)
+                all_actions.append(action_to_execute)
 
                 if done:
                     task_successes += 1
@@ -252,8 +326,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     break
                 t += 1
                 pbar.update(1)
-                if current_vla_clip_score is not None:
+                if current_vla_clip_score is not None and current_vla_clip_score > -np.inf:
                     pbar.set_postfix({"score": f"{current_vla_clip_score:.3f}"})
+                else:
+                    pbar.set_postfix({"score": "N/A"})
 
             pbar.close()
             task_episodes += 1
@@ -263,23 +339,24 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 replay_images,
                 total_episodes,
                 success=done,
-                transform_type=cfg.lang_transform,
-                task_description=task_description,
+                transform_type=cfg.lang_transform_type,
+                task_description=original_task_description,
                 log_file=log_file,
                 score_list=all_scores,
-                action_list=list(executed_action_history)
+                action_list=all_actions,
+                clip_update_num=cfg.clip_select_action_num_candidates,
             )
 
-            avg_score = np.nanmean(all_scores)
-            print(f"  Episode {total_episodes}: Success={done}, Steps={t-cfg.num_steps_wait}, AvgScore={avg_score:.3f}")
-            log_file.write(f"  Episode {total_episodes}: Success={done}, Steps={t-cfg.num_steps_wait}, AvgScore={avg_score:.3f}\n")
+            avg_score = np.nanmean(all_scores) if all_scores else np.nan
+            print(f"  Episode {total_episodes}: Success={done}, Steps={t-cfg.num_steps_wait}, AvgStepScore={avg_score:.3f}")
+            log_file.write(f"  Episode {total_episodes}: Success={done}, Steps={t-cfg.num_steps_wait}, AvgStepScore={avg_score:.3f}\n")
             log_file.flush()
 
         task_success_rate = float(task_successes) / float(task_episodes) if task_episodes > 0 else 0.0
-        print(f"Task {task_id} ('{task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})")
-        log_file.write(f"Task {task_id} ('{task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})\n")
+        print(f"Task {task_id} ('{original_task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})")
+        log_file.write(f"Task {task_id} ('{original_task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})\n")
         if cfg.use_wandb:
-            wandb.log({f"success_rate_task/{task_description}": task_success_rate}, step=task_id)
+            wandb.log({f"success_rate_task/{original_task_description}": task_success_rate}, step=task_id)
 
     total_success_rate = float(total_successes) / float(total_episodes) if total_episodes > 0 else 0.0
     print("-" * 30)

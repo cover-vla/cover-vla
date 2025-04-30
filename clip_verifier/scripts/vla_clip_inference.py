@@ -184,7 +184,9 @@ class VLA_CLIP_Inference:
 
         # Prepare action history tensor
         # Input history should already be padded if necessary by the caller
-        history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device) # Shape (1, H, D)
+        history_tensor = torch.tensor(action_history, dtype=torch.float32).to(self.device) # Shape (1, H, D)
+        if history_tensor.ndim == 2:
+            history_tensor = history_tensor.unsqueeze(0) # Shape (1, H, D)
 
         with torch.no_grad():
             # --- Get Combined Image/Text Embedding ---
@@ -224,7 +226,7 @@ class VLA_CLIP_Inference:
             # --- End Action History Embedding ---
 
             # Calculate Similarity Score (dot product)
-            score = torch.matmul(combined_features, projected_trajectory.T).squeeze().item()
+            score = torch.matmul(combined_features, projected_trajectory.T).squeeze(0)
 
         return score
 

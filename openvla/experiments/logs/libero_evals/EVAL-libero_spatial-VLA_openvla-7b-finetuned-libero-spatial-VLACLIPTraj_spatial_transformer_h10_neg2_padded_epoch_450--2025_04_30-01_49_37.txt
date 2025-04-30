@@ -1,0 +1,6 @@
+Task suite: libero_spatial
+
+Task: Lift the dark dish situated between the platter and the small bowl and set it down on the platter. (Trial 1/5)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_3/episode=1--success=True--score=0.2980000078678131--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=120, AvgStepScore=0.298

@@ -43,6 +43,25 @@ class LangTransform:
 
         return instructions
 
+    def get_rephrase_batch(self, instruction, batch_number=1):
+        instruction = f"""
+            Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
+            - Convey the same objective as the original
+            - Use clear and simple, natural language
+            - Are diverse and grammatically correct
+
+            Format your response as:
+
+            Original Instruction:
+            <The user-provided instruction>
+
+            Reworded Instructions:
+            1. <Alternative phrasing 1>
+            2. <Alternative phrasing 2>
+            ...
+            {batch_number}. <Alternative phrasing {batch_number}>
+            """
+        return instruction
     
     def get_clip_synonym(self, instruction, batch_number=1):
         instruction = f"""
@@ -79,8 +98,8 @@ class LangTransform:
             response = curr_instruction
         
         if batch_number > 1:
-            batch_responses = self.gpt_transform(curr_instruction, transform_type, batch_number=batch_number, image=image)
-            print (batch_responses)
+            batch_responses = self.gpt_transform(response, transform_type=None, batch_number=batch_number, image=image)
+            # print (batch_responses)
             return self.extract_reworded_instructions(batch_responses)
         else:
             return response
@@ -125,36 +144,27 @@ class LangTransform:
                 return shuffled_instruction
 
     def gpt_transform(self, instruction, transform_type, batch_number, image=None):
-        system_prompt = self.get_system_prompt(transform_type)
-        if transform_type == 'out_set':
-            t = 0.8
-            in_set_words = self.get_set_of_words()
-            instruction = f"Given this instruction: {instruction}, please reword it without using any of the following words {in_set_words}"
-        elif transform_type == 'in_set':
-            t = 0
-            unique_words = self.get_set_of_words()
-            instruction = f"Given this instruction: {instruction}, please reword it using only the following words {unique_words}"
-        else:
-            t = 0.1
-        
+        if transform_type is not None:
+            system_prompt = self.get_system_prompt(transform_type)
+            if transform_type == 'out_set':
+                t = 0.8
+                in_set_words = self.get_set_of_words()
+                instruction = f"Given this instruction: {instruction}, please reword it without using any of the following words {in_set_words}"
+            elif transform_type == 'in_set':
+                t = 0
+                unique_words = self.get_set_of_words()
+                instruction = f"Given this instruction: {instruction}, please reword it using only the following words {unique_words}"
+            else:
+                t = 0.1
+        else: 
+            system_prompt = self.get_system_prompt('rephrase_batch')
+            
         if batch_number > 1:
-            t = 0.1
-            system_prompt = self.get_system_prompt('clip_synonym')
-            instruction = self.get_clip_synonym(instruction, batch_number=batch_number)
+            t = 0.3
+            instruction = self.get_rephrase_batch(instruction, batch_number=batch_number)
 
         # Create the messages list with content array
-        message_content = [{'type': 'text', 'text': instruction}]    
-        # Add image to message content if provided
-        if image is not None and batch_number > 1:
-            image_base64 = self.encode_image_for_openai(image)
-            
-            # Create data URL with proper object format
-            message_content.append({
-                'type': 'image_url',
-                'image_url': {
-                    'url': image_base64
-                }
-                })
+        message_content = [{'type': 'text', 'text': instruction}]
             
         messages = [
             {
