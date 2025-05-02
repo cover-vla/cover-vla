@@ -62,6 +62,8 @@ sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
 from vla_clip_inference import VLA_CLIP_Inference, ACTION_PADDING_VALUE
 from lang_transform import LangTransform
 
+torch.set_num_threads(8)
+
 # --- Dataclass and Function Definitions ---
 @dataclass
 class GenerateConfig:
@@ -86,6 +88,7 @@ class GenerateConfig:
     vla_clip_use_transformer: bool = True                 # Does the trajectory model use a transformer?
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
+    vla_clip_score_threshold: float = 0.2                 # Threshold to trigger candidate generation/evaluation
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
@@ -98,7 +101,8 @@ class GenerateConfig:
     unnorm_key: Optional[str] = None
 
     # langauge transform
-    lang_transform_type: str = "rephrase"    # Which transform type to generate candidates? 'rephrase' is likely best.
+    lang_transform_type: str = "rephrase" 
+    use_original_task_description: bool = False
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -106,7 +110,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
     if cfg.use_vla_clip_trajectory_scorer:
         assert cfg.vla_clip_traj_model_path is not None, "If using scorer, `vla_clip_traj_model_path` must be specified."
         assert cfg.vla_clip_history_length > 0, "`vla_clip_history_length` must be positive."
-        print(f"Using Trajectory VLA-CLIP Scorer: H={cfg.vla_clip_history_length}, Transformer={cfg.vla_clip_use_transformer}")
+        assert cfg.vla_clip_score_threshold is not None, "`vla_clip_score_threshold` must be specified when using scorer."
+        print(f"Using Trajectory VLA-CLIP Scorer: H={cfg.vla_clip_history_length}, Transformer={cfg.vla_clip_use_transformer}, Threshold={cfg.vla_clip_score_threshold}")
     else:
         print("Trajectory VLA-CLIP Scorer DISABLED.")
 
@@ -114,7 +119,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
     assert not (cfg.load_in_8bit and cfg.load_in_4bit), "Cannot use both 8-bit and 4-bit quantization!"
 
-    set_seed_everywhere(cfg.seed)
+    # set_seed_everywhere(cfg.seed)
     cfg.unnorm_key = cfg.task_suite_name
     model = get_model(cfg)
 
@@ -200,6 +205,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
             all_scores = []
             all_actions = []
+            # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
+            pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
 
             while t < max_steps:
                 if t < cfg.num_steps_wait:
@@ -215,108 +222,148 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 replay_images.append(img_for_vla)
                 observation = {"full_image": img_for_vla}
 
+                # --- Action Generation and VLA-CLIP Scoring ---
                 action_to_execute = None
-                current_vla_clip_score = None
+                current_vla_clip_score = np.nan # Use NaN to indicate no score available/calculated yet
+                current_history_for_scoring = None # Store the history used for the final score
 
-                if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer and cfg.clip_select_action_num_candidates > 1:
-                    # 1) build list of candidate instructions
+                # 1. Always generate action for the original instruction
+                original_action = get_action(cfg, model, observation, task_description, processor=processor)
+                original_action = normalize_gripper_action(original_action, binarize=True)
+                if cfg.model_family == "openvla":
+                    original_action = invert_gripper_action(original_action)
+
+                # Default action is the original one
+                action_to_execute = original_action
+
+                # 2. Score the original action if scorer is enabled
+                original_score = np.nan
+                original_padded_history = None
+                if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer:
+                    hist_list = list(executed_action_history)
+                    H = cfg.vla_clip_history_length
+                    # reserve one slot for the original action
+                    num_pad = H - len(hist_list) - 1
+                    # pad on the left, then take only the last (H-1) history items if too long
+                    past = [padding_action_vector] * max(0, num_pad) + hist_list[-(H - 1):]
+                    original_padded_history = np.array(past + [original_action.copy()], dtype=np.float32) # shape (H, action_dim)
+                    current_history_for_scoring = original_padded_history # Assume original initially
+                    original_score = vla_clip_scorer.get_history_score(
+                        img_for_clip,
+                        original_task_description if cfg.use_original_task_description else task_description,
+                        current_history_for_scoring,
+                    ).detach().cpu().numpy().squeeze()
+
+                    current_vla_clip_score = original_score # Update the main score variable
+
+                # 3. Check threshold and generate/evaluate candidates if needed
+                if (cfg.use_vla_clip_trajectory_scorer and
+                    vla_clip_scorer and
+                    cfg.clip_select_action_num_candidates > 1 and
+                    not np.isnan(original_score) and # Ensure score is valid
+                    original_score < cfg.vla_clip_score_threshold):
+
+                    print(f"  [t={t}] Original action score {original_score:.3f} < {cfg.vla_clip_score_threshold:.3f}. Evaluating alternatives...")
+
+                    # Initialize lists with original action data
+                    candidate_instructions = [task_description]
+                    predicted_actions = [original_action]
+                    scores = [original_score]
+                    padded_histories = [original_padded_history]
+
+                    # Generate additional candidates
                     num_to_generate = cfg.clip_select_action_num_candidates - 1
                     if num_to_generate > 0:
-                        additional = lang_transform.transform(task_description,
-                                                            cfg.lang_transform_type,
-                                                            batch_number=num_to_generate)
-                        candidate_instructions = [task_description] + additional
-                    else:
-                        candidate_instructions = [task_description]
+                        # sample additional language instructions
+                        sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
+                        additional_instructions = [pre_sampled_all_language_instructions[i] for i in sample_indices]
+                        candidate_instructions.extend(additional_instructions)
 
-                    # 2) generate actions for each candidate
-                    predicted_actions = []
-                    for instr in candidate_instructions:
-                        a = get_action(cfg, model, observation, instr, processor=processor)
-                        a = normalize_gripper_action(a, binarize=True)
-                        if cfg.model_family == "openvla":
-                            a = invert_gripper_action(a)
-                        predicted_actions.append(a)
+                        # Generate and score actions for additional instructions
+                        for i in range(num_to_generate):
+                            instr_idx = i + 1 # Index in candidate_instructions (original is 0)
+                            instr = candidate_instructions[instr_idx]
 
-                    # 3) for each predicted action, build a correctly padded history + candidate
-                    scores = []
-                    padded_histories = []
-                    for a in predicted_actions:
-                        hist_list = list(executed_action_history)
-                        H = cfg.vla_clip_history_length
-                        # reserve one slot for the new action a
-                        num_pad = H - len(hist_list) - 1
-                        # pad on the left, then take only the last (H-1) history items if too long
-                        past = [padding_action_vector] * max(0, num_pad) \
-                            + hist_list[-(H-1):]
-                        padded = np.array(past + [a.copy()], dtype=np.float32)  # shape (H, action_dim)
+                            # Generate action
+                            a = get_action(cfg, model, observation, instr, processor=processor)
+                            a = normalize_gripper_action(a, binarize=True)
+                            if cfg.model_family == "openvla":
+                                a = invert_gripper_action(a)
+                            predicted_actions.append(a)
 
-                        padded_histories.append(padded)
+                            # Build history (same padding logic as original)
+                            hist_list = list(executed_action_history)
+                            H = cfg.vla_clip_history_length
+                            num_pad = H - len(hist_list) - 1
+                            past = [padding_action_vector] * max(0, num_pad) + hist_list[-(H - 1):]
+                            padded = np.array(past + [a.copy()], dtype=np.float32)
+                            padded_histories.append(padded)
+                            # Score action
+                            s = vla_clip_scorer.get_history_score(
+                                    img_for_clip,
+                                    original_task_description if cfg.use_original_task_description else instr,
+                                    padded
+                                ).detach().cpu().numpy().squeeze()
+                            scores.append(s)
 
-                        idx = len(scores)
-                        s = vla_clip_scorer.get_history_score(
-                                img_for_clip,
-                                candidate_instructions[idx],
-                                padded
-                            ).detach().cpu().numpy()
-                        scores.append(s)
-
-                    scores = np.array(scores).squeeze()
+                    # 4. Select the best action from the combined list (original + candidates)
+                    scores = np.array(scores) # Ensure it's a numpy array
 
                     if cfg.clip_select_action_strategy == "highest_score":
-                        best_candidate_idx = np.argmax(scores)
-                        action_to_execute = predicted_actions[best_candidate_idx]
-                        current_vla_clip_score = scores[best_candidate_idx]
-                        current_history_for_scoring = padded_histories[best_candidate_idx]
-                        if best_candidate_idx != 0:
-                            print(f"  [t={t}] Selected action via: '{candidate_instructions[best_candidate_idx]}' (Score: {current_vla_clip_score:.3f})")
+                        valid_indices = np.where(scores > -np.inf)[0]
+                        if len(valid_indices) == 0:
+                             print("  Warning: All candidate scores (including original) are invalid (-inf). Using original action.")
+                             # action_to_execute is already original_action
+                             current_vla_clip_score = -np.inf # Mark score as invalid
+                             current_history_for_scoring = original_padded_history
+                        else:
+                            scores_valid = scores[valid_indices]
+                            best_valid_idx_in_valid_list = np.argmax(scores_valid)
+                            best_candidate_idx = valid_indices[best_valid_idx_in_valid_list]
+
+                            action_to_execute = predicted_actions[best_candidate_idx]
+                            current_vla_clip_score = scores[best_candidate_idx]
+                            current_history_for_scoring = padded_histories[best_candidate_idx] # Update history if different action chosen
+                            if best_candidate_idx != 0:
+                                print(f"  [t={t}] Selected alternative action via: '{candidate_instructions[best_candidate_idx]}' (Score: {current_vla_clip_score:.3f})")
+                            else:
+                                print(f"  [t={t}] Kept original action (Score: {current_vla_clip_score:.3f}) after evaluating alternatives.")
+
                     elif cfg.clip_select_action_strategy == "softmax_sample":
-                        valid_scores = np.array([s for s in scores if s > -np.inf])
+                        valid_scores = scores[scores > -np.inf]
+                        valid_indices = np.where(scores > -np.inf)[0]
+
                         if len(valid_scores) == 0:
-                            print("Warning: All candidate scores are invalid (-inf). Defaulting to original instruction action.")
-                            action_to_execute = predicted_actions[0]
+                            print("  Warning: All candidate scores (including original) are invalid (-inf). Using original action.")
+                            # action_to_execute is already original_action
                             current_vla_clip_score = -np.inf
+                            current_history_for_scoring = original_padded_history
                         else:
                             temperature = 1.0
                             probabilities = torch.softmax(torch.tensor(valid_scores) / temperature, dim=0).numpy()
-                            valid_indices = [i for i, s in enumerate(scores) if s > -np.inf]
-                            chosen_valid_idx = np.random.choice(len(valid_indices), p=probabilities)
-                            chosen_original_idx = valid_indices[chosen_valid_idx]
+                            # Ensure probabilities sum to 1, handle potential floating point issues
+                            probabilities /= np.sum(probabilities)
+                            chosen_valid_idx_in_valid_list = np.random.choice(len(valid_indices), p=probabilities)
+                            chosen_original_idx = valid_indices[chosen_valid_idx_in_valid_list]
 
                             action_to_execute = predicted_actions[chosen_original_idx]
                             current_vla_clip_score = scores[chosen_original_idx]
+                            current_history_for_scoring = padded_histories[chosen_original_idx] # Update history
+
+                            prob_display = probabilities[chosen_valid_idx_in_valid_list]
                             if chosen_original_idx != 0:
-                                print(f"  [t={t}] Sampled action via: '{candidate_instructions[chosen_original_idx]}' (Score: {current_vla_clip_score:.3f}, Prob: {probabilities[chosen_valid_idx]:.3f})")
+                                print(f"  [t={t}] Sampled alternative action via: '{candidate_instructions[chosen_original_idx]}' (Score: {current_vla_clip_score:.3f}, Prob: {prob_display:.3f})")
+                            else:
+                                print(f"  [t={t}] Sampled original action (Score: {current_vla_clip_score:.3f}, Prob: {prob_display:.3f}) after evaluating alternatives.")
 
-                else:
-                    action_to_execute = get_action(
-                        cfg, model, observation, original_task_description, processor=processor
-                    )
-                    action_to_execute = normalize_gripper_action(action_to_execute, binarize=True)
-                    if cfg.model_family == "openvla":
-                        action_to_execute = invert_gripper_action(action_to_execute)
-
-                    if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer:
-                        current_hist_len = len(executed_action_history)
-                        num_padding = cfg.vla_clip_history_length - current_hist_len
-                        current_padded_history_list = []
-                        for _ in range(num_padding):
-                            current_padded_history_list.append(padding_action_vector)
-                        current_padded_history_list.extend(list(executed_action_history))
-                        if not current_padded_history_list:
-                            current_padded_history_list = [padding_action_vector] * cfg.vla_clip_history_length
-                        current_history_for_scoring = np.array(current_padded_history_list, dtype=np.float32)
-                        current_vla_clip_score = vla_clip_scorer.get_history_score(
-                            img_for_clip,
-                            original_task_description,
-                            current_history_for_scoring
-                        ).detach().cpu().numpy()[0]
-
+                # --- Execute Action and Update State ---
                 action_to_execute_list = action_to_execute.tolist()
                 obs, reward, done, info = env.step(action_to_execute_list)
+                # IMPORTANT: Append the action *actually executed* to the history
                 executed_action_history.append(np.array(action_to_execute_list))
 
-                all_scores.append(current_vla_clip_score if current_vla_clip_score is not None and current_vla_clip_score > -np.inf else np.nan)
+                # Append the score of the executed action for logging
+                all_scores.append(current_vla_clip_score if not np.isnan(current_vla_clip_score) and current_vla_clip_score > -np.inf else np.nan)
                 all_actions.append(action_to_execute)
 
                 if done:
@@ -326,7 +373,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     break
                 t += 1
                 pbar.update(1)
-                if current_vla_clip_score is not None and current_vla_clip_score > -np.inf:
+                if not np.isnan(current_vla_clip_score) and current_vla_clip_score > -np.inf:
                     pbar.set_postfix({"score": f"{current_vla_clip_score:.3f}"})
                 else:
                     pbar.set_postfix({"score": "N/A"})
@@ -345,6 +392,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 score_list=all_scores,
                 action_list=all_actions,
                 clip_update_num=cfg.clip_select_action_num_candidates,
+                use_original_task_description=cfg.use_original_task_description
             )
 
             avg_score = np.nanmean(all_scores) if all_scores else np.nan

@@ -233,10 +233,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create dataset with potentially padded pos/neg action histories based on global stats.')
     parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
                         help='Path to the dataset')
-    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial'],
+    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial', 'libero_90', 'libero_object', 'libeero_goal'],
                         help='Dataset folders to process')
     # Updated default name
-    parser.add_argument('--output_path', type=str, default='libero_spatial_pos_neg_hist_globalstd_padded.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_all_pos_neg_hist_globalstd_padded.pkl',
                         help='Path to save the augmented dataset')
     parser.add_argument('--history_length', type=int, default=10,
                         help='Number of past action steps to include in the history (H)')
@@ -244,8 +244,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Construct output path with history length
-    if args.output_path == 'libero_spatial_pos_neg_hist_globalstd_padded.pkl': # Check if default name is used
-        args.output_path = f'libero_spatial_pos_neg_globalstd_h{args.history_length}_padded.pkl'
+    if args.output_path == 'libero_all_pos_neg_hist_globalstd_padded.pkl': # Check if default name is used
+        args.output_path = f'libero_all_pos_neg_globalstd_h{args.history_length}_padded.pkl'
         print(f"Using default output path format: {args.output_path}")
 
     augment_dataset(args.dataset_path, args.dataset_folders, args.output_path,

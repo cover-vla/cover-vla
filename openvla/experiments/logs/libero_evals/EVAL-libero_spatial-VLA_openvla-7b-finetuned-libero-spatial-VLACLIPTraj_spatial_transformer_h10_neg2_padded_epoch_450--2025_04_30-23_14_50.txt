@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: Lift the dark dish situated between the platter and the small dish, and set it onto the platter. (Trial 1/5)
+Starting episode 1...

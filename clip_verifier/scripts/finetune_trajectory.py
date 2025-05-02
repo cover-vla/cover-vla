@@ -95,9 +95,13 @@ class VLA_CLIP(nn.Module):
         # 2) Un-freeze the text and visual projection layers
         #    – `model.text_projection` is the final linear layer after text encoder
         #    – `model.visual.proj`    is the final linear layer after image encoder
+        # for name, param in self.clip.named_parameters():
+        #     if name in ["text_projection.weight", "text_projection.bias",
+        #                 "visual.proj.weight",    "visual.proj.bias"]:
+        #         param.requires_grad = True
+        #         print(f"Unfrozen: {name}")
         for name, param in self.clip.named_parameters():
-            if name in ["text_projection.weight", "text_projection.bias",
-                        "visual.proj.weight",    "visual.proj.bias"]:
+            if name in ["visual.proj.weight",    "visual.proj.bias"]:
                 param.requires_grad = True
                 print(f"Unfrozen: {name}")
             
@@ -338,7 +342,7 @@ def train_clip(
         try:
              model.load_state_dict(torch.load(resume_checkpoint, map_location=device))
              print("Successfully loaded model weights.")
-             start_epoch = 300
+             start_epoch = 20
              # Consider loading optimizer state and epoch if saved in checkpoint
         except Exception as load_err:
               print(f"Error loading checkpoint: {load_err}. Starting training from scratch.")
