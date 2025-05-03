@@ -206,7 +206,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
             all_scores = []
             all_actions = []
             # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
-            pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
+            if cfg.clip_select_action_num_candidates > 1:
+                pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
 
             while t < max_steps:
                 if t < cfg.num_steps_wait:

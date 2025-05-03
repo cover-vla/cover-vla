@@ -161,7 +161,7 @@ class VLA_CLIP_Inference:
     def get_history_score(self, image, instruction, action_history):
         """
         Calculates the VLA-CLIP similarity score between an image/instruction
-        and a given action history.
+        and a given action history by leveraging the model's forward pass.
 
         Args:
             image: PIL Image or numpy array (expects correct orientation).
@@ -169,7 +169,7 @@ class VLA_CLIP_Inference:
             action_history: Numpy array action history (H, D), potentially padded.
 
         Returns:
-            score: Float similarity score.
+            score: Float similarity score tensor (on the model's device).
         """
         # Preprocess image
         if isinstance(image, np.ndarray):
@@ -181,53 +181,27 @@ class VLA_CLIP_Inference:
             text_tokens = clip.tokenize(instruction).to(self.device) # Shape (1, SeqLen)
         else:
             text_tokens = instruction.to(self.device)
+            if text_tokens.ndim == 1:
+                 text_tokens = text_tokens.unsqueeze(0) # Ensure (1, SeqLen)
 
         # Prepare action history tensor
         # Input history should already be padded if necessary by the caller
-        history_tensor = torch.tensor(action_history, dtype=torch.float32).to(self.device) # Shape (1, H, D)
+        # Shape (1, H, D)
+        history_tensor = torch.tensor(action_history, dtype=torch.float32).to(self.device)
         if history_tensor.ndim == 2:
-            history_tensor = history_tensor.unsqueeze(0) # Shape (1, H, D)
+            history_tensor = history_tensor.unsqueeze(0) # Ensure (1, H, D)
 
         with torch.no_grad():
-            # --- Get Combined Image/Text Embedding ---
-            # Use the model's internal methods, assuming batch size 1
-            patch_features, text_features = self.model.extract_clip_features(image_tensor, text_tokens)
-            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features) # text_features might need unsqueeze(1) if model expects (B, N, D)
-            # Check model's text_aware_visual_extraction input expectation if error occurs
-            if text_features.ndim == 2: text_features = text_features.unsqueeze(1) # Ensure (B, N_txt, D)
-            
-            vision_token = self.model.vision_poolings(text_aware_features)
-            text_token = self.model.text_pooling(text_features) # Check model's text_pooling input expectation
-            combined_features = torch.cat([text_token, vision_token], dim=-1)
-            combined_features = self.model.input_projection(combined_features) # Shape (1, E)
-            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-            # --- End Image/Text Embedding ---
+            # Call the model's forward pass with batch size 1 for all inputs
+            # Model returns: logits_per_image, logits_per_action_history
+            # logits_per_image = image_features @ action_features.T
+            # Since B=1 for both image and action, logits_per_image will be (1, 1)
+            image_logits, _ = self.model(image_tensor, text_tokens, history_tensor)
 
-            # --- Get Action History Embedding ---
-            # Re-use the forward pass logic for action encoding part
-            action_histories_input = history_tensor # Shape (1, H, D)
-            projected_trajectory = None
-            if self.model.use_transformer:
-                padding_mask = (action_histories_input[:, :, 0] == ACTION_PADDING_VALUE) # Use the defined constant
-                encoded_steps = self.model.single_step_action_encoder(action_histories_input)
-                encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
-                transformer_output_permuted = self.model.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
-                transformer_output = transformer_output_permuted.permute(1, 0, 2)
-                mask_expanded = (~padding_mask).unsqueeze(-1).float()
-                summed_features = (transformer_output * mask_expanded).sum(dim=1)
-                num_non_padded = mask_expanded.sum(dim=1)
-                num_non_padded = torch.clamp(num_non_padded, min=1e-9)
-                projected_trajectory = summed_features / num_non_padded
-            else:
-                flat_actions = action_histories_input.reshape(1, -1)
-                projected_trajectory = self.model.complex_action_encoder(flat_actions)
+            # The single score is the only element in the resulting tensor
+            score = image_logits.squeeze() # Squeeze to get scalar tensor
 
-            projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True) # Shape (1, E)
-            # --- End Action History Embedding ---
-
-            # Calculate Similarity Score (dot product)
-            score = torch.matmul(combined_features, projected_trajectory.T).squeeze(0)
-
+        # Return the score tensor directly (caller can use .item() or .detach().cpu().numpy())
         return score
 
 def sample_and_test(augmented_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20):

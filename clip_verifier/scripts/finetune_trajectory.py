@@ -100,10 +100,11 @@ class VLA_CLIP(nn.Module):
         #                 "visual.proj.weight",    "visual.proj.bias"]:
         #         param.requires_grad = True
         #         print(f"Unfrozen: {name}")
-        for name, param in self.clip.named_parameters():
-            if name in ["visual.proj.weight",    "visual.proj.bias"]:
-                param.requires_grad = True
-                print(f"Unfrozen: {name}")
+        
+        # for name, param in self.clip.named_parameters():
+        #     if name in ["visual.proj.weight",    "visual.proj.bias"]:
+        #         param.requires_grad = True
+        #         print(f"Unfrozen: {name}")
             
         text_pooling_output_dim = model_config.text_pooling_output_dim
         pooling_heads = model_config.pooling_heads
@@ -437,14 +438,14 @@ def train_clip(
             negative_targets = torch.zeros((current_batch_size, current_batch_size), device=device) # For off-diagonal block
 
             # Positive Loss (Diagonal of Top-Left Block)
-            diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
-            diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
-            loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
-                        positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
+            # diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
+            # diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
+            # loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
+            #             positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
             
-            # positive_labels = torch.arange(current_batch_size, device=device)
-            # loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
-            #         F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
+            positive_labels = torch.arange(current_batch_size, device=device)
+            loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
+                    F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
 
             # Negative Loss (Top-Right Block)
             neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]
@@ -500,14 +501,14 @@ def train_clip(
                 negative_targets = torch.zeros((current_batch_size, current_batch_size), device=device) # For off-diagonal block
 
                 # # Positive Loss (Diagonal of Top-Left Block)
-                diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
-                diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
-                loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
-                            positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
+                # diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
+                # diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
+                # loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
+                #             positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
                 
-                # positive_labels = torch.arange(current_batch_size, device=device)
-                # loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
-                #         F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
+                positive_labels = torch.arange(current_batch_size, device=device)
+                loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
+                        F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
 
                 # Negative Loss (Top-Right Block)
                 neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]

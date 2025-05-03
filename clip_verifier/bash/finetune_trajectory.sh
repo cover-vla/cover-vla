@@ -1,11 +1,10 @@
-
-CUDA_VISIBLE_DEVICES=4 python ../scripts/finetune_trajectory.py \
-    --epochs 300 \
+CUDA_VISIBLE_DEVICES=7 python ../scripts/finetune_trajectory.py \
+    --epochs 200 \
     --batch_size 2048 \
-    --lr 5e-5 \
+    --lr 1e-4 \
     --history_length 10 \
-    --augmented_dataset ../augmented_datasets/libero_spatial_pos_neg_globalstd_h10_padded.pkl \
-    --save_name spatial_mlp_h10_neg2_padded \
-    --use_wandb
-    # --use_transformer
-
+    --augmented_dataset ../augmented_datasets/libero_all_pos_neg_globalstd_h10_padded.pkl \
+    --save_name all_transformer_h10_neg0_padded \
+    --use_transformer \
+    --neg_loss_weight 0 \
+    --use_wandb 

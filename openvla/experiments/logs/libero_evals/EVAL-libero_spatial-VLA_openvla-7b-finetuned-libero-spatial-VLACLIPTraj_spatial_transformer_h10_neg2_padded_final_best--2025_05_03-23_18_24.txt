@@ -1,0 +1,19 @@
+Task suite: libero_spatial
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 1/5)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/no_transform_1_origistruc_True/episode=1--success=True--score=0.634--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=91, AvgStepScore=0.634
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 2/5)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/no_transform_1_origistruc_True/episode=2--success=True--score=0.740--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=True, Steps=170, AvgStepScore=0.740
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 3/5)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/no_transform_1_origistruc_True/episode=3--success=True--score=0.723--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=True, Steps=79, AvgStepScore=0.723
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate (Trial 4/5)
+Starting episode 4...

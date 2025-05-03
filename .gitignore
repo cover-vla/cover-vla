@@ -178,6 +178,7 @@ openvla/modified_libero_rlds/
 openvla/run
 openvla/wandb
 openvla/rollouts
+openvla/rollouts_bk
 
 openpi/.github
 openpi/.venv

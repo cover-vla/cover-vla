@@ -64,8 +64,21 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_origistruc_{use_original_task_description}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
-    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--score={round(np.nanmean(score_list), 3) if score_list else None}--task={processed_task_description}.mp4"
-    data_path = f"{rollout_dir}/episode={idx}--success={success}--score={round(np.nanmean(score_list), 3) if score_list else None}--task={processed_task_description}.pkl"
+
+    # Calculate mean score
+    mean_score = np.nanmean(score_list) if score_list else None
+
+    # Format score string explicitly
+    if mean_score is not None and not np.isnan(mean_score):
+        # Use :.3f format specifier for 3 decimal places
+        score_str = f"{mean_score:.3f}"
+    else:
+        # Handle None or NaN cases
+        score_str = "None" # Or you could use "nan" if mean_score is np.nan
+
+    # Use the formatted string in the filename
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.mp4"
+    data_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.pkl"
     video_writer = imageio.get_writer(mp4_path, fps=30)
     for img in rollout_images:
         video_writer.append_data(img)
