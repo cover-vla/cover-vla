@@ -277,9 +277,10 @@ class VLA_CLIP(nn.Module):
         # Normalize action history features
         projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
 
+        logits_scale = self.logit_scale.exp()
         # Calculate logits
-        image_logits = self.logit_scale * torch.matmul(combined_features, projected_trajectory.T)
-        action_logits = self.logit_scale * torch.matmul(projected_trajectory, combined_features.T)
+        image_logits = logits_scale * torch.matmul(combined_features, projected_trajectory.T)
+        action_logits = logits_scale * torch.matmul(projected_trajectory, combined_features.T)
 
         return image_logits, action_logits
         

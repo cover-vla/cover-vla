@@ -215,8 +215,32 @@ def create_visualization(results, plots_dir): # Added plots_dir parameter
     ax.set_ylabel('Average CLIP Score (non-zero only)')
     ax.set_title('Average CLIP Scores by Outcome and Condition')
     ax.set_xticks(x)
-    # Use folder names directly as labels, rotate if many folders
-    ax.set_xticklabels(folders, rotation=45 if len(folders) > 5 else 0, ha="right")
+    
+    # Adjust x-tick label properties based on the number of folders
+    num_folders = len(folders)
+    if num_folders > 10:  # Many folders
+        rotation_angle = 60
+        label_ha = "right"
+        label_fontsize = 8
+        rotation_mode = "anchor"
+    elif num_folders > 5:  # Medium number of folders
+        rotation_angle = 45
+        label_ha = "right"
+        label_fontsize = 9
+        rotation_mode = "anchor"
+    else:  # Few folders
+        rotation_angle = 0
+        label_ha = "center" # Center alignment for no rotation
+        label_fontsize = 10
+        rotation_mode = None
+
+    ax.set_xticklabels(
+        folders,
+        rotation=rotation_angle,
+        ha=label_ha,
+        fontsize=label_fontsize,
+        rotation_mode=rotation_mode
+    )
     ax.legend()
     ax.grid(axis='y', linestyle='--', alpha=0.6)
 

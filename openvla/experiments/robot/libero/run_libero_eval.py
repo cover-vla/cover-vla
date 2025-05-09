@@ -88,7 +88,7 @@ class GenerateConfig:
     vla_clip_use_transformer: bool = True                 # Does the trajectory model use a transformer?
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
-    vla_clip_score_threshold: float = 0.2                 # Threshold to trigger candidate generation/evaluation
+    vla_clip_score_threshold: float = 2                 # Threshold to trigger candidate generation/evaluation
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
