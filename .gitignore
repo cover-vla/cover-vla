@@ -179,6 +179,7 @@ openvla/run
 openvla/wandb
 openvla/rollouts
 openvla/rollouts_bk
+openvla/rollouts_oracle
 
 openpi/.github
 openpi/.venv

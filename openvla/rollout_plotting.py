@@ -7,7 +7,7 @@ import pandas as pd
 from datetime import datetime
 import re # Import re for parsing filenames
 
-def analyze_rollouts(rollout_dir="./rollouts"):
+def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
     Analyze CLIP scores from rollout data in the specified directory.
     Assumes the structure: ./rollouts/{condition_folder}/...pkl

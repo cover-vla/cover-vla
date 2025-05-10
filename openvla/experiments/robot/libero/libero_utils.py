@@ -58,10 +58,15 @@ def get_libero_image(obs, resize_size):
 
 
 def save_rollout_video(rollout_images, idx, success, transform_type,
-                       task_description, log_file=None, score_list=None, action_list=None, clip_update_num=None, use_original_task_description=False):
+                       task_description, log_file=None, score_list=None, 
+                       action_list=None, clip_update_num=None, use_original_task_description=False,
+                       oracle_scorer=False):
     
     """Saves an MP4 replay of an episode."""
-    rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_origistruc_{use_original_task_description}"
+    if oracle_scorer:
+        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}_origistruc_{use_original_task_description}"
+    else:
+        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_origistruc_{use_original_task_description}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
