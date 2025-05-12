@@ -80,7 +80,7 @@ class GenerateConfig:
     vla_clip_history_length: int = 10                      # History length for VLA policy / action tracking
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. current) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
-    vla_clip_score_threshold: float = -0.2                 # Threshold for negative L2 norm to trigger candidate evaluation (e.g., if -L2 < -0.1 => L2 > 0.1)
+    vla_clip_score_threshold: float = -0.005                 # Threshold for negative L2 norm to trigger candidate evaluation (e.g., if -L2 < -0.1 => L2 > 0.1)
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
@@ -108,7 +108,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
     assert not (cfg.load_in_8bit and cfg.load_in_4bit), "Cannot use both 8-bit and 4-bit quantization!"
 
-    # set_seed_everywhere(cfg.seed)
+    set_seed_everywhere(cfg.seed)
     cfg.unnorm_key = cfg.task_suite_name
     model = get_model(cfg)
 
@@ -193,7 +193,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
                 # The number 10 is arbitrary, adjust if needed.
-                pre_sampled_rephrased_instructions_pool = lang_transform.transform(task_description, cfg.lang_transform_type, batch_number=10)
+                pre_sampled_rephrased_instructions_pool = lang_transform.transform(task_description, cfg.lang_transform_type, batch_number=25)
 
             while t < max_steps:
                 if t < cfg.num_steps_wait:
