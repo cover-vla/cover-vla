@@ -33,7 +33,6 @@ import draccus
 import numpy as np
 from tqdm import tqdm
 from libero.libero import benchmark
-from PIL import Image
 import collections
 
 import wandb

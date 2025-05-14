@@ -1,22 +1,3 @@
-"""
-run_libero_eval.py
-
-Runs a model in a LIBERO simulation environment, optionally scoring actions
-using a trajectory-based VLA-CLIP model.
-
-Usage:
-    # OpenVLA:
-    python experiments/robot/libero/run_libero_eval.py \
-        --model_family openvla \
-        --pretrained_checkpoint <VLA_CHECKPOINT_PATH> \
-        --task_suite_name [ libero_spatial | libero_object | libero_goal | libero_10 | libero_90 ] \
-        # --- Other Args ---
-        --center_crop [ True | False ] \
-        --run_id_note <OPTIONAL TAG> \
-        --use_wandb [ True | False ] \
-        --wandb_project <PROJECT> \
-        --wandb_entity <ENTITY>
-"""
 
 import os
 import sys
@@ -28,10 +9,7 @@ import draccus
 import numpy as np
 from tqdm import tqdm
 from libero.libero import benchmark
-from PIL import Image
 import collections
-
-import wandb
 import torch
 
 # Append current directory so that interpreter can find experiments.robot
@@ -85,9 +63,6 @@ class GenerateConfig:
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
     local_log_dir: str = "./experiments/logs/libero_evals"
-    use_wandb: bool = False
-    wandb_project: str = "YOUR_WANDB_PROJECT"
-    wandb_entity: str = "YOUR_WANDB_ENTITY"
     seed: int = 7
     # Fields for internal use / derived config
     unnorm_key: Optional[str] = None
@@ -121,17 +96,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
     if cfg.model_family == "openvla":
         processor = get_processor(cfg)
 
-    # vla_clip_scorer = None # Removed
-    action_dim = 7 # Default action dimension
-    if hasattr(model, 'action_dim'): # Try to infer from VLA policy model
-        action_dim = model.action_dim
-        print(f"Inferred action_dim={action_dim} from VLA policy model.")
-    elif hasattr(model, 'module') and hasattr(model.module, 'action_dim'): # For DDP models
-        action_dim = model.module.action_dim
-        print(f"Inferred action_dim={action_dim} from DDP VLA policy model.")
-    else:
-        print(f"Could not infer action_dim from VLA policy model, using default {action_dim}.")
-
     run_id = f"EVAL-{cfg.task_suite_name}-VLA_{Path(cfg.pretrained_checkpoint).stem}"
     if cfg.use_oracle_scorer:
         run_id += f"-OracleScorer_cand{cfg.clip_select_action_num_candidates}_strat{cfg.clip_select_action_strategy}_thresh{cfg.vla_clip_score_threshold}"
@@ -144,10 +108,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
     log_file = open(local_log_filepath, "w")
     print(f"Logging to local log file: {local_log_filepath}")
 
-    if cfg.use_wandb:
-        wandb.init(entity=cfg.wandb_entity, project=cfg.wandb_project, name=run_id)
-        wandb.config.update(draccus.encode(cfg))
-
     benchmark_dict = benchmark.get_benchmark_dict()
     task_suite = benchmark_dict[cfg.task_suite_name]()
     num_tasks_in_suite = task_suite.n_tasks
@@ -159,6 +119,13 @@ def eval_libero(cfg: GenerateConfig) -> None:
     total_episodes, total_successes = 0, 0
     
     lang_transform = LangTransform()
+    
+    if cfg.task_suite_name == "libero_spatial": max_steps = 220
+    elif cfg.task_suite_name == "libero_object": max_steps = 280
+    elif cfg.task_suite_name == "libero_goal": max_steps = 300
+    elif cfg.task_suite_name == "libero_10": max_steps = 520
+    elif cfg.task_suite_name == "libero_90": max_steps = 400
+    else: max_steps = 400
 
     for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
         task = task_suite.get_task(task_id)
@@ -177,13 +144,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
             t = 0
             replay_images = []
             executed_action_history = collections.deque(maxlen=cfg.vla_clip_history_length)
-
-            if cfg.task_suite_name == "libero_spatial": max_steps = 220
-            elif cfg.task_suite_name == "libero_object": max_steps = 280
-            elif cfg.task_suite_name == "libero_goal": max_steps = 300
-            elif cfg.task_suite_name == "libero_10": max_steps = 520
-            elif cfg.task_suite_name == "libero_90": max_steps = 400
-            else: max_steps = 400
 
             log_file.write(f"Starting episode {total_episodes+1}...\n")
             pbar = tqdm(total=max_steps, desc="Episode Progress")
@@ -225,10 +185,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     action_current_task_desc = invert_gripper_action(action_current_task_desc)
                 
                 def calculate_oracle_score(current_action, true_original_action):
-                    # gripper_indicator = 0 if current_action[-1] - true_original_action[-1] < 0.5 else 0.02
-                    # print ("xyz", np.linalg.norm(current_action[:3] - true_original_action[:3]))
-                    # print ("rpy", np.linalg.norm(current_action[3:-1] - true_original_action[3:-1]))
                     return np.linalg.norm(current_action[:-1] - true_original_action[:-1])
+                
                 current_oracle_score = calculate_oracle_score(action_current_task_desc, action_true_original_desc)
                 action_to_execute = action_current_task_desc # Default action
 
@@ -253,7 +211,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         additional_rephrased_instr = [pre_sampled_rephrased_instructions_pool[i] for i in sample_indices]
                         candidate_instructions.extend(additional_rephrased_instr)
 
-
                     # Evaluate additional candidates (if any were added)
                     # Start from index 1 because index 0 (current_task_desc) is already processed
                     for i in range(1, len(candidate_instructions)):
@@ -265,20 +222,14 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         
                         score_c = calculate_oracle_score(action_c, action_true_original_desc)
                         
-                        # Only add if it wasn't the first candidate (which is already in candidate_actions/oracle_scores)
-                        if i >= len(candidate_actions): # Should happen if we extended candidate_instructions
-                            candidate_actions.append(action_c)
-                            oracle_scores.append(score_c)
-                        else: # This case should not happen if logic is correct, but for safety:
-                            candidate_actions[i] = action_c
-                            oracle_scores[i] = score_c
+                        assert i >= len(candidate_actions), "Should happen if we extended candidate_instructions"
+                        candidate_actions.append(action_c)
+                        oracle_scores.append(score_c)
 
 
                     oracle_scores_np = np.array(oracle_scores).squeeze()
 
-                    chosen_candidate_idx = -1
                     if cfg.clip_select_action_strategy == "highest_score":
-                        # Higher score (-L2 norm) is better (smaller L2 diff)
                         valid_indices = np.where(oracle_scores_np > -np.inf)[0] # Check for valid scores
                         if len(valid_indices) == 0:
                             print("  Warning: All candidate oracle scores are invalid. Using current task_description action.")
@@ -315,9 +266,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         print(f"  [t={t}] Oracle selected alternative action via: '{task_description}' (Action Diff: {current_oracle_score:.3f})")
                     else:
                         print(f"  [t={t}] Oracle kept current action via: '{task_description}' (Action Diff: {current_oracle_score:.3f}) after evaluating alternatives.")
-                
-                # If not using oracle scorer or conditions not met, action_to_execute is already action_current_task_desc
-                # and current_oracle_score is already set.
 
                 # --- Execute Action and Update State ---
                 action_to_execute_list = action_to_execute.tolist()
@@ -367,9 +315,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         task_success_rate = float(task_successes) / float(task_episodes) if task_episodes > 0 else 0.0
         print(f"Task {task_id} ('{original_task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})")
         log_file.write(f"Task {task_id} ('{original_task_description}') Success Rate: {task_success_rate:.2f} ({task_successes}/{task_episodes})\n")
-        if cfg.use_wandb:
-            wandb.log({f"success_rate_task/{original_task_description}": task_success_rate}, step=task_id)
-
+       
     total_success_rate = float(total_successes) / float(total_episodes) if total_episodes > 0 else 0.0
     print("-" * 30)
     print(f"Overall Success Rate: {total_success_rate:.3f} ({total_successes}/{total_episodes})")
@@ -378,10 +324,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
     log_file.close()
 
-    if cfg.use_wandb:
-        wandb.log({"success_rate/total": total_success_rate, "num_episodes/total": total_episodes})
-        wandb.save(local_log_filepath)
-        wandb.finish()
 
 
 if __name__ == "__main__":

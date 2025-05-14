@@ -149,3 +149,29 @@ Task: Lift the dark dish from the ramekin and set it onto the platter. (Trial 4/
 Starting episode 29...
 Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=29--success=False--score=0.220--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
   Episode 29: Success=False, Steps=210, AvgStepScore=0.220
+
+Task: Lift the dark dish from the ramekin and set it onto the platter. (Trial 5/5)
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=30--success=True--score=0.159--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 30: Success=True, Steps=90, AvgStepScore=0.159
+Task 5 ('pick up the black bowl on the ramekin and place it on the plate') Success Rate: 0.20 (1/5)
+
+Task: Lift the dark dish beside the biscuit container and set it on the platter. (Trial 1/5)
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=31--success=True--score=0.079--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 31: Success=True, Steps=106, AvgStepScore=0.079
+
+Task: Lift the dark dish beside the biscuit container and set it on the platter. (Trial 2/5)
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=32--success=True--score=0.114--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 32: Success=True, Steps=114, AvgStepScore=0.114
+
+Task: Lift the dark dish beside the biscuit container and set it on the platter. (Trial 3/5)
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=33--success=True--score=0.153--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 33: Success=True, Steps=99, AvgStepScore=0.153
+
+Task: Lift the dark dish beside the biscuit container and set it on the platter. (Trial 4/5)
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=34--success=True--score=0.112--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 34: Success=True, Steps=101, AvgStepScore=0.112

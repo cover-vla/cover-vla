@@ -30,3 +30,13 @@ Task: Lift the dark dish beside the small bowl and set it on the platter. (Trial
 Starting episode 6...
 Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=6--success=True--score=0.148--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
   Episode 6: Success=True, Steps=102, AvgStepScore=0.148
+
+Task: Lift the dark dish beside the small bowl and set it on the platter. (Trial 2/5)
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=7--success=False--score=0.336--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=False, Steps=210, AvgStepScore=0.336
+
+Task: Lift the dark dish beside the small bowl and set it on the platter. (Trial 3/5)
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=8--success=True--score=0.107--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=118, AvgStepScore=0.107
