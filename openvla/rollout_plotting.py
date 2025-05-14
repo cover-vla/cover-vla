@@ -212,8 +212,12 @@ def create_visualization(results, plots_dir): # Added plots_dir parameter
     rects1 = ax.bar(x - width/2, success_scores, width, label='Success', yerr=success_std, capsize=5, color='mediumseagreen')
     rects2 = ax.bar(x + width/2, failure_scores, width, label='Failure', yerr=failure_std, capsize=5, color='lightcoral')
 
-    ax.set_ylabel('Average CLIP Score (non-zero only)')
-    ax.set_title('Average CLIP Scores by Outcome and Condition')
+    if "oracle" in plots_dir:
+        ax.set_ylabel('Average Oracle Score')
+        ax.set_title('Average Oracle Scores by Outcome and Condition')
+    else:
+        ax.set_ylabel('Average CLIP Score (non-zero only)')
+        ax.set_title('Average CLIP Scores by Outcome and Condition')
     ax.set_xticks(x)
     
     # Adjust x-tick label properties based on the number of folders
@@ -294,7 +298,10 @@ def create_combined_time_series_plot(time_series_data, plots_dir):
 
     # Set common x-axis label (centered at the bottom)
     fig.supxlabel('Timestep', y=0.02) # Adjust y position if needed
-    fig.supylabel('Average CLIP Score / Action Norm', x=0.01) # Add shared Y label
+    if "oracle" in plots_dir:
+        fig.supylabel('Average Oracle Score / Action Norm', x=0.01) # Add shared Y label
+    else:
+        fig.supylabel('Average CLIP Score / Action Norm', x=0.01) # Add shared Y label
     fig.suptitle("Time Series Analysis per Condition", fontsize=16, y=0.99) # Add overall title
 
     plt.tight_layout(rect=[0.03, 0.03, 1, 0.97]) # Adjust layout to prevent overlap
@@ -440,7 +447,8 @@ def plot_time_series(ax, folder, data, is_subplot=True):
                          color='m', alpha=0.1, where=~np.isnan(avg_failure_action_norm))
 
     # --- Formatting (remains the same) ---
-    ax1.set_ylabel('Avg CLIP Score')
+
+    ax1.set_ylabel('Avg Verifier Score')
     ax1.tick_params(axis='y', labelcolor='black')
     ax1.grid(True, linestyle='--', alpha=0.7, axis='y')
 
@@ -518,7 +526,10 @@ def create_score_length_plots(results, plots_dir): # Added plots_dir parameter
              failure_corr = np.corrcoef(stats["failure_scores"], stats["failure_lengths"])[0,1]
 
         # Add labels and title
-        ax.set_xlabel('Average CLIP Score (non-zero only)')
+        if "oracle" in plots_dir:
+            ax.set_xlabel('Average Oracle Score')
+        else:
+            ax.set_xlabel('Average CLIP Score (non-zero only)')
         ax.set_ylabel('Episode Length')
         folder_label = folder # Use folder name directly
         ax.set_title(f'{folder_label}\nCorrelations - Success: {success_corr:.2f}, Failure: {failure_corr:.2f}')
@@ -629,7 +640,10 @@ def create_global_score_length_plot(results, plots_dir):
 
 
     # Add labels, title, legend, grid
-    ax.set_xlabel('Average CLIP Score (non-zero only)')
+    if "oracle" in plots_dir:
+        ax.set_xlabel('Average Oracle Score')
+    else:
+        ax.set_xlabel('Average CLIP Score (non-zero only)')
     ax.set_ylabel('Episode Length')
     ax.set_title(f'Global Score vs Episode Length (All Conditions)\nOverall Correlations - Success: {success_corr_global:.2f}, Failure: {failure_corr_global:.2f}')
     ax.grid(True, linestyle='--', alpha=0.5)
@@ -702,7 +716,10 @@ def create_rate_vs_score_plot(results, plots_dir):
     scatter = ax.scatter(overall_avg_scores, success_rates, c=np.arange(len(conditions)), cmap='tab10', s=60, alpha=0.8)
 
     # Add labels and title
-    ax.set_xlabel('Overall Average CLIP Score (per condition, NaN avg excluded)')
+    if "oracle" in plots_dir:
+        ax.set_xlabel('Overall Average Oracle Score (per condition, NaN avg excluded)')
+    else:
+        ax.set_xlabel('Overall Average CLIP Score (per condition, NaN avg excluded)')
     ax.set_ylabel('Success Rate (per condition)')
     ax.set_title('Success Rate vs. Overall Average Score by Condition')
     ax.grid(True, linestyle='--', alpha=0.5)
@@ -723,11 +740,11 @@ def create_rate_vs_score_plot(results, plots_dir):
     plt.close()
 
 if __name__ == "__main__":
-    # Example usage:
-    # analyze_rollouts(rollout_dir="/path/to/your/rollouts")
-    results, time_series_data = analyze_rollouts()
+
+    path_to_rollouts = "./rollouts_oracle"
+    results, time_series_data = analyze_rollouts(path_to_rollouts)
 
     if results:
-        print("\nAnalysis complete. Plots saved in ./rollouts/plots/")
+        print(f"\nAnalysis complete. Plots saved in {path_to_rollouts}/plots/")
     else:
-        print("\nAnalysis failed or no data found.")
+        print(f"\nAnalysis failed or no data found in {path_to_rollouts}.")

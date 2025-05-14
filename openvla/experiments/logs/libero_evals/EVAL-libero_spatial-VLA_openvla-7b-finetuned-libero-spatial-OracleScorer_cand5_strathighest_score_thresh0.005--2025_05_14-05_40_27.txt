@@ -1,0 +1,32 @@
+Task suite: libero_spatial
+
+Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter. (Trial 1/5)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=1--success=True--score=0.151--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=102, AvgStepScore=0.151
+
+Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter. (Trial 2/5)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=2--success=False--score=0.262--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=False, Steps=210, AvgStepScore=0.262
+
+Task: Lift the dark dish situated between the platter and the small bowl and set it down on the platter. (Trial 3/5)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=3--success=False--score=0.322--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=False, Steps=210, AvgStepScore=0.322
+
+Task: Lift the dark dish situated between the platter and the small bowl, and set it down on the platter. (Trial 4/5)
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=4--success=False--score=0.252--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=False, Steps=210, AvgStepScore=0.252
+
+Task: Lift the dark dish from between the platter and the small bowl and set it on the platter. (Trial 5/5)
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=5--success=True--score=0.112--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=77, AvgStepScore=0.112
+Task 0 ('pick up the black bowl between the plate and the ramekin and place it on the plate') Success Rate: 0.40 (2/5)
+
+Task: Lift the dark dish beside the small bowl and set it on the platter. (Trial 1/5)
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstTrue/rephrase_5/episode=6--success=True--score=0.148--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=True, Steps=102, AvgStepScore=0.148
