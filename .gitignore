@@ -177,9 +177,7 @@ cython_debug/
 openvla/modified_libero_rlds/
 openvla/run
 openvla/wandb
-openvla/rollouts
-openvla/rollouts_bk
-openvla/rollouts_oracle
+openvla/rollouts*
 
 openpi/.github
 openpi/.venv
