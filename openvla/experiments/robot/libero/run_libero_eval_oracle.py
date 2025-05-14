@@ -80,7 +80,7 @@ class GenerateConfig:
     vla_clip_history_length: int = 10                      # History length for VLA policy / action tracking
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. current) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
-    vla_clip_score_threshold: float = -0.005                 # Threshold for negative L2 norm to trigger candidate evaluation (e.g., if -L2 < -0.1 => L2 > 0.1)
+    vla_clip_score_threshold: float = 0.005                 # Threshold for negative L2 norm to trigger candidate evaluation (e.g., if -L2 < -0.1 => L2 > 0.1)
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
@@ -192,9 +192,9 @@ def eval_libero(cfg: GenerateConfig) -> None:
             all_actions = []
             pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
-                # The number 10 is arbitrary, adjust if needed.
-                pre_sampled_rephrased_instructions_pool = lang_transform.transform(task_description, cfg.lang_transform_type, batch_number=25)
-
+                pre_sampled_rephrased_instructions_pool = lang_transform.transform(original_task_description if cfg.use_original_task_description else task_description, 
+                                                                                   cfg.lang_transform_type, 
+                                                                                   batch_number=25)
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)
@@ -224,16 +224,21 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 if cfg.model_family == "openvla":
                     action_current_task_desc = invert_gripper_action(action_current_task_desc)
                 
-                current_oracle_score = -np.linalg.norm(action_current_task_desc - action_true_original_desc)
+                def calculate_oracle_score(current_action, true_original_action):
+                    # gripper_indicator = 0 if current_action[-1] - true_original_action[-1] < 0.5 else 0.02
+                    # print ("xyz", np.linalg.norm(current_action[:3] - true_original_action[:3]))
+                    # print ("rpy", np.linalg.norm(current_action[3:-1] - true_original_action[3:-1]))
+                    return np.linalg.norm(current_action[:-1] - true_original_action[:-1])
+                current_oracle_score = calculate_oracle_score(action_current_task_desc, action_true_original_desc)
                 action_to_execute = action_current_task_desc # Default action
 
                 # 3. Check threshold and evaluate alternatives if using oracle scorer
                 if (cfg.use_oracle_scorer and
                     cfg.clip_select_action_num_candidates > 1 and
                     not np.isnan(current_oracle_score) and
-                    current_oracle_score < cfg.vla_clip_score_threshold):
+                    current_oracle_score > cfg.vla_clip_score_threshold):
 
-                    print(f"  [t={t}] Current action's oracle score {-current_oracle_score:.3f} (L2 diff) > {-cfg.vla_clip_score_threshold:.3f}. Evaluating alternatives...")
+                    print(f"  [t={t}] Current action's oracle score {current_oracle_score:.3f} (L2 diff) > {cfg.vla_clip_score_threshold:.3f}. Evaluating alternatives...")
 
                     # Initialize lists: first candidate is the current task_description and its action/score
                     candidate_instructions = [task_description]
@@ -258,7 +263,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         if cfg.model_family == "openvla":
                             action_c = invert_gripper_action(action_c)
                         
-                        score_c = -np.linalg.norm(action_c - action_true_original_desc)
+                        score_c = calculate_oracle_score(action_c, action_true_original_desc)
                         
                         # Only add if it wasn't the first candidate (which is already in candidate_actions/oracle_scores)
                         if i >= len(candidate_actions): # Should happen if we extended candidate_instructions
@@ -280,11 +285,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             chosen_candidate_idx = 0 # Default to current task_description
                         else:
                             scores_to_consider = oracle_scores_np[valid_indices]
-                            best_idx_in_valid = np.argmax(scores_to_consider)
+                            best_idx_in_valid = np.argmin(scores_to_consider)
                             chosen_candidate_idx = valid_indices[best_idx_in_valid]
                         
                     elif cfg.clip_select_action_strategy == "softmax_sample":
-                        valid_scores_list = [s for s in oracle_scores_np if s > -np.inf]
+                        valid_scores_list = [-s for s in oracle_scores_np if s > -np.inf]
                         valid_indices = [i for i, s in enumerate(oracle_scores_np) if s > -np.inf]
 
                         if not valid_scores_list:
@@ -307,9 +312,9 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     # Update task_description if a different instruction was chosen
                     if chosen_candidate_idx != 0: # 0 is the original `task_description` for this step
                         task_description = candidate_instructions[chosen_candidate_idx]
-                        print(f"  [t={t}] Oracle selected alternative action via: '{task_description}' (L2 Diff: {-current_oracle_score:.3f})")
+                        print(f"  [t={t}] Oracle selected alternative action via: '{task_description}' (Action Diff: {current_oracle_score:.3f})")
                     else:
-                        print(f"  [t={t}] Oracle kept current action via: '{task_description}' (L2 Diff: {-current_oracle_score:.3f}) after evaluating alternatives.")
+                        print(f"  [t={t}] Oracle kept current action via: '{task_description}' (Action Diff: {current_oracle_score:.3f}) after evaluating alternatives.")
                 
                 # If not using oracle scorer or conditions not met, action_to_execute is already action_current_task_desc
                 # and current_oracle_score is already set.
@@ -332,7 +337,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 t += 1
                 pbar.update(1)
                 if not np.isnan(current_oracle_score) and current_oracle_score > -np.inf:
-                    pbar.set_postfix({"L2_diff": f"{-current_oracle_score:.3f}"}) # Display L2 difference
+                    pbar.set_postfix({"L2_diff": f"{current_oracle_score:.3f}"}) # Display L2 difference
                 else:
                     pbar.set_postfix({"L2_diff": "N/A"})
 

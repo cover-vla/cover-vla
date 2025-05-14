@@ -64,9 +64,9 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     
     """Saves an MP4 replay of an episode."""
     if oracle_scorer:
-        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts_oracle_act_orginst{use_original_task_description}/{transform_type}_{clip_update_num}"
     else:
-        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_origistruc_{use_original_task_description}"
+        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_originstruc_{use_original_task_description}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 

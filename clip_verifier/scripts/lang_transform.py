@@ -181,7 +181,7 @@ class LangTransform:
             model = 'gpt-4o',
             messages = messages,
             temperature = t,
-            max_tokens = 400
+            max_tokens = 800
         )
         return response.choices[0].message.content
 

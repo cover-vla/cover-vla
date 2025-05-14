@@ -119,7 +119,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
     assert not (cfg.load_in_8bit and cfg.load_in_4bit), "Cannot use both 8-bit and 4-bit quantization!"
 
-    # set_seed_everywhere(cfg.seed)
+    set_seed_everywhere(cfg.seed)
     cfg.unnorm_key = cfg.task_suite_name
     model = get_model(cfg)
 
@@ -340,7 +340,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             current_vla_clip_score = -np.inf
                             current_history_for_scoring = original_padded_history
                         else:
-                            temperature = 1.0
+                            temperature = 0.5
                             probabilities = torch.softmax(torch.tensor(valid_scores) / temperature, dim=0).numpy()
                             # Ensure probabilities sum to 1, handle potential floating point issues
                             probabilities /= np.sum(probabilities)
