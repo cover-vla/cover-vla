@@ -177,13 +177,18 @@ class LangTransform:
             }
         ]
         # print ("API key: ",self.client.api_key)
-        response = self.client.chat.completions.create(
-            model = 'gpt-4o',
-            messages = messages,
-            temperature = t,
-            max_tokens = 800
-        )
-        return response.choices[0].message.content
+        for attempt in range(10):
+            try:
+                response = self.client.chat.completions.create(
+                    model = 'gpt-4o',
+                    messages = messages,
+                    temperature = t,
+                    max_tokens = 800
+                )
+                return response.choices[0].message.content  # <-- returns here if successful, loop ends
+            except Exception as e:
+                print(f"Error: {e}")
+                # loop continues to next attempt
 
 
     ### HELPER FUNCTIONS

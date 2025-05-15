@@ -175,3 +175,89 @@ Task: Lift the dark dish beside the biscuit container and set it on the platter.
 Starting episode 34...
 Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=34--success=True--score=0.112--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
   Episode 34: Success=True, Steps=101, AvgStepScore=0.112
+
+Task: Lift the dark dish beside the biscuit container and set it on the platter. (Trial 5/5)
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=35--success=True--score=0.104--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 35: Success=True, Steps=101, AvgStepScore=0.104
+Task 6 ('pick up the black bowl next to the cookie box and place it on the plate') Success Rate: 1.00 (5/5)
+
+Task: Lift the dark dish from the cooker and set it on the platter. (Trial 1/5)
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=36--success=False--score=0.179--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 36: Success=False, Steps=210, AvgStepScore=0.179
+
+Task: Lift the dark dish from the cooker and set it on the platter. (Trial 2/5)
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=37--success=True--score=0.178--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 37: Success=True, Steps=114, AvgStepScore=0.178
+
+Task: Lift the dark dish from the cooker and set it on the platter. (Trial 3/5)
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=38--success=False--score=0.200--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 38: Success=False, Steps=210, AvgStepScore=0.200
+
+Task: Lift the dark dish from the cooker and set it on the platter. (Trial 4/5)
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=39--success=False--score=0.218--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 39: Success=False, Steps=210, AvgStepScore=0.218
+
+Task: Lift the dark dish from the stove and set it on the platter. (Trial 5/5)
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=40--success=False--score=0.195--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 40: Success=False, Steps=210, AvgStepScore=0.195
+Task 7 ('pick up the black bowl on the stove and place it on the plate') Success Rate: 0.20 (1/5)
+
+Task: Lift the dark dish beside the platter and set it on top of the platter. (Trial 1/5)
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=41--success=False--score=0.095--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 41: Success=False, Steps=210, AvgStepScore=0.095
+
+Task: Lift the dark dish beside the platter and set it on top of the platter. (Trial 2/5)
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=42--success=True--score=0.191--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 42: Success=True, Steps=97, AvgStepScore=0.191
+
+Task: Lift the dark dish beside the platter and set it on top of the platter. (Trial 3/5)
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=43--success=False--score=0.239--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 43: Success=False, Steps=210, AvgStepScore=0.239
+
+Task: Lift the dark dish beside the platter and set it on top of the platter. (Trial 4/5)
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=44--success=False--score=0.214--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 44: Success=False, Steps=210, AvgStepScore=0.214
+
+Task: Lift the dark dish beside the platter and set it on top of the platter. (Trial 5/5)
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=45--success=False--score=0.208--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 45: Success=False, Steps=210, AvgStepScore=0.208
+Task 8 ('pick up the black bowl next to the plate and place it on the plate') Success Rate: 0.20 (1/5)
+
+Task: Lift the dark dish from the timber cupboard and set it on the platter. (Trial 1/5)
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=46--success=True--score=0.150--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 46: Success=True, Steps=130, AvgStepScore=0.150
+
+Task: Lift the dark dish from the timber cupboard and set it on the platter. (Trial 2/5)
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=47--success=False--score=0.204--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 47: Success=False, Steps=210, AvgStepScore=0.204
+
+Task: Lift the dark dish from the wooden shelf and set it on the platter. (Trial 3/5)
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=48--success=False--score=0.270--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 48: Success=False, Steps=210, AvgStepScore=0.270
+
+Task: Lift the dark dish from the timber cupboard and set it onto the platter. (Trial 4/5)
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=49--success=False--score=0.177--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 49: Success=False, Steps=210, AvgStepScore=0.177
+
+Task: Lift the dark dish from the wooden shelf and set it on the platter. (Trial 5/5)
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_oracle_act_orginstFalse/rephrase_5/episode=50--success=True--score=0.204--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 50: Success=True, Steps=161, AvgStepScore=0.204
+Task 9 ('pick up the black bowl on the wooden cabinet and place it on the plate') Success Rate: 0.40 (2/5)
+
+Overall Success Rate: 0.480 (24/50)

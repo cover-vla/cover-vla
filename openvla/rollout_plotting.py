@@ -741,7 +741,7 @@ def create_rate_vs_score_plot(results, plots_dir):
 
 if __name__ == "__main__":
 
-    path_to_rollouts = "./rollouts_oracle"
+    path_to_rollouts = "./rollouts_oracle_act_orginstTrue"
     results, time_series_data = analyze_rollouts(path_to_rollouts)
 
     if results:
