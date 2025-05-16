@@ -6,6 +6,7 @@ from glob import glob
 import pandas as pd
 from datetime import datetime
 import re # Import re for parsing filenames
+from collections import defaultdict
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
@@ -57,6 +58,7 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         create_score_length_plots(results, plots_dir)
         create_global_score_length_plot(results, plots_dir)
         create_rate_vs_score_plot(results, plots_dir)
+        create_task_success_rate_plots(rollout_dir)
 
     return results, time_series_data
 
@@ -738,6 +740,89 @@ def create_rate_vs_score_plot(results, plots_dir):
     plt.savefig(save_path)
     print(f"Saved rate vs score scatter plot to {save_path}")
     plt.close()
+
+def create_task_success_rate_plots(rollout_dir):
+    """
+    For each unique task (language instruction), plot the success rate across all rephrase types (folders).
+    X-axis: rephrase type (sorted numerically)
+    Y-axis: success rate for that task
+    Title and filename: use the task description
+    Save plots in rollout_dir/plots/task_success_rate/
+    """
+    import matplotlib.pyplot as plt
+    import os
+    import re
+    from glob import glob
+    from collections import defaultdict
+
+    # Find all transformation folders (exclude plots)
+    transformation_folders = [d for d in os.listdir(rollout_dir)
+                             if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots"]
+    if not transformation_folders:
+        print(f"No transformation folders found in {rollout_dir}")
+        return
+
+    # Aggregate: task -> rephrase -> [success/failure]
+    task_rephrase_results = defaultdict(lambda: defaultdict(list))
+
+    for trans in transformation_folders:
+        # Extract rephrase number (e.g., rephrase_1 -> 1)
+        rephrase_match = re.search(r'rephrase_(\d+)', trans)
+        if not rephrase_match:
+            continue
+        rephrase_num = int(rephrase_match.group(1))
+        folder_path = os.path.join(rollout_dir, trans)
+        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+        for pkl_file in pkl_files:
+            filename = os.path.basename(pkl_file)
+            # Extract task
+            task_match = re.search(r'task=([^.]*)', filename)
+            if not task_match:
+                continue
+            task = task_match.group(1)
+            # Extract success
+            success_match = re.search(r'success=(True|False)', filename)
+            if not success_match:
+                continue
+            is_success = success_match.group(1) == 'True'
+            task_rephrase_results[task][rephrase_num].append(is_success)
+
+    # Create output dir
+    task_plot_dir = os.path.join(rollout_dir, "plots", "task_success_rate")
+    os.makedirs(task_plot_dir, exist_ok=True)
+
+    # For each task, plot success rate vs rephrase type
+    for task, rephrase_dict in task_rephrase_results.items():
+        rephrase_nums = sorted(rephrase_dict.keys())
+        success_rates = []
+        counts = []
+        for r in rephrase_nums:
+            results = rephrase_dict[r]
+            if results:
+                rate = sum(results) / len(results)
+                success_rates.append(rate)
+                counts.append(len(results))
+            else:
+                success_rates.append(0)
+                counts.append(0)
+        # Plot
+        plt.figure(figsize=(max(8, len(rephrase_nums) * 1.2), 6))
+        plt.plot(rephrase_nums, success_rates, marker='o', color='mediumseagreen')
+        plt.xticks(rephrase_nums)
+        plt.xlabel('Rephrase Type')
+        plt.ylabel('Success Rate')
+        plt.ylim(0, 1.05)
+        plt.title(task.replace('_', ' '))
+        # Annotate with counts
+        for x, y, n in zip(rephrase_nums, success_rates, counts):
+            plt.text(x, y + 0.03, f'n={n}', ha='center', fontsize=8)
+        plt.tight_layout()
+        # Sanitize filename
+        safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+        out_path = os.path.join(task_plot_dir, f'{safe_task}_success_rate.png')
+        plt.savefig(out_path)
+        plt.close()
+        print(f"Saved success rate plot for task '{task}' to {out_path}")
 
 if __name__ == "__main__":
 
