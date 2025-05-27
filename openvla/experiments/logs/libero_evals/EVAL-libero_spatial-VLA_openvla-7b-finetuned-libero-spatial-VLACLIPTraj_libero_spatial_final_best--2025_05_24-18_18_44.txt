@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 1/5)
+Starting episode 1...

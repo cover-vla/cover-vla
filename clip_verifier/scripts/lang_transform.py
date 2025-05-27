@@ -160,7 +160,7 @@ class LangTransform:
             system_prompt = self.get_system_prompt('rephrase_batch')
             
         if batch_number > 1:
-            t = 0.3
+            t = 0
             instruction = self.get_rephrase_batch(instruction, batch_number=batch_number)
 
         # Create the messages list with content array

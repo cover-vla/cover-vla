@@ -21,7 +21,7 @@ def get_libero_env(task, model_family, resolution=256, task_seed=0):
     task_bddl_file = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
     env_args = {"bddl_file_name": task_bddl_file, "camera_heights": resolution, "camera_widths": resolution}
     env = OffScreenRenderEnv(**env_args)
-    env.seed(task_seed)  # IMPORTANT: seed seems to affect object positions even when using fixed initial state
+    env.seed(0)  # IMPORTANT: seed seems to affect object positions even when using fixed initial state
     return env, task_description
 
 def get_libero_dummy_action(model_family: str):
@@ -46,12 +46,12 @@ def resize_image(img, resize_size):
     return img
 
 
-def get_libero_image(obs, resize_size):
+def get_libero_image(obs, resize_size, key='agentview_image'):
     """Extracts image from observations and preprocesses it."""
     assert isinstance(resize_size, int) or isinstance(resize_size, tuple)
     if isinstance(resize_size, int):
         resize_size = (resize_size, resize_size)
-    img = obs["agentview_image"]
+    img = obs[key]
     img = img[::-1, ::-1]  # IMPORTANT: rotate 180 degrees to match train preprocessing
     img = resize_image(img, resize_size)
     return img
@@ -64,9 +64,9 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     
     """Saves an MP4 replay of an episode."""
     if oracle_scorer:
-        rollout_dir = f"./rollouts_oracle_act_orginst{use_original_task_description}/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}"
     else:
-        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}_originstruc_{use_original_task_description}"
+        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 

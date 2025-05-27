@@ -1,10 +1,10 @@
-
 import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
-
+import json
+import imageio
 import draccus
 import numpy as np
 from tqdm import tqdm
@@ -51,7 +51,7 @@ class GenerateConfig:
     # --- LIBERO Env ---
     task_suite_name: str = "libero_spatial"
     num_steps_wait: int = 10
-    num_trials_per_task: int = 5
+    num_trials_per_task: int = 10
 
     # --- Oracle Scorer / Action Selection Params ---
     use_oracle_scorer: bool = True                        # Enable the oracle scorer logic
@@ -70,6 +70,11 @@ class GenerateConfig:
     # langauge transform
     lang_transform_type: str = "rephrase" 
     use_original_task_description: bool = False
+
+def load_rephrases(json_path, suite_name):
+    with open(json_path, 'r') as f:
+        all_rephrases = json.load(f)
+    return all_rephrases[suite_name]
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -127,14 +132,25 @@ def eval_libero(cfg: GenerateConfig) -> None:
     elif cfg.task_suite_name == "libero_90": max_steps = 400
     else: max_steps = 400
 
-    for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
+    # Load pre-generated rephrases if available
+    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
+    preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
+
+    for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
         task = task_suite.get_task(task_id)
         initial_states = task_suite.get_task_init_states(task_id)
 
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm(range(cfg.num_trials_per_task), desc="Trials", leave=False):
-            env, original_task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=0)
-            task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
+            env, original_task_description = get_libero_env(task, cfg.model_family, resolution=256)
+            # --- Always use the first rephrase as the main instruction, rest as alternatives ---
+            rephrased_list = preloaded_rephrases[str(task_id)]["rephrases"]
+            if cfg.lang_transform_type == "no_transform":
+                task_description = original_task_description
+            else:
+                task_description = rephrased_list[0]  # Use the first as the main instruction
+            # Comment out on-the-fly generation
+            # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
             log_file.write(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})\n")
 
@@ -152,9 +168,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
             all_actions = []
             pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
-                pre_sampled_rephrased_instructions_pool = lang_transform.transform(original_task_description if cfg.use_original_task_description else task_description, 
-                                                                                   cfg.lang_transform_type, 
-                                                                                   batch_number=25)
+                pre_sampled_rephrased_instructions_pool = rephrased_list[1:]  # Use the rest as alternatives
+                # Commented out: on-the-fly generation
+                # pre_sampled_rephrased_instructions_pool = lang_transform.transform(original_task_description if cfg.use_original_task_description else task_description, 
+                #                                                                     cfg.lang_transform_type, 
+                #                                                                     batch_number=25)
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)

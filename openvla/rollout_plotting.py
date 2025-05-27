@@ -55,9 +55,9 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         print_results_summary(results)
         create_visualization(results, plots_dir)
         create_time_series_plots(time_series_data, plots_dir)
-        create_score_length_plots(results, plots_dir)
-        create_global_score_length_plot(results, plots_dir)
-        create_rate_vs_score_plot(results, plots_dir)
+        # create_score_length_plots(results, plots_dir)
+        # create_global_score_length_plot(results, plots_dir)
+        # create_rate_vs_score_plot(results, plots_dir)
         create_task_success_rate_plots(rollout_dir)
 
     return results, time_series_data
@@ -211,8 +211,13 @@ def create_visualization(results, plots_dir): # Added plots_dir parameter
     width = 0.35
 
     fig, ax = plt.subplots(figsize=(max(12, len(folders) * 1.5), 7)) # Adjust width based on number of folders
-    rects1 = ax.bar(x - width/2, success_scores, width, label='Success', yerr=success_std, capsize=5, color='mediumseagreen')
-    rects2 = ax.bar(x + width/2, failure_scores, width, label='Failure', yerr=failure_std, capsize=5, color='lightcoral')
+    rects1 = []
+    rects2 = []
+    for i, folder in enumerate(folders):
+        r1 = ax.bar(x[i] - width/2, success_scores[i], width, label=f'{folder} Success', yerr=success_std[i], capsize=5, color='mediumseagreen')
+        r2 = ax.bar(x[i] + width/2, failure_scores[i], width, label=f'{folder} Failure', yerr=failure_std[i], capsize=5, color='lightcoral')
+        rects1.append(r1)
+        rects2.append(r2)
 
     if "oracle" in plots_dir:
         ax.set_ylabel('Average Oracle Score')
@@ -426,27 +431,26 @@ def plot_time_series(ax, folder, data, is_subplot=True):
 
     timesteps = np.arange(1, max_len + 1)
 
-    # Plot Scores
     if np.any(~np.isnan(avg_success_score)):
-        ax1.plot(timesteps, avg_success_score, 'g-', label=f'Success Score (n={len(success_series)})', linewidth=2)
+        ax1.plot(timesteps, avg_success_score, 'g-', label=f'Success (n={len(success_series)})', linewidth=2)
         ax1.fill_between(timesteps, avg_success_score - std_success_score, avg_success_score + std_success_score,
-                         color='g', alpha=0.2, where=~np.isnan(avg_success_score)) # Only shade where data exists
+                            color='g', alpha=0.2, where=~np.isnan(avg_success_score)) # Only shade where data exists
 
     if np.any(~np.isnan(avg_failure_score)):
-        ax1.plot(timesteps, avg_failure_score, 'r-', label=f'Failure Score (n={len(failure_series)})', linewidth=2)
+        ax1.plot(timesteps, avg_failure_score, 'r-', label=f'Failure (n={len(failure_series)})', linewidth=2)
         ax1.fill_between(timesteps, avg_failure_score - std_failure_score, avg_failure_score + std_failure_score,
-                         color='r', alpha=0.2, where=~np.isnan(avg_failure_score))
+                            color='r', alpha=0.2, where=~np.isnan(avg_failure_score))
 
     # Plot Action Norms
     if np.any(~np.isnan(avg_success_action_norm)):
         ax2.plot(timesteps, avg_success_action_norm, 'b--', label=f'Success Action Norm', linewidth=1.5)
         ax2.fill_between(timesteps, avg_success_action_norm - std_success_action_norm, avg_success_action_norm + std_success_action_norm,
-                         color='b', alpha=0.1, where=~np.isnan(avg_success_action_norm))
+                            color='b', alpha=0.1, where=~np.isnan(avg_success_action_norm))
 
     if np.any(~np.isnan(avg_failure_action_norm)):
         ax2.plot(timesteps, avg_failure_action_norm, 'm--', label=f'Failure Action Norm', linewidth=1.5)
         ax2.fill_between(timesteps, avg_failure_action_norm - std_failure_action_norm, avg_failure_action_norm + std_failure_action_norm,
-                         color='m', alpha=0.1, where=~np.isnan(avg_failure_action_norm))
+                            color='m', alpha=0.1, where=~np.isnan(avg_failure_action_norm))
 
     # --- Formatting (remains the same) ---
 
@@ -496,24 +500,22 @@ def create_score_length_plots(results, plots_dir): # Added plots_dir parameter
 
         if success_has_data:
             ax.scatter(stats["success_scores"], stats["success_lengths"],
-                       c='g', label='Success', alpha=0.6, s=30) # Adjust size 's'
+                        c='g', label='Success', alpha=0.6, s=30) # Adjust size 's'
             # Add trend line only if more than 1 point
             if len(stats["success_scores"]) > 1:
                 z = np.polyfit(stats["success_scores"], stats["success_lengths"], 1)
                 p = np.poly1d(z)
-                # Use actual score range for plotting trendline
                 x_min, x_max = min(stats["success_scores"]), max(stats["success_scores"])
                 x_range = np.linspace(x_min, x_max, 2) # Just 2 points needed for line
                 ax.plot(x_range, p(x_range), "g--", alpha=0.8)
 
         if failure_has_data:
             ax.scatter(stats["failure_scores"], stats["failure_lengths"],
-                       c='r', label='Failure', alpha=0.6, s=30)
+                        c='r', label='Failure', alpha=0.6, s=30)
             # Add trend line only if more than 1 point
             if len(stats["failure_scores"]) > 1:
                 z = np.polyfit(stats["failure_scores"], stats["failure_lengths"], 1)
                 p = np.poly1d(z)
-                # Use actual score range for plotting trendline
                 x_min, x_max = min(stats["failure_scores"]), max(stats["failure_scores"])
                 x_range = np.linspace(x_min, x_max, 2)
                 ax.plot(x_range, p(x_range), "r--", alpha=0.8)
@@ -766,11 +768,13 @@ def create_task_success_rate_plots(rollout_dir):
     task_rephrase_results = defaultdict(lambda: defaultdict(list))
 
     for trans in transformation_folders:
-        # Extract rephrase number (e.g., rephrase_1 -> 1)
-        rephrase_match = re.search(r'rephrase_(\d+)', trans)
-        if not rephrase_match:
-            continue
-        rephrase_num = int(rephrase_match.group(1))
+        if trans == "no_transform_1":
+            rephrase_num = 0
+        else:
+            rephrase_match = re.search(r'rephrase_(\d+)', trans)
+            if not rephrase_match:
+                continue
+            rephrase_num = int(rephrase_match.group(1))
         folder_path = os.path.join(rollout_dir, trans)
         pkl_files = glob(os.path.join(folder_path, "*.pkl"))
         for pkl_file in pkl_files:
@@ -805,10 +809,20 @@ def create_task_success_rate_plots(rollout_dir):
             else:
                 success_rates.append(0)
                 counts.append(0)
-        # Plot
         plt.figure(figsize=(max(8, len(rephrase_nums) * 1.2), 6))
-        plt.plot(rephrase_nums, success_rates, marker='o', color='mediumseagreen')
-        plt.xticks(rephrase_nums)
+        # Plot all as green line first (excluding no_transform_1 if present)
+        plot_rephrase_nums = [r for r in rephrase_nums if r != 0]
+        plot_success_rates = [rate for r, rate in zip(rephrase_nums, success_rates) if r != 0]
+        plt.plot(plot_rephrase_nums, plot_success_rates, marker='o', color='mediumseagreen', label='Rephrases')
+
+        # Plot no_transform_1 (oracle) in red if present
+        if 0 in rephrase_nums:
+            idx = rephrase_nums.index(0)
+            # plt.plot([0], [success_rates[idx]], marker='o', color='red', markersize=10, label='oracle (no_transform)')
+            # Draw a horizontal dashed line at the oracle accuracy
+            plt.axhline(y=success_rates[idx], color='red', linestyle='--', alpha=0.7, label='oracle (no_transform)')
+
+        plt.xticks(sorted(rephrase_nums))
         plt.xlabel('Rephrase Type')
         plt.ylabel('Success Rate')
         plt.ylim(0, 1.05)
@@ -816,6 +830,7 @@ def create_task_success_rate_plots(rollout_dir):
         # Annotate with counts
         for x, y, n in zip(rephrase_nums, success_rates, counts):
             plt.text(x, y + 0.03, f'n={n}', ha='center', fontsize=8)
+        plt.legend()
         plt.tight_layout()
         # Sanitize filename
         safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
@@ -824,12 +839,113 @@ def create_task_success_rate_plots(rollout_dir):
         plt.close()
         print(f"Saved success rate plot for task '{task}' to {out_path}")
 
+def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
+    """
+    For each unique task, plot the success rate across all rephrase types (folders) for both oracle and designed verifiers.
+    - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle)
+    - Green line: oracle verifier (rephrases, from rollouts_oracle)
+    - Blue line: designed verifier (rephrases, from rollouts)
+    Save plots in ./plots/task_success_rate_combined/
+    """
+    import matplotlib.pyplot as plt
+    import os
+    import re
+    from glob import glob
+    from collections import defaultdict
+
+    def aggregate_task_rephrase_results(rollout_dir):
+        # Returns: task -> rephrase_num -> [success/failure]
+        transformation_folders = [d for d in os.listdir(rollout_dir)
+                                 if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots"]
+        task_rephrase_results = defaultdict(lambda: defaultdict(list))
+        for trans in transformation_folders:
+            if trans == "no_transform_1":
+                rephrase_num = 0
+            else:
+                rephrase_match = re.search(r'rephrase_(\d+)', trans)
+                if not rephrase_match:
+                    continue
+                rephrase_num = int(rephrase_match.group(1))
+            folder_path = os.path.join(rollout_dir, trans)
+            pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+            for pkl_file in pkl_files:
+                filename = os.path.basename(pkl_file)
+                task_match = re.search(r'task=([^.]*)', filename)
+                if not task_match:
+                    continue
+                task = task_match.group(1)
+                success_match = re.search(r'success=(True|False)', filename)
+                if not success_match:
+                    continue
+                is_success = success_match.group(1) == 'True'
+                task_rephrase_results[task][rephrase_num].append(is_success)
+        return task_rephrase_results
+
+    # Aggregate results
+    oracle_results = aggregate_task_rephrase_results(rollouts_oracle_dir)
+    designed_results = aggregate_task_rephrase_results(rollouts_dir)
+
+    # Output dir
+    combined_plot_dir = os.path.join("./plots", "task_success_rate_combined")
+    os.makedirs(combined_plot_dir, exist_ok=True)
+
+    # Union of all tasks
+    all_tasks = set(oracle_results.keys()) | set(designed_results.keys())
+
+    for task in all_tasks:
+        # Oracle policy (no_transform_1, rephrase_num=0)
+        oracle_policy_rate = None
+        if 0 in oracle_results.get(task, {}):
+            results = oracle_results[task][0]
+            if results:
+                oracle_policy_rate = sum(results) / len(results)
+        # Oracle verifier (rephrases, from rollouts_oracle)
+        oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
+        oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
+        oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
+        # Designed verifier (rephrases, from rollouts)
+        designed_rephrase_nums = sorted(designed_results.get(task, {}).keys())
+        designed_rephrase_rates = [sum(designed_results[task][k])/len(designed_results[task][k]) if designed_results[task][k] else 0 for k in designed_rephrase_nums]
+        designed_counts = [len(designed_results[task][k]) for k in designed_rephrase_nums]
+
+        plt.figure(figsize=(max(8, max(len(oracle_rephrase_nums), len(designed_rephrase_nums)) * 1.2), 6))
+        # Oracle verifier (green)
+        if oracle_rephrase_nums:
+            plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (rephrases)')
+        # Designed verifier (blue)
+        if designed_rephrase_nums:
+            plt.plot(designed_rephrase_nums, designed_rephrase_rates, marker='o', color='royalblue', label='Designed Verifier (rephrases)')
+        # Oracle policy (red horizontal line)
+        if oracle_policy_rate is not None:
+            plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)')
+        # X ticks
+        all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(designed_rephrase_nums))
+        plt.xticks(all_rephrase_nums)
+        plt.xlabel('Rephrase Type')
+        plt.ylabel('Success Rate')
+        plt.ylim(0, 1.05)
+        plt.title(task.replace('_', ' '))
+        # Annotate with counts (oracle counts above, designed below)
+        for x, y, n in zip(oracle_rephrase_nums, oracle_rephrase_rates, oracle_counts):
+            plt.text(x, y + 0.03, f'n={n}', ha='center', fontsize=8, color='mediumseagreen')
+        for x, y, n in zip(designed_rephrase_nums, designed_rephrase_rates, designed_counts):
+            plt.text(x, y - 0.06, f'n={n}', ha='center', fontsize=8, color='royalblue')
+        plt.legend()
+        plt.tight_layout()
+        # Sanitize filename
+        safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+        out_path = os.path.join(combined_plot_dir, f'{safe_task}_success_rate_combined.png')
+        plt.savefig(out_path)
+        plt.close()
+        print(f"Saved combined success rate plot for task '{task}' to {out_path}")
+
 if __name__ == "__main__":
 
-    path_to_rollouts = "./rollouts_oracle_act_orginstTrue"
-    results, time_series_data = analyze_rollouts(path_to_rollouts)
+    path_to_rollouts_oracle = "./rollouts_oracle"
+    path_to_rollouts_clip = "./rollouts"
+    
+    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
+    # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
 
-    if results:
-        print(f"\nAnalysis complete. Plots saved in {path_to_rollouts}/plots/")
-    else:
-        print(f"\nAnalysis failed or no data found in {path_to_rollouts}.")
+    # Call the new combined plot function
+    create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip)

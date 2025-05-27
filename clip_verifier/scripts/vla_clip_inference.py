@@ -40,6 +40,8 @@ class VLA_CLIP_Inference:
             Normalize((0.48145466, 0.4578275, 0.40821073), 
                      (0.26862954, 0.26130258, 0.27577711))
         ])
+        
+        self.image_keys = ('agentview_rgb', 'eye_in_hand_rgb')
     
     def _init_model(self, model_path, device):
         # Initialize the trajectory model
@@ -95,149 +97,97 @@ class VLA_CLIP_Inference:
             return self.tokenizer.decode(decoded_token_ids)
 
 
-    def predict(self, image, instruction, possible_action_histories):
+    def predict(self, image_tuple, instruction, possible_action_histories):
         """
-        Predict the most likely action history given an image and instruction.
-
+        Predict the most likely action history given a tuple of images and instruction.
         Args:
-            image: PIL Image or numpy array
+            image_tuple: (agentview_image, eye_in_hand_image) as PIL Images or numpy arrays
             instruction: String instruction
             possible_action_histories: List of numpy action history arrays (Shape [H, D])
-
         Returns:
             predicted_history: The most likely action history (numpy array)
             history_scores: Dictionary mapping history index (str) to score (float)
         """
-        # Preprocess image
-        if isinstance(image, np.ndarray):
-            # Assume it's already rotated correctly if loaded from our augmented dataset
-            image = Image.fromarray(image.astype('uint8'))
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device) # Shape (1, C, H, W)
+        # Preprocess both images
+        img1, img2 = image_tuple
+        if isinstance(img1, np.ndarray):
+            img1 = Image.fromarray(img1.astype('uint8'))
+        if isinstance(img2, np.ndarray):
+            img2 = Image.fromarray(img2.astype('uint8'))
+        img1_tensor = self.preprocess(img1).unsqueeze(0).to(self.device)
+        img2_tensor = self.preprocess(img2).unsqueeze(0).to(self.device)
 
         # Tokenize instruction
         if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device) # Shape (1, SeqLen)
+            text_tokens = clip.tokenize(instruction).to(self.device)
         else:
-            # Assume it's already tokenized tensor
             text_tokens = instruction.to(self.device)
 
         with torch.no_grad():
-            # Convert action histories to a batch tensor
-            # List of (H, D) arrays -> Tensor (PoolSize, H, D)
             history_batch = torch.tensor(np.array(possible_action_histories), dtype=torch.float32).to(self.device)
-
-            # The model's forward pass needs image/text repeated for each action history
             num_histories = history_batch.shape[0]
-            image_batch = image_tensor.repeat(num_histories, 1, 1, 1) # Shape (PoolSize, C, H, W)
-            text_batch = text_tokens.repeat(num_histories, 1)       # Shape (PoolSize, SeqLen)
-
-            # Run inference
-            # Model expects (B, H, D) actions, where B is batch size (here PoolSize)
-            # It calculates (B, B) logits internally, but we only need the diagonal
-            # Let's adapt the call slightly or interpret the result carefully.
-            # A simpler approach: process one history at a time? No, less efficient.
-            # Let's trust the model's internal contrastive calculation and extract the relevant scores.
-
-            # Pass the batch to the model. It should handle the comparison internally.
-            # The output logits_per_image will be (PoolSize, PoolSize).
-            # The score for image_i vs action_j is logits_per_image[i, j]
-            # Since image is repeated, image_i is the same image.
-            # So, score for the single input image vs action_j is logits_per_image[0, j] (or any i)
-            image_logits, action_logits = self.model(image_batch, text_batch, history_batch)
-
-            # Extract scores of the single image against all action histories in the pool
-            scores = image_logits[0, :].cpu().numpy() # Get first row, shape (PoolSize,)
-
-            # Get predicted action history
+            img1_batch = img1_tensor.repeat(num_histories, 1, 1, 1)
+            img2_batch = img2_tensor.repeat(num_histories, 1, 1, 1)
+            text_batch = text_tokens.repeat(num_histories, 1)
+            image_logits, action_logits = self.model(img1_batch, img2_batch, text_batch, history_batch)
+            scores = image_logits[0, :].cpu().numpy()
             predicted_idx = scores.argmax()
-            predicted_history = possible_action_histories[predicted_idx] # Return numpy array
-
-        # Create a dictionary of scores for all histories in the pool
+            predicted_history = possible_action_histories[predicted_idx]
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
-
         return predicted_history, history_scores
 
     # --- New Method for Scoring ---
-    def get_history_score(self, image, instruction, action_history):
+    def get_history_score(self, image_tuple, instruction, action_history):
         """
-        Calculates the VLA-CLIP similarity score between an image/instruction
+        Calculates the VLA-CLIP similarity score between a tuple of images/instruction
         and a given action history by leveraging the model's forward pass.
-
         Args:
-            image: PIL Image or numpy array (expects correct orientation).
+            image_tuple: (agentview_image, eye_in_hand_image) as PIL Images or numpy arrays
             instruction: String instruction.
             action_history: Numpy array action history (H, D), potentially padded.
-
         Returns:
             score: Float similarity score tensor (on the model's device).
         """
-        # Preprocess image
-        if isinstance(image, np.ndarray):
-            image = Image.fromarray(image.astype('uint8'))
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device) # Shape (1, C, H, W)
-
-        # Tokenize instruction
+        img1, img2 = image_tuple
+        if isinstance(img1, np.ndarray):
+            img1 = Image.fromarray(img1.astype('uint8'))
+        if isinstance(img2, np.ndarray):
+            img2 = Image.fromarray(img2.astype('uint8'))
+        img1_tensor = self.preprocess(img1).unsqueeze(0).to(self.device)
+        img2_tensor = self.preprocess(img2).unsqueeze(0).to(self.device)
         if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device) # Shape (1, SeqLen)
+            text_tokens = clip.tokenize(instruction).to(self.device)
         else:
             text_tokens = instruction.to(self.device)
             if text_tokens.ndim == 1:
-                 text_tokens = text_tokens.unsqueeze(0) # Ensure (1, SeqLen)
-
-        # Prepare action history tensor
-        # Input history should already be padded if necessary by the caller
-        # Shape (1, H, D)
+                 text_tokens = text_tokens.unsqueeze(0)
         history_tensor = torch.tensor(action_history, dtype=torch.float32).to(self.device)
         if history_tensor.ndim == 2:
-            history_tensor = history_tensor.unsqueeze(0) # Ensure (1, H, D)
-
+            history_tensor = history_tensor.unsqueeze(0)
         with torch.no_grad():
-            # Call the model's forward pass with batch size 1 for all inputs
-            # Model returns: logits_per_image, logits_per_action_history
-            # logits_per_image = image_features @ action_features.T
-            # Since B=1 for both image and action, logits_per_image will be (1, 1)
-            image_logits, _ = self.model(image_tensor, text_tokens, history_tensor)
-
-            # The single score is the only element in the resulting tensor
-            score = image_logits.squeeze() # Squeeze to get scalar tensor
-
-        # Return the score tensor directly (caller can use .item() or .detach().cpu().numpy())
+            image_logits, _ = self.model(img1_tensor, img2_tensor, text_tokens, history_tensor)
+            score = image_logits.squeeze()
         return score
 
 def sample_and_test(augmented_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20):
-    """
-    Sample random data points from the augmented dataset and test the trajectory model.
-
-    Args:
-        augmented_dataset_dict: Dictionary loaded from the augmented dataset .pkl file.
-        model_path: Path to the trained trajectory model.
-        history_length: Expected length of action histories.
-        use_transformer: Whether the loaded model uses a transformer.
-        num_samples: Number of samples to test.
-        action_pool_size: Size of the action pool (including ground truth) for each test sample.
-    """
-    # Initialize the inference model
     inference_model = VLA_CLIP_Inference(model_path,
                                         history_length=history_length,
                                         use_transformer=use_transformer)
-
-    # --- Prepare flat list of samples and all histories for pooling ---
     all_samples = []
-    all_histories = [] # Collect all pos and neg histories for random pooling
+    all_histories = []
     print("Flattening dataset for evaluation...")
     for instruction, data in tqdm(augmented_dataset_dict.items()):
         instruction_samples = data.get('samples', [])
         for sample_data in instruction_samples:
-            image = sample_data.get('image')
+            images_dict = sample_data.get('images')
             pos_hist = sample_data.get('pos_action_hist')
-            neg_hist = sample_data.get('neg_action_hist')
-            if image is not None and pos_hist is not None and neg_hist is not None:
-                # Store the core tuple for sampling test points
-                all_samples.append((image, instruction, pos_hist, neg_hist))
-                # Add both histories to the global pool
-                all_histories.append(pos_hist)
-                all_histories.append(neg_hist)
-
+            # Only use samples with both required views
+            if images_dict is not None and pos_hist is not None:
+                if 'agentview_rgb' in images_dict and 'eye_in_hand_rgb' in images_dict:
+                    img1 = images_dict['agentview_rgb']
+                    img2 = images_dict['eye_in_hand_rgb']
+                    all_samples.append(((img1, img2), instruction, pos_hist))
+                    all_histories.append(pos_hist)
     if not all_samples:
         print("Error: No valid samples found in the dataset.")
         return []
@@ -246,68 +196,42 @@ def sample_and_test(augmented_dataset_dict, model_path, history_length, use_tran
         return []
     print(f"Total samples for testing: {len(all_samples)}")
     print(f"Total histories for pooling: {len(all_histories)}")
-
-    # Randomly sample test points
-    random.seed(42)  # For reproducibility
+    random.seed(42)
     sampled_indices = random.sample(range(len(all_samples)), min(num_samples, len(all_samples)))
-
     results = []
     for idx in tqdm(sampled_indices, desc="Testing samples"):
-        # Get the ground truth data for this sample
-        gt_image, gt_instruction, gt_pos_hist, gt_neg_hist = all_samples[idx]
-
-        # --- Create Action History Pool ---
-        action_history_pool = []
-        # 1. Add the ground truth positive history
-        action_history_pool.append(gt_pos_hist)
+        (img1, img2), gt_instruction, gt_pos_hist = all_samples[idx]
+        action_history_pool = [gt_pos_hist]
         gt_pos_hist_added = True
-
-        # 2. Add the ground truth negative history (if pool size > 1)
-        if action_pool_size > 1:
-            action_history_pool.append(gt_neg_hist)
-
-        # 3. Sample additional random histories (avoiding exact duplicates of gt_pos/gt_neg)
         num_needed = action_pool_size - len(action_history_pool)
         if num_needed > 0:
-            # Create a temporary pool of candidates excluding the exact GTs for this sample
-            candidate_pool = [h for h in all_histories if not np.array_equal(h, gt_pos_hist) and not np.array_equal(h, gt_neg_hist)]
+            candidate_pool = [h for h in all_histories if not np.array_equal(h, gt_pos_hist)]
             if len(candidate_pool) > 0:
                  num_to_sample = min(num_needed, len(candidate_pool))
                  sampled_histories = random.sample(candidate_pool, num_to_sample)
                  action_history_pool.extend(sampled_histories)
             else:
                  print(f"Warning: Not enough unique histories in dataset to fill pool for sample {idx}. Pool size: {len(action_history_pool)}")
-
-
-        # Shuffle the pool and find the index of the ground truth *positive* history
         random.shuffle(action_history_pool)
         ground_truth_idx_in_pool = None
         for i, hist in enumerate(action_history_pool):
             if np.array_equal(hist, gt_pos_hist):
                 ground_truth_idx_in_pool = i
                 break
-        # --- End Pool Creation ---
-
         if ground_truth_idx_in_pool is None and gt_pos_hist_added:
              print(f"Warning: Ground truth positive history lost during pooling/shuffling for sample {idx}? This shouldn't happen.")
-             # Handle this case maybe by skipping or forcing GT in? For now, just warn.
-
-        # Run prediction
         predicted_history, scores = inference_model.predict(
-            gt_image, gt_instruction, action_history_pool
+            (img1, img2), gt_instruction, action_history_pool
         )
-
-        # Check if prediction matches the ground truth positive history
         is_correct = np.array_equal(predicted_history, gt_pos_hist)
-
         results.append({
-            'image': gt_image,
+            'images': (img1, img2),
             'instruction': gt_instruction,
-            'ground_truth_pos': gt_pos_hist, # Store the positive GT
-            'ground_truth_idx': ground_truth_idx_in_pool, # Index of POSITIVE GT in pool
+            'ground_truth_pos': gt_pos_hist,
+            'ground_truth_idx': ground_truth_idx_in_pool,
             'prediction': predicted_history,
             'action_pool_size': len(action_history_pool),
-            'scores': scores, # scores keyed by pool index (str)
+            'scores': scores,
             'correct': is_correct,
         })
     return results

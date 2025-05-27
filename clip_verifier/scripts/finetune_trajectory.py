@@ -17,49 +17,50 @@ import pickle
 import warnings
 
 class CustomDataset(Dataset):
-    def __init__(self, augmented_dataset_dict, history_length):
+    def __init__(self, augmented_dataset_dict, history_length, image_keys=('agentview_rgb', 'eye_in_hand_rgb')):
         """
         Args:
             augmented_dataset_dict: Dictionary loaded from the augmented dataset pickle file.
-                                    Expected structure: {instruction: {'samples': [sample_dict, ...], ...}}
-                                    where sample_dict = {'image': ..., 'pos_action_hist': ..., 'neg_action_hist': ...}
+                                Expected structure: {instruction: {'samples': [sample_dict, ...], ...}}
+                                where sample_dict = {'images': {...}, 'pos_action_hist': ...}
             history_length: Expected length of action histories (H).
+            image_keys: List of image keys to try in order (e.g., ['agentview_rgb', 'eye-in-hand_rgb'])
         """
         self.samples = []
         self.history_length = history_length
+        self.image_keys = image_keys
 
         print("Processing augmented dataset with histories...")
         for instruction, data in tqdm(augmented_dataset_dict.items(), desc="Loading instructions"):
             instruction_samples = data.get('samples', [])
             if not instruction_samples:
-                # print(f"Warning: No samples found for instruction '{instruction}'. Skipping.")
                 continue
 
             for sample_data in instruction_samples:
-                image = sample_data.get('image')
+                images_dict = sample_data.get('images')
                 pos_hist = sample_data.get('pos_action_hist')
-                neg_hist = sample_data.get('neg_action_hist')
 
-                # Basic validation
-                if image is None or pos_hist is None or neg_hist is None:
-                    # print(f"Warning: Missing data in sample for instruction '{instruction}'. Skipping sample.")
+                # Get both agentview and handview images
+                try:
+                    img1 = images_dict[self.image_keys[0]]
+                    img2 = images_dict[self.image_keys[1]]
+                except Exception:
+                    continue  # Skip if either view is missing
+
+                if img1 is None or img2 is None or pos_hist is None:
                     continue
-                if pos_hist.shape[0] != self.history_length or neg_hist.shape[0] != self.history_length:
-                     warnings.warn(f"Incorrect history length found for instruction '{instruction}'. "
-                                   f"Expected {self.history_length}, got pos={pos_hist.shape[0]}, neg={neg_hist.shape[0]}. Skipping sample.")
-                     continue
-                if pos_hist.ndim != 2 or neg_hist.ndim != 2:
-                     warnings.warn(f"Incorrect action history dimensions for instruction '{instruction}'. "
-                                   f"Expected 2, got pos={pos_hist.ndim}, neg={neg_hist.ndim}. Skipping sample.")
-                     continue
+                if pos_hist.shape[0] != self.history_length:
+                    warnings.warn(f"Incorrect history length for instruction '{instruction}'. Skipping sample.")
+                    continue
+                if pos_hist.ndim != 2:
+                    warnings.warn(f"Incorrect action history dimensions for instruction '{instruction}'. Skipping sample.")
+                    continue
 
+                self.samples.append((img1, img2, instruction, pos_hist))
 
-                self.samples.append((image, instruction, pos_hist, neg_hist))
-
-        print(f"Created dataset with {len(self.samples)} (image, instruction, pos_hist, neg_hist) samples.")
+        print(f"Created dataset with {len(self.samples)} (agentview, handview, instruction, pos_hist) samples.")
         if not self.samples:
             raise ValueError("Dataset creation resulted in 0 samples. Check input data format and history length.")
-
 
         # Get CLIP's image preprocessing pipeline
         self.preprocess = Compose([
@@ -74,14 +75,12 @@ class CustomDataset(Dataset):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        image, caption, pos_action_hist, neg_action_hist = self.samples[idx]
-
-        # Convert numpy array to PIL Image
-        image = Image.fromarray(image.astype('uint8'))
-        image = self.preprocess(image)
-
-        # Actions remain numpy arrays, handled in training loop
-        return image, caption, pos_action_hist, neg_action_hist
+        img1, img2, caption, pos_action_hist = self.samples[idx]
+        img1 = Image.fromarray(img1.astype('uint8'))
+        img2 = Image.fromarray(img2.astype('uint8'))
+        img1 = self.preprocess(img1)
+        img2 = self.preprocess(img2)
+        return img1, img2, caption, pos_action_hist
 
 
 class VLA_CLIP(nn.Module):
@@ -91,20 +90,7 @@ class VLA_CLIP(nn.Module):
         # 1) Freeze everything
         for param in self.clip.parameters():
             param.requires_grad = False
-
-        # 2) Un-freeze the text and visual projection layers
-        #    – `model.text_projection` is the final linear layer after text encoder
-        #    – `model.visual.proj`    is the final linear layer after image encoder
-        # for name, param in self.clip.named_parameters():
-        #     if name in ["text_projection.weight", "text_projection.bias",
-        #                 "visual.proj.weight",    "visual.proj.bias"]:
-        #         param.requires_grad = True
-        #         print(f"Unfrozen: {name}")
-        
-        # for name, param in self.clip.named_parameters():
-        #     if name in ["visual.proj.weight",    "visual.proj.bias"]:
-        #         param.requires_grad = True
-        #         print(f"Unfrozen: {name}")
+            param.data = param.data.float()
             
         text_pooling_output_dim = model_config.text_pooling_output_dim
         pooling_heads = model_config.pooling_heads
@@ -144,6 +130,14 @@ class VLA_CLIP(nn.Module):
         self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
         
         self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
+        
+        # --- Multi-view fusion ---
+        # After CLIP, concatenate the two image embeddings and project
+        self.image_fusion_proj = nn.Sequential(
+            nn.Linear(2 * vision_pooling_output_dim, 2 * vision_pooling_output_dim),
+            nn.ReLU(),
+            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim)
+        )
         
         # Action trajectory processing components
         self.action_dim = model_config.action_dim
@@ -220,24 +214,33 @@ class VLA_CLIP(nn.Module):
         patch_features = patch_features / patch_features.norm(dim=-1, keepdim=True)
         return patch_features, text_features
         
-    def forward(self, image, text, action_histories):
+    def forward(self, image1, image2, text, action_histories):
         """
         Args:
-            image: Tensor (B, C, H, W)
+            image1: Tensor (B, C, H, W)
+            image2: Tensor (B, C, H, W)
             text: Tensor (B, SeqLen) - tokenized text
             action_histories: Tensor (B, H, D) - Batch of action histories, potentially padded.
         """
         # Extract image/text features
-        patch_features, text_features = self.extract_clip_features(image, text)
-        text_aware_features = self.text_aware_visual_extraction(patch_features, text_features)
-        vision_token = self.vision_poolings(text_aware_features)
+        patch_features1, text_features = self.extract_clip_features(image1, text)
+        patch_features2, _ = self.extract_clip_features(image2, text)
+        # Text-aware visual features for both views
+        text_aware_features1 = self.text_aware_visual_extraction(patch_features1, text_features)
+        text_aware_features2 = self.text_aware_visual_extraction(patch_features2, text_features)
+        vision_token1 = self.vision_poolings(text_aware_features1)
+        vision_token2 = self.vision_poolings(text_aware_features2)
+        # Concatenate and project
+        fused_vision = torch.cat([vision_token1, vision_token2], dim=-1)
+        fused_vision = self.image_fusion_proj(fused_vision)
+        # Text pooling
         text_token = self.text_pooling(text_features)
-        combined_features = torch.cat([text_token, vision_token], dim=-1)
+        combined_features = torch.cat([text_token, fused_vision], dim=-1)
         combined_features = self.input_projection(combined_features)
         combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
         # print(f"combined_features: {combined_features[:,:6]}")
         # --- Encode Action History ---
-        action_histories = action_histories.float().to(image.device) # Shape (B, H, D)
+        action_histories = action_histories.float().to(image1.device) # Shape (B, H, D)
 
         if self.use_transformer:
             # --- Transformer Path (batch_first=False) ---
@@ -290,7 +293,6 @@ def train_clip(
     num_epochs: int = 30,
     batch_size: int = 32,
     learning_rate: float = 1e-6,
-    neg_loss_weight: float = 0.5,
     validation_split: float = 0.1,
     device: str = "cuda" if torch.cuda.is_available() else "cpu",
     save_name = None,
@@ -315,7 +317,6 @@ def train_clip(
             "device": device,
             "history_length": history_length,
             "use_transformer": use_transformer,
-            "neg_loss_weight": neg_loss_weight,
             "validation_split": validation_split,
         })
 
@@ -344,7 +345,7 @@ def train_clip(
         try:
              model.load_state_dict(torch.load(resume_checkpoint, map_location=device))
              print("Successfully loaded model weights.")
-             start_epoch = 300
+             start_epoch = 1200
              # Consider loading optimizer state and epoch if saved in checkpoint
         except Exception as load_err:
               print(f"Error loading checkpoint: {load_err}. Starting training from scratch.")
@@ -391,15 +392,8 @@ def train_clip(
     print(f"Training set size: {len(train_dataset)}")
     print(f"Validation set size: {len(val_dataset)}")
 
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True) # Reduced workers
+    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
     val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
-    # --- [End Train/Validation Split] ---
-
-    # --- [Loss Function Definition - Adapted from finetune_negative.py] ---
-    positive_loss_fn = nn.BCEWithLogitsLoss()
-    negative_loss_fn = nn.BCEWithLogitsLoss()
-
-    # --- [End Loss Function Definition] ---
 
     # Training loop
     epoch_pbar = tqdm(range(start_epoch, num_epochs), desc="Training epochs")
@@ -412,132 +406,52 @@ def train_clip(
         total_train_loss = 0
         train_batch_pbar = tqdm(train_dataloader, desc=f"Epoch {epoch} (Train)", leave=False)
 
-        for batch_idx, (images, texts, pos_hists, neg_hists) in enumerate(train_batch_pbar):
-            # Move data to device
-            images = images.to(device)
-            texts_tok = clip.tokenize(texts).to(device)
-            # Convert histories to tensors (DataLoader doesn't convert numpy arrays automatically)
-            pos_hists = torch.tensor(np.array(pos_hists), dtype=torch.float32, device=device)
-            neg_hists = torch.tensor(np.array(neg_hists), dtype=torch.float32, device=device)
-
-            current_batch_size = images.shape[0]
-
-            # --- Prepare inputs for contrastive loss ---
-            input_images = torch.cat([images, images], dim=0)           # Shape (2*B, C, H, W)
-            input_texts = torch.cat([texts_tok, texts_tok], dim=0)      # Shape (2*B, SeqLen)
-            input_actions = torch.cat([pos_hists, neg_hists], dim=0)    # Shape (2*B, H, D)
-            # --- End Input Preparation ---
-
+        for batch_idx, (img1, img2, texts, pos_hists) in enumerate(train_batch_pbar):
+            img1 = img1.to(device)
+            img2 = img2.to(device)
+            input_texts = clip.tokenize(texts).to(device)
+            input_actions = torch.tensor(np.array(pos_hists), dtype=torch.float32, device=device)
+            current_batch_size = img1.shape[0]
             optimizer.zero_grad()
-
-            # Forward pass expects (2B, ...) inputs now
-            logits_per_image, logits_per_action = model(input_images, input_texts, input_actions)
-            # Logits shape: (2*B, 2*B)
-
-            # # --- Loss Calculation (BCE Contrastive) ---
-            positive_targets = torch.ones(current_batch_size, device=device)
-            negative_targets = torch.zeros((current_batch_size, current_batch_size), device=device) # For off-diagonal block
-
-            # Positive Loss (Diagonal of Top-Left Block)
-            # diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
-            # diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
-            # loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
-            #             positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
-            
+            logits_per_image, logits_per_action = model(img1, img2, input_texts, input_actions)
             positive_labels = torch.arange(current_batch_size, device=device)
-            loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
-                    F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
-
-            # Negative Loss (Top-Right Block)
-            neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]
-            neg_logits_a2t = logits_per_action[:current_batch_size, current_batch_size:]
-            loss_neg = (negative_loss_fn(neg_logits_i2t, negative_targets) +
-                        negative_loss_fn(neg_logits_a2t, negative_targets)) / 2
-
-            # # Combine losses
-            loss = loss_pos + neg_loss_weight * loss_neg
-            # loss = loss_pos
-            # --- End Loss Calculation ---
-
+            loss = (F.cross_entropy(logits_per_image, positive_labels) +
+                    F.cross_entropy(logits_per_action, positive_labels)) / 2
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(filter(lambda p: p.requires_grad, model.parameters()), max_norm=1.0) # Clip gradients
+            torch.nn.utils.clip_grad_norm_(filter(lambda p: p.requires_grad, model.parameters()), max_norm=1.0)
             optimizer.step()
-
             total_train_loss += loss.item()
-
-            train_pos_loss_item = loss_pos.item()
-            train_neg_loss_item = loss_neg.item()
-            if use_wandb:
-                 wandb.log({"train_batch_loss": loss.item(),
-                            "train_pos_loss": train_pos_loss_item,
-                            "train_neg_loss": train_neg_loss_item })
-            train_batch_pbar.set_postfix({'loss': f'{loss.item():.4f}', 'pos': f'{train_pos_loss_item:.4f}', 'neg': f'{train_neg_loss_item:.4f}'})
+            train_batch_pbar.set_postfix({'loss': f'{loss.item():.4f}'})
 
         avg_train_loss = total_train_loss / len(train_dataloader)
 
         # --- Validation Phase ---
         model.eval()
         total_val_loss = 0
-        total_val_pos_loss = 0
-        total_val_neg_loss = 0
         val_batch_pbar = tqdm(val_dataloader, desc=f"Epoch {epoch} (Val)", leave=False)
 
         with torch.no_grad():
-            for batch_idx, (images, texts, pos_hists, neg_hists) in enumerate(val_batch_pbar):
-                images = images.to(device)
+            for batch_idx, (img1, img2, texts, pos_hists) in enumerate(val_batch_pbar):
+                img1 = img1.to(device)
+                img2 = img2.to(device)
                 texts_tok = clip.tokenize(texts).to(device)
                 pos_hists = torch.tensor(np.array(pos_hists), dtype=torch.float32, device=device)
-                neg_hists = torch.tensor(np.array(neg_hists), dtype=torch.float32, device=device)
-
-                current_batch_size = images.shape[0]
-
-                input_images = torch.cat([images, images], dim=0)
-                input_texts = torch.cat([texts_tok, texts_tok], dim=0)
-                input_actions = torch.cat([pos_hists, neg_hists], dim=0)
-
-                logits_per_image, logits_per_action = model(input_images, input_texts, input_actions)
-
-                # # --- Loss Calculation (BCE Contrastive) ---
-                positive_targets = torch.ones(current_batch_size, device=device)
-                negative_targets = torch.zeros((current_batch_size, current_batch_size), device=device) # For off-diagonal block
-
-                # # Positive Loss (Diagonal of Top-Left Block)
-                # diag_logits_i2t_pos = torch.diag(logits_per_image[:current_batch_size, :current_batch_size])
-                # diag_logits_a2t_pos = torch.diag(logits_per_action[:current_batch_size, :current_batch_size])
-                # loss_pos = (positive_loss_fn(diag_logits_i2t_pos, positive_targets) +
-                #             positive_loss_fn(diag_logits_a2t_pos, positive_targets)) / 2
-                
+                current_batch_size = img1.shape[0]
+                logits_per_image, logits_per_action = model(img1, img2, texts_tok, pos_hists)
                 positive_labels = torch.arange(current_batch_size, device=device)
-                loss_pos = (F.cross_entropy(logits_per_image[:current_batch_size, :current_batch_size], positive_labels) +
-                        F.cross_entropy(logits_per_action[:current_batch_size, :current_batch_size], positive_labels)) / 2
-
-                # Negative Loss (Top-Right Block)
-                neg_logits_i2t = logits_per_image[:current_batch_size, current_batch_size:]
-                neg_logits_a2t = logits_per_action[:current_batch_size, current_batch_size:]
-                loss_neg = (negative_loss_fn(neg_logits_i2t, negative_targets) +
-                            negative_loss_fn(neg_logits_a2t, negative_targets)) / 2
-
-                # # Combine losses
-                val_loss = loss_pos + neg_loss_weight * loss_neg
-                # --- End Loss Calculation ---
-
+                val_loss = (F.cross_entropy(logits_per_image, positive_labels) +
+                            F.cross_entropy(logits_per_action, positive_labels)) / 2
                 total_val_loss += val_loss.item()
-                total_val_pos_loss += loss_pos.item()
-                total_val_neg_loss += loss_neg.item()
                 val_batch_pbar.set_postfix({'loss': f'{val_loss.item():.4f}'})
 
         avg_val_loss = total_val_loss / len(val_dataloader)
-        avg_val_pos_loss = total_val_pos_loss / len(val_dataloader)
-        avg_val_neg_loss = total_val_neg_loss / len(val_dataloader)
 
         epoch_pbar.set_postfix({'train_loss': f'{avg_train_loss:.4f}', 'val_loss': f'{avg_val_loss:.4f}'})
 
         if use_wandb:
             wandb.log({"epoch": epoch,
                        "train_loss": avg_train_loss,
-                       "val_loss": avg_val_loss,
-                       "val_pos_loss": avg_val_pos_loss,
-                       "val_neg_loss": avg_val_neg_loss})
+                       "val_loss": avg_val_loss})
 
         # --- Save Best Model Logic ---
         if avg_val_loss < best_val_loss:
@@ -548,11 +462,10 @@ def train_clip(
         # --- End Save Best Model ---
 
         # Optionally save periodic checkpoints
-        if (epoch + 1) % 50 == 0: # Save every 10 epochs
+        if (epoch + 1) % 100 == 0:
              checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
              torch.save(model.state_dict(), checkpoint_path)
              print(f"Checkpoint saved at {checkpoint_path}")
-
 
     if use_wandb: wandb.finish()
 
@@ -578,7 +491,6 @@ if __name__ == "__main__":
     parser.add_argument('--epochs', type=int, default=50, help='Number of training epochs') # Increased default
     parser.add_argument('--batch_size', type=int, default=64, help='Batch size for training') # Adjusted default
     parser.add_argument('--lr', type=float, default=1e-6, help='Learning rate') # Adjusted default
-    parser.add_argument('--neg_loss_weight', type=float, default=2, help='Weight for the explicit negative loss term') # Adjusted default
     parser.add_argument('--validation_split', type=float, default=0.1, help='Fraction of data to use for validation')
 
     # Model parameters
@@ -629,7 +541,7 @@ if __name__ == "__main__":
     FINAL_SAVE_PATH = os.path.join(args.checkpoint_dir, f"{args.save_name}_final_best.pt")
 
     print("Starting training...")
-    print(f"Config: History={args.history_length}, ActionEncoder={'Transformer' if args.use_transformer else 'MLP'}, LR={args.lr}, BS={args.batch_size}, NegWeight={args.neg_loss_weight}")
+    print(f"Config: History={args.history_length}, ActionEncoder={'Transformer' if args.use_transformer else 'MLP'}, LR={args.lr}, BS={args.batch_size}")
     print(f"Using wandb: {args.use_wandb}")
     if args.resume:
         print(f"Resuming from checkpoint: {args.resume}")
@@ -640,7 +552,6 @@ if __name__ == "__main__":
         num_epochs=args.epochs,
         batch_size=args.batch_size,
         learning_rate=args.lr,
-        neg_loss_weight=args.neg_loss_weight,
         validation_split=args.validation_split,
         save_name=args.save_name,
         checkpoint_dir=args.checkpoint_dir,

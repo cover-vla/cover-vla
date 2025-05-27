@@ -1,0 +1,514 @@
+Task suite: libero_spatial
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 1/10)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=1--success=False--score=4.811--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=False, Steps=210, AvgStepScore=4.811
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 2/10)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=2--success=False--score=3.674--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=False, Steps=210, AvgStepScore=3.674
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 3/10)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=3--success=False--score=4.012--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=False, Steps=210, AvgStepScore=4.012
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 4/10)
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=4--success=True--score=5.085--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=True, Steps=91, AvgStepScore=5.085
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 5/10)
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=5--success=True--score=6.422--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=75, AvgStepScore=6.422
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 6/10)
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=6--success=True--score=5.332--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=True, Steps=89, AvgStepScore=5.332
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 7/10)
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=7--success=True--score=5.491--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=True, Steps=82, AvgStepScore=5.491
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 8/10)
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=8--success=True--score=6.277--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=84, AvgStepScore=6.277
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 9/10)
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=9--success=True--score=5.565--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 9: Success=True, Steps=144, AvgStepScore=5.565
+
+Task: Pick up the dark dish located between the platter and the small bowl, and place it on the platter. (Trial 10/10)
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=10--success=True--score=5.812--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 10: Success=True, Steps=92, AvgStepScore=5.812
+Task 0 ('pick up the black bowl between the plate and the ramekin and place it on the plate') Success Rate: 0.70 (7/10)
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 1/10)
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=11--success=True--score=5.471--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 11: Success=True, Steps=111, AvgStepScore=5.471
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 2/10)
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=12--success=False--score=3.644--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 12: Success=False, Steps=210, AvgStepScore=3.644
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 3/10)
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=13--success=False--score=4.083--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 13: Success=False, Steps=210, AvgStepScore=4.083
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 4/10)
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=14--success=False--score=2.957--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 14: Success=False, Steps=210, AvgStepScore=2.957
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 5/10)
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=15--success=False--score=4.228--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 15: Success=False, Steps=210, AvgStepScore=4.228
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 6/10)
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=16--success=False--score=3.319--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 16: Success=False, Steps=210, AvgStepScore=3.319
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 7/10)
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=17--success=False--score=2.953--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 17: Success=False, Steps=210, AvgStepScore=2.953
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 8/10)
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=18--success=False--score=4.000--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 18: Success=False, Steps=210, AvgStepScore=4.000
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 9/10)
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=19--success=False--score=4.139--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 19: Success=False, Steps=210, AvgStepScore=4.139
+
+Task: Pick up the dark dish next to the small bowl and place it on the platter. (Trial 10/10)
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=20--success=False--score=3.659--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 20: Success=False, Steps=210, AvgStepScore=3.659
+Task 1 ('pick up the black bowl next to the ramekin and place it on the plate') Success Rate: 0.10 (1/10)
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 1/10)
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=21--success=False--score=3.189--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 21: Success=False, Steps=210, AvgStepScore=3.189
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 2/10)
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=22--success=False--score=4.313--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 22: Success=False, Steps=210, AvgStepScore=4.313
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 3/10)
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=23--success=True--score=5.094--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 23: Success=True, Steps=103, AvgStepScore=5.094
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 4/10)
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=24--success=True--score=4.412--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 24: Success=True, Steps=81, AvgStepScore=4.412
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 5/10)
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=25--success=False--score=5.292--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 25: Success=False, Steps=210, AvgStepScore=5.292
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 6/10)
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=26--success=False--score=3.705--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 26: Success=False, Steps=210, AvgStepScore=3.705
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 7/10)
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=27--success=True--score=5.194--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 27: Success=True, Steps=97, AvgStepScore=5.194
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 8/10)
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=28--success=True--score=5.163--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 28: Success=True, Steps=107, AvgStepScore=5.163
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 9/10)
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=29--success=False--score=3.457--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 29: Success=False, Steps=210, AvgStepScore=3.457
+
+Task: Pick up the dark dish from the center of the table and place it on the platter. (Trial 10/10)
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=30--success=False--score=3.954--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 30: Success=False, Steps=210, AvgStepScore=3.954
+Task 2 ('pick up the black bowl from table center and place it on the plate') Success Rate: 0.40 (4/10)
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 1/10)
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=31--success=False--score=7.799--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 31: Success=False, Steps=210, AvgStepScore=7.799
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 2/10)
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=32--success=True--score=4.705--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 32: Success=True, Steps=98, AvgStepScore=4.705
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 3/10)
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=33--success=False--score=4.122--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 33: Success=False, Steps=210, AvgStepScore=4.122
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 4/10)
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=34--success=False--score=4.182--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 34: Success=False, Steps=210, AvgStepScore=4.182
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 5/10)
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=35--success=False--score=4.465--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 35: Success=False, Steps=210, AvgStepScore=4.465
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 6/10)
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=36--success=True--score=5.203--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 36: Success=True, Steps=90, AvgStepScore=5.203
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 7/10)
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=37--success=True--score=5.380--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 37: Success=True, Steps=104, AvgStepScore=5.380
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 8/10)
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=38--success=False--score=4.661--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 38: Success=False, Steps=210, AvgStepScore=4.661
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 9/10)
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=39--success=False--score=6.055--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 39: Success=False, Steps=210, AvgStepScore=6.055
+
+Task: Remove the dark dish from the biscuit container and place it on the platter. (Trial 10/10)
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=40--success=True--score=5.297--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 40: Success=True, Steps=87, AvgStepScore=5.297
+Task 3 ('pick up the black bowl on the cookie box and place it on the plate') Success Rate: 0.40 (4/10)
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 1/10)
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=41--success=True--score=5.395--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 41: Success=True, Steps=143, AvgStepScore=5.395
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 2/10)
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=42--success=False--score=3.028--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 42: Success=False, Steps=210, AvgStepScore=3.028
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 3/10)
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=43--success=False--score=3.490--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 43: Success=False, Steps=210, AvgStepScore=3.490
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 4/10)
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=44--success=False--score=3.698--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 44: Success=False, Steps=210, AvgStepScore=3.698
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 5/10)
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=45--success=True--score=4.729--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 45: Success=True, Steps=173, AvgStepScore=4.729
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 6/10)
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=46--success=False--score=4.062--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 46: Success=False, Steps=210, AvgStepScore=4.062
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 7/10)
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=47--success=False--score=7.980--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 47: Success=False, Steps=210, AvgStepScore=7.980
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 8/10)
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=48--success=True--score=4.287--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 48: Success=True, Steps=127, AvgStepScore=4.287
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 9/10)
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=49--success=False--score=3.787--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 49: Success=False, Steps=210, AvgStepScore=3.787
+
+Task: Take the dark dish out of the top section of the wooden cupboard and place it on the platter. (Trial 10/10)
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=50--success=True--score=5.281--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 50: Success=True, Steps=131, AvgStepScore=5.281
+Task 4 ('pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate') Success Rate: 0.40 (4/10)
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 1/10)
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=51--success=True--score=5.643--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 51: Success=True, Steps=99, AvgStepScore=5.643
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 2/10)
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=52--success=True--score=5.801--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 52: Success=True, Steps=97, AvgStepScore=5.801
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 3/10)
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=53--success=True--score=6.216--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 53: Success=True, Steps=88, AvgStepScore=6.216
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 4/10)
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=54--success=False--score=3.090--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 54: Success=False, Steps=210, AvgStepScore=3.090
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 5/10)
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=55--success=True--score=5.406--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 55: Success=True, Steps=94, AvgStepScore=5.406
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 6/10)
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=56--success=True--score=5.409--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 56: Success=True, Steps=92, AvgStepScore=5.409
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 7/10)
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=57--success=True--score=5.951--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 57: Success=True, Steps=97, AvgStepScore=5.951
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 8/10)
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=58--success=True--score=5.584--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 58: Success=True, Steps=99, AvgStepScore=5.584
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 9/10)
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=59--success=True--score=5.963--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 59: Success=True, Steps=101, AvgStepScore=5.963
+
+Task: Pick up the dark dish from the ramekin and place it on the platter. (Trial 10/10)
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=60--success=True--score=4.872--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 60: Success=True, Steps=97, AvgStepScore=4.872
+Task 5 ('pick up the black bowl on the ramekin and place it on the plate') Success Rate: 0.90 (9/10)
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 1/10)
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=61--success=False--score=5.644--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 61: Success=False, Steps=210, AvgStepScore=5.644
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 2/10)
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=62--success=True--score=3.646--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 62: Success=True, Steps=174, AvgStepScore=3.646
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 3/10)
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=63--success=False--score=2.902--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 63: Success=False, Steps=210, AvgStepScore=2.902
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 4/10)
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=64--success=True--score=5.290--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 64: Success=True, Steps=108, AvgStepScore=5.290
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 5/10)
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=65--success=True--score=5.406--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 65: Success=True, Steps=99, AvgStepScore=5.406
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 6/10)
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=66--success=True--score=5.519--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 66: Success=True, Steps=115, AvgStepScore=5.519
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 7/10)
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=67--success=False--score=3.971--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 67: Success=False, Steps=210, AvgStepScore=3.971
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 8/10)
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=68--success=False--score=3.457--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 68: Success=False, Steps=210, AvgStepScore=3.457
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 9/10)
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=69--success=False--score=7.762--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 69: Success=False, Steps=210, AvgStepScore=7.762
+
+Task: Pick up the dark dish next to the biscuit container and place it on the platter. (Trial 10/10)
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=70--success=True--score=5.980--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 70: Success=True, Steps=102, AvgStepScore=5.980
+Task 6 ('pick up the black bowl next to the cookie box and place it on the plate') Success Rate: 0.50 (5/10)
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 1/10)
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=71--success=False--score=3.991--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 71: Success=False, Steps=210, AvgStepScore=3.991
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 2/10)
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=72--success=True--score=5.395--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 72: Success=True, Steps=121, AvgStepScore=5.395
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 3/10)
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=73--success=False--score=3.422--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 73: Success=False, Steps=210, AvgStepScore=3.422
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 4/10)
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=74--success=False--score=3.818--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 74: Success=False, Steps=210, AvgStepScore=3.818
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 5/10)
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=75--success=False--score=4.068--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 75: Success=False, Steps=210, AvgStepScore=4.068
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 6/10)
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=76--success=True--score=5.213--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 76: Success=True, Steps=128, AvgStepScore=5.213
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 7/10)
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=77--success=True--score=5.170--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 77: Success=True, Steps=125, AvgStepScore=5.170
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 8/10)
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=78--success=False--score=3.418--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 78: Success=False, Steps=210, AvgStepScore=3.418
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 9/10)
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=79--success=True--score=4.331--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 79: Success=True, Steps=112, AvgStepScore=4.331
+
+Task: Pick up the dark dish from the stove and place it on the platter. (Trial 10/10)
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=80--success=False--score=3.280--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 80: Success=False, Steps=210, AvgStepScore=3.280
+Task 7 ('pick up the black bowl on the stove and place it on the plate') Success Rate: 0.40 (4/10)
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 1/10)
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=81--success=True--score=5.920--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 81: Success=True, Steps=93, AvgStepScore=5.920
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 2/10)
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=82--success=False--score=4.258--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 82: Success=False, Steps=210, AvgStepScore=4.258
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 3/10)
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=83--success=False--score=3.022--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 83: Success=False, Steps=210, AvgStepScore=3.022
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 4/10)
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=84--success=True--score=5.026--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 84: Success=True, Steps=85, AvgStepScore=5.026
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 5/10)
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=85--success=False--score=3.787--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 85: Success=False, Steps=210, AvgStepScore=3.787
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 6/10)
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=86--success=True--score=5.974--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 86: Success=True, Steps=88, AvgStepScore=5.974
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 7/10)
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=87--success=True--score=4.843--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 87: Success=True, Steps=80, AvgStepScore=4.843
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 8/10)
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=88--success=True--score=5.592--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 88: Success=True, Steps=79, AvgStepScore=5.592
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 9/10)
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=89--success=True--score=5.187--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 89: Success=True, Steps=104, AvgStepScore=5.187
+
+Task: Pick up the dark dish next to the platter and place it on the platter. (Trial 10/10)
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=90--success=True--score=5.756--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 90: Success=True, Steps=89, AvgStepScore=5.756
+Task 8 ('pick up the black bowl next to the plate and place it on the plate') Success Rate: 0.70 (7/10)
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 1/10)
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=91--success=False--score=4.394--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 91: Success=False, Steps=210, AvgStepScore=4.394
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 2/10)
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=92--success=False--score=3.849--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 92: Success=False, Steps=210, AvgStepScore=3.849
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 3/10)
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=93--success=False--score=5.205--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 93: Success=False, Steps=210, AvgStepScore=5.205
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 4/10)
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=94--success=True--score=4.755--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 94: Success=True, Steps=165, AvgStepScore=4.755
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 5/10)
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=95--success=True--score=4.466--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 95: Success=True, Steps=197, AvgStepScore=4.466
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 6/10)
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=96--success=False--score=4.018--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 96: Success=False, Steps=210, AvgStepScore=4.018
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 7/10)
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=97--success=False--score=3.332--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 97: Success=False, Steps=210, AvgStepScore=3.332
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 8/10)
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=98--success=False--score=3.420--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 98: Success=False, Steps=210, AvgStepScore=3.420
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 9/10)
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=99--success=False--score=3.284--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 99: Success=False, Steps=210, AvgStepScore=3.284
+
+Task: Take the dark dish out of the wooden cupboard and place it on the platter. (Trial 10/10)
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=100--success=False--score=3.759--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 100: Success=False, Steps=210, AvgStepScore=3.759
+Task 9 ('pick up the black bowl on the wooden cabinet and place it on the plate') Success Rate: 0.20 (2/10)
+
+Overall Success Rate: 0.470 (47/100)
+)

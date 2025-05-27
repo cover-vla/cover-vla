@@ -30,6 +30,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 import draccus
+import json
 import numpy as np
 from tqdm import tqdm
 from libero.libero import benchmark
@@ -78,7 +79,7 @@ class GenerateConfig:
     # --- LIBERO Env ---
     task_suite_name: str = "libero_spatial"
     num_steps_wait: int = 10
-    num_trials_per_task: int = 5
+    num_trials_per_task: int = 10
 
     # --- Trajectory VLA-CLIP Scorer (Optional) ---
     use_vla_clip_trajectory_scorer: bool = True           # Enable the trajectory scorer?
@@ -87,7 +88,7 @@ class GenerateConfig:
     vla_clip_use_transformer: bool = True                 # Does the trajectory model use a transformer?
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
-    vla_clip_score_threshold: float = 2                 # Threshold to trigger candidate generation/evaluation
+    vla_clip_score_threshold: float = 3                # Threshold to trigger candidate generation/evaluation
 
     # --- Logging & Utils ---
     run_id_note: Optional[str] = None
@@ -102,6 +103,11 @@ class GenerateConfig:
     # langauge transform
     lang_transform_type: str = "rephrase" 
     use_original_task_description: bool = False
+    
+def load_rephrases(json_path, suite_name):
+    with open(json_path, 'r') as f:
+        all_rephrases = json.load(f)
+    return all_rephrases[suite_name]
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -172,6 +178,17 @@ def eval_libero(cfg: GenerateConfig) -> None:
     total_episodes, total_successes = 0, 0
     
     lang_transform = LangTransform()
+    
+    if cfg.task_suite_name == "libero_spatial": max_steps = 220
+    elif cfg.task_suite_name == "libero_object": max_steps = 280
+    elif cfg.task_suite_name == "libero_goal": max_steps = 300
+    elif cfg.task_suite_name == "libero_10": max_steps = 520
+    elif cfg.task_suite_name == "libero_90": max_steps = 400
+    else: max_steps = 400
+    
+    # Load pre-generated rephrases if available
+    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
+    preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
 
     for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
         task = task_suite.get_task(task_id)
@@ -180,7 +197,15 @@ def eval_libero(cfg: GenerateConfig) -> None:
         task_episodes, task_successes = 0, 0
         for episode_idx in tqdm(range(cfg.num_trials_per_task), desc="Trials", leave=False):
             env, original_task_description = get_libero_env(task, cfg.model_family, resolution=256, task_seed=0)
-            task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
+            
+            # --- Always use the first rephrase as the main instruction, rest as alternatives ---
+            rephrased_list = preloaded_rephrases[str(task_id)]["rephrases"]
+            if cfg.lang_transform_type == "no_transform":
+                task_description = original_task_description
+            else:
+                task_description = rephrased_list[0]  # Use the first as the main instruction
+                
+            # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
             log_file.write(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})\n")
 
@@ -192,13 +217,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
             executed_action_history = collections.deque(maxlen=cfg.vla_clip_history_length)
             padding_action_vector = np.full(action_dim, ACTION_PADDING_VALUE, dtype=np.float32)
 
-            if cfg.task_suite_name == "libero_spatial": max_steps = 220
-            elif cfg.task_suite_name == "libero_object": max_steps = 280
-            elif cfg.task_suite_name == "libero_goal": max_steps = 300
-            elif cfg.task_suite_name == "libero_10": max_steps = 520
-            elif cfg.task_suite_name == "libero_90": max_steps = 400
-            else: max_steps = 400
-
             log_file.write(f"Starting episode {total_episodes+1}...\n")
             pbar = tqdm(total=max_steps, desc="Episode Progress")
 
@@ -206,8 +224,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
             all_actions = []
             # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
             if cfg.clip_select_action_num_candidates > 1:
-                pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
-
+                # pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
+                pre_sampled_all_language_instructions = rephrased_list[1:]  # Use the rest as alternatives
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)
@@ -217,10 +235,17 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     continue
 
                 img_for_vla = get_libero_image(obs, resize_size)
-                img_for_clip = get_libero_image(obs, (224, 224))
-
                 replay_images.append(img_for_vla)
                 observation = {"full_image": img_for_vla}
+
+                # --- Prepare images for VLA-CLIP scorer (multi-view) ---
+                img_for_clip_agent = get_libero_image(obs, (224, 224), key='agentview_image')
+                img_for_clip_hand = get_libero_image(obs, (224, 224), key='robot0_eye_in_hand_image')
+                if img_for_clip_agent is not None and img_for_clip_hand is not None:
+                    img_for_clip_tuple = (img_for_clip_agent, img_for_clip_hand)
+                else:
+                    # Fallback: use agentview twice if handview missing
+                    img_for_clip_tuple = (img_for_clip_agent, img_for_clip_agent)
 
                 # --- Action Generation and VLA-CLIP Scoring ---
                 action_to_execute = None
@@ -249,7 +274,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     original_padded_history = np.array(past + [original_action.copy()], dtype=np.float32) # shape (H, action_dim)
                     current_history_for_scoring = original_padded_history # Assume original initially
                     original_score = vla_clip_scorer.get_history_score(
-                        img_for_clip,
+                        img_for_clip_tuple,
                         original_task_description if cfg.use_original_task_description else task_description,
                         current_history_for_scoring,
                     ).detach().cpu().numpy().squeeze()
@@ -300,7 +325,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             padded_histories.append(padded)
                             # Score action
                             s = vla_clip_scorer.get_history_score(
-                                    img_for_clip,
+                                    img_for_clip_tuple,
                                     original_task_description if cfg.use_original_task_description else instr,
                                     padded
                                 ).detach().cpu().numpy().squeeze()
