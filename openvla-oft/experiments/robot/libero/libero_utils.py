@@ -44,12 +44,48 @@ def get_libero_wrist_image(obs):
     return img
 
 
-def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
+# def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
+#     """Saves an MP4 replay of an episode."""
+#     rollout_dir = f"./rollouts/{DATE}"
+#     os.makedirs(rollout_dir, exist_ok=True)
+#     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
+#     mp4_path = f"{rollout_dir}/{DATE_TIME}--openvla_oft--episode={idx}--success={success}--task={processed_task_description}.mp4"
+#     video_writer = imageio.get_writer(mp4_path, fps=30)
+#     for img in rollout_images:
+#         video_writer.append_data(img)
+#     video_writer.close()
+#     print(f"Saved rollout MP4 at path {mp4_path}")
+#     if log_file is not None:
+#         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
+#     return mp4_path
+
+def save_rollout_video(rollout_images, idx, success, transform_type,
+                       task_description, log_file=None, score_list=None, 
+                       action_list=None, clip_update_num=None,
+                       oracle_scorer=False):
+    
     """Saves an MP4 replay of an episode."""
-    rollout_dir = f"./rollouts/{DATE}"
+    if oracle_scorer:
+        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}"
+    else:
+        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
-    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
-    mp4_path = f"{rollout_dir}/{DATE_TIME}--openvla_oft--episode={idx}--success={success}--task={processed_task_description}.mp4"
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+
+    # Calculate mean score
+    mean_score = np.nanmean(score_list) if score_list else None
+
+    # Format score string explicitly
+    if mean_score is not None and not np.isnan(mean_score):
+        # Use :.3f format specifier for 3 decimal places
+        score_str = f"{mean_score:.3f}"
+    else:
+        # Handle None or NaN cases
+        score_str = "None" # Or you could use "nan" if mean_score is np.nan
+
+    # Use the formatted string in the filename
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.mp4"
+    data_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.pkl"
     video_writer = imageio.get_writer(mp4_path, fps=30)
     for img in rollout_images:
         video_writer.append_data(img)
@@ -57,6 +93,14 @@ def save_rollout_video(rollout_images, idx, success, task_description, log_file=
     print(f"Saved rollout MP4 at path {mp4_path}")
     if log_file is not None:
         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
+    if score_list is not None and action_list is not None:
+        data = {
+            "score_list": score_list,
+            "action_list": action_list,
+        }
+        with open(data_path, "wb") as f:
+            pickle.dump(data, f)
+        print(f"Saved data at path {data_path}")
     return mp4_path
 
 

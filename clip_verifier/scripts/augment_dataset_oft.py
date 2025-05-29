@@ -1,0 +1,213 @@
+import argparse
+import h5py
+import os
+import numpy as np
+from tqdm import tqdm
+import pickle
+from collections import defaultdict
+import warnings
+import json
+
+# Define padding value consistently
+ACTION_PADDING_VALUE = -5.0
+
+def augment_dataset(dataset_path, dataset_folders, output_path, history_length=10, rephrases_json_path=None, suite_name=None):
+    """
+    Creates a dataset mapping original instructions to samples containing
+    (image, positive_action_history, negative_action_history).
+    Includes samples from the start of trajectories, padding histories with
+    ACTION_PADDING_VALUE (-5.0) to the specified history_length.
+    Rotates images by 180 degrees upon loading.
+    Optionally, adds language rephrases for each instruction from a JSON file.
+    Generates negative action histories based on the global mean and std dev
+    of positive histories for each instruction.
+
+    Args:
+        dataset_path: Base path to the dataset
+        dataset_folders: List of dataset folders to process
+        output_path: Path to save the augmented dataset
+        history_length: Number of past action steps to include in the history (H).
+        rephrases_json_path: Path to the JSON file containing instruction rephrases
+        suite_name: Suite name (e.g., libero_spatial) for rephrases JSON
+    """
+    # --- Data Structures ---
+    histories_by_instruction = defaultdict(list) # Still collect full histories for stats
+    final_dataset = {}
+    raw_demo_data_by_instruction = defaultdict(list)
+    action_dim = None
+
+    total_demos_processed = 0
+    for folder in dataset_folders:
+        folder_path = os.path.join(dataset_path, folder)
+        if not os.path.exists(folder_path):
+            print(f"Warning: Dataset folder {folder_path} does not exist. Skipping.")
+            continue
+
+        for task in tqdm(os.listdir(folder_path), desc=f"Processing dataset {folder}"):
+            if not task.endswith('.hdf5'): continue
+
+            original_instruction = task.replace('.hdf5', '').replace('_', ' ')
+            original_instruction = ''.join(char for char in original_instruction if not char.isupper() and not char.isdigit())
+            while original_instruction and original_instruction[0].isspace(): original_instruction = original_instruction[1:]
+            if not original_instruction: continue
+
+            task_path = os.path.join(folder_path, task)
+            task_has_valid_demo = False
+            with h5py.File(task_path, 'r') as f:
+                if 'data' not in f: continue
+                for demo_key in f['data'].keys():
+                    demo_data = f['data'][demo_key]
+                    if not all(k in demo_data for k in ['actions', 'obs']): continue
+
+                    actions = demo_data['actions'][()]
+                    obs_group = demo_data['obs']
+                    # Collect all image keys
+                    image_keys = [k for k in obs_group.keys() if obs_group[k].ndim >= 3]
+                    obs_data_dict = {k: obs_group[k][()] for k in image_keys}
+
+                    if actions.ndim != 2 or actions.shape[0] == 0 or actions.shape[1] == 0: continue
+
+                    if action_dim is None:
+                            action_dim = actions.shape[1]
+                            if action_dim <= 0: raise ValueError("Invalid action dimension")
+                    elif actions.shape[1] != action_dim:
+                            print(f"Warning: Inconsistent action dim in {task}, demo {demo_key}. Skipping demo.")
+                            continue
+
+                    # Rotate all images by 180 degrees
+                    rotated_obs_data_dict = {k: np.array([np.rot90(img, k=2, axes=(0, 1)) for img in v]) for k, v in obs_data_dict.items()}
+                    T = actions.shape[0]
+                    for k, v in rotated_obs_data_dict.items():
+                        if v.shape[0] != T:
+                            print(f"Warning: Action/Image length mismatch for key {k} after rotation in {task}, demo {demo_key}. Skipping demo.")
+                            break
+                    else:
+                        # Store raw data for Pass 2 (needed for images and actions)
+                        raw_demo_data_by_instruction[original_instruction].append(
+                            {'actions': actions, 'images': rotated_obs_data_dict, 'len': T}
+                        )
+                        task_has_valid_demo = True
+                        total_demos_processed += 1
+
+                        # --- Collect ONLY FULL positive histories for statistics ---
+                        if T >= history_length:
+                            for t in range(history_length - 1, T):
+                                pos_action_hist = actions[t - history_length + 1 : t + 1]
+                                histories_by_instruction[original_instruction].append(pos_action_hist)
+                        # --------------------------------------------------------
+
+
+    if action_dim is None:
+        raise ValueError("Could not determine action dimension from any valid demo.")
+    if total_demos_processed == 0:
+         raise ValueError("No valid demonstrations found in the specified dataset folders.")
+
+    print(f"\n--- Pass 2: Generating Padded Histories and Final Dataset ---")
+    final_dataset = {}
+    padding_array_template = np.full((1, action_dim), ACTION_PADDING_VALUE, dtype=np.float32) # Template for padding rows
+
+    # --- Load rephrases if provided ---
+    rephrases_dict = None
+    if rephrases_json_path is not None and suite_name is not None:
+        with open(rephrases_json_path, 'r') as f:
+            all_rephrases = json.load(f)
+        suite_rephrases = all_rephrases[suite_name]
+        # Build a mapping from original string to list of rephrases
+        rephrases_dict = {}
+        for task_id, entry in suite_rephrases.items():
+            orig = entry["original"].strip().lower()
+            rephrases_dict[orig] = [r.strip() for r in entry["rephrases"]]
+
+    # Iterate through all instructions that had raw data
+    for instruction in tqdm(raw_demo_data_by_instruction.keys(), desc="Generating Samples"):
+        final_dataset[instruction] = {'samples': []}
+
+        for demo_data in raw_demo_data_by_instruction[instruction]:
+            original_actions = demo_data['actions']
+            images_dict = demo_data['images'] # Dict of all image keys
+            T = demo_data['len']
+            D = action_dim
+
+            for t in range(T):
+                # --- Handle Future Action Padding ---
+                future_actions = original_actions[t : t + history_length]
+                num_padding = max(0, history_length - future_actions.shape[0])
+                if num_padding > 0:
+                    padding = np.repeat(padding_array_template, num_padding, axis=0)
+                    future_action_chunk = np.concatenate((future_actions, padding), axis=0).astype(original_actions.dtype)
+                else:
+                    future_action_chunk = future_actions
+                #-------------------------------------
+
+                # Collect all images for this timestep
+                images_at_t = {k: v[t] for k, v in images_dict.items()}
+
+                # Final check on chunk length
+                if future_action_chunk.shape[0] != history_length:
+                     warnings.warn(f"Generated future chunk length mismatch for '{instruction}' t={t}. Skipping.")
+                     continue
+
+                sample_data = {
+                    'images': images_at_t,
+                    'pos_action_hist': pos_action_hist
+                }
+                final_dataset[instruction]['samples'].append(sample_data)
+
+        # --- Add rephrases as additional keys, if available ---
+        if rephrases_dict is not None:
+            # Try to match the instruction to the original in the rephrases dict
+            instr_norm = instruction.strip().lower()
+            matched = None
+            for orig, rephs in rephrases_dict.items():
+                if orig == instr_norm:
+                    matched = rephs
+                    break
+            if matched is not None:
+                for reph in matched:
+                    if reph not in final_dataset:
+                        final_dataset[reph] = {'samples': list(final_dataset[instruction]['samples'])}
+
+    # --- Final Cleanup ---
+    keys_to_remove = [k for k, v in final_dataset.items() if not v.get('samples')]
+    if keys_to_remove:
+        print(f"Removing {len(keys_to_remove)} instruction entries with no samples after Pass 2.")
+        for k in keys_to_remove: del final_dataset[k]
+
+    # --- Print statistics ---
+    total_instructions = len(final_dataset)
+    total_samples = sum(len(v.get('samples', [])) for v in final_dataset.values())
+
+    print(f"\nDataset creation complete!")
+    print(f"History length: {history_length}")
+    print(f"Padding Value: {ACTION_PADDING_VALUE}")
+    print(f"Total instructions included: {total_instructions}")
+    print(f"Total number of (images, pos_hist) samples (incl. padded): {total_samples}")
+
+    # --- Save dataset ---
+    print(f"\nSaving dataset to {output_path}...")
+    with open(output_path, 'wb') as f:
+        pickle.dump(final_dataset, f)
+    print("Done!")
+    return final_dataset
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Create dataset with potentially padded pos/neg action histories based on global stats.')
+    parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
+                        help='Path to the dataset')
+    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial_no_noops'],
+                        help='Dataset folders to process')
+    parser.add_argument('--output_path', type=str, default='libero_spatial_oft.pkl',
+                        help='Path to save the augmented dataset')
+    parser.add_argument('--history_length', type=int, default=8,
+                        help='Number of past action steps to include in the history (H)')
+    parser.add_argument('--rephrases_json', type=str, default='/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json',
+                        help='Path to the JSON file containing instruction rephrases')
+    parser.add_argument('--suite_name', type=str, default='libero_spatial',
+                        help='Suite name (e.g., libero_spatial) for rephrases JSON')
+
+    args = parser.parse_args()
+
+    augment_dataset(args.dataset_path, args.dataset_folders, args.output_path,
+                history_length=args.history_length,
+                rephrases_json_path=args.rephrases_json,
+                suite_name=args.suite_name)
