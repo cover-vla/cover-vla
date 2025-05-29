@@ -22,13 +22,12 @@
 #     --resume /home/xilun/vla-clip/clip_verifier/bash/trajectory_checkpoints/all_transformer_h10_neg2_padded_final_best.pt \
 #     --use_wandb 
 
-CUDA_VISIBLE_DEVICES=7 python ../scripts/finetune_trajectory.py \
-    --epochs 2000 \
+CUDA_VISIBLE_DEVICES=7 python ../scripts/finetune_trajectory_image.py \
+    --epochs 3000 \
     --batch_size 4096 \
     --lr 5e-5 \
     --history_length 10 \
     --augmented_dataset ../augmented_datasets/libero_spatial_augmented_dataset.pkl \
-    --resume /home/xilun/vla-clip/clip_verifier/bash/trajectory_checkpoints/libero_spatial_v2.pt \
     --save_name libero_spatial \
     --use_transformer \
     --use_wandb 

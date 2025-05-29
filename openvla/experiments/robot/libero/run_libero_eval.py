@@ -79,7 +79,7 @@ class GenerateConfig:
     # --- LIBERO Env ---
     task_suite_name: str = "libero_spatial"
     num_steps_wait: int = 10
-    num_trials_per_task: int = 10
+    num_trials_per_task: int = 2
 
     # --- Trajectory VLA-CLIP Scorer (Optional) ---
     use_vla_clip_trajectory_scorer: bool = True           # Enable the trajectory scorer?
