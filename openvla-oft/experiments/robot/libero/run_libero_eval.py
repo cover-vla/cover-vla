@@ -5,6 +5,7 @@ Evaluates a trained policy in a LIBERO simulation benchmark task suite.
 """
 
 import json
+import copy
 import logging
 import os
 import sys
@@ -51,7 +52,8 @@ from experiments.robot.robot_utils import (
 from prismatic.vla.constants import NUM_ACTIONS_CHUNK
 
 sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
-from vla_clip_inference import VLA_CLIP_Inference, ACTION_PADDING_VALUE
+from vla_clip_inference import VLA_CLIP_Inference
+from vla_dino_inference import VLA_DINO_Inference
 from lang_transform import LangTransform
 
 torch.set_num_threads(8)
@@ -117,7 +119,7 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = TaskSuite.LIBERO_SPATIAL  # Task suite
     num_steps_wait: int = 10                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 5                    # Number of rollouts per task
+    num_trials_per_task: int = 20                    # Number of rollouts per task
     initial_states_path: str = "DEFAULT"             # "DEFAULT", or path to initial states JSON file
     env_img_res: int = 256                           # Resolution for environment images (not policy input resolution)
 
@@ -133,12 +135,13 @@ class GenerateConfig:
 
     seed: int = 7                                    # Random Seed (for reproducibility)
     
-    use_vla_clip_trajectory_scorer: bool = True           # Enable the trajectory scorer?
+    use_vla_clip_trajectory_scorer: bool = False           # Enable the trajectory scorer?
+    use_vla_dino_trajectory_scorer: bool = False          # Enable the trajectory scorer?
     vla_clip_traj_model_path: Optional[str] = None         # Path to the trajectory VLA-CLIP model
     vla_clip_history_length: int = 10                      # History length (MUST match model training)
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
     clip_select_action_strategy: str = "highest_score"     # Strategy: 'highest_score' or 'softmax_sample'
-    vla_clip_score_threshold: float = 3                # Threshold to trigger candidate generation/evaluation
+    vla_clip_score_threshold: float = 0.3                # Threshold to trigger candidate generation/evaluation
 
     lang_transform_type: str = "rephrase" 
     use_original_task_description: bool = False
@@ -163,7 +166,7 @@ def initialize_model(cfg: GenerateConfig):
     """Initialize model and associated components."""
     # Load model
     model = get_model(cfg)
-
+    model.eval()
     # Load proprio projector if needed
     proprio_projector = None
     if cfg.use_proprio:
@@ -309,7 +312,7 @@ def run_episode(
     initial_state=None,
     log_file=None,
     rephrased_list=None,
-    vla_clip_scorer=None,
+    vla_scorer=None,
 ):
     """Run a single episode in the environment."""
     # Reset environment
@@ -339,112 +342,118 @@ def run_episode(
         # pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
         pre_sampled_all_language_instructions = rephrased_list[1:]  # Use the rest as alternatives
     
+    assert cfg.use_vla_clip_trajectory_scorer or cfg.use_vla_dino_trajectory_scorer, "Must use at least one trajectory scorer!"
+    assert not (cfg.use_vla_clip_trajectory_scorer and cfg.use_vla_dino_trajectory_scorer), "Cannot use both trajectory scorers!"
+    
     # Run episode
-    success = False
-    try:
-        while t < max_steps + cfg.num_steps_wait:
-            # Do nothing for the first few timesteps to let objects stabilize
-            if t < cfg.num_steps_wait:
-                obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
-                t += 1
-                continue
-
-            # Prepare observation
-            observation, img = prepare_observation(obs, resize_size)
-            replay_images.append(img)
-            image_for_clip_tuple = (observation["full_image"], observation["wrist_image"])
-
-            # Always generate a new action chunk at every step
-            actions = get_action(
-                cfg,
-                model,
-                observation,
-                task_description,
-                processor=processor,
-                action_head=action_head,
-                proprio_projector=proprio_projector,
-                noisy_action_projector=noisy_action_projector,
-                use_film=cfg.use_film,
-            )
-            # --- CLIP verifier and rejection sampling logic ---
-            step_score = None
-            if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer is not None:
-                # Score the entire action chunk
-                original_score = vla_clip_scorer.get_history_score(
-                    image_for_clip_tuple,
-                    task_description,
-                    np.array(actions.copy())  # shape (chunk_size, action_dim)
-                ).detach().cpu().numpy().squeeze()
-                best_actions = actions.copy()
-                best_score = original_score
-                best_instr = task_description
-                # If score is below threshold and we want alternatives
-                if (
-                    cfg.clip_select_action_num_candidates > 1 and
-                    not np.isnan(original_score) and
-                    original_score < cfg.vla_clip_score_threshold
-                ):
-                    candidate_instructions = [task_description]
-                    predicted_action_chunks = [actions]
-                    scores = [original_score]
-                    # Sample additional language instructions
-                    num_to_generate = cfg.clip_select_action_num_candidates - 1
-                    if num_to_generate > 0 and len(pre_sampled_all_language_instructions) > 0:
-                        sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
-                        additional_instructions = [pre_sampled_all_language_instructions[i] for i in sample_indices]
-                        candidate_instructions.extend(additional_instructions)
-                        for instr in additional_instructions:
-                            a_chunk = get_action(
-                                cfg,
-                                model,
-                                observation,
-                                instr,
-                                processor=processor,
-                                action_head=action_head,
-                                proprio_projector=proprio_projector,
-                                noisy_action_projector=noisy_action_projector,
-                                use_film=cfg.use_film,
-                            )
-                            predicted_action_chunks.append(a_chunk)
-                            s = vla_clip_scorer.get_history_score(
-                                image_for_clip_tuple,
-                                instr,
-                                np.array(a_chunk)
-                            ).detach().cpu().numpy().squeeze()
-                            scores.append(s)
-                    # Select the best action chunk
-                    scores = np.array(scores)
-                    valid_indices = np.where(scores > -np.inf)[0]
-                    if len(valid_indices) > 0:
-                        best_idx = valid_indices[np.argmax(scores[valid_indices])]
-                        best_actions = predicted_action_chunks[best_idx]
-                        best_score = scores[best_idx]
-                        best_instr = candidate_instructions[best_idx]
-                        if best_idx != 0:
-                            print(f"[t={t}] Selected alternative action chunk via: '{best_instr}' (Score: {best_score:.3f})")
-                        else:
-                            print(f"[t={t}] Kept original action chunk (Score: {best_score:.3f}) after evaluating alternatives.")
-                    else:
-                        print("Warning: All candidate scores are invalid (-inf). Using original action chunk.")
-                actions = best_actions
-                step_score = best_score
-            else:
-                step_score = None
-            # Always execute the first action in the chosen chunk
-            action = actions[0]
-            action = process_action(action, cfg.model_family)
-            # Save score and action for logging
-            all_scores.append(step_score)
-            all_actions.append(action.tolist())
-            # Execute action in environment
-            obs, reward, done, info = env.step(action.tolist())
-            if done:
-                success = True
-                break
+    success = False 
+    best_instr = task_description
+    while t < max_steps + cfg.num_steps_wait:
+        # Do nothing for the first few timesteps to let objects stabilize
+        if t < cfg.num_steps_wait:
+            obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
             t += 1
+            continue
 
-    except Exception as e:
-        log_message(f"Episode error: {e}", log_file)
+        # Prepare observation
+        observation, img = prepare_observation(obs, resize_size)
+        replay_images.append(img)
+        image_for_clip_tuple = (observation["full_image"], observation["wrist_image"])
+        # Always generate a new action chunk at every step
+        actions = get_action(
+            cfg,
+            model,
+            copy.deepcopy(observation),
+            best_instr,
+            processor=processor,
+            action_head=action_head,
+            proprio_projector=proprio_projector,
+            noisy_action_projector=noisy_action_projector,
+            use_film=cfg.use_film,
+        )
+        # --- CLIP verifier and rejection sampling logic ---
+        step_score = None
+        if cfg.use_vla_clip_trajectory_scorer or cfg.use_vla_dino_trajectory_scorer:
+            # Score the entire action chunk
+            original_score = vla_scorer.get_history_score(
+                image_for_clip_tuple,
+                best_instr,
+                process_action(np.array(actions.copy()), cfg.model_family)  # shape (chunk_size, action_dim)
+            ).detach().cpu().numpy().squeeze()
+            best_actions = actions.copy()
+            best_score = original_score
+            # If score is below threshold and we want alternatives
+            if (
+                cfg.clip_select_action_num_candidates > 1 and
+                not np.isnan(original_score) and
+                original_score < cfg.vla_clip_score_threshold
+            ):
+                candidate_instructions = [task_description]
+                predicted_action_chunks = [actions]
+                scores = [original_score]
+                # Sample additional language instructions
+                num_to_generate = cfg.clip_select_action_num_candidates - 1
+                if num_to_generate > 0 and len(pre_sampled_all_language_instructions) > 0:
+                    # sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
+                    sample_indices = np.arange(len(pre_sampled_all_language_instructions))[:num_to_generate]
+                    additional_instructions = [pre_sampled_all_language_instructions[i] for i in sample_indices]
+                    candidate_instructions.extend(additional_instructions)
+                    for instr in additional_instructions:
+                        a_chunk = get_action(
+                            cfg,
+                            model,
+                            copy.deepcopy(observation),
+                            instr,
+                            processor=processor,
+                            action_head=action_head,
+                            proprio_projector=proprio_projector,
+                            noisy_action_projector=noisy_action_projector,
+                            use_film=cfg.use_film,
+                        )
+                        predicted_action_chunks.append(a_chunk)
+                    # Batch score all candidates
+                    predicted_action, scores_dict = vla_scorer.predict(
+                        image_for_clip_tuple,
+                        candidate_instructions,  # Pass the list of instructions, not just one
+                        [process_action(np.array(a_chunk), cfg.model_family) for a_chunk in predicted_action_chunks]
+                    )
+                    scores = [scores_dict[str(i)] for i in range(len(predicted_action_chunks))]
+                # Select the best action chunk
+                scores = np.array(scores)
+                # print all the scores with corresponding insturction and action 
+                # for i in range(len(candidate_instructions)):
+                #     print(f"Instruction: {candidate_instructions[i]}, Action: {predicted_action_chunks[i][0]}, Score: {scores[i]}")
+                # input()
+                valid_indices = np.where(scores > -np.inf)[0]
+                if len(valid_indices) > 0:
+                    best_idx = valid_indices[np.argmax(scores[valid_indices])]
+                    best_actions = predicted_action_chunks[best_idx]
+                    best_score = scores[best_idx]
+                    best_instr = candidate_instructions[best_idx]
+                    if best_idx != 0:
+                        print(f"[t={t}] Selected alternative action chunk via: '{best_instr}' (Score: {best_score:.3f})")
+                    else:
+                        print(f"[t={t}] Kept original action chunk (Score: {best_score:.3f}) after evaluating alternatives.")
+                else:
+                    print("Warning: All candidate scores are invalid (-inf). Using original action chunk.")
+            actions = best_actions
+            step_score = best_score
+        else:
+            step_score = None
+        # Always execute the first action in the chosen chunk
+        action = actions[0]
+        action = process_action(action, cfg.model_family)
+        # Save score and action for logging
+        all_scores.append(step_score)
+        all_actions.append(action.tolist())
+        # Execute action in environment
+        obs, reward, done, info = env.step(action.tolist())
+        if done:
+            success = True
+            break
+        print(f"t={t}, action={action.tolist()}, reward={step_score}")
+        t += 1
+
 
     return success, replay_images, all_scores, all_actions
 
@@ -463,7 +472,7 @@ def run_task(
     total_successes=0,
     log_file=None,
     rephrased_list=None,
-    vla_clip_scorer=None,
+    vla_scorer=None,
 ):
     """Run evaluation for a single task."""
     # Get task
@@ -479,6 +488,9 @@ def run_task(
         task_description = original_task_description
     else:
         task_description = rephrased_list[0]  # Use the first as the main instruction
+        # task_description = original_task_description
+    
+    rephrased_list[3] = original_task_description
 
     # Start episodes
     task_episodes, task_successes = 0, 0
@@ -519,7 +531,7 @@ def run_task(
             initial_state,
             log_file,
             rephrased_list,
-            vla_clip_scorer,
+            vla_scorer,
         )
 
         # Update counters
@@ -531,7 +543,7 @@ def run_task(
 
         # Save replay video
         save_rollout_video(
-            replay_images, total_episodes, success=success, task_description=task_description, log_file=log_file,
+            replay_images, total_episodes, success=success, task_description=task_description, transform_type=cfg.lang_transform_type, log_file=log_file,
             score_list=all_scores, action_list=all_actions, clip_update_num=cfg.clip_select_action_num_candidates)
 
         # Log results
@@ -584,25 +596,33 @@ def eval_libero(cfg: GenerateConfig) -> float:
     log_message(f"Task suite: {cfg.task_suite_name}", log_file)
 
     if cfg.use_vla_clip_trajectory_scorer:
-        vla_clip_scorer = VLA_CLIP_Inference(
+        vla_scorer = VLA_CLIP_Inference(
+            model_path=cfg.vla_clip_traj_model_path,
+            history_length=cfg.vla_clip_history_length,
+            use_transformer=True
+        )
+    elif cfg.use_vla_dino_trajectory_scorer:
+        vla_scorer = VLA_DINO_Inference(
             model_path=cfg.vla_clip_traj_model_path,
             history_length=cfg.vla_clip_history_length,
             use_transformer=True
         )
     else:
-        vla_clip_scorer = None
+        raise ValueError("Must use at least one trajectory scorer!")
     lang_transform = LangTransform()
     
     # Load pre-generated rephrases if available
     rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
     preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
-    
-    # --- Always use the first rephrase as the main instruction, rest as alternatives ---
-    rephrased_list = preloaded_rephrases[str(task_id)]["rephrases"]
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
-    for task_id in tqdm.tqdm(range(num_tasks)):
+    for task_id in tqdm.tqdm(range(num_tasks)[5:]):
+        
+        # --- Always use the first rephrase as the main instruction, rest as alternatives ---
+        rephrased_list = preloaded_rephrases[str(task_id)]["rephrases"]
+        # if task_id > 0:
+        #     break
         total_episodes, total_successes = run_task(
             cfg,
             task_suite,
@@ -617,7 +637,7 @@ def eval_libero(cfg: GenerateConfig) -> float:
             total_successes,
             log_file,
             rephrased_list,
-            vla_clip_scorer,
+            vla_scorer,
         )
 
     # Calculate final success rate

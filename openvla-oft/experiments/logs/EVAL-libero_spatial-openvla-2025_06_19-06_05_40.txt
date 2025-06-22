@@ -1,0 +1,103 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=1--success=False--score=5.413--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=2--success=False--score=7.672--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=3--success=False--score=8.723--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=4--success=False--score=6.851--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=5--success=False--score=8.290--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=6--success=False--score=7.434--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=7--success=False--score=6.704--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=8--success=False--score=6.138--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=9--success=False--score=5.858--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 0 (0.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=10--success=True--score=6.463--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=11--success=False--score=9.018--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 1 (9.1%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=12--success=False--score=5.610--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 1 (8.3%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=13--success=False--score=6.006--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 1 (7.7%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_5/episode=14--success=False--score=8.906--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 1 (7.1%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 15...

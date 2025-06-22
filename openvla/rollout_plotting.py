@@ -921,7 +921,7 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
         # X ticks
         all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(designed_rephrase_nums))
         plt.xticks(all_rephrase_nums)
-        plt.xlabel('Rephrase Type')
+        plt.xlabel('Number of Samples (Rephrases)')
         plt.ylabel('Success Rate')
         plt.ylim(0, 1.05)
         plt.title(task.replace('_', ' '))
@@ -944,8 +944,8 @@ if __name__ == "__main__":
     path_to_rollouts_oracle = "./rollouts_oracle"
     path_to_rollouts_clip = "./rollouts"
     
-    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
-    # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
+    results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
+    results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
 
     # Call the new combined plot function
     create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip)

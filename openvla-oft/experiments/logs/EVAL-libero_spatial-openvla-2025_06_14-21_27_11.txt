@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+Using initial states from experiments/robot/libero/initial_states.json
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.

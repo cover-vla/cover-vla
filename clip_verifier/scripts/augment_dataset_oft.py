@@ -14,13 +14,11 @@ ACTION_PADDING_VALUE = -5.0
 def augment_dataset(dataset_path, dataset_folders, output_path, history_length=10, rephrases_json_path=None, suite_name=None):
     """
     Creates a dataset mapping original instructions to samples containing
-    (image, positive_action_history, negative_action_history).
+    (image, positive_action_history).
     Includes samples from the start of trajectories, padding histories with
     ACTION_PADDING_VALUE (-5.0) to the specified history_length.
     Rotates images by 180 degrees upon loading.
     Optionally, adds language rephrases for each instruction from a JSON file.
-    Generates negative action histories based on the global mean and std dev
-    of positive histories for each instruction.
 
     Args:
         dataset_path: Base path to the dataset
@@ -31,7 +29,6 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
         suite_name: Suite name (e.g., libero_spatial) for rephrases JSON
     """
     # --- Data Structures ---
-    histories_by_instruction = defaultdict(list) # Still collect full histories for stats
     final_dataset = {}
     raw_demo_data_by_instruction = defaultdict(list)
     action_dim = None
@@ -52,7 +49,6 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
             if not original_instruction: continue
 
             task_path = os.path.join(folder_path, task)
-            task_has_valid_demo = False
             with h5py.File(task_path, 'r') as f:
                 if 'data' not in f: continue
                 for demo_key in f['data'].keys():
@@ -68,11 +64,11 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
                     if actions.ndim != 2 or actions.shape[0] == 0 or actions.shape[1] == 0: continue
 
                     if action_dim is None:
-                            action_dim = actions.shape[1]
-                            if action_dim <= 0: raise ValueError("Invalid action dimension")
+                        action_dim = actions.shape[1]
+                        if action_dim <= 0: raise ValueError("Invalid action dimension")
                     elif actions.shape[1] != action_dim:
-                            print(f"Warning: Inconsistent action dim in {task}, demo {demo_key}. Skipping demo.")
-                            continue
+                        print(f"Warning: Inconsistent action dim in {task}, demo {demo_key}. Skipping demo.")
+                        continue
 
                     # Rotate all images by 180 degrees
                     rotated_obs_data_dict = {k: np.array([np.rot90(img, k=2, axes=(0, 1)) for img in v]) for k, v in obs_data_dict.items()}
@@ -86,16 +82,7 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
                         raw_demo_data_by_instruction[original_instruction].append(
                             {'actions': actions, 'images': rotated_obs_data_dict, 'len': T}
                         )
-                        task_has_valid_demo = True
                         total_demos_processed += 1
-
-                        # --- Collect ONLY FULL positive histories for statistics ---
-                        if T >= history_length:
-                            for t in range(history_length - 1, T):
-                                pos_action_hist = actions[t - history_length + 1 : t + 1]
-                                histories_by_instruction[original_instruction].append(pos_action_hist)
-                        # --------------------------------------------------------
-
 
     if action_dim is None:
         raise ValueError("Could not determine action dimension from any valid demo.")
@@ -149,7 +136,7 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
 
                 sample_data = {
                     'images': images_at_t,
-                    'pos_action_hist': pos_action_hist
+                    'pos_action_hist': future_action_chunk
                 }
                 final_dataset[instruction]['samples'].append(sample_data)
 

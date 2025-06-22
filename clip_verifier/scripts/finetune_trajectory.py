@@ -103,7 +103,7 @@ class VLA_CLIP(nn.Module):
         self.visual_patch_size = self.clip.visual.conv1.kernel_size[0]
         self.num_img_patches = (224 // self.visual_patch_size) ** 2
         
-        self.logit_scale = nn.Parameter(torch.tensor(1.0))
+        self.logit_scale = nn.Parameter(torch.tensor(2.6592))
         
         # The number of patches depends on the CLIP model's vision transformer
         # For ViT-B/32, the image is divided into 7x7=49 patches (for 224x224 images)
@@ -345,7 +345,6 @@ def train_clip(
         try:
              model.load_state_dict(torch.load(resume_checkpoint, map_location=device))
              print("Successfully loaded model weights.")
-             start_epoch = 1200
              # Consider loading optimizer state and epoch if saved in checkpoint
         except Exception as load_err:
               print(f"Error loading checkpoint: {load_err}. Starting training from scratch.")
@@ -456,8 +455,8 @@ def train_clip(
         # --- Save Best Model Logic ---
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
-            torch.save(model.state_dict(), best_model_path)
-            print(f"New best model saved with validation loss: {best_val_loss:.4f} at {best_model_path}")
+            # torch.save(model.state_dict(), best_model_path)
+            # print(f"New best model saved with validation loss: {best_val_loss:.4f} at {best_model_path}")
             if use_wandb: wandb.run.summary["best_val_loss"] = best_val_loss
         # --- End Save Best Model ---
 

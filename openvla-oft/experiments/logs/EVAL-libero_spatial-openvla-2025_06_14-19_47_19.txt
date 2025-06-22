@@ -1,0 +1,42 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+StarSaved rollout MP4 Saved rollout MP4 at path ./rollouts/rephrase_1/episode=1--success=False--score=-3.337--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 2...
+/episode=2--success=True--score=6.896--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/no_transform_1/episode=3--success=True--score=7.868--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/no_transform_1/episode=4--success=True--score=7.125--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/no_transform_1/episode=5--success=True--score=6.975--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+Using default initial states
+
+Task: pick up the black bowl next to the ramekin and place it on the plate
+Starting episode 1...

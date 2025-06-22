@@ -1,0 +1,385 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=1--success=True--score=5.951--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=2--success=False--score=5.144--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=3--success=True--score=6.608--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=4--success=True--score=5.434--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=5--success=True--score=5.173--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+Current task success rate: 0.8
+Current total success rate: 0.8
+Using default initial states
+
+Task: Lift the black bowl beside the ramekin and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=6--success=False--score=4.717--task=lift_the_black_bowl_beside_the_ramekin_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 4 (66.7%)
+
+Task: Lift the black bowl beside the ramekin and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=7--success=False--score=5.782--task=lift_the_black_bowl_beside_the_ramekin_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+
+Task: Lift the black bowl beside the ramekin and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=8--success=True--score=6.486--task=lift_the_black_bowl_beside_the_ramekin_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 5 (62.5%)
+
+Task: Lift the black bowl beside the ramekin and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=9--success=False--score=4.246--task=lift_the_black_bowl_beside_the_ramekin_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 5 (55.6%)
+
+Task: Lift the black bowl beside the ramekin and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=10--success=False--score=4.918--task=lift_the_black_bowl_beside_the_ramekin_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 5 (50.0%)
+Current task success rate: 0.2
+Current total success rate: 0.5
+Using default initial states
+
+Task: Lift the black bowl from the center of the table and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=11--success=False--score=5.290--task=lift_the_black_bowl_from_the_center_of_the_table_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 5 (45.5%)
+
+Task: Lift the black bowl from the center of the table and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=12--success=False--score=5.788--task=lift_the_black_bowl_from_the_center_of_the_table_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 5 (41.7%)
+
+Task: Lift the black bowl from the center of the table and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=13--success=False--score=5.359--task=lift_the_black_bowl_from_the_center_of_the_table_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 5 (38.5%)
+
+Task: Lift the black bowl from the center of the table and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=14--success=False--score=4.882--task=lift_the_black_bowl_from_the_center_of_the_table_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 5 (35.7%)
+
+Task: Lift the black bowl from the center of the table and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=15--success=False--score=5.869--task=lift_the_black_bowl_from_the_center_of_the_table_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 5 (33.3%)
+Current task success rate: 0.0
+Current total success rate: 0.3333333333333333
+Using default initial states
+
+Task: Lift the black bowl from the cookie box and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=16--success=True--score=9.055--task=lift_the_black_bowl_from_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 6 (37.5%)
+
+Task: Lift the black bowl from the cookie box and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=17--success=True--score=10.986--task=lift_the_black_bowl_from_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 7 (41.2%)
+
+Task: Lift the black bowl from the cookie box and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=18--success=True--score=10.445--task=lift_the_black_bowl_from_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 8 (44.4%)
+
+Task: Lift the black bowl from the cookie box and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=19--success=False--score=4.453--task=lift_the_black_bowl_from_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 8 (42.1%)
+
+Task: Lift the black bowl from the cookie box and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=20--success=True--score=9.970--task=lift_the_black_bowl_from_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 9 (45.0%)
+Current task success rate: 0.8
+Current total success rate: 0.45
+Using default initial states
+
+Task: Retrieve the black bowl from the top drawer of the wooden cabinet and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=21--success=False--score=7.257--task=retrieve_the_black_bowl_from_the_top_drawer_of_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 21
+# successes: 9 (42.9%)
+
+Task: Retrieve the black bowl from the top drawer of the wooden cabinet and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=22--success=False--score=5.659--task=retrieve_the_black_bowl_from_the_top_drawer_of_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 9 (40.9%)
+
+Task: Retrieve the black bowl from the top drawer of the wooden cabinet and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=23--success=False--score=4.770--task=retrieve_the_black_bowl_from_the_top_drawer_of_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 9 (39.1%)
+
+Task: Retrieve the black bowl from the top drawer of the wooden cabinet and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=24--success=False--score=5.424--task=retrieve_the_black_bowl_from_the_top_drawer_of_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 24
+# successes: 9 (37.5%)
+
+Task: Retrieve the black bowl from the top drawer of the wooden cabinet and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=25--success=False--score=4.693--task=retrieve_the_black_bowl_from_the_top_drawer_of_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 9 (36.0%)
+Current task success rate: 0.0
+Current total success rate: 0.36
+Using default initial states
+
+Task: Lift the black bowl from the ramekin and set it down on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=26--success=False--score=4.612--task=lift_the_black_bowl_from_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 9 (34.6%)
+
+Task: Lift the black bowl from the ramekin and set it down on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=27--success=False--score=5.381--task=lift_the_black_bowl_from_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 9 (33.3%)
+
+Task: Lift the black bowl from the ramekin and set it down on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=28--success=False--score=5.377--task=lift_the_black_bowl_from_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 9 (32.1%)
+
+Task: Lift the black bowl from the ramekin and set it down on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=29--success=False--score=5.047--task=lift_the_black_bowl_from_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 9 (31.0%)
+
+Task: Lift the black bowl from the ramekin and set it down on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=30--success=False--score=4.555--task=lift_the_black_bowl_from_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 30
+# successes: 9 (30.0%)
+Current task success rate: 0.0
+Current total success rate: 0.3
+Using default initial states
+
+Task: Lift the black bowl that is beside the cookie box and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=31--success=False--score=4.582--task=lift_the_black_bowl_that_is_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 31
+# successes: 9 (29.0%)
+
+Task: Lift the black bowl that is beside the cookie box and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=32--success=False--score=4.206--task=lift_the_black_bowl_that_is_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 9 (28.1%)
+
+Task: Lift the black bowl that is beside the cookie box and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=33--success=True--score=6.242--task=lift_the_black_bowl_that_is_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 10 (30.3%)
+
+Task: Lift the black bowl that is beside the cookie box and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=34--success=False--score=3.712--task=lift_the_black_bowl_that_is_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 10 (29.4%)
+
+Task: Lift the black bowl that is beside the cookie box and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=35--success=True--score=6.900--task=lift_the_black_bowl_that_is_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 11 (31.4%)
+Current task success rate: 0.4
+Current total success rate: 0.3142857142857143
+Using default initial states
+
+Task: Lift the black bowl from the stove and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=36--success=False--score=5.041--task=lift_the_black_bowl_from_the_stove_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 36
+# successes: 11 (30.6%)
+
+Task: Lift the black bowl from the stove and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=37--success=False--score=4.321--task=lift_the_black_bowl_from_the_stove_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 11 (29.7%)
+
+Task: Lift the black bowl from the stove and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=38--success=False--score=6.299--task=lift_the_black_bowl_from_the_stove_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 11 (28.9%)
+
+Task: Lift the black bowl from the stove and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=39--success=False--score=4.852--task=lift_the_black_bowl_from_the_stove_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 11 (28.2%)
+
+Task: Lift the black bowl from the stove and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=40--success=True--score=7.465--task=lift_the_black_bowl_from_the_stove_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 12 (30.0%)
+Current task success rate: 0.2
+Current total success rate: 0.3
+Using default initial states
+
+Task: Lift the black bowl beside the plate and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=41--success=False--score=4.691--task=lift_the_black_bowl_beside_the_plate_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 12 (29.3%)
+
+Task: Lift the black bowl beside the plate and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=42--success=True--score=6.414--task=lift_the_black_bowl_beside_the_plate_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 13 (31.0%)
+
+Task: Lift the black bowl beside the plate and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=43--success=True--score=6.206--task=lift_the_black_bowl_beside_the_plate_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 14 (32.6%)
+
+Task: Lift the black bowl beside the plate and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=44--success=False--score=4.402--task=lift_the_black_bowl_beside_the_plate_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 44
+# successes: 14 (31.8%)
+
+Task: Lift the black bowl beside the plate and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=45--success=False--score=3.542--task=lift_the_black_bowl_beside_the_plate_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 45
+# successes: 14 (31.1%)
+Current task success rate: 0.4
+Current total success rate: 0.3111111111111111
+Using default initial states
+
+Task: Lift the black bowl from the wooden cabinet and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=46--success=False--score=6.061--task=lift_the_black_bowl_from_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 46
+# successes: 14 (30.4%)
+
+Task: Lift the black bowl from the wooden cabinet and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=47--success=False--score=6.341--task=lift_the_black_bowl_from_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 47
+# successes: 14 (29.8%)
+
+Task: Lift the black bowl from the wooden cabinet and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=48--success=False--score=7.041--task=lift_the_black_bowl_from_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 14 (29.2%)
+
+Task: Lift the black bowl from the wooden cabinet and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=49--success=False--score=6.875--task=lift_the_black_bowl_from_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 49
+# successes: 14 (28.6%)
+
+Task: Lift the black bowl from the wooden cabinet and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=50--success=False--score=5.632--task=lift_the_black_bowl_from_the_wooden_cabinet_and_set_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 14 (28.0%)
+Current task success rate: 0.0
+Current total success rate: 0.28
+Final results:
+Total episodes: 50
+Total successes: 14
+Overall success rate: 0.2800 (28.0%)

@@ -113,10 +113,10 @@ class AttentionPooling(nn.Module):
     
     
 class ModelConfig:
-    """Configuration class for VLA_CLIP model parameters"""
+    """Configuration class for VLA_BERT_DINO model parameters"""
     def __init__(
         self,
-        clip_model,
+        clip_model=None,  # Keep for backwards compatibility but not used
         text_pooling_output_dim=512,
         vision_pooling_output_dim=512,
         pooling_heads=8,

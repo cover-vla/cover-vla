@@ -1,0 +1,1248 @@
+Task suite: libero_spatial
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 1/20)
+Starting episode 1...
+  [t=10] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 23.551)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.054344177246094
+  [t=34] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 14.956)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.955926895141602
+  [t=35] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 12.369)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.977523803710938
+  [t=36] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 11.088)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.608830451965332
+  [t=39] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.932)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.353086471557617
+  [t=40] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 14.720)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.054755210876465
+  [t=48] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 21.230)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.413253784179688
+  [t=49] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 17.139)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.62143325805664
+  [t=50] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 15.841)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.23327922821045
+  [t=59] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 14.374)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.213143348693848
+  [t=67] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 16.903)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.467389106750488
+  [t=68] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 12.517)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.517180442810059
+  [t=69] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 23.412)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.698938369750977
+  [t=90] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 17.342)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.029102325439453
+  [t=96] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 13.583)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.367353439331055
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=1--success=True--score=19.736--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=92, AvgStepScore=19.736
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 2/20)
+Starting episode 2...
+  [t=10] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 21.767)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.767135620117188
+  [t=12] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 13.489)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.917766571044922
+  [t=13] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.843)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.240889549255371
+  [t=15] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 14.159)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.67512035369873
+  [t=38] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 14.099)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.260934829711914
+  [t=39] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 8.569)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.819526195526123
+  [t=50] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 14.613)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.755521774291992
+  [t=51] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 9.606)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.93992280960083
+  [t=53] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 15.202)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.920247077941895
+  [t=54] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 16.951)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.329264640808105
+  [t=67] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 16.266)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.294078826904297
+  [t=68] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 18.091)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.27556610107422
+  [t=69] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.398)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.66116714477539
+  [t=86] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 14.631)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.296767234802246
+  [t=87] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 13.811)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.458447456359863
+  [t=88] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 13.086)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.86495304107666
+  [t=89] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 15.035)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.55538558959961
+  [t=90] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.197)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.291010856628418
+  [t=91] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 14.990)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.666236877441406
+  [t=92] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 13.372)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.156058311462402
+  [t=93] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 16.443)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.2864933013916
+  [t=94] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 13.532)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.296836853027344
+  [t=95] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.925)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.925289154052734
+  [t=96] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 16.041)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.44207763671875
+  [t=97] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 9.213)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.1990275382995605
+  [t=98] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 8.555)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.040263175964355
+  [t=101] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 23.348)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 22.10521125793457
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=2--success=True--score=18.359--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=True, Steps=91, AvgStepScore=18.359
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 3/20)
+Starting episode 3...
+  [t=10] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 19.756)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.479127883911133
+  [t=12] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 20.244)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.397120475769043
+  [t=21] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 13.825)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.977580070495605
+  [t=35] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 10.194)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.932880401611328
+  [t=36] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 22.072)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.10002326965332
+  [t=50] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 16.242)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.922343254089355
+  [t=51] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.890)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.580495834350586
+  [t=54] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 20.368)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 20.368000030517578
+  [t=57] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 10.957)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.610267639160156
+  [t=58] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.443)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.447985649108887
+  [t=59] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 9.491)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.80140209197998
+  [t=60] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 16.225)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.39445686340332
+  [t=63] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 17.678)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.62391185760498
+  [t=65] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 15.832)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.432433128356934
+  [t=66] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 10.328)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.124512672424316
+  [t=70] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 16.105)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.464913368225098
+  [t=74] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 18.168)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.306079864501953
+  [t=76] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 20.838)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.486295700073242
+  [t=78] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 20.229)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.416471481323242
+  [t=81] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 16.123)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.55512523651123
+  [t=82] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 12.640)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.839119911193848
+  [t=83] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 16.543)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.473361015319824
+  [t=84] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.641)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.848176002502441
+  [t=86] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 14.776)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.444019317626953
+  [t=87] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 13.892)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.198421478271484
+  [t=88] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 13.931)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.417084693908691
+  [t=89] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 13.177)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.626351356506348
+  [t=90] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 13.051)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.423701286315918
+  [t=91] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 8.063)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.96924352645874
+  [t=92] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 14.930)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.315181732177734
+  [t=93] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.442)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.604605674743652
+  [t=94] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 17.404)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.403690338134766
+  [t=95] Kept original action (Score: 9.977) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.72881031036377
+  [t=96] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 10.144)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.143953323364258
+  [t=97] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 5.978)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 2.330975294113159
+  [t=98] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 15.546)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.55370807647705
+  [t=99] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 13.808)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.690410614013672
+  [t=101] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 21.820)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.492233276367188
+  [t=102] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 20.903)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.219529151916504
+  [t=106] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 14.829)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.629688262939453
+  [t=108] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 8.107)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.499814510345459
+  [t=109] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 11.405)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.19011116027832
+  [t=110] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.495)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.494707107543945
+  [t=111] Kept original action (Score: 7.996) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.207348346710205
+  [t=112] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 4.762)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 3.6137397289276123
+  [t=113] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 8.596)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.496420860290527
+  [t=117] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 16.314)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.944164276123047
+  [t=118] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 16.377)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.376571655273438
+  [t=121] Kept original action (Score: 13.083) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.553143501281738
+  [t=122] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 14.555)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.33267593383789
+  [t=126] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 17.897)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.70518684387207
+  [t=130] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 19.039)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.36726951599121
+  [t=133] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 17.913)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.438386917114258
+  [t=134] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 16.791)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.987940788269043
+  [t=135] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 15.989)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.014435768127441
+  [t=136] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.057)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.753180503845215
+  [t=139] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 12.754)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.274041652679443
+  [t=140] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 15.409)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.23737907409668
+  [t=144] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 16.042)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.64421558380127
+  [t=145] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 14.088)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.067558288574219
+  [t=148] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 15.647)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.790547370910645
+  [t=150] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 17.768)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.615134239196777
+  [t=152] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 15.477)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.918427467346191
+  [t=154] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 15.333)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.511128425598145
+  [t=155] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 13.892)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.701586723327637
+  [t=156] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.125)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.7634916305542
+  [t=157] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 16.453)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.459982872009277
+  [t=161] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 17.638)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.420390129089355
+  [t=165] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 15.439)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.679319381713867
+  [t=166] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.392)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.7496976852417
+  [t=170] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 19.276)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.195880889892578
+  [t=175] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 14.245)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.043118476867676
+  [t=176] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 13.780)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.54949951171875
+  [t=177] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 13.591)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.67939567565918
+  [t=178] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 18.059)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.403593063354492
+  [t=181] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 16.772)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.11426067352295
+  [t=182] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 16.329)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.822524070739746
+  [t=186] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 19.310)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.807233810424805
+  [t=188] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 13.289)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.801560401916504
+  [t=189] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 16.072)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.107584953308105
+  [t=191] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 11.559)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.183001518249512
+  [t=192] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.195)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.195476531982422
+  [t=194] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 11.885)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.982462882995605
+  [t=195] Kept original action (Score: 11.969) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.256908416748047
+  [t=199] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 17.222)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.374536514282227
+  [t=203] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.461)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.77159595489502
+  [t=204] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 16.099)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.275495529174805
+  [t=205] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 13.559)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.324090957641602
+  [t=206] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 12.933)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.887381553649902
+  [t=207] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 9.371)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.249184608459473
+  [t=208] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 11.199)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.650898933410645
+  [t=209] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 9.244)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.118013381958008
+  [t=210] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 6.869)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.215041637420654
+  [t=211] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 7.370)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.653369426727295
+  [t=212] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 5.232)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.922128200531006
+  [t=213] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 8.324)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.005216598510742
+  [t=214] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 5.315)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.679524898529053
+  [t=215] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 3.470)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 2.6162381172180176
+  [t=216] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 2.871)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 0.8658593893051147
+  [t=217] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 1.602)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 0.06179570406675339
+  [t=218] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 3.615)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 0.09381449222564697
+  [t=219] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 9.429)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.013951778411865
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=3--success=False--score=16.487--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=False, Steps=210, AvgStepScore=16.487
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 4/20)
+Starting episode 4...
+  [t=10] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.339)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.98525333404541
+  [t=11] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 19.052)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.087203979492188
+  [t=12] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 17.473)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.47341537475586
+  [t=13] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 15.793)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.278852462768555
+  [t=14] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 15.089)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.964038848876953
+  [t=15] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 15.701)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.236257553100586
+  [t=18] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 14.755)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.84196662902832
+  [t=19] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 14.274)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.476633071899414
+  [t=20] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 19.005)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.695631980895996
+  [t=54] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 11.912)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.52224063873291
+  [t=55] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 19.238)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.465483665466309
+  [t=56] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 18.023)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.490411758422852
+  [t=61] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 11.100)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.906544208526611
+  [t=66] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 15.968)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.320328712463379
+  [t=67] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 15.441)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.403210639953613
+  [t=69] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.286)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.75499153137207
+  [t=70] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 9.029)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.092099189758301
+  [t=73] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 19.028)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.76314926147461
+  [t=90] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 15.809)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.103754043579102
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=4--success=True--score=19.315--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=True, Steps=86, AvgStepScore=19.315
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 5/20)
+Starting episode 5...
+  [t=33] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 9.836)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.229289054870605
+  [t=34] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 14.134)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.079761505126953
+  [t=35] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 11.002)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.944787979125977
+  [t=41] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 22.992)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.49924087524414
+  [t=49] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 14.079)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.936596870422363
+  [t=50] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 4.277)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score -0.3227258324623108
+  [t=51] Kept original action (Score: 7.901) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.576732158660889
+  [t=52] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 14.858)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.349327087402344
+  [t=53] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.689)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.832925796508789
+  [t=59] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 19.360)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.707406997680664
+  [t=60] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 18.210)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.501578330993652
+  [t=64] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 16.433)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.237165451049805
+  [t=67] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 15.963)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.886401176452637
+  [t=72] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.505)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.079172134399414
+  [t=77] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 15.180)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.558756828308105
+  [t=78] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 13.025)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.656577110290527
+  [t=79] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 14.146)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.355207443237305
+  [t=81] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 13.966)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.951407432556152
+  [t=90] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 14.611)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.370762825012207
+  [t=92] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 14.690)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.683826446533203
+  [t=94] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 19.564)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.27468490600586
+  [t=95] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 15.373)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.268527030944824
+  [t=96] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.806)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.798340797424316
+  [t=98] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 13.439)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.250560760498047
+  [t=100] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 21.453)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.367034912109375
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=5--success=True--score=18.905--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=92, AvgStepScore=18.905
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 6/20)
+Starting episode 6...
+  [t=20] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 15.101)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.693299293518066
+  [t=21] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 16.007)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.651040077209473
+  [t=22] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 14.117)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.236013412475586
+  [t=24] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.274)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.162901878356934
+  [t=40] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 14.094)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.264304161071777
+  [t=50] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 17.054)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.054344177246094
+  [t=52] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 14.732)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.95942211151123
+  [t=56] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 15.829)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.104888916015625
+  [t=59] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 12.719)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.522144317626953
+  [t=60] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 13.025)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.845383167266846
+  [t=61] Kept original action (Score: 11.575) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.848271369934082
+  [t=62] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 11.441)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.765925407409668
+  [t=63] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 8.135)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.301205635070801
+  [t=64] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 6.232)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.569791316986084
+  [t=65] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 7.099)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.726405620574951
+  [t=66] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 9.665)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.93094539642334
+  [t=67] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 12.668)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.668181419372559
+  [t=68] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 14.565)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.809638023376465
+  [t=69] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 17.738)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.610143661499023
+  [t=80] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 17.401)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.304168701171875
+  [t=84] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 20.755)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.730865478515625
+  [t=86] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 15.672)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.458269119262695
+  [t=91] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 10.759)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.627986907958984
+  [t=92] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 12.008)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.312531471252441
+  [t=94] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 14.357)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.77713680267334
+  [t=95] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 12.039)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.560237884521484
+  [t=97] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 15.053)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.019797325134277
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=6--success=True--score=17.943--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=True, Steps=87, AvgStepScore=17.943
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 7/20)
+Starting episode 7...
+  [t=13] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 22.099)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.57860565185547
+  [t=25] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 17.911)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.223190307617188
+  [t=26] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 14.721)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.635971069335938
+  [t=28] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 13.834)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.439522743225098
+  [t=29] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 16.570)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.353185176849365
+  [t=39] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 18.893)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.775769233703613
+  [t=40] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 19.867)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.18440055847168
+  [t=42] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 13.100)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.054203987121582
+  [t=43] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 15.718)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.155741691589355
+  [t=44] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.446)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.34249496459961
+  [t=54] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 11.210)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.341076850891113
+  [t=62] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 16.652)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.4729642868042
+  [t=63] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 16.941)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.679847717285156
+  [t=64] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 18.530)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.42874813079834
+  [t=65] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.201)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.266841888427734
+  [t=73] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 12.750)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.161153793334961
+  [t=74] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 19.708)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.54193878173828
+  [t=76] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 15.828)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.455897331237793
+  [t=78] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 19.315)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.25242042541504
+  [t=80] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 16.845)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.356791496276855
+  [t=84] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 18.220)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.975083351135254
+  [t=87] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 14.746)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.948708534240723
+  [t=88] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.337)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.674887657165527
+  [t=89] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 17.417)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.917679786682129
+  [t=90] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 18.672)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.175195693969727
+  [t=92] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 19.559)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.018596649169922
+  [t=93] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 15.427)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.97763729095459
+  [t=94] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 16.627)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.018486022949219
+  [t=95] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 15.157)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.625117301940918
+  [t=96] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 21.376)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.674049377441406
+  [t=97] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 19.278)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.468789100646973
+  [t=98] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 17.920)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.396021842956543
+  [t=99] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 15.767)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.697222709655762
+  [t=100] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 13.079)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.585461616516113
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=7--success=True--score=18.738--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=True, Steps=100, AvgStepScore=18.738
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 8/20)
+Starting episode 8...
+  [t=11] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 18.682)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.379591941833496
+  [t=14] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 13.522)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.060643196105957
+  [t=15] Kept original action (Score: 13.352) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.294053077697754
+  [t=16] Kept original action (Score: 13.870) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.111770629882812
+  [t=17] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 15.270)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.813838005065918
+  [t=18] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 14.175)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.520960807800293
+  [t=19] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 15.851)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.064677238464355
+  [t=31] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 11.356)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.355636596679688
+  [t=34] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 10.185)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.577607154846191
+  [t=35] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 11.716)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.872567176818848
+  [t=36] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 9.004)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.317907333374023
+  [t=37] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 9.441)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.772542476654053
+  [t=38] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 15.304)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.427688598632812
+  [t=49] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 14.137)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.37142562866211
+  [t=50] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 10.204)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.002257347106934
+  [t=51] Kept original action (Score: 12.521) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.521465301513672
+  [t=52] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.400)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.399606704711914
+  [t=53] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 18.565)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.490548133850098
+  [t=55] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 19.565)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.757464408874512
+  [t=62] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 15.491)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.708138465881348
+  [t=65] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 21.293)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.88375473022461
+  [t=68] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 11.291)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.504643440246582
+  [t=69] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 13.410)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.800161361694336
+  [t=70] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 13.894)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.58847713470459
+  [t=71] Kept original action (Score: 8.222) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.667413711547852
+  [t=77] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 13.678)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.34007740020752
+  [t=87] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 16.836)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.217105865478516
+  [t=88] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 23.258)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.846635818481445
+  [t=90] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 16.419)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.691377639770508
+  [t=91] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 8.859)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.117364406585693
+  [t=92] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.435)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.865042686462402
+  [t=93] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 17.687)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.223662376403809
+  [t=97] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 20.631)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.3936824798584
+  [t=100] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 15.946)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.283546447753906
+  [t=101] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 18.182)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.656764030456543
+  [t=102] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 15.473)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.611553192138672
+  [t=103] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 11.876)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.798052787780762
+  [t=106] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 12.023)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.376379013061523
+  [t=108] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 16.287)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.757411003112793
+  [t=110] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 13.847)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.051719665527344
+  [t=113] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.846)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.849292278289795
+  [t=114] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.398)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.796975135803223
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=8--success=True--score=17.000--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=104, AvgStepScore=17.000
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 9/20)
+Starting episode 9...
+  [t=10] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 16.857)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.204704284667969
+  [t=24] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 19.944)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 19.944162368774414
+  [t=25] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.837)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.83745288848877
+  [t=27] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 12.673)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.899148941040039
+  [t=28] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 12.327)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.402554512023926
+  [t=29] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 13.641)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.288773536682129
+  [t=45] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 12.400)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.337851524353027
+  [t=46] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 11.612)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.51079273223877
+  [t=47] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 14.200)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.915145874023438
+  [t=56] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 11.795)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.898459434509277
+  [t=57] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 8.640)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.359855651855469
+  [t=58] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 7.493)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.175624370574951
+  [t=59] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 6.656)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.592039108276367
+  [t=60] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 4.279)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 3.798748016357422
+  [t=61] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 6.215)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.185521125793457
+  [t=62] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 8.194)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.009657859802246
+  [t=63] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 9.122)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.97256088256836
+  [t=64] Kept original action (Score: 12.139) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.044323921203613
+  [t=65] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 11.486)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.909446716308594
+  [t=66] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 10.272)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.922541618347168
+  [t=70] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 17.561)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.033005714416504
+  [t=71] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 15.184)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.281843185424805
+  [t=73] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 15.712)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.318093299865723
+  [t=75] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 17.178)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.177560806274414
+  [t=76] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.440)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.0861177444458
+  [t=77] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 13.323)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.892868041992188
+  [t=78] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 16.162)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.671643257141113
+  [t=79] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 15.732)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.02121639251709
+  [t=84] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 14.355)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.671658515930176
+  [t=85] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 9.615)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.952147483825684
+  [t=86] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 10.539)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.222448348999023
+  [t=87] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 14.891)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.210943222045898
+  [t=88] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 12.482)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.899561882019043
+  [t=94] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 14.908)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.257025718688965
+  [t=95] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 12.779)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.532074928283691
+  [t=102] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 17.758)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.182242393493652
+  [t=104] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 14.687)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.271576881408691
+  [t=105] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 8.851)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.932665824890137
+  [t=106] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 7.715)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.659976482391357
+  [t=107] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 9.588)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.551032066345215
+  [t=108] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 15.387)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.006036758422852
+  [t=109] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 13.271)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.832374572753906
+  [t=119] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 26.716)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 20.315265655517578
+  [t=122] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 17.209)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.07724380493164
+  [t=128] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 11.584)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.383429527282715
+  [t=129] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 16.263)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.050694465637207
+  [t=130] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 11.333)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.534261703491211
+  [t=131] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 13.695)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.033313751220703
+  [t=132] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 16.374)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.665496826171875
+  [t=133] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 11.108)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.038503646850586
+  [t=134] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 16.446)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.446025848388672
+  [t=135] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 13.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.007944107055664
+  [t=136] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 12.986)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.5441460609436035
+  [t=137] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 21.838)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.841957092285156
+  [t=138] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 22.777)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.902688980102539
+  [t=139] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 22.986)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 22.690814971923828
+  [t=140] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 21.503)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 20.569725036621094
+  [t=141] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 22.056)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 22.0561580657959
+  [t=142] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 21.709)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.177440643310547
+  [t=143] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.778)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 2.941737174987793
+  [t=145] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 22.415)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.130603790283203
+  [t=146] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 18.135)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.683964729309082
+  [t=147] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 15.323)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.713911056518555
+  [t=148] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 14.120)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.880043983459473
+  [t=149] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 17.222)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.79849910736084
+  [t=150] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 16.702)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.516265869140625
+  [t=151] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 15.196)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.748690605163574
+  [t=152] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 16.949)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.768240928649902
+  [t=153] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 15.074)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.457874298095703
+  [t=154] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 14.032)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.03152847290039
+  [t=155] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 12.280)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.501378059387207
+  [t=156] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 12.176)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.418245315551758
+  [t=157] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.342)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.341795921325684
+  [t=158] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 12.140)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.265617370605469
+  [t=159] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 11.237)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.670646667480469
+  [t=160] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 12.374)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.990323066711426
+  [t=161] Kept original action (Score: 13.303) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.944228172302246
+  [t=162] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 14.324)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.14078140258789
+  [t=163] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 15.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.582525253295898
+  [t=164] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 15.236)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.818215370178223
+  [t=165] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 15.513)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.205506324768066
+  [t=166] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 15.944)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.399232864379883
+  [t=170] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 11.125)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.617687702178955
+  [t=171] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 11.639)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.49666690826416
+  [t=172] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 7.602)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 3.6494667530059814
+  [t=173] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 7.138)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.061164855957031
+  [t=174] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 10.040)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.60802936553955
+  [t=175] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 9.654)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.508461952209473
+  [t=176] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 14.292)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.86977767944336
+  [t=177] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 14.604)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.256505012512207
+  [t=178] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 17.396)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.659507751464844
+  [t=179] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 13.059)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.428186416625977
+  [t=180] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 12.374)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.731661796569824
+  [t=181] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 11.686)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.08055305480957
+  [t=182] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 11.149)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.94262409210205
+  [t=183] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 14.819)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.994486808776855
+  [t=184] Kept original action (Score: 12.859) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.81585693359375
+  [t=185] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 12.681)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.680703163146973
+  [t=186] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 11.711)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.628591537475586
+  [t=187] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 13.391)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.277115821838379
+  [t=188] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 10.350)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.553370475769043
+  [t=189] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 10.444)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.06563138961792
+  [t=190] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 11.140)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.118658065795898
+  [t=191] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 8.879)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.473546981811523
+  [t=192] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 10.302)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.685681343078613
+  [t=194] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 11.953)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.70352840423584
+  [t=195] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 10.178)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.518890380859375
+  [t=196] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 9.828)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.686523914337158
+  [t=197] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 11.315)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.423280715942383
+  [t=198] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 6.317)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.253534317016602
+  [t=199] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 6.792)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.919613838195801
+  [t=200] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 5.913)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.360832214355469
+  [t=201] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 7.351)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.778621196746826
+  [t=202] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 5.787)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.338672637939453
+  [t=203] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 13.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.570066452026367
+  [t=204] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 11.772)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.719697952270508
+  [t=205] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 10.707)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.212942123413086
+  [t=206] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 8.621)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.820294380187988
+  [t=207] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 6.885)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.382534980773926
+  [t=208] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 8.580)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.604144096374512
+  [t=209] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 8.886)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.885822296142578
+  [t=210] Kept original action (Score: 11.538) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.919975280761719
+  [t=211] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 12.907)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.745017051696777
+  [t=212] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 12.083)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.542189598083496
+  [t=213] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 9.172)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.449395179748535
+  [t=214] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 15.408)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.17348575592041
+  [t=215] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 9.521)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.798045635223389
+  [t=216] Kept original action (Score: 7.960) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.263821125030518
+  [t=217] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 6.136)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.136136054992676
+  [t=218] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 14.040)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.210405349731445
+  [t=219] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 13.237)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.353494644165039
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=9--success=False--score=15.175--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 9: Success=False, Steps=210, AvgStepScore=15.175
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 10/20)
+Starting episode 10...
+  [t=21] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 19.632)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.570167541503906
+  [t=30] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 15.599)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.123674392700195
+  [t=32] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 15.248)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.612807273864746
+  [t=33] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 10.672)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.795509338378906
+  [t=48] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 13.668)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.16800594329834
+  [t=50] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 10.750)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.538439750671387
+  [t=51] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 12.687)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.387309074401855
+  [t=64] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 23.221)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.305110931396484
+  [t=67] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 13.757)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.963778495788574
+  [t=68] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 9.409)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.888644218444824
+  [t=69] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 14.548)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.699541091918945
+  [t=71] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 22.939)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.259008407592773
+  [t=81] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 15.492)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.267868041992188
+  [t=84] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 15.133)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.648146629333496
+  [t=89] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 19.666)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.524600982666016
+  [t=96] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 14.108)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.837041854858398
+  [t=100] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 14.711)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.456290245056152
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=10--success=True--score=19.564--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 10: Success=True, Steps=94, AvgStepScore=19.564
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 11/20)
+Starting episode 11...
+  [t=14] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 17.389)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.992323875427246
+  [t=27] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 16.235)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.663543701171875
+  [t=31] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 15.083)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.498498916625977
+  [t=36] Kept original action (Score: 14.244) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.607696533203125
+  [t=43] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 12.318)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.56856632232666
+  [t=44] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 14.106)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.867825508117676
+  [t=45] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 19.185)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.671748161315918
+  [t=48] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 17.727)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.702804565429688
+  [t=52] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 11.448)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.496337890625
+  [t=53] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 15.249)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.975692749023438
+  [t=56] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 15.135)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.531882286071777
+  [t=57] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 10.337)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.135581016540527
+  [t=58] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 11.782)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.007062911987305
+  [t=59] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 13.194)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.026461601257324
+  [t=60] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 13.592)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.326117515563965
+  [t=61] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 13.501)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.038251876831055
+  [t=62] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 8.070)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.670611381530762
+  [t=63] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 11.472)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.162604331970215
+  [t=64] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 12.369)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.184151649475098
+  [t=66] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 15.093)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.765923500061035
+  [t=71] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 18.920)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.57037353515625
+  [t=81] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 21.046)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 21.046279907226562
+  [t=91] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 15.712)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.567299842834473
+  [t=97] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 15.906)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.71778678894043
+  [t=99] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 17.244)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 5.87446928024292
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=11--success=True--score=17.853--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 11: Success=True, Steps=92, AvgStepScore=17.853
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 12/20)
+Starting episode 12...
+  [t=11] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 7.337)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score -3.142547369003296
+  [t=12] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 8.770)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.079883575439453
+  [t=13] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 6.395)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.556756019592285
+  [t=14] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 13.653)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.887565612792969
+  [t=15] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.067)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.066781997680664
+  [t=16] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 13.755)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.91873550415039
+  [t=18] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 15.863)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.782815933227539
+  [t=20] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 15.034)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.992826461791992
+  [t=30] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 12.907)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.286087989807129
+  [t=31] Kept original action (Score: 13.407) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.867612838745117
+  [t=32] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 11.113)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.112698554992676
+  [t=40] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 18.210)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.306856155395508
+  [t=43] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 14.037)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.214945793151855
+  [t=45] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 14.933)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.9328031539917
+  [t=47] Selected alternative action via: 'Hoist the black bowl from the ramekin and set it on the plate.' (Score: 10.246)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.760370254516602
+  [t=48] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 13.544)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.427170753479004
+  [t=49] Kept original action (Score: 13.104) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.36349868774414
+  [t=51] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 9.987)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.57682991027832
+  [t=52] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 16.724)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.249847412109375
+  [t=54] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 15.711)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.43221664428711
+  [t=55] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 17.411)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.40972328186035
+  [t=56] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 18.350)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.35028648376465
+  [t=57] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 17.391)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.391359329223633
+  [t=67] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 16.707)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.936983108520508
+  [t=68] Kept original action (Score: 13.195) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.518394470214844
+  [t=71] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 11.281)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.692475318908691
+  [t=81] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 19.815)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.98430061340332
+  [t=84] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 16.714)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.733094215393066
+  [t=88] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 18.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.83154582977295
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=12--success=True--score=17.213--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 12: Success=True, Steps=83, AvgStepScore=17.213
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 13/20)
+Starting episode 13...
+  [t=19] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 12.711)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.711071968078613
+  [t=28] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 16.686)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.086590766906738
+  [t=29] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.095)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.84968376159668
+  [t=39] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 12.727)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.609663009643555
+  [t=40] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 14.673)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.506414413452148
+  [t=42] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 12.366)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.914371490478516
+  [t=43] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.672)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.740036964416504
+  [t=46] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 23.719)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.739734649658203
+  [t=53] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 16.002)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.979084968566895
+  [t=54] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 11.084)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.625469207763672
+  [t=56] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 7.916)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.347053050994873
+  [t=58] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 13.139)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.115670204162598
+  [t=59] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 11.676)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.17458438873291
+  [t=60] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 11.067)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.728694915771484
+  [t=61] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 14.142)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.886999130249023
+  [t=62] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 8.984)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.913228034973145
+  [t=63] Selected alternative action via: 'Pick up the black bowl from the ramekin and set it on the plate.' (Score: 19.482)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.548325538635254
+  [t=66] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 17.853)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.29274559020996
+  [t=82] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 17.326)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.785475730895996
+  [t=85] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 15.564)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.56416130065918
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=13--success=True--score=19.473--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 13: Success=True, Steps=97, AvgStepScore=19.473
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 14/20)
+Starting episode 14...
+  [t=14] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 17.712)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.724422454833984
+  [t=18] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.899)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.814176559448242
+  [t=48] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 12.094)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.696564674377441
+  [t=49] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 12.384)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.63468074798584
+  [t=50] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.149)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.670832633972168
+  [t=59] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 13.902)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.574895858764648
+  [t=60] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 14.593)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.556147575378418
+  [t=61] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 13.094)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.147250175476074
+  [t=62] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 14.080)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.139896392822266
+  [t=63] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 18.450)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.47567081451416
+  [t=68] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 19.749)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.648808479309082
+  [t=75] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 13.155)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.15505313873291
+  [t=76] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 14.727)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.739276885986328
+  [t=78] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 14.217)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.061092376708984
+  [t=79] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 16.736)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.628678321838379
+  [t=82] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 13.234)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.674505233764648
+  [t=83] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 15.636)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.625659942626953
+  [t=86] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 13.203)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.281375885009766
+  [t=87] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 15.806)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.776057243347168
+  [t=95] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 17.082)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.14254379272461
+  [t=99] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 15.214)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.50281810760498
+  [t=101] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 16.330)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.882314682006836
+  [t=102] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 17.594)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.918338775634766
+  [t=103] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 19.097)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.784571647644043
+  [t=107] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 16.165)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.832913398742676
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=14--success=True--score=18.688--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 14: Success=True, Steps=97, AvgStepScore=18.688
+
+Task: Lift the black bowl from the ramekin and set it down on the plate. (Trial 15/20)
+Starting episode 15...
+  [t=10] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 21.820)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.994515419006348
+  [t=13] Selected alternative action via: 'Pick the black bowl off the ramekin and lay it on the plate.' (Score: 13.102)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.756991386413574
+  [t=14] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 14.950)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.821609497070312
+  [t=28] Selected alternative action via: 'Snatch the black bowl from the ramekin and lay it on the plate.' (Score: 16.242)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.544350624084473
+  [t=29] Selected alternative action via: 'pick up the black bowl on the ramekin and place it on the plate' (Score: 16.284)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.283809661865234
+  [t=30] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.27420425415039
+  [t=31] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 16.771)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.188706398010254
+  [t=32] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 16.895)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.748885154724121
+  [t=35] Selected alternative action via: 'Collect the black bowl from the ramekin and position it on the plate.' (Score: 16.767)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.944600105285645
+  [t=36] Selected alternative action via: 'Snatch the black bowl off the ramekin and put it on the plate.' (Score: 16.559)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.946840286254883
+  [t=53] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 19.371)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.471535682678223
+  [t=56] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 11.948)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.739507675170898
+  [t=57] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 12.467)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.622952461242676
+  [t=58] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 12.255)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.887653350830078
+  [t=60] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 5.924)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 3.955620288848877
+  [t=61] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.048)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.493313789367676
+  [t=62] Selected alternative action via: 'Retrieve the black bowl located on the ramekin and place it on the plate.' (Score: 14.085)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.3019380569458
+  [t=64] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 14.895)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.06046199798584
+  [t=65] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 10.864)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 8.6171236038208
+  [t=66] Selected alternative action via: 'Grasp the black bowl from the ramekin and transfer it to the plate.' (Score: 8.768)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.791656494140625
+  [t=75] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 16.904)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.730907440185547
+  [t=77] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.017)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.375150680541992
+  [t=79] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 14.173)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.961760520935059
+  [t=80] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 18.380)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.496195793151855
+  [t=87] Selected alternative action via: 'Elevate the black bowl that is on the ramekin and lay it on the plate.' (Score: 17.665)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.889978408813477
+  [t=92] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 15.464)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.774356842041016
+  [t=93] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 12.595)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.190742492675781
+  [t=94] Selected alternative action via: 'Retrieve the black bowl from atop the ramekin and place it on the plate.' (Score: 4.758)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.359945297241211
+  [t=95] Selected alternative action via: 'Detach the black bowl from the ramekin and set it on the plate.' (Score: 8.250)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 4.419628143310547
+  [t=97] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 17.428)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.602542877197266
+  [t=99] Selected alternative action via: 'Detach the black bowl sitting on the ramekin and move it to the plate.' (Score: 20.131)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 16.709163665771484
+  [t=103] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 15.866)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 15.762611389160156
+  [t=104] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 10.065)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.995076179504395
+  [t=105] Kept original action (Score: 12.046) after evaluating alternatives.
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.801277160644531
+  [t=106] Selected alternative action via: 'Grab the black bowl from atop the ramekin and position it on the plate.' (Score: 11.841)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.778229713439941
+  [t=108] Selected alternative action via: 'Hoist the black bowl off the ramekin and put it on the plate.' (Score: 13.389)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.693613052368164
+  [t=109] Selected alternative action via: 'Remove the black bowl sitting on the ramekin and put it on the plate.' (Score: 11.518)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 10.38424301147461
+  [t=118] Selected alternative action via: 'Elevate the black bowl from the ramekin and transfer it to the plate.' (Score: 16.323)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.273642539978027
+  [t=119] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 20.529)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 18.732175827026367
+  [t=122] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 14.528)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.949671745300293
+  [t=123] Selected alternative action via: 'Take hold of the black bowl on the ramekin and move it to the plate.' (Score: 18.004)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 17.24793243408203
+  [t=132] Selected alternative action via: 'Grab the black bowl located on the ramekin and place it on the plate.' (Score: 17.273)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 13.761616706848145
+  [t=133] Selected alternative action via: 'Lift the black bowl that is resting on the ramekin and place it on the plate.' (Score: 20.118)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 14.951008796691895
+  [t=136] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 21.416)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 20.97549819946289
+  [t=142] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 14.329)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 12.846646308898926
+  [t=143] Selected alternative action via: 'Take the black bowl that is on the ramekin and put it onto the plate.' (Score: 12.924)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 11.307426452636719
+  [t=144] Selected alternative action via: 'Collect the black bowl that is on the ramekin and lay it on the plate.' (Score: 10.782)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 7.6588568687438965
+  [t=145] Selected alternative action via: 'Remove the black bowl from the ramekin and position it on the plate.' (Score: 13.477)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 9.54002857208252
+  [t=146] Selected alternative action via: 'Take the black bowl off the ramekin and position it on the plate.' (Score: 9.435)
+original_instruction: pick up the black bowl on the ramekin and place it on the plate with score 6.258326530456543

@@ -1,0 +1,5 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 1...

@@ -6,7 +6,7 @@ import numpy as np
 import random
 from tqdm import tqdm
 from model import TextAwareVisualExtraction, ModelConfig
-from finetune_trajectory import VLA_CLIP
+from finetune_trajectory_image import VLA_CLIP
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 import argparse
 import torch.nn.functional as F
@@ -116,21 +116,25 @@ class VLA_CLIP_Inference:
             img2 = Image.fromarray(img2.astype('uint8'))
         img1_tensor = self.preprocess(img1).unsqueeze(0).to(self.device)
         img2_tensor = self.preprocess(img2).unsqueeze(0).to(self.device)
-
-        # Tokenize instruction
-        if isinstance(instruction, str):
+        
+        # Tokenize instruction(s)
+        if isinstance(instruction, list):
+            assert len(instruction) == len(possible_action_histories), "Number of instructions must match number of action histories."
+            # Tokenize each instruction and stack into a batch
             text_tokens = clip.tokenize(instruction).to(self.device)
         else:
-            text_tokens = instruction.to(self.device)
+            text_tokens = clip.tokenize([instruction]).to(self.device)  # Make it batch size 1
 
         with torch.no_grad():
             history_batch = torch.tensor(np.array(possible_action_histories), dtype=torch.float32).to(self.device)
             num_histories = history_batch.shape[0]
             img1_batch = img1_tensor.repeat(num_histories, 1, 1, 1)
             img2_batch = img2_tensor.repeat(num_histories, 1, 1, 1)
-            text_batch = text_tokens.repeat(num_histories, 1)
-            image_logits, action_logits = self.model(img1_batch, img2_batch, text_batch, history_batch)
-            scores = image_logits[0, :].cpu().numpy()
+            # text_tokens should be (num_histories, seq_len)
+            if text_tokens.shape[0] != num_histories:
+                text_tokens = text_tokens.repeat(num_histories, 1)
+            image_logits, action_logits = self.model(img1_batch, img2_batch, text_tokens, history_batch)
+            scores = image_logits[0, :].cpu().numpy() if image_logits.dim() == 2 else image_logits.cpu().numpy()
             predicted_idx = scores.argmax()
             predicted_history = possible_action_histories[predicted_idx]
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}

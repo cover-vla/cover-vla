@@ -199,15 +199,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create dataset with potentially padded pos/neg action histories based on global stats.')
     parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
                         help='Path to the dataset')
-    parser.add_argument('--dataset_folders', nargs='+', default=['libero_10_no_noops'],
+    parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial_no_noops'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_10_augmented_dataset.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_spatial_hard.pkl',
                         help='Path to save the augmented dataset')
     parser.add_argument('--history_length', type=int, default=10,
                         help='Number of past action steps to include in the history (H)')
-    parser.add_argument('--rephrases_json', type=str, default='/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json',
+    parser.add_argument('--rephrases_json', type=str, default='/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json',
                         help='Path to the JSON file containing instruction rephrases')
-    parser.add_argument('--suite_name', type=str, default='libero_10',
+    parser.add_argument('--suite_name', type=str, default='libero_spatial',
                         help='Suite name (e.g., libero_spatial) for rephrases JSON')
 
     args = parser.parse_args()

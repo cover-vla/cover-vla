@@ -5,7 +5,9 @@ You will be given:
 
 Your task is to:
 1. Understand the meaning of the original instruction.
-3. Reword the instruction into multiple and diverse alternatives that preserve the original intent, and are grammatically correct and easy to follow.
+2. If you see nouns in the sentense, try to keep them as it is (for example, you should not change words such as bowl, plates, table, box, milk), as changing the nouns might affect the meaning in robotics settings sometimes.
+3. Reword the instruction into multiple alternatives that preserve the original intent, and are grammatically correct and easy to follow.
+4. Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging.
 
 Output Format (Structured and Consistent):
 
@@ -19,9 +21,8 @@ Reworded Instructions:
 ...
 
 Guidelines:
-- Reword using diverse and more common language if needed.
+- Reword using more common language if needed.
 - Ensure all reworded instructions are semantically equivalent to the original.
 - Use correct grammar and clear structure.
 - Keep outputs concise, consistent, and logically sound.
-- Ensure all instructions align with what is visible in the image.
 

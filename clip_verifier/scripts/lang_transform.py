@@ -48,8 +48,14 @@ class LangTransform:
             Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
             - Convey the same objective as the original
             - Use clear and simple, natural language
-            - Are diverse and grammatically correct
+            - Keep the nouns as it is (for example, you should not change words such as bowl, plates, table, box, milk), as changing the nouns might affect the meaning in robotics settings sometimes.
+            - Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging.
 
+            Content requirement example: 
+            original instruction: "pick up the black bowl between the plate and the ramekin and place it on the plate".
+            In this case, you should not change the words such as bowl, plate, ramekin, as changing the nouns might affect the meaning in robotics settings sometimes.
+            
+            
             Format your response as:
 
             Original Instruction:

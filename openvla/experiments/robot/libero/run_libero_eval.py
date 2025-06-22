@@ -60,6 +60,7 @@ from experiments.robot.robot_utils import (
 )
 sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
 from vla_clip_inference import VLA_CLIP_Inference, ACTION_PADDING_VALUE
+from vla_dino_inference import VLA_DINO_Inference
 from lang_transform import LangTransform
 
 torch.set_num_threads(8)
@@ -79,11 +80,12 @@ class GenerateConfig:
     # --- LIBERO Env ---
     task_suite_name: str = "libero_spatial"
     num_steps_wait: int = 10
-    num_trials_per_task: int = 2
+    num_trials_per_task: int = 20
 
-    # --- Trajectory VLA-CLIP Scorer (Optional) ---
-    use_vla_clip_trajectory_scorer: bool = True           # Enable the trajectory scorer?
-    vla_clip_traj_model_path: Optional[str] = None         # Path to the trajectory VLA-CLIP model
+    # --- Trajectory VLA-CLIP/DINO Scorer (Optional) ---
+    use_vla_clip_trajectory_scorer: bool = False           # Enable the trajectory scorer?
+    use_vla_dino_trajectory_scorer: bool = False          # Enable the DINO trajectory scorer?
+    vla_clip_traj_model_path: Optional[str] = None         # Path to the trajectory VLA-CLIP/DINO model
     vla_clip_history_length: int = 10                      # History length (MUST match model training)
     vla_clip_use_transformer: bool = True                 # Does the trajectory model use a transformer?
     clip_select_action_num_candidates: int = 3             # Number of candidate instructions (incl. original) for action selection
@@ -112,13 +114,13 @@ def load_rephrases(json_path, suite_name):
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
     assert cfg.pretrained_checkpoint is not None, "VLA `pretrained_checkpoint` must be specified!"
-    if cfg.use_vla_clip_trajectory_scorer:
+    if cfg.use_vla_clip_trajectory_scorer or cfg.use_vla_dino_trajectory_scorer:
         assert cfg.vla_clip_traj_model_path is not None, "If using scorer, `vla_clip_traj_model_path` must be specified."
         assert cfg.vla_clip_history_length > 0, "`vla_clip_history_length` must be positive."
         assert cfg.vla_clip_score_threshold is not None, "`vla_clip_score_threshold` must be specified when using scorer."
         print(f"Using Trajectory VLA-CLIP Scorer: H={cfg.vla_clip_history_length}, Transformer={cfg.vla_clip_use_transformer}, Threshold={cfg.vla_clip_score_threshold}")
     else:
-        print("Trajectory VLA-CLIP Scorer DISABLED.")
+        print("Trajectory VLA Scorer DISABLED.")
 
     if "image_aug" in str(cfg.pretrained_checkpoint):
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
@@ -150,10 +152,18 @@ def eval_libero(cfg: GenerateConfig) -> None:
              print(f"Inferred action_dim={action_dim} from VLA-CLIP Scorer.")
         else:
              print(f"Could not infer action_dim from VLA-CLIP Scorer, using default {action_dim}.")
+    elif cfg.use_vla_dino_trajectory_scorer:
+        vla_clip_scorer = VLA_DINO_Inference(
+            model_path=cfg.vla_clip_traj_model_path,
+            history_length=cfg.vla_clip_history_length,
+            use_transformer=cfg.vla_clip_use_transformer
+        )
 
     run_id = f"EVAL-{cfg.task_suite_name}-VLA_{Path(cfg.pretrained_checkpoint).stem}"
     if cfg.use_vla_clip_trajectory_scorer:
         run_id += f"-VLACLIPTraj_{Path(cfg.vla_clip_traj_model_path).stem}"
+    if cfg.use_vla_dino_trajectory_scorer:
+        run_id += f"-VLADINOTraj_{Path(cfg.vla_clip_traj_model_path).stem}"
     if cfg.run_id_note is not None:
         run_id += f"--{cfg.run_id_note}"
     run_id += f"--{DATE_TIME}"
@@ -190,7 +200,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
     preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
 
-    for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
+    for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
         task = task_suite.get_task(task_id)
         initial_states = task_suite.get_task_init_states(task_id)
 
@@ -204,6 +214,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 task_description = original_task_description
             else:
                 task_description = rephrased_list[0]  # Use the first as the main instruction
+                
+            # rephrased_list[3] = original_task_description
                 
             # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
@@ -264,7 +276,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 # 2. Score the original action if scorer is enabled
                 original_score = np.nan
                 original_padded_history = None
-                if cfg.use_vla_clip_trajectory_scorer and vla_clip_scorer:
+                if vla_clip_scorer:
                     hist_list = list(executed_action_history)
                     H = cfg.vla_clip_history_length
                     # reserve one slot for the original action
@@ -282,8 +294,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     current_vla_clip_score = original_score # Update the main score variable
 
                 # 3. Check threshold and generate/evaluate candidates if needed
-                if (cfg.use_vla_clip_trajectory_scorer and
-                    vla_clip_scorer and
+                if (vla_clip_scorer and
                     cfg.clip_select_action_num_candidates > 1 and
                     not np.isnan(original_score) and # Ensure score is valid
                     original_score < cfg.vla_clip_score_threshold):
@@ -299,40 +310,41 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     # Generate additional candidates
                     num_to_generate = cfg.clip_select_action_num_candidates - 1
                     if num_to_generate > 0:
-                        # sample additional language instructions
-                        sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
+                        # sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
+                        sample_indices = np.arange(len(pre_sampled_all_language_instructions))[:num_to_generate]
                         additional_instructions = [pre_sampled_all_language_instructions[i] for i in sample_indices]
                         candidate_instructions.extend(additional_instructions)
-
-                        # Generate and score actions for additional instructions
+                        predicted_actions = [original_action]
+                        padded_histories = [original_padded_history]
                         for i in range(num_to_generate):
-                            instr_idx = i + 1 # Index in candidate_instructions (original is 0)
+                            instr_idx = i + 1
                             instr = candidate_instructions[instr_idx]
-
-                            # Generate action
                             a = get_action(cfg, model, observation, instr, processor=processor)
                             a = normalize_gripper_action(a, binarize=True)
                             if cfg.model_family == "openvla":
                                 a = invert_gripper_action(a)
                             predicted_actions.append(a)
-
-                            # Build history (same padding logic as original)
                             hist_list = list(executed_action_history)
                             H = cfg.vla_clip_history_length
                             num_pad = H - len(hist_list) - 1
                             past = [padding_action_vector] * max(0, num_pad) + hist_list[-(H - 1):]
                             padded = np.array(past + [a.copy()], dtype=np.float32)
                             padded_histories.append(padded)
-                            # Score action
-                            s = vla_clip_scorer.get_history_score(
-                                    img_for_clip_tuple,
-                                    original_task_description if cfg.use_original_task_description else instr,
-                                    padded
-                                ).detach().cpu().numpy().squeeze()
-                            scores.append(s)
+                        # Batch score all candidates
+                        _, scores_dict = vla_clip_scorer.predict(
+                            img_for_clip_tuple,
+                            candidate_instructions,
+                            padded_histories
+                        )
+                        # print(scores_dict)
+                        # input()
+                        scores = [scores_dict[str(i)] for i in range(len(padded_histories))]
 
                     # 4. Select the best action from the combined list (original + candidates)
                     scores = np.array(scores) # Ensure it's a numpy array
+                    # for i in range(len(candidate_instructions)):
+                    #     print(f"Instruction: {candidate_instructions[i]}, Action: {predicted_actions[i]}, Score: {scores[i]}")
+                    # input()
 
                     if cfg.clip_select_action_strategy == "highest_score":
                         valid_indices = np.where(scores > -np.inf)[0]
@@ -351,8 +363,27 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             current_history_for_scoring = padded_histories[best_candidate_idx] # Update history if different action chosen
                             if best_candidate_idx != 0:
                                 print(f"  [t={t}] Selected alternative action via: '{candidate_instructions[best_candidate_idx]}' (Score: {current_vla_clip_score:.3f})")
+                                # log_file.write(f"  [t={t}] Selected alternative action via: '{candidate_instructions[best_candidate_idx]}' (Score: {current_vla_clip_score:.3f})\n")
+                                # log_file.write(f"original_instruction: {original_task_description} with score {scores[3]}\n")
                             else:
                                 print(f"  [t={t}] Kept original action (Score: {current_vla_clip_score:.3f}) after evaluating alternatives.")
+                                # log_file.write(f"  [t={t}] Kept original action (Score: {current_vla_clip_score:.3f}) after evaluating alternatives.\n")
+                                # log_file.write(f"original_instruction: {original_task_description} with score {scores[3]}\n")
+                    elif cfg.clip_select_action_strategy == "majority_vote":
+                        valid_indices = np.where(scores > -np.inf)[0]
+                        action_counts = {}
+                        for idx in valid_indices:
+                            action = predicted_actions[idx]
+                            action_tuple = tuple(action)
+                            action_counts[action_tuple] = action_counts.get(action_tuple, 0) + 1
+                        # Find the action with the highest count
+                        if action_counts:
+                            most_common_action = max(action_counts, key=action_counts.get)
+                            action_to_execute = np.array(most_common_action)
+                            current_vla_clip_score = scores[valid_indices[np.argmax(action_counts.values())]]
+                            current_history_for_scoring = padded_histories[valid_indices[np.argmax(action_counts.values())]]
+                            print(f"  [t={t}] Selected action via majority vote: {action_to_execute} (Score: {current_vla_clip_score:.3f})")
+                            
 
                     elif cfg.clip_select_action_strategy == "softmax_sample":
                         valid_scores = scores[scores > -np.inf]

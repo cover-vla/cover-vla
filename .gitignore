@@ -179,6 +179,8 @@ openvla/run
 openvla/wandb
 openvla/rollouts*
 
+openvla-oft/rollouts*
+
 openpi/.github
 openpi/.venv
 openpi/.vscode

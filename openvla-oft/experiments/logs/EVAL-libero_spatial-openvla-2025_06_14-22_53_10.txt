@@ -1,0 +1,12 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts/rephrase_25/episode=1--success=False--score=1.383--task=lift_the_black_bowl_that_is_situated_between_the_plate_and_the_ramekin_and_set_it_down_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Lift the black bowl that is situated between the plate and the ramekin and set it down on the plate.
+Starting episode 2...

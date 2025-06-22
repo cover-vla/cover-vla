@@ -1,0 +1,29 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 1...
+Episode error: list indices must be integers or slices, not tuple
+Saved rollout MP4 at path ./rollouts/rephrase_10/episode=1--success=False--score=13.101--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 2...
+Episode error: list indices must be integers or slices, not tuple
+Saved rollout MP4 at path ./rollouts/rephrase_10/episode=2--success=False--score=13.470--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 3...
+Episode error: list indices must be integers or slices, not tuple
+Saved rollout MP4 at path ./rollouts/rephrase_10/episode=3--success=False--score=None--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+Starting episode 4...

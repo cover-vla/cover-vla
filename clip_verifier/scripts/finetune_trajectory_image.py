@@ -92,48 +92,25 @@ class VLA_CLIP(nn.Module):
             param.requires_grad = False
             param.data = param.data.float()
             
-        text_pooling_output_dim = model_config.text_pooling_output_dim
-        pooling_heads = model_config.pooling_heads
-        pooling_layers = model_config.pooling_layers
-        self.num_readouts = model_config.num_readouts
-        text_dim = self.clip.text_projection.shape[1]
-        vision_dim = self.clip.visual.output_dim
+
         vision_pooling_output_dim = model_config.vision_pooling_output_dim
         
-        self.visual_patch_size = self.clip.visual.conv1.kernel_size[0]
-        self.num_img_patches = (224 // self.visual_patch_size) ** 2
+        self.logit_scale = nn.Parameter(torch.tensor(2.6592))
         
-        self.logit_scale = nn.Parameter(torch.tensor(1.0))
-        
-        # The number of patches depends on the CLIP model's vision transformer
-        # For ViT-B/32, the image is divided into 7x7=49 patches (for 224x224 images)
-        self.text_aware_visual_extraction = TextAwareVisualExtraction(
-            num_img_patches=self.num_img_patches,  # For ViT-B/32
-            vision_dim=vision_dim,
-        )
-        # Components
-        self.text_pooling = AttentionPooling(
-            text_dim, 
-            text_pooling_output_dim,
-            pooling_heads,
-            pooling_layers, 
-            num_readouts=self.num_readouts,
-        )        
-        self.vision_poolings = AttentionPooling(
-            vision_dim,
-            vision_pooling_output_dim,
-            pooling_heads, 
-            pooling_layers, 
-            num_readouts=self.num_readouts
-        )
-        
-        self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
-        
-        self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
-        
+
         # --- Multi-view fusion ---
         # After CLIP, concatenate the two image embeddings and project
-        self.image_fusion_proj = nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim)       
+        self.image_fusion_proj = nn.Sequential(
+            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim),
+            nn.ReLU(),
+            nn.Linear(vision_pooling_output_dim, vision_pooling_output_dim)
+        )      
+        
+        self.image_action_projection = nn.Sequential(
+            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim),
+            nn.ReLU(),
+            nn.Linear(vision_pooling_output_dim, vision_pooling_output_dim)
+        )
         
         # Action trajectory processing components
         self.action_dim = model_config.action_dim
@@ -151,7 +128,7 @@ class VLA_CLIP(nn.Module):
                     # batch_first=True, # REMOVED! Default is False
                     dropout=0.1
                 )
-            self.trajectory_encoder = nn.TransformerEncoder(encoder_layer, num_layers=8)
+            self.trajectory_encoder = nn.TransformerEncoder(encoder_layer, num_layers=4)
         else:
             # MLP processes flattened trajectory
             self.complex_action_encoder = nn.Sequential(
@@ -219,15 +196,14 @@ class VLA_CLIP(nn.Module):
             action_histories: Tensor (B, H, D) - Batch of action histories, potentially padded.
         """
         # Extract image/text features
-        patch_features1, text_features = self.extract_clip_features(image1, text)
-        patch_features2, _ = self.extract_clip_features(image2, text)
-        # Text-aware visual features for both views
-        text_aware_features1 = self.text_aware_visual_extraction(patch_features1, text_features)
-        text_aware_features2 = self.text_aware_visual_extraction(patch_features2, text_features)
-        vision_token1 = self.vision_poolings(text_aware_features1)
-        vision_token2 = self.vision_poolings(text_aware_features2)
+        patch_features1 = self.clip.encode_image(image1)
+        patch_features2 = self.clip.encode_image(image2)
+        text_features = self.clip.encode_text(text)
+        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+        patch_features1 = patch_features1 / patch_features1.norm(dim=-1, keepdim=True)
+        patch_features2 = patch_features2 / patch_features2.norm(dim=-1, keepdim=True)
         # Concatenate and project (multi-view fusion)
-        fused_vision = torch.cat([vision_token1, vision_token2], dim=-1)
+        fused_vision = torch.cat([patch_features1, patch_features2], dim=-1)
         fused_vision = self.image_fusion_proj(fused_vision)
 
         # --- Encode Action History ---
@@ -253,24 +229,14 @@ class VLA_CLIP(nn.Module):
         # --- Fuse image and action features ---
         # Concatenate fused_vision and projected_trajectory, then project
         image_action_fused = torch.cat([fused_vision, projected_trajectory], dim=-1)
-        # Use a projection layer similar to input_projection, but for image+action
-        if not hasattr(self, 'image_action_projection'):
-            # Create on first use to keep model size similar
-            self.image_action_projection = nn.Linear(
-                fused_vision.shape[1] + projected_trajectory.shape[1],
-                fused_vision.shape[1]
-            ).to(fused_vision.device)
+        
         image_action_features = self.image_action_projection(image_action_fused)
         image_action_features = image_action_features / image_action_features.norm(dim=-1, keepdim=True)
 
-        # --- Language feature ---
-        text_token = self.text_pooling(text_features)
-        text_token = text_token / text_token.norm(dim=-1, keepdim=True)
-
         logits_scale = self.logit_scale.exp()
         # Calculate logits: language vs (image+action)
-        lang_logits = logits_scale * torch.matmul(text_token, image_action_features.T)
-        image_action_logits = logits_scale * torch.matmul(image_action_features, text_token.T)
+        lang_logits = logits_scale * torch.matmul(text_features, image_action_features.T)
+        image_action_logits = logits_scale * torch.matmul(image_action_features, text_features.T)
 
         return lang_logits, image_action_logits
         

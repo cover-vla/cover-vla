@@ -1,0 +1,720 @@
+Task suite: libero_spatial
+Using default initial states
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=1--success=True--score=16.000--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=2--success=True--score=18.724--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=3--success=False--score=14.949--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=4--success=True--score=23.583--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=5--success=True--score=21.103--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=6--success=True--score=23.026--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=7--success=True--score=20.962--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=8--success=True--score=17.670--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=9--success=True--score=18.073--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=10--success=True--score=18.727--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=11--success=True--score=20.220--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=12--success=True--score=21.869--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 11 (91.7%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=13--success=True--score=19.981--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 12 (92.3%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=14--success=True--score=20.972--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 13 (92.9%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=15--success=True--score=19.742--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 14 (93.3%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=16--success=True--score=23.192--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 15 (93.8%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=17--success=True--score=21.271--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 16 (94.1%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=18--success=True--score=19.902--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 17 (94.4%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=19--success=True--score=19.857--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 18 (94.7%)
+
+Task: Grab the black bowl from atop the ramekin and position it on the plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=20--success=False--score=14.101--task=grab_the_black_bowl_from_atop_the_ramekin_and_position_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 18 (90.0%)
+Current task success rate: 0.9
+Current total success rate: 0.9
+Using default initial states
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=21--success=True--score=21.180--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 19 (90.5%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=22--success=True--score=19.910--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 20 (90.9%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=23--success=True--score=21.476--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 21 (91.3%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=24--success=True--score=17.773--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 22 (91.7%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=25--success=True--score=20.553--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 23 (92.0%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=26--success=True--score=17.754--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 26
+# successes: 24 (92.3%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=27--success=True--score=20.142--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 27
+# successes: 25 (92.6%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=28--success=True--score=19.132--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 28
+# successes: 26 (92.9%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=29--success=True--score=19.510--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 27 (93.1%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=30--success=True--score=18.297--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 28 (93.3%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=31--success=True--score=21.783--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 29 (93.5%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=32--success=True--score=18.823--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 32
+# successes: 30 (93.8%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=33--success=True--score=21.599--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 31 (93.9%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=34--success=True--score=21.840--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 34
+# successes: 32 (94.1%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=35--success=True--score=20.306--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 33 (94.3%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=36--success=True--score=20.934--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 34 (94.4%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=37--success=True--score=19.661--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 37
+# successes: 35 (94.6%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=38--success=True--score=20.502--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 38
+# successes: 36 (94.7%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=39--success=True--score=21.408--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 39
+# successes: 37 (94.9%)
+
+Task: Raise the black bowl beside the cookie box and set it on the plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=40--success=True--score=19.926--task=raise_the_black_bowl_beside_the_cookie_box_and_set_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 38 (95.0%)
+Current task success rate: 1.0
+Current total success rate: 0.95
+Using default initial states
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=41--success=True--score=18.762--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 41
+# successes: 39 (95.1%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=42--success=True--score=20.324--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 40 (95.2%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=43--success=True--score=18.406--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 41 (95.3%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=44--success=True--score=20.481--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 42 (95.5%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=45--success=True--score=20.495--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 43 (95.6%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=46--success=True--score=20.647--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 44 (95.7%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=47--success=True--score=19.280--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 45 (95.7%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=48--success=True--score=18.501--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 48
+# successes: 46 (95.8%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=49--success=True--score=18.167--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 47 (95.9%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=50--success=True--score=19.576--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 50
+# successes: 48 (96.0%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=51--success=True--score=18.129--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 51
+# successes: 49 (96.1%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=52--success=True--score=17.805--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 52
+# successes: 50 (96.2%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=53--success=True--score=19.141--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 53
+# successes: 51 (96.2%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=54--success=True--score=20.284--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 54
+# successes: 52 (96.3%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=55--success=True--score=21.221--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 53 (96.4%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=56--success=True--score=19.976--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 56
+# successes: 54 (96.4%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=57--success=True--score=21.250--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 57
+# successes: 55 (96.5%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=58--success=True--score=20.748--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 58
+# successes: 56 (96.6%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=59--success=True--score=19.361--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 59
+# successes: 57 (96.6%)
+
+Task: Take away the black bowl from the stove and position it on the plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=60--success=True--score=19.866--task=take_away_the_black_bowl_from_the_stove_and_position_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 60
+# successes: 58 (96.7%)
+Current task success rate: 1.0
+Current total success rate: 0.9666666666666667
+Using default initial states
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=61--success=True--score=18.046--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 61
+# successes: 59 (96.7%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=62--success=True--score=19.611--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 62
+# successes: 60 (96.8%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=63--success=True--score=19.554--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 63
+# successes: 61 (96.8%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=64--success=True--score=18.899--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 64
+# successes: 62 (96.9%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=65--success=False--score=6.577--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: False
+# episodes completed so far: 65
+# successes: 62 (95.4%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=66--success=True--score=17.886--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 66
+# successes: 63 (95.5%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=67--success=True--score=21.628--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 67
+# successes: 64 (95.5%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=68--success=True--score=16.333--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 68
+# successes: 65 (95.6%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=69--success=True--score=20.017--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 69
+# successes: 66 (95.7%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=70--success=True--score=19.364--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 70
+# successes: 67 (95.7%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=71--success=True--score=18.155--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 71
+# successes: 68 (95.8%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=72--success=True--score=20.256--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 72
+# successes: 69 (95.8%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=73--success=True--score=19.424--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 73
+# successes: 70 (95.9%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=74--success=True--score=17.415--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 74
+# successes: 71 (95.9%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=75--success=True--score=21.507--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 75
+# successes: 72 (96.0%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=76--success=True--score=20.403--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 76
+# successes: 73 (96.1%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=77--success=True--score=19.694--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 77
+# successes: 74 (96.1%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=78--success=True--score=21.246--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 78
+# successes: 75 (96.2%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=79--success=True--score=20.193--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 79
+# successes: 76 (96.2%)
+
+Task: Retrieve the black bowl adjacent to the plate and place it on the plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=80--success=True--score=20.874--task=retrieve_the_black_bowl_adjacent_to_the_plate_and_place_it_on_the_plate_.mp4
+Success: True
+# episodes completed so far: 80
+# successes: 77 (96.2%)
+Current task success rate: 0.95
+Current total success rate: 0.9625
+Using default initial states
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=81--success=True--score=16.965--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 81
+# successes: 78 (96.3%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=82--success=True--score=16.451--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 82
+# successes: 79 (96.3%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=83--success=True--score=18.771--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 83
+# successes: 80 (96.4%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=84--success=True--score=20.745--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 84
+# successes: 81 (96.4%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=85--success=True--score=19.569--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 85
+# successes: 82 (96.5%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=86--success=True--score=20.438--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 86
+# successes: 83 (96.5%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=87--success=True--score=18.706--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 87
+# successes: 84 (96.6%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=88--success=True--score=19.155--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 88
+# successes: 85 (96.6%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=89--success=True--score=22.486--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 89
+# successes: 86 (96.6%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=90--success=True--score=20.759--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 90
+# successes: 87 (96.7%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=91--success=True--score=21.017--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 91
+# successes: 88 (96.7%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=92--success=True--score=18.360--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 92
+# successes: 89 (96.7%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=93--success=True--score=20.168--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 93
+# successes: 90 (96.8%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=94--success=True--score=19.496--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 94
+# successes: 91 (96.8%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=95--success=True--score=16.320--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 95
+# successes: 92 (96.8%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=96--success=True--score=19.459--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 96
+# successes: 93 (96.9%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=97--success=True--score=19.504--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 97
+# successes: 94 (96.9%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=98--success=True--score=20.497--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 98
+# successes: 95 (96.9%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=99--success=True--score=21.600--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 99
+# successes: 96 (97.0%)
+
+Task: Transport the black bowl from the wooden cabinet to the plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_hack/rephrase_25/episode=100--success=True--score=21.728--task=transport_the_black_bowl_from_the_wooden_cabinet_to_the_plate_.mp4
+Success: True
+# episodes completed so far: 100
+# successes: 97 (97.0%)
+Current task success rate: 1.0
+Current total success rate: 0.97
+Final results:
+Total episodes: 100
+Total successes: 97
+Overall success rate: 0.9700 (97.0%)
