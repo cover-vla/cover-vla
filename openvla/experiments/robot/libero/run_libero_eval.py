@@ -197,7 +197,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     else: max_steps = 400
     
     # Load pre-generated rephrases if available
-    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
+    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json"
     preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
 
     for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
@@ -215,7 +215,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             else:
                 task_description = rephrased_list[0]  # Use the first as the main instruction
                 
-            # rephrased_list[3] = original_task_description
+            rephrased_list[8] = original_task_description
                 
             # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")

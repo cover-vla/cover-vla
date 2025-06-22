@@ -103,7 +103,7 @@ class VLA_DINO_Inference:
             history_batch = torch.tensor(np.array(possible_action_histories), dtype=torch.float32).to(self.device)
             img1_batch = img1_tensor.repeat(num_histories, 1, 1, 1)
             img2_batch = img2_tensor.repeat(num_histories, 1, 1, 1)
-            image_logits, action_logits = self.model.get_similarity_score(img1_batch, img2_batch, tokenized, history_batch)
+            image_logits = self.model.get_similarity_score(img1_batch, img2_batch, tokenized, history_batch)
             scores = image_logits[0, :].cpu().numpy() if image_logits.ndim == 2 else image_logits.cpu().numpy()
             predicted_idx = scores.argmax()
             predicted_history = possible_action_histories[predicted_idx]
@@ -144,7 +144,7 @@ class VLA_DINO_Inference:
         if history_tensor.ndim == 2:
             history_tensor = history_tensor.unsqueeze(0)
         with torch.no_grad():
-            image_logits, _ = self.model.get_similarity_score(img1_tensor, img2_tensor, tokenized, history_tensor)
+            image_logits = self.model.get_similarity_score(img1_tensor, img2_tensor, tokenized, history_tensor)
             score = image_logits.squeeze()
         return score
 
