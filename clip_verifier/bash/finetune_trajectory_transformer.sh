@@ -1,13 +1,12 @@
 
 CUDA_VISIBLE_DEVICES=0 python ../scripts/finetune_trajectory_dino.py \
-    --epochs 2000 \
-    --batch_size 1024 \
+    --epochs 10 \
+    --batch_size 2048 \
     --lr 5e-5 \
     --history_length 10 \
-    --augmented_dataset ../augmented_datasets/libero_spatial_hard.pkl \
-    --save_name libero_spatial_hard \
+    --augmented_dataset ../augmented_datasets/libero_spatial_all.pkl \
+    --save_name libero_spatial_all \
     --use_transformer \
-    --resume trajectory_checkpoints/libero_spatial_easy_epoch_1000.pth \
     --use_wandb 
 
 

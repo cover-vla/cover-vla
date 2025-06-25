@@ -942,7 +942,7 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
 if __name__ == "__main__":
 
     path_to_rollouts_oracle = "./rollouts_oracle"
-    path_to_rollouts_clip = "./rollouts"
+    path_to_rollouts_clip = "./rollouts_hack"
     
     results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
     results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)

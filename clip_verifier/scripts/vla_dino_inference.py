@@ -198,6 +198,8 @@ def sample_and_test(augmented_dataset_dict, model_path, history_length, use_tran
                 break
         if ground_truth_idx_in_pool is None and gt_pos_hist_added:
             print(f"Warning: Ground truth positive history lost during pooling/shuffling for sample {idx}? This shouldn't happen.")
+        # print ("gt_instruction", gt_instruction)
+        # input()
         predicted_history, scores = inference_model.predict(
             (img1, img2), gt_instruction, action_history_pool
         )

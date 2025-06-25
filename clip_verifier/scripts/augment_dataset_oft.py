@@ -7,9 +7,20 @@ import pickle
 from collections import defaultdict
 import warnings
 import json
+import re
 
 # Define padding value consistently
 ACTION_PADDING_VALUE = -5.0
+
+def normalize_instruction(instr):
+    instr = instr.strip().lower()
+    # Remove trailing ' demo' if present
+    if instr.endswith(' demo'):
+        instr = instr[:-5]
+    instr = instr.strip()
+    # Remove any trailing punctuation (., !, ?)
+    instr = re.sub(r'[.?!]+$', '', instr).strip()
+    return instr
 
 def augment_dataset(dataset_path, dataset_folders, output_path, history_length=10, rephrases_json_path=None, suite_name=None):
     """
@@ -96,18 +107,26 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
     # --- Load rephrases if provided ---
     rephrases_dict = None
     if rephrases_json_path is not None and suite_name is not None:
-        with open(rephrases_json_path, 'r') as f:
-            all_rephrases = json.load(f)
-        suite_rephrases = all_rephrases[suite_name]
-        # Build a mapping from original string to list of rephrases
         rephrases_dict = {}
-        for task_id, entry in suite_rephrases.items():
-            orig = entry["original"].strip().lower()
-            rephrases_dict[orig] = [r.strip() for r in entry["rephrases"]]
+        # Support both a single path or a list of paths
+        rephrases_files = rephrases_json_path if isinstance(rephrases_json_path, list) else [rephrases_json_path]
+        for rephrases_file in rephrases_files:
+            with open(rephrases_file, 'r') as f:
+                all_rephrases = json.load(f)
+            suite_rephrases = all_rephrases[suite_name]
+            for task_id, entry in suite_rephrases.items():
+                orig = normalize_instruction(entry["original"])
+                rephs = [r.strip() for r in entry["rephrases"]]
+                if orig in rephrases_dict:
+                    # Merge, avoiding duplicates
+                    rephrases_dict[orig].extend([r for r in rephs if r not in rephrases_dict[orig]])
+                else:
+                    rephrases_dict[orig] = rephs
 
     # Iterate through all instructions that had raw data
     for instruction in tqdm(raw_demo_data_by_instruction.keys(), desc="Generating Samples"):
-        final_dataset[instruction] = {'samples': []}
+        norm_instruction = normalize_instruction(instruction)
+        final_dataset[norm_instruction] = {'samples': []}
 
         for demo_data in raw_demo_data_by_instruction[instruction]:
             original_actions = demo_data['actions']
@@ -138,12 +157,11 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
                     'images': images_at_t,
                     'pos_action_hist': future_action_chunk
                 }
-                final_dataset[instruction]['samples'].append(sample_data)
+                final_dataset[norm_instruction]['samples'].append(sample_data)
 
         # --- Add rephrases as additional keys, if available ---
         if rephrases_dict is not None:
-            # Try to match the instruction to the original in the rephrases dict
-            instr_norm = instruction.strip().lower()
+            instr_norm = norm_instruction
             matched = None
             for orig, rephs in rephrases_dict.items():
                 if orig == instr_norm:
@@ -151,8 +169,9 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
                     break
             if matched is not None:
                 for reph in matched:
-                    if reph not in final_dataset:
-                        final_dataset[reph] = {'samples': list(final_dataset[instruction]['samples'])}
+                    norm_reph = normalize_instruction(reph)
+                    if norm_reph not in final_dataset:
+                        final_dataset[norm_reph] = {'samples': list(final_dataset[norm_instruction]['samples'])}
 
     # --- Final Cleanup ---
     keys_to_remove = [k for k, v in final_dataset.items() if not v.get('samples')]
@@ -183,18 +202,58 @@ if __name__ == "__main__":
                         help='Path to the dataset')
     parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial_no_noops'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_spatial_oft.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_spatial_oft_all.pkl',
                         help='Path to save the augmented dataset')
-    parser.add_argument('--history_length', type=int, default=8,
+    parser.add_argument('--history_length', type=int, default=10,
                         help='Number of past action steps to include in the history (H)')
-    parser.add_argument('--rephrases_json', type=str, default='/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json',
+    parser.add_argument('--rephrases_json', type=str, default=['/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json', '/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json'],
                         help='Path to the JSON file containing instruction rephrases')
     parser.add_argument('--suite_name', type=str, default='libero_spatial',
                         help='Suite name (e.g., libero_spatial) for rephrases JSON')
 
     args = parser.parse_args()
 
-    augment_dataset(args.dataset_path, args.dataset_folders, args.output_path,
+    fianl_dataset = augment_dataset(args.dataset_path, args.dataset_folders, args.output_path,
                 history_length=args.history_length,
                 rephrases_json_path=args.rephrases_json,
                 suite_name=args.suite_name)
+    
+    # final_dataset = pickle.load(open("/home/xilun/vla-clip/clip_verifier/augmented_datasets/libero_spatial_oft_all.pkl", 'rb'))
+    
+# Assume final_dataset is already loaded
+
+    # print("Total language instructions:", len(final_dataset))
+    # print("="*60)
+
+    # for instruction, data in final_dataset.items():
+    #     print(f"Instruction: {instruction}")
+    #     num_samples = len(data['samples'])
+    #     print(f"  Number of action samples: {num_samples}")
+
+    #     # Print the shape of one action sample and the shape of images
+    #     if num_samples > 0:
+    #         first_sample = data['samples'][0]
+    #         action_shape = first_sample['pos_action_hist'].shape
+    #         print(f"  Shape of one action sample: {action_shape}")
+    #         for img_key, img_val in first_sample['images'].items():
+    #             print(f"    Image key '{img_key}': shape {img_val.shape}, dtype {img_val.dtype}")
+
+    #     # Count total images (across all samples, all image keys)
+    #     total_images = 0
+    #     image_keys_set = set()
+    #     for sample in data['samples']:
+    #         # Each sample['images'] is a dict of image_key: image_array
+    #         image_keys = sample['images'].keys()
+    #         image_keys_set.update(image_keys)
+    #         total_images += len(image_keys)
+    #     print(f"  Number of unique image keys per sample: {sorted(image_keys_set)}")
+    #     print(f"  Total images (all samples, all keys): {total_images}")
+
+    #     # Optionally, print a breakdown of how many images per key
+    #     image_key_counts = {k: 0 for k in image_keys_set}
+    #     for sample in data['samples']:
+    #         for k in sample['images']:
+    #             image_key_counts[k] += 1
+    #     print(f"  Images per key: {image_key_counts}")
+
+    #     print("-"*40)

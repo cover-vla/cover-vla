@@ -557,7 +557,7 @@ def train_clip(
         # --- End Save Best Model ---
 
         # Optionally save periodic checkpoints
-        if (epoch + 1) % 100 == 0:
+        if (epoch + 1) % 1 == 0:
              checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
              torch.save(model.state_dict(), checkpoint_path)
              print(f"Checkpoint saved at {checkpoint_path}")

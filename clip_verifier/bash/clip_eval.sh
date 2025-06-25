@@ -7,10 +7,10 @@
 #     --action_pool_size 50
 
 
-CUDA_VISIBLE_DEVICES=1 python ../scripts/vla_dino_inference.py \
-    --model_path /home/xilun/vla-clip/clip_verifier/bash/trajectory_checkpoints/libero_spatial_oft_epoch_500.pt \
-    --history_length 8 \
+CUDA_VISIBLE_DEVICES=0 python ../scripts/vla_dino_inference.py \
+    --model_path /home/xilun/vla-clip/clip_verifier/bash/trajectory_checkpoints/libero_spatial_hard_epoch_600.pt \
+    --history_length 10 \
     --use_transformer \
-    --augmented_dataset ../augmented_datasets/libero_spatial_oft.pkl \
-    --num_samples 100 \
+    --augmented_dataset ../augmented_datasets/libero_spatial_hard.pkl \
+    --num_samples 5 \
     --action_pool_size 10
