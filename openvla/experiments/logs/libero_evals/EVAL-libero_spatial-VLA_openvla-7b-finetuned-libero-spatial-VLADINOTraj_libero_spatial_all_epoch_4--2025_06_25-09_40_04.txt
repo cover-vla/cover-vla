@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 1/20)
+Starting episode 1...

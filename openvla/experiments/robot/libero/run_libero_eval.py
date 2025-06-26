@@ -215,7 +215,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             else:
                 task_description = rephrased_list[0]  # Use the first as the main instruction
                 
-            # rephrased_list[8] = original_task_description + "."
+            rephrased_list[3] = original_task_description + "."
                 
             # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
@@ -333,7 +333,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                         # Batch score all candidates
                         _, scores_dict = vla_clip_scorer.predict(
                             img_for_clip_tuple,
-                            candidate_instructions,
+                            task_description,
                             padded_histories
                         )
                         # print(scores_dict)

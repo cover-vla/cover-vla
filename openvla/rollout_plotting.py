@@ -823,7 +823,7 @@ def create_task_success_rate_plots(rollout_dir):
             plt.axhline(y=success_rates[idx], color='red', linestyle='--', alpha=0.7, label='oracle (no_transform)')
 
         plt.xticks(sorted(rephrase_nums))
-        plt.xlabel('Rephrase Type')
+        plt.xlabel('Number of Samples (Rephrases)')
         plt.ylabel('Success Rate')
         plt.ylim(0, 1.05)
         plt.title(task.replace('_', ' '))
