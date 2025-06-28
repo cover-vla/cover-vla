@@ -66,7 +66,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     if oracle_scorer:
         rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}"
     else:
-        rollout_dir = f"./rollouts_hack/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 

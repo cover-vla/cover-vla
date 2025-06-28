@@ -185,3 +185,4 @@ openpi/.github
 openpi/.venv
 openpi/.vscode
 openpi/checkpoints
+openpi/rollouts*

@@ -21,23 +21,12 @@ import pickle
 sys.path.append("../clip_verifier/scripts")
 from vla_dino_inference import VLA_DINO_Inference
 
+import torch
+
+torch.set_num_threads(8)
+
 LIBERO_DUMMY_ACTION = [0.0] * 6 + [-1.0]
 LIBERO_ENV_RESOLUTION = 256  # resolution used to render training data
-
-# --- Load rephrases JSON and initialize verifier ---
-REPHRASES_JSON_PATH = '../openvla/experiments/robot/libero/libero_rephrases.json'
-VLA_CLIP_MODEL_PATH = '../clip_verifier/bash/trajectory_checkpoints/libero_spatial_easy_epoch_1000.pt'
-HISTORY_LENGTH = 10
-SCORE_THRESHOLD = 0.5
-
-with open(REPHRASES_JSON_PATH, 'r') as f:
-    all_rephrases = json.load(f)
-
-verifier = VLA_DINO_Inference(
-    model_path=VLA_CLIP_MODEL_PATH,
-    history_length=HISTORY_LENGTH,
-    use_transformer=True
-)
 
 @dataclasses.dataclass
 class Args:
@@ -56,7 +45,7 @@ class Args:
         "libero_spatial"  # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     )
     num_steps_wait: int = 10  # Number of steps to wait for objects to stabilize i n sim
-    num_trials_per_task: int = 5  # Number of rollouts per task
+    num_trials_per_task: int = 20  # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -68,13 +57,28 @@ class Args:
     #################################################################################################################
     # Language transformation
     #################################################################################################################
-    lang_transform_type: str = "rephrase"  # 'rephrase' or 'no_transform'
+    lang_transform_type: str = "no_transform"  # 'rephrase' or 'no_transform'
     num_rephrase_candidates: int = 3       # number of rephrased instructions to use (not counting original)
+    
+    # --- Load rephrases JSON and initialize verifier ---
+    rephrases_json_path: str = '../openvla/experiments/robot/libero/libero_rephrase_hard.json'
+    vla_clip_model_path: str = '../clip_verifier/bash/trajectory_checkpoints/libero_spatial_oft_all_final_best.pt'
+    history_length: int = 10
+    score_threshold: float = 0.5
 
 
 def eval_libero(args: Args) -> None:
     # Set random seed
     np.random.seed(args.seed)
+    
+    with open(args.rephrases_json_path, 'r') as f:
+        all_rephrases = json.load(f)
+
+    verifier = VLA_DINO_Inference(
+        model_path=args.vla_clip_model_path,
+        history_length=args.history_length,
+        use_transformer=True
+    )
 
     # Initialize LIBERO task suite
     benchmark_dict = benchmark.get_benchmark_dict()
@@ -101,7 +105,7 @@ def eval_libero(args: Args) -> None:
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
-    for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
+    for task_id in tqdm.tqdm(range(num_tasks_in_suite)[5:]):
         # Get task
         task = task_suite.get_task(task_id)
 
@@ -117,6 +121,9 @@ def eval_libero(args: Args) -> None:
             candidate_instructions = [task_description]
         else:
             candidate_instructions = rephrased_list[:args.num_rephrase_candidates]
+            
+        # if len(candidate_instructions) > 3:
+        #     candidate_instructions[3] = task_description + "."
 
         # Start episodes
         task_episodes, task_successes = 0, 0
@@ -125,7 +132,6 @@ def eval_libero(args: Args) -> None:
 
             # Reset environment
             env.reset()
-            action_plan = collections.deque()
 
             # Set initial states
             obs = env.set_init_state(initial_states[episode_idx])
@@ -138,80 +144,71 @@ def eval_libero(args: Args) -> None:
 
             logging.info(f"Starting episode {task_episodes+1}...")
             while t < max_steps + args.num_steps_wait:
-                try:
-                    # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
-                    # and we need to wait for them to fall
-                    if t < args.num_steps_wait:
-                        obs, reward, done, info = env.step(LIBERO_DUMMY_ACTION)
-                        t += 1
-                        continue
-
-                    # Get preprocessed image
-                    # IMPORTANT: rotate 180 degrees to match train preprocessing
-                    img = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
-                    wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
-                    img = image_tools.convert_to_uint8(
-                        image_tools.resize_with_pad(img, args.resize_size, args.resize_size)
-                    )
-                    wrist_img = image_tools.convert_to_uint8(
-                        image_tools.resize_with_pad(wrist_img, args.resize_size, args.resize_size)
-                    )
-
-                    # Save preprocessed image for replay video
-                    replay_images.append(img)
-
-                    if not action_plan:
-                        # Finished executing previous action chunk -- compute new chunk
-                        best_score = -float('inf')
-                        best_actions = None
-                        best_instr = None
-                        for instr in candidate_instructions:
-                            element = {
-                                "observation/image": copy.deepcopy(img),
-                                "observation/wrist_image": copy.deepcopy(wrist_img),
-                                "observation/state": np.concatenate(
-                                    (
-                                        obs["robot0_eef_pos"],
-                                        _quat2axisangle(obs["robot0_eef_quat"]),
-                                        obs["robot0_gripper_qpos"],
-                                    )
-                                ),
-                                "prompt": str(instr),
-                            }
-                            action_chunk = client.infer(element)["actions"]
-                            # print ("action chunk length: ", len(action_chunk))
-                            assert (
-                                len(action_chunk) >= args.replan_steps
-                            ), f"We want to replan every {args.replan_steps} steps, but policy only predicts {len(action_chunk)} steps."
-                            # Score with verifier
-                            score = verifier.get_history_score(
-                                (img, wrist_img),
-                                instr,
-                                np.array(action_chunk)
-                            ).item()
-                            if score > best_score:
-                                best_score = score
-                                best_actions = action_chunk
-                                best_instr = instr
-                        action_plan.extend(best_actions[: args.replan_steps])
-                        print(f"[t={t}] Selected instruction: '{best_instr}' (Score: {best_score:.3f})")
-                    action = action_plan.popleft()
-
-                    # Save action and score for this step
-                    episode_actions.append(action.tolist() if hasattr(action, 'tolist') else action)
-                    episode_scores.append(best_score)
-
-                    # Execute action in environment
-                    obs, reward, done, info = env.step(action.tolist())
-                    if done:
-                        task_successes += 1
-                        total_successes += 1
-                        break
+                # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
+                # and we need to wait for them to fall
+                if t < args.num_steps_wait:
+                    obs, reward, done, info = env.step(LIBERO_DUMMY_ACTION)
                     t += 1
+                    continue
 
-                except Exception as e:
-                    logging.error(f"Caught exception: {e}")
+                # --- Always generate and score new action chunks for all candidates ---
+                # Get preprocessed image
+                img = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
+                wrist_img = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
+                img = image_tools.convert_to_uint8(
+                    image_tools.resize_with_pad(img, args.resize_size, args.resize_size)
+                )
+                wrist_img = image_tools.convert_to_uint8(
+                    image_tools.resize_with_pad(wrist_img, args.resize_size, args.resize_size)
+                )
+                replay_images.append(img)
+
+                candidate_action_chunks = []
+                for instr in candidate_instructions:
+                    element = {
+                        "observation/image": copy.deepcopy(img),
+                        "observation/wrist_image": copy.deepcopy(wrist_img),
+                        "observation/state": np.concatenate(
+                            (
+                                obs["robot0_eef_pos"],
+                                _quat2axisangle(obs["robot0_eef_quat"]),
+                                obs["robot0_gripper_qpos"],
+                            )
+                        ),
+                        "prompt": str(instr),
+                        # "prompt": "Open the drawer.",
+                    }
+                    action_chunk = client.infer(element)["actions"]
+                    assert (
+                        len(action_chunk) >= args.replan_steps
+                    ), f"We want to replan every {args.replan_steps} steps, but policy only predicts {len(action_chunk)} steps."
+                    candidate_action_chunks.append(action_chunk)
+                # --- Batch score all candidates ---
+                _, scores_dict = verifier.predict(
+                    (img, wrist_img),
+                    candidate_instructions,
+                    process_action(copy.deepcopy(candidate_action_chunks))
+                )
+                scores = [scores_dict[str(i)] for i in range(len(candidate_action_chunks))]
+                best_idx = int(np.argmax(scores))
+                best_score = scores[best_idx]
+                best_actions = candidate_action_chunks[best_idx]
+                best_instr = candidate_instructions[best_idx]
+                print(f"[t={t}] Selected instruction: '{best_instr}' (Score: {best_score:.3f})")
+                action = best_actions[0]
+
+                # Save action and score for this step
+                episode_actions.append(action.tolist() if hasattr(action, 'tolist') else action)
+                episode_scores.append(best_score)
+
+                # Execute action in environment
+                obs, reward, done, info = env.step(action.tolist())
+                if done:
+                    task_successes += 1
+                    total_successes += 1
                     break
+                t += 1
+
 
             task_episodes += 1
             total_episodes += 1
@@ -223,12 +220,9 @@ def eval_libero(args: Args) -> None:
                 success=done,
                 transform_type=args.lang_transform_type,
                 task_description=task_description,
-                log_file=None,
                 score_list=episode_scores,
                 action_list=episode_actions,
                 clip_update_num=args.num_rephrase_candidates,
-                use_original_task_description=False,
-                oracle_scorer=False
             )
 
             # Log current results
@@ -253,6 +247,15 @@ def _get_libero_env(task, resolution, seed):
     env.seed(seed)  # IMPORTANT: seed seems to affect object positions even when using fixed initial state
     return env, task_description
 
+def process_action(action_chunk_list):
+    processed_action_chunk_list = []
+    for action_chunk in action_chunk_list:
+        processed_action_chunk = []
+        for action in action_chunk:
+            action[6] = 1.0 if action[6] > 0.0 else -1.0
+            processed_action_chunk.append(action)
+        processed_action_chunk_list.append(np.array(processed_action_chunk))
+    return processed_action_chunk_list
 
 def _quat2axisangle(quat):
     """
@@ -273,14 +276,10 @@ def _quat2axisangle(quat):
 
 
 def save_rollout_video(rollout_images, idx, success, transform_type,
-                       task_description, log_file=None, score_list=None, 
-                       action_list=None, clip_update_num=None, use_original_task_description=False,
-                       oracle_scorer=False):
+                       task_description, score_list=None, 
+                       action_list=None, clip_update_num=None):
     """Saves an MP4 replay of an episode and a .pkl file with actions and scores."""
-    if oracle_scorer:
-        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}"
-    else:
-        rollout_dir = f"./rollouts_hack/{transform_type}_{clip_update_num}"
+    rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
@@ -298,8 +297,6 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
         video_writer.append_data(img)
     video_writer.close()
     print(f"Saved rollout MP4 at path {mp4_path}")
-    if log_file is not None:
-        log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
     if score_list is not None and action_list is not None:
         data = {
             "score_list": score_list,

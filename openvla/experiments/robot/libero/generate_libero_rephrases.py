@@ -7,7 +7,7 @@ sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
 from lang_transform import LangTransform
 
 # Output file
-OUTPUT_PATH = "libero_rephrase_hard.json"
+OUTPUT_PATH = "libero_rephrase_out_set.json"
 
 # List of task suites to process
 TASK_SUITES = [
@@ -19,7 +19,7 @@ TASK_SUITES = [
 ]
 
 BATCH_NUMBER = 25
-LANG_TRANSFORM_TYPE = "rephrase"
+LANG_TRANSFORM_TYPE = "out_set"
 
 def main():
     lang_transform = LangTransform()
