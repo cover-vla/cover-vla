@@ -179,6 +179,8 @@ def eval_libero(args: Args) -> None:
                         # "prompt": "Open the drawer.",
                     }
                     action_chunk = client.infer(element)["actions"]
+                    print ("length of action chunk", len(action_chunk))
+                    input()
                     assert (
                         len(action_chunk) >= args.replan_steps
                     ), f"We want to replan every {args.replan_steps} steps, but policy only predicts {len(action_chunk)} steps."

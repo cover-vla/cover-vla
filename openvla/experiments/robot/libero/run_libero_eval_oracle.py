@@ -11,6 +11,7 @@ from tqdm import tqdm
 from libero.libero import benchmark
 import collections
 import torch
+import copy
 
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
@@ -31,7 +32,7 @@ from experiments.robot.robot_utils import (
     normalize_gripper_action,
     set_seed_everywhere,
 )
-sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
+sys.path.append("/root/vla-clip/clip_verifier/scripts")
 from lang_transform import LangTransform
 
 torch.set_num_threads(8)
@@ -51,7 +52,7 @@ class GenerateConfig:
     # --- LIBERO Env ---
     task_suite_name: str = "libero_spatial"
     num_steps_wait: int = 10
-    num_trials_per_task: int = 10
+    num_trials_per_task: int = 20
 
     # --- Oracle Scorer / Action Selection Params ---
     use_oracle_scorer: bool = True                        # Enable the oracle scorer logic
@@ -133,7 +134,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     else: max_steps = 400
 
     # Load pre-generated rephrases if available
-    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json"
+    rephrases_json_path = f"/root/vla-clip/openvla/experiments/robot/libero/libero_rephrase_out_set.json"
     preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
 
     for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
@@ -233,7 +234,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     # Start from index 1 because index 0 (current_task_desc) is already processed
                     for i in range(1, len(candidate_instructions)):
                         instr_c = candidate_instructions[i]
-                        action_c = get_action(cfg, model, observation, instr_c, processor=processor)
+                        action_c = get_action(cfg, model, copy.deepcopy(observation), instr_c, processor=processor)
                         action_c = normalize_gripper_action(action_c, binarize=True)
                         if cfg.model_family == "openvla":
                             action_c = invert_gripper_action(action_c)

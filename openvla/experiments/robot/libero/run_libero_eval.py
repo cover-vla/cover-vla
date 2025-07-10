@@ -58,7 +58,7 @@ from experiments.robot.robot_utils import (
     normalize_gripper_action,
     set_seed_everywhere,
 )
-sys.path.append("/home/xilun/vla-clip/clip_verifier/scripts")
+sys.path.append("../clip_verifier/scripts")
 from vla_clip_inference import VLA_CLIP_Inference, ACTION_PADDING_VALUE
 from vla_dino_inference import VLA_DINO_Inference
 from lang_transform import LangTransform
@@ -197,7 +197,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     else: max_steps = 400
     
     # Load pre-generated rephrases if available
-    rephrases_json_path = f"/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json"
+    rephrases_json_path = f"openvla/experiments/robot/libero/libero_rephrase_hard.json"
     preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
 
     for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
