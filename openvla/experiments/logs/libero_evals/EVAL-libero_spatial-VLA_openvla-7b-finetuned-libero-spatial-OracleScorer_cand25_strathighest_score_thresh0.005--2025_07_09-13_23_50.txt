@@ -221,3 +221,288 @@ Task: Pick up the dark dish from the burner and place it on the platter. (Trial 
 Starting episode 44...
 Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=44--success=False--score=0.123--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
   Episode 44: Success=False, Steps=210, AvgStepScore=0.123
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 5/20)
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=45--success=False--score=0.103--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 45: Success=False, Steps=210, AvgStepScore=0.103
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 6/20)
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=46--success=True--score=0.148--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 46: Success=True, Steps=144, AvgStepScore=0.148
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 7/20)
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=47--success=True--score=0.138--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 47: Success=True, Steps=163, AvgStepScore=0.138
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 8/20)
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=48--success=True--score=0.097--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 48: Success=True, Steps=185, AvgStepScore=0.097
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 9/20)
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=49--success=False--score=0.087--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 49: Success=False, Steps=210, AvgStepScore=0.087
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 10/20)
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=50--success=False--score=0.155--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 50: Success=False, Steps=210, AvgStepScore=0.155
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 11/20)
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=51--success=False--score=0.302--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 51: Success=False, Steps=210, AvgStepScore=0.302
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 12/20)
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=52--success=False--score=0.118--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 52: Success=False, Steps=210, AvgStepScore=0.118
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 13/20)
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=53--success=True--score=0.154--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 53: Success=True, Steps=119, AvgStepScore=0.154
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 14/20)
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=54--success=True--score=0.129--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 54: Success=True, Steps=194, AvgStepScore=0.129
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 15/20)
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=55--success=True--score=0.138--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 55: Success=True, Steps=119, AvgStepScore=0.138
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 16/20)
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=56--success=True--score=0.117--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 56: Success=True, Steps=141, AvgStepScore=0.117
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 17/20)
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=57--success=False--score=0.101--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 57: Success=False, Steps=210, AvgStepScore=0.101
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 18/20)
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=58--success=True--score=0.118--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 58: Success=True, Steps=137, AvgStepScore=0.118
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 19/20)
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=59--success=True--score=0.117--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 59: Success=True, Steps=149, AvgStepScore=0.117
+
+Task: Pick up the dark dish from the burner and place it on the platter. (Trial 20/20)
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=60--success=True--score=0.127--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 60: Success=True, Steps=130, AvgStepScore=0.127
+Task 7 ('pick up the black bowl on the stove and place it on the plate') Success Rate: 0.55 (11/20)
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 1/20)
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=61--success=True--score=0.060--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 61: Success=True, Steps=178, AvgStepScore=0.060
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 2/20)
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=62--success=True--score=0.090--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 62: Success=True, Steps=111, AvgStepScore=0.090
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 3/20)
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=63--success=False--score=0.166--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 63: Success=False, Steps=210, AvgStepScore=0.166
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 4/20)
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=64--success=False--score=0.106--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 64: Success=False, Steps=210, AvgStepScore=0.106
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 5/20)
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=65--success=False--score=0.097--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 65: Success=False, Steps=210, AvgStepScore=0.097
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 6/20)
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=66--success=True--score=0.072--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 66: Success=True, Steps=95, AvgStepScore=0.072
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 7/20)
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=67--success=True--score=0.092--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 67: Success=True, Steps=86, AvgStepScore=0.092
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 8/20)
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=68--success=True--score=0.080--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 68: Success=True, Steps=88, AvgStepScore=0.080
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 9/20)
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=69--success=False--score=0.013--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 69: Success=False, Steps=210, AvgStepScore=0.013
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 10/20)
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=70--success=True--score=0.091--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 70: Success=True, Steps=88, AvgStepScore=0.091
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 11/20)
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=71--success=True--score=0.110--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 71: Success=True, Steps=134, AvgStepScore=0.110
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 12/20)
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=72--success=True--score=0.096--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 72: Success=True, Steps=100, AvgStepScore=0.096
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 13/20)
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=73--success=True--score=0.091--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 73: Success=True, Steps=208, AvgStepScore=0.091
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 14/20)
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=74--success=True--score=0.095--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 74: Success=True, Steps=100, AvgStepScore=0.095
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 15/20)
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=75--success=True--score=0.108--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 75: Success=True, Steps=91, AvgStepScore=0.108
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 16/20)
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=76--success=True--score=0.082--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 76: Success=True, Steps=81, AvgStepScore=0.082
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 17/20)
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=77--success=True--score=0.076--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 77: Success=True, Steps=157, AvgStepScore=0.076
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 18/20)
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=78--success=True--score=0.080--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 78: Success=True, Steps=92, AvgStepScore=0.080
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 19/20)
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=79--success=True--score=0.068--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 79: Success=True, Steps=108, AvgStepScore=0.068
+
+Task: Raise the dark dish next to the platter and place it on top of the platter. (Trial 20/20)
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=80--success=True--score=0.082--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 80: Success=True, Steps=94, AvgStepScore=0.082
+Task 8 ('pick up the black bowl next to the plate and place it on the plate') Success Rate: 0.80 (16/20)
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 1/20)
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=81--success=True--score=0.185--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 81: Success=True, Steps=135, AvgStepScore=0.185
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 2/20)
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=82--success=False--score=0.163--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 82: Success=False, Steps=210, AvgStepScore=0.163
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 3/20)
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=83--success=False--score=0.315--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 83: Success=False, Steps=210, AvgStepScore=0.315
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 4/20)
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=84--success=False--score=0.125--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 84: Success=False, Steps=210, AvgStepScore=0.125
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 5/20)
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=85--success=False--score=0.168--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 85: Success=False, Steps=210, AvgStepScore=0.168
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 6/20)
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=86--success=False--score=0.141--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 86: Success=False, Steps=210, AvgStepScore=0.141
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 7/20)
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=87--success=False--score=0.236--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 87: Success=False, Steps=210, AvgStepScore=0.236
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 8/20)
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=88--success=False--score=0.228--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 88: Success=False, Steps=210, AvgStepScore=0.228
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 9/20)
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=89--success=False--score=0.259--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 89: Success=False, Steps=210, AvgStepScore=0.259
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 10/20)
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=90--success=False--score=0.284--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 90: Success=False, Steps=210, AvgStepScore=0.284
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 11/20)
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=91--success=True--score=0.172--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 91: Success=True, Steps=206, AvgStepScore=0.172
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 12/20)
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=92--success=True--score=0.182--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 92: Success=True, Steps=130, AvgStepScore=0.182
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 13/20)
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=93--success=False--score=0.176--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 93: Success=False, Steps=210, AvgStepScore=0.176
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 14/20)
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=94--success=False--score=0.183--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 94: Success=False, Steps=210, AvgStepScore=0.183
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 15/20)
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=95--success=False--score=0.195--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 95: Success=False, Steps=210, AvgStepScore=0.195
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 16/20)
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=96--success=False--score=0.148--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 96: Success=False, Steps=210, AvgStepScore=0.148
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 17/20)
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=97--success=True--score=0.184--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 97: Success=True, Steps=138, AvgStepScore=0.184
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 18/20)
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=98--success=False--score=0.317--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 98: Success=False, Steps=210, AvgStepScore=0.317
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 19/20)
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=99--success=False--score=0.194--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 99: Success=False, Steps=210, AvgStepScore=0.194
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 20/20)
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_25/episode=100--success=False--score=0.206--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 100: Success=False, Steps=210, AvgStepScore=0.206
+Task 9 ('pick up the black bowl on the wooden cabinet and place it on the plate') Success Rate: 0.20 (4/20)
+
+Overall Success Rate: 0.630 (63/100)

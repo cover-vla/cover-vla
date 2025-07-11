@@ -17,35 +17,35 @@ CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py
   --use_oracle_scorer True \
   --vla_clip_history_length 10 \
   --clip_select_action_num_candidates 5 \
-  --lang_transform_type rephrase &
+  --lang_transform_type rephrase
 
 
-CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
-  --task_suite_name libero_spatial \
-  --use_oracle_scorer True \
-  --vla_clip_history_length 10 \
-  --clip_select_action_num_candidates 10 \
-  --lang_transform_type rephrase &
+# CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
+#   --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+#   --task_suite_name libero_spatial \
+#   --use_oracle_scorer True \
+#   --vla_clip_history_length 10 \
+#   --clip_select_action_num_candidates 10 \
+#   --lang_transform_type rephrase &
 
-wait 
+# wait 
 
-CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
-  --task_suite_name libero_spatial \
-  --use_oracle_scorer True \
-  --vla_clip_history_length 10 \
-  --clip_select_action_num_candidates 15 \
-  --lang_transform_type rephrase &
+# CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
+#   --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+#   --task_suite_name libero_spatial \
+#   --use_oracle_scorer True \
+#   --vla_clip_history_length 10 \
+#   --clip_select_action_num_candidates 15 \
+#   --lang_transform_type rephrase &
 
 
-CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
-  --task_suite_name libero_spatial \
-  --use_oracle_scorer True \
-  --vla_clip_history_length 10 \
-  --clip_select_action_num_candidates 25 \
-  --lang_transform_type rephrase &
+# CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py \
+#   --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+#   --task_suite_name libero_spatial \
+#   --use_oracle_scorer True \
+#   --vla_clip_history_length 10 \
+#   --clip_select_action_num_candidates 25 \
+#   --lang_transform_type rephrase &
 
 
 # CUDA_VISIBLE_DEVICES=1 python experiments/robot/libero/run_libero_eval.py \

@@ -311,7 +311,7 @@ def create_combined_time_series_plot(time_series_data, plots_dir):
         fig.supylabel('Average CLIP Score / Action Norm', x=0.01) # Add shared Y label
     fig.suptitle("Time Series Analysis per Condition", fontsize=16, y=0.99) # Add overall title
 
-    plt.tight_layout(rect=[0.03, 0.03, 1, 0.97]) # Adjust layout to prevent overlap
+    plt.tight_layout(rect=(0.03, 0.03, 1, 0.97)) # Adjust layout to prevent overlap
 
     # Save the figure
     save_path = os.path.join(plots_dir, "time_series_analysis_combined.png")
@@ -546,7 +546,7 @@ def create_score_length_plots(results, plots_dir): # Added plots_dir parameter
         fig.delaxes(axes_flat[j])
 
     fig.suptitle("Score vs Episode Length Correlation", fontsize=16, y=0.99)
-    plt.tight_layout(rect=[0, 0, 1, 0.97]) # Adjust layout
+    plt.tight_layout(rect=(0, 0, 1, 0.97)) # Adjust layout
     save_path = os.path.join(plots_dir, "score_length_correlation.png")
     plt.savefig(save_path)
     print(f"Saved score-length correlation plot to {save_path}")
@@ -729,7 +729,8 @@ def create_rate_vs_score_plot(results, plots_dir):
     ax.grid(True, linestyle='--', alpha=0.5)
 
     # Improve y-axis formatting (percentage)
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: '{:.0%}'.format(y)))
+    from matplotlib.ticker import FuncFormatter
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: '{:.0%}'.format(y)))
     ax.set_ylim(bottom=0, top=max(1.05, max(success_rates)*1.1) if success_rates else 1.05) # Ensure y-axis starts at 0 and goes slightly above max rate
 
     # Add a legend
@@ -839,12 +840,13 @@ def create_task_success_rate_plots(rollout_dir):
         plt.close()
         print(f"Saved success rate plot for task '{task}' to {out_path}")
 
-def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
+def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_dir, rollouts_dir):
     """
-    For each unique task, plot the success rate across all rephrase types (folders) for both oracle and designed verifiers.
+    For each unique task, plot the success rate across all rephrase types (folders) for oracle, OOD, and regular verifiers.
     - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle)
     - Green line: oracle verifier (rephrases, from rollouts_oracle)
-    - Blue line: designed verifier (rephrases, from rollouts)
+    - Blue line: designed verifier OOD (rephrases, from rollouts_ood)
+    - Purple line: designed verifier regular (rephrases, from rollouts)
     Save plots in ./plots/task_success_rate_combined/
     """
     import matplotlib.pyplot as plt
@@ -881,16 +883,17 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
                 task_rephrase_results[task][rephrase_num].append(is_success)
         return task_rephrase_results
 
-    # Aggregate results
+    # Aggregate results from all three directories
     oracle_results = aggregate_task_rephrase_results(rollouts_oracle_dir)
-    designed_results = aggregate_task_rephrase_results(rollouts_dir)
+    ood_results = aggregate_task_rephrase_results(rollouts_ood_dir)
+    regular_results = aggregate_task_rephrase_results(rollouts_dir)
 
     # Output dir
-    combined_plot_dir = os.path.join("./plots", "task_success_rate_combined")
+    combined_plot_dir = os.path.join("./plots", "task_success_rate_combined_all")
     os.makedirs(combined_plot_dir, exist_ok=True)
 
     # Union of all tasks
-    all_tasks = set(oracle_results.keys()) | set(designed_results.keys())
+    all_tasks = set(oracle_results.keys()) | set(ood_results.keys()) | set(regular_results.keys())
 
     for task in all_tasks:
         # Oracle policy (no_transform_1, rephrase_num=0)
@@ -899,53 +902,80 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_dir):
             results = oracle_results[task][0]
             if results:
                 oracle_policy_rate = sum(results) / len(results)
+        
         # Oracle verifier (rephrases, from rollouts_oracle)
         oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
         oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
         oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
-        # Designed verifier (rephrases, from rollouts)
-        designed_rephrase_nums = sorted(designed_results.get(task, {}).keys())
-        designed_rephrase_rates = [sum(designed_results[task][k])/len(designed_results[task][k]) if designed_results[task][k] else 0 for k in designed_rephrase_nums]
-        designed_counts = [len(designed_results[task][k]) for k in designed_rephrase_nums]
+        
+        # OOD verifier (rephrases, from rollouts_ood)
+        ood_rephrase_nums = sorted(ood_results.get(task, {}).keys())
+        ood_rephrase_rates = [sum(ood_results[task][k])/len(ood_results[task][k]) if ood_results[task][k] else 0 for k in ood_rephrase_nums]
+        ood_counts = [len(ood_results[task][k]) for k in ood_rephrase_nums]
+        
+        # Regular verifier (rephrases, from rollouts)
+        regular_rephrase_nums = sorted(regular_results.get(task, {}).keys())
+        regular_rephrase_rates = [sum(regular_results[task][k])/len(regular_results[task][k]) if regular_results[task][k] else 0 for k in regular_rephrase_nums]
+        regular_counts = [len(regular_results[task][k]) for k in regular_rephrase_nums]
 
-        plt.figure(figsize=(max(8, max(len(oracle_rephrase_nums), len(designed_rephrase_nums)) * 1.2), 6))
+        plt.figure(figsize=(max(8, max(len(oracle_rephrase_nums), len(ood_rephrase_nums), len(regular_rephrase_nums)) * 1.2), 6))
+        
         # Oracle verifier (green)
         if oracle_rephrase_nums:
-            plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (rephrases)')
-        # Designed verifier (blue)
-        if designed_rephrase_nums:
-            plt.plot(designed_rephrase_nums, designed_rephrase_rates, marker='o', color='royalblue', label='Designed Verifier (rephrases)')
+            plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (rephrases)', linewidth=2)
+        
+        # OOD verifier (blue)
+        if ood_rephrase_nums:
+            plt.plot(ood_rephrase_nums, ood_rephrase_rates, marker='s', color='royalblue', label='Verifier-ood (outset rephrases)', linewidth=2)
+        
+        # Regular verifier (purple)
+        if regular_rephrase_nums:
+            plt.plot(regular_rephrase_nums, regular_rephrase_rates, marker='^', color='purple', label='Verifier-id (normal rephrases)', linewidth=2)
+        
         # Oracle policy (red horizontal line)
         if oracle_policy_rate is not None:
-            plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)')
+            plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)', linewidth=2)
+        
         # X ticks
-        all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(designed_rephrase_nums))
-        plt.xticks(all_rephrase_nums)
+        all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(ood_rephrase_nums) | set(regular_rephrase_nums))
+        if all_rephrase_nums:
+            plt.xticks(all_rephrase_nums)
+        
         plt.xlabel('Number of Samples (Rephrases)')
         plt.ylabel('Success Rate')
         plt.ylim(0, 1.05)
         plt.title(task.replace('_', ' '))
-        # Annotate with counts (oracle counts above, designed below)
+        plt.grid(True, alpha=0.3)
+        
+        # Annotate with counts (staggered vertically to avoid overlap)
+        y_offset_oracle = 0.08
+        y_offset_ood = 0.04
+        y_offset_regular = -0.04
+        
         for x, y, n in zip(oracle_rephrase_nums, oracle_rephrase_rates, oracle_counts):
-            plt.text(x, y + 0.03, f'n={n}', ha='center', fontsize=8, color='mediumseagreen')
-        for x, y, n in zip(designed_rephrase_nums, designed_rephrase_rates, designed_counts):
-            plt.text(x, y - 0.06, f'n={n}', ha='center', fontsize=8, color='royalblue')
-        plt.legend()
+            plt.text(x, y + y_offset_oracle, f'n={n}', ha='center', fontsize=7, color='mediumseagreen', weight='bold')
+        for x, y, n in zip(ood_rephrase_nums, ood_rephrase_rates, ood_counts):
+            plt.text(x, y + y_offset_ood, f'n={n}', ha='center', fontsize=7, color='royalblue', weight='bold')
+        for x, y, n in zip(regular_rephrase_nums, regular_rephrase_rates, regular_counts):
+            plt.text(x, y + y_offset_regular, f'n={n}', ha='center', fontsize=7, color='purple', weight='bold')
+        
+        plt.legend(loc='best')
         plt.tight_layout()
+        
         # Sanitize filename
         safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
-        out_path = os.path.join(combined_plot_dir, f'{safe_task}_success_rate_combined.png')
-        plt.savefig(out_path)
+        out_path = os.path.join(combined_plot_dir, f'{safe_task}_success_rate_combined_all.png')
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
         plt.close()
         print(f"Saved combined success rate plot for task '{task}' to {out_path}")
 
 if __name__ == "__main__":
 
-    path_to_rollouts_oracle = "./rollouts_oracle"
-    path_to_rollouts_clip = "./rollouts"
+    path_to_rollouts_oracle = "./rollouts_ood_oracle"
+    path_to_rollouts_clip = "./rollouts_ood"
     
-    results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
-    results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
+    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
+    # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
 
     # Call the new combined plot function
-    create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip)
+    create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip, "./rollouts")

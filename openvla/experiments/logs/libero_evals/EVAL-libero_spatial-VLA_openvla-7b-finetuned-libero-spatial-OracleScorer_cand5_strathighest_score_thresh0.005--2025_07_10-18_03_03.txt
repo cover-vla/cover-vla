@@ -1,0 +1,4 @@
+Task suite: libero_spatial
+
+Task: Pick up the dark dish from the timber storage unit and place it on top of the dishware. (Trial 1/20)
+Starting episode 1...

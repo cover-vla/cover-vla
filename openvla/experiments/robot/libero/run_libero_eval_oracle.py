@@ -167,7 +167,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
             all_scores = []
             all_actions = []
-            pre_sampled_rephrased_instructions_pool = []
+            # pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
                 pre_sampled_rephrased_instructions_pool = rephrased_list[1:]  # Use the rest as alternatives
                 # Commented out: on-the-fly generation
@@ -226,7 +226,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     num_additional_to_generate = cfg.clip_select_action_num_candidates - 1
                     if num_additional_to_generate > 0 and pre_sampled_rephrased_instructions_pool:
                         # Using pre_sampled_rephrased_instructions_pool based on original_task_description:
-                        sample_indices = np.random.choice(len(pre_sampled_rephrased_instructions_pool), size=num_additional_to_generate, replace=False)
+                        # sample_indices = np.random.choice(len(pre_sampled_rephrased_instructions_pool), size=num_additional_to_generate, replace=False)
+                        sample_indices = np.arange(len(pre_sampled_rephrased_instructions_pool))[:num_additional_to_generate]
                         additional_rephrased_instr = [pre_sampled_rephrased_instructions_pool[i] for i in sample_indices]
                         candidate_instructions.extend(additional_rephrased_instr)
 
@@ -247,6 +248,11 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
 
                     oracle_scores_np = np.array(oracle_scores).squeeze()
+                    
+                    # print candidate_instructions and the corresponding oracle_scores
+                    # for i in range(len(candidate_instructions)):
+                    #     print(f"  Candidate {i}: {candidate_instructions[i]} (Score: {oracle_scores_np[i]:.3f})")
+                    # input()
 
                     if cfg.clip_select_action_strategy == "highest_score":
                         valid_indices = np.where(oracle_scores_np > -np.inf)[0] # Check for valid scores

@@ -48,13 +48,7 @@ class LangTransform:
             Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
             - Convey the same objective as the original
             - Use clear and simple, natural language
-            - Keep the nouns as it is (for example, you should not change words such as bowl, plates, table, box, milk), as changing the nouns might affect the meaning in robotics settings sometimes.
-            - Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging.
-
-            Content requirement example: 
-            original instruction: "pick up the black bowl between the plate and the ramekin and place it on the plate".
-            In this case, you should not change the words such as bowl, plate, ramekin, as changing the nouns might affect the meaning in robotics settings sometimes.
-            
+            - Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging. 
             
             Format your response as:
 
@@ -204,10 +198,10 @@ class LangTransform:
     #         return file_contents[0].strip()
         
     def get_system_prompt(self, transform_type):
-        with open(f'/home/xilun/vla-clip/clip_verifier/system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
+        with open(f'./system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
             return file.read()
         
-    def get_set_of_words(self, path_to_ep_stat = '/home/xilun/vla-clip/clip_verifier/scripts/unique_words.json'):
+    def get_set_of_words(self, path_to_ep_stat = 'unique_words.json'):
         set_of_words = self.open_json(path_to_ep_stat)
         return set_of_words
     
