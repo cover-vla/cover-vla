@@ -14,12 +14,12 @@ TASK_SUITES = [
     "libero_spatial",
     # "libero_object",
     # "libero_goal",
-    "libero_10",
+    # "libero_10",
     # "libero_90",
 ]
 
 BATCH_NUMBER = 25
-LANG_TRANSFORM_TYPE = "out_set"
+LANG_TRANSFORM_TYPE = "no_transform"
 
 def main():
     lang_transform = LangTransform()

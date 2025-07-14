@@ -47,8 +47,8 @@ class LangTransform:
         instruction = f"""
             Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
             - Convey the same objective as the original
-            - Use clear and simple, natural language
             - Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging. 
+            - Try to paraphrase both the noun and the verb.
             
             Format your response as:
 
@@ -160,7 +160,7 @@ class LangTransform:
             system_prompt = self.get_system_prompt('rephrase_batch')
             
         if batch_number > 1:
-            t = 0
+            t = 1
             instruction = self.get_rephrase_batch(instruction, batch_number=batch_number)
 
         # Create the messages list with content array
@@ -198,10 +198,10 @@ class LangTransform:
     #         return file_contents[0].strip()
         
     def get_system_prompt(self, transform_type):
-        with open(f'./system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
+        with open(f'/root/vla-clip/clip_verifier/system_prompts/{transform_type}.txt', 'r', encoding='utf-8') as file:
             return file.read()
         
-    def get_set_of_words(self, path_to_ep_stat = 'unique_words.json'):
+    def get_set_of_words(self, path_to_ep_stat = '/root/vla-clip/clip_verifier/scripts/unique_words.json'):
         set_of_words = self.open_json(path_to_ep_stat)
         return set_of_words
     

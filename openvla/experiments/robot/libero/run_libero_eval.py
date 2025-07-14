@@ -234,6 +234,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
             all_scores = []
             all_actions = []
+            all_selected_instructions = []
             # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
             if cfg.clip_select_action_num_candidates > 1:
                 # pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
@@ -357,7 +358,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             scores_valid = scores[valid_indices]
                             best_valid_idx_in_valid_list = np.argmax(scores_valid)
                             best_candidate_idx = valid_indices[best_valid_idx_in_valid_list]
-
+                            all_selected_instructions.append(candidate_instructions[best_candidate_idx])
                             action_to_execute = predicted_actions[best_candidate_idx]
                             current_vla_clip_score = scores[best_candidate_idx]
                             current_history_for_scoring = padded_histories[best_candidate_idx] # Update history if different action chosen
@@ -369,49 +370,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                                 print(f"  [t={t}] Kept original action (Score: {current_vla_clip_score:.3f}) after evaluating alternatives.")
                                 # log_file.write(f"  [t={t}] Kept original action (Score: {current_vla_clip_score:.3f}) after evaluating alternatives.\n")
                                 # log_file.write(f"original_instruction: {original_task_description} with score {scores[3]}\n")
-                    elif cfg.clip_select_action_strategy == "majority_vote":
-                        valid_indices = np.where(scores > -np.inf)[0]
-                        action_counts = {}
-                        for idx in valid_indices:
-                            action = predicted_actions[idx]
-                            action_tuple = tuple(action)
-                            action_counts[action_tuple] = action_counts.get(action_tuple, 0) + 1
-                        # Find the action with the highest count
-                        if action_counts:
-                            most_common_action = max(action_counts, key=action_counts.get)
-                            action_to_execute = np.array(most_common_action)
-                            current_vla_clip_score = scores[valid_indices[np.argmax(action_counts.values())]]
-                            current_history_for_scoring = padded_histories[valid_indices[np.argmax(action_counts.values())]]
-                            print(f"  [t={t}] Selected action via majority vote: {action_to_execute} (Score: {current_vla_clip_score:.3f})")
-                            
-
-                    elif cfg.clip_select_action_strategy == "softmax_sample":
-                        valid_scores = scores[scores > -np.inf]
-                        valid_indices = np.where(scores > -np.inf)[0]
-
-                        if len(valid_scores) == 0:
-                            print("  Warning: All candidate scores (including original) are invalid (-inf). Using original action.")
-                            # action_to_execute is already original_action
-                            current_vla_clip_score = -np.inf
-                            current_history_for_scoring = original_padded_history
-                        else:
-                            temperature = 0.5
-                            probabilities = torch.softmax(torch.tensor(valid_scores) / temperature, dim=0).numpy()
-                            # Ensure probabilities sum to 1, handle potential floating point issues
-                            probabilities /= np.sum(probabilities)
-                            chosen_valid_idx_in_valid_list = np.random.choice(len(valid_indices), p=probabilities)
-                            chosen_original_idx = valid_indices[chosen_valid_idx_in_valid_list]
-
-                            action_to_execute = predicted_actions[chosen_original_idx]
-                            current_vla_clip_score = scores[chosen_original_idx]
-                            current_history_for_scoring = padded_histories[chosen_original_idx] # Update history
-
-                            prob_display = probabilities[chosen_valid_idx_in_valid_list]
-                            if chosen_original_idx != 0:
-                                print(f"  [t={t}] Sampled alternative action via: '{candidate_instructions[chosen_original_idx]}' (Score: {current_vla_clip_score:.3f}, Prob: {prob_display:.3f})")
-                            else:
-                                print(f"  [t={t}] Sampled original action (Score: {current_vla_clip_score:.3f}, Prob: {prob_display:.3f}) after evaluating alternatives.")
-
                 # --- Execute Action and Update State ---
                 action_to_execute_list = action_to_execute.tolist()
                 obs, reward, done, info = env.step(action_to_execute_list)
@@ -421,7 +379,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 # Append the score of the executed action for logging
                 all_scores.append(current_vla_clip_score if not np.isnan(current_vla_clip_score) and current_vla_clip_score > -np.inf else np.nan)
                 all_actions.append(action_to_execute)
-
+                
                 if done:
                     task_successes += 1
                     total_successes += 1
@@ -447,6 +405,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 log_file=log_file,
                 score_list=all_scores,
                 action_list=all_actions,
+                task_description_list=all_selected_instructions,
                 clip_update_num=cfg.clip_select_action_num_candidates,
                 use_original_task_description=cfg.use_original_task_description
             )

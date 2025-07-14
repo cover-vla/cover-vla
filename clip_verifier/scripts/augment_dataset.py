@@ -217,15 +217,15 @@ def augment_dataset(dataset_path, dataset_folders, output_path, history_length=1
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create dataset with potentially padded pos/neg action histories based on global stats.')
-    parser.add_argument('--dataset_path', type=str, default='/home/xilun/LIBERO/libero/datasets',
+    parser.add_argument('--dataset_path', type=str, default='/root/LIBERO/libero/datasets',
                         help='Path to the dataset')
     parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial_no_noops'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_spatial_all.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_spatial_all_diverse.pkl',
                         help='Path to save the augmented dataset')
     parser.add_argument('--history_length', type=int, default=10,
                         help='Number of past action steps to include in the history (H)')
-    parser.add_argument('--rephrases_json', type=str, default=['/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json', '/home/xilun/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json'],
+    parser.add_argument('--rephrases_json', type=str, default=['/root/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard_new.json', '/root/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json', '/root/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json'],
                         help='Path to the JSON file containing instruction rephrases')
     parser.add_argument('--suite_name', type=str, default='libero_spatial',
                         help='Suite name (e.g., libero_spatial) for rephrases JSON')
@@ -236,9 +236,9 @@ if __name__ == "__main__":
                 history_length=args.history_length,
                 rephrases_json_path=args.rephrases_json,
                 suite_name=args.suite_name)
-    final_dataset = pickle.load(open(args.output_path, 'rb'))
-    for instruction, data in final_dataset.items():
-        print ("instruction", instruction)
-        # print ("data", data['samples'].keys())
-        input()
+    # final_dataset = pickle.load(open(args.output_path, 'rb'))
+    # for instruction, data in final_dataset.items():
+    #     print ("instruction", instruction)
+    #     # print ("data", data['samples'].keys())
+    #     input()
     

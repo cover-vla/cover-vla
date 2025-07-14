@@ -16,7 +16,7 @@ CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py
   --task_suite_name libero_spatial \
   --use_oracle_scorer True \
   --vla_clip_history_length 10 \
-  --clip_select_action_num_candidates 5 \
+  --clip_select_action_num_candidates 15 \
   --lang_transform_type rephrase
 
 

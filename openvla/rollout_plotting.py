@@ -7,6 +7,7 @@ import pandas as pd
 from datetime import datetime
 import re # Import re for parsing filenames
 from collections import defaultdict
+import difflib  # For text similarity analysis
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
@@ -59,6 +60,8 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         # create_global_score_length_plot(results, plots_dir)
         # create_rate_vs_score_plot(results, plots_dir)
         create_task_success_rate_plots(rollout_dir)
+        create_task_time_series_plots(rollout_dir)  # Add the new function call
+        create_language_instruction_distance_plots(rollout_dir)  # Add language instruction distance analysis
 
     return results, time_series_data
 
@@ -922,7 +925,7 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
         
         # Oracle verifier (green)
         if oracle_rephrase_nums:
-            plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (rephrases)', linewidth=2)
+            plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (outset rephrases)', linewidth=2)
         
         # OOD verifier (blue)
         if ood_rephrase_nums:
@@ -969,6 +972,555 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
         plt.close()
         print(f"Saved combined success rate plot for task '{task}' to {out_path}")
 
+def create_task_time_series_plots(rollout_dir):
+    """
+    For each unique task (language instruction), create a time series plot showing
+    score over time for different transformation types.
+    X-axis: timestep
+    Y-axis: score
+    Each line represents a different transformation (no_transform_1, rephrase_1, rephrase_5, etc.)
+    """
+    import matplotlib.pyplot as plt
+    import os
+    import re
+    from glob import glob
+    from collections import defaultdict
+    import numpy as np
+    
+    # Find all transformation folders (exclude plots)
+    transformation_folders = [d for d in os.listdir(rollout_dir)
+                             if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots"]
+    if not transformation_folders:
+        print(f"No transformation folders found in {rollout_dir}")
+        return
+    
+    # Aggregate: task -> transformation -> [score_lists]
+    task_transformation_data = defaultdict(lambda: defaultdict(list))
+    
+    for trans in transformation_folders:
+        folder_path = os.path.join(rollout_dir, trans)
+        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+        
+        for pkl_file in pkl_files:
+            filename = os.path.basename(pkl_file)
+            
+            # Extract task
+            task_match = re.search(r'task=([^.]*)', filename)
+            if not task_match:
+                continue
+            task = task_match.group(1)
+            
+            # Load data
+            try:
+                with open(pkl_file, "rb") as f:
+                    data = pickle.load(f)
+                    if "score_list" not in data:
+                        continue
+                    score_list = data["score_list"]
+                    
+                    # Convert scores to numpy array and replace 0 with NaN
+                    scores_np = np.array(score_list, dtype=float)
+                    scores_np[scores_np == 0] = np.nan
+                    
+                    task_transformation_data[task][trans].append(scores_np)
+            except Exception as e:
+                print(f"Error loading {pkl_file}: {e}")
+                continue
+    
+    # Create output directory
+    task_time_series_dir = os.path.join(rollout_dir, "plots", "task_time_series")
+    os.makedirs(task_time_series_dir, exist_ok=True)
+    
+    # Create a plot for each task
+    for task, trans_dict in task_transformation_data.items():
+        if not trans_dict:
+            continue
+            
+        plt.figure(figsize=(12, 8))
+        
+        # Sort transformations for consistent ordering
+        def sort_key(x):
+            if x == "no_transform_1":
+                return (0, 0)  # no_transform_1 first
+            match = re.search(r'rephrase_(\d+)', x)
+            if match:
+                return (1, int(match.group(1)))
+            return (2, 999)  # fallback for other patterns
+        
+        sorted_transformations = sorted(trans_dict.keys(), key=sort_key)
+        
+        # Use a list of distinct colors
+        color_list = ['red', 'green', 'blue', 'orange', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+        colors = [color_list[i % len(color_list)] for i in range(len(sorted_transformations))]
+        
+        for i, trans in enumerate(sorted_transformations):
+            score_lists = trans_dict[trans]
+            if not score_lists:
+                continue
+                
+            # Find maximum length across all episodes for this transformation
+            max_len = max(len(scores) for scores in score_lists)
+            
+            # Calculate average score at each timestep
+            avg_scores = []
+            std_scores = []
+            
+            for t in range(max_len):
+                timestep_scores = []
+                for scores in score_lists:
+                    if t < len(scores) and not np.isnan(scores[t]):
+                        timestep_scores.append(scores[t])
+                
+                if timestep_scores:
+                    avg_scores.append(np.mean(timestep_scores))
+                    std_scores.append(np.std(timestep_scores))
+                else:
+                    avg_scores.append(np.nan)
+                    std_scores.append(np.nan)
+            
+            # Plot the line
+            timesteps = np.arange(1, len(avg_scores) + 1)
+            valid_mask = ~np.isnan(avg_scores)
+            
+            if np.any(valid_mask):
+                # Choose line style: solid for no_transform_1, dashed for rephrases
+                linestyle = '-' if trans == "no_transform_1" else '--'
+                linewidth = 1.5
+                
+                plt.plot(timesteps[valid_mask], np.array(avg_scores)[valid_mask], 
+                        color=colors[i], linestyle=linestyle, linewidth=linewidth,
+                        label=f'{trans} (n={len(score_lists)})', marker=None)
+                
+                # Add confidence interval
+                avg_array = np.array(avg_scores)
+                std_array = np.array(std_scores)
+                plt.fill_between(timesteps[valid_mask], 
+                               (avg_array - std_array)[valid_mask], 
+                               (avg_array + std_array)[valid_mask],
+                               color=colors[i], alpha=0.1)
+        
+        plt.xlabel('Timestep')
+        plt.ylabel('Average Score')
+        plt.title(f'Time Series for Task: {task.replace("_", " ")}')
+        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.grid(True, alpha=0.2)
+        plt.tight_layout()
+        
+        # Save the plot
+        safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+        out_path = os.path.join(task_time_series_dir, f'{safe_task}_time_series.png')
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Saved time series plot for task '{task}' to {out_path}")
+
+def calculate_text_similarity(text1, text2):
+    """
+    Calculate similarity between two text strings using difflib.
+    Returns a similarity score between 0 and 1 (1 being identical).
+    """
+    if not text1 or not text2:
+        return 0.0
+    
+    # Normalize texts: lowercase and strip whitespace
+    text1 = str(text1).lower().strip()
+    text2 = str(text2).lower().strip()
+    
+    # Use difflib's SequenceMatcher for similarity
+    similarity = difflib.SequenceMatcher(None, text1, text2).ratio()
+    return similarity
+
+def create_language_instruction_distance_plots(rollout_dir):
+    """
+    Analyze the relationship between average embedding distance and success rate.
+    Creates plots showing that lower average embedding distance correlates with higher success rate.
+    
+    Args:
+        rollout_dir: Path to the directory containing rollout data
+    """
+    import matplotlib.pyplot as plt
+    import os
+    import re
+    from glob import glob
+    from collections import defaultdict
+    import numpy as np
+    
+    # Find all transformation folders (exclude plots)
+    transformation_folders = [d for d in os.listdir(rollout_dir)
+                             if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots"]
+    if not transformation_folders:
+        print(f"No transformation folders found in {rollout_dir}")
+        return
+    
+    # Aggregate data: collect all episodes with their average embedding distance and success status
+    all_episodes_data = []
+    task_episodes_data = defaultdict(list)
+    
+    for trans in transformation_folders:
+        folder_path = os.path.join(rollout_dir, trans)
+        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+        
+        for pkl_file in pkl_files:
+            filename = os.path.basename(pkl_file)
+            
+            # Extract success status
+            success_match = re.search(r'success=(True|False)', filename)
+            if not success_match:
+                continue
+            is_success = success_match.group(1) == 'True'
+                
+            # Extract task
+            task_match = re.search(r'task=([^.]*)', filename)
+            if not task_match:
+                continue
+            task = task_match.group(1)
+            
+            # Load data
+            try:
+                with open(pkl_file, "rb") as f:
+                    data = pickle.load(f)
+                    
+                    # Extract relevant data
+                    original_task_description = data.get("original_task_description", "")
+                    task_description_list = data.get("task_description_list", [])
+                    
+                    if not original_task_description or not task_description_list:
+                        continue
+                    
+                    # Calculate average embedding distance (using text similarity as proxy)
+                    # Lower similarity = higher distance, so we use (1 - similarity) as distance
+                    distances = []
+                    for selected_instruction in task_description_list:
+                        if selected_instruction:
+                            similarity = calculate_text_similarity(
+                                original_task_description, 
+                                selected_instruction
+                            )
+                            distance = 1.0 - similarity  # Convert similarity to distance
+                            distances.append(distance)
+                        else:
+                            distances.append(1.0)  # Max distance for empty instructions
+                    
+                    # Calculate average distance for this episode
+                    avg_distance = np.mean(distances) if distances else 1.0
+                    
+                    episode_data = {
+                        'avg_distance': avg_distance,
+                        'is_success': is_success,
+                        'task': task,
+                        'transformation': trans,
+                        'filename': filename
+                    }
+                    
+                    all_episodes_data.append(episode_data)
+                    task_episodes_data[task].append(episode_data)
+                    
+            except Exception as e:
+                print(f"Error loading {pkl_file}: {e}")
+                continue
+    
+    if not all_episodes_data:
+        print("No valid episode data found for embedding distance analysis")
+        return
+    
+    # Create output directory
+    distance_analysis_dir = os.path.join(rollout_dir, "plots", "embedding_distance_success_analysis")
+    os.makedirs(distance_analysis_dir, exist_ok=True)
+    
+    # Create overall analysis plots
+    create_overall_distance_success_plot(all_episodes_data, distance_analysis_dir)
+    create_binned_distance_success_plot(all_episodes_data, distance_analysis_dir)
+    
+    # Create per-task analysis plots (both types for each task)
+    create_per_task_individual_plots(task_episodes_data, distance_analysis_dir)
+
+def create_overall_distance_success_plot(all_episodes_data, output_dir):
+    """
+    Create scatter plot showing relationship between average embedding distance and success.
+    """
+    plt.figure(figsize=(12, 8))
+    
+    # Separate successful and failed episodes
+    success_distances = [ep['avg_distance'] for ep in all_episodes_data if ep['is_success']]
+    failure_distances = [ep['avg_distance'] for ep in all_episodes_data if not ep['is_success']]
+    
+    # Create scatter plot
+    plt.scatter(success_distances, [1] * len(success_distances), 
+               c='green', alpha=0.6, s=30, label=f'Success (n={len(success_distances)})')
+    plt.scatter(failure_distances, [0] * len(failure_distances), 
+               c='red', alpha=0.6, s=30, label=f'Failure (n={len(failure_distances)})')
+    
+    # Add jitter to y-axis for better visualization
+    success_y = np.random.normal(1, 0.02, len(success_distances))
+    failure_y = np.random.normal(0, 0.02, len(failure_distances))
+    
+    plt.scatter(success_distances, success_y, c='green', alpha=0.4, s=20)
+    plt.scatter(failure_distances, failure_y, c='red', alpha=0.4, s=20)
+    
+    # Add trend analysis
+    all_distances = [ep['avg_distance'] for ep in all_episodes_data]
+    all_successes = [float(ep['is_success']) for ep in all_episodes_data]
+    
+    # Calculate correlation
+    correlation = np.corrcoef(all_distances, all_successes)[0, 1]
+    
+    plt.xlabel('Average Embedding Distance (1 - Text Similarity)')
+    plt.ylabel('Success (1) vs Failure (0)')
+    plt.title(f'Success Rate vs Average Embedding Distance\nCorrelation: {correlation:.3f}')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.ylim(-0.1, 1.1)
+    
+    # Add text box with statistics
+    success_mean_dist = np.mean(success_distances)
+    failure_mean_dist = np.mean(failure_distances)
+    textstr = f'Mean Distance:\nSuccess: {success_mean_dist:.3f}\nFailure: {failure_mean_dist:.3f}'
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    plt.text(0.02, 0.98, textstr, transform=plt.gca().transAxes, fontsize=10,
+             verticalalignment='top', bbox=props)
+    
+    plt.tight_layout()
+    out_path = os.path.join(output_dir, 'overall_distance_success_scatter.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved overall distance-success scatter plot to {out_path}")
+
+def create_binned_distance_success_plot(all_episodes_data, output_dir):
+    """
+    Create binned analysis showing success rate for different distance ranges.
+    """
+    plt.figure(figsize=(12, 8))
+    
+    # Get all distances and create bins
+    all_distances = [ep['avg_distance'] for ep in all_episodes_data]
+    min_dist, max_dist = min(all_distances), max(all_distances)
+    
+    # Create 10 bins
+    n_bins = 10
+    bin_edges = np.linspace(min_dist, max_dist, n_bins + 1)
+    bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
+    
+    success_rates = []
+    bin_counts = []
+    bin_labels = []
+    
+    for i in range(n_bins):
+        # Find episodes in this bin
+        episodes_in_bin = [ep for ep in all_episodes_data 
+                          if bin_edges[i] <= ep['avg_distance'] < bin_edges[i+1]]
+        
+        # Handle last bin to include the maximum value
+        if i == n_bins - 1:
+            episodes_in_bin = [ep for ep in all_episodes_data 
+                              if bin_edges[i] <= ep['avg_distance'] <= bin_edges[i+1]]
+        
+        if episodes_in_bin:
+            successes = sum(1 for ep in episodes_in_bin if ep['is_success'])
+            success_rate = successes / len(episodes_in_bin)
+            success_rates.append(success_rate)
+            bin_counts.append(len(episodes_in_bin))
+            bin_labels.append(f'[{bin_edges[i]:.2f}, {bin_edges[i+1]:.2f})')
+        else:
+            success_rates.append(0)
+            bin_counts.append(0)
+            bin_labels.append(f'[{bin_edges[i]:.2f}, {bin_edges[i+1]:.2f})')
+    
+    # Create bar plot
+    bars = plt.bar(range(len(success_rates)), success_rates, 
+                   color=['green' if sr > 0.5 else 'red' for sr in success_rates],
+                   alpha=0.7, edgecolor='black')
+    
+    # Add count labels on bars
+    for bar, count in zip(bars, bin_counts):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                f'n={count}', ha='center', va='bottom', fontsize=8)
+    
+    plt.xlabel('Average Embedding Distance Bins')
+    plt.ylabel('Success Rate')
+    plt.title('Success Rate vs Average Embedding Distance (Binned Analysis)')
+    plt.xticks(range(len(bin_labels)), [f'{bin_centers[i]:.2f}' for i in range(len(bin_centers))], 
+               rotation=45, ha='right')
+    plt.grid(True, alpha=0.3, axis='y')
+    plt.ylim(0, 1)
+    
+    # Add trend line
+    # Filter out bins with no data for trend calculation
+    valid_bins = [(i, sr) for i, sr in enumerate(success_rates) if bin_counts[i] > 0]
+    if len(valid_bins) > 1:
+        x_trend = [x for x, _ in valid_bins]
+        y_trend = [y for _, y in valid_bins]
+        z = np.polyfit(x_trend, y_trend, 1)
+        p = np.poly1d(z)
+        plt.plot(x_trend, p(x_trend), "b--", alpha=0.8, linewidth=2, 
+                label=f'Trend (slope: {z[0]:.3f})')
+        plt.legend()
+    
+    plt.tight_layout()
+    out_path = os.path.join(output_dir, 'binned_distance_success_rate.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved binned distance-success rate plot to {out_path}")
+
+
+
+def create_per_task_individual_plots(task_episodes_data, output_dir):
+    """
+    Create individual scatter and binned plots for each task showing distance-success relationship.
+    """
+    for task, episodes in task_episodes_data.items():
+        if not episodes:
+            continue
+            
+        # Create scatter plot for this task
+        create_task_scatter_plot(task, episodes, output_dir)
+        
+        # Create binned plot for this task
+        create_task_binned_plot(task, episodes, output_dir)
+
+def create_task_scatter_plot(task, episodes, output_dir):
+    """
+    Create scatter plot for a single task showing relationship between average embedding distance and success.
+    """
+    plt.figure(figsize=(10, 6))
+    
+    # Separate successful and failed episodes
+    success_distances = [ep['avg_distance'] for ep in episodes if ep['is_success']]
+    failure_distances = [ep['avg_distance'] for ep in episodes if not ep['is_success']]
+    
+    # Create scatter plot
+    plt.scatter(success_distances, [1] * len(success_distances), 
+               c='green', alpha=0.6, s=30, label=f'Success (n={len(success_distances)})')
+    plt.scatter(failure_distances, [0] * len(failure_distances), 
+               c='red', alpha=0.6, s=30, label=f'Failure (n={len(failure_distances)})')
+    
+    # Add jitter to y-axis for better visualization
+    if success_distances:
+        success_y = np.random.normal(1, 0.02, len(success_distances))
+        plt.scatter(success_distances, success_y, c='green', alpha=0.4, s=20)
+    
+    if failure_distances:
+        failure_y = np.random.normal(0, 0.02, len(failure_distances))
+        plt.scatter(failure_distances, failure_y, c='red', alpha=0.4, s=20)
+    
+    # Add trend analysis
+    all_distances = [ep['avg_distance'] for ep in episodes]
+    all_successes = [float(ep['is_success']) for ep in episodes]
+    
+    # Calculate correlation
+    if len(all_distances) > 1:
+        correlation = np.corrcoef(all_distances, all_successes)[0, 1]
+    else:
+        correlation = 0.0
+    
+    plt.xlabel('Average Embedding Distance (1 - Text Similarity)')
+    plt.ylabel('Success (1) vs Failure (0)')
+    safe_task_name = task.replace('_', ' ')
+    plt.title(f'Task: {safe_task_name}\nCorrelation: {correlation:.3f}')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.ylim(-0.1, 1.1)
+    
+    # Add text box with statistics
+    if success_distances and failure_distances:
+        success_mean_dist = np.mean(success_distances)
+        failure_mean_dist = np.mean(failure_distances)
+        textstr = f'Mean Distance:\nSuccess: {success_mean_dist:.3f}\nFailure: {failure_mean_dist:.3f}'
+        props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+        plt.text(0.02, 0.98, textstr, transform=plt.gca().transAxes, fontsize=9,
+                 verticalalignment='top', bbox=props)
+    
+    plt.tight_layout()
+    safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_scatter.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved task scatter plot for '{task}' to {out_path}")
+
+def create_task_binned_plot(task, episodes, output_dir):
+    """
+    Create binned analysis plot for a single task showing success rate for different distance ranges.
+    """
+    plt.figure(figsize=(10, 6))
+    
+    # Get all distances for this task
+    all_distances = [ep['avg_distance'] for ep in episodes]
+    
+    if len(all_distances) < 2:
+        print(f"Not enough data for binned plot for task '{task}'")
+        return
+    
+    min_dist, max_dist = min(all_distances), max(all_distances)
+    
+    # Create bins (fewer bins for individual tasks)
+    n_bins = min(8, len(episodes) // 3)  # Adaptive number of bins
+    if n_bins < 2:
+        n_bins = 2
+    
+    bin_edges = np.linspace(min_dist, max_dist, n_bins + 1)
+    
+    success_rates = []
+    bin_counts = []
+    bin_centers = []
+    
+    for i in range(n_bins):
+        # Find episodes in this bin
+        episodes_in_bin = [ep for ep in episodes 
+                          if bin_edges[i] <= ep['avg_distance'] < bin_edges[i+1]]
+        
+        # Handle last bin to include the maximum value
+        if i == n_bins - 1:
+            episodes_in_bin = [ep for ep in episodes 
+                              if bin_edges[i] <= ep['avg_distance'] <= bin_edges[i+1]]
+        
+        if episodes_in_bin:
+            successes = sum(1 for ep in episodes_in_bin if ep['is_success'])
+            success_rate = successes / len(episodes_in_bin)
+            success_rates.append(success_rate)
+            bin_counts.append(len(episodes_in_bin))
+            bin_centers.append((bin_edges[i] + bin_edges[i+1]) / 2)
+        else:
+            success_rates.append(0)
+            bin_counts.append(0)
+            bin_centers.append((bin_edges[i] + bin_edges[i+1]) / 2)
+    
+    # Create bar plot
+    bars = plt.bar(range(len(success_rates)), success_rates, 
+                   color=['green' if sr > 0.5 else 'red' for sr in success_rates],
+                   alpha=0.7, edgecolor='black')
+    
+    # Add count labels on bars
+    for bar, count in zip(bars, bin_counts):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.02,
+                f'n={count}', ha='center', va='bottom', fontsize=8)
+    
+    plt.xlabel('Average Embedding Distance Bins')
+    plt.ylabel('Success Rate')
+    safe_task_name = task.replace('_', ' ')
+    plt.title(f'Task: {safe_task_name}\nSuccess Rate vs Distance (Binned)')
+    plt.xticks(range(len(bin_centers)), [f'{bc:.2f}' for bc in bin_centers], 
+               rotation=45, ha='right')
+    plt.grid(True, alpha=0.3, axis='y')
+    plt.ylim(0, 1.05)
+    
+    # Add trend line if we have enough valid bins
+    valid_bins = [(i, sr) for i, sr in enumerate(success_rates) if bin_counts[i] > 0]
+    if len(valid_bins) > 1:
+        x_trend = [x for x, _ in valid_bins]
+        y_trend = [y for _, y in valid_bins]
+        z = np.polyfit(x_trend, y_trend, 1)
+        p = np.poly1d(z)
+        plt.plot(x_trend, p(x_trend), "b--", alpha=0.8, linewidth=2, 
+                label=f'Trend (slope: {z[0]:.3f})')
+        plt.legend()
+    
+    plt.tight_layout()
+    safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_binned.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved task binned plot for '{task}' to {out_path}")
+
 if __name__ == "__main__":
 
     path_to_rollouts_oracle = "./rollouts_ood_oracle"
@@ -976,6 +1528,11 @@ if __name__ == "__main__":
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
     # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
+    
+    # create_task_time_series_plots(path_to_rollouts_clip)
+    
+    # Call the new language instruction distance plotting function
+    create_language_instruction_distance_plots(path_to_rollouts_oracle)
 
     # Call the new combined plot function
-    create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip, "./rollouts")
+    # create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip, "./rollouts")

@@ -59,12 +59,12 @@ def get_libero_image(obs, resize_size, key='agentview_image'):
 
 def save_rollout_video(rollout_images, idx, success, transform_type,
                        task_description, log_file=None, score_list=None, 
-                       action_list=None, clip_update_num=None, use_original_task_description=False,
+                       action_list=None, task_description_list=None, clip_update_num=None, use_original_task_description=False,
                        oracle_scorer=False):
     
     """Saves an MP4 replay of an episode."""
     if oracle_scorer:
-        rollout_dir = f"./rollouts_ood_oracle/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts_ood_oracle/{transform_type}_{clip_update_num}_lang"
     else:
         rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
@@ -95,6 +95,8 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
         data = {
             "score_list": score_list,
             "action_list": action_list,
+            "task_description_list": task_description_list,
+            "original_task_description": task_description,
         }
         with open(data_path, "wb") as f:
             pickle.dump(data, f)

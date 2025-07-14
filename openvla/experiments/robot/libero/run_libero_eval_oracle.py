@@ -167,6 +167,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
 
             all_scores = []
             all_actions = []
+            all_selected_instructions = []
             # pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
                 pre_sampled_rephrased_instructions_pool = rephrased_list[1:]  # Use the rest as alternatives
@@ -263,24 +264,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                             scores_to_consider = oracle_scores_np[valid_indices]
                             best_idx_in_valid = np.argmin(scores_to_consider)
                             chosen_candidate_idx = valid_indices[best_idx_in_valid]
-                        
-                    elif cfg.clip_select_action_strategy == "softmax_sample":
-                        valid_scores_list = [-s for s in oracle_scores_np if s > -np.inf]
-                        valid_indices = [i for i, s in enumerate(oracle_scores_np) if s > -np.inf]
-
-                        if not valid_scores_list:
-                            print("  Warning: All candidate oracle scores invalid for softmax. Using current task_description action.")
-                            chosen_candidate_idx = 0
-                        else:
-                            temperature = 1.0 # Temperature for softmax sampling of oracle scores
-                            probabilities = torch.softmax(torch.tensor(valid_scores_list) / temperature, dim=0).numpy()
-                            probabilities /= np.sum(probabilities) # Ensure sum to 1
-
-                            chosen_valid_idx_in_list = np.random.choice(len(valid_indices), p=probabilities)
-                            chosen_candidate_idx = valid_indices[chosen_valid_idx_in_list]
-                    else:
-                        print(f"  Warning: Unknown strategy '{cfg.clip_select_action_strategy}'. Defaulting to current action.")
-                        chosen_candidate_idx = 0
+                            all_selected_instructions.append(candidate_instructions[chosen_candidate_idx])
                     
                     action_to_execute = candidate_actions[chosen_candidate_idx]
                     current_oracle_score = oracle_scores_np[chosen_candidate_idx]
@@ -327,6 +311,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 log_file=log_file,
                 score_list=all_scores,
                 action_list=all_actions,
+                task_description_list=all_selected_instructions,
                 clip_update_num=cfg.clip_select_action_num_candidates,
                 use_original_task_description=cfg.use_original_task_description,
                 oracle_scorer=cfg.use_oracle_scorer,
