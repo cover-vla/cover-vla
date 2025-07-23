@@ -80,6 +80,8 @@ class CustomDataset(Dataset):
         img2 = Image.fromarray(img2.astype('uint8'))
         img1 = self.preprocess(img1)
         img2 = self.preprocess(img2)
+        
+        # Return raw caption - we'll tokenize in the training loop to handle batching properly
         return img1, img2, caption, pos_action_hist
 
 
@@ -92,24 +94,60 @@ class VLA_CLIP(nn.Module):
             param.requires_grad = False
             param.data = param.data.float()
             
-
+        # Model dimensions
+        text_pooling_output_dim = model_config.text_pooling_output_dim
+        pooling_heads = model_config.pooling_heads
+        pooling_layers = model_config.pooling_layers
+        self.num_readouts = model_config.num_readouts
         vision_pooling_output_dim = model_config.vision_pooling_output_dim
         
-        self.logit_scale = nn.Parameter(torch.tensor(2.6592))
+        # CLIP ViT-B/32 outputs 512-dim features
+        text_dim = 512  # CLIP text dimension
+        vision_dim = 512  # CLIP vision dimension
         
+        self.visual_patch_size = self.clip.visual.conv1.kernel_size[0]
+        self.num_img_patches = (224 // self.visual_patch_size) ** 2
 
-        # --- Multi-view fusion ---
-        # After CLIP, concatenate the two image embeddings and project
-        self.image_fusion_proj = nn.Sequential(
-            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim),
-            nn.ReLU(),
-            nn.Linear(vision_pooling_output_dim, vision_pooling_output_dim)
-        )      
         
-        self.image_action_projection = nn.Sequential(
-            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim),
+        self.logit_scale = nn.Parameter(torch.tensor(2.6592))  # ln(1/0.07) for better initialization
+        
+        # Text-aware visual extraction adapted for CLIP features
+        self.text_aware_visual_extraction = TextAwareVisualExtraction(
+            num_img_patches=self.num_img_patches,
+            vision_dim=vision_dim,
+        )
+        
+        # Pooling components
+        self.text_pooling = AttentionPooling(
+            text_dim, 
+            text_pooling_output_dim,
+            pooling_heads,
+            pooling_layers, 
+            num_readouts=self.num_readouts,
+        )        
+        self.agentview_vision_poolings = AttentionPooling(
+            vision_dim,
+            vision_pooling_output_dim,
+            pooling_heads, 
+            pooling_layers, 
+            num_readouts=self.num_readouts
+        )
+        self.handview_vision_poolings = AttentionPooling(
+            vision_dim,
+            vision_pooling_output_dim,
+            pooling_heads, 
+            pooling_layers, 
+            num_readouts=self.num_readouts
+        )
+        self.f_t_dim = text_pooling_output_dim + vision_pooling_output_dim
+        
+        self.input_projection = nn.Linear(self.f_t_dim, vision_pooling_output_dim)
+        
+        # Multi-view fusion
+        self.image_fusion_proj = nn.Sequential(
+            nn.Linear(2 * vision_pooling_output_dim, 2 * vision_pooling_output_dim),
             nn.ReLU(),
-            nn.Linear(vision_pooling_output_dim, vision_pooling_output_dim)
+            nn.Linear(2 * vision_pooling_output_dim, vision_pooling_output_dim)
         )
         
         # Action trajectory processing components
@@ -118,19 +156,15 @@ class VLA_CLIP(nn.Module):
         self.use_transformer = use_transformer
 
         if self.use_transformer:
-            # Transformer expects input features per step
             self.single_step_action_encoder = nn.Linear(self.action_dim, vision_pooling_output_dim)
-            # --- REMOVED batch_first=True ---
             encoder_layer = nn.TransformerEncoderLayer(
                     d_model=vision_pooling_output_dim,
-                    nhead=8, # Ensure vision_pooling_output_dim is divisible by nhead
-                    dim_feedforward=vision_pooling_output_dim * 2, # Common practice
-                    # batch_first=True, # REMOVED! Default is False
+                    nhead=8,
+                    dim_feedforward=vision_pooling_output_dim * 2,
                     dropout=0.1
                 )
             self.trajectory_encoder = nn.TransformerEncoder(encoder_layer, num_layers=4)
         else:
-            # MLP processes flattened trajectory
             self.complex_action_encoder = nn.Sequential(
                 nn.Linear(self.history_length * self.action_dim, 512),
                 nn.LayerNorm(512),
@@ -196,49 +230,125 @@ class VLA_CLIP(nn.Module):
             action_histories: Tensor (B, H, D) - Batch of action histories, potentially padded.
         """
         # Extract image/text features
+        patch_features1, text_features = self.extract_clip_features(image1, text)
+        patch_features2, _ = self.extract_clip_features(image2, text)
+        
+        # Text-aware visual features for both views
+        text_aware_features1 = self.text_aware_visual_extraction(patch_features1, text_features)
+        text_aware_features2 = self.text_aware_visual_extraction(patch_features2, text_features)
+        
+        # Vision pooling
+        vision_token1 = self.agentview_vision_poolings(text_aware_features1)
+        vision_token2 = self.handview_vision_poolings(text_aware_features2)
+        
+        # Concatenate and project
+        fused_vision = torch.cat([vision_token1, vision_token2], dim=-1)
+        fused_vision = self.image_fusion_proj(fused_vision)
+        
+        # Text pooling
+        text_token = self.text_pooling(text_features)
+        combined_features = torch.cat([text_token, fused_vision], dim=-1)
+        combined_features = self.input_projection(combined_features)
+        combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
+
+        # Encode Action History
+        action_histories = action_histories.float().to(image1.device)
+
+        if self.use_transformer:
+            # Transformer Path
+            padding_mask = (action_histories[:, :, 0] == self.action_padding_value)
+            encoded_steps = self.single_step_action_encoder(action_histories)
+            encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
+            transformer_output_permuted = self.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
+            transformer_output = transformer_output_permuted.permute(1, 0, 2)
+            
+            mask_expanded = (~padding_mask).unsqueeze(-1).float()
+            summed_features = (transformer_output * mask_expanded).sum(dim=1)
+            num_non_padded = mask_expanded.sum(dim=1)
+            num_non_padded = torch.clamp(num_non_padded, min=1e-9)
+            projected_trajectory = summed_features / num_non_padded
+        else:
+            # MLP Path
+            batch_size = action_histories.shape[0]
+            flat_actions = action_histories.reshape(batch_size, -1)
+            projected_trajectory = self.complex_action_encoder(flat_actions)
+
+        # Normalize action history features
+        projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
+
+        logits_scale = self.logit_scale.exp()
+        # Calculate logits
+        image_logits = torch.matmul(combined_features, projected_trajectory.T) * logits_scale
+        action_logits = torch.matmul(projected_trajectory, combined_features.T) * logits_scale
+
+        return image_logits, action_logits
+
+    def get_similarity_score(self, image1, image2, text, action_histories):
+        """
+        Computes the unscaled cosine similarity for inference.
+        Args:
+            image1: Tensor (B, C, H, W)
+            image2: Tensor (B, C, H, W)
+            text: Tensor (B, SeqLen) - tokenized text
+            action_histories: Tensor (B, H, D) - Batch of action histories.
+        Returns:
+            similarity: Tensor (B,) - The cosine similarity for each sample in the batch.
+        """
+        # Extract image/text features
         patch_features1 = self.clip.encode_image(image1)
         patch_features2 = self.clip.encode_image(image2)
         text_features = self.clip.encode_text(text)
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
         patch_features1 = patch_features1 / patch_features1.norm(dim=-1, keepdim=True)
         patch_features2 = patch_features2 / patch_features2.norm(dim=-1, keepdim=True)
-        # Concatenate and project (multi-view fusion)
-        fused_vision = torch.cat([patch_features1, patch_features2], dim=-1)
+        
+        # Text-aware visual features for both views
+        text_aware_features1 = self.text_aware_visual_extraction(patch_features1, text_features)
+        text_aware_features2 = self.text_aware_visual_extraction(patch_features2, text_features)
+        
+        # Vision pooling
+        vision_token1 = self.agentview_vision_poolings(text_aware_features1)
+        vision_token2 = self.handview_vision_poolings(text_aware_features2)
+        
+        # Concatenate and project
+        fused_vision = torch.cat([vision_token1, vision_token2], dim=-1)
         fused_vision = self.image_fusion_proj(fused_vision)
+        
+        # Text pooling
+        text_token = self.text_pooling(text_features)
+        combined_features = torch.cat([text_token, fused_vision], dim=-1)
+        combined_features = self.input_projection(combined_features)
+        combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
 
-        # --- Encode Action History ---
-        action_histories = action_histories.float().to(image1.device) # Shape (B, H, D)
+        # Encode Action History
+        action_histories = action_histories.float().to(image1.device)
+
         if self.use_transformer:
+            # Transformer Path
             padding_mask = (action_histories[:, :, 0] == self.action_padding_value)
             encoded_steps = self.single_step_action_encoder(action_histories)
             encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
             transformer_output_permuted = self.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
             transformer_output = transformer_output_permuted.permute(1, 0, 2)
-            mask_expanded = (~padding_mask).unsqueeze(-1).float() # Shape (B, H, 1)
-            summed_features = (transformer_output * mask_expanded).sum(dim=1) # Shape (B, E)
-            num_non_padded = mask_expanded.sum(dim=1) # Shape (B, 1)
+            
+            mask_expanded = (~padding_mask).unsqueeze(-1).float()
+            summed_features = (transformer_output * mask_expanded).sum(dim=1)
+            num_non_padded = mask_expanded.sum(dim=1)
             num_non_padded = torch.clamp(num_non_padded, min=1e-9)
-            projected_trajectory = summed_features / num_non_padded # Shape (B, E)
+            projected_trajectory = summed_features / num_non_padded
         else:
+            # MLP Path
             batch_size = action_histories.shape[0]
             flat_actions = action_histories.reshape(batch_size, -1)
             projected_trajectory = self.complex_action_encoder(flat_actions)
+
         # Normalize action history features
         projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
 
-        # --- Fuse image and action features ---
-        # Concatenate fused_vision and projected_trajectory, then project
-        image_action_fused = torch.cat([fused_vision, projected_trajectory], dim=-1)
-        
-        image_action_features = self.image_action_projection(image_action_fused)
-        image_action_features = image_action_features / image_action_features.norm(dim=-1, keepdim=True)
+        # Calculate cosine similarity (dot product of normalized vectors) for each sample
+        similarity = (combined_features * projected_trajectory).sum(dim=-1)
 
-        logits_scale = self.logit_scale.exp()
-        # Calculate logits: language vs (image+action)
-        lang_logits = logits_scale * torch.matmul(text_features, image_action_features.T)
-        image_action_logits = logits_scale * torch.matmul(image_action_features, text_features.T)
-
-        return lang_logits, image_action_logits
+        return similarity
         
 def train_clip(
     augmented_dataset_dict: dict,
@@ -262,7 +372,7 @@ def train_clip(
              save_name = f"vla_clip_traj_h{history_length}_{'transformer' if use_transformer else 'mlp'}"
              print(f"Generated save_name for wandb: {save_name}")
 
-        wandb.init(project="VLA-CLIP-Trajectory", name=save_name) # Adjusted project name
+        wandb.init(project="VLA-CLIP-Trajectory", name=save_name)
         wandb.config.update({
             "learning_rate": learning_rate,
             "epochs": num_epochs,
@@ -298,8 +408,8 @@ def train_clip(
         try:
              model.load_state_dict(torch.load(resume_checkpoint, map_location=device))
              print("Successfully loaded model weights.")
-             start_epoch = 0
              # Consider loading optimizer state and epoch if saved in checkpoint
+             start_epoch = 0
         except Exception as load_err:
               print(f"Error loading checkpoint: {load_err}. Starting training from scratch.")
               start_epoch = 0
@@ -366,10 +476,10 @@ def train_clip(
             input_actions = torch.tensor(np.array(pos_hists), dtype=torch.float32, device=device)
             current_batch_size = img1.shape[0]
             optimizer.zero_grad()
-            lang_logits, image_action_logits = model(img1, img2, input_texts, input_actions)
+            logits_per_image, logits_per_action = model(img1, img2, input_texts, input_actions)
             positive_labels = torch.arange(current_batch_size, device=device)
-            loss = (F.cross_entropy(lang_logits, positive_labels) +
-                    F.cross_entropy(image_action_logits, positive_labels)) / 2
+            loss = (F.cross_entropy(logits_per_image, positive_labels) +
+                    F.cross_entropy(logits_per_action, positive_labels)) / 2
             loss.backward()
             torch.nn.utils.clip_grad_norm_(filter(lambda p: p.requires_grad, model.parameters()), max_norm=1.0)
             optimizer.step()
@@ -390,10 +500,10 @@ def train_clip(
                 texts_tok = clip.tokenize(texts).to(device)
                 pos_hists = torch.tensor(np.array(pos_hists), dtype=torch.float32, device=device)
                 current_batch_size = img1.shape[0]
-                lang_logits, image_action_logits = model(img1, img2, texts_tok, pos_hists)
+                logits_per_image, logits_per_action = model(img1, img2, texts_tok, pos_hists)
                 positive_labels = torch.arange(current_batch_size, device=device)
-                val_loss = (F.cross_entropy(lang_logits, positive_labels) +
-                            F.cross_entropy(image_action_logits, positive_labels)) / 2
+                val_loss = (F.cross_entropy(logits_per_image, positive_labels) +
+                            F.cross_entropy(logits_per_action, positive_labels)) / 2
                 total_val_loss += val_loss.item()
                 val_batch_pbar.set_postfix({'loss': f'{val_loss.item():.4f}'})
 
@@ -411,11 +521,12 @@ def train_clip(
             best_val_loss = avg_val_loss
             torch.save(model.state_dict(), best_model_path)
             print(f"New best model saved with validation loss: {best_val_loss:.4f} at {best_model_path}")
-            if use_wandb: wandb.run.summary["best_val_loss"] = best_val_loss
+            if use_wandb and wandb.run is not None: 
+                wandb.run.summary["best_val_loss"] = best_val_loss
         # --- End Save Best Model ---
 
         # Optionally save periodic checkpoints
-        if (epoch + 1) % 100 == 0:
+        if (epoch + 1) % 1 == 0:
              checkpoint_path = os.path.join(checkpoint_dir, f"{save_name}_epoch_{epoch+1}.pt")
              torch.save(model.state_dict(), checkpoint_path)
              print(f"Checkpoint saved at {checkpoint_path}")

@@ -8,6 +8,8 @@ from datetime import datetime
 import re # Import re for parsing filenames
 from collections import defaultdict
 import difflib  # For text similarity analysis
+import torch
+from sklearn.metrics.pairwise import cosine_similarity
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
@@ -61,7 +63,7 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         # create_rate_vs_score_plot(results, plots_dir)
         create_task_success_rate_plots(rollout_dir)
         create_task_time_series_plots(rollout_dir)  # Add the new function call
-        create_language_instruction_distance_plots(rollout_dir)  # Add language instruction distance analysis
+        create_language_instruction_distance_plots(rollout_dir, embedding_type='text')  # Add language instruction distance analysis
 
     return results, time_series_data
 
@@ -1129,13 +1131,195 @@ def calculate_text_similarity(text1, text2):
     similarity = difflib.SequenceMatcher(None, text1, text2).ratio()
     return similarity
 
-def create_language_instruction_distance_plots(rollout_dir):
+def load_bert_model():
+    """Load BERT model for text embeddings."""
+    from transformers import BertTokenizer, BertModel
+    
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    model = BertModel.from_pretrained('bert-base-uncased')
+    
+    # Move to device and set eval mode
+    model.to(device)
+    model.eval()
+    
+    return tokenizer, model, device
+
+def get_bert_embeddings_batch(texts, tokenizer, model, device, max_length=77):
+    """Get BERT [CLS] token embeddings for a batch of texts - much faster than individual calls."""
+    if not texts:
+        return []
+    
+    with torch.no_grad():
+        # Process all texts at once
+        inputs = tokenizer(
+            texts, 
+            return_tensors='pt', 
+            truncation=True, 
+            max_length=max_length, 
+            padding='max_length'
+        )
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+        outputs = model(**inputs)
+        # Use [CLS] token embeddings (first token for each text)
+        embeddings = outputs.last_hidden_state[:, 0, :].cpu().numpy()
+        return embeddings
+
+def get_bert_embedding(text, tokenizer, model, device, max_length=77):
+    """Get BERT [CLS] token embedding for a single text."""
+    embeddings = get_bert_embeddings_batch([text], tokenizer, model, device, max_length)
+    return embeddings[0] if len(embeddings) > 0 else None
+
+def get_openvla_embeddings_batch(texts, processor, model, device, max_length=77):
+    """Get OpenVLA text embeddings for a batch of texts - simplified approach."""
+    if not texts:
+        return []
+    
+    with torch.no_grad():
+        # Process all texts at once
+        text_inputs = processor.tokenizer(
+            texts, 
+            return_tensors='pt', 
+            truncation=True, 
+            max_length=max_length, 
+            padding='max_length'
+        )
+        input_ids = text_inputs['input_ids'].to(device)
+        attention_mask = text_inputs['attention_mask'].to(device)
+        
+        # Simple approach: use input embeddings with mean pooling
+        # This is much faster and gives good text representations
+        embeddings = model.get_input_embeddings()(input_ids)
+        
+        # Mean pooling across sequence length (weighted by attention mask)
+        masked_embeddings = embeddings * attention_mask.unsqueeze(-1)
+        pooled_embeddings = masked_embeddings.sum(dim=1) / attention_mask.sum(dim=1).unsqueeze(-1)
+        
+        return pooled_embeddings.float().cpu().numpy()
+
+# Cache for embeddings to avoid recomputation
+embedding_cache = {}
+
+def calculate_embedding_similarity_cached(text1, text2, embedding_type='text', 
+                                        bert_tokenizer=None, bert_model=None, bert_device=None,
+                                        openvla_processor=None, openvla_model=None, openvla_device=None):
+    """
+    Calculate similarity between two text strings using embeddings with caching.
+    Much faster for repeated calculations.
+    """
+    if not text1 or not text2:
+        return 0.0
+    
+    if embedding_type == 'text':
+        return calculate_text_similarity(text1, text2)
+    
+    # Create cache key
+    cache_key = (text1, text2, embedding_type)
+    reverse_cache_key = (text2, text1, embedding_type)
+    
+    # Check cache (similarity is symmetric)
+    if cache_key in embedding_cache:
+        return embedding_cache[cache_key]
+    if reverse_cache_key in embedding_cache:
+        return embedding_cache[reverse_cache_key]
+    
+    # Calculate and cache the result
+    similarity = calculate_embedding_similarity(
+        text1, text2, embedding_type,
+        bert_tokenizer, bert_model, bert_device,
+        openvla_processor, openvla_model, openvla_device
+    )
+    
+    embedding_cache[cache_key] = similarity
+    return similarity
+
+def load_openvla_model():
+    """Load OpenVLA model for text embeddings."""
+    from transformers import AutoModelForVision2Seq, AutoProcessor
+    
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    openvla_path = "openvla/openvla-7b-finetuned-libero-spatial"
+    
+    processor = AutoProcessor.from_pretrained(openvla_path, trust_remote_code=True)
+    model = AutoModelForVision2Seq.from_pretrained(
+        openvla_path,
+        torch_dtype=torch.bfloat16,
+        low_cpu_mem_usage=True,
+        trust_remote_code=True,
+    )
+    model = model.to(device)
+    model.eval()
+    
+    return processor, model, device
+
+def calculate_embedding_similarity(text1, text2, embedding_type='text', 
+                                 bert_tokenizer=None, bert_model=None, bert_device=None,
+                                 openvla_processor=None, openvla_model=None, openvla_device=None):
+    """
+    Calculate similarity between two text strings using embeddings or text similarity.
+    
+    Args:
+        text1, text2: Text strings to compare
+        embedding_type: 'text', 'bert', or 'openvla'
+        bert_*: BERT model components (required if embedding_type='bert')
+        openvla_*: OpenVLA model components (required if embedding_type='openvla')
+    
+    Returns:
+        Similarity score between 0 and 1 (1 being identical)
+    """
+    if not text1 or not text2:
+        return 0.0
+    
+    if embedding_type == 'text':
+        return calculate_text_similarity(text1, text2)
+    
+    elif embedding_type == 'bert':
+        if bert_tokenizer is None or bert_model is None:
+            raise ValueError("BERT model components required for bert embedding type")
+        
+        emb1 = get_bert_embedding(text1, bert_tokenizer, bert_model, bert_device)
+        emb2 = get_bert_embedding(text2, bert_tokenizer, bert_model, bert_device)
+        
+        # Ensure embeddings are 1D arrays
+        emb1 = emb1.flatten() if emb1 is not None else None
+        emb2 = emb2.flatten() if emb2 is not None else None
+        
+        if emb1 is None or emb2 is None:
+            return 0.0
+        
+        # Calculate cosine similarity
+        similarity = cosine_similarity([emb1], [emb2])[0, 0]
+        return float(similarity)
+    
+    elif embedding_type == 'openvla':
+        if openvla_processor is None or openvla_model is None:
+            raise ValueError("OpenVLA model components required for openvla embedding type")
+        
+        emb1 = get_openvla_embedding(text1, openvla_processor, openvla_model, openvla_device)
+        emb2 = get_openvla_embedding(text2, openvla_processor, openvla_model, openvla_device)
+        
+        # Ensure embeddings are 1D arrays
+        emb1 = emb1.flatten() if emb1 is not None else None
+        emb2 = emb2.flatten() if emb2 is not None else None
+        
+        if emb1 is None or emb2 is None:
+            return 0.0
+        
+        # Calculate cosine similarity
+        similarity = cosine_similarity([emb1], [emb2])[0, 0]
+        return float(similarity)
+    
+    else:
+        raise ValueError(f"Unknown embedding_type: {embedding_type}. Use 'text', 'bert', or 'openvla'")
+
+def create_language_instruction_distance_plots(rollout_dir, embedding_type='text'):
     """
     Analyze the relationship between average embedding distance and success rate.
     Creates plots showing that lower average embedding distance correlates with higher success rate.
     
     Args:
         rollout_dir: Path to the directory containing rollout data
+        embedding_type: 'text', 'bert', or 'openvla'
     """
     import matplotlib.pyplot as plt
     import os
@@ -1143,6 +1327,19 @@ def create_language_instruction_distance_plots(rollout_dir):
     from glob import glob
     from collections import defaultdict
     import numpy as np
+    
+    # Load models based on embedding type
+    bert_tokenizer = bert_model = bert_device = None
+    openvla_processor = openvla_model = openvla_device = None
+    
+    if embedding_type == 'bert':
+        print(f"Loading BERT model for embeddings...")
+        bert_tokenizer, bert_model, bert_device = load_bert_model()
+        print(f"BERT model loaded successfully!")
+    elif embedding_type == 'openvla':
+        print(f"Loading OpenVLA model for embeddings...")
+        openvla_processor, openvla_model, openvla_device = load_openvla_model()
+        print(f"OpenVLA model loaded successfully!")
     
     # Find all transformation folders (exclude plots)
     transformation_folders = [d for d in os.listdir(rollout_dir)
@@ -1175,65 +1372,69 @@ def create_language_instruction_distance_plots(rollout_dir):
             task = task_match.group(1)
             
             # Load data
-            try:
-                with open(pkl_file, "rb") as f:
-                    data = pickle.load(f)
+            
+            with open(pkl_file, "rb") as f:
+                data = pickle.load(f)
+                
+                # Extract relevant data
+                original_task_description = data.get("original_task_description", "")
+                task_description_list = data.get("task_description_list", [])
+                
+                if not original_task_description or not task_description_list:
+                    continue
+                
+                # Calculate average embedding distance (using text similarity as proxy)
+                # Lower similarity = higher distance, so we use (1 - similarity) as distance
+                distances = []
+                for selected_instruction in task_description_list:
+                    if selected_instruction:
+                        similarity = calculate_embedding_similarity_cached(
+                            original_task_description, 
+                            selected_instruction,
+                            embedding_type=embedding_type,
+                            bert_tokenizer=bert_tokenizer,
+                            bert_model=bert_model,
+                            bert_device=bert_device,
+                            openvla_processor=openvla_processor,
+                            openvla_model=openvla_model,
+                            openvla_device=openvla_device
+                        )
+                        distance = 1.0 - similarity  # Convert similarity to distance
+                        distances.append(distance)
+                    else:
+                        distances.append(1.0)  # Max distance for empty instructions
+                
+                # Calculate average distance for this episode
+                avg_distance = np.mean(distances) if distances else 1.0
+                
+                episode_data = {
+                    'avg_distance': avg_distance,
+                    'is_success': is_success,
+                    'task': task,
+                    'transformation': trans,
+                    'filename': filename
+                }
+                
+                all_episodes_data.append(episode_data)
+                task_episodes_data[task].append(episode_data)
                     
-                    # Extract relevant data
-                    original_task_description = data.get("original_task_description", "")
-                    task_description_list = data.get("task_description_list", [])
-                    
-                    if not original_task_description or not task_description_list:
-                        continue
-                    
-                    # Calculate average embedding distance (using text similarity as proxy)
-                    # Lower similarity = higher distance, so we use (1 - similarity) as distance
-                    distances = []
-                    for selected_instruction in task_description_list:
-                        if selected_instruction:
-                            similarity = calculate_text_similarity(
-                                original_task_description, 
-                                selected_instruction
-                            )
-                            distance = 1.0 - similarity  # Convert similarity to distance
-                            distances.append(distance)
-                        else:
-                            distances.append(1.0)  # Max distance for empty instructions
-                    
-                    # Calculate average distance for this episode
-                    avg_distance = np.mean(distances) if distances else 1.0
-                    
-                    episode_data = {
-                        'avg_distance': avg_distance,
-                        'is_success': is_success,
-                        'task': task,
-                        'transformation': trans,
-                        'filename': filename
-                    }
-                    
-                    all_episodes_data.append(episode_data)
-                    task_episodes_data[task].append(episode_data)
-                    
-            except Exception as e:
-                print(f"Error loading {pkl_file}: {e}")
-                continue
     
     if not all_episodes_data:
         print("No valid episode data found for embedding distance analysis")
         return
     
     # Create output directory
-    distance_analysis_dir = os.path.join(rollout_dir, "plots", "embedding_distance_success_analysis")
+    distance_analysis_dir = os.path.join(rollout_dir, "plots", f"embedding_distance_success_analysis_{embedding_type}")
     os.makedirs(distance_analysis_dir, exist_ok=True)
     
     # Create overall analysis plots
-    create_overall_distance_success_plot(all_episodes_data, distance_analysis_dir)
-    create_binned_distance_success_plot(all_episodes_data, distance_analysis_dir)
+    create_overall_distance_success_plot(all_episodes_data, distance_analysis_dir, embedding_type)
+    create_binned_distance_success_plot(all_episodes_data, distance_analysis_dir, embedding_type)
     
     # Create per-task analysis plots (both types for each task)
-    create_per_task_individual_plots(task_episodes_data, distance_analysis_dir)
+    create_per_task_individual_plots(task_episodes_data, distance_analysis_dir, embedding_type)
 
-def create_overall_distance_success_plot(all_episodes_data, output_dir):
+def create_overall_distance_success_plot(all_episodes_data, output_dir, embedding_type):
     """
     Create scatter plot showing relationship between average embedding distance and success.
     """
@@ -1263,9 +1464,10 @@ def create_overall_distance_success_plot(all_episodes_data, output_dir):
     # Calculate correlation
     correlation = np.corrcoef(all_distances, all_successes)[0, 1]
     
-    plt.xlabel('Average Embedding Distance (1 - Text Similarity)')
+    embedding_label = embedding_type.upper() if embedding_type != 'text' else 'Text Similarity'
+    plt.xlabel(f'Average Embedding Distance (1 - {embedding_label})')
     plt.ylabel('Success (1) vs Failure (0)')
-    plt.title(f'Success Rate vs Average Embedding Distance\nCorrelation: {correlation:.3f}')
+    plt.title(f'Success Rate vs Average Embedding Distance ({embedding_label})\nCorrelation: {correlation:.3f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.ylim(-0.1, 1.1)
@@ -1279,12 +1481,12 @@ def create_overall_distance_success_plot(all_episodes_data, output_dir):
              verticalalignment='top', bbox=props)
     
     plt.tight_layout()
-    out_path = os.path.join(output_dir, 'overall_distance_success_scatter.png')
+    out_path = os.path.join(output_dir, f'overall_distance_success_scatter_{embedding_type}.png')
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved overall distance-success scatter plot to {out_path}")
 
-def create_binned_distance_success_plot(all_episodes_data, output_dir):
+def create_binned_distance_success_plot(all_episodes_data, output_dir, embedding_type):
     """
     Create binned analysis showing success rate for different distance ranges.
     """
@@ -1356,14 +1558,14 @@ def create_binned_distance_success_plot(all_episodes_data, output_dir):
         plt.legend()
     
     plt.tight_layout()
-    out_path = os.path.join(output_dir, 'binned_distance_success_rate.png')
+    out_path = os.path.join(output_dir, f'binned_distance_success_rate_{embedding_type}.png')
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved binned distance-success rate plot to {out_path}")
 
 
 
-def create_per_task_individual_plots(task_episodes_data, output_dir):
+def create_per_task_individual_plots(task_episodes_data, output_dir, embedding_type):
     """
     Create individual scatter and binned plots for each task showing distance-success relationship.
     """
@@ -1372,12 +1574,12 @@ def create_per_task_individual_plots(task_episodes_data, output_dir):
             continue
             
         # Create scatter plot for this task
-        create_task_scatter_plot(task, episodes, output_dir)
+        create_task_scatter_plot(task, episodes, output_dir, embedding_type)
         
         # Create binned plot for this task
-        create_task_binned_plot(task, episodes, output_dir)
+        create_task_binned_plot(task, episodes, output_dir, embedding_type)
 
-def create_task_scatter_plot(task, episodes, output_dir):
+def create_task_scatter_plot(task, episodes, output_dir, embedding_type):
     """
     Create scatter plot for a single task showing relationship between average embedding distance and success.
     """
@@ -1431,12 +1633,12 @@ def create_task_scatter_plot(task, episodes, output_dir):
     
     plt.tight_layout()
     safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
-    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_scatter.png')
+    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_scatter_{embedding_type}.png')
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved task scatter plot for '{task}' to {out_path}")
 
-def create_task_binned_plot(task, episodes, output_dir):
+def create_task_binned_plot(task, episodes, output_dir, embedding_type):
     """
     Create binned analysis plot for a single task showing success rate for different distance ranges.
     """
@@ -1516,23 +1718,30 @@ def create_task_binned_plot(task, episodes, output_dir):
     
     plt.tight_layout()
     safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
-    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_binned.png')
+    out_path = os.path.join(output_dir, f'{safe_task}_distance_success_binned_{embedding_type}.png')
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved task binned plot for '{task}' to {out_path}")
 
+def get_openvla_embedding(text, processor, model, device, max_length=77):
+    """Get OpenVLA text embedding for a single text."""
+    embeddings = get_openvla_embeddings_batch([text], processor, model, device, max_length)
+    return embeddings[0] if len(embeddings) > 0 else None
+
 if __name__ == "__main__":
 
     path_to_rollouts_oracle = "./rollouts_ood_oracle"
-    path_to_rollouts_clip = "./rollouts_ood"
+    path_to_rollouts_clip = "./rollouts"
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
-    # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
+    results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
-    # create_task_time_series_plots(path_to_rollouts_clip)
+    create_task_time_series_plots(path_to_rollouts_clip)
     
     # Call the new language instruction distance plotting function
-    create_language_instruction_distance_plots(path_to_rollouts_oracle)
+    # You can change embedding_type to 'bert' or 'openvla' to use different embeddings
+    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='openvla')
+    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='bert')
 
     # Call the new combined plot function
     # create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip, "./rollouts")

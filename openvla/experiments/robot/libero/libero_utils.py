@@ -64,7 +64,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     
     """Saves an MP4 replay of an episode."""
     if oracle_scorer:
-        rollout_dir = f"./rollouts_ood_oracle/{transform_type}_{clip_update_num}_lang"
+        rollout_dir = f"./rollouts_oracle/{transform_type}_{clip_update_num}_lang"
     else:
         rollout_dir = f"./rollouts/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)

@@ -106,10 +106,13 @@ class GenerateConfig:
     lang_transform_type: str = "rephrase" 
     use_original_task_description: bool = False
     
-def load_rephrases(json_path, suite_name):
+def load_rephrases(task_suite_name):
+    # Make the path relative to this script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(script_dir, 'libero_rephrase_pos_rephrase_neg_negation.json')
     with open(json_path, 'r') as f:
         all_rephrases = json.load(f)
-    return all_rephrases[suite_name]
+    return all_rephrases[task_suite_name]
 
 @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
@@ -197,8 +200,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     else: max_steps = 400
     
     # Load pre-generated rephrases if available
-    rephrases_json_path = f"openvla/experiments/robot/libero/libero_rephrase_hard.json"
-    preloaded_rephrases = load_rephrases(rephrases_json_path, cfg.task_suite_name)
+    preloaded_rephrases = load_rephrases(cfg.task_suite_name)
 
     for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
         task = task_suite.get_task(task_id)

@@ -62,31 +62,6 @@ class LangTransform:
             {batch_number}. <Alternative phrasing {batch_number}>
             """
         return instruction
-    
-    def get_clip_synonym(self, instruction, batch_number=1):
-        instruction = f"""
-            Given the attached image, first describe the scene, including the objects and their spatial relationships.
-
-            Then, based on the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
-            - Convey the same objective as the original
-            - Are consistent with the scene
-            - Use clear and simple, natural language
-
-            Format your response as:
-
-            Image Description:
-            <One or two sentences describing the scene, e.g., objects present, spatial relationships, etc.>
-
-            Original Instruction:
-            <The user-provided instruction>
-
-            Reworded Instructions:
-            1. <Alternative phrasing 1>
-            2. <Alternative phrasing 2>
-            ...
-            {batch_number}. <Alternative phrasing {batch_number}>
-            """
-        return instruction
 
     def transform(self, curr_instruction, transform_type, batch_number=1, image=None):
         
@@ -98,7 +73,7 @@ class LangTransform:
             response = curr_instruction
         
         if batch_number > 1:
-            batch_responses = self.gpt_transform(response, transform_type=None, batch_number=batch_number, image=image)
+            batch_responses = self.gpt_transform(curr_instruction, transform_type=None, batch_number=batch_number, image=image)
             # print (batch_responses)
             return self.extract_reworded_instructions(batch_responses)
         else:
@@ -155,12 +130,12 @@ class LangTransform:
                 unique_words = self.get_set_of_words()
                 instruction = f"Given this instruction: {instruction}, please reword it using only the following words {unique_words}"
             else:
-                t = 0.1
+                t = 0.5
         else: 
             system_prompt = self.get_system_prompt('rephrase_batch')
             
         if batch_number > 1:
-            t = 1
+            t = 0.5
             instruction = self.get_rephrase_batch(instruction, batch_number=batch_number)
 
         # Create the messages list with content array
@@ -183,7 +158,7 @@ class LangTransform:
                     model = 'gpt-4o',
                     messages = messages,
                     temperature = t,
-                    max_tokens = 800
+                    max_tokens = 5000
                 )
                 return response.choices[0].message.content  # <-- returns here if successful, loop ends
             except Exception as e:

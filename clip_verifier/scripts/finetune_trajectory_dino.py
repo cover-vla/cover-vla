@@ -417,7 +417,7 @@ def train_clip(
              model.load_state_dict(torch.load(resume_checkpoint, map_location=device))
              print("Successfully loaded model weights.")
              # Consider loading optimizer state and epoch if saved in checkpoint
-             start_epoch = 1000
+             start_epoch = 6
         except Exception as load_err:
               print(f"Error loading checkpoint: {load_err}. Starting training from scratch.")
               start_epoch = 0
