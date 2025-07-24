@@ -1,9 +1,0 @@
-Task suite: libero_spatial
-
-Task: Raise the dark dish that is on top of the small dish and place it on the dishware. (Trial 1/20)
-Starting episode 1...
-Saved rollout MP4 at path ./rollouts_ood_oracle/rephrase_5/episode=1--success=False--score=0.257--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
-  Episode 1: Success=False, Steps=210, AvgStepScore=0.257
-
-Task: Raise the dark dish that is on top of the small dish and place it on the dishware. (Trial 2/20)
-Starting episode 2...

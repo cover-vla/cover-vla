@@ -285,69 +285,47 @@ class VLA_CLIP(nn.Module):
 
     def get_similarity_score(self, image1, image2, text, action_histories):
         """
-        Computes the unscaled cosine similarity for inference.
+        Computes the similarity (cosine similarity, unscaled) for inference, without logit_scale.
         Args:
             image1: Tensor (B, C, H, W)
             image2: Tensor (B, C, H, W)
             text: Tensor (B, SeqLen) - tokenized text
             action_histories: Tensor (B, H, D) - Batch of action histories.
         Returns:
-            similarity: Tensor (B,) - The cosine similarity for each sample in the batch.
+            similarity: Tensor (B, B) - The cosine similarity for each sample in the batch.
         """
-        # Extract image/text features
-        patch_features1 = self.clip.encode_image(image1)
-        patch_features2 = self.clip.encode_image(image2)
-        text_features = self.clip.encode_text(text)
-        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-        patch_features1 = patch_features1 / patch_features1.norm(dim=-1, keepdim=True)
-        patch_features2 = patch_features2 / patch_features2.norm(dim=-1, keepdim=True)
-        
-        # Text-aware visual features for both views
+        # Forward pass up to normalized features
+        patch_features1, text_features = self.extract_clip_features(image1, text)
+        patch_features2, _ = self.extract_clip_features(image2, text)
         text_aware_features1 = self.text_aware_visual_extraction(patch_features1, text_features)
         text_aware_features2 = self.text_aware_visual_extraction(patch_features2, text_features)
-        
-        # Vision pooling
         vision_token1 = self.agentview_vision_poolings(text_aware_features1)
         vision_token2 = self.handview_vision_poolings(text_aware_features2)
-        
-        # Concatenate and project
         fused_vision = torch.cat([vision_token1, vision_token2], dim=-1)
         fused_vision = self.image_fusion_proj(fused_vision)
-        
-        # Text pooling
         text_token = self.text_pooling(text_features)
         combined_features = torch.cat([text_token, fused_vision], dim=-1)
         combined_features = self.input_projection(combined_features)
         combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-
-        # Encode Action History
         action_histories = action_histories.float().to(image1.device)
-
         if self.use_transformer:
-            # Transformer Path
             padding_mask = (action_histories[:, :, 0] == self.action_padding_value)
             encoded_steps = self.single_step_action_encoder(action_histories)
             encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
             transformer_output_permuted = self.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
             transformer_output = transformer_output_permuted.permute(1, 0, 2)
-            
             mask_expanded = (~padding_mask).unsqueeze(-1).float()
             summed_features = (transformer_output * mask_expanded).sum(dim=1)
             num_non_padded = mask_expanded.sum(dim=1)
             num_non_padded = torch.clamp(num_non_padded, min=1e-9)
             projected_trajectory = summed_features / num_non_padded
         else:
-            # MLP Path
             batch_size = action_histories.shape[0]
             flat_actions = action_histories.reshape(batch_size, -1)
             projected_trajectory = self.complex_action_encoder(flat_actions)
-
-        # Normalize action history features
         projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
-
-        # Calculate cosine similarity (dot product of normalized vectors) for each sample
-        similarity = (combined_features * projected_trajectory).sum(dim=-1)
-
+        # Return cosine similarity (dot product of normalized vectors)
+        similarity = torch.matmul(combined_features, projected_trajectory.T)
         return similarity
         
 def train_clip(

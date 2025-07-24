@@ -1,4 +1,0 @@
-Task suite: libero_spatial
-
-Task: Pick up the dark container that is on top of the dessert package and place it on the dish. (Trial 1/20)
-Starting episode 1...

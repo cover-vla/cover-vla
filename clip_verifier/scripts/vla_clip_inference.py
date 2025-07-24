@@ -133,8 +133,10 @@ class VLA_CLIP_Inference:
             # text_tokens should be (num_histories, seq_len)
             if text_tokens.shape[0] != num_histories:
                 text_tokens = text_tokens.repeat(num_histories, 1)
-            image_logits, action_logits = self.model(img1_batch, img2_batch, text_tokens, history_batch)
-            scores = image_logits[0, :].cpu().numpy() if image_logits.dim() == 2 else image_logits.cpu().numpy()
+            # image_logits, action_logits = self.model(img1_batch, img2_batch, text_tokens, history_batch)
+            similarity = self.model.get_similarity_score(img1_batch, img2_batch, text_tokens, history_batch)
+            scores = similarity[0, :].cpu().numpy() if similarity.ndim == 2 else similarity.cpu().numpy()
+            
             predicted_idx = scores.argmax()
             predicted_history = possible_action_histories[predicted_idx]
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
@@ -143,8 +145,8 @@ class VLA_CLIP_Inference:
     # --- New Method for Scoring ---
     def get_history_score(self, image_tuple, instruction, action_history):
         """
-        Calculates the VLA-CLIP similarity score between a tuple of images/instruction
-        and a given action history by leveraging the model's forward pass.
+        Calculates the VLA-CLIP cosine similarity score (unscaled, without logit_scale) between a tuple of images/instruction
+        and a given action history by leveraging the model's get_similarity_score method.
         Args:
             image_tuple: (agentview_image, eye_in_hand_image) as PIL Images or numpy arrays
             instruction: String instruction.
@@ -160,17 +162,17 @@ class VLA_CLIP_Inference:
         img1_tensor = self.preprocess(img1).unsqueeze(0).to(self.device)
         img2_tensor = self.preprocess(img2).unsqueeze(0).to(self.device)
         if isinstance(instruction, str):
-            text_tokens = clip.tokenize(instruction).to(self.device)
+            text_tokens = clip.tokenize([instruction]).to(self.device)
         else:
             text_tokens = instruction.to(self.device)
             if text_tokens.ndim == 1:
-                 text_tokens = text_tokens.unsqueeze(0)
-        history_tensor = torch.tensor(action_history, dtype=torch.float32).to(self.device)
+                text_tokens = text_tokens.unsqueeze(0)
+        history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
         if history_tensor.ndim == 2:
             history_tensor = history_tensor.unsqueeze(0)
         with torch.no_grad():
-            image_logits, _ = self.model(img1_tensor, img2_tensor, text_tokens, history_tensor)
-            score = image_logits.squeeze()
+            similarity = self.model.get_similarity_score(img1_tensor, img2_tensor, text_tokens, history_tensor)
+            score = similarity.squeeze()
         return score
 
 def sample_and_test(augmented_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20):
