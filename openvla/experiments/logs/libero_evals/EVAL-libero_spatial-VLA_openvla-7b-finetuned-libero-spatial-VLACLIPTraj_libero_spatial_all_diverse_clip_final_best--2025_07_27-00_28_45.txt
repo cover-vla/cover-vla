@@ -1,0 +1,9 @@
+Task suite: libero_spatial
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 1/20)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip/no_transform_1/episode=1--success=True--score=0.336--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=107, AvgStepScore=0.336
+
+Task: pick up the black bowl on the ramekin and place it on the plate (Trial 2/20)
+Starting episode 2...

@@ -202,7 +202,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
     # Load pre-generated rephrases if available
     preloaded_rephrases = load_rephrases(cfg.task_suite_name)
 
-    for task_id in tqdm(range(num_tasks_in_suite)[5:], desc="Tasks"):
+    for task_id in tqdm(range(num_tasks_in_suite), desc="Tasks"):
         task = task_suite.get_task(task_id)
         initial_states = task_suite.get_task_init_states(task_id)
 
@@ -215,7 +215,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             if cfg.lang_transform_type == "no_transform":
                 task_description = original_task_description
             else:
-                task_description = rephrased_list[0]  # Use the first as the main instruction
+                task_description = rephrased_list[-1]  # Use the last as the main instruction
                 
             # rephrased_list[3] = original_task_description + "."
                 
@@ -240,7 +240,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
             if cfg.clip_select_action_num_candidates > 1:
                 # pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
-                pre_sampled_all_language_instructions = rephrased_list[1:]  # Use the rest as alternatives
+                pre_sampled_all_language_instructions = rephrased_list[:-1]  # Use the rest as alternatives
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)
@@ -254,8 +254,8 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 observation = {"full_image": img_for_vla}
 
                 # --- Prepare images for VLA-CLIP scorer (multi-view) ---
-                img_for_clip_agent = get_libero_image(obs, (224, 224), key='agentview_image')
-                img_for_clip_hand = get_libero_image(obs, (224, 224), key='robot0_eye_in_hand_image')
+                img_for_clip_agent = get_libero_image(obs, key='agentview_image')
+                img_for_clip_hand = get_libero_image(obs, key='robot0_eye_in_hand_image')
                 if img_for_clip_agent is not None and img_for_clip_hand is not None:
                     img_for_clip_tuple = (img_for_clip_agent, img_for_clip_hand)
                 else:
@@ -314,7 +314,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                     num_to_generate = cfg.clip_select_action_num_candidates - 1
                     if num_to_generate > 0:
                         # sample_indices = np.random.choice(len(pre_sampled_all_language_instructions), size=num_to_generate, replace=False)
-                        sample_indices = np.arange(len(pre_sampled_all_language_instructions))[:num_to_generate]
+                        sample_indices = np.arange(len(pre_sampled_all_language_instructions))[-num_to_generate:]
                         additional_instructions = [pre_sampled_all_language_instructions[i] for i in sample_indices]
                         candidate_instructions.extend(additional_instructions)
                         predicted_actions = [original_action]

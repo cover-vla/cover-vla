@@ -84,6 +84,6 @@
     --vla_clip_score_threshold 0.5 \
     --clip_select_action_num_candidates 30 \
     --lang_transform_type rephrase
-  echo "✅ Finished parallel job: candidate 25."
+  # echo "✅ Finished parallel job: candidate 25."
 ) &
 
