@@ -847,11 +847,12 @@ def create_task_success_rate_plots(rollout_dir):
 
 def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_dir, rollouts_dir):
     """
-    For each unique task, plot the success rate across all rephrase types (folders) for oracle, OOD, and regular verifiers.
-    - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle)
-    - Green line: oracle verifier (rephrases, from rollouts_oracle)
-    - Blue line: designed verifier OOD (rephrases, from rollouts_ood)
-    - Purple line: designed verifier regular (rephrases, from rollouts)
+    For each unique task, plot the success rate across all rephrase types (folders) for available verifiers.
+    Only processes directories that are not None.
+    - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle) - if available
+    - Green line: oracle verifier (rephrases, from rollouts_oracle) - if available
+    - Blue line: designed verifier OOD (rephrases, from rollouts_ood) - if available
+    - Purple line: designed verifier regular (rephrases, from rollouts) - if available
     Save plots in ./plots/task_success_rate_combined/
     """
     import matplotlib.pyplot as plt
@@ -862,6 +863,9 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
 
     def aggregate_task_rephrase_results(rollout_dir):
         # Returns: task -> rephrase_num -> [success/failure]
+        if rollout_dir is None or not os.path.exists(rollout_dir):
+            return defaultdict(lambda: defaultdict(list))
+        
         transformation_folders = [d for d in os.listdir(rollout_dir)
                                  if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots"]
         task_rephrase_results = defaultdict(lambda: defaultdict(list))
@@ -888,60 +892,87 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
                 task_rephrase_results[task][rephrase_num].append(is_success)
         return task_rephrase_results
 
-    # Aggregate results from all three directories
+    # Aggregate results from available directories only
     oracle_results = aggregate_task_rephrase_results(rollouts_oracle_dir)
     ood_results = aggregate_task_rephrase_results(rollouts_ood_dir)
     regular_results = aggregate_task_rephrase_results(rollouts_dir)
 
     # Output dir
-    combined_plot_dir = os.path.join("./plots", "task_success_rate_combined_all")
+    combined_plot_dir = os.path.join("./plots", "task_success_rate_combined")
     os.makedirs(combined_plot_dir, exist_ok=True)
 
-    # Union of all tasks
-    all_tasks = set(oracle_results.keys()) | set(ood_results.keys()) | set(regular_results.keys())
+    # Union of all tasks from available directories
+    all_tasks = set()
+    if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir):
+        all_tasks.update(oracle_results.keys())
+    if rollouts_ood_dir is not None and os.path.exists(rollouts_ood_dir):
+        all_tasks.update(ood_results.keys())
+    if rollouts_dir is not None and os.path.exists(rollouts_dir):
+        all_tasks.update(regular_results.keys())
 
     for task in all_tasks:
-        # Oracle policy (no_transform_1, rephrase_num=0)
+        # Oracle policy (no_transform_1, rephrase_num=0) - only if oracle directory is available
         oracle_policy_rate = None
-        if 0 in oracle_results.get(task, {}):
+        if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir) and 0 in oracle_results.get(task, {}):
             results = oracle_results[task][0]
             if results:
                 oracle_policy_rate = sum(results) / len(results)
         
-        # Oracle verifier (rephrases, from rollouts_oracle)
-        oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
-        oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
-        oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
+        # Oracle verifier (rephrases, from rollouts_oracle) - only if oracle directory is available
+        oracle_rephrase_nums = []
+        oracle_rephrase_rates = []
+        oracle_counts = []
+        if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir):
+            oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
+            oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
+            oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
         
-        # OOD verifier (rephrases, from rollouts_ood)
-        ood_rephrase_nums = sorted(ood_results.get(task, {}).keys())
-        ood_rephrase_rates = [sum(ood_results[task][k])/len(ood_results[task][k]) if ood_results[task][k] else 0 for k in ood_rephrase_nums]
-        ood_counts = [len(ood_results[task][k]) for k in ood_rephrase_nums]
+        # OOD verifier (rephrases, from rollouts_ood) - only if ood directory is available
+        ood_rephrase_nums = []
+        ood_rephrase_rates = []
+        ood_counts = []
+        if rollouts_ood_dir is not None and os.path.exists(rollouts_ood_dir):
+            ood_rephrase_nums = sorted(ood_results.get(task, {}).keys())
+            ood_rephrase_rates = [sum(ood_results[task][k])/len(ood_results[task][k]) if ood_results[task][k] else 0 for k in ood_rephrase_nums]
+            ood_counts = [len(ood_results[task][k]) for k in ood_rephrase_nums]
         
-        # Regular verifier (rephrases, from rollouts)
-        regular_rephrase_nums = sorted(regular_results.get(task, {}).keys())
-        regular_rephrase_rates = [sum(regular_results[task][k])/len(regular_results[task][k]) if regular_results[task][k] else 0 for k in regular_rephrase_nums]
-        regular_counts = [len(regular_results[task][k]) for k in regular_rephrase_nums]
+        # Regular verifier (rephrases, from rollouts) - only if regular directory is available
+        regular_rephrase_nums = []
+        regular_rephrase_rates = []
+        regular_counts = []
+        if rollouts_dir is not None and os.path.exists(rollouts_dir):
+            regular_rephrase_nums = sorted(regular_results.get(task, {}).keys())
+            regular_rephrase_rates = [sum(regular_results[task][k])/len(regular_results[task][k]) if regular_results[task][k] else 0 for k in regular_rephrase_nums]
+            regular_counts = [len(regular_results[task][k]) for k in regular_rephrase_nums]
 
-        plt.figure(figsize=(max(8, max(len(oracle_rephrase_nums), len(ood_rephrase_nums), len(regular_rephrase_nums)) * 1.2), 6))
+        # Calculate figure size based on available data
+        max_rephrases = max(len(oracle_rephrase_nums), len(ood_rephrase_nums), len(regular_rephrase_nums))
+        plt.figure(figsize=(max(8, max_rephrases * 1.2), 6))
         
-        # Oracle verifier (green)
+        # Plot available data only
+        legend_entries = []
+        
+        # Oracle verifier (green) - only if available
         if oracle_rephrase_nums:
             plt.plot(oracle_rephrase_nums, oracle_rephrase_rates, marker='o', color='mediumseagreen', label='Oracle Verifier (outset rephrases)', linewidth=2)
+            legend_entries.append('Oracle Verifier (outset rephrases)')
         
-        # OOD verifier (blue)
+        # OOD verifier (blue) - only if available
         if ood_rephrase_nums:
             plt.plot(ood_rephrase_nums, ood_rephrase_rates, marker='s', color='royalblue', label='Verifier-ood (outset rephrases)', linewidth=2)
+            legend_entries.append('Verifier-ood (outset rephrases)')
         
-        # Regular verifier (purple)
+        # Regular verifier (purple) - only if available
         if regular_rephrase_nums:
             plt.plot(regular_rephrase_nums, regular_rephrase_rates, marker='^', color='purple', label='Verifier-id (normal rephrases)', linewidth=2)
+            legend_entries.append('Verifier-id (normal rephrases)')
         
-        # Oracle policy (red horizontal line)
+        # Oracle policy (red horizontal line) - only if available
         if oracle_policy_rate is not None:
             plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)', linewidth=2)
+            legend_entries.append('Oracle Policy (no_transform)')
         
-        # X ticks
+        # X ticks - only include available rephrase numbers
         all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(ood_rephrase_nums) | set(regular_rephrase_nums))
         if all_rephrase_nums:
             plt.xticks(all_rephrase_nums)
@@ -952,17 +983,20 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
         plt.title(task.replace('_', ' '))
         plt.grid(True, alpha=0.3)
         
-        # Annotate with counts (staggered vertically to avoid overlap)
+        # Annotate with counts (staggered vertically to avoid overlap) - only for available data
         y_offset_oracle = 0.08
         y_offset_ood = 0.04
         y_offset_regular = -0.04
         
-        for x, y, n in zip(oracle_rephrase_nums, oracle_rephrase_rates, oracle_counts):
-            plt.text(x, y + y_offset_oracle, f'n={n}', ha='center', fontsize=7, color='mediumseagreen', weight='bold')
-        for x, y, n in zip(ood_rephrase_nums, ood_rephrase_rates, ood_counts):
-            plt.text(x, y + y_offset_ood, f'n={n}', ha='center', fontsize=7, color='royalblue', weight='bold')
-        for x, y, n in zip(regular_rephrase_nums, regular_rephrase_rates, regular_counts):
-            plt.text(x, y + y_offset_regular, f'n={n}', ha='center', fontsize=7, color='purple', weight='bold')
+        if oracle_rephrase_nums:
+            for x, y, n in zip(oracle_rephrase_nums, oracle_rephrase_rates, oracle_counts):
+                plt.text(x, y + y_offset_oracle, f'n={n}', ha='center', fontsize=7, color='mediumseagreen', weight='bold')
+        if ood_rephrase_nums:
+            for x, y, n in zip(ood_rephrase_nums, ood_rephrase_rates, ood_counts):
+                plt.text(x, y + y_offset_ood, f'n={n}', ha='center', fontsize=7, color='royalblue', weight='bold')
+        if regular_rephrase_nums:
+            for x, y, n in zip(regular_rephrase_nums, regular_rephrase_rates, regular_counts):
+                plt.text(x, y + y_offset_regular, f'n={n}', ha='center', fontsize=7, color='purple', weight='bold')
         
         plt.legend(loc='best')
         plt.tight_layout()
@@ -1730,7 +1764,7 @@ def get_openvla_embedding(text, processor, model, device, max_length=77):
 
 if __name__ == "__main__":
 
-    path_to_rollouts_oracle = "./rollouts_ood_oracle"
+    path_to_rollouts_oracle = "./rollouts_clip_oracle"
     path_to_rollouts_clip = "./rollouts_clip"
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
@@ -1744,4 +1778,4 @@ if __name__ == "__main__":
     # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='bert')
 
     # Call the new combined plot function
-    # create_task_success_rate_plots_combined(path_to_rollouts_oracle, path_to_rollouts_clip, "./rollouts")
+    create_task_success_rate_plots_combined(path_to_rollouts_oracle, None, path_to_rollouts_clip)

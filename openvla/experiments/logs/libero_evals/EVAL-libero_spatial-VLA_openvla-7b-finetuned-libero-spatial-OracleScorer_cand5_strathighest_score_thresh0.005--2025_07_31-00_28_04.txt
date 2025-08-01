@@ -1,0 +1,1013 @@
+Task suite: libero_spatial
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 1/20)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=1--success=True--score=0.155--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=79, AvgStepScore=0.155
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 2/20)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=2--success=True--score=0.127--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=True, Steps=83, AvgStepScore=0.127
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 3/20)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=3--success=True--score=0.139--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=True, Steps=88, AvgStepScore=0.139
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 4/20)
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=4--success=True--score=0.066--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=True, Steps=182, AvgStepScore=0.066
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 5/20)
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=5--success=True--score=0.114--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=79, AvgStepScore=0.114
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 6/20)
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=6--success=True--score=0.168--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=True, Steps=85, AvgStepScore=0.168
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 7/20)
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=7--success=True--score=0.133--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=True, Steps=78, AvgStepScore=0.133
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 8/20)
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=8--success=True--score=0.133--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=97, AvgStepScore=0.133
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 9/20)
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=9--success=True--score=0.105--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 9: Success=True, Steps=87, AvgStepScore=0.105
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 10/20)
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=10--success=True--score=0.117--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 10: Success=True, Steps=88, AvgStepScore=0.117
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 11/20)
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=11--success=True--score=0.122--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 11: Success=True, Steps=88, AvgStepScore=0.122
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 12/20)
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=12--success=True--score=0.111--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 12: Success=True, Steps=75, AvgStepScore=0.111
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 13/20)
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=13--success=True--score=0.130--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 13: Success=True, Steps=91, AvgStepScore=0.130
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 14/20)
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=14--success=True--score=0.102--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 14: Success=True, Steps=113, AvgStepScore=0.102
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 15/20)
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=15--success=True--score=0.169--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 15: Success=True, Steps=87, AvgStepScore=0.169
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 16/20)
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=16--success=True--score=0.141--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 16: Success=True, Steps=79, AvgStepScore=0.141
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 17/20)
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=17--success=True--score=0.106--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 17: Success=True, Steps=78, AvgStepScore=0.106
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 18/20)
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=18--success=True--score=0.140--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 18: Success=True, Steps=69, AvgStepScore=0.140
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 19/20)
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=19--success=True--score=0.136--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 19: Success=True, Steps=93, AvgStepScore=0.136
+
+Task: Lift the black bowl from its position between the plate and the ramekin and lay it on the plate. (Trial 20/20)
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=20--success=True--score=0.154--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 20: Success=True, Steps=89, AvgStepScore=0.154
+Task 0 ('pick up the black bowl between the plate and the ramekin and place it on the plate') Success Rate: 1.00 (20/20)
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 1/20)
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=21--success=True--score=0.084--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 21: Success=True, Steps=111, AvgStepScore=0.084
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 2/20)
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=22--success=False--score=0.153--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 22: Success=False, Steps=210, AvgStepScore=0.153
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 3/20)
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=23--success=True--score=0.090--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 23: Success=True, Steps=127, AvgStepScore=0.090
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 4/20)
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=24--success=False--score=0.167--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 24: Success=False, Steps=210, AvgStepScore=0.167
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 5/20)
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=25--success=True--score=0.078--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 25: Success=True, Steps=131, AvgStepScore=0.078
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 6/20)
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=26--success=True--score=0.079--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 26: Success=True, Steps=99, AvgStepScore=0.079
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 7/20)
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=27--success=True--score=0.099--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 27: Success=True, Steps=156, AvgStepScore=0.099
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 8/20)
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=28--success=True--score=0.065--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 28: Success=True, Steps=124, AvgStepScore=0.065
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 9/20)
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=29--success=False--score=0.162--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 29: Success=False, Steps=210, AvgStepScore=0.162
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 10/20)
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=30--success=False--score=0.113--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 30: Success=False, Steps=210, AvgStepScore=0.113
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 11/20)
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=31--success=True--score=0.073--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 31: Success=True, Steps=120, AvgStepScore=0.073
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 12/20)
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=32--success=False--score=0.219--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 32: Success=False, Steps=210, AvgStepScore=0.219
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 13/20)
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=33--success=True--score=0.095--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 33: Success=True, Steps=112, AvgStepScore=0.095
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 14/20)
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=34--success=True--score=0.076--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 34: Success=True, Steps=131, AvgStepScore=0.076
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 15/20)
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=35--success=True--score=0.058--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 35: Success=True, Steps=119, AvgStepScore=0.058
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 16/20)
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=36--success=True--score=0.101--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 36: Success=True, Steps=113, AvgStepScore=0.101
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 17/20)
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=37--success=True--score=0.065--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 37: Success=True, Steps=105, AvgStepScore=0.065
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 18/20)
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=38--success=False--score=0.211--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 38: Success=False, Steps=210, AvgStepScore=0.211
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 19/20)
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=39--success=True--score=0.089--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 39: Success=True, Steps=148, AvgStepScore=0.089
+
+Task: Lift the dark bowl beside the ramekin and set it onto the plate. (Trial 20/20)
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=40--success=True--score=0.070--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 40: Success=True, Steps=103, AvgStepScore=0.070
+Task 1 ('pick up the black bowl next to the ramekin and place it on the plate') Success Rate: 0.70 (14/20)
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 1/20)
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=41--success=False--score=0.106--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 41: Success=False, Steps=210, AvgStepScore=0.106
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 2/20)
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=42--success=True--score=0.112--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 42: Success=True, Steps=106, AvgStepScore=0.112
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 3/20)
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=43--success=True--score=0.110--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 43: Success=True, Steps=97, AvgStepScore=0.110
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 4/20)
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=44--success=True--score=0.109--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 44: Success=True, Steps=87, AvgStepScore=0.109
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 5/20)
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=45--success=True--score=0.102--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 45: Success=True, Steps=162, AvgStepScore=0.102
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 6/20)
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=46--success=False--score=0.206--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 46: Success=False, Steps=210, AvgStepScore=0.206
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 7/20)
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=47--success=True--score=0.122--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 47: Success=True, Steps=88, AvgStepScore=0.122
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 8/20)
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=48--success=True--score=0.103--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 48: Success=True, Steps=112, AvgStepScore=0.103
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 9/20)
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=49--success=False--score=0.047--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 49: Success=False, Steps=210, AvgStepScore=0.047
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 10/20)
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=50--success=True--score=0.098--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 50: Success=True, Steps=107, AvgStepScore=0.098
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 11/20)
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=51--success=False--score=0.161--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 51: Success=False, Steps=210, AvgStepScore=0.161
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 12/20)
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=52--success=False--score=0.009--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 52: Success=False, Steps=210, AvgStepScore=0.009
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 13/20)
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=53--success=True--score=0.083--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 53: Success=True, Steps=123, AvgStepScore=0.083
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 14/20)
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=54--success=True--score=0.091--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 54: Success=True, Steps=110, AvgStepScore=0.091
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 15/20)
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=55--success=True--score=0.130--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 55: Success=True, Steps=92, AvgStepScore=0.130
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 16/20)
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=56--success=True--score=0.096--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 56: Success=True, Steps=96, AvgStepScore=0.096
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 17/20)
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=57--success=True--score=0.097--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 57: Success=True, Steps=123, AvgStepScore=0.097
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 18/20)
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=58--success=True--score=0.118--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 58: Success=True, Steps=124, AvgStepScore=0.118
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 19/20)
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=59--success=True--score=0.091--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 59: Success=True, Steps=105, AvgStepScore=0.091
+
+Task: Lift the black bowl from the table's middle and place it on the dish. (Trial 20/20)
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=60--success=False--score=0.149--task=pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.mp4
+  Episode 60: Success=False, Steps=210, AvgStepScore=0.149
+Task 2 ('pick up the black bowl from table center and place it on the plate') Success Rate: 0.70 (14/20)
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 1/20)
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=61--success=True--score=0.110--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 61: Success=True, Steps=79, AvgStepScore=0.110
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 2/20)
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=62--success=True--score=0.083--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 62: Success=True, Steps=102, AvgStepScore=0.083
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 3/20)
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=63--success=True--score=0.105--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 63: Success=True, Steps=75, AvgStepScore=0.105
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 4/20)
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=64--success=True--score=0.109--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 64: Success=True, Steps=94, AvgStepScore=0.109
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 5/20)
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=65--success=True--score=0.115--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 65: Success=True, Steps=80, AvgStepScore=0.115
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 6/20)
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=66--success=True--score=0.115--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 66: Success=True, Steps=79, AvgStepScore=0.115
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 7/20)
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=67--success=True--score=0.114--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 67: Success=True, Steps=76, AvgStepScore=0.114
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 8/20)
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=68--success=True--score=0.063--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 68: Success=True, Steps=165, AvgStepScore=0.063
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 9/20)
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=69--success=True--score=0.155--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 69: Success=True, Steps=95, AvgStepScore=0.155
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 10/20)
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=70--success=True--score=0.093--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 70: Success=True, Steps=85, AvgStepScore=0.093
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 11/20)
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=71--success=True--score=0.119--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 71: Success=True, Steps=80, AvgStepScore=0.119
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 12/20)
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=72--success=True--score=0.110--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 72: Success=True, Steps=80, AvgStepScore=0.110
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 13/20)
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=73--success=True--score=0.121--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 73: Success=True, Steps=75, AvgStepScore=0.121
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 14/20)
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=74--success=True--score=0.093--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 74: Success=True, Steps=82, AvgStepScore=0.093
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 15/20)
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=75--success=True--score=0.127--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 75: Success=True, Steps=94, AvgStepScore=0.127
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 16/20)
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=76--success=True--score=0.105--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 76: Success=True, Steps=88, AvgStepScore=0.105
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 17/20)
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=77--success=True--score=0.098--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 77: Success=True, Steps=79, AvgStepScore=0.098
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 18/20)
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=78--success=True--score=0.098--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 78: Success=True, Steps=81, AvgStepScore=0.098
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 19/20)
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=79--success=True--score=0.114--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 79: Success=True, Steps=83, AvgStepScore=0.114
+
+Task: Collect the black bowl from the cookie box and rest it on the plate. (Trial 20/20)
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=80--success=True--score=0.123--task=pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 80: Success=True, Steps=88, AvgStepScore=0.123
+Task 3 ('pick up the black bowl on the cookie box and place it on the plate') Success Rate: 1.00 (20/20)
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 1/20)
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=81--success=True--score=0.101--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 81: Success=True, Steps=123, AvgStepScore=0.101
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 2/20)
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=82--success=False--score=0.213--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 82: Success=False, Steps=210, AvgStepScore=0.213
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 3/20)
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=83--success=True--score=0.142--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 83: Success=True, Steps=120, AvgStepScore=0.142
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 4/20)
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=84--success=False--score=0.229--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 84: Success=False, Steps=210, AvgStepScore=0.229
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 5/20)
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=85--success=True--score=0.112--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 85: Success=True, Steps=147, AvgStepScore=0.112
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 6/20)
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=86--success=True--score=0.145--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 86: Success=True, Steps=145, AvgStepScore=0.145
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 7/20)
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=87--success=True--score=0.131--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 87: Success=True, Steps=171, AvgStepScore=0.131
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 8/20)
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=88--success=True--score=0.125--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 88: Success=True, Steps=115, AvgStepScore=0.125
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 9/20)
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=89--success=True--score=0.147--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 89: Success=True, Steps=112, AvgStepScore=0.147
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 10/20)
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=90--success=True--score=0.096--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 90: Success=True, Steps=137, AvgStepScore=0.096
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 11/20)
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=91--success=False--score=0.230--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 91: Success=False, Steps=210, AvgStepScore=0.230
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 12/20)
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=92--success=True--score=0.127--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 92: Success=True, Steps=130, AvgStepScore=0.127
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 13/20)
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=93--success=True--score=0.103--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 93: Success=True, Steps=142, AvgStepScore=0.103
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 14/20)
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=94--success=True--score=0.109--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 94: Success=True, Steps=159, AvgStepScore=0.109
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 15/20)
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=95--success=True--score=0.118--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 95: Success=True, Steps=114, AvgStepScore=0.118
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 16/20)
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=96--success=True--score=0.117--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 96: Success=True, Steps=121, AvgStepScore=0.117
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 17/20)
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=97--success=True--score=0.123--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 97: Success=True, Steps=120, AvgStepScore=0.123
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 18/20)
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=98--success=False--score=0.191--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 98: Success=False, Steps=210, AvgStepScore=0.191
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 19/20)
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=99--success=True--score=0.120--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 99: Success=True, Steps=126, AvgStepScore=0.120
+
+Task: Pick the black bowl from the top drawer of the wooden cupboard and lay it on the plate. (Trial 20/20)
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=100--success=True--score=0.116--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 100: Success=True, Steps=133, AvgStepScore=0.116
+Task 4 ('pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate') Success Rate: 0.80 (16/20)
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 1/20)
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=101--success=True--score=0.095--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 101: Success=True, Steps=112, AvgStepScore=0.095
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 2/20)
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=102--success=True--score=0.111--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 102: Success=True, Steps=92, AvgStepScore=0.111
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 3/20)
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=103--success=True--score=0.107--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 103: Success=True, Steps=85, AvgStepScore=0.107
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 4/20)
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=104--success=True--score=0.096--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 104: Success=True, Steps=91, AvgStepScore=0.096
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 5/20)
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=105--success=True--score=0.089--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 105: Success=True, Steps=95, AvgStepScore=0.089
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 6/20)
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=106--success=True--score=0.091--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 106: Success=True, Steps=86, AvgStepScore=0.091
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 7/20)
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=107--success=True--score=0.080--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 107: Success=True, Steps=98, AvgStepScore=0.080
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 8/20)
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=108--success=True--score=0.116--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 108: Success=True, Steps=99, AvgStepScore=0.116
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 9/20)
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=109--success=True--score=0.086--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 109: Success=True, Steps=110, AvgStepScore=0.086
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 10/20)
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=110--success=False--score=0.204--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 110: Success=False, Steps=210, AvgStepScore=0.204
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 11/20)
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=111--success=True--score=0.109--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 111: Success=True, Steps=97, AvgStepScore=0.109
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 12/20)
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=112--success=True--score=0.104--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 112: Success=True, Steps=90, AvgStepScore=0.104
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 13/20)
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=113--success=True--score=0.099--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 113: Success=True, Steps=82, AvgStepScore=0.099
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 14/20)
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=114--success=False--score=0.105--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 114: Success=False, Steps=210, AvgStepScore=0.105
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 15/20)
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=115--success=True--score=0.073--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 115: Success=True, Steps=202, AvgStepScore=0.073
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 16/20)
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=116--success=False--score=0.181--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 116: Success=False, Steps=210, AvgStepScore=0.181
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 17/20)
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=117--success=True--score=0.095--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 117: Success=True, Steps=107, AvgStepScore=0.095
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 18/20)
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=118--success=True--score=0.077--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 118: Success=True, Steps=92, AvgStepScore=0.077
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 19/20)
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=119--success=True--score=0.093--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 119: Success=True, Steps=87, AvgStepScore=0.093
+
+Task: Snatch up the black bowl positioned on the ramekin and put it on the plate. (Trial 20/20)
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=120--success=False--score=0.196--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 120: Success=False, Steps=210, AvgStepScore=0.196
+Task 5 ('pick up the black bowl on the ramekin and place it on the plate') Success Rate: 0.80 (16/20)
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 1/20)
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=121--success=True--score=0.115--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 121: Success=True, Steps=114, AvgStepScore=0.115
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 2/20)
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=122--success=True--score=0.133--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 122: Success=True, Steps=118, AvgStepScore=0.133
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 3/20)
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=123--success=True--score=0.112--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 123: Success=True, Steps=94, AvgStepScore=0.112
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 4/20)
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=124--success=True--score=0.122--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 124: Success=True, Steps=97, AvgStepScore=0.122
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 5/20)
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=125--success=True--score=0.112--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 125: Success=True, Steps=100, AvgStepScore=0.112
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 6/20)
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=126--success=True--score=0.117--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 126: Success=True, Steps=127, AvgStepScore=0.117
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 7/20)
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=127--success=True--score=0.158--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 127: Success=True, Steps=120, AvgStepScore=0.158
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 8/20)
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=128--success=False--score=0.229--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 128: Success=False, Steps=210, AvgStepScore=0.229
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 9/20)
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=129--success=True--score=0.098--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 129: Success=True, Steps=158, AvgStepScore=0.098
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 10/20)
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=130--success=True--score=0.107--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 130: Success=True, Steps=97, AvgStepScore=0.107
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 11/20)
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=131--success=True--score=0.131--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 131: Success=True, Steps=108, AvgStepScore=0.131
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 12/20)
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=132--success=True--score=0.124--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 132: Success=True, Steps=112, AvgStepScore=0.124
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 13/20)
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=133--success=True--score=0.101--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 133: Success=True, Steps=109, AvgStepScore=0.101
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 14/20)
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=134--success=True--score=0.120--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 134: Success=True, Steps=97, AvgStepScore=0.120
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 15/20)
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=135--success=True--score=0.116--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 135: Success=True, Steps=172, AvgStepScore=0.116
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 16/20)
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=136--success=True--score=0.091--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 136: Success=True, Steps=107, AvgStepScore=0.091
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 17/20)
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=137--success=False--score=0.278--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 137: Success=False, Steps=210, AvgStepScore=0.278
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 18/20)
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=138--success=True--score=0.146--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 138: Success=True, Steps=89, AvgStepScore=0.146
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 19/20)
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=139--success=True--score=0.116--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 139: Success=True, Steps=110, AvgStepScore=0.116
+
+Task: Lift the ebony bowl by the cookie box and place it on the plate. (Trial 20/20)
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=140--success=True--score=0.115--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.mp4
+  Episode 140: Success=True, Steps=104, AvgStepScore=0.115
+Task 6 ('pick up the black bowl next to the cookie box and place it on the plate') Success Rate: 0.90 (18/20)
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 1/20)
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=141--success=True--score=0.125--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 141: Success=True, Steps=153, AvgStepScore=0.125
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 2/20)
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=142--success=False--score=0.159--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 142: Success=False, Steps=210, AvgStepScore=0.159
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 3/20)
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=143--success=True--score=0.109--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 143: Success=True, Steps=166, AvgStepScore=0.109
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 4/20)
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=144--success=False--score=0.292--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 144: Success=False, Steps=210, AvgStepScore=0.292
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 5/20)
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=145--success=True--score=0.130--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 145: Success=True, Steps=123, AvgStepScore=0.130
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 6/20)
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=146--success=True--score=0.102--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 146: Success=True, Steps=117, AvgStepScore=0.102
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 7/20)
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=147--success=True--score=0.126--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 147: Success=True, Steps=124, AvgStepScore=0.126
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 8/20)
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=148--success=False--score=0.151--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 148: Success=False, Steps=210, AvgStepScore=0.151
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 9/20)
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=149--success=False--score=0.137--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 149: Success=False, Steps=210, AvgStepScore=0.137
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 10/20)
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=150--success=False--score=0.228--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 150: Success=False, Steps=210, AvgStepScore=0.228
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 11/20)
+Starting episode 151...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=151--success=False--score=0.277--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 151: Success=False, Steps=210, AvgStepScore=0.277
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 12/20)
+Starting episode 152...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=152--success=False--score=0.147--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 152: Success=False, Steps=210, AvgStepScore=0.147
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 13/20)
+Starting episode 153...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=153--success=True--score=0.117--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 153: Success=True, Steps=139, AvgStepScore=0.117
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 14/20)
+Starting episode 154...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=154--success=False--score=0.113--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 154: Success=False, Steps=210, AvgStepScore=0.113
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 15/20)
+Starting episode 155...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=155--success=True--score=0.118--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 155: Success=True, Steps=126, AvgStepScore=0.118
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 16/20)
+Starting episode 156...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=156--success=True--score=0.123--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 156: Success=True, Steps=125, AvgStepScore=0.123
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 17/20)
+Starting episode 157...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=157--success=True--score=0.117--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 157: Success=True, Steps=131, AvgStepScore=0.117
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 18/20)
+Starting episode 158...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=158--success=True--score=0.119--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 158: Success=True, Steps=111, AvgStepScore=0.119
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 19/20)
+Starting episode 159...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=159--success=False--score=0.088--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 159: Success=False, Steps=210, AvgStepScore=0.088
+
+Task: Hoist the black bowl from the stove and rest it on the dish. (Trial 20/20)
+Starting episode 160...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=160--success=True--score=0.116--task=pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.mp4
+  Episode 160: Success=True, Steps=113, AvgStepScore=0.116
+Task 7 ('pick up the black bowl on the stove and place it on the plate') Success Rate: 0.55 (11/20)
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 1/20)
+Starting episode 161...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=161--success=True--score=0.077--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 161: Success=True, Steps=151, AvgStepScore=0.077
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 2/20)
+Starting episode 162...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=162--success=True--score=0.112--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 162: Success=True, Steps=105, AvgStepScore=0.112
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 3/20)
+Starting episode 163...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=163--success=False--score=0.224--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 163: Success=False, Steps=210, AvgStepScore=0.224
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 4/20)
+Starting episode 164...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=164--success=False--score=0.130--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 164: Success=False, Steps=210, AvgStepScore=0.130
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 5/20)
+Starting episode 165...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=165--success=False--score=0.131--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 165: Success=False, Steps=210, AvgStepScore=0.131
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 6/20)
+Starting episode 166...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=166--success=True--score=0.094--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 166: Success=True, Steps=91, AvgStepScore=0.094
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 7/20)
+Starting episode 167...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=167--success=True--score=0.089--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 167: Success=True, Steps=83, AvgStepScore=0.089
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 8/20)
+Starting episode 168...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=168--success=True--score=0.086--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 168: Success=True, Steps=94, AvgStepScore=0.086
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 9/20)
+Starting episode 169...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=169--success=False--score=0.007--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 169: Success=False, Steps=210, AvgStepScore=0.007
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 10/20)
+Starting episode 170...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=170--success=True--score=0.102--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 170: Success=True, Steps=83, AvgStepScore=0.102
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 11/20)
+Starting episode 171...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=171--success=True--score=0.099--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 171: Success=True, Steps=94, AvgStepScore=0.099
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 12/20)
+Starting episode 172...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=172--success=True--score=0.103--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 172: Success=True, Steps=104, AvgStepScore=0.103
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 13/20)
+Starting episode 173...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=173--success=True--score=0.074--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 173: Success=True, Steps=145, AvgStepScore=0.074
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 14/20)
+Starting episode 174...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=174--success=True--score=0.128--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 174: Success=True, Steps=97, AvgStepScore=0.128
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 15/20)
+Starting episode 175...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=175--success=False--score=0.112--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 175: Success=False, Steps=210, AvgStepScore=0.112
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 16/20)
+Starting episode 176...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=176--success=True--score=0.115--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 176: Success=True, Steps=98, AvgStepScore=0.115
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 17/20)
+Starting episode 177...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=177--success=True--score=0.094--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 177: Success=True, Steps=107, AvgStepScore=0.094
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 18/20)
+Starting episode 178...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=178--success=True--score=0.099--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 178: Success=True, Steps=79, AvgStepScore=0.099
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 19/20)
+Starting episode 179...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=179--success=True--score=0.077--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 179: Success=True, Steps=95, AvgStepScore=0.077
+
+Task: Take the ebony bowl adjacent to the platter and position it atop the platter. (Trial 20/20)
+Starting episode 180...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=180--success=True--score=0.134--task=pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.mp4
+  Episode 180: Success=True, Steps=101, AvgStepScore=0.134
+Task 8 ('pick up the black bowl next to the plate and place it on the plate') Success Rate: 0.75 (15/20)
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 1/20)
+Starting episode 181...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=181--success=True--score=0.137--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 181: Success=True, Steps=122, AvgStepScore=0.137
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 2/20)
+Starting episode 182...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=182--success=True--score=0.135--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 182: Success=True, Steps=141, AvgStepScore=0.135
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 3/20)
+Starting episode 183...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=183--success=True--score=0.120--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 183: Success=True, Steps=114, AvgStepScore=0.120
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 4/20)
+Starting episode 184...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=184--success=True--score=0.135--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 184: Success=True, Steps=127, AvgStepScore=0.135
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 5/20)
+Starting episode 185...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=185--success=True--score=0.150--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 185: Success=True, Steps=122, AvgStepScore=0.150
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 6/20)
+Starting episode 186...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=186--success=True--score=0.162--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 186: Success=True, Steps=122, AvgStepScore=0.162
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 7/20)
+Starting episode 187...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=187--success=False--score=0.183--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 187: Success=False, Steps=210, AvgStepScore=0.183
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 8/20)
+Starting episode 188...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=188--success=True--score=0.141--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 188: Success=True, Steps=148, AvgStepScore=0.141
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 9/20)
+Starting episode 189...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=189--success=True--score=0.114--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 189: Success=True, Steps=138, AvgStepScore=0.114
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 10/20)
+Starting episode 190...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=190--success=True--score=0.133--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 190: Success=True, Steps=140, AvgStepScore=0.133
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 11/20)
+Starting episode 191...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=191--success=True--score=0.144--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 191: Success=True, Steps=112, AvgStepScore=0.144
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 12/20)
+Starting episode 192...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=192--success=True--score=0.150--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 192: Success=True, Steps=126, AvgStepScore=0.150
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 13/20)
+Starting episode 193...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=193--success=False--score=0.287--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 193: Success=False, Steps=210, AvgStepScore=0.287
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 14/20)
+Starting episode 194...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=194--success=False--score=0.198--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 194: Success=False, Steps=210, AvgStepScore=0.198
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 15/20)
+Starting episode 195...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=195--success=False--score=0.215--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 195: Success=False, Steps=210, AvgStepScore=0.215
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 16/20)
+Starting episode 196...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=196--success=True--score=0.134--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 196: Success=True, Steps=121, AvgStepScore=0.134
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 17/20)
+Starting episode 197...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=197--success=True--score=0.119--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 197: Success=True, Steps=118, AvgStepScore=0.119
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 18/20)
+Starting episode 198...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=198--success=True--score=0.135--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 198: Success=True, Steps=108, AvgStepScore=0.135
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 19/20)
+Starting episode 199...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=199--success=False--score=0.162--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 199: Success=False, Steps=210, AvgStepScore=0.162
+
+Task: Lift the dark bowl on the wooden cabinet and position it on the plate. (Trial 20/20)
+Starting episode 200...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_5_lang/episode=200--success=False--score=0.138--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.mp4
+  Episode 200: Success=False, Steps=210, AvgStepScore=0.138
+Task 9 ('pick up the black bowl on the wooden cabinet and place it on the plate') Success Rate: 0.70 (14/20)
+
+Overall Success Rate: 0.790 (158/200)
