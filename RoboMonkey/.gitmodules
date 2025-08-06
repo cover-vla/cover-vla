@@ -1,0 +1,9 @@
+[submodule "SimplerEnv"]
+	path = SimplerEnv
+	url = https://github.com/simpler-env/SimplerEnv
+[submodule "sglang-vla"]
+	path = sglang-vla
+	url = https://github.com/robomonkey-vla/sglang-vla.git
+[submodule "openvla-mini"]
+	path = openvla-mini
+	url = https://github.com/robomonkey-vla/openvla-mini.git
