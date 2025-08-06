@@ -165,7 +165,7 @@ python finetune_trajectory_bridge_ddp.py \
 ```bash
 cd bridge_verifier
 python augment_bridge_dataset.py \
-    --builder_dir /root/tensorflow_datasets/bridge_dataset/1.0.0 \
+    --builder_dir /root/bridge_dataset/1.0.0 \
     --output_path custom_bridge_dataset.json \
     --history_length 10 \
     --rephrases_json instruction_mapping.json \
@@ -175,13 +175,13 @@ python augment_bridge_dataset.py \
 
 #### Inference Example (TODO)
 ```bash
-cd /root/vla-clip/bridge_verifier/inference
+cd /root/vla-clip/bridge_verifier
 
 # Download the model checkpoint
 aws s3 cp s3://bridge-data-bucket/rephrase/bridge_rephrases_epoch_20.pt ./bridge_rephrases_epoch_20.pt
 
 python vla_clip_inference_bridge.py \
-  --model_path /root/vla-clip/bridge_verifier/inference/bridge_rephrases_epoch_20.pt \
+  --model_path bridge_rephrases_epoch_20.pt \
   --bridge_dataset 10episodes.json \
   --images_folder 10episodes_imgs \
   --history_length 10 \

@@ -492,7 +492,7 @@ if __name__ == "__main__":
     parser.add_argument('--history_length', type=int, default=10,
                         help='Number of past action steps to include in the history (H)')
     parser.add_argument('--rephrases_json', type=str, 
-                        default='bridge_verifier/instruction_mapping.json',
+                        default='instruction_mapping.json',
                         help='Path to the JSON file containing instruction rephrases')
     parser.add_argument('--max_episodes', type=int, default=None,
                         help='Maximum number of episodes to process (for debugging/testing)')
