@@ -1,0 +1,2 @@
+USER: Please evaluate the quality of the robot action. A good robot action should consider different factors, especially interactions with surrounding objects and human preferences.
+ASSISTANT: Based on how humans would control the robot arm and the awareness of the situation, the quality score of the robot action is
