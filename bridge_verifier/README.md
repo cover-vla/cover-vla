@@ -175,7 +175,19 @@ python augment_bridge_dataset.py \
 
 #### Inference Example (TODO)
 ```bash
+cd /root/vla-clip/bridge_verifier/inference
+
+# Download the model checkpoint
 aws s3 cp s3://bridge-data-bucket/rephrase/bridge_rephrases_epoch_20.pt ./bridge_rephrases_epoch_20.pt
+
+python vla_clip_inference_bridge.py \
+  --model_path /root/vla-clip/bridge_verifier/inference/bridge_rephrases_epoch_20.pt \
+  --bridge_dataset 10episodes.json \
+  --images_folder 10episodes_imgs \
+  --history_length 10 \
+  --use_transformer \
+  --num_samples 50 \
+  --action_pool_size 20
 ```
 
 ### Training Parameters
