@@ -141,7 +141,8 @@ class VLA_CLIP_Bridge_Inference:
         
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
         return predicted_history, history_scores
-
+    
+    @torch.no_grad()
     def get_history_score(self, image, instruction, action_history):
         """
         Calculates the VLA-CLIP cosine similarity score between an agent view image/instruction
@@ -171,7 +172,7 @@ class VLA_CLIP_Bridge_Inference:
         with torch.no_grad():
             image_logits, action_logits = self.model(img_tensor, text_tokens, history_tensor)
             # Return the similarity score (diagonal element)
-            score = image_logits[0, 0]
+            score = image_logits[0, 0]/self.model.logit_scale.exp()
         
         return score
 

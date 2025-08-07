@@ -97,7 +97,8 @@ def process_image(image_path, output_dir="./transfer_images/", crop_scale=0.9, t
         raise Exception(f"Error processing image: {str(e)}")
 
 
-def save_reward_img(image):
+def save_reward_img(image, verifier=False):
+
     # Encode as JPEG, as done in RLDS dataset builder
     image = tf.image.encode_jpeg(image)  
     image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8) 
@@ -105,30 +106,33 @@ def save_reward_img(image):
         image, (256, 256), method="lanczos3", antialias=True
     )
     image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
-    image = tf.io.encode_jpeg(image, quality=95)
+    if not verifier:
+        image = tf.io.encode_jpeg(image, quality=95)
+        # Encode again as done in dataset builder
+        image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8)
+        image = tf.image.resize(
+            image, (256, 256), method="lanczos3", antialias=True
+        )
+        image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
+        image = image.numpy()
 
-    # Encode again as done in dataset builder
-    image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8)
-    image = tf.image.resize(
-        image, (256, 256), method="lanczos3", antialias=True
-    )
-    image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
-    image = image.numpy()
+        transfer_root = str(Path("./transfer_images/").absolute())
+        os.makedirs(transfer_root, exist_ok=True)
+        Image.fromarray(image).save(f"{transfer_root}/reward_img.jpg")
 
-    transfer_root = str(Path("./transfer_images/").absolute())
-    os.makedirs(transfer_root, exist_ok=True)
-    Image.fromarray(image).save(f"{transfer_root}/reward_img.jpg")
+        # Resize down to 224x224
+        process_image(
+            f"{transfer_root}/reward_img.jpg",
+            output_dir="./output/",
+            crop_scale=0.9,
+            target_size=(224, 224),
+            batch_size=1
+        )
+        return None
+    else:
+        return image.numpy()
 
-    # Resize down to 224x224
-    process_image(
-        f"{transfer_root}/reward_img.jpg",
-        output_dir="./output/",
-        crop_scale=0.9,
-        target_size=(224, 224),
-        batch_size=1
-    )
-
-def get_simpler_img(env, obs, resize_size):
+def get_simpler_img(env, obs, resize_size, verifier=False):
     """
     Takes in environment and observation and returns resized image as numpy array.
 
@@ -137,26 +141,26 @@ def get_simpler_img(env, obs, resize_size):
     """
     assert isinstance(resize_size, int)
     image = get_image_from_maniskill2_obs_dict(env, obs)
-    save_reward_img(image) 
+    return save_reward_img(image, verifier=verifier) 
+    # if not verifier:
+    #     # Preprocess the image the exact same way that the Berkeley Bridge folks did it
+    #     # to minimize distribution shift.
+    #     # NOTE (Moo Jin): Yes, we resize down to 256x256 first even though the image may end up being
+    #     # resized up to a different resolution by some models. This is just so that we're in-distribution
+    #     # w.r.t. the original preprocessing at train time.
+    #     IMAGE_BASE_PREPROCESS_SIZE = 128
+    #     # Resize to image size expected by model
+    #     image = tf.image.encode_jpeg(image)  # Encode as JPEG, as done in RLDS dataset builder
+    #     image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8)  # Immediately decode back
+    #     image = tf.image.resize(
+    #         image, (IMAGE_BASE_PREPROCESS_SIZE, IMAGE_BASE_PREPROCESS_SIZE), method="lanczos3", antialias=True
+    #     )
+    #     image = tf.image.resize(image, (resize_size, resize_size), method="lanczos3", antialias=True)
+    #     image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
+    # return image.numpy()
 
-    # Preprocess the image the exact same way that the Berkeley Bridge folks did it
-    # to minimize distribution shift.
-    # NOTE (Moo Jin): Yes, we resize down to 256x256 first even though the image may end up being
-    # resized up to a different resolution by some models. This is just so that we're in-distribution
-    # w.r.t. the original preprocessing at train time.
-    IMAGE_BASE_PREPROCESS_SIZE = 128
-    # Resize to image size expected by model
-    image = tf.image.encode_jpeg(image)  # Encode as JPEG, as done in RLDS dataset builder
-    image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8)  # Immediately decode back
-    image = tf.image.resize(
-        image, (IMAGE_BASE_PREPROCESS_SIZE, IMAGE_BASE_PREPROCESS_SIZE), method="lanczos3", antialias=True
-    )
-    image = tf.image.resize(image, (resize_size, resize_size), method="lanczos3", antialias=True)
-    image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
-    return image.numpy()
 
-
-def get_simpler_env(task, model_family):
+def get_simpler_env(task):
     """Initializes and returns the Simpler environment along with the task description."""
     env = simpler_env.make(task)
     return env

@@ -60,7 +60,7 @@ def get_libero_image(obs, resize_size=None, key='agentview_image'):
 
 def save_rollout_video(rollout_images, idx, success, transform_type,
                        task_description, log_file=None, score_list=None, 
-                       action_list=None, task_description_list=None, clip_update_num=None, use_original_task_description=False,
+                       action_list=None, task_description_list=None, clip_update_num=None,
                        oracle_scorer=False):
     
     """Saves an MP4 replay of an episode."""
