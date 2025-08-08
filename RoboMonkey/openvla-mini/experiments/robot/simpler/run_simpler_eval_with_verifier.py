@@ -104,7 +104,7 @@ class GenerateConfig:
     #################################################################################################################
     use_batch_verifier: bool = True                 # Enable the batch language verifier?
     batch_server_url: str = "http://localhost:3200"  # URL of the SGLang batch server
-    batch_temperature: float = 1.0                   # Temperature for batch inference
+    batch_temperature: float = 0.2                   # Temperature for batch inference
 
     #################################################################################################################
     # Trajectory VLA-CLIP/DINO Scorer (Optional)
@@ -128,7 +128,7 @@ class GenerateConfig:
     # Utils
     #################################################################################################################
     run_id_note: Optional[str] = None                # Extra note to add in run ID for logging
-    local_log_dir: str = "./experiments/logs"        # Local directory for eval logs
+    local_log_dir: str = "./logs"        # Local directory for eval logs
     prefix: str = ''
 
     use_wandb: bool = False                          # Whether to also log results in Weights & Biases
@@ -184,11 +184,16 @@ def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     # Make the path relative to this script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'instruction_mapping.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased.json')
     
-    with open(json_path, 'r') as f:
-        all_rephrases = json.load(f)
-    return all_rephrases
+    try:
+        with open(json_path, 'r') as f:
+            all_rephrases = json.load(f)
+        # The new format has an "instructions" key containing the task data
+        return all_rephrases.get("instructions", {})
+    except FileNotFoundError:
+        print(f"Warning: Could not find rephrase file {json_path}. Using empty rephrases.")
+        return {}
 
 
 @draccus.wrap()
@@ -334,23 +339,18 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                 # Find the task_id that matches the original_task_description
                 matching_task_id = None
                 for task_key, task_data in preloaded_rephrases.items():
-                    print(f"Task key: {task_key}")
-                    print(f"original_task_description: {original_task_description}")
-                    print(f"Task data original: {task_data.get('original')}")
-                    if task_data.get("original") == original_task_description:
+                    if task_key == original_task_description:
                         matching_task_id = task_key
                         break
-                    input()
                 if matching_task_id is not None:
                     rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
-                    print(f"Found matching task_id: {matching_task_id}")
-                    print(f"Original: {original_task_description}")
-                    print(f"Preloaded rephrases: {rephrased_list}")
+                    # print(f"Found matching task_id: {matching_task_id}")
+                    # print(f"Original: {original_task_description}")
+                    # print(f"Preloaded rephrases: {rephrased_list}")
                     candidate_instructions = rephrased_list[:cfg.clip_select_action_num_candidates]
-                    input()
                 else:
                     print(f"No preloaded rephrases found for task: {original_task_description}")
-                    break
+                    raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
                     # Generate rephrases on-the-fly
                     candidate_instructions = [original_task_description]
                     additional_instructions = lang_transform.transform(
@@ -359,7 +359,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                         batch_number=cfg.clip_select_action_num_candidates-1
                     )
                     candidate_instructions.extend(additional_instructions)
-            print(f"Candidate instructions: {candidate_instructions}")
+            # print(f"Candidate instructions: {candidate_instructions}")
             log_file.write(f"Candidate instructions: {candidate_instructions}\n")
             
             while t < max_steps + cfg.num_steps_wait:

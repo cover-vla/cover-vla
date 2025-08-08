@@ -18,6 +18,50 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --vla_clip_history_length 10 \
 --vla_clip_score_threshold 0.5 \
 --clip_select_action_num_candidates 1 \
+--lang_transform_type no_transform \
+--num_trials_per_task 30
+
+echo "Running: num_candidates=1, transform=rephrase"
+CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+--task_suite_name simpler_widowx \
+--use_vla_clip_trajectory_scorer True \
+--vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
+--vla_clip_history_length 10 \
+--vla_clip_score_threshold 0.5 \
+--clip_select_action_num_candidates 1 \
 --lang_transform_type rephrase \
---num_trials_per_task 5
+--num_trials_per_task 30
+
+echo "Running: num_candidates=10, transform=rephrase"
+CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+--task_suite_name simpler_widowx \
+--use_vla_clip_trajectory_scorer True \
+--vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
+--vla_clip_history_length 10 \
+--vla_clip_score_threshold 0.5 \
+--clip_select_action_num_candidates 10 \
+--lang_transform_type rephrase \
+--num_trials_per_task 30
+
+echo "Running: num_candidates=20, transform=rephrase"
+CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+--task_suite_name simpler_widowx \
+--use_vla_clip_trajectory_scorer True \
+--vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
+--vla_clip_history_length 10 \
+--vla_clip_score_threshold 0.5 \
+--clip_select_action_num_candidates 20 \
+--lang_transform_type rephrase \
+--num_trials_per_task 30
+
+echo "Running: num_candidates=35, transform=rephrase"
+CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+--task_suite_name simpler_widowx \
+--use_vla_clip_trajectory_scorer True \
+--vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
+--vla_clip_history_length 10 \
+--vla_clip_score_threshold 0.5 \
+--clip_select_action_num_candidates 35 \
+--lang_transform_type rephrase \
+--num_trials_per_task 30
 

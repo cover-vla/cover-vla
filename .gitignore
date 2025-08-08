@@ -186,3 +186,7 @@ openpi/.venv
 openpi/.vscode
 openpi/checkpoints
 openpi/rollouts*
+
+
+RoboMonkey/openvla-mini/experiments/robot/simpler/logs/
+RoboMonkey/openvla-mini/experiments/robot/simpler/rollouts*

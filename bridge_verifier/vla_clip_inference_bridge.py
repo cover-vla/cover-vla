@@ -154,6 +154,44 @@ class VLA_CLIP_Bridge_Inference:
         Returns:
             score: Float similarity score tensor (on the model's device).
         """
+        # if isinstance(image, np.ndarray):
+        #     image = Image.fromarray(image.astype('uint8'))
+        # img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+        
+        # if isinstance(instruction, str):
+        #     text_tokens = clip.tokenize([instruction]).to(self.device)
+        # else:
+        #     text_tokens = instruction.to(self.device)
+        #     if text_tokens.ndim == 1:
+        #         text_tokens = text_tokens.unsqueeze(0)
+        
+        # history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
+        # if history_tensor.ndim == 2:
+        #     history_tensor = history_tensor.unsqueeze(0)
+        
+        # with torch.no_grad():
+        #     image_logits, action_logits = self.model(img_tensor, text_tokens, history_tensor)
+        #     # Return the similarity score (diagonal element)
+            # score = image_logits[0, 0]/self.model.logit_scale.exp()
+            
+        with torch.no_grad():
+            score = self.get_similarity_score(image, instruction, action_history)
+        
+        return score
+
+    @torch.no_grad()
+    def get_similarity_score(self, image, instruction, action_history):
+        """
+        Computes the similarity (cosine similarity, unscaled) for inference, without logit_scale.
+        This is useful for getting raw similarity scores without the learned temperature scaling.
+        
+        Args:
+            image: PIL Image or numpy array (single agent view image)
+            instruction: String instruction.
+            action_history: Numpy array action history (H, D), potentially padded.
+        Returns:
+            similarity: Float similarity score (cosine similarity between normalized features).
+        """
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
         img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
@@ -170,11 +208,47 @@ class VLA_CLIP_Bridge_Inference:
             history_tensor = history_tensor.unsqueeze(0)
         
         with torch.no_grad():
-            image_logits, action_logits = self.model(img_tensor, text_tokens, history_tensor)
-            # Return the similarity score (diagonal element)
-            score = image_logits[0, 0]/self.model.logit_scale.exp()
-        
-        return score
+            # Extract features up to the normalized representations
+            patch_features, text_features = self.model.extract_clip_features(img_tensor, text_tokens)
+            
+            # Text-aware visual features
+            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features)
+            vision_token = self.model.vision_poolings(text_aware_features)
+            
+            # Text pooling
+            text_token = self.model.text_pooling(text_features)
+            combined_features = torch.cat([text_token, vision_token], dim=-1)
+            combined_features = self.model.input_projection(combined_features)
+            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
+            
+            # Encode action history
+            action_histories = history_tensor.float().to(self.device)
+            
+            if self.use_transformer:
+                # Transformer path
+                padding_mask = (action_histories[:, :, 0] == ACTION_PADDING_VALUE)
+                encoded_steps = self.model.single_step_action_encoder(action_histories)
+                encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
+                transformer_output_permuted = self.model.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
+                transformer_output = transformer_output_permuted.permute(1, 0, 2)
+                
+                mask_expanded = (~padding_mask).unsqueeze(-1).float()
+                summed_features = (transformer_output * mask_expanded).sum(dim=1)
+                num_non_padded = mask_expanded.sum(dim=1)
+                num_non_padded = torch.clamp(num_non_padded, min=1e-9)
+                projected_trajectory = summed_features / num_non_padded
+            else:
+                # MLP path
+                batch_size = action_histories.shape[0]
+                flat_actions = action_histories.reshape(batch_size, -1)
+                projected_trajectory = self.model.complex_action_encoder(flat_actions)
+            
+            # Normalize action history features
+            projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
+            
+            # Return cosine similarity (dot product of normalized vectors)
+            similarity = torch.matmul(combined_features, projected_trajectory.T)
+            return similarity[0, 0]
 
 def sample_and_test_bridge(bridge_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20, images_folder=None):
     """
