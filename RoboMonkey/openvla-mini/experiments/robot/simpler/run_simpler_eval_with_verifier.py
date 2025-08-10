@@ -137,14 +137,6 @@ class GenerateConfig:
 
     seed: int = 7                                    # Random Seed (for reproducibility)
 
-    # fmt: on
-
-    # Robomonkey Config
-    initial_samples: int = 5
-    augmented_samples: int = 32
-    action_server_port: int = 3200
-    reward_server_port: int = 3100
-
 def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
     """
     Get batch actions for multiple instructions using the SGLang batch server.
@@ -344,9 +336,6 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                         break
                 if matching_task_id is not None:
                     rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
-                    # print(f"Found matching task_id: {matching_task_id}")
-                    # print(f"Original: {original_task_description}")
-                    # print(f"Preloaded rephrases: {rephrased_list}")
                     candidate_instructions = rephrased_list[:cfg.clip_select_action_num_candidates]
                 else:
                     print(f"No preloaded rephrases found for task: {original_task_description}")
@@ -359,7 +348,6 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                         batch_number=cfg.clip_select_action_num_candidates-1
                     )
                     candidate_instructions.extend(additional_instructions)
-            # print(f"Candidate instructions: {candidate_instructions}")
             log_file.write(f"Candidate instructions: {candidate_instructions}\n")
             
             while t < max_steps + cfg.num_steps_wait:
@@ -425,25 +413,28 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
 
                 # Score actions if VLA-CLIP scorer is enabled
                 if vla_clip_scorer:
-                    # Score all candidate actions
-                    scores = []
+                    # Prepare all padded histories
                     padded_histories = []
-                    
-                    for i, action in enumerate(predicted_actions):
+                    for action in predicted_actions:
                         hist_list = list(executed_action_history)
                         H = cfg.vla_clip_history_length
                         num_pad = H - len(hist_list) - 1
                         past = [padding_action_vector] * max(0, num_pad) + hist_list[-(H - 1):]
                         padded_history = np.array(past + [action.copy()], dtype=np.float32)
                         padded_histories.append(padded_history)
-                        
-                        score = vla_clip_scorer.get_history_score(
-                            img_verifier,
-                            original_task_description if cfg.use_original_task_description else candidate_instructions[i],
-                            padded_history,
-                        ).detach().cpu().numpy().squeeze()
-                        scores.append(score)
-
+                    
+                    # Get instructions for each action
+                    if cfg.use_original_task_description:
+                        instructions = [original_task_description] * len(predicted_actions)
+                    else:
+                        instructions = candidate_instructions[0]
+                    
+                    # Use batch scoring for efficiency
+                    scores = vla_clip_scorer.get_history_score(
+                        img_verifier,
+                        instructions,
+                        padded_histories
+                    )
                     # Select the best action based on strategy
                     scores = np.array(scores)
                     if cfg.clip_select_action_num_candidates > 1:

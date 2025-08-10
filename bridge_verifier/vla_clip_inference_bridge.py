@@ -179,6 +179,8 @@ class VLA_CLIP_Bridge_Inference:
         
         return score
 
+
+
     @torch.no_grad()
     def get_similarity_score(self, image, instruction, action_history):
         """
@@ -187,25 +189,31 @@ class VLA_CLIP_Bridge_Inference:
         
         Args:
             image: PIL Image or numpy array (single agent view image)
-            instruction: String instruction.
-            action_history: Numpy array action history (H, D), potentially padded.
+            instruction: String instruction (will be repeated for all actions in batch)
+            action_history: Numpy array action history (H, D) or list of action histories, potentially padded.
         Returns:
-            similarity: Float similarity score (cosine similarity between normalized features).
+            similarity: Float similarity score (cosine similarity between normalized features) or list of scores for batch inputs.
         """
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
         img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
+        # Keep image and instruction as single inputs
         if isinstance(instruction, str):
             text_tokens = clip.tokenize([instruction]).to(self.device)
         else:
-            text_tokens = instruction.to(self.device)
-            if text_tokens.ndim == 1:
-                text_tokens = text_tokens.unsqueeze(0)
+            # If it's already a list, take the first one
+            text_tokens = clip.tokenize([instruction[0]]).to(self.device)
         
-        history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
-        if history_tensor.ndim == 2:
-            history_tensor = history_tensor.unsqueeze(0)
+        # Handle single vs batch action histories
+        if isinstance(action_history, list):
+            history_batch = torch.tensor(np.array(action_history), dtype=torch.float32).to(self.device)
+        else:
+            history_batch = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
+        
+        # Ensure proper dimensions
+        if history_batch.ndim == 2:
+            history_batch = history_batch.unsqueeze(0)
         
         with torch.no_grad():
             # Extract features up to the normalized representations
@@ -221,8 +229,8 @@ class VLA_CLIP_Bridge_Inference:
             combined_features = self.model.input_projection(combined_features)
             combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
             
-            # Encode action history
-            action_histories = history_tensor.float().to(self.device)
+            # Encode action history (this already handles batches!)
+            action_histories = history_batch.float().to(self.device)
             
             if self.use_transformer:
                 # Transformer path
@@ -248,7 +256,14 @@ class VLA_CLIP_Bridge_Inference:
             
             # Return cosine similarity (dot product of normalized vectors)
             similarity = torch.matmul(combined_features, projected_trajectory.T)
-            return similarity[0, 0]
+            # print ("similarity", similarity)
+            # Extract diagonal elements for batch scoring
+            # if similarity.ndim == 2:
+            #     scores = torch.diag(similarity)
+            # else:
+            #     scores = similarity
+            scores = similarity.cpu().numpy()[0]
+        return scores
 
 def sample_and_test_bridge(bridge_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20, images_folder=None):
     """
