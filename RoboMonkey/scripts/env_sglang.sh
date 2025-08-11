@@ -23,16 +23,16 @@ source ~/.bashrc
 full_path=$(realpath $0)
 dir_path=$(dirname $full_path)
 
-echo "Creating sglang-vla environment..."
+echo "Creating robomonkey-sglang-vla environment..."
 # Create and activate environment
-if ! conda env list | grep -qE "^\s*sglang-vla\s"; then
-    $HOME/miniconda3/bin/conda create -n sglang-vla python=3.9 -y
+if ! conda env list | grep -qE "^\s*robomonkey-sglang-vla\s"; then
+    $HOME/miniconda3/bin/conda create -n robomonkey-sglang-vla python=3.9 -y
 else
-    echo "Conda environment 'sglang-vla' already exists. Skipping creation."
+    echo "Conda environment 'robomonkey-sglang-vla' already exists. Skipping creation."
 fi
 
 source $HOME/miniconda3/etc/profile.d/conda.sh
-conda activate sglang-vla
+conda activate robomonkey-sglang-vla
 
 cd "$dir_path/../sglang-vla"
 pip install --upgrade pip

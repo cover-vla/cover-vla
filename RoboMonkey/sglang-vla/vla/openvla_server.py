@@ -66,4 +66,4 @@ if __name__ == "__main__":
         random_seed=args.seed,
     )
     sgl.set_default_backend(runtime)
-    uvicorn.run(app, host="0.0.0.0", port=3200)
+    uvicorn.run(app, host="0.0.0.0", port=6200)

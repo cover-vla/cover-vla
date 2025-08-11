@@ -219,6 +219,25 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
         print(f"Saved data at path {data_path}")
     return mp4_path
 
+
+def save_rollout_video_simple(rollout_images, idx, success, task_description, log_file=None):
+    """Saves an MP4 replay of an episode (simplified version without pkl files)."""
+    rollout_dir = f"./rollouts_clip/robomonkey"
+    os.makedirs(rollout_dir, exist_ok=True)
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+
+    # Use the formatted string in the filename
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.mp4"
+    video_writer = imageio.get_writer(mp4_path, fps=30)
+    for img in rollout_images:
+        video_writer.append_data(img)
+    video_writer.close()
+    print(f"Saved rollout MP4 at path {mp4_path}")
+    if log_file is not None:
+        log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
+    return mp4_path
+
+
 # def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
 #     """Saves an MP4 replay of an episode."""
 #     rollout_dir = f"./rollouts/{DATE}"
@@ -403,7 +422,7 @@ def get_vla_action(vla, processor, base_vla_name, obs, task_label, unnorm_key, c
 
     # Score each action with robomonkey verifier
     output_ids, actions = get_unique_actions(output_ids, actions)
-    reward_img = str(Path("./transfer_images/reward_img.jpg").absolute())
+    reward_img = str(Path("./transfer_images/reward_img_robomonkey.jpg").absolute())
     rewards = get_rewards(instruction, reward_img, output_ids, cfg=cfg)
 
     selected_index = np.argmax(rewards)

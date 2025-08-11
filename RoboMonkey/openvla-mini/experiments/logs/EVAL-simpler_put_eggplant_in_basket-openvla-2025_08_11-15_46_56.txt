@@ -1,0 +1,4 @@
+Task suite: simpler_put_eggplant_in_basket
+
+Task: Place the eggplant in the yellow basket.
+Starting episode 1...

@@ -128,8 +128,7 @@ class VLA_CLIP_Bridge_Inference:
             # text_tokens should be (num_histories, seq_len)
             if text_tokens.shape[0] != num_histories:
                 text_tokens = text_tokens.repeat(num_histories, 1)
-            
-            # Use the bridge model's forward method
+
             image_logits, action_logits = self.model(img_batch, text_tokens, history_batch)
             
             # Get similarity scores from the model output
@@ -154,70 +153,38 @@ class VLA_CLIP_Bridge_Inference:
         Returns:
             score: Float similarity score tensor (on the model's device).
         """
-        # if isinstance(image, np.ndarray):
-        #     image = Image.fromarray(image.astype('uint8'))
-        # img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        
-        # if isinstance(instruction, str):
-        #     text_tokens = clip.tokenize([instruction]).to(self.device)
-        # else:
-        #     text_tokens = instruction.to(self.device)
-        #     if text_tokens.ndim == 1:
-        #         text_tokens = text_tokens.unsqueeze(0)
-        
-        # history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
-        # if history_tensor.ndim == 2:
-        #     history_tensor = history_tensor.unsqueeze(0)
-        
-        # with torch.no_grad():
-        #     image_logits, action_logits = self.model(img_tensor, text_tokens, history_tensor)
-        #     # Return the similarity score (diagonal element)
-            # score = image_logits[0, 0]/self.model.logit_scale.exp()
-            
-        with torch.no_grad():
-            score = self.get_similarity_score(image, instruction, action_history)
-        
-        return score
-
-
-
-    @torch.no_grad()
-    def get_similarity_score(self, image, instruction, action_history):
-        """
-        Computes the similarity (cosine similarity, unscaled) for inference, without logit_scale.
-        This is useful for getting raw similarity scores without the learned temperature scaling.
-        
-        Args:
-            image: PIL Image or numpy array (single agent view image)
-            instruction: String instruction (will be repeated for all actions in batch)
-            action_history: Numpy array action history (H, D) or list of action histories, potentially padded.
-        Returns:
-            similarity: Float similarity score (cosine similarity between normalized features) or list of scores for batch inputs.
-        """
+        # Preprocess the image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
         img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
-        # Keep image and instruction as single inputs
-        if isinstance(instruction, str):
-            text_tokens = clip.tokenize([instruction]).to(self.device)
+        # Tokenize instruction(s)
+        if isinstance(instruction, list):
+            assert len(instruction) == len(action_history), "Number of instructions must match number of action histories."
+            # Tokenize each instruction and stack into a batch
+            text_tokens = clip.tokenize(instruction).to(self.device)
         else:
-            # If it's already a list, take the first one
-            text_tokens = clip.tokenize([instruction[0]]).to(self.device)
-        
-        # Handle single vs batch action histories
-        if isinstance(action_history, list):
+            text_tokens = clip.tokenize([instruction]).to(self.device)  # Make it batch size 1
+
+        with torch.no_grad():
             history_batch = torch.tensor(np.array(action_history), dtype=torch.float32).to(self.device)
-        else:
-            history_batch = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
+            num_histories = history_batch.shape[0]
+            img_batch = img_tensor.repeat(num_histories, 1, 1, 1)
+            # text_tokens should be (num_histories, seq_len)
+            if text_tokens.shape[0] != num_histories:
+                text_tokens = text_tokens.repeat(num_histories, 1)
+            
+        with torch.no_grad():
+            score = self.get_similarity_score(img_batch, text_tokens, history_batch)
         
-        # Ensure proper dimensions
-        if history_batch.ndim == 2:
-            history_batch = history_batch.unsqueeze(0)
+        return score
+
+    @torch.no_grad()
+    def get_similarity_score(self, img_batch, text_tokens, history_batch):
         
         with torch.no_grad():
             # Extract features up to the normalized representations
-            patch_features, text_features = self.model.extract_clip_features(img_tensor, text_tokens)
+            patch_features, text_features = self.model.extract_clip_features(img_batch, text_tokens)
             
             # Text-aware visual features
             text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features)
@@ -256,13 +223,7 @@ class VLA_CLIP_Bridge_Inference:
             
             # Return cosine similarity (dot product of normalized vectors)
             similarity = torch.matmul(combined_features, projected_trajectory.T)
-            # print ("similarity", similarity)
-            # Extract diagonal elements for batch scoring
-            # if similarity.ndim == 2:
-            #     scores = torch.diag(similarity)
-            # else:
-            #     scores = similarity
-            scores = similarity.cpu().numpy()[0]
+            scores = torch.diag(similarity).cpu().numpy()
         return scores
 
 def sample_and_test_bridge(bridge_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20, images_folder=None):

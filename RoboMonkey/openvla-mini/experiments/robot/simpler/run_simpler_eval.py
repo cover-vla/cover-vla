@@ -20,6 +20,7 @@ Usage:
 import itertools
 import os
 import sys
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
@@ -30,7 +31,7 @@ import tqdm
 
 import wandb
 from experiments.robot.simpler.simpler_benchmark import get_benchmark
-from experiments.robot.simpler.simpler_utils import (
+from experiments.robot.simpler.simpler_utils_robomonkey import (
     convert_maniskill,
     get_simpler_dummy_action,
     get_simpler_env,
@@ -40,7 +41,7 @@ from experiments.robot.simpler.simpler_utils import (
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
 from experiments.robot.openvla_utils import (
-    save_rollout_video,
+    save_rollout_video_simple,
 )
 from experiments.robot.openvla_utils import get_processor
 from experiments.robot.robot_utils import (
@@ -50,6 +51,22 @@ from experiments.robot.robot_utils import (
     get_model,
     set_seed_everywhere,
 )
+
+
+def load_rephrases(task_suite_name: str):
+    """Load pre-generated rephrases for the task suite."""
+    # Make the path relative to this script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(script_dir, 'simpler_rephrased.json')
+    
+    try:
+        with open(json_path, 'r') as f:
+            all_rephrases = json.load(f)
+        # The new format has an "instructions" key containing the task data
+        return all_rephrases.get("instructions", {})
+    except FileNotFoundError:
+        print(f"Warning: Could not find rephrase file {json_path}. Using empty rephrases.")
+        return {}
 
 
 @dataclass
@@ -76,7 +93,7 @@ class GenerateConfig:
     initial_states_type: str = "eval"
     #                                       Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 0                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 50                    # Number of rollouts per task
+    num_trials_per_task: int = 30                    # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -96,8 +113,12 @@ class GenerateConfig:
     # Robomonkey Config
     initial_samples: int = 5
     augmented_samples: int = 32
-    action_server_port: int = 3200
+    action_server_port: int = 6200
     reward_server_port: int = 3100
+    
+    # Language transformation parameters
+    lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
+
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -160,6 +181,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
 
     # Get expected image dimensions
     resize_size = get_image_resize_size(cfg)
+    
+    # Load pre-generated rephrases if available
+    preloaded_rephrases = load_rephrases(cfg.task_suite_name)
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
@@ -177,7 +201,27 @@ def eval_simpler(cfg: GenerateConfig) -> None:
 
         # Initialize LIBERO environment and task description
         env = get_simpler_env(task, cfg.model_family)
-        task_description = env.get_language_instruction()
+        original_task_description = env.get_language_instruction()
+        
+        # Use rephrased instruction if available
+        if cfg.lang_transform_type == "no_transform":
+            task_description = original_task_description
+        else:
+            # Find matching task in preloaded rephrases
+            matching_task_id = None
+            for task_key, task_data in preloaded_rephrases.items():
+                if task_key == original_task_description:
+                    matching_task_id = task_key
+                    break
+            
+            if matching_task_id is not None:
+                rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
+                # Use the first rephrase (like setting number of samples to 1)
+                task_description = rephrased_list[0] if rephrased_list else original_task_description
+                print(f"Using rephrased instruction: {task_description}")
+            else:
+                print(f"No preloaded rephrases found for task: {original_task_description}, using original")
+                task_description = original_task_description
 
         # Start episodes
         task_episodes, task_successes = 0, 0
@@ -209,6 +253,8 @@ def eval_simpler(cfg: GenerateConfig) -> None:
 
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
+            # Create progress bar for each episode
+            pbar = tqdm.tqdm(total=max_steps + cfg.num_steps_wait, desc=f"Episode steps")
             while t < max_steps + cfg.num_steps_wait:
                 # try:
                 # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
@@ -216,6 +262,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 if t < cfg.num_steps_wait:
                     obs, reward, done, trunc, info = env.step(get_simpler_dummy_action(cfg.model_family))
                     t += 1
+                    pbar.update(1)
                     continue
 
                 # Get preprocessed image
@@ -276,18 +323,22 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     total_successes += 1
                     break
                 t += 1
+                pbar.update(1)
 
                 # except Exception as e:
                 #     print(f"Caught exception: {e}")
                 #     log_file.write(f"Caught exception: {e}\n")
                 #     break
 
+            pbar.close()
             task_episodes += 1
             total_episodes += 1
 
             # Save a replay video of the episode
-            save_rollout_video(
-                replay_images, total_episodes, success=done, task_description=task_description, log_file=log_file
+            save_rollout_video_simple(
+                replay_images, total_episodes, success=done, 
+                task_description=task_description, 
+                log_file=log_file
             )
 
             # Save at most 5 successes and at most 5 failures
