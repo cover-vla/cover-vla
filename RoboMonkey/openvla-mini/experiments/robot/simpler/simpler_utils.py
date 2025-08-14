@@ -111,16 +111,18 @@ def save_reward_img(image, resize_size, verifier=False):
     else:
         IMAGE_BASE_PREPROCESS_SIZE = 128
         # Resize to image size expected by model
-        image = Image.fromarray(image)
-        image = image.resize((IMAGE_BASE_PREPROCESS_SIZE, IMAGE_BASE_PREPROCESS_SIZE), Image.Resampling.LANCZOS)
         image = tf.image.encode_jpeg(image)  # Encode as JPEG, as done in RLDS dataset builder
         image = tf.io.decode_image(image, expand_animations=False, dtype=tf.uint8)  # Immediately decode back
+        image = tf.image.resize(
+            image, (IMAGE_BASE_PREPROCESS_SIZE, IMAGE_BASE_PREPROCESS_SIZE), method="lanczos3", antialias=True
+        )
         image = tf.image.resize(image, (resize_size, resize_size), method="lanczos3", antialias=True)
         image = tf.cast(tf.clip_by_value(tf.round(image), 0, 255), tf.uint8)
         
         transfer_root = str(Path("./transfer_images/").absolute())
         os.makedirs(transfer_root, exist_ok=True)
         Image.fromarray(image.numpy()).save(f"{transfer_root}/reward_img.jpg")
+        
         return None
 
 def get_simpler_img(env, obs, resize_size, verifier=False):

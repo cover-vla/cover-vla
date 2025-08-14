@@ -15,7 +15,10 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
     Analyze CLIP scores from rollout data in the specified directory.
     Assumes the structure: ./rollouts/{condition_folder}/...pkl
-    where {condition_folder} might be 'original', 'synonym', 'clip_filtered_original', etc.
+    where {condition_folder} might be:
+    - 'no_transform_1': Oracle baseline (plotted as red dashed line)
+    - 'robomonkey': Robomonkey baseline (plotted as orange dashed line)
+    - 'rephrase_N': Rephrase conditions (plotted as green line with markers)
 
     Args:
         rollout_dir: Path to the directory containing rollout data
@@ -756,6 +759,11 @@ def create_task_success_rate_plots(rollout_dir):
     Y-axis: success rate for that task
     Title and filename: use the task description
     Save plots in rollout_dir/plots/task_success_rate/
+    
+    Special handling:
+    - no_transform_1: plotted as red dashed line (oracle baseline)
+    - robomonkey: plotted as orange dashed line (robomonkey baseline)
+    - rephrase_N: plotted as green line with markers
     """
     import matplotlib.pyplot as plt
     import os
@@ -774,28 +782,52 @@ def create_task_success_rate_plots(rollout_dir):
     task_rephrase_results = defaultdict(lambda: defaultdict(list))
 
     for trans in transformation_folders:
+        # Determine rephrase number for this transformation
         if trans == "no_transform_1":
             rephrase_num = 0
+        elif trans == "robomonkey":
+            rephrase_num = -1  # Use -1 to distinguish from rephrases
         else:
             rephrase_match = re.search(r'rephrase_(\d+)', trans)
             if not rephrase_match:
+                # Skip folders that don't match any known pattern
                 continue
             rephrase_num = int(rephrase_match.group(1))
+        
         folder_path = os.path.join(rollout_dir, trans)
-        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
-        for pkl_file in pkl_files:
-            filename = os.path.basename(pkl_file)
-            # Extract task
-            task_match = re.search(r'task=([^.]*)', filename)
-            if not task_match:
-                continue
-            task = task_match.group(1)
-            # Extract success
-            success_match = re.search(r'success=(True|False)', filename)
-            if not success_match:
-                continue
-            is_success = success_match.group(1) == 'True'
-            task_rephrase_results[task][rephrase_num].append(is_success)
+        
+        if trans == "robomonkey":
+            # For robomonkey, look for MP4 files and extract success from filename
+            mp4_files = glob(os.path.join(folder_path, "*.mp4"))
+            for mp4_file in mp4_files:
+                filename = os.path.basename(mp4_file)
+                # Extract task
+                task_match = re.search(r'task=([^.]*)', filename)
+                if not task_match:
+                    continue
+                task = task_match.group(1)
+                # Extract success
+                success_match = re.search(r'success=(True|False)', filename)
+                if not success_match:
+                    continue
+                is_success = success_match.group(1) == 'True'
+                task_rephrase_results[task][rephrase_num].append(is_success)
+        else:
+            # For other folders (no_transform_1 and rephrases), look for pickle files
+            pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+            for pkl_file in pkl_files:
+                filename = os.path.basename(pkl_file)
+                # Extract task
+                task_match = re.search(r'task=([^.]*)', filename)
+                if not task_match:
+                    continue
+                task = task_match.group(1)
+                # Extract success
+                success_match = re.search(r'success=(True|False)', filename)
+                if not success_match:
+                    continue
+                is_success = success_match.group(1) == 'True'
+                task_rephrase_results[task][rephrase_num].append(is_success)
 
     # Create output dir
     task_plot_dir = os.path.join(rollout_dir, "plots", "task_success_rate")
@@ -814,11 +846,11 @@ def create_task_success_rate_plots(rollout_dir):
                 counts.append(len(results))
             else:
                 success_rates.append(0)
-                counts.append(0)
+                counts.append(len(results))
         plt.figure(figsize=(max(8, len(rephrase_nums) * 1.2), 6))
-        # Plot all as green line first (excluding no_transform_1 if present)
-        plot_rephrase_nums = [r for r in rephrase_nums if r != 0]
-        plot_success_rates = [rate for r, rate in zip(rephrase_nums, success_rates) if r != 0]
+        # Plot all as green line first (excluding no_transform_1 and robomonkey if present)
+        plot_rephrase_nums = [r for r in rephrase_nums if r > 0]
+        plot_success_rates = [rate for r, rate in zip(rephrase_nums, success_rates) if r > 0]
         plt.plot(plot_rephrase_nums, plot_success_rates, marker='o', color='mediumseagreen', label='Rephrases')
 
         # Plot no_transform_1 (oracle) in red if present
@@ -827,6 +859,12 @@ def create_task_success_rate_plots(rollout_dir):
             # plt.plot([0], [success_rates[idx]], marker='o', color='red', markersize=10, label='oracle (no_transform)')
             # Draw a horizontal dashed line at the oracle accuracy
             plt.axhline(y=success_rates[idx], color='red', linestyle='--', alpha=0.7, label='oracle (no_transform)')
+        
+        # Plot robomonkey (baseline) in orange if present
+        if -1 in rephrase_nums:
+            idx = rephrase_nums.index(-1)
+            # Draw a horizontal dashed line at the robomonkey accuracy
+            plt.axhline(y=success_rates[idx], color='orange', linestyle='--', alpha=0.7, label='robomonkey (baseline)')
 
         plt.xticks(sorted(rephrase_nums))
         plt.xlabel('Number of Samples (Rephrases)')
@@ -850,6 +888,7 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
     For each unique task, plot the success rate across all rephrase types (folders) for available verifiers.
     Only processes directories that are not None.
     - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle) - if available
+    - Orange horizontal line: robomonkey baseline (robomonkey, from rollouts_oracle) - if available
     - Green line: oracle verifier (rephrases, from rollouts_oracle) - if available
     - Blue line: designed verifier OOD (rephrases, from rollouts_ood) - if available
     - Purple line: designed verifier regular (rephrases, from rollouts) - if available
@@ -872,24 +911,44 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
         for trans in transformation_folders:
             if trans == "no_transform_1":
                 rephrase_num = 0
+            elif trans == "robomonkey":
+                rephrase_num = -1  # Use -1 to distinguish from rephrases
             else:
                 rephrase_match = re.search(r'rephrase_(\d+)', trans)
                 if not rephrase_match:
                     continue
                 rephrase_num = int(rephrase_match.group(1))
+            
             folder_path = os.path.join(rollout_dir, trans)
-            pkl_files = glob(os.path.join(folder_path, "*.pkl"))
-            for pkl_file in pkl_files:
-                filename = os.path.basename(pkl_file)
-                task_match = re.search(r'task=([^.]*)', filename)
-                if not task_match:
-                    continue
-                task = task_match.group(1)
-                success_match = re.search(r'success=(True|False)', filename)
-                if not success_match:
-                    continue
-                is_success = success_match.group(1) == 'True'
-                task_rephrase_results[task][rephrase_num].append(is_success)
+            
+            if trans == "robomonkey":
+                # For robomonkey, look for MP4 files and extract success from filename
+                mp4_files = glob(os.path.join(folder_path, "*.mp4"))
+                for mp4_file in mp4_files:
+                    filename = os.path.basename(mp4_file)
+                    task_match = re.search(r'task=([^.]*)', filename)
+                    if not task_match:
+                        continue
+                    task = task_match.group(1)
+                    success_match = re.search(r'success=(True|False)', filename)
+                    if not success_match:
+                        continue
+                    is_success = success_match.group(1) == 'True'
+                    task_rephrase_results[task][rephrase_num].append(is_success)
+            else:
+                # For other folders, look for pickle files
+                pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+                for pkl_file in pkl_files:
+                    filename = os.path.basename(pkl_file)
+                    task_match = re.search(r'task=([^.]*)', filename)
+                    if not task_match:
+                        continue
+                    task = task_match.group(1)
+                    success_match = re.search(r'success=(True|False)', filename)
+                    if not success_match:
+                        continue
+                    is_success = success_match.group(1) == 'True'
+                    task_rephrase_results[task][rephrase_num].append(is_success)
         return task_rephrase_results
 
     # Aggregate results from available directories only
@@ -918,12 +977,19 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
             if results:
                 oracle_policy_rate = sum(results) / len(results)
         
+        # Robomonkey baseline (robomonkey, rephrase_num=-1) - only if oracle directory is available
+        robomonkey_baseline_rate = None
+        if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir) and -1 in oracle_results.get(task, {}):
+            results = oracle_results[task][-1]
+            if results:
+                robomonkey_baseline_rate = sum(results) / len(results)
+        
         # Oracle verifier (rephrases, from rollouts_oracle) - only if oracle directory is available
         oracle_rephrase_nums = []
         oracle_rephrase_rates = []
         oracle_counts = []
         if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir):
-            oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
+            oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k > 0])
             oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
             oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
         
@@ -972,6 +1038,11 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
             plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)', linewidth=2)
             legend_entries.append('Oracle Policy (no_transform)')
         
+        # Robomonkey baseline (orange horizontal line) - only if available
+        if robomonkey_baseline_rate is not None:
+            plt.axhline(y=robomonkey_baseline_rate, color='orange', linestyle='--', alpha=0.7, label='Robomonkey Baseline', linewidth=2)
+            legend_entries.append('Robomonkey Baseline')
+        
         # X ticks - only include available rephrase numbers
         all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(ood_rephrase_nums) | set(regular_rephrase_nums))
         if all_rephrase_nums:
@@ -1014,7 +1085,11 @@ def create_task_time_series_plots(rollout_dir):
     score over time for different transformation types.
     X-axis: timestep
     Y-axis: score
-    Each line represents a different transformation (no_transform_1, rephrase_1, rephrase_5, etc.)
+    Each line represents a different transformation (no_transform_1, robomonkey, rephrase_1, rephrase_5, etc.)
+    
+    Special handling:
+    - no_transform_1 and robomonkey: plotted with solid lines (baselines)
+    - rephrase_N: plotted with dashed lines
     """
     import matplotlib.pyplot as plt
     import os
@@ -1078,6 +1153,8 @@ def create_task_time_series_plots(rollout_dir):
         def sort_key(x):
             if x == "no_transform_1":
                 return (0, 0)  # no_transform_1 first
+            elif x == "robomonkey":
+                return (0, 1)  # robomonkey second (after no_transform_1)
             match = re.search(r'rephrase_(\d+)', x)
             if match:
                 return (1, int(match.group(1)))
@@ -1119,8 +1196,8 @@ def create_task_time_series_plots(rollout_dir):
             valid_mask = ~np.isnan(avg_scores)
             
             if np.any(valid_mask):
-                # Choose line style: solid for no_transform_1, dashed for rephrases
-                linestyle = '-' if trans == "no_transform_1" else '--'
+                # Choose line style: solid for no_transform_1 and robomonkey, dashed for rephrases
+                linestyle = '-' if trans in ["no_transform_1", "robomonkey"] else '--'
                 linewidth = 1.5
                 
                 plt.plot(timesteps[valid_mask], np.array(avg_scores)[valid_mask], 
@@ -1767,15 +1844,18 @@ if __name__ == "__main__":
     # path_to_rollouts_oracle = "./rollouts_clip_oracle"
     path_to_rollouts_clip = "./rollouts_clip"
     
-    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
+    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_clip)
     results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
     create_task_time_series_plots(path_to_rollouts_clip)
     
     # Call the new language instruction distance plotting function
     # You can change embedding_type to 'bert' or 'openvla' to use different embeddings
-    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='openvla')
-    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='bert')
+    # create_language_instruction_distance_plots(path_to_rollouts_clip, embedding_type='openvla')
+    # create_language_instruction_distance_plots(path_to_rollouts_clip, embedding_type='bert')
 
     # Call the new combined plot function
-    # create_task_success_rate_plots_combined(path_to_rollouts_oracle, None, path_to_rollouts_clip)
+    # create_task_success_rate_plots_combined(path_to_rollouts_clip, None, path_to_rollouts_clip)
+    
+    # Note: The robomonkey folder will be automatically detected and plotted as a baseline
+    # similar to no_transform_1, but with an orange dashed line instead of red.
