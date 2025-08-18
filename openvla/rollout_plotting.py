@@ -1778,4 +1778,4 @@ if __name__ == "__main__":
     # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='bert')
 
     # Call the new combined plot function
-    create_task_success_rate_plots_combined(path_to_rollouts_oracle, None, path_to_rollouts_clip)
+    # create_task_success_rate_plots_combined(path_to_rollouts_oracle, None, path_to_rollouts_clip)

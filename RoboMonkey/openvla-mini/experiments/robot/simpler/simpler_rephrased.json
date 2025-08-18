@@ -107,6 +107,18 @@
         "Position the green block on the golden-orange block.",
         "Set the green block on the golden-green block."
       ],
+      "ert_rephrases": [
+        "Stack the lime-colored block onto the tangerine block.",
+        "Position the jade block atop the amber block.",
+        "Put the grass-green block on the top of the maize block.",
+        "Place the seaweed-green block over the goldenrod block.",
+        "Arrange the mossy block above the citrine block.",
+        "Set the verdant cube on the top of the sunflower block.",
+        "Rest the emerald block on top of the butterscotch block.",
+        "Align the leaf-green block over the mustard block.",
+        "Lay the olive block on the canary block.",
+        "Balance the forest-green block on the daffodil block."
+      ],
       "count": 100
     },
     "put the spoon on the towel": {
@@ -212,6 +224,18 @@
         "Arrange the spoon down on the soft material.",
         "Rest the spoon on top of the soft textile.",
         "Put the spoon upon the soft fabric."
+      ],
+      "ert_rephrases": [
+        "Carefully transfer the spoon to rest on the towel.",
+        "Place the spoon gently on the towel.",
+        "Arrange the spoon so it sits neatly on the towel.",
+        "Move the spoon to lie on the towel.",
+        "Ensure the spoon rests flat on the towel.",
+        "Deposit the spoon delicately onto the towel.",
+        "Direct the spoon strategically onto the towel.",
+        "Slide the spoon over to the towel.",
+        "Set the spoon in the center of the towel.",
+        "Put the spoon securely on the towel."
       ],
       "count": 100
     },
@@ -319,6 +343,18 @@
         "Transfer the carrot on the serving plate.",
         "Deposit the carrot atop the serving platter."
       ],
+      "ert_rephrases": [
+        "Move the carrot to the dish.",
+        "Gently place the carrot on the plate.",
+        "Relocate the carrot onto the platter.",
+        "Slide the carrot onto the tray.",
+        "Position the carrot on top of the serving surface.",
+        "Set the carrot down onto the dish.",
+        "Put the carrot on the round plate.",
+        "Arrange the carrot neatly on the flatware.",
+        "Lay the carrot flat on the dish.",
+        "Deposit the carrot carefully on the platter."
+      ],
       "count": 100
     },
     "put eggplant into yellow basket": {
@@ -424,6 +460,18 @@
         "Lay the eggplant in the yellow holder.",
         "Set the aubergine into the yellow receptacle.",
         "Deposit the eggplant inside the yellow holder."
+      ],
+      "ert_rephrases": [
+        "Transfer the eggplant to the yellow basket.",
+        "Move the aubergine into the yellow container.",
+        "Convey the eggplant into the yellow basket.",
+        "Drop the aubergine into the yellow bin.",
+        "Place the eggplant in the yellow basket gently.",
+        "Set the aubergine within the yellow basket.",
+        "Insert the eggplant into the yellow holder carefully.",
+        "Position the aubergine into the yellow receptacle.",
+        "Locate the eggplant inside the yellow container.",
+        "Arrange the aubergine into the yellow holder."
       ],
       "count": 100
     }

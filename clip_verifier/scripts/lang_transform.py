@@ -65,18 +65,17 @@ class LangTransform:
 
     def transform(self, curr_instruction, transform_type, batch_number=1, image=None):
         
-        if transform_type in self.gpt_transforms:
-            response = self.gpt_transform(curr_instruction, transform_type, batch_number=1, image=image)
-        elif transform_type == 'random_shuffle':
-            response = self.rand_shuffle_transform(curr_instruction)
-        elif transform_type == 'no_transform':
-            response = curr_instruction
-        
         if batch_number > 1:
             batch_responses = self.gpt_transform(curr_instruction, transform_type=None, batch_number=batch_number, image=image)
             # print (batch_responses)
             return self.extract_reworded_instructions(batch_responses)
         else:
+            if transform_type in self.gpt_transforms:
+                response = self.gpt_transform(curr_instruction, transform_type, batch_number=1, image=image)
+            elif transform_type == 'random_shuffle':
+                response = self.rand_shuffle_transform(curr_instruction)
+            elif transform_type == 'no_transform':
+                response = curr_instruction
             return response
     
     ### TRANSFORM FUNCTIONS

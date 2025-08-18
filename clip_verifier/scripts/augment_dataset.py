@@ -346,9 +346,9 @@ if __name__ == "__main__":
                         help='Path to the dataset')
     parser.add_argument('--dataset_folders', nargs='+', default=['libero_spatial_no_noops'],
                         help='Dataset folders to process')
-    parser.add_argument('--output_path', type=str, default='libero_spatial_pos_rephrase_neg_negation.pkl',
+    parser.add_argument('--output_path', type=str, default='libero_spatial_pos_rephrase_neg_negation_5.pkl',
                         help='Path to save the augmented dataset')
-    parser.add_argument('--history_length', type=int, default=10,
+    parser.add_argument('--history_length', type=int, default=5,
                         help='Number of past action steps to include in the history (H)')
     # parser.add_argument('--rephrases_json', type=str, default=['/root/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard_new.json', '/root/vla-clip/openvla/experiments/robot/libero/libero_rephrase_hard.json', '/root/vla-clip/openvla/experiments/robot/libero/libero_rephrases.json'],
     #                     help='Path to the JSON file containing instruction rephrases')

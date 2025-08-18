@@ -215,7 +215,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             if cfg.lang_transform_type == "no_transform":
                 task_description = original_task_description
             else:
-                task_description = rephrased_list[-1]  # Use the last as the main instruction
+                task_description = rephrased_list[0]  # Use the last as the main instruction
                 
             # rephrased_list[3] = original_task_description + "."
                 
@@ -240,7 +240,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             # generate 10 language instructions for each task, then in the loop, we will sample cfg.clip_select_action_num_candidates from them
             if cfg.clip_select_action_num_candidates > 1:
                 # pre_sampled_all_language_instructions = lang_transform.transform(task_description,cfg.lang_transform_type, batch_number=10)
-                pre_sampled_all_language_instructions = rephrased_list[:-1]  # Use the rest as alternatives
+                pre_sampled_all_language_instructions = rephrased_list[1:]  # Use the rest as alternatives
             while t < max_steps:
                 if t < cfg.num_steps_wait:
                     action_to_execute = get_libero_dummy_action(cfg.model_family)
@@ -408,8 +408,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 score_list=all_scores,
                 action_list=all_actions,
                 task_description_list=all_selected_instructions,
-                clip_update_num=cfg.clip_select_action_num_candidates,
-                use_original_task_description=cfg.use_original_task_description
+                clip_update_num=cfg.clip_select_action_num_candidates
             )
 
             avg_score = np.nanmean(all_scores) if all_scores else np.nan

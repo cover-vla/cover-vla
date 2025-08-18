@@ -136,6 +136,8 @@ class GenerateConfig:
     wandb_entity: Optional[str] = None          # Name of entity to log under
 
     seed: int = 7                                    # Random Seed (for reproducibility)
+    
+    generate_rephrases: bool = True
 
 def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
     """
@@ -340,14 +342,18 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                 else:
                     print(f"No preloaded rephrases found for task: {original_task_description}")
                     raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
+                if cfg.generate_rephrases and matching_task_id is not None:
                     # Generate rephrases on-the-fly
-                    candidate_instructions = [original_task_description]
-                    additional_instructions = lang_transform.transform(
-                        original_task_description, 
-                        cfg.lang_transform_type, 
-                        batch_number=cfg.clip_select_action_num_candidates-1
-                    )
-                    candidate_instructions.extend(additional_instructions)
+                    rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
+                    fake_input_language_instruction = rephrased_list[0]
+                    candidate_instructions = [fake_input_language_instruction]
+                    if cfg.clip_select_action_num_candidates > 1:
+                        additional_instructions = lang_transform.transform(
+                            fake_input_language_instruction, 
+                            cfg.lang_transform_type, 
+                            batch_number=cfg.clip_select_action_num_candidates-1
+                        )
+                        candidate_instructions.extend(additional_instructions)
             log_file.write(f"Candidate instructions: {candidate_instructions}\n")
             
             while t < max_steps + cfg.num_steps_wait:
