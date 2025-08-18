@@ -118,7 +118,7 @@ class GenerateConfig:
     
     # Language transformation parameters
     lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
-
+    use_generated_rephrases: bool = False
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -222,6 +222,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             else:
                 print(f"No preloaded rephrases found for task: {original_task_description}, using original")
                 task_description = original_task_description
+            if cfg.use_generated_rephrases and matching_task_id is not None:
+                # Generate rephrases on-the-fly
+                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
+                task_description = rephrased_list[0].copy()
 
         # Start episodes
         task_episodes, task_successes = 0, 0
