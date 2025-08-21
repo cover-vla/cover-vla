@@ -118,7 +118,7 @@ class GenerateConfig:
     
     # Language transformation parameters
     lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
-    use_generated_rephrases: bool = False
+    use_generated_rephrases: bool = True
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -225,8 +225,8 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             if cfg.use_generated_rephrases and matching_task_id is not None:
                 # Generate rephrases on-the-fly
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
-                task_description = rephrased_list[0].copy()
-
+                task_description = rephrased_list[0]
+        print ("rollou with task description:", task_description)
         # Start episodes
         task_episodes, task_successes = 0, 0
         for _ in tqdm.tqdm(range(cfg.num_trials_per_task)):
@@ -341,7 +341,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             # Save a replay video of the episode
             save_rollout_video_simple(
                 replay_images, total_episodes, success=done, 
-                task_description=task_description, 
+                task_description=original_task_description, 
                 log_file=log_file
             )
 

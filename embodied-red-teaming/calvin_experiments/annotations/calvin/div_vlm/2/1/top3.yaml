@@ -1,0 +1,122 @@
+close_drawer:
+- Confirm there are no items in the way, then gently press the drawer until it is
+  completely shut.
+- Ensure nothing is blocking the path of the drawer, then smoothly push it until it
+  is fully closed.
+- Use a consistent motion to slide the drawer into place, checking that it fits tightly.
+lift_blue_block_slider:
+- Order the robotic arm to pick up the blue block delicately and raise it.
+- Utilize the robotic arm to clasp the blue block securely and lift it vertically.
+- Tell the robot to target and elevate the blue block using its claw or grip.
+lift_blue_block_table:
+- Signal the robotic arm to lock onto the blue block and elevate it gently.
+- Command the robot to locate the blue object and raise it from its surface.
+- Direct the robotic arm to identify and grasp the blue block to lift it from the
+  table.
+lift_pink_block_slider:
+- Guide the robotic manipulator to clutch the pink block, confirm the hold, and elevate
+  smoothly.
+- Ensure the grip on the pink block is secure before lifting it vertically.
+- Hover the gripper over the pink block, close the grip firmly, and lift it carefully.
+lift_pink_block_table:
+- Configure the robot to select the pink block and elevate it with precision.
+- Guide the robot to position its gripper over the pink block and elevate it.
+- Command the robot to approach the pink object and raise it vertically from the table
+  surface.
+lift_red_block_slider:
+- Align the robot's arm with the red block and pull it upward gently and steadily.
+- Extend the robotic arm towards the red block and gently raise it.
+- Engage the red block with the robot's hand and elevate it smoothly above the table.
+lift_red_block_table:
+- Lift the vermilion object from the counter.
+- Pick up the ruby square and lift it off the surface.
+- Elevate the cherry block from the desk.
+move_slider_left:
+- Carry the bar over to the left.
+- Drag the slider towards the left end.
+- Direct the slide bar completely to the left.
+move_slider_right:
+- Slide the bar to the rightmost endpoint.
+- Drag the slider bar to its farthest right position.
+- Place the slider at the utmost right position.
+open_drawer:
+- Move your arm towards the handle, grip it securely, and slide the drawer outwards.
+- "Direct your manipulator to the drawer\u2019s grip and gently tug it open."
+- Position your arm to the handle of the drawer and gently slide it towards you.
+push_blue_block_left:
+- Slide the blue item left and place it next to the red block.
+- Gently shift the blue block towards the red one to its left.
+- Carefully transport the blue piece in a leftward direction.
+push_blue_block_right:
+- Guide the blue block rightward, positioning it next to the red item.
+- Maneuver the blue object to settle at the rightmost end of the table.
+- Shift the blue item to the opposite end of the table on the right.
+push_into_drawer:
+- "Carefully take the blue object to the drawer\u2019s opening and position it securely\
+  \ within."
+- Push the drawer open using the side handle, then guide the blue object into the
+  newly opened space.
+- Attempt to nudge the blue object off the table so that it drops into the drawer
+  directly beneath.
+push_pink_block_left:
+- Maneuver the rosy block to the left end of the surface.
+- Relocate the pink block until it touches the left side.
+- Shift the brightly colored pink item to the leftmost point.
+push_pink_block_right:
+- Move the pink piece rightward until it shifts from its original location.
+- Carefully move the pink object to the right side using the robotic hand.
+- Push the pink item to the right edge of its current shelf.
+push_red_block_left:
+- Move the red block leftwards with precision, avoiding any collisions.
+- Transfer the red block leftwards until it can't go further without falling off the
+  table.
+- Use the robot arm to nudge the red block to the left without disturbing the pink
+  or white objects.
+push_red_block_right:
+- Engage the robotic controls to relocate the red block towards the right.
+- Calibrate the robotic hand to transfer the red block to the right side of the surface.
+- Direct the robotic arm to push the red block to the far-right end of the table.
+rotate_blue_block_left:
+- Slide the blue block to the left.
+- Shift the blue square counter-clockwise to the left.
+- Revolve the blue block 90 degrees to the left.
+rotate_blue_block_right:
+- Shift the orientation of the blue cube to the east.
+- Revolve the blue object until it points to the right.
+- Flip the blue cube on its axis to the right.
+rotate_pink_block_left:
+- Revolve the pink block to the left, maintaining its flat orientation on the table.
+- Slide the pink block to the left in a rotating motion, ensuring it stays flat.
+- Guide the pink block leftward in a circular motion, keeping it on the table surface.
+rotate_pink_block_right:
+- Swivel the pink element to a right-facing position.
+- Direct the pink piece to the right.
+- Twist the pink form until it's aligned rightward.
+rotate_red_block_left:
+- Seek out the red piece and swivel it to the left-hand side.
+- Search for the red block and adjust its orientation left by a quarter turn.
+- Locate the red cube and pivot it counterclockwise to face left.
+rotate_red_block_right:
+- Spot the red square and twist it in a rightward motion.
+- Notice the red cube and adjust it to face rightward.
+- See the red block and angle its top face to the right.
+turn_off_led:
+- Find the lit-up diode and deactivate it.
+- Locate and switch off the glowing diode.
+- Seek out the active LED and shut it down.
+turn_off_lightbulb:
+- Find any remote control specifically for the lighting system and press the power
+  button.
+- Look for a voice-activated system in the room and command it to turn off the light
+  bulb.
+- Locate the switch on the wall connected to the light fixture and flip it down.
+turn_on_led:
+- Tap the touchscreen display on the robot to select the LED activation option.
+- Activate the LED by pressing the physical button on the robot's chassis.
+- Program the robot's coding interface to enable the LED function.
+turn_on_lightbulb:
+- Look for the purple button on the workbench and press it to light up the bulb.
+- Locate the red toggle switch on the surface and switch it to "on" to illuminate
+  the bulb.
+- Press the protruding button on the right side of the table to switch the light bulb
+  on.

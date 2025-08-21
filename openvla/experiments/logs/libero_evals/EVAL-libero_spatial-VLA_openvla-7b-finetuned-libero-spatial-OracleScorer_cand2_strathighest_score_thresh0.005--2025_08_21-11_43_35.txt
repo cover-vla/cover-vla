@@ -1,0 +1,127 @@
+Task suite: libero_spatial
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 1/20)
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=1--success=True--score=0.232--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 1: Success=True, Steps=122, AvgStepScore=0.232
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 2/20)
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=2--success=True--score=0.174--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 2: Success=True, Steps=161, AvgStepScore=0.174
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 3/20)
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=3--success=True--score=0.216--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 3: Success=True, Steps=98, AvgStepScore=0.216
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 4/20)
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=4--success=True--score=0.175--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 4: Success=True, Steps=115, AvgStepScore=0.175
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 5/20)
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=5--success=True--score=0.208--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 5: Success=True, Steps=81, AvgStepScore=0.208
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 6/20)
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=6--success=True--score=0.230--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 6: Success=True, Steps=74, AvgStepScore=0.230
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 7/20)
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=7--success=True--score=0.239--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 7: Success=True, Steps=78, AvgStepScore=0.239
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 8/20)
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=8--success=True--score=0.215--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 8: Success=True, Steps=95, AvgStepScore=0.215
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 9/20)
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=9--success=True--score=0.180--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 9: Success=True, Steps=92, AvgStepScore=0.180
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 10/20)
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=10--success=True--score=0.158--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 10: Success=True, Steps=91, AvgStepScore=0.158
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 11/20)
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=11--success=True--score=0.250--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 11: Success=True, Steps=145, AvgStepScore=0.250
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 12/20)
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=12--success=True--score=0.198--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 12: Success=True, Steps=71, AvgStepScore=0.198
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 13/20)
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=13--success=True--score=0.189--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 13: Success=True, Steps=113, AvgStepScore=0.189
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 14/20)
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=14--success=False--score=0.314--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 14: Success=False, Steps=210, AvgStepScore=0.314
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 15/20)
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=15--success=True--score=0.295--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 15: Success=True, Steps=87, AvgStepScore=0.295
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 16/20)
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=16--success=True--score=0.239--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 16: Success=True, Steps=73, AvgStepScore=0.239
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 17/20)
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=17--success=True--score=0.194--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 17: Success=True, Steps=89, AvgStepScore=0.194
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 18/20)
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=18--success=True--score=0.259--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 18: Success=True, Steps=65, AvgStepScore=0.259
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 19/20)
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=19--success=True--score=0.220--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 19: Success=True, Steps=101, AvgStepScore=0.220
+
+Task: Lift the black bowl situated between the dish and the ramekin and set it down on the dish. (Trial 20/20)
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=20--success=True--score=0.226--task=pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 20: Success=True, Steps=88, AvgStepScore=0.226
+Task 0 ('pick up the black bowl between the plate and the ramekin and place it on the plate') Success Rate: 0.95 (19/20)
+
+Task: Lift the black dish beside the ramekin and set it on the platter. (Trial 1/20)
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=21--success=True--score=0.176--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 21: Success=True, Steps=112, AvgStepScore=0.176
+
+Task: Lift the black dish beside the ramekin and set it on the platter. (Trial 2/20)
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=22--success=False--score=0.451--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 22: Success=False, Steps=210, AvgStepScore=0.451
+
+Task: Lift the black dish beside the ramekin and set it on the platter. (Trial 3/20)
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=23--success=True--score=0.165--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 23: Success=True, Steps=127, AvgStepScore=0.165
+
+Task: Lift the black dish beside the ramekin and set it on the platter. (Trial 4/20)
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=24--success=False--score=0.435--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 24: Success=False, Steps=210, AvgStepScore=0.435
+
+Task: Lift the black dish beside the ramekin and set it on the platter. (Trial 5/20)
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_clip_oracle/rephrase_2/episode=25--success=True--score=0.209--task=pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.mp4
+  Episode 25: Success=True, Steps=125, AvgStepScore=0.209

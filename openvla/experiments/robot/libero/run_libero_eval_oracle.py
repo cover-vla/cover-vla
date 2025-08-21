@@ -151,7 +151,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             if cfg.lang_transform_type == "no_transform":
                 task_description = original_task_description
             else:
-                task_description = rephrased_list[-1]  # Use the last as the main instruction
+                task_description = rephrased_list[0]  # Use the last as the main instruction
             # Comment out on-the-fly generation
             # task_description = lang_transform.transform(original_task_description, cfg.lang_transform_type)
             print(f"\nTask: {task_description} (Trial {episode_idx + 1}/{cfg.num_trials_per_task})")
@@ -172,7 +172,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
             all_selected_instructions = []
             # pre_sampled_rephrased_instructions_pool = []
             if cfg.use_oracle_scorer and cfg.clip_select_action_num_candidates > 1:
-                pre_sampled_rephrased_instructions_pool = rephrased_list[:-1]  # Use the rest as alternatives
+                pre_sampled_rephrased_instructions_pool = rephrased_list[1:]  # Use the rest as alternatives
                 # Commented out: on-the-fly generation
                 # pre_sampled_rephrased_instructions_pool = lang_transform.transform(original_task_description if cfg.use_original_task_description else task_description, 
                 #                                                                     cfg.lang_transform_type, 
@@ -315,7 +315,6 @@ def eval_libero(cfg: GenerateConfig) -> None:
                 action_list=all_actions,
                 task_description_list=all_selected_instructions,
                 clip_update_num=cfg.clip_select_action_num_candidates,
-                use_original_task_description=cfg.use_original_task_description,
                 oracle_scorer=cfg.use_oracle_scorer,
             )
 

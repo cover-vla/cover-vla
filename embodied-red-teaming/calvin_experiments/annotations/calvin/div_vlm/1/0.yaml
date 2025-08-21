@@ -1,0 +1,311 @@
+close_drawer:
+- Shut the drawer completely.
+- Push the open drawer until it's closed.
+- Move the drawer inwards to close it.
+- Make sure the drawer is closed properly.
+- Slide the drawer shut.
+- Ensure the drawer is no longer open.
+- Pull the drawer back in to close it.
+- Finish closing the drawer.
+- Securely close the drawer by sliding it in.
+- Push the drawer all the way into the desk.
+lift_blue_block_slider:
+- Find the blue block on the slider and lift it using the robot's arm.
+- Locate the blue block and raise it above the slider by grabbing it securely.
+- Use the robotic arm to grasp and elevate the blue block from the slider surface.
+- Identify the slider with the blue block and lift the block gently and steadily.
+- Move the robotic arm to the blue block's position and hoist it off the slider.
+- Lift the blue block from the slider, ensuring it is firmly held by the robot.
+- Direct the robot to grab the blue block on the slider and lift it upwards.
+- Look for the blue block on the surface and use the robot to pick it up off the slider.
+- Guide the robot to carefully lift the blue block from where it rests on the slider.
+- Instruct the robot to elevate the blue block from the slider using its mechanical
+  arm.
+lift_blue_block_table:
+- Pick up the blue block from the table.
+- Lift the blue object resting on the tabletop.
+- Grab the cube that is blue and elevate it off the surface.
+- Identify the blue shape and raise it into the air.
+- Secure the blue block with your grip and lift it up.
+- Locate the blue item and remove it from the table's surface.
+- Hoist the blue block vertically from where it lies.
+- Engage with the blue block and suspend it above the table.
+- Take hold of the blue piece and lift it away from the wooden table.
+- Ascend the blue cubic item from its position on the table.
+lift_pink_block_slider:
+- Pick up the pink block carefully and move it upwards along the slider.
+- Use the robot arm to grasp the pink block and slide it straight up.
+- Lift the pink block vertically using the claw and follow the slider route.
+- Engage the robotic claw, clutch the pink block, and elevate it via the slider.
+- Secure the pink block and navigate it upward along the designated slider.
+- Grasp the pink block firmly and elevate it along the vertical slider.
+- Employ the robotic hand to clutch the pink block, lifting it along the slider path.
+- Target the pink block, grasp it securely, and raise it steadily vertical using the
+  slider.
+- Activate the arm to latch onto the pink block and guide it upwards on the slider
+  track.
+- Lift the block by locking onto it and elevating it directly along the slider.
+lift_pink_block_table:
+- Locate the pink block on the table and lift it using the robotic arm.
+- Identify the pink object on the workspace and use the robot to pick it up.
+- Find the pink block on the table surface, grasp it gently, and lift it up.
+- Use the manipulator to gently grasp the pink block and lift it from the table.
+- "Position the robot\u2019s arm over the pink block and raise it carefully."
+- Spot the pink block among the objects and pick it up with the robotic hand.
+- Direct the robot to approach the pink block and lift it off the table.
+- Navigate the robotic arm to the pink block and elevate it steadily.
+- Ensure the robotic gripper is aligned with the pink block and proceed to lift it.
+- Guide the robot to the pink block and use the arm to raise it into the air.
+lift_red_block_slider:
+- Locate the bright red block on the surface and lift it using the robotic arm.
+- Identify the red block and slide it forward, then lift it upwards with the robotic
+  mechanism.
+- Approach the red block with the robot hand and lift it directly into the air.
+- Use the robot's arm to grasp the red block and elevate it smoothly.
+- Engage the robotic actuator to grab the red block and raise it off the surface.
+- Find the red block on the table and execute a lifting motion with the robot arm.
+- Move the robot arm over the red block, grip it firmly, and lift it steadily.
+- Position the robot claw over the red block and raise it vertically.
+- Guide the robot elbow to capture and lift the red block from its position.
+- Direct the robot's manipulation tool to pick up and lift the red block.
+lift_red_block_table:
+- Pick up the red object located on the table's surface.
+- Find and raise the red block sitting on the table.
+- Locate the red piece on the table and lift it into the air.
+- Grab the red block from the table and hold it up.
+- Rise the red item positioned on the table.
+- Identify the red object on the table and elevate it.
+- Secure the red block from the table and lift it vertically.
+- Hoist the red piece off the table into a raised position.
+- Take the red block from the table and raise it high.
+- Lift the red object that's placed on the table.
+move_slider_left:
+- Push the slider to the left until it reaches the end.
+- Gently slide the lever to the left-hand side.
+- Shift the handle all the way to the left.
+- Slide the vertical bar to the far left side.
+- Move the slider left slowly until it stops.
+- Adjust the knob to the left position.
+- Pull the lever toward the left edge.
+- Drag the slider leftward to the maximum extent.
+- Shift the control stick all the way left.
+- Slide the controller left as far as it will go.
+move_slider_right:
+- Push the slider towards the rightmost position.
+- Adjust the slider so it moves completely to the end on the right.
+- Slide it all the way towards the right edge of the track.
+- Shift the slider in the direction of the right until it stops.
+- Move the slider to the right until it cannot go further.
+- Slide the control to the far right.
+- Shift the slider bar across to the right side.
+- Adjust the slider so it's positioned at the right end.
+- Push the lever to the extreme right limit.
+- Move the object on the sliding track to the rightmost point.
+open_drawer:
+- Please pull the drawer handle gently to open it.
+- Grip the handle and slide the drawer out slowly.
+- Find the drawer handle and give a firm pull to open it.
+- Carefully pull the drawer outwards by its handle.
+- Locate the drawer and apply a gentle pull to open.
+- Pull the metal handle towards yourself to open the drawer.
+- Identify the drawer, grasp its handle, and pull it open.
+- Reach for the drawer handle and pull it out to access the inside.
+- With a soft touch, open the drawer by pulling the handle.
+- Find the handle on the drawer and pull to open it.
+push_blue_block_left:
+- Locate the small blue block on the table and gently push it to the left side of
+  the surface.
+- Identify the blue piece in front of you and move it horizontally to your left.
+- Find the blue block on the workbench and slide it to the left as far as possible.
+- Spot the blue object and use your mechanism to nudge it leftward across the table.
+- Search for the blue cuboid and shift it to the left on the table's top.
+- Notice the blue block and maneuver it smoothly to the left edge of the table.
+- Target the blue block you see and transport it leftwards without dropping it off
+  the table.
+- Engage with the blue square and reposition it to the left along the wooden platform.
+- See the blue block positioned centrally; now push it towards the left side gently.
+- Get hold of the blue object and guide it left on the table surface, ensuring no
+  obstacles are in the way.
+push_blue_block_right:
+- Move the blue block to the right side of the table.
+- Slide the blue piece towards the right edge of the surface.
+- Shift the blue block horizontally to the right.
+- Push the blue object to the right-hand side.
+- Drag the blue block to the right corner.
+- Gently nudge the blue piece to the right.
+- Guide the blue block until it reaches the right end.
+- Transport the blue block rightward.
+- Relocate the blue block to the far right.
+- Advance the blue block to your right.
+push_into_drawer:
+- "Locate the object closest to the robot\u2019s arm and slide it into the open drawer\
+  \ beneath the table."
+- Identify the blue object on the table and gently push it into the drawer with the
+  arm.
+- Move the yellow object on top of the table to the nearest drawer and place it inside.
+- Using the robotic arm, push the pink object into an available drawer.
+- Detect the green item on the table and maneuver it into the open drawer below.
+- Select the nearest object to the edge of the table and nudge it into the drawer.
+- Push the object farthest from the robot's base into the drawer using the arm.
+- Slide the object that is at the center of the table into one of the open drawers.
+- Locate the smallest item on the table and move it into the drawer.
+- Use the robotic arm to push any object from the table into the lower drawer.
+push_pink_block_left:
+- Identify the pink block on the table and push it to the left side.
+- Locate the pink block and use the robot arm to slide it towards the left edge of
+  the table.
+- Find the block with a pink color and move it horizontally to the left.
+- Search for the pink-colored block and gently nudge it to the left direction.
+- Spot the pink block on the surface and push it leftwards.
+- Move the pink block you see on the desk to the left with a tapping motion.
+- Use the robot hand to move the pink block left, ensuring it's positioned further
+  left than before.
+- Push the pink object left so it ends up on the leftmost part of the table.
+- Shift the pink block on the platform to your left using the robotic hand.
+- Manipulate the pink block to move it left along the flat surface.
+push_pink_block_right:
+- Move the pink block to the right by sliding it across the table.
+- Gently nudge the pink block to the right side of the table.
+- Shift the pink block horizontally to the right until it reaches the table's edge.
+- Use the robotic arm to push the pink block towards the right corner.
+- Adjust the position of the pink block by shifting it rightward.
+- Direct the pink object to move to the right end of the surface.
+- Apply a rightward force to the pink block to slide it right.
+- Guide the pink block to reposition it to the right side.
+- Tap the pink block so that it moves to the right.
+- Push the pink block smoothly to the right-hand side.
+push_red_block_left:
+- Locate the red block on the table and move it one unit to the left.
+- Find the red object and gently nudge it towards the left edge of the table.
+- Identify the red block and slide it to the left until it's closer to the table's
+  edge.
+- Push the red object to the left side of the table without displacing other objects.
+- Shift the red block to the left by a small distance.
+- Move the red piece leftward across the surface of the table.
+- Carefully slide the red block left, ensuring it stays on the table.
+- Direct the red item leftwards, keeping it on the table.
+- Nudge the red block left until it reaches the table's border.
+- Slide the red unit to the left, positioning it further on the table's left side.
+push_red_block_right:
+- Gently nudge the crimson block towards the right side of the table.
+- Move the red piece to the rightmost edge smoothly.
+- Shift the vermilion block to the right by a few inches.
+- Slide the scarlet item along the surface to the right without disturbing other objects.
+- Push the red block to the right until it touches the edge.
+- Carefully push the ruby block to the right side of the workspace.
+- Guide the red block to the right corner of the table.
+- Nudge the red block rightwards, keeping it aligned with the edge.
+- Transport the red block to the right side gently and precisely.
+- Advance the red block to the extreme right of the table area.
+rotate_blue_block_left:
+- Turn the blue block to the left.
+- Rotate the blue cube 90 degrees counterclockwise.
+- Shift the blue piece leftwards.
+- Spin the blue block to the left-hand side.
+- Move the blue block so it faces left.
+- Adjust the blue block to the left position.
+- Pivot the blue square leftwards.
+- Realign the blue block towards the left.
+- Swivel the blue object left.
+- Twist the blue block counterclockwise.
+rotate_blue_block_right:
+- Turn the blue block 90 degrees clockwise.
+- Spin the blue cube to the right side.
+- Rotate the blue object so its face moves rightward.
+- Pivot the blue square 90 degrees to the right.
+- Adjust the position of the blue block by rotating it right.
+- "Twist the blue block until it\u2019s facing right."
+- Change the orientation of the blue block to the right.
+- Shift the blue block with a rightward spin.
+- Move the blue block's top face to the right by turning it.
+- Rotate the blue block horizontally to the right.
+rotate_pink_block_left:
+- Twist the pink block 90 degrees to the left.
+- Turn the pink item one quarter turn counter-clockwise.
+- Rotate the pink object leftward by one-fourth of a full turn.
+- Spin the pink block to the left by 90 degrees.
+- Move the pink piece so it faces left from its current position.
+- Adjust the pink block's orientation 90 degrees to the left.
+- Shift the pink block counter-clockwise until it faces left.
+- Pivot the pink block leftward one quarter of a circle.
+- Change the direction of the pink block by rotating it left 90 degrees.
+- Reorient the pink object by rotating it to the left.
+rotate_pink_block_right:
+- Identify the pink block on the table and rotate it 90 degrees to the right.
+- Locate the pink object and turn it clockwise from its current position.
+- Find the pink block and rotate it to the right until it faces a new direction.
+- Search for the pink block on the surface and shift it rightward by 90 degrees.
+- Spot the pink element and adjust its orientation to rotate right.
+- Look at the pink block and spin it to the right side 90 degrees.
+- Determine the position of the pink object and swivel it to the right.
+- Seek out the pink block and pivot its angle to the right.
+- Find and rotate the pink block on the table to its right side.
+- Observe the pink block and shift its orientation ninety degrees to the right.
+rotate_red_block_left:
+- Locate the red block on the table and rotate it 90 degrees to the left.
+- Turn the red block that's placed on the workbench to face left.
+- Rotate the red object on the table so the side facing up is now facing left.
+- Find the red block and swivel it leftward by a quarter turn.
+- Adjust the red cube by rotating it to the left-hand side.
+- Take the red block from the setup and turn it to the left direction.
+- Move the red block on the table by turning it left 90 degrees.
+- Shift the red block's orientation by rotating it leftward one quarter.
+- Rotate the visible red block to the left side so it aligns differently.
+- Alter the red block's position by giving it a quarter rotation left.
+rotate_red_block_right:
+- Turn the red block 90 degrees clockwise.
+- Spin the red object to the right.
+- Rotate the red piece to face the right side.
+- Move the red block's front face to the right.
+- Shift the red form to align its edges to the right.
+- Revolve the red block such that the current right side becomes the front.
+- Twist the red block so it faces towards the right.
+- Roll the red block around its central axis to the right.
+- Pivot the red square to the right by one face.
+- Turn the red block's face to the right direction.
+turn_off_led:
+- Locate the glowing light and extinguish it.
+- Find the LED that's on and switch it off.
+- Identify the source of the light emission and deactivate it.
+- Search for any illuminated light, then press the button to turn it off.
+- Pinpoint the active LED light and make it inactive.
+- Scan for the LED signal and ensure it goes dark.
+- Find the light source and suppress its glow.
+- Look for a lit LED and toggle it to the off position.
+- Detect the shining LED and disable it.
+- Seek out the LED that's on and turn it to the off state.
+turn_off_lightbulb:
+- Move towards the yellow object on the table and turn it off if it's a lightbulb.
+- Locate and deactivate the light source by making a clockwise motion.
+- Use the robotic arm to grasp and rotate the bulb counterclockwise to turn it off.
+- Identify the brightest object and perform an action to extinguish its light.
+- Inspect objects on the table and switch off the one emitting light by carefully
+  twisting it.
+- Approach the lightbulb and carefully unscrew it until the light ceases.
+- Detect the lightbulb and press the switch associated with it to turn it off.
+- Find the glowing component and manipulate it to stop its illumination.
+- Recognize the spherical object if glowing, and execute a turn-off procedure.
+- Engage the mechanical arm to gently press down the top of the lightbulb until it
+  goes dark.
+turn_on_led:
+- Activate the LED light on the robot's control panel.
+- Switch on the LED indicator on the robotic arm.
+- Illuminate the LED located at the top of the robot.
+- Power up the LED lamp on the robot's workstation.
+- Turn on the LED bulb attached to the robot's main body.
+- Enable the LED module that's a part of the robot's setup.
+- Start the LED lighting feature on the robot.
+- Engage the LED circuit in the robotic system.
+- "Initiate the LED power switch on the robot\u2019s equipment."
+- Operate the LED function on the robot.
+turn_on_lightbulb:
+- Locate the switch near the lightbulb and flip it to the 'on' position.
+- Press the green button to activate the lightbulb.
+- Turn the knob clockwise until the lightbulb illuminates.
+- Use the lever to trigger the light switch.
+- Push the red button to power the lightbulb.
+- Rotate the purple object to turn on the bulb.
+- Pull the handle to the left to light up the bulb.
+- Tap the white sphere to initiate the lightbulb.
+- Lift the small latch to activate the lamp.
+- Slide the metal bar upwards to switch on the light.

@@ -1,0 +1,4 @@
+Task suite: simpler_widowx
+
+Task: Stack the lime-colored block onto the tangerine block.
+Starting episode 1...

@@ -1,0 +1,286 @@
+close_drawer:
+- Take hold of the drawer handle and shut it.
+- Grab the handle of the drawer and pull it closed.
+- Hold the drawer's handle, then push it to close.
+- Hold onto the handle of the drawer and close it.
+- Shut the drawer.
+- Please go ahead and close the drawer.
+- Push on the drawer's handle to close it.
+- Push the drawer shut.
+- Securely close the drawer of the cabinet.
+lift_blue_block_slider:
+- Retrieve the blue block from the shelf.
+- Extract the blue block from the sliding cabinet.
+- Remove the blue block housed in the sliding cabinet.
+- Secure the blue block positioned on the shelf.
+- Obtain the blue block situated inside the cabinet.
+- Fetch the blue block from within the sliding cabinet.
+- Grasp the blue block resting in the slider.
+- Elevate the blue block resting upon the shelf.
+- Raise the blue block located inside the cabinet.
+- Lift the blue block found within the sliding cabinet.
+lift_blue_block_table:
+- Raise the blue block off the table surface.
+- Retrieve the blue block located on the table.
+- Collect the blue block from the tabletop area.
+- Elevate the blue block.
+- Acquire the blue block.
+- Raise the blue block upwards.
+- Hold the blue block on the table, then elevate it.
+- Hold and lift the blue block.
+- Grip the blue block on the table and raise it upwards.
+- Capture the blue block, then elevate it.
+lift_pink_block_slider:
+- Retrieve the pink block from the shelf.
+- Retrieve the pink block from the sliding cabinet.
+- Retrieve the pink block within the sliding cabinet.
+- Hold the pink block placed on the shelf.
+- Hold the pink block placed in the cabinet.
+- Hold the pink block placed in the sliding cabinet.
+- Hold the pink block placed within the slider.
+- Raise the pink block situated on the shelf.
+- Raise the pink block situated in the cabinet.
+- Raise the pink block situated in the sliding cabinet.
+lift_pink_block_table:
+- Raise the pink block from the table's surface.
+- Lift the pink block situated on the table.
+- Remove the pink block from the tabletop by picking it up.
+- Raise the pink block.
+- Pick the pink block up.
+- Elevate the pink block upwards.
+- Hold onto the pink block on the table and elevate it.
+- Grab the pink block, then lift it upwards.
+- Secure the pink block on the table, then elevate it.
+- Hold the pink block and lift it into the air.
+lift_red_block_slider:
+- Retrieve the red block from the shelf.
+- Remove the red block from the sliding cabinet.
+- Take out the red block in the sliding cabinet.
+- Hold the red block resting on the shelf.
+- Hold the red block resting in the cabinet.
+- Secure the red block situated in the sliding cabinet.
+- Secure the red block located in the slider.
+- Elevate the red block from the shelf.
+- Elevate the red block from the cabinet.
+- Hoist the red block from the sliding cabinet.
+lift_red_block_table:
+- Elevate the red block off the table surface.
+- Raise the red block resting on the table.
+- Remove the red block from the table surface.
+- Hoist the red block into the air.
+- Lift off the red block.
+- Raise the red block in an upward direction.
+- Secure the red block from the table and raise it upward.
+- Hold onto the red block and elevate it.
+- Hold the red block on the table, then elevate it.
+- Grab the red block and move it upwards.
+move_slider_left:
+- Grip the door handle and shift the door towards the left.
+- Hold the door handle and slide the door in a leftward direction.
+- Grab the door handle to shift the door to the left position.
+- Clutch the door handle and slide it to the leftward side.
+- Shift the door entirely to the left.
+- Slide the door completely towards the left side.
+- Shift the door leftward.
+- Slide the door in the left direction.
+- Press the door towards the left.
+- Shift the door to its leftmost side.
+move_slider_right:
+- Hold the door handle and shift the door towards the right.
+- Hold onto the door handle, then swing the door to the right.
+- Grab the door handle before sliding it to the right.
+- Hold the door handle and nudge the door rightward.
+- Shift the door completely to the right.
+- Slide the door entirely to the right.
+- Shift the door to the right side.
+- Slide the door towards the right side.
+- Gently push the door to the right.
+- Move the door over to the right side.
+open_drawer:
+- Firmly take hold of the drawer handle and pull it open.
+- Take the handle of the drawer and proceed to open it.
+- Get a grip on the drawer's handle, then pull it open.
+- Hold the handle of the drawer and pull it to open.
+- Pull the drawer to open it.
+- Proceed to open the drawer.
+- Pull the drawer's handle towards you.
+- Grasp and pull the drawer.
+- Open the drawer that's inside the cabinet.
+push_blue_block_left:
+- Move the blue block in the leftward direction.
+- Direct the blue block towards the left side.
+- Shift the blue block to the left.
+- Proceed to move the blue block leftward.
+- Slide the blue block left.
+- Move the blue block leftward by sliding it.
+- Shift the blue block leftwards by sliding it.
+- Sweep the blue block leftwards.
+- Head over and slide the blue block to the left.
+push_blue_block_right:
+- Shift the blue block to the right side.
+- Move the blue block in a rightward direction.
+- Direct the blue block towards the right.
+- Proceed to nudge the blue block rightward.
+- Glide the blue block over to the right.
+- Move rightwards with the blue block.
+- Shift the blue block in a right-hand direction.
+- Slide the blue block over to the right side.
+- Make your way towards sliding the blue block rightwards.
+push_into_drawer:
+- Move the item into the drawer.
+- Insert the block into the drawer.
+- Slide the item into the drawer.
+- Glide the block into the drawer.
+- Shift the item into the drawer.
+- Shift the block into the drawer.
+- Nudge the object so that it ends up inside the drawer.
+push_pink_block_left:
+- Move the pink block in the left direction.
+- Shift the pink block leftwards.
+- Move the pink block to the left-hand side.
+- Proceed to move the pink block to the left.
+- Slide the pink block in a leftward motion.
+- Shift the pink block to the left.
+- Slide the pink block over to the left.
+- Sweep the pink block over to the left side.
+- Proceed to slide the pink block to the left.
+push_pink_block_right:
+- Move the pink block to the right.
+- Shift the pink block to the right.
+- Direct the pink block to the right.
+- Head over and push the pink block rightward.
+- Shift the pink block in a rightward direction.
+- Navigate the pink block to the right.
+- Guide the pink block rightward.
+- Maneuver the pink block to the right.
+- Proceed to slide the pink block rightwards.
+push_red_block_left:
+- Move the red block leftward.
+- Shift the red block sideways to the left.
+- Direct the red block to the left side.
+- Proceed to move the red block leftward.
+- Glide the red block in a leftward direction.
+- Shift the red block leftwards.
+- Glide the red block towards the left side.
+- Sweep the red block in a leftward motion.
+- Proceed to slide the red block to the left.
+push_red_block_right:
+- Move the red block to the right.
+- Shift the red block to the right.
+- Propel the red block in the rightward direction.
+- Proceed to move the red block to the right.
+- Glide the red block towards the right side.
+- Shift the red block rightward.
+- Slide the red block to the right-hand side.
+- Sweep the red block in a rightward motion.
+- Advance and slide the red block to the right.
+rotate_blue_block_left:
+- Secure the blue block and swing it to the left.
+- Hold the blue block and twist it to the left.
+- Grip the blue block and spin it counterclockwise.
+- Grab the blue block and rotate it in a leftward direction.
+- Seize the blue block and shift it to the left.
+- Take hold of the blue block and pivot it leftward.
+- Turn the blue block 90 degrees anticlockwise.
+- Spin the blue block towards the left side.
+- Move the blue block to face left.
+- Rotate the blue block in the left direction.
+rotate_blue_block_right:
+- Clutch the blue block, then pivot it to the right.
+- Secure a grip on the blue block, then twist it to the right.
+- Hold the blue block and spin it in a rightward direction.
+- Grip the blue block and swivel it to the right.
+- Grab the blue block, then revolve it to the right.
+- Seize the blue block, then turn it in a rightward direction.
+- Pivot the blue block 90 degrees clockwise.
+- Swivel the blue block to the right.
+- Shift the blue block towards the right.
+- Rotate the blue block in a rightward manner.
+rotate_pink_block_left:
+- Hold onto the pink block, and pivot it leftward.
+- Seize the pink block, and swivel it left.
+- Grasp the pink block to maneuver it left.
+- Take hold of the pink block to turn it to the left.
+- Take the pink block and spin it to the left side.
+- Capture the pink block and move it leftwards.
+- Tilt the pink block 90 degrees in a leftward direction.
+- Twist the pink block to face the left.
+- Spin the pink block so it faces the left.
+- Maneuver the pink block in a leftward direction.
+rotate_pink_block_right:
+- Firmly hold the pink block and rotate it clockwise.
+- Secure the pink block, then spin it to the right.
+- Grasp the pink block and twist it to the right.
+- Firmly hold the pink block and swing it to the right.
+- Pick up the pink block and turn it clockwise.
+- Seize the pink block and pivot it to the right.
+- Twist the pink block 90 degrees in a clockwise direction.
+- Give the pink block a spin to the right.
+- Direct the pink block by rotating it clockwise.
+- Turn the pink block clockwise for a rightward move.
+rotate_red_block_left:
+- Secure the red block, then pivot it to the left.
+- Hold the red block and twist it to the left.
+- Clutch the red block and spin it to the left.
+- Grab the red block and move it counterclockwise.
+- Pick up the red block and pivot it to the left.
+- Lift the red block and twist it counterclockwise.
+- Swivel the red block to the left by 90 degrees.
+- Move the red block in a leftward direction.
+- Rotate the red block to face the left.
+- Angle the red block towards the left side.
+rotate_red_block_right:
+- Seize the red block and pivot it to the right.
+- Hold the red block and swivel it to the right.
+- Grab onto the red block and twist it to the right.
+- Clutch the red block and spin it rightwards.
+- Pick up the red block and gently rotate to the right.
+- Raise the red block and move it to the right direction.
+- Shift the red block in a rightward rotation.
+- Revolve the red block 90 degrees clockwise.
+- Spin the red block so it faces towards the right.
+- Pivot the red block in the rightward direction.
+turn_off_led:
+- Deactivate the LED.
+- Switch off the LED bulb.
+- Power down the LED lamp.
+- Extinguish the green light.
+- Shut off the green lamp.
+- Press the button to deactivate the LED light.
+- Press the button to switch off the LED.
+- Press the button to extinguish the green light.
+- Engage the button to deactivate the LED light.
+- Engage the button to switch off the LED.
+turn_off_lightbulb:
+- Switch off the light bulb.
+- Deactivate the yellow light.
+- Switch off the yellow lamp.
+- Lower the switch.
+- Press the switch downwards.
+- Slide the switch downward.
+- Adjust the light switch to extinguish the light bulb.
+- Flip the light switch to extinguish the light bulb.
+- Adjust the light switch to extinguish the yellow light.
+- Flip the light switch to extinguish the yellow light.
+turn_on_led:
+- Illuminate the LED light.
+- Power on the LED.
+- Activate the LED lamp.
+- Switch on the green light.
+- Switch on the green lamp.
+- Press the button to illuminate the LED light.
+- Press the button to activate the LED.
+- Press the button to power on the green light.
+- Tap the button to illuminate the LED light.
+- Tap the button to activate the LED.
+turn_on_lightbulb:
+- Illuminate the light bulb.
+- Activate the yellow light.
+- Switch on the yellow lamp.
+- Raise the switch.
+- Push the switch upward.
+- Slide the switch to the up position.
+- Adjust the light switch to illuminate the light bulb.
+- Flip the light switch to illuminate the light bulb.
+- Adjust the light switch to activate the yellow light.
+- Flip the light switch to activate the yellow light.

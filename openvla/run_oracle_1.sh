@@ -5,7 +5,7 @@ CUDA_VISIBLE_DEVICES=1 python experiments/robot/libero/run_libero_eval_oracle.py
     --task_suite_name libero_spatial \
     --center_crop True \
     --lang_transform_type rephrase \
-    --clip_select_action_num_candidates 1 \
+    --clip_select_action_num_candidates 2 \
     --clip_select_action_strategy highest_score \
     --use_oracle_scorer True
 
@@ -15,7 +15,7 @@ CUDA_VISIBLE_DEVICES=1 python experiments/robot/libero/run_libero_eval_oracle.py
     --task_suite_name libero_spatial \
     --center_crop True \
     --lang_transform_type rephrase \
-    --clip_select_action_num_candidates 5 \
+    --clip_select_action_num_candidates 4 \
     --clip_select_action_strategy highest_score \
     --use_oracle_scorer True
 ) &
@@ -27,7 +27,7 @@ CUDA_VISIBLE_DEVICES=3 python experiments/robot/libero/run_libero_eval_oracle.py
     --task_suite_name libero_spatial \
     --center_crop True \
     --lang_transform_type rephrase \
-    --clip_select_action_num_candidates 10 \
+    --clip_select_action_num_candidates 8 \
     --clip_select_action_strategy highest_score \
     --use_oracle_scorer True &
 
@@ -37,7 +37,7 @@ CUDA_VISIBLE_DEVICES=2 python experiments/robot/libero/run_libero_eval_oracle.py
     --task_suite_name libero_spatial \
     --center_crop True \
     --lang_transform_type rephrase \
-    --clip_select_action_num_candidates 20 \
+    --clip_select_action_num_candidates 16 \
     --clip_select_action_strategy highest_score \
     --use_oracle_scorer True &
 
@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=0 python experiments/robot/libero/run_libero_eval_oracle.py
     --task_suite_name libero_spatial \
     --center_crop True \
     --lang_transform_type rephrase \
-    --clip_select_action_num_candidates 30 \
+    --clip_select_action_num_candidates 32 \
     --clip_select_action_strategy highest_score \
     --use_oracle_scorer True &
 
