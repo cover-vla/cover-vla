@@ -3,3 +3,4 @@
 !.gitignore
 !/custom
 !/hab2_bench_assets
+!/real_inpainting

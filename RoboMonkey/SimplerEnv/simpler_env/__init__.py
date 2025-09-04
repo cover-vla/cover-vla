@@ -28,6 +28,16 @@ ENVIRONMENTS = [
     "widowx_carrot_on_plate",
     "widowx_stack_cube",
     "widowx_put_eggplant_in_basket",
+    # =================================== Following are the Custom Environments =========================================
+    "widowx_carrot_on_plate_unseen_lighting",
+    "widowx_spoon_on_towel_new_table_cloth",
+    "widowx_spoon_on_towel_google",
+    "widowx_redbull_on_plate",
+    "widowx_tennis_ball_in_basket",
+    "widowx_zucchini_on_towel",
+    "widowx_tape_measure_in_basket",
+    "widowx_toy_dinosaur_on_towel",
+    "widowx_stapler_on_paper",
 ]
 
 ENVIRONMENT_MAP = {
@@ -68,6 +78,16 @@ ENVIRONMENT_MAP = {
     "widowx_carrot_on_plate": ("PutCarrotOnPlateInScene-v0", {}),
     "widowx_stack_cube": ("StackGreenCubeOnYellowCubeBakedTexInScene-v0", {}),
     "widowx_put_eggplant_in_basket": ("PutEggplantInBasketScene-v0", {}),
+    # =================================== Following are the Custom Environments =========================================
+    "widowx_carrot_on_plate_unseen_lighting": ("PutCarrotOnPlateUnseenLighting", {}),
+    "widowx_spoon_on_towel_new_table_cloth": ("PutSpoonOnTableClothInSceneNewTableCloth", {}),
+    "widowx_spoon_on_towel_google": ("PutSpoonOnTableClothInSceneGoogle", {}),
+    "widowx_redbull_on_plate": ("PutRedbullOnPlateInScene", {}),
+    "widowx_tennis_ball_in_basket": ("PutTennisBallInBasketScene", {}),
+    "widowx_zucchini_on_towel": ("PutZucchiniOnTableClothInScene", {}),
+    "widowx_tape_measure_in_basket": ("PutTapeMeasureInBasketScene-v0", {}),
+    "widowx_toy_dinosaur_on_towel": ("PutToyDinosaurOnTowelInScene", {}),
+    "widowx_stapler_on_paper": ("PutStaplerOnPaperInScene", {}),
 }
 
 

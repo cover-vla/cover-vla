@@ -5,12 +5,13 @@ import numpy as np
 import sapien.core as sapien
 from transforms3d.euler import euler2quat
 from transforms3d.quaternions import quat2mat
+from itertools import permutations
 
 from mani_skill2_real2sim.utils.common import random_choice
 from mani_skill2_real2sim.utils.registration import register_env
 from mani_skill2_real2sim import ASSET_DIR
 
-from .base_env import CustomBridgeObjectsInSceneEnv
+from .base_env import CustomBridgeObjectsInSceneEnv, CustomBridgeObjectsInSceneEnvV1
 from .move_near_in_scene import MoveNearInSceneEnv
 
 class PutOnInSceneEnv(MoveNearInSceneEnv):
@@ -147,6 +148,8 @@ class PutOnInSceneEnv(MoveNearInSceneEnv):
 
 
 class PutOnBridgeInSceneEnv(PutOnInSceneEnv, CustomBridgeObjectsInSceneEnv):
+    # This class is the same hierarchy as `MoveNearGoogleInSceneEnv`, 
+    # similarly `PutOnInSceneEnv` is the same hierarchy as `MoveNearInSceneEnv`
     def __init__(
         self,
         source_obj_name: str = None,
@@ -486,3 +489,841 @@ class PutEggplantInBasketScene(PutOnBridgeInSceneEnv):
             scale=5,
             shadow_map_size=2048,
         )
+
+# ================================= Following are the Custom Environments =================================================
+@register_env("PutCarrotOnPlateUnseenLighting", max_episode_steps=60)
+class PutCarrotOnPlateUnseenLighting(StackGreenCubeOnYellowCubeInScene):
+    def __init__(self, **kwargs):
+        self._lighting_colors = [
+            [1.0, 1.0, 1.0],  # white
+            [1.0, 0.1, 0.1],  # bright red
+            [1.0, 1.0, 0.1],  # yellow
+            # [0.1, 0.8, 0.1],  # bright green
+            [0.8, 0.1, 0.8],  # bright purple
+            # [0.0, 0.8, 1.0],  # bright cyan
+            [1.0, 0.5, 0.0],  # bright orange
+        ]
+        self._current_light_index = 0
+        self._episode_lighting_index = 0
+        super().__init__(**kwargs)
+    
+    def _setup_lighting(self):
+        if self.bg_name is not None:
+            return
+        self._scene.set_ambient_light([0.1, 0.1, 0.1])
+
+    def reset(self, seed=None, options=None):
+        obs, info = super().reset(seed, options)
+        self._current_light_index = 0
+        # Initialize lighting with the first color
+        self._update_lighting()
+        return obs, info
+    
+    def _update_lighting(self):
+        # Remove previous light if it exists
+        if hasattr(self, '_scene') and self._scene is not None:
+            # Get all lights in the scene
+            lights = self._scene.get_all_lights()
+            for light in lights:
+                self._scene.remove_light(light)
+            
+            # Add new directional light with current color
+            color = self._lighting_colors[self._current_light_index]
+            self._scene.add_directional_light(
+                [0, 0, -1],
+                color,
+                position=[0, 1, 0],
+                scale=5,
+            )
+    
+    def step(self, action):
+        obs, reward, terminated, truncated, info = super().step(action)
+        
+        # Change to next light color
+        self._episode_lighting_index += 1
+        if self._episode_lighting_index % 10 == 0:
+            self._current_light_index = (self._current_light_index + 1) % len(self._lighting_colors)
+            self._update_lighting()
+        
+        return obs, reward, terminated, truncated, info
+
+@register_env("PutSpoonOnTableClothInSceneNewTableCloth", max_episode_steps=60)
+class PutSpoonOnTableClothInSceneNewTableCloth(PutSpoonOnTableClothInScene):
+    def _setup_prepackaged_env_init_config(self):
+        ret = super()._setup_prepackaged_env_init_config()
+        ret["rgb_overlay_path"] = str(
+            ASSET_DIR / "real_inpainting/bridge_real_eval_new_table_cloth.png"
+        )
+        return ret
+
+@register_env("PutSpoonOnTableClothInSceneGoogle", max_episode_steps=60)
+class PutSpoonOnTableClothInSceneGoogle(PutOnBridgeInSceneEnv):
+    def __init__(
+        self,
+        source_obj_name="bridge_spoon_generated_modified",
+        target_obj_name="table_cloth_generated_shorter",
+        **kwargs,
+    ):
+        xy_center = np.array([-0.16, 0.00])
+        half_edge_length_x = 0.05
+        half_edge_length_y = 0.05
+        grid_pos = np.array([[0, 0], [0, 1], [1, 0], [1, 1]]) * 2 - 1
+        grid_pos = (
+            grid_pos * np.array([half_edge_length_x, half_edge_length_y])[None]
+            + xy_center[None]
+        )
+
+        xy_configs = []
+        for i, grid_pos_1 in enumerate(grid_pos):
+            for j, grid_pos_2 in enumerate(grid_pos):
+                if i != j:
+                    xy_configs.append(np.array([grid_pos_1, grid_pos_2]))
+
+        quat_configs = [
+            np.array([[1, 0, 0, 0], [1, 0, 0, 0]]),
+            np.array([euler2quat(0, 0, np.pi / 2), [1, 0, 0, 0]]),
+        ]
+
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            **kwargs,
+        )
+    def evaluate(self, success_require_src_completely_on_target=False, **kwargs):
+        # this environment allows spoons to be partially on the table cloth to be considered successful
+        return super().evaluate(success_require_src_completely_on_target, **kwargs)
+
+    def get_language_instruction(self, **kwargs):
+        return "put the spoon on the towel"
+    
+    def _setup_prepackaged_env_init_config(self):
+        ret = super()._setup_prepackaged_env_init_config()
+        ret["rgb_overlay_path"] = str(
+            ASSET_DIR / "real_inpainting/google_coke_can_for_bridge.png"
+        )
+        return ret
+
+@register_env("PutRedbullOnPlateInScene", max_episode_steps=60)
+class PutRedbullOnPlateInScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(
+        self,
+        source_obj_name="redbull_can",
+        target_obj_name="bridge_plate_objaverse_larger",
+        **kwargs,
+    ):
+        xy_center = np.array([-0.16, 0.00])
+        half_edge_length_x = 0.075
+        half_edge_length_y = 0.075
+        grid_pos = np.array([[-1, -1], [1, 1], [-1, 1], [1, -1]])  # All corners and center
+        grid_pos = (
+            grid_pos * np.array([half_edge_length_x, half_edge_length_y])[None]
+            + xy_center[None]
+        )
+        
+        self.distractors = [
+            ("coke_can",),
+        ]
+        self._distractor_ids = list(range(1))
+        xy_configs = [
+            [grid_pos[1], grid_pos[0], grid_pos[2]],  # source at bottom-left, target at top-right, distractor at top-left
+            [grid_pos[1], grid_pos[0], grid_pos[3]],  # source at bottom-left, target at top-right, distractor at bottom-right
+            [grid_pos[2], grid_pos[3], grid_pos[0]],  # source at top-right, target at bottom-left, distractor at top-left
+            [grid_pos[2], grid_pos[3], grid_pos[1]],  # source at top-right, target at bottom-left, distractor at bottom-right
+        ]
+
+        quat_configs = [
+            np.array([np.array(euler2quat(0, -np.pi / 2, np.pi / 2, 'sxyz')), [0, 0, 0, 1]]),
+        ]
+
+        self.distractor_init_quat_dict = {  # distractor has forced quaternions
+            "coke_can": euler2quat(0, np.pi / 2, np.pi / 2, 'sxyz')
+        }
+
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            **kwargs,
+        )
+
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[
+            episode_id // (len(self._distractor_ids) * len(self._xy_configs))
+        ]
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options)  # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+
+    def evaluate(self, success_require_src_completely_on_target=False, **kwargs):
+        # this environment allows spoons to be partially on the table cloth to be considered successful
+        return super().evaluate(success_require_src_completely_on_target, **kwargs)
+
+    def get_language_instruction(self, **kwargs):
+        return "put redbull can on plate"
+
+@register_env("PutTennisBallInBasketScene", max_episode_steps=120)
+class PutTennisBallInBasketScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(
+        self,
+        **kwargs,
+    ):
+        source_obj_name = "tennis_ball"
+        target_obj_name = "dummy_sink_target_plane"  # invisible
+        target_xy = np.array([-0.125, 0.025])
+        xy_center = [-0.105, 0.206]
+
+        # Increase spacing between objects to prevent overlap
+        half_span_x = 0.02  # Increased from 0.01
+        half_span_y = 0.03  # Increased from 0.015
+        num_x = 2
+        num_y = 3  # Reduced from 4 to create more space
+
+        grid_pos = []
+        for x in np.linspace(-half_span_x, half_span_x, num_x):
+            for y in np.linspace(-half_span_y, half_span_y, num_y):
+                grid_pos.append(np.array([x + xy_center[0], y + xy_center[1]]))
+
+        self.distractors = [
+            ("orange", "pingpong_ball"),  # Both distractors appear together
+        ]
+        self._distractor_ids = list(range(2))
+        xy_configs = [
+            (pos[0], target_xy, *pos[1:]) 
+            for pos in permutations(grid_pos, len(self._distractor_ids) + 1)
+        ]
+        quat_configs = [
+            np.array([
+                euler2quat(0, 0, 0, 'sxyz'),
+                [1, 0, 0, 0]
+            ]),
+            np.array([
+                euler2quat(0, 0, 1 * np.pi / 4, 'sxyz'),
+                [1, 0, 0, 0]
+            ]),
+            np.array([
+                euler2quat(0, 0, -1 * np.pi / 4, 'sxyz'),
+                [1, 0, 0, 0]
+            ]),
+        ]
+        self.distractor_init_quat_dict = { # distractor has forced quaternions
+            "orange": euler2quat(0, 0, np.pi / 2, 'sxyz'),
+            "pingpong_ball": [1.0, 0.0, 0.0, 0.0],
+        }
+        self.special_density_dict = {
+            "pingpong_ball": 200,  # toy apple as in real eval
+            "orange": 200
+            # by default, opened cans have density 50; blue plastic bottle has density 50; sponge has density 150
+        }
+        
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            rgb_always_overlay_objects=['sink', 'dummy_sink_target_plane'],
+            **kwargs,
+        )
+    
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[0]  # Always use the tuple with both distractors
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options) # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+
+    def get_language_instruction(self, **kwargs):
+        return "put tennis ball into yellow basket"
+
+    def _load_model(self):
+        super()._load_model()
+        self.sink_id = 'sink'
+        self.sink = self._build_actor_helper(
+            self.sink_id,
+            self._scene,
+            density=self.model_db[self.sink_id].get("density", 1000),
+            physical_material=self._scene.create_physical_material(
+                static_friction=self.obj_static_friction, dynamic_friction=self.obj_dynamic_friction, restitution=0.0
+            ),
+            root_dir=self.asset_root,
+        )
+        self.sink.name = self.sink_id
+
+    def _initialize_actors(self):
+        # Move the robot far away to avoid collision
+        self.agent.robot.set_pose(sapien.Pose([-10, 0, 0]))
+
+        self.sink.set_pose(sapien.Pose(
+            [-0.16, 0.13, 0.88],
+            [1, 0, 0, 0]
+        ))
+        self.sink.lock_motion()
+
+        super()._initialize_actors()
+
+    def evaluate(self, *args, **kwargs):
+        return super().evaluate(success_require_src_completely_on_target=False, 
+                                z_flag_required_offset=0.06,
+                                *args, **kwargs)
+
+    def _setup_prepackaged_env_init_config(self):
+        ret = super()._setup_prepackaged_env_init_config()
+        ret["robot"] = "widowx_sink_camera_setup"
+        ret["scene_name"] = "bridge_table_1_v2"
+        ret["rgb_overlay_path"] = str(
+            ASSET_DIR / "real_inpainting/bridge_sink.png"
+        )
+        return ret
+
+    def _additional_prepackaged_config_reset(self, options):
+        # use prepackaged robot evaluation configs under visual matching setup
+        options["robot_init_options"] = {
+            "init_xy": [0.127, 0.06],
+            "init_rot_quat": [0, 0, 0, 1],
+        }
+        return False # in env reset options, no need to reconfigure the environment
+
+    def _setup_lighting(self):
+        if self.bg_name is not None:
+            return
+
+        shadow = self.enable_shadow
+
+        self._scene.set_ambient_light([0.3, 0.3, 0.3])
+        self._scene.add_directional_light(
+            [0, 0, -1],
+            [0.3, 0.3, 0.3],
+            position=[0, 0, 1],
+            shadow=shadow,
+            scale=5,
+            shadow_map_size=2048,
+        )
+
+@register_env("PutZucchiniOnTableClothInScene", max_episode_steps=60)
+class PutZucchiniOnTableClothInScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(self, **kwargs):
+        source_obj_name = "zucchini"
+        target_obj_name = "bridge_plate_objaverse_blue" # "cool_plate"
+
+        xy_center = np.array([-0.16, 0.00])
+        half_edge_length_x = 0.075
+        half_edge_length_y = 0.075
+        grid_pos = np.array([[0, 0], [0, 1], [1, 0], [1, 1]]) * 2 - 1
+        grid_pos = (
+            grid_pos * np.array([half_edge_length_x, half_edge_length_y])[None]
+            + xy_center[None]
+        )
+
+        self.distractors = [
+            ("bridge_carrot_generated_modified",),
+        ]
+        self._distractor_ids = list(range(1))
+        xy_configs = list(permutations(grid_pos, len(self._distractor_ids) + 2))
+
+        quat_configs = [
+            np.array([euler2quat(0, 0, np.pi), [1, 0, 0, 0]]),
+            np.array([euler2quat(0, 0, -np.pi / 2), [1, 0, 0, 0]]),
+        ]
+        self.distractor_init_quat_dict = { # distractor has forced quaternions
+            "bridge_carrot_generated_modified": np.array([1, 0, 0, 0])
+        }
+
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            **kwargs,
+        )
+        
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[
+            episode_id // (len(self._distractor_ids) * len(self._xy_configs))
+        ]
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options) # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+    
+    def evaluate(self, success_require_src_completely_on_target=False, **kwargs):
+        # this environment allows spoons to be partially on the table cloth to be considered successful
+        return super().evaluate(success_require_src_completely_on_target, **kwargs)
+
+    def get_language_instruction(self, **kwargs):
+        return "put the zucchini on the towel"
+
+@register_env("PutTapeMeasureInBasketScene-v0", max_episode_steps=120)
+class PutTapeMeasureInBasketScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(self, **kwargs):
+        source_obj_name = "tape_measure"
+        target_obj_name = "dummy_sink_target_plane"  # invisible
+        target_xy = np.array([-0.125, 0.025])
+        xy_center = [-0.105, 0.206]
+
+        half_span_x = 0.04
+        half_span_y = 0.04
+        num_x = 2
+        num_y = 2
+
+        grid_pos = []
+        for x in np.linspace(-half_span_x, half_span_x, num_x):
+            for y in np.linspace(-half_span_y, half_span_y, num_y):
+                grid_pos.append(np.array([x + xy_center[0], y + xy_center[1]]))
+
+        self.distractors = [
+            ("baby_eggplant",),
+        ]
+        self._distractor_ids = list(range(1))
+        xy_configs = [
+            (pos[0], target_xy, *pos[1:]) 
+            for pos in permutations(grid_pos, len(self._distractor_ids) + 1)
+        ]
+        quat_configs = [
+            np.array([
+                euler2quat(0, 0, 0, 'sxyz'),
+                [1, 0, 0, 0]
+            ]),
+        ]
+        self.distractor_init_quat_dict = { # distractor has forced quaternions
+            "baby_eggplant": euler2quat(0, 0, 0, 'sxyz'),
+        }
+        
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            rgb_always_overlay_objects=['sink', 'dummy_sink_target_plane'],
+            **kwargs,
+        )
+    
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[
+            episode_id // (len(self._distractor_ids) * len(self._xy_configs))
+        ]
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options) # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+
+    def get_language_instruction(self, **kwargs):
+        return "put tape measure into yellow basket"
+
+    def _load_model(self):
+        super()._load_model()
+        self.sink_id = 'sink'
+        self.sink = self._build_actor_helper(
+            self.sink_id,
+            self._scene,
+            density=self.model_db[self.sink_id].get("density", 1000),
+            physical_material=self._scene.create_physical_material(
+                static_friction=self.obj_static_friction, dynamic_friction=self.obj_dynamic_friction, restitution=0.0
+            ),
+            root_dir=self.asset_root,
+        )
+        self.sink.name = self.sink_id
+
+    def _initialize_actors(self):
+        # Move the robot far away to avoid collision
+        self.agent.robot.set_pose(sapien.Pose([-10, 0, 0]))
+
+        self.sink.set_pose(sapien.Pose(
+            [-0.16, 0.13, 0.88],
+            [1, 0, 0, 0]
+        ))
+        self.sink.lock_motion()
+
+        super()._initialize_actors()
+
+    def evaluate(self, *args, **kwargs):
+        return super().evaluate(success_require_src_completely_on_target=False, 
+                                z_flag_required_offset=0.06,
+                                *args, **kwargs)
+
+    def _setup_prepackaged_env_init_config(self):
+        ret = super()._setup_prepackaged_env_init_config()
+        ret["robot"] = "widowx_sink_camera_setup"
+        ret["scene_name"] = "bridge_table_1_v2"
+        ret["rgb_overlay_path"] = str(
+            ASSET_DIR / "real_inpainting/bridge_sink.png"
+        )
+        return ret
+
+    def _additional_prepackaged_config_reset(self, options):
+        # use prepackaged robot evaluation configs under visual matching setup
+        options["robot_init_options"] = {
+            "init_xy": [0.127, 0.06],
+            "init_rot_quat": [0, 0, 0, 1],
+        }
+        return False # in env reset options, no need to reconfigure the environment
+
+    def _setup_lighting(self):
+        if self.bg_name is not None:
+            return
+
+        shadow = self.enable_shadow
+
+        self._scene.set_ambient_light([0.3, 0.3, 0.3])
+        self._scene.add_directional_light(
+            [0, 0, -1],
+            [0.3, 0.3, 0.3],
+            position=[0, 0, 1],
+            shadow=shadow,
+            scale=5,
+            shadow_map_size=2048,
+        )
+
+@register_env("PutToyDinosaurOnTowelInScene", max_episode_steps=60)
+class PutToyDinosaurOnTowelInScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(
+        self,
+        source_obj_name="toy_dinosaur",
+        target_obj_name="table_cloth_generated_shorter",
+        **kwargs,
+    ):
+        xy_center = np.array([-0.16, 0.00])
+        half_edge_length_x = 0.05
+        half_edge_length_y = 0.05
+        grid_pos = np.array([[0, 0], [0, 1], [1, 0]]) * 2 - 1
+        grid_pos = (
+            grid_pos * np.array([half_edge_length_x, half_edge_length_y])[None]
+            + xy_center[None]
+        )
+        
+        self.distractors = [
+            ("toy_elephant",),
+        ]
+        self._distractor_ids = list(range(1))
+        xy_configs = list(permutations(grid_pos, len(self._distractor_ids) + 2))
+
+        quat_configs = [
+            np.array([euler2quat(0, 0, np.pi / 2, 'sxyz'), [0, 0, 0, 1]]),
+            np.array([euler2quat(0, 0, np.pi * 3 / 2, 'sxyz'), [0, 0, 0, 1]]),
+        ]
+
+        self.distractor_init_quat_dict = { # distractor has forced quaternions
+            "toy_elephant": np.array(euler2quat(0, 0, np.pi, 'sxyz'))
+        }
+
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            **kwargs,
+        )
+
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[
+            episode_id // (len(self._distractor_ids) * len(self._xy_configs))
+        ]
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options) # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+
+    def evaluate(self, success_require_src_completely_on_target=False, **kwargs):
+        # this environment allows spoons to be partially on the table cloth to be considered successful
+        return super().evaluate(success_require_src_completely_on_target, **kwargs)
+
+    def get_language_instruction(self, **kwargs):
+        return "put the toy dinosaur on the towel"
+
+@register_env("PutStaplerOnPaperInScene", max_episode_steps=60)
+class PutStaplerOnPaperInScene(PutOnBridgeInSceneEnv, CustomBridgeObjectsInSceneEnvV1):
+    def __init__(
+        self,
+        source_obj_name="stapler",
+        target_obj_name="paper_pile",
+        **kwargs,
+    ):
+        xy_center = np.array([-0.16, 0.00])
+        half_edge_length_x = 0.075
+        half_edge_length_y = 0.075
+        grid_pos = np.array([[-1, -1], [1, 1], [-1, 1], [1, -1]])  # All corners and center
+        grid_pos = (
+            grid_pos * np.array([half_edge_length_x, half_edge_length_y])[None]
+            + xy_center[None]
+        )
+        
+        self.distractors = [
+            ("simple_spatula",),
+        ]
+        self._distractor_ids = list(range(1))
+        xy_configs = list(permutations(grid_pos, len(self._distractor_ids) + 2))
+
+        quat_configs = [
+            np.array([euler2quat(0, 0, 0), [1, 0, 0, 0]]),
+            np.array([euler2quat(0, 0, np.pi / 2), [1, 0, 0, 0]]),
+        ]
+
+        self.distractor_init_quat_dict = {  # distractor has forced quaternions
+            "simple_spatula": euler2quat(0, 0, 0, 'sxyz')
+        }
+
+        super().__init__(
+            source_obj_name=source_obj_name,
+            target_obj_name=target_obj_name,
+            xy_configs=xy_configs,
+            quat_configs=quat_configs,
+            **kwargs,
+        )
+
+    def reset(self, seed=None, options=None):
+        if options is None:
+            options = dict()
+        options = options.copy()
+
+        self.set_episode_rng(seed)
+
+        obj_init_options = options.get("obj_init_options", {})
+        obj_init_options = obj_init_options.copy()
+        
+        # source and target object configs
+        episode_id = obj_init_options.get(
+            "episode_id",
+            self._episode_rng.randint(len(self._xy_configs) * len(self._quat_configs)),
+        )
+        xy_config = self._xy_configs[
+            (episode_id % (len(self._xy_configs) * len(self._quat_configs)))
+            // len(self._quat_configs)
+        ]
+        quat_config = self._quat_configs[episode_id % len(self._quat_configs)]
+        
+        # distractor configs
+        _num_episodes = (
+            len(self.distractors)
+            * len(self._distractor_ids)
+            * len(self._xy_configs)
+        )
+        episode_id = obj_init_options.get(
+            "episode_id", self._episode_rng.randint(_num_episodes)
+        )
+        episode_id = episode_id % _num_episodes
+        distractor_list = self.distractors[
+            episode_id // (len(self._distractor_ids) * len(self._xy_configs))
+        ]
+        quat_config_distractor = [
+            self.distractor_init_quat_dict[model_id] for model_id in distractor_list
+        ]
+
+        options["model_ids"] = [self._source_obj_name, self._target_obj_name] + list(distractor_list)
+        obj_init_options["source_obj_id"] = 0
+        obj_init_options["target_obj_id"] = 1
+        obj_init_options["init_xys"] = list(xy_config)
+        obj_init_options["init_rot_quats"] = list(quat_config) + list(quat_config_distractor)
+        options["obj_init_options"] = obj_init_options
+
+        obs, info = PutOnInSceneEnv.reset(self, seed=self._episode_seed, options=options)  # Call Parent's Parent, ie. PutOnInSceneEnv
+        info.update({"episode_id": episode_id})
+        return obs, info
+
+    def evaluate(self, success_require_src_completely_on_target=False, **kwargs):
+        # this environment allows spoons to be partially on the table cloth to be considered successful
+        return super().evaluate(success_require_src_completely_on_target, **kwargs)
+
+    def get_language_instruction(self, **kwargs):
+        return "put stapler on paper pile"

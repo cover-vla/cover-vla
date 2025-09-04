@@ -859,3 +859,93 @@ class GraspSingleBridgeSpoonInSceneEnv(GraspSingleCustomInSceneEnv):
         kwargs.pop("model_ids", None)
         kwargs["model_ids"] = ["bridge_spoon_generated_modified"]
         super().__init__(**kwargs)
+
+# ======================= Custom Env ==========================
+@register_env("GraspSingleBridgeEggplantInScene-v0", max_episode_steps=80)
+class GraspSingleBridgeEggplantInScene(GraspSingleCustomInSceneEnv):
+    def __init__(self, **kwargs):
+        kwargs.pop("model_ids", None)
+        kwargs["model_ids"] = ["eggplant"]
+        super().__init__(**kwargs)
+        
+    def get_language_instruction(self, **kwargs):
+        return "pick up eggplant"
+    
+    def _setup_prepackaged_env_init_config(self):
+        ret = {}
+        ret["robot"] = "widowx"
+        ret["control_freq"] = 5
+        ret["sim_freq"] = 500
+        ret["control_mode"] = "arm_pd_ee_target_delta_pose_align2_gripper_pd_joint_pos"
+        ret["scene_name"] = "google_pick_coke_can_1_v4"
+        ret["camera_cfgs"] = {"add_segmentation": True}
+        ret["rgb_overlay_path"] = str(
+            ASSET_DIR / "real_inpainting/google_coke_can_real_eval_1.png"
+        )
+        ret["rgb_overlay_cameras"] = ["3rd_view_camera"]
+
+        return ret
+    # def _initialize_agent(self):
+    #     # initialize agent joint position and 6d pose
+        
+    #     if "google_robot_static" in self.robot_uid:
+    #         qpos = np.array(
+    #             [-0.2639457174606611,
+    #             0.0831913360274175,
+    #             0.5017611504652179,
+    #             1.156859026208673,
+    #             0.028583671314766423,
+    #             1.592598203487462,
+    #             -1.080652960128774,
+    #             0, 0,
+    #             -0.00285961, 0.7851361]
+    #         )
+    #         robot_init_height = 0.06205 + 0.017 # base height + ground offset in default scene
+    #         robot_init_rot_quat = [0, 0, 0, 1]
+    #     elif 'widowx' in self.robot_uid:
+    #         # if self.robot_uid in ['widowx', 'widowx_bridge_dataset_camera_setup']:
+    #         #     qpos = np.array([-0.01840777,  0.0398835,   0.22242722,  -0.00460194,  1.36524296,  0.00153398, 0.037, 0.037])
+    #         # elif self.robot_uid == 'widowx_sink_camera_setup':
+    #         qpos = np.array([-0.2600599, -0.12875618, 0.04461369, -0.00652761, 1.7033415, -0.26983038, 0.037,
+    #                             0.037])
+    #         # else:
+    #         #     raise NotImplementedError(self.robot_uid)
+            
+    #         # if self.robot_uid in ['widowx', 'widowx_bridge_dataset_camera_setup']:
+    #         #     robot_init_height = 0.870
+    #         # elif self.robot_uid == 'widowx_sink_camera_setup':
+    #         # robot_init_height = 0.85
+    #         # else:
+    #         #     raise NotImplementedError(self.robot_uid)
+    #         robot_init_height = 0.8
+    #         robot_init_rot_quat = [0, 0, 0, 1]
+    #     else:
+    #         raise NotImplementedError(self.robot_uid)
+        
+    #     if self.robot_init_options.get("qpos", None) is not None:
+    #         qpos = self.robot_init_options["qpos"]
+    #     self.agent.reset(qpos)
+        
+    #     if self.robot_init_options.get("init_height", None) is not None:
+    #         robot_init_height = self.robot_init_options["init_height"]
+    #     if self.robot_init_options.get("init_rot_quat", None) is not None:
+    #         robot_init_rot_quat = self.robot_init_options["init_rot_quat"]
+        
+    #     if (robot_init_xy := self.robot_init_options.get("init_xy", None)) is not None:
+    #         robot_init_xyz = [robot_init_xy[0], robot_init_xy[1], robot_init_height]
+    #     else:
+    #         if 'google_robot' in self.robot_uid:
+    #             init_x = self._episode_rng.uniform(0.30, 0.40)
+    #             init_y = self._episode_rng.uniform(0.0, 0.2)
+    #         elif 'widowx' in self.robot_uid:
+    #             init_x = 0.147
+    #             if self.robot_uid in ['widowx', 'widowx_bridge_dataset_camera_setup']:
+    #                 init_y = 0.028
+    #             elif self.robot_uid == 'widowx_sink_camera_setup':
+    #                 init_y = 0.070
+    #         else:
+    #             init_x, init_y = 0.0, 0.0
+    #         robot_init_xyz = [init_x, init_y, robot_init_height]
+        
+    #     self.agent.robot.set_pose(sapien.Pose(robot_init_xyz, robot_init_rot_quat))
+    

@@ -224,7 +224,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 task_description = original_task_description
             if cfg.use_generated_rephrases and matching_task_id is not None:
                 # Generate rephrases on-the-fly
-                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
+                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases_easy"]
                 task_description = rephrased_list[0]
         print ("rollou with task description:", task_description)
         # Start episodes

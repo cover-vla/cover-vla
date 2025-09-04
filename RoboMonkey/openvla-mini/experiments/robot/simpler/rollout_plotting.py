@@ -10,6 +10,7 @@ from collections import defaultdict
 import difflib  # For text similarity analysis
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.decomposition import PCA
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
@@ -67,6 +68,7 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         create_task_success_rate_plots(rollout_dir)
         create_task_time_series_plots(rollout_dir)  # Add the new function call
         create_language_instruction_distance_plots(rollout_dir, embedding_type='text')  # Add language instruction distance analysis
+        create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert')  # Add instruction embedding PCA scatter plots
 
     return results, time_series_data
 
@@ -1839,15 +1841,193 @@ def get_openvla_embedding(text, processor, model, device, max_length=77):
     embeddings = get_openvla_embeddings_batch([text], processor, model, device, max_length)
     return embeddings[0] if len(embeddings) > 0 else None
 
+def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert'):
+    """
+    Create per-task 2D scatter plots of selected language instruction embeddings grouped by
+    the number of samples (rephrase count). Each group (e.g., 2, 4, 6, 8) is colored separately.
+
+    - Collects all `task_description_list` strings from each episode in folders named `rephrase_N`.
+    - Computes BERT embeddings in batch.
+    - Reduces to 2D with PCA per task (fit PCA on all points of the task for comparability).
+    - Saves plots under rollout_dir/plots/embedding_instruction_scatter_bert/
+
+    Args:
+        rollout_dir: Base directory containing rollout result folders.
+        embedding_type: Currently supports 'bert' only.
+    """
+    import os
+    import re
+    from glob import glob
+    import matplotlib.pyplot as plt
+    from collections import defaultdict
+    import numpy as np
+
+    if embedding_type != 'bert':
+        print(f"create_instruction_embedding_scatter_plots currently supports 'bert' only; got '{embedding_type}'.")
+        return
+
+    # Find only rephrase folders of the form rephrase_N
+    transformation_folders = [d for d in os.listdir(rollout_dir)
+                             if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots" and re.match(r'rephrase_\d+', d)]
+    if not transformation_folders:
+        print(f"No rephrase folders found in {rollout_dir}")
+        return
+
+    # task -> rephrase_num -> list[str]
+    task_rephrase_to_instructions = defaultdict(lambda: defaultdict(list))
+
+    for trans in transformation_folders:
+        rephrase_match = re.search(r'rephrase_(\d+)', trans)
+        if not rephrase_match:
+            continue
+        rephrase_num = int(rephrase_match.group(1))
+        folder_path = os.path.join(rollout_dir, trans)
+
+        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+        for pkl_file in pkl_files:
+            filename = os.path.basename(pkl_file)
+            task_match = re.search(r'task=([^.]*)', filename)
+            if not task_match:
+                continue
+            task = task_match.group(1)
+
+            try:
+                with open(pkl_file, "rb") as f:
+                    data = pickle.load(f)
+            except Exception as e:
+                print(f"Error loading {pkl_file}: {e}")
+                continue
+
+            # Collect selected instructions from this episode
+            task_description_list = data.get("task_description_list", [])
+            if not task_description_list:
+                continue
+
+            # Filter non-empty strings and extend
+            valid_instructions = [instr for instr in task_description_list if instr and isinstance(instr, str)]
+            if valid_instructions:
+                task_rephrase_to_instructions[task][rephrase_num].extend(valid_instructions)
+
+    if not task_rephrase_to_instructions:
+        print("No selected instructions found for instruction embedding scatter plots.")
+        return
+
+    # Debug: print instruction counts
+    print("Instruction counts per task and rephrase:")
+    for task, rephrase_map in task_rephrase_to_instructions.items():
+        print(f"  {task}:")
+        for rephrase_num in sorted(rephrase_map.keys()):
+            count = len(rephrase_map[rephrase_num])
+            print(f"    rephrase_{rephrase_num}: {count} instructions")
+
+    # Prepare output directory
+    out_dir = os.path.join(rollout_dir, "plots", "embedding_instruction_scatter_bert")
+    os.makedirs(out_dir, exist_ok=True)
+
+    # Load BERT once
+    print("Loading BERT model for instruction embedding scatter plots...")
+    bert_tokenizer, bert_model, bert_device = load_bert_model()
+    print("BERT model loaded.")
+
+    # Color/marker cycles
+    color_cycle = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+    marker_cycle = ['o', 's', '^', 'D', 'v', 'P', 'X', '*', 'h', '<']
+
+    for task, rephrase_map in task_rephrase_to_instructions.items():
+        # Flatten all instructions for this task to fit PCA consistently
+        grouped_texts = []
+        group_keys = []  # aligned with grouped_texts
+        for rephrase_num in sorted(rephrase_map.keys()):
+            instrs = rephrase_map[rephrase_num]
+            if instrs:
+                grouped_texts.append(instrs)
+                group_keys.append(rephrase_num)
+
+        if not grouped_texts:
+            continue
+
+        # Compute embeddings per group in batch and keep mapping
+        group_embeddings = []
+        for texts in grouped_texts:
+            emb = get_bert_embeddings_batch(texts, bert_tokenizer, bert_model, bert_device)
+            if emb is None or len(emb) == 0:
+                group_embeddings.append(np.zeros((0, 768), dtype=float))
+            else:
+                group_embeddings.append(np.asarray(emb))
+
+        # Concatenate for PCA
+        all_emb = np.concatenate(group_embeddings, axis=0) if any(len(ge) > 0 for ge in group_embeddings) else None
+        if all_emb is None or all_emb.shape[0] < 2:
+            print(f"Not enough embeddings to plot for task '{task}'.")
+            continue
+
+        # Fit PCA on all embeddings of this task
+        pca = PCA(n_components=2, random_state=42)
+        all_emb_2d = pca.fit_transform(all_emb)
+
+        # Split back per group
+        offsets = np.cumsum([0] + [ge.shape[0] for ge in group_embeddings])
+        group_2d = [all_emb_2d[offsets[i]:offsets[i+1]] for i in range(len(group_embeddings))]
+
+        # Plot
+        plt.figure(figsize=(14, 10))
+        handles = []
+        labels = []
+        centroid_handles = []
+        centroid_labels = []
+        
+        for idx, (rephrase_num, pts) in enumerate(zip(group_keys, group_2d)):
+            if pts.shape[0] == 0:
+                continue
+            color = color_cycle[idx % len(color_cycle)]
+            marker = marker_cycle[idx % len(marker_cycle)]
+            
+            # Plot individual points
+            h = plt.scatter(pts[:, 0], pts[:, 1], s=12, alpha=0.4, c=color, marker=marker)
+            handles.append(h)
+            labels.append(f"rephrase_{rephrase_num} (n={pts.shape[0]})")
+
+            # Centroid with label
+            centroid = pts.mean(axis=0)
+            centroid_h = plt.scatter([centroid[0]], [centroid[1]], c=color, marker='X', s=200, edgecolor='black', linewidths=2.0)
+            centroid_handles.append(centroid_h)
+            centroid_labels.append(f"rephrase_{rephrase_num} center")
+            
+            # Add text label for centroid
+            plt.annotate(f'R{rephrase_num}', (centroid[0], centroid[1]), 
+                        xytext=(5, 5), textcoords='offset points', 
+                        fontsize=10, fontweight='bold', color=color)
+
+        # Create two legends
+        legend1 = plt.legend(handles, labels, loc='upper left', title='Instruction Points')
+        plt.gca().add_artist(legend1)
+        
+        if centroid_handles:
+            legend2 = plt.legend(centroid_handles, centroid_labels, loc='upper right', title='Centroids')
+        
+        plt.title(f'BERT Embedding PCA: {task.replace("_", " ")}', fontsize=14, fontweight='bold')
+        plt.xlabel('PCA Component 1', fontsize=12)
+        plt.ylabel('PCA Component 2', fontsize=12)
+        plt.grid(True, alpha=0.3)
+        plt.tight_layout()
+
+        # Save
+        safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+        out_path = os.path.join(out_dir, f"{safe_task}_instruction_embeddings_pca.png")
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Saved instruction embedding PCA scatter for task '{task}' to {out_path}")
+
 if __name__ == "__main__":
 
     # path_to_rollouts_oracle = "./rollouts_clip_oracle"
-    path_to_rollouts_clip = "./rollouts_clip_ert"
+    path_to_rollouts_clip = "./rollouts_clip"
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_clip)
     results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
     create_task_time_series_plots(path_to_rollouts_clip)
+    create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='bert')
     
     # Call the new language instruction distance plotting function
     # You can change embedding_type to 'bert' or 'openvla' to use different embeddings

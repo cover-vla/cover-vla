@@ -190,6 +190,7 @@ class PlaceObjectInClosedDrawerInSceneEnv(OpenDrawerInSceneEnv):
                 * sapien.Pose(q=[0, 0, 0, 1])
             ).q,
         }
+        self.rgb_overlay_path = rgb_overlay_paths[idx_chosen]
         self.rgb_overlay_img = (
             cv2.cvtColor(cv2.imread(rgb_overlay_paths[idx_chosen]), cv2.COLOR_BGR2RGB)
             / 255

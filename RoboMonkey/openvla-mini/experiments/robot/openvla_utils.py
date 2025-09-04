@@ -182,7 +182,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     if oracle_scorer:
         rollout_dir = f"./rollouts_clip_oracle/{transform_type}_{clip_update_num}_lang"
     else:
-        rollout_dir = f"./rollouts_clip_ert/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts_clip_ood/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
@@ -222,7 +222,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
 
 def save_rollout_video_simple(rollout_images, idx, success, task_description, log_file=None):
     """Saves an MP4 replay of an episode (simplified version without pkl files)."""
-    rollout_dir = f"./rollouts_clip_ert/robomonkey"
+    rollout_dir = f"./rollouts_clip_test/robomonkey"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 

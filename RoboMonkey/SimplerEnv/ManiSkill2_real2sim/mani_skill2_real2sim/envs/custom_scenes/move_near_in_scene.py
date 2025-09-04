@@ -539,6 +539,7 @@ class MoveNearGoogleInSceneEnv(MoveNearInSceneEnv, CustomOtherObjectsInSceneEnv)
         episode_id = obj_init_options.get(
             "episode_id", self._episode_rng.randint(_num_episodes)
         )
+        episode_id = episode_id % _num_episodes
         triplet = self.triplets[
             episode_id // (len(self._source_obj_ids) * len(self._xy_config_per_triplet))
         ]

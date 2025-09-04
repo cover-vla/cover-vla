@@ -137,7 +137,7 @@ class GenerateConfig:
 
     seed: int = 7                                    # Random Seed (for reproducibility)
     
-    generate_rephrases: bool = True
+    generate_rephrases: bool = False
 
 def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
     """
@@ -178,7 +178,7 @@ def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     # Make the path relative to this script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'simpler_rephrased.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased_topped_up.json')
     
     try:
         with open(json_path, 'r') as f:
@@ -271,7 +271,6 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
     num_tasks_in_suite = task_suite.n_tasks
     print(f"Task suite: {cfg.task_suite_name}")
     log_file.write(f"Task suite: {cfg.task_suite_name}\n")
-
     # Get expected image dimensions
     resize_size = get_image_resize_size(cfg)
 
@@ -292,8 +291,12 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
         else:
             raise ValueError("Unsupported initial states type")
 
-        # Initialize SIMPLER environment and task description
-        env = get_simpler_env(task)
+        # Initialize environment and task description depending on suite
+        if cfg.task_suite_name.startswith("simpler"):
+            env = get_simpler_env(task)
+        else:
+            # Uses benchmark's factory (e.g., RL4VLA suites via locally registered envs)
+            env = task_suite.make(task)
         original_task_description = env.get_language_instruction()
 
         # Start episodes
@@ -344,7 +347,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                     raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
                 if cfg.generate_rephrases and matching_task_id is not None:
                     # Generate rephrases on-the-fly
-                    rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
+                    rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases_easy"]
                     fake_input_language_instruction = rephrased_list[0]
                     candidate_instructions = [fake_input_language_instruction]
                     if cfg.clip_select_action_num_candidates > 1:

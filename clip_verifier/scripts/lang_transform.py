@@ -49,6 +49,13 @@ class LangTransform:
             - Convey the same objective as the original
             - Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging. 
             - Try to paraphrase both the noun and the verb.
+            - When you rephrase, you can infer some of the objects properties such as color, shape, size, etc.
+            - When you rephrase, you can use the object's properties to create a new instruction.
+            
+            Example on generating rephrases: 
+            original instruction: "put the strawberry on the plate". 
+            one example rephrase: "put the red fruit on the round plate".
+            Reason: The strawberry is likely to be red, and the plate is likely to be round.
             
             Format your response as:
 

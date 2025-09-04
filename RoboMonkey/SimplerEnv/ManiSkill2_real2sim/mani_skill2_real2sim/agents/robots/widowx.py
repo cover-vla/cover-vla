@@ -64,8 +64,8 @@ class WidowX(BaseAgent):
             l.set_collision_groups(1, 1, 0b01, 0)
         for l in right_finger_link.get_collision_shapes():
             l.set_collision_groups(1, 1, 0b10, 0)
-        
         self.base_link = [x for x in self.robot.get_links() if x.name == "base_link"][0]
+        self.ee_link = [x for x in self.robot.get_links() if x.name == "ee_gripper_link"][0]
 
         self.finger_right_joint = get_entity_by_name(
             self.robot.get_joints(), "right_finger"
@@ -81,7 +81,8 @@ class WidowX(BaseAgent):
             self.robot.get_links(), "left_finger_link"
         )
 
-    def get_gripper_closedness(self):
+    @property
+    def gripper_closedness(self):
         finger_qpos = self.robot.get_qpos()[-2:]
         finger_qlim = self.robot.get_qlimits()[-2:]
         closedness_left = (finger_qlim[0, 1] - finger_qpos[0]) / (
@@ -170,6 +171,10 @@ class WidowX(BaseAgent):
     @property
     def base_pose(self):
         return self.base_link.get_pose()
+    
+    @property
+    def ee_pose(self):
+        return self.ee_link.get_pose()
 
 
 class WidowXBridgeDatasetCameraSetup(WidowX):

@@ -9,9 +9,9 @@ cd "$SCRIPT_DIR"
 
 export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
 
-# Run for num_candidates=1 with no_transform
+Run for num_candidates=1 with no_transform
 echo "Running: num_candidates=1, transform=no_transform"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --num_trials_per_task 30
 
 echo "Running: num_candidates=1, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -33,7 +33,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --num_trials_per_task 30
 
 echo "Running: num_candidates=10, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -44,7 +44,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --num_trials_per_task 30
 
 echo "Running: num_candidates=20, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -55,7 +55,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --num_trials_per_task 30
 
 echo "Running: num_candidates=35, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -65,7 +65,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --lang_transform_type rephrase \
 --num_trials_per_task 30
 
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -76,7 +76,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 --num_trials_per_task 30
 
 echo "Running: num_candidates=55, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
@@ -88,7 +88,7 @@ CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
 
 
 echo "Running: num_candidates=55, transform=rephrase"
-CUDA_VISIBLE_DEVICES=1 python run_simpler_eval_with_verifier.py \
+CUDA_VISIBLE_DEVICES=0 python run_simpler_eval_with_verifier.py \
 --task_suite_name simpler_widowx \
 --use_vla_clip_trajectory_scorer True \
 --vla_clip_traj_model_path /root/vla-clip/bridge_verifier/bridge_rephrases_epoch_20.pt \
