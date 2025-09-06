@@ -10,12 +10,17 @@ from collections import defaultdict
 import difflib  # For text similarity analysis
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.decomposition import PCA
+from tqdm import tqdm
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
     Analyze CLIP scores from rollout data in the specified directory.
     Assumes the structure: ./rollouts/{condition_folder}/...pkl
-    where {condition_folder} might be 'original', 'synonym', 'clip_filtered_original', etc.
+    where {condition_folder} might be:
+    - 'no_transform_1': Oracle baseline (plotted as red dashed line)
+    - 'robomonkey': Robomonkey baseline (plotted as orange dashed line)
+    - 'rephrase_N': Rephrase conditions (plotted as green line with markers)
 
     Args:
         rollout_dir: Path to the directory containing rollout data
@@ -64,6 +69,7 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         create_task_success_rate_plots(rollout_dir)
         create_task_time_series_plots(rollout_dir)  # Add the new function call
         create_language_instruction_distance_plots(rollout_dir, embedding_type='text')  # Add language instruction distance analysis
+        # create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert')  # Add instruction embedding PCA scatter plots
 
     return results, time_series_data
 
@@ -756,6 +762,11 @@ def create_task_success_rate_plots(rollout_dir):
     Y-axis: success rate for that task
     Title and filename: use the task description
     Save plots in rollout_dir/plots/task_success_rate/
+    
+    Special handling:
+    - no_transform_1: plotted as red dashed line (oracle baseline)
+    - robomonkey: plotted as orange dashed line (robomonkey baseline)
+    - rephrase_N: plotted as green line with markers
     """
     import matplotlib.pyplot as plt
     import os
@@ -774,28 +785,52 @@ def create_task_success_rate_plots(rollout_dir):
     task_rephrase_results = defaultdict(lambda: defaultdict(list))
 
     for trans in transformation_folders:
+        # Determine rephrase number for this transformation
         if trans == "no_transform_1":
             rephrase_num = 0
+        elif trans == "robomonkey":
+            rephrase_num = -1  # Use -1 to distinguish from rephrases
         else:
             rephrase_match = re.search(r'rephrase_(\d+)', trans)
             if not rephrase_match:
+                # Skip folders that don't match any known pattern
                 continue
             rephrase_num = int(rephrase_match.group(1))
+        
         folder_path = os.path.join(rollout_dir, trans)
-        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
-        for pkl_file in pkl_files:
-            filename = os.path.basename(pkl_file)
-            # Extract task
-            task_match = re.search(r'task=([^.]*)', filename)
-            if not task_match:
-                continue
-            task = task_match.group(1)
-            # Extract success
-            success_match = re.search(r'success=(True|False)', filename)
-            if not success_match:
-                continue
-            is_success = success_match.group(1) == 'True'
-            task_rephrase_results[task][rephrase_num].append(is_success)
+        
+        if trans == "robomonkey":
+            # For robomonkey, look for MP4 files and extract success from filename
+            mp4_files = glob(os.path.join(folder_path, "*.mp4"))
+            for mp4_file in mp4_files:
+                filename = os.path.basename(mp4_file)
+                # Extract task
+                task_match = re.search(r'task=([^.]*)', filename)
+                if not task_match:
+                    continue
+                task = task_match.group(1)
+                # Extract success
+                success_match = re.search(r'success=(True|False)', filename)
+                if not success_match:
+                    continue
+                is_success = success_match.group(1) == 'True'
+                task_rephrase_results[task][rephrase_num].append(is_success)
+        else:
+            # For other folders (no_transform_1 and rephrases), look for pickle files
+            pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+            for pkl_file in pkl_files:
+                filename = os.path.basename(pkl_file)
+                # Extract task
+                task_match = re.search(r'task=([^.]*)', filename)
+                if not task_match:
+                    continue
+                task = task_match.group(1)
+                # Extract success
+                success_match = re.search(r'success=(True|False)', filename)
+                if not success_match:
+                    continue
+                is_success = success_match.group(1) == 'True'
+                task_rephrase_results[task][rephrase_num].append(is_success)
 
     # Create output dir
     task_plot_dir = os.path.join(rollout_dir, "plots", "task_success_rate")
@@ -814,11 +849,11 @@ def create_task_success_rate_plots(rollout_dir):
                 counts.append(len(results))
             else:
                 success_rates.append(0)
-                counts.append(0)
+                counts.append(len(results))
         plt.figure(figsize=(max(8, len(rephrase_nums) * 1.2), 6))
-        # Plot all as green line first (excluding no_transform_1 if present)
-        plot_rephrase_nums = [r for r in rephrase_nums if r != 0]
-        plot_success_rates = [rate for r, rate in zip(rephrase_nums, success_rates) if r != 0]
+        # Plot all as green line first (excluding no_transform_1 and robomonkey if present)
+        plot_rephrase_nums = [r for r in rephrase_nums if r > 0]
+        plot_success_rates = [rate for r, rate in zip(rephrase_nums, success_rates) if r > 0]
         plt.plot(plot_rephrase_nums, plot_success_rates, marker='o', color='mediumseagreen', label='Rephrases')
 
         # Plot no_transform_1 (oracle) in red if present
@@ -827,6 +862,12 @@ def create_task_success_rate_plots(rollout_dir):
             # plt.plot([0], [success_rates[idx]], marker='o', color='red', markersize=10, label='oracle (no_transform)')
             # Draw a horizontal dashed line at the oracle accuracy
             plt.axhline(y=success_rates[idx], color='red', linestyle='--', alpha=0.7, label='oracle (no_transform)')
+        
+        # Plot robomonkey (baseline) in orange if present
+        if -1 in rephrase_nums:
+            idx = rephrase_nums.index(-1)
+            # Draw a horizontal dashed line at the robomonkey accuracy
+            plt.axhline(y=success_rates[idx], color='orange', linestyle='--', alpha=0.7, label='robomonkey (baseline)')
 
         plt.xticks(sorted(rephrase_nums))
         plt.xlabel('Number of Samples (Rephrases)')
@@ -850,6 +891,7 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
     For each unique task, plot the success rate across all rephrase types (folders) for available verifiers.
     Only processes directories that are not None.
     - Red horizontal line: oracle policy (no_transform_1, from rollouts_oracle) - if available
+    - Orange horizontal line: robomonkey baseline (robomonkey, from rollouts_oracle) - if available
     - Green line: oracle verifier (rephrases, from rollouts_oracle) - if available
     - Blue line: designed verifier OOD (rephrases, from rollouts_ood) - if available
     - Purple line: designed verifier regular (rephrases, from rollouts) - if available
@@ -872,24 +914,44 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
         for trans in transformation_folders:
             if trans == "no_transform_1":
                 rephrase_num = 0
+            elif trans == "robomonkey":
+                rephrase_num = -1  # Use -1 to distinguish from rephrases
             else:
                 rephrase_match = re.search(r'rephrase_(\d+)', trans)
                 if not rephrase_match:
                     continue
                 rephrase_num = int(rephrase_match.group(1))
+            
             folder_path = os.path.join(rollout_dir, trans)
-            pkl_files = glob(os.path.join(folder_path, "*.pkl"))
-            for pkl_file in pkl_files:
-                filename = os.path.basename(pkl_file)
-                task_match = re.search(r'task=([^.]*)', filename)
-                if not task_match:
-                    continue
-                task = task_match.group(1)
-                success_match = re.search(r'success=(True|False)', filename)
-                if not success_match:
-                    continue
-                is_success = success_match.group(1) == 'True'
-                task_rephrase_results[task][rephrase_num].append(is_success)
+            
+            if trans == "robomonkey":
+                # For robomonkey, look for MP4 files and extract success from filename
+                mp4_files = glob(os.path.join(folder_path, "*.mp4"))
+                for mp4_file in mp4_files:
+                    filename = os.path.basename(mp4_file)
+                    task_match = re.search(r'task=([^.]*)', filename)
+                    if not task_match:
+                        continue
+                    task = task_match.group(1)
+                    success_match = re.search(r'success=(True|False)', filename)
+                    if not success_match:
+                        continue
+                    is_success = success_match.group(1) == 'True'
+                    task_rephrase_results[task][rephrase_num].append(is_success)
+            else:
+                # For other folders, look for pickle files
+                pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+                for pkl_file in pkl_files:
+                    filename = os.path.basename(pkl_file)
+                    task_match = re.search(r'task=([^.]*)', filename)
+                    if not task_match:
+                        continue
+                    task = task_match.group(1)
+                    success_match = re.search(r'success=(True|False)', filename)
+                    if not success_match:
+                        continue
+                    is_success = success_match.group(1) == 'True'
+                    task_rephrase_results[task][rephrase_num].append(is_success)
         return task_rephrase_results
 
     # Aggregate results from available directories only
@@ -918,12 +980,19 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
             if results:
                 oracle_policy_rate = sum(results) / len(results)
         
+        # Robomonkey baseline (robomonkey, rephrase_num=-1) - only if oracle directory is available
+        robomonkey_baseline_rate = None
+        if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir) and -1 in oracle_results.get(task, {}):
+            results = oracle_results[task][-1]
+            if results:
+                robomonkey_baseline_rate = sum(results) / len(results)
+        
         # Oracle verifier (rephrases, from rollouts_oracle) - only if oracle directory is available
         oracle_rephrase_nums = []
         oracle_rephrase_rates = []
         oracle_counts = []
         if rollouts_oracle_dir is not None and os.path.exists(rollouts_oracle_dir):
-            oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k != 0])
+            oracle_rephrase_nums = sorted([k for k in oracle_results.get(task, {}).keys() if k > 0])
             oracle_rephrase_rates = [sum(oracle_results[task][k])/len(oracle_results[task][k]) if oracle_results[task][k] else 0 for k in oracle_rephrase_nums]
             oracle_counts = [len(oracle_results[task][k]) for k in oracle_rephrase_nums]
         
@@ -972,6 +1041,11 @@ def create_task_success_rate_plots_combined(rollouts_oracle_dir, rollouts_ood_di
             plt.axhline(y=oracle_policy_rate, color='red', linestyle='--', alpha=0.7, label='Oracle Policy (no_transform)', linewidth=2)
             legend_entries.append('Oracle Policy (no_transform)')
         
+        # Robomonkey baseline (orange horizontal line) - only if available
+        if robomonkey_baseline_rate is not None:
+            plt.axhline(y=robomonkey_baseline_rate, color='orange', linestyle='--', alpha=0.7, label='Robomonkey Baseline', linewidth=2)
+            legend_entries.append('Robomonkey Baseline')
+        
         # X ticks - only include available rephrase numbers
         all_rephrase_nums = sorted(set(oracle_rephrase_nums) | set(ood_rephrase_nums) | set(regular_rephrase_nums))
         if all_rephrase_nums:
@@ -1014,7 +1088,11 @@ def create_task_time_series_plots(rollout_dir):
     score over time for different transformation types.
     X-axis: timestep
     Y-axis: score
-    Each line represents a different transformation (no_transform_1, rephrase_1, rephrase_5, etc.)
+    Each line represents a different transformation (no_transform_1, robomonkey, rephrase_1, rephrase_5, etc.)
+    
+    Special handling:
+    - no_transform_1 and robomonkey: plotted with solid lines (baselines)
+    - rephrase_N: plotted with dashed lines
     """
     import matplotlib.pyplot as plt
     import os
@@ -1078,6 +1156,8 @@ def create_task_time_series_plots(rollout_dir):
         def sort_key(x):
             if x == "no_transform_1":
                 return (0, 0)  # no_transform_1 first
+            elif x == "robomonkey":
+                return (0, 1)  # robomonkey second (after no_transform_1)
             match = re.search(r'rephrase_(\d+)', x)
             if match:
                 return (1, int(match.group(1)))
@@ -1119,8 +1199,8 @@ def create_task_time_series_plots(rollout_dir):
             valid_mask = ~np.isnan(avg_scores)
             
             if np.any(valid_mask):
-                # Choose line style: solid for no_transform_1, dashed for rephrases
-                linestyle = '-' if trans == "no_transform_1" else '--'
+                # Choose line style: solid for no_transform_1 and robomonkey, dashed for rephrases
+                linestyle = '-' if trans in ["no_transform_1", "robomonkey"] else '--'
                 linewidth = 1.5
                 
                 plt.plot(timesteps[valid_mask], np.array(avg_scores)[valid_mask], 
@@ -1762,20 +1842,269 @@ def get_openvla_embedding(text, processor, model, device, max_length=77):
     embeddings = get_openvla_embeddings_batch([text], processor, model, device, max_length)
     return embeddings[0] if len(embeddings) > 0 else None
 
+def load_qwen3_model():
+    """Load Qwen3 embedding model using vLLM."""
+
+    from vllm import LLM
+    print("Loading Qwen3-Embedding-4B model...")
+    
+    # Try with very low memory utilization first
+    model = LLM(
+        model='Qwen/Qwen3-Embedding-4B', 
+        task="embed",
+        gpu_memory_utilization=0.8,  # Use only 30% of GPU memory
+        max_model_len=512,  # Further reduce context length
+        disable_log_stats=True  # Reduce logging overhead
+    )
+    print("Qwen3 model loaded successfully!")
+    return model
+
+def get_qwen3_embeddings_batch(texts, model, batch_size=1000):
+    """Get Qwen3 embeddings for a batch of texts."""
+    if model is None:
+        return []
+    
+    if not texts:
+        return []
+    
+    embeddings = []
+    
+    for i in range(0, len(texts), batch_size):
+        batch_texts = texts[i:i+batch_size]
+        
+        # Get embeddings for the batch
+        outputs = model.embed(batch_texts)
+        batch_embeddings = torch.tensor([o.outputs.embedding for o in outputs])
+        
+        embeddings.append(batch_embeddings.numpy())
+    
+    return np.vstack(embeddings) if embeddings else np.array([])
+
+def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert'):
+    """
+    Create per-task 2D scatter plots of averaged language instruction embeddings per episode,
+    grouped by the number of samples (rephrase count). Each group is colored separately with centroids marked.
+
+    - Collects all `task_description_list` strings from each episode in folders named `rephrase_N`.
+    - Computes BERT or Qwen3 embeddings in batch.
+    - Averages embeddings per episode to reduce visual clutter.
+    - Reduces to 2D with PCA per task (fit PCA on all episode averages for comparability).
+    - Saves plots under rollout_dir/plots/embedding_instruction_scatter_{embedding_type}/
+
+    Args:
+        rollout_dir: Base directory containing rollout result folders.
+        embedding_type: 'bert' or 'qwen3'.
+    """
+    import os
+    import re
+    from glob import glob
+    import matplotlib.pyplot as plt
+    from collections import defaultdict
+    import numpy as np
+
+    if embedding_type not in ['bert', 'qwen3']:
+        print(f"create_instruction_embedding_scatter_plots supports 'bert' and 'qwen3'; got '{embedding_type}'.")
+        return
+    print(f"Creating instruction embedding scatter plots for {embedding_type}...")
+    # Find only rephrase folders of the form rephrase_N
+    transformation_folders = [d for d in os.listdir(rollout_dir)
+                             if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots" and re.match(r'rephrase_\d+', d)]
+    if not transformation_folders:
+        print(f"No rephrase folders found in {rollout_dir}")
+        return
+
+    # task -> rephrase_num -> list[episode_avg_embeddings]
+    task_rephrase_to_episode_embeddings = defaultdict(lambda: defaultdict(list))
+
+    # Load embedding model first
+    if embedding_type == 'bert':
+        print("Loading BERT model for instruction embedding scatter plots...")
+        bert_tokenizer, bert_model, bert_device = load_bert_model()
+        qwen3_model = None
+        print("BERT model loaded.")
+    elif embedding_type == 'qwen3':
+        print("Loading Qwen3 model for instruction embedding scatter plots...")
+        qwen3_model = load_qwen3_model()
+        bert_tokenizer = bert_model = bert_device = None
+        if qwen3_model is None:
+            print("Failed to load Qwen3 model. Exiting.")
+            return
+        print("Qwen3 model loaded.")
+
+    for trans in transformation_folders:
+        rephrase_match = re.search(r'rephrase_(\d+)', trans)
+        if not rephrase_match:
+            continue
+        rephrase_num = int(rephrase_match.group(1))
+        folder_path = os.path.join(rollout_dir, trans)
+
+        pkl_files = glob(os.path.join(folder_path, "*.pkl"))
+        for pkl_file in pkl_files:
+            filename = os.path.basename(pkl_file)
+            task_match = re.search(r'task=([^.]*)', filename)
+            if not task_match:
+                continue
+            task = task_match.group(1)
+
+            try:
+                with open(pkl_file, "rb") as f:
+                    data = pickle.load(f)
+            except Exception as e:
+                print(f"Error loading {pkl_file}: {e}")
+                continue
+
+            # Collect selected instructions from this episode
+            task_description_list = data.get("task_description_list", [])
+            if not task_description_list:
+                continue
+
+            # Filter non-empty strings
+            valid_instructions = [instr for instr in task_description_list if instr and isinstance(instr, str)]
+            if not valid_instructions:
+                continue
+
+            # Compute embeddings for this episode's instructions
+            if embedding_type == 'bert':
+                episode_embeddings = get_bert_embeddings_batch(valid_instructions, bert_tokenizer, bert_model, bert_device)
+            elif embedding_type == 'qwen3':
+                episode_embeddings = get_qwen3_embeddings_batch(valid_instructions, qwen3_model)
+            
+            if episode_embeddings is None or len(episode_embeddings) == 0:
+                continue
+
+            # Average embeddings for this episode
+            episode_avg_embedding = np.mean(episode_embeddings, axis=0)
+            task_rephrase_to_episode_embeddings[task][rephrase_num].append(episode_avg_embedding)
+
+    if not task_rephrase_to_episode_embeddings:
+        print("No episode embeddings found for instruction embedding scatter plots.")
+        return
+
+    # Debug: print episode counts
+    print("Episode counts per task and rephrase:")
+    for task, rephrase_map in task_rephrase_to_episode_embeddings.items():
+        print(f"  {task}:")
+        for rephrase_num in sorted(rephrase_map.keys()):
+            count = len(rephrase_map[rephrase_num])
+            print(f"    rephrase_{rephrase_num}: {count} episodes")
+
+    # Prepare output directory
+    out_dir = os.path.join(rollout_dir, "plots", f"embedding_instruction_scatter_{embedding_type}")
+    os.makedirs(out_dir, exist_ok=True)
+
+    # Color/marker cycles
+    color_cycle = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+    marker_cycle = ['o', 's', '^', 'D', 'v', 'P', 'X', '*', 'h', '<']
+
+    for task, rephrase_map in task_rephrase_to_episode_embeddings.items():
+        # Collect all episode average embeddings for this task
+        all_episode_embeddings = []
+        group_labels = []  # rephrase_num for each episode
+        group_offsets = [0]  # to track where each group starts
+        
+        for rephrase_num in sorted(rephrase_map.keys()):
+            episode_embeddings = rephrase_map[rephrase_num]
+            if episode_embeddings:
+                all_episode_embeddings.extend(episode_embeddings)
+                group_labels.extend([rephrase_num] * len(episode_embeddings))
+                group_offsets.append(len(all_episode_embeddings))
+
+        if len(all_episode_embeddings) < 2:
+            print(f"Not enough episode embeddings to plot for task '{task}'.")
+            continue
+
+        # Convert to numpy array
+        all_episode_embeddings = np.array(all_episode_embeddings)
+        
+        # Fit PCA on all episode average embeddings
+        pca = PCA(n_components=2, random_state=42)
+        episode_embeddings_2d = pca.fit_transform(all_episode_embeddings)
+
+        # Plot
+        plt.figure(figsize=(12, 8))
+        handles = []
+        labels = []
+        centroid_handles = []
+        centroid_labels = []
+        
+        # Group by rephrase number and plot
+        unique_rephrase_nums = sorted(set(group_labels))
+        
+        for idx, rephrase_num in enumerate(unique_rephrase_nums):
+            # Find indices for this rephrase number
+            group_mask = np.array(group_labels) == rephrase_num
+            group_points = episode_embeddings_2d[group_mask]
+            
+            if len(group_points) == 0:
+                continue
+                
+            color = color_cycle[idx % len(color_cycle)]
+            marker = marker_cycle[idx % len(marker_cycle)]
+            
+            # Plot individual episode averages
+            h = plt.scatter(group_points[:, 0], group_points[:, 1], 
+                           s=60, alpha=0.7, c=color, marker=marker, 
+                           edgecolors='black', linewidths=0.5)
+            handles.append(h)
+            labels.append(f"rephrase_{rephrase_num} (n={len(group_points)})")
+
+            # Calculate and plot centroid
+            centroid = group_points.mean(axis=0)
+            centroid_h = plt.scatter([centroid[0]], [centroid[1]], 
+                                   c=color, marker='X', s=300, 
+                                   edgecolor='black', linewidths=2.0, 
+                                   zorder=10)
+            centroid_handles.append(centroid_h)
+            centroid_labels.append(f"rephrase_{rephrase_num} centroid")
+            
+            # Add text label for centroid
+            plt.annotate(f'R{rephrase_num}', (centroid[0], centroid[1]), 
+                        xytext=(8, 8), textcoords='offset points', 
+                        fontsize=12, fontweight='bold', color=color,
+                        bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8))
+
+        # Create legends
+        legend1 = plt.legend(handles, labels, loc='upper left', title='Episode Averages', fontsize=10)
+        plt.gca().add_artist(legend1)
+        
+        if centroid_handles:
+            legend2 = plt.legend(centroid_handles, centroid_labels, loc='upper right', title='Centroids', fontsize=10)
+        
+        embedding_name = "BERT" if embedding_type == 'bert' else "Qwen3"
+        plt.title(f'{embedding_name} Embedding PCA: {task.replace("_", " ")}\n(Averaged per Episode)', 
+                 fontsize=14, fontweight='bold')
+        plt.xlabel('PCA Component 1', fontsize=12)
+        plt.ylabel('PCA Component 2', fontsize=12)
+        plt.grid(True, alpha=0.3)
+        plt.tight_layout()
+
+        # Save
+        safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
+        out_path = os.path.join(out_dir, f"{safe_task}_instruction_embeddings_pca_{embedding_type}.png")
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Saved instruction embedding PCA scatter for task '{task}' to {out_path}")
+
 if __name__ == "__main__":
 
-    path_to_rollouts_oracle = "./rollouts_clip_oracle"
+    # path_to_rollouts_oracle = "./rollouts_clip_oracle"
     path_to_rollouts_clip = "./rollouts_clip"
     
-    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_oracle)
-    results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
+    # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_clip)
+    # results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
-    create_task_time_series_plots(path_to_rollouts_clip)
+    # create_task_time_series_plots(path_to_rollouts_clip)
+    create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='bert')
+    
+    # create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='qwen3')
     
     # Call the new language instruction distance plotting function
     # You can change embedding_type to 'bert' or 'openvla' to use different embeddings
-    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='openvla')
-    # create_language_instruction_distance_plots(path_to_rollouts_oracle, embedding_type='bert')
+    # create_language_instruction_distance_plots(path_to_rollouts_clip, embedding_type='openvla')
+    # create_language_instruction_distance_plots(path_to_rollouts_clip, embedding_type='bert')
 
     # Call the new combined plot function
-    create_task_success_rate_plots_combined(path_to_rollouts_oracle, None, path_to_rollouts_clip)
+    # create_task_success_rate_plots_combined(path_to_rollouts_clip, None, path_to_rollouts_clip)
+    
+    # Note: The robomonkey folder will be automatically detected and plotted as a baseline
+    # similar to no_transform_1, but with an orange dashed line instead of red.

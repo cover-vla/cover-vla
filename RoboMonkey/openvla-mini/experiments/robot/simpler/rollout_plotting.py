@@ -11,6 +11,7 @@ import difflib  # For text similarity analysis
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import PCA
+from tqdm import tqdm
 
 def analyze_rollouts(rollout_dir="./rollouts_oracle"):
     """
@@ -68,7 +69,7 @@ def analyze_rollouts(rollout_dir="./rollouts_oracle"):
         create_task_success_rate_plots(rollout_dir)
         create_task_time_series_plots(rollout_dir)  # Add the new function call
         create_language_instruction_distance_plots(rollout_dir, embedding_type='text')  # Add language instruction distance analysis
-        create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert')  # Add instruction embedding PCA scatter plots
+        # create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert')  # Add instruction embedding PCA scatter plots
 
     return results, time_series_data
 
@@ -1841,19 +1842,58 @@ def get_openvla_embedding(text, processor, model, device, max_length=77):
     embeddings = get_openvla_embeddings_batch([text], processor, model, device, max_length)
     return embeddings[0] if len(embeddings) > 0 else None
 
+def load_qwen3_model():
+    """Load Qwen3 embedding model using vLLM."""
+
+    from vllm import LLM
+    print("Loading Qwen3-Embedding-4B model...")
+    
+    # Try with very low memory utilization first
+    model = LLM(
+        model='Qwen/Qwen3-Embedding-4B', 
+        task="embed",
+        gpu_memory_utilization=0.8,  # Use only 30% of GPU memory
+        max_model_len=512,  # Further reduce context length
+        disable_log_stats=True  # Reduce logging overhead
+    )
+    print("Qwen3 model loaded successfully!")
+    return model
+
+def get_qwen3_embeddings_batch(texts, model, batch_size=1000):
+    """Get Qwen3 embeddings for a batch of texts."""
+    if model is None:
+        return []
+    
+    if not texts:
+        return []
+    
+    embeddings = []
+    
+    for i in range(0, len(texts), batch_size):
+        batch_texts = texts[i:i+batch_size]
+        
+        # Get embeddings for the batch
+        outputs = model.embed(batch_texts)
+        batch_embeddings = torch.tensor([o.outputs.embedding for o in outputs])
+        
+        embeddings.append(batch_embeddings.numpy())
+    
+    return np.vstack(embeddings) if embeddings else np.array([])
+
 def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert'):
     """
-    Create per-task 2D scatter plots of selected language instruction embeddings grouped by
-    the number of samples (rephrase count). Each group (e.g., 2, 4, 6, 8) is colored separately.
+    Create per-task 2D scatter plots of averaged language instruction embeddings per episode,
+    grouped by the number of samples (rephrase count). Each group is colored separately with centroids marked.
 
     - Collects all `task_description_list` strings from each episode in folders named `rephrase_N`.
-    - Computes BERT embeddings in batch.
-    - Reduces to 2D with PCA per task (fit PCA on all points of the task for comparability).
-    - Saves plots under rollout_dir/plots/embedding_instruction_scatter_bert/
+    - Computes BERT or Qwen3 embeddings in batch.
+    - Averages embeddings per episode to reduce visual clutter.
+    - Reduces to 2D with PCA per task (fit PCA on all episode averages for comparability).
+    - Saves plots under rollout_dir/plots/embedding_instruction_scatter_{embedding_type}/
 
     Args:
         rollout_dir: Base directory containing rollout result folders.
-        embedding_type: Currently supports 'bert' only.
+        embedding_type: 'bert' or 'qwen3'.
     """
     import os
     import re
@@ -1862,10 +1902,10 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
     from collections import defaultdict
     import numpy as np
 
-    if embedding_type != 'bert':
-        print(f"create_instruction_embedding_scatter_plots currently supports 'bert' only; got '{embedding_type}'.")
+    if embedding_type not in ['bert', 'qwen3']:
+        print(f"create_instruction_embedding_scatter_plots supports 'bert' and 'qwen3'; got '{embedding_type}'.")
         return
-
+    print(f"Creating instruction embedding scatter plots for {embedding_type}...")
     # Find only rephrase folders of the form rephrase_N
     transformation_folders = [d for d in os.listdir(rollout_dir)
                              if os.path.isdir(os.path.join(rollout_dir, d)) and d != "plots" and re.match(r'rephrase_\d+', d)]
@@ -1873,8 +1913,23 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
         print(f"No rephrase folders found in {rollout_dir}")
         return
 
-    # task -> rephrase_num -> list[str]
-    task_rephrase_to_instructions = defaultdict(lambda: defaultdict(list))
+    # task -> rephrase_num -> list[episode_avg_embeddings]
+    task_rephrase_to_episode_embeddings = defaultdict(lambda: defaultdict(list))
+
+    # Load embedding model first
+    if embedding_type == 'bert':
+        print("Loading BERT model for instruction embedding scatter plots...")
+        bert_tokenizer, bert_model, bert_device = load_bert_model()
+        qwen3_model = None
+        print("BERT model loaded.")
+    elif embedding_type == 'qwen3':
+        print("Loading Qwen3 model for instruction embedding scatter plots...")
+        qwen3_model = load_qwen3_model()
+        bert_tokenizer = bert_model = bert_device = None
+        if qwen3_model is None:
+            print("Failed to load Qwen3 model. Exiting.")
+            return
+        print("Qwen3 model loaded.")
 
     for trans in transformation_folders:
         rephrase_match = re.search(r'rephrase_(\d+)', trans)
@@ -1903,109 +1958,121 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
             if not task_description_list:
                 continue
 
-            # Filter non-empty strings and extend
+            # Filter non-empty strings
             valid_instructions = [instr for instr in task_description_list if instr and isinstance(instr, str)]
-            if valid_instructions:
-                task_rephrase_to_instructions[task][rephrase_num].extend(valid_instructions)
+            if not valid_instructions:
+                continue
 
-    if not task_rephrase_to_instructions:
-        print("No selected instructions found for instruction embedding scatter plots.")
+            # Compute embeddings for this episode's instructions
+            if embedding_type == 'bert':
+                episode_embeddings = get_bert_embeddings_batch(valid_instructions, bert_tokenizer, bert_model, bert_device)
+            elif embedding_type == 'qwen3':
+                episode_embeddings = get_qwen3_embeddings_batch(valid_instructions, qwen3_model)
+            
+            if episode_embeddings is None or len(episode_embeddings) == 0:
+                continue
+
+            # Average embeddings for this episode
+            episode_avg_embedding = np.mean(episode_embeddings, axis=0)
+            task_rephrase_to_episode_embeddings[task][rephrase_num].append(episode_avg_embedding)
+
+    if not task_rephrase_to_episode_embeddings:
+        print("No episode embeddings found for instruction embedding scatter plots.")
         return
 
-    # Debug: print instruction counts
-    print("Instruction counts per task and rephrase:")
-    for task, rephrase_map in task_rephrase_to_instructions.items():
+    # Debug: print episode counts
+    print("Episode counts per task and rephrase:")
+    for task, rephrase_map in task_rephrase_to_episode_embeddings.items():
         print(f"  {task}:")
         for rephrase_num in sorted(rephrase_map.keys()):
             count = len(rephrase_map[rephrase_num])
-            print(f"    rephrase_{rephrase_num}: {count} instructions")
+            print(f"    rephrase_{rephrase_num}: {count} episodes")
 
     # Prepare output directory
-    out_dir = os.path.join(rollout_dir, "plots", "embedding_instruction_scatter_bert")
+    out_dir = os.path.join(rollout_dir, "plots", f"embedding_instruction_scatter_{embedding_type}")
     os.makedirs(out_dir, exist_ok=True)
-
-    # Load BERT once
-    print("Loading BERT model for instruction embedding scatter plots...")
-    bert_tokenizer, bert_model, bert_device = load_bert_model()
-    print("BERT model loaded.")
 
     # Color/marker cycles
     color_cycle = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
     marker_cycle = ['o', 's', '^', 'D', 'v', 'P', 'X', '*', 'h', '<']
 
-    for task, rephrase_map in task_rephrase_to_instructions.items():
-        # Flatten all instructions for this task to fit PCA consistently
-        grouped_texts = []
-        group_keys = []  # aligned with grouped_texts
+    for task, rephrase_map in task_rephrase_to_episode_embeddings.items():
+        # Collect all episode average embeddings for this task
+        all_episode_embeddings = []
+        group_labels = []  # rephrase_num for each episode
+        group_offsets = [0]  # to track where each group starts
+        
         for rephrase_num in sorted(rephrase_map.keys()):
-            instrs = rephrase_map[rephrase_num]
-            if instrs:
-                grouped_texts.append(instrs)
-                group_keys.append(rephrase_num)
+            episode_embeddings = rephrase_map[rephrase_num]
+            if episode_embeddings:
+                all_episode_embeddings.extend(episode_embeddings)
+                group_labels.extend([rephrase_num] * len(episode_embeddings))
+                group_offsets.append(len(all_episode_embeddings))
 
-        if not grouped_texts:
+        if len(all_episode_embeddings) < 2:
+            print(f"Not enough episode embeddings to plot for task '{task}'.")
             continue
 
-        # Compute embeddings per group in batch and keep mapping
-        group_embeddings = []
-        for texts in grouped_texts:
-            emb = get_bert_embeddings_batch(texts, bert_tokenizer, bert_model, bert_device)
-            if emb is None or len(emb) == 0:
-                group_embeddings.append(np.zeros((0, 768), dtype=float))
-            else:
-                group_embeddings.append(np.asarray(emb))
-
-        # Concatenate for PCA
-        all_emb = np.concatenate(group_embeddings, axis=0) if any(len(ge) > 0 for ge in group_embeddings) else None
-        if all_emb is None or all_emb.shape[0] < 2:
-            print(f"Not enough embeddings to plot for task '{task}'.")
-            continue
-
-        # Fit PCA on all embeddings of this task
+        # Convert to numpy array
+        all_episode_embeddings = np.array(all_episode_embeddings)
+        
+        # Fit PCA on all episode average embeddings
         pca = PCA(n_components=2, random_state=42)
-        all_emb_2d = pca.fit_transform(all_emb)
-
-        # Split back per group
-        offsets = np.cumsum([0] + [ge.shape[0] for ge in group_embeddings])
-        group_2d = [all_emb_2d[offsets[i]:offsets[i+1]] for i in range(len(group_embeddings))]
+        episode_embeddings_2d = pca.fit_transform(all_episode_embeddings)
 
         # Plot
-        plt.figure(figsize=(14, 10))
+        plt.figure(figsize=(12, 8))
         handles = []
         labels = []
         centroid_handles = []
         centroid_labels = []
         
-        for idx, (rephrase_num, pts) in enumerate(zip(group_keys, group_2d)):
-            if pts.shape[0] == 0:
+        # Group by rephrase number and plot
+        unique_rephrase_nums = sorted(set(group_labels))
+        
+        for idx, rephrase_num in enumerate(unique_rephrase_nums):
+            # Find indices for this rephrase number
+            group_mask = np.array(group_labels) == rephrase_num
+            group_points = episode_embeddings_2d[group_mask]
+            
+            if len(group_points) == 0:
                 continue
+                
             color = color_cycle[idx % len(color_cycle)]
             marker = marker_cycle[idx % len(marker_cycle)]
             
-            # Plot individual points
-            h = plt.scatter(pts[:, 0], pts[:, 1], s=12, alpha=0.4, c=color, marker=marker)
+            # Plot individual episode averages
+            h = plt.scatter(group_points[:, 0], group_points[:, 1], 
+                           s=60, alpha=0.7, c=color, marker=marker, 
+                           edgecolors='black', linewidths=0.5)
             handles.append(h)
-            labels.append(f"rephrase_{rephrase_num} (n={pts.shape[0]})")
+            labels.append(f"rephrase_{rephrase_num} (n={len(group_points)})")
 
-            # Centroid with label
-            centroid = pts.mean(axis=0)
-            centroid_h = plt.scatter([centroid[0]], [centroid[1]], c=color, marker='X', s=200, edgecolor='black', linewidths=2.0)
+            # Calculate and plot centroid
+            centroid = group_points.mean(axis=0)
+            centroid_h = plt.scatter([centroid[0]], [centroid[1]], 
+                                   c=color, marker='X', s=300, 
+                                   edgecolor='black', linewidths=2.0, 
+                                   zorder=10)
             centroid_handles.append(centroid_h)
-            centroid_labels.append(f"rephrase_{rephrase_num} center")
+            centroid_labels.append(f"rephrase_{rephrase_num} centroid")
             
             # Add text label for centroid
             plt.annotate(f'R{rephrase_num}', (centroid[0], centroid[1]), 
-                        xytext=(5, 5), textcoords='offset points', 
-                        fontsize=10, fontweight='bold', color=color)
+                        xytext=(8, 8), textcoords='offset points', 
+                        fontsize=12, fontweight='bold', color=color,
+                        bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8))
 
-        # Create two legends
-        legend1 = plt.legend(handles, labels, loc='upper left', title='Instruction Points')
+        # Create legends
+        legend1 = plt.legend(handles, labels, loc='upper left', title='Episode Averages', fontsize=10)
         plt.gca().add_artist(legend1)
         
         if centroid_handles:
-            legend2 = plt.legend(centroid_handles, centroid_labels, loc='upper right', title='Centroids')
+            legend2 = plt.legend(centroid_handles, centroid_labels, loc='upper right', title='Centroids', fontsize=10)
         
-        plt.title(f'BERT Embedding PCA: {task.replace("_", " ")}', fontsize=14, fontweight='bold')
+        embedding_name = "BERT" if embedding_type == 'bert' else "Qwen3"
+        plt.title(f'{embedding_name} Embedding PCA: {task.replace("_", " ")}\n(Averaged per Episode)', 
+                 fontsize=14, fontweight='bold')
         plt.xlabel('PCA Component 1', fontsize=12)
         plt.ylabel('PCA Component 2', fontsize=12)
         plt.grid(True, alpha=0.3)
@@ -2013,7 +2080,7 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
 
         # Save
         safe_task = re.sub(r'[^a-zA-Z0-9_\-]', '_', task)[:80]
-        out_path = os.path.join(out_dir, f"{safe_task}_instruction_embeddings_pca.png")
+        out_path = os.path.join(out_dir, f"{safe_task}_instruction_embeddings_pca_{embedding_type}.png")
         plt.savefig(out_path, dpi=300, bbox_inches='tight')
         plt.close()
         print(f"Saved instruction embedding PCA scatter for task '{task}' to {out_path}")
@@ -2021,13 +2088,15 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
 if __name__ == "__main__":
 
     # path_to_rollouts_oracle = "./rollouts_clip_oracle"
-    path_to_rollouts_clip = "./rollouts_clip"
+    path_to_rollouts_clip = "./rollouts_clip_ood_0.2"
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_clip)
     results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
-    create_task_time_series_plots(path_to_rollouts_clip)
+    # create_task_time_series_plots(path_to_rollouts_clip)
     create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='bert')
+    
+    create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='qwen3')
     
     # Call the new language instruction distance plotting function
     # You can change embedding_type to 'bert' or 'openvla' to use different embeddings

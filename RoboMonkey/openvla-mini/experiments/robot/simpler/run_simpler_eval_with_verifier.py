@@ -104,7 +104,7 @@ class GenerateConfig:
     #################################################################################################################
     use_batch_verifier: bool = True                 # Enable the batch language verifier?
     batch_server_url: str = "http://localhost:3200"  # URL of the SGLang batch server
-    batch_temperature: float = 0.2                   # Temperature for batch inference
+    batch_temperature: float = 0                   # Temperature for batch inference
 
     #################################################################################################################
     # Trajectory VLA-CLIP/DINO Scorer (Optional)

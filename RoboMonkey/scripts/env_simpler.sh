@@ -70,3 +70,8 @@ export PYOPENGL_PLATFORM=osmesa
 # Additional packages
 pip install fastapi uvicorn json_numpy flax==0.8.1
 check_status "Additional packages installation"
+
+pip install ftfy regex tqdm
+pip install git+https://github.com/openai/CLIP.git
+pip install ijson
+pip install openai
