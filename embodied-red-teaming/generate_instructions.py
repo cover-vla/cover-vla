@@ -146,7 +146,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate instructions for red teaming")
     parser.add_argument("--output_path", required=True, type=str, help="Output directory of the instructions.")
     parser.add_argument("--examples_path", type=str, help="YAML file for the previously generated task-annotation pairs")
-    parser.add_argument("--task_images", type=str, default="vlm_initial_state_bridge.json", help="YAML file of all tasks and image links")
+    parser.add_argument("--task_images", type=str, default="vlm_initial_state_bridge_ood.json", help="YAML file of all tasks and image links")
     parser.add_argument("--use_image", action="store_true", default=False, help="Include eimage or not")
     parser.add_argument("--max_num_workers", type=int, default=8, help="Number of parallel workers")
     args = parser.parse_args()

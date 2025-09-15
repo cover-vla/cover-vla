@@ -1,23 +1,67 @@
 {
   "timestamp": "20250807_212358",
   "instructions": {
+    "put the zucchini on the towel": {
+      "original": "Settle the green vegetable on the textile",
+      "rephrases": [
+      ],
+      "ert_rephrases": [
+        "Set the cylindrical squash onto the drying mat.",
+        "Lay the green vegetable on the woven towel.",
+        "Put the elongated squash on the terry towel.",
+        "Place the green zucchini softly on the absorbent fabric.",
+        "Position the green cylindrical vegetable atop the terrycloth.",
+        "Rest the zucchini evenly on the fabric towel.",
+        "Arrange the green produce on the cotton towel.",
+        "Drop the green gourd gently on the terry cloth.",
+        "Position the green zucchini on the soft drying cloth.",
+        "Lay the squash across the textured towel."
+      ],
+      "count": 18
+    },
     "put the toy dinosaur on towel": {
       "original": "put the toy dinosaur on towel",
       "rephrases": [
       ],
-      "count": 25
+      "ert_rephrases": [
+      ],
+      "count": 18
     },
     "put tennis ball into yellow basket": {
       "original": "put tennis ball into yellow basket",
       "rephrases": [
       ],
-      "count": 25
+      "ert_rephrases": [
+        "Move the tennis orb into the sunny-hued basket.",
+        "Place the tennis item into the saffron container.",
+        "Transfer the tennis sphere to the golden basket.",
+        "Drop the tennis ball into the sunny container.",
+        "Position the green fuzzy ball in the yellow crate.",
+        "Insert the green tennis ball into the sunny-hued basket.",
+        "Place the spherical tennis object in the lemon colored bin.",
+        "Put the green sphere in the basket that is yellow.",
+        "Nestle the tennis ball into the canary basket.",
+        "Slide the green tennis object into the sunny yellow container."
+      ],
+      "count": 18
     },
     "put redbull can on plate": {
       "original": "put redbull can on plate",
       "rephrases": [
       ],
-      "count": 25
+      "ert_rephrases": [
+        "Carefully rest the Red Bull can on top of the dinner plate.",
+        "Gently place the can of Red Bull onto the silver tray.",
+        "Put the Red Bull beverage onto the circular serving dish.",
+        "Transfer the energy drink can to the large platter.",
+        "Position the Red Bull can on the smooth, flat dish.",
+        "Lay down the Red Bull energy drink bottle on the tabletop platter.",
+        "Place the Red Bull aluminum can upright on the serving dish.",
+        "Set the Red Bull container neatly on the decorated plate.",
+        "Align the Red Bull can on the center of the stoneware dish.",
+        "Position the Red Bull beverage container onto the ceramic plate."
+      ],
+      "count": 18
     },
     "stack the green block on the yellow block": {
       "original": "stack the green block on the yellow block",
@@ -124,18 +168,6 @@
         "Set the green block on the golden-green block."
       ],
       "ert_rephrases": [
-        "Stack the lime-colored block onto the tangerine block.",
-        "Position the jade block atop the amber block.",
-        "Put the grass-green block on the top of the maize block.",
-        "Place the seaweed-green block over the goldenrod block.",
-        "Arrange the mossy block above the citrine block.",
-        "Set the verdant cube on the top of the sunflower block.",
-        "Rest the emerald block on top of the butterscotch block.",
-        "Align the leaf-green block over the mustard block.",
-        "Lay the olive block on the canary block.",
-        "Balance the forest-green block on the daffodil block."
-      ],
-      "ert_rephrases_easy": [
         "Set the green square atop the yellow square.",
         "Align the green cube with the yellow cube and stack it.",
         "Place the green block directly over the yellow block.",
@@ -147,7 +179,7 @@
         "Arrange the green unit on the yellow unit.",
         "Rest the green block on the top of the yellow block."
       ],
-      "count": 100
+      "count": 18
     },
     "put the spoon on the towel": {
       "original": "put the spoon on the towel",
@@ -253,19 +285,8 @@
         "Rest the spoon on top of the soft textile.",
         "Put the spoon upon the soft fabric."
       ],
+
       "ert_rephrases": [
-        "Carefully transfer the spoon to rest on the towel.",
-        "Place the spoon gently on the towel.",
-        "Arrange the spoon so it sits neatly on the towel.",
-        "Move the spoon to lie on the towel.",
-        "Ensure the spoon rests flat on the towel.",
-        "Deposit the spoon delicately onto the towel.",
-        "Direct the spoon strategically onto the towel.",
-        "Slide the spoon over to the towel.",
-        "Set the spoon in the center of the towel.",
-        "Put the spoon securely on the towel."
-      ],
-      "ert_rephrases_easy": [
         "Put the spoon gently on the towel.",
         "Move the spoon to rest on the towel.",
         "Carefully place the spoon so it sits on the towel.",
@@ -277,7 +298,7 @@
         "Arrange the spoon to sit nicely on the towel surface.",
         "Set the spoon to rest neatly on the towel."
       ],
-      "count": 100
+      "count": 18
     },
     "put carrot on plate": {
       "original": "put carrot on plate",
@@ -384,18 +405,6 @@
         "Deposit the carrot atop the serving platter."
       ],
       "ert_rephrases": [
-        "Move the carrot to the dish.",
-        "Gently place the carrot on the plate.",
-        "Relocate the carrot onto the platter.",
-        "Slide the carrot onto the tray.",
-        "Position the carrot on top of the serving surface.",
-        "Set the carrot down onto the dish.",
-        "Put the carrot on the round plate.",
-        "Arrange the carrot neatly on the flatware.",
-        "Lay the carrot flat on the dish.",
-        "Deposit the carrot carefully on the platter."
-      ],
-      "ert_rephrases_easy": [
         "Move the carrot onto the plate.",
         "Transfer the carrot to the dish.",
         "Place the carrot atop the platter.",
@@ -407,7 +416,7 @@
         "Arrange the carrot carefully on the tray.",
         "Align the carrot on the center of the dish."
       ],
-      "count": 100
+      "count": 18
     },
     "put eggplant into yellow basket": {
       "original": "put eggplant into yellow basket",
@@ -514,30 +523,26 @@
         "Deposit the eggplant inside the yellow holder."
       ],
       "ert_rephrases": [
-        "Transfer the eggplant to the yellow basket.",
-        "Move the aubergine into the yellow container.",
-        "Convey the eggplant into the yellow basket.",
-        "Drop the aubergine into the yellow bin.",
-        "Place the eggplant in the yellow basket gently.",
-        "Set the aubergine within the yellow basket.",
-        "Insert the eggplant into the yellow holder carefully.",
-        "Position the aubergine into the yellow receptacle.",
-        "Locate the eggplant inside the yellow container.",
-        "Arrange the aubergine into the yellow holder."
+        "Arrange the toy eggplant inside the golden holder.",
+        "Nestle the play aubergine in the gold vessel.",
+        "Position the toy eggplant into the golden container.",
+        "Place the toy aubergine in the gold-colored box.",
+        "Set the play eggplant inside the golden receptacle.",
+        "Insert the toy aubergine into the gold-colored holder.",
+        "Move the toy eggplant into the golden vessel.",
+        "Fit the play aubergine into the gold box.",
+        "Drop the toy eggplant into the golden compartment.",
+        "Slide the play aubergine into the gold holder.",
+        "Place the toy eggplant inside the gold container.",
+        "Insert the play aubergine into the golden vessel.",
+        "Put the toy eggplant into the gold-colored holder.",
+        "Move the toy aubergine into the golden box.",
+        "Set the toy eggplant in the gold receptacle.",
+        "Drop the play aubergine into the golden case.",
+        "Fit the toy eggplant into the golden-colored container.",
+        "Slide the toy aubergine into the gold compartment."
       ],
-      "ert_rephrases_easy": [
-        "Move the eggplant into the yellow basket.",
-        "Transfer the eggplant to the yellow basket.",
-        "Set the eggplant inside the yellow basket.",
-        "Position the eggplant in the yellow basket.",
-        "Relocate the eggplant to the yellow container.",
-        "Put the eggplant within the yellow basket.",
-        "Direct the eggplant into the yellow basket.",
-        "Guide the eggplant towards the yellow container.",
-        "Shift the eggplant into the yellow basket.",
-        "Lay the eggplant into the yellow basket."
-      ],
-      "count": 100
+      "count": 18
     }
   }
 }

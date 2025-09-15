@@ -57,7 +57,7 @@ from experiments.robot.simpler.simpler_utils import (
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
 from experiments.robot.openvla_utils import (
-    save_rollout_video,
+    save_rollout_video_rephrase_selection,
     get_gaussian_vla_action,
 )
 from experiments.robot.openvla_utils import get_processor
@@ -139,6 +139,8 @@ class GenerateConfig:
     seed: int = 7                                    # Random Seed (for reproducibility)
     
     repeated_samples: int = 3
+    
+    instruction_index: int = 0
 
 # def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
 #     """
@@ -355,7 +357,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                         break
                 if matching_task_id is not None:
                     rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
-                    user_input_language_instruction = preloaded_rephrases[matching_task_id]["original"]
+                    user_input_language_instruction = preloaded_rephrases[matching_task_id]["rephrases"][cfg.instruction_index]
                     candidate_instructions = [user_input_language_instruction] + rephrased_list[:cfg.clip_select_action_num_candidates-1]
                 else:
                     print(f"No preloaded rephrases found for task: {original_task_description}")
@@ -522,7 +524,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
             total_episodes += 1
 
             # Save a replay video of the episode
-            save_rollout_video(
+            save_rollout_video_rephrase_selection(
                 replay_images, 
                 total_episodes, 
                 success=done, 
@@ -532,7 +534,8 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                 score_list=all_scores,
                 action_list=all_actions,
                 task_description_list=all_selected_instructions,
-                clip_update_num=cfg.clip_select_action_num_candidates
+                clip_update_num=cfg.clip_select_action_num_candidates,
+                instruction_index=cfg.instruction_index
             )
 
             # Save at most 5 successes and at most 5 failures

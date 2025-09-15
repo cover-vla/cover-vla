@@ -2088,15 +2088,15 @@ def create_instruction_embedding_scatter_plots(rollout_dir, embedding_type='bert
 if __name__ == "__main__":
 
     # path_to_rollouts_oracle = "./rollouts_clip_oracle"
-    path_to_rollouts_clip = "./rollouts_clip_ood_0.2"
+    path_to_rollouts_clip = "./rollouts_clip_ood_gaussian"
     
     # results_oracle, time_series_data_oracle = analyze_rollouts(path_to_rollouts_clip)
     results_clip, time_series_data_clip = analyze_rollouts(path_to_rollouts_clip)
     
     # create_task_time_series_plots(path_to_rollouts_clip)
-    create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='bert')
+    # create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='bert')
     
-    create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='qwen3')
+    # create_instruction_embedding_scatter_plots(path_to_rollouts_clip, embedding_type='qwen3')
     
     # Call the new language instruction distance plotting function
     # You can change embedding_type to 'bert' or 'openvla' to use different embeddings

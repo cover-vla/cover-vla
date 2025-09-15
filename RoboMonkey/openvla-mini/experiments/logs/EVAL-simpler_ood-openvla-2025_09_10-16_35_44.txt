@@ -1,0 +1,342 @@
+Task suite: simpler_ood
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=1--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=2--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=3--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=4--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=5--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=6--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=8--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=10--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=11--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=12--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=13--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=14--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=15--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=16--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=17--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=18--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=20--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=21--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 21
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=22--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=23--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=24--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 24
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=25--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=26--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=27--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=28--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=29--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 0 (0.0%)
+
+Task: Lift up the redball can and put it on the flat serving tray
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=30--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 30
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=31--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 31
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=32--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=33--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 33
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=34--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=35--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 35
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=36--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 36
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=37--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=38--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=39--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=40--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 40
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=41--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=42--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 42
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=43--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 43
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=44--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 44
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=45--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 45
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=46--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 46
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=47--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 47
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip_ood_gaussian/robomonkey/episode=48--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 0 (0.0%)
+
+Task: Put that tennis ball into the yellow-ish receptacle
+Starting episode 19...

@@ -57,7 +57,7 @@ def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     # Make the path relative to this script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'simpler_rephrased.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
     
     try:
         with open(json_path, 'r') as f:
@@ -118,7 +118,7 @@ class GenerateConfig:
     
     # Language transformation parameters
     lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
-    use_generated_rephrases: bool = True
+    use_generated_rephrases: bool = False
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -217,7 +217,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
                 # Use the first rephrase (like setting number of samples to 1)
-                task_description = rephrased_list[0] if rephrased_list else original_task_description
+                task_description = preloaded_rephrases[matching_task_id]["original"] if rephrased_list else original_task_description
                 print(f"Using rephrased instruction: {task_description}")
             else:
                 print(f"No preloaded rephrases found for task: {original_task_description}, using original")

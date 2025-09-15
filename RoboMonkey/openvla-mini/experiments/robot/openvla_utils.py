@@ -4,7 +4,7 @@ import math
 import os
 import time
 from pathlib import Path
-
+from typing import List
 import numpy as np
 import tensorflow as tf
 import torch
@@ -76,6 +76,42 @@ def get_rewards(instruction, image_path, actions, cfg):
         all_rewards.extend(response_data["rewards"])
     
     return all_rewards
+
+
+def custom_get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
+    """
+    Get batch actions for multiple instructions using the SGLang batch server.
+    
+    Args:
+        instructions: List of instruction strings
+        image_path: Path to the image file
+        server_url: URL of the batch server
+        temperature: Temperature for sampling
+    
+    Returns:
+        Tuple of (output_ids, actions) as numpy arrays
+    """
+    image_path = os.path.abspath(image_path)
+    
+    payload = {
+        "instructions": instructions,
+        "image_path": image_path,
+        "temperature": temperature
+    }
+
+    try:
+        res = requests.post(
+            f"{server_url}/batch",
+            data=json.dumps(payload),
+            headers={'Content-Type': 'application/json'},
+            timeout=30
+        )
+        res.raise_for_status()
+        result = json.loads(res.text)
+        return np.array(result["output_ids"]), np.array(result["actions"])
+    except Exception as e:
+        print(f"Error calling batch server: {e}")
+        return None, None
 
 def get_batch_actions(instruction: str, image_path: str, batch_size: int = 4, temperature: float = 1.0, cfg = None):
     """
@@ -182,7 +218,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     if oracle_scorer:
         rollout_dir = f"./rollouts_clip_oracle/{transform_type}_{clip_update_num}_lang"
     else:
-        rollout_dir = f"./rollouts_clip_ood/{transform_type}_{clip_update_num}"
+        rollout_dir = f"./rollouts_clip_ood_gaussian/{transform_type}_{clip_update_num}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
@@ -220,9 +256,43 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
     return mp4_path
 
 
+def save_rollout_video_rephrase_selection(rollout_images, idx, success, transform_type,
+                       task_description, log_file=None, score_list=None, 
+                       action_list=None, task_description_list=None, clip_update_num=None,
+                       instruction_index=None):
+    
+    """Saves an MP4 replay of an episode."""
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+
+    rollout_dir = f"./rollouts_clip_rephrase_selection_rollout/{processed_task_description}"
+    os.makedirs(rollout_dir, exist_ok=True)
+
+    # Use the formatted string in the filename
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--rephrase_index={instruction_index}.mp4"
+    data_path = f"{rollout_dir}/episode={idx}--success={success}--rephrase_index={instruction_index}.pkl"
+    video_writer = imageio.get_writer(mp4_path, fps=30)
+    for img in rollout_images:
+        video_writer.append_data(img)
+    video_writer.close()
+    print(f"Saved rollout MP4 at path {mp4_path}")
+    if log_file is not None:
+        log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
+    if score_list is not None and action_list is not None:
+        data = {
+            "score_list": score_list,
+            "action_list": action_list,
+            "task_description_list": task_description_list,
+            "original_task_description": task_description,
+        }
+        with open(data_path, "wb") as f:
+            pickle.dump(data, f)
+        print(f"Saved data at path {data_path}")
+    return mp4_path
+
+
 def save_rollout_video_simple(rollout_images, idx, success, task_description, log_file=None):
     """Saves an MP4 replay of an episode (simplified version without pkl files)."""
-    rollout_dir = f"./rollouts_clip_test/robomonkey"
+    rollout_dir = f"./rollouts_clip_ood_gaussian/robomonkey"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
@@ -428,6 +498,33 @@ def get_vla_action(vla, processor, base_vla_name, obs, task_label, unnorm_key, c
     selected_index = np.argmax(rewards)
 
     return actions[selected_index]
+
+
+def get_gaussian_vla_action(cfg, repeated_samples, instruction, image_path, temperature=1):
+    
+    output_ids, actions = custom_get_batch_actions(
+            instructions=instruction,
+            image_path=image_path,
+            server_url=cfg.batch_server_url,
+            temperature=temperature
+        )
+
+    # Preprocess initial actions
+    if repeated_samples == 1 or len(actions) == 1:
+        return [actions[0]] 
+    output_ids, actions = preprocess_actions(output_ids, actions)
+    _, unique = get_unique_actions(output_ids, actions)
+    if len(unique)==1:
+        return [unique[0]]
+    # Generate augmented samples based on the mean and variance of a batch of actions.
+    output_ids, gaussian_actions = generate_augmented_samples_from_batch(
+        batch_actions=actions,
+        num_samples=5
+    )
+    output_actions = np.concatenate([actions, gaussian_actions], axis=0)
+    assert len(output_actions) <= repeated_samples + 5, f"Output actions length {len(output_actions)} is larger than {repeated_samples + 5}"
+    return output_actions
+
 
 
 def get_prismatic_vla_action(vla, processor, base_vla_name, obs, task_label, unnorm_key, center_crop=False, **kwargs):
