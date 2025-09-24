@@ -1,0 +1,59 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Place the green block directly over the yellow block.']
+  [t=0] Using VLA-CLIP scoring only
+  [t=1] Using VLA-CLIP scoring only
+  [t=2] Using VLA-CLIP scoring only
+  [t=3] Using VLA-CLIP scoring only
+  [t=4] Using VLA-CLIP scoring only
+  [t=5] Using VLA-CLIP scoring only
+  [t=6] Using VLA-CLIP scoring only
+  [t=7] Using VLA-CLIP scoring only
+  [t=8] Using VLA-CLIP scoring only
+  [t=9] Using VLA-CLIP scoring only
+  [t=10] Using VLA-CLIP scoring only
+  [t=11] Using VLA-CLIP scoring only
+  [t=12] Using VLA-CLIP scoring only
+  [t=13] Using VLA-CLIP scoring only
+  [t=14] Using VLA-CLIP scoring only
+  [t=15] Using VLA-CLIP scoring only
+  [t=16] Using VLA-CLIP scoring only
+  [t=17] Using VLA-CLIP scoring only
+  [t=18] Using VLA-CLIP scoring only
+  [t=19] Using VLA-CLIP scoring only
+  [t=20] Using VLA-CLIP scoring only
+  [t=21] Using VLA-CLIP scoring only
+  [t=22] Using VLA-CLIP scoring only
+  [t=23] Using VLA-CLIP scoring only
+  [t=24] Using VLA-CLIP scoring only
+  [t=25] Using VLA-CLIP scoring only
+  [t=26] Using VLA-CLIP scoring only
+  [t=27] Using VLA-CLIP scoring only
+  [t=28] Using VLA-CLIP scoring only
+  [t=29] Using VLA-CLIP scoring only
+  [t=30] Using VLA-CLIP scoring only
+  [t=31] Using VLA-CLIP scoring only
+  [t=32] Using VLA-CLIP scoring only
+  [t=33] Using VLA-CLIP scoring only
+  [t=34] Using VLA-CLIP scoring only
+  [t=35] Using VLA-CLIP scoring only
+  [t=36] Using VLA-CLIP scoring only
+  [t=37] Using VLA-CLIP scoring only
+  [t=38] Using VLA-CLIP scoring only
+  [t=39] Using VLA-CLIP scoring only
+  [t=40] Using VLA-CLIP scoring only
+  [t=41] Using VLA-CLIP scoring only
+  [t=42] Using VLA-CLIP scoring only
+  [t=43] Using VLA-CLIP scoring only
+  [t=44] Using VLA-CLIP scoring only
+  [t=45] Using VLA-CLIP scoring only
+  [t=46] Using VLA-CLIP scoring only
+  [t=47] Using VLA-CLIP scoring only
+  [t=48] Using VLA-CLIP scoring only
+  [t=49] Using VLA-CLIP scoring only
+  [t=50] Using VLA-CLIP scoring only
+  [t=51] Using VLA-CLIP scoring only
+  [t=52] Using VLA-CLIP scoring only
+  [t=53] Using VLA-CLIP scoring only

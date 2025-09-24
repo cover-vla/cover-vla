@@ -151,7 +151,9 @@ if __name__ == "__main__":
     parser.add_argument("--max_num_workers", type=int, default=8, help="Number of parallel workers")
     args = parser.parse_args()
     
-    os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+    output_dir = os.path.dirname(args.output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     
     multiprocessing.set_start_method('spawn', force=True)
     with open(args.task_images, "r") as f:

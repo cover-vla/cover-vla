@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from typing import List
 import numpy as np
+import collections
 import tensorflow as tf
 import torch
 from PIL import Image
@@ -209,16 +210,58 @@ OPENVLA_V01_SYSTEM_PROMPT = (
     "The assistant gives helpful, detailed, and polite answers to the user's questions."
 )
 
+def save_rollout_video_openvla_ft(rollout_images, idx, success, transform_type,
+                       task_description, log_file=None, score_list=None, 
+                       action_list=None, task_description_list=None, clip_update_num=None,
+                       consistency_indicator=False, all_consistency_scores=None, ood_indicator=False):
+    
+    """Saves an MP4 replay of an episode."""
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+
+    rollout_dir = f"./rollouts_openvla_ft/transform_{transform_type}/{processed_task_description}"
+    os.makedirs(rollout_dir, exist_ok=True)
+
+    # Calculate mean score
+    mean_score = np.nanmean(score_list) if score_list else None
+
+    # Format score string explicitly
+    if mean_score is not None and not np.isnan(mean_score):
+        # Use :.3f format specifier for 3 decimal places
+        score_str = f"{mean_score:.3f}"
+    else:
+        # Handle None or NaN cases
+        score_str = "None" # Or you could use "nan" if mean_score is np.nan
+
+    # Use the formatted string in the filename
+    mp4_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.mp4"
+    data_path = f"{rollout_dir}/episode={idx}--success={success}--score={score_str}--task={processed_task_description}.pkl"
+    video_writer = imageio.get_writer(mp4_path, fps=30)
+    for img in rollout_images:
+        video_writer.append_data(img)
+    video_writer.close()
+    print(f"Saved rollout MP4 at path {mp4_path}")
+    if log_file is not None:
+        log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
+    if score_list is not None and action_list is not None:
+        data = {
+            "score_list": score_list,
+            "action_list": action_list,
+            "task_description_list": task_description_list,
+            "original_task_description": task_description,
+            "all_consistency_scores": all_consistency_scores,
+        }
+        with open(data_path, "wb") as f:
+            pickle.dump(data, f)
+        print(f"Saved data at path {data_path}")
+    return mp4_path
+
 def save_rollout_video(rollout_images, idx, success, transform_type,
                        task_description, log_file=None, score_list=None, 
                        action_list=None, task_description_list=None, clip_update_num=None,
-                       oracle_scorer=False):
+                       oracle_scorer=False, consistency_indicator=False, all_consistency_scores=None):
     
     """Saves an MP4 replay of an episode."""
-    if oracle_scorer:
-        rollout_dir = f"./rollouts_clip_oracle/{transform_type}_{clip_update_num}_lang"
-    else:
-        rollout_dir = f"./rollouts_clip_ood_gaussian/{transform_type}_{clip_update_num}"
+    rollout_dir = f"./rollouts_clip_gaussian_consistency/{transform_type}_{clip_update_num}_consistency_{consistency_indicator}"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
@@ -249,6 +292,7 @@ def save_rollout_video(rollout_images, idx, success, transform_type,
             "action_list": action_list,
             "task_description_list": task_description_list,
             "original_task_description": task_description,
+            "all_consistency_scores": all_consistency_scores,
         }
         with open(data_path, "wb") as f:
             pickle.dump(data, f)
@@ -264,7 +308,7 @@ def save_rollout_video_rephrase_selection(rollout_images, idx, success, transfor
     """Saves an MP4 replay of an episode."""
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 
-    rollout_dir = f"./rollouts_clip_rephrase_selection_rollout/{processed_task_description}"
+    rollout_dir = f"./rollouts_clip_rephrase_selection/{processed_task_description}"
     os.makedirs(rollout_dir, exist_ok=True)
 
     # Use the formatted string in the filename
@@ -500,7 +544,7 @@ def get_vla_action(vla, processor, base_vla_name, obs, task_label, unnorm_key, c
     return actions[selected_index]
 
 
-def get_gaussian_vla_action(cfg, repeated_samples, instruction, image_path, temperature=1):
+def get_gaussian_vla_action(cfg, actual_samples, repeated_samples, instruction, image_path, temperature=1):
     
     output_ids, actions = custom_get_batch_actions(
             instructions=instruction,
@@ -510,20 +554,79 @@ def get_gaussian_vla_action(cfg, repeated_samples, instruction, image_path, temp
         )
 
     # Preprocess initial actions
-    if repeated_samples == 1 or len(actions) == 1:
-        return [actions[0]] 
-    output_ids, actions = preprocess_actions(output_ids, actions)
-    _, unique = get_unique_actions(output_ids, actions)
-    if len(unique)==1:
-        return [unique[0]]
-    # Generate augmented samples based on the mean and variance of a batch of actions.
-    output_ids, gaussian_actions = generate_augmented_samples_from_batch(
-        batch_actions=actions,
-        num_samples=5
-    )
-    output_actions = np.concatenate([actions, gaussian_actions], axis=0)
-    assert len(output_actions) <= repeated_samples + 5, f"Output actions length {len(output_actions)} is larger than {repeated_samples + 5}"
-    return output_actions
+    # if repeated_samples == 1 or len(actions) == 1:
+    #     return [actions[0]] 
+    # Generate new batch of actions
+    output_ids, processed_actions = preprocess_actions(output_ids, actions)
+    # Convert to Python lists for safe appends/extends
+    output_ids = list(output_ids)
+    processed_actions = list(processed_actions)
+    if len(processed_actions) != len(actions):
+        print(f"Warning: Preprocessed actions length {len(processed_actions)} is not equal to {len(actions)}")
+        # If fewer due to filtering, duplicate last available until lengths match
+        while len(processed_actions) < len(actions) and len(processed_actions) > 0:
+            processed_actions.append(processed_actions[-1])
+            output_ids.append(output_ids[-1])
+    # Calculate how many instructions we have
+    num_instructions = len(instruction) // actual_samples
+    
+    # Create final actions list to match the instruction pattern
+    final_actions = []
+    final_output_ids = []
+    
+    # For each instruction, generate the required number of actions
+    for inst_idx in range(num_instructions):
+        # Get the actual_samples actions for this instruction
+        start_idx = inst_idx * actual_samples
+        end_idx = start_idx + actual_samples
+        instruction_actions = list(processed_actions[start_idx:end_idx])
+        instruction_ids = list(output_ids[start_idx:end_idx])
+        
+        # Handle case where actions were filtered out - duplicate existing actions to fill the gap
+        while len(instruction_actions) < actual_samples and len(instruction_actions) > 0:
+            # Duplicate the last available action
+            instruction_actions.append(instruction_actions[-1])
+            instruction_ids.append(instruction_ids[-1])
+        
+        # If no actions available at all, create a dummy action (should not happen normally)
+        if len(instruction_actions) == 0:
+            print(f"Warning: No actions available for instruction {inst_idx}, this should not happen")
+            # This is a fallback - you might want to handle this differently
+            continue
+        
+        # Generate additional actions using Gaussian augmentation if needed
+        if repeated_samples > actual_samples:
+            gaussian_ids, gaussian_actions = generate_augmented_samples_from_batch(
+                batch_actions=instruction_actions,
+                num_samples=repeated_samples - actual_samples
+            )
+            # Majority vote for the last dimension from the existing actions in this group
+            try:
+                voted_vals = [int(round(np.array(a)[-1])) for a in instruction_actions if a is not None]
+                if len(voted_vals) > 0:
+                    counts = collections.Counter(voted_vals)
+                    majority_last_dim = int(counts.most_common(1)[0][0])
+                    # Enforce majority last-dim on newly generated gaussian actions
+                    if isinstance(gaussian_actions, np.ndarray):
+                        gaussian_actions[:, -1] = majority_last_dim
+                    else:
+                        # Fallback if list-like
+                        gaussian_actions = [
+                            np.array(g) if isinstance(g, np.ndarray) else np.array(g)
+                            for g in gaussian_actions
+                        ]
+                        for g in gaussian_actions:
+                            g[-1] = majority_last_dim
+            except Exception as e:
+                print(f"Warning: majority vote failed for last dimension due to {e}; keeping gaussian last-dim as is")
+            instruction_actions.extend(gaussian_actions)
+            instruction_ids.extend(gaussian_ids)
+        
+        # Add all actions for this instruction to final list
+        final_actions.extend(instruction_actions)
+        final_output_ids.extend(instruction_ids)
+    assert len(final_actions) == repeated_samples * cfg.clip_select_action_num_candidates, f"Final actions length {len(final_actions)} is not equal to {repeated_samples * cfg.clip_select_action_num_candidates}"
+    return final_actions
 
 
 

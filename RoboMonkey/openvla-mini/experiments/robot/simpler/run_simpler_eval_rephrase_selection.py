@@ -142,46 +142,46 @@ class GenerateConfig:
     
     instruction_index: int = 0
 
-# def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
-#     """
-#     Get batch actions for multiple instructions using the SGLang batch server.
+def get_batch_actions(instructions: List[str], image_path: str, server_url: str, temperature: float = 1.0):
+    """
+    Get batch actions for multiple instructions using the SGLang batch server.
     
-#     Args:
-#         instructions: List of instruction strings
-#         image_path: Path to the image file
-#         server_url: URL of the batch server
-#         temperature: Temperature for sampling
+    Args:
+        instructions: List of instruction strings
+        image_path: Path to the image file
+        server_url: URL of the batch server
+        temperature: Temperature for sampling
     
-#     Returns:
-#         Tuple of (output_ids, actions) as numpy arrays
-#     """
-#     image_path = os.path.abspath(image_path)
+    Returns:
+        Tuple of (output_ids, actions) as numpy arrays
+    """
+    image_path = os.path.abspath(image_path)
     
-#     payload = {
-#         "instructions": instructions,
-#         "image_path": image_path,
-#         "temperature": temperature
-#     }
+    payload = {
+        "instructions": instructions,
+        "image_path": image_path,
+        "temperature": temperature
+    }
 
-#     try:
-#         res = requests.post(
-#             f"{server_url}/batch",
-#             data=json.dumps(payload),
-#             headers={'Content-Type': 'application/json'},
-#             timeout=30
-#         )
-#         res.raise_for_status()
-#         result = json.loads(res.text)
-#         return np.array(result["output_ids"]), np.array(result["actions"])
-#     except Exception as e:
-#         print(f"Error calling batch server: {e}")
-#         return None, None
+    try:
+        res = requests.post(
+            f"{server_url}/batch",
+            data=json.dumps(payload),
+            headers={'Content-Type': 'application/json'},
+            timeout=30
+        )
+        res.raise_for_status()
+        result = json.loads(res.text)
+        return np.array(result["output_ids"]), np.array(result["actions"])
+    except Exception as e:
+        print(f"Error calling batch server: {e}")
+        return None, None
 
 def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     # Make the path relative to this script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased.json')
     
     try:
         with open(json_path, 'r') as f:
@@ -357,7 +357,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                         break
                 if matching_task_id is not None:
                     rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
-                    user_input_language_instruction = preloaded_rephrases[matching_task_id]["rephrases"][cfg.instruction_index]
+                    user_input_language_instruction = preloaded_rephrases[matching_task_id]["ert_rephrases"][cfg.instruction_index]
                     candidate_instructions = [user_input_language_instruction] + rephrased_list[:cfg.clip_select_action_num_candidates-1]
                 else:
                     print(f"No preloaded rephrases found for task: {original_task_description}")
@@ -412,11 +412,18 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
 
                 # Use batch server for multiple instructions
                 temp_image_path = f"./transfer_images/reward_img.jpg"
-                batch_actions = []
-                for each_instruction in candidate_instructions:
-                    repeated_instructions = [each_instruction] * repeated_samples
-                    actions = get_gaussian_vla_action(cfg, repeated_samples, repeated_instructions, temp_image_path, batch_temperature)
-                    batch_actions.extend(actions)
+                # batch_actions = []
+                # for each_instruction in candidate_instructions:
+                #     repeated_instructions = [each_instruction] * repeated_samples
+                #     actions = get_gaussian_vla_action(cfg, repeated_samples, repeated_instructions, temp_image_path, batch_temperature)
+                #     batch_actions.extend(actions)
+                    
+                _, batch_actions = get_batch_actions(
+                    candidate_instructions, 
+                    temp_image_path, 
+                    cfg.batch_server_url, 
+                    batch_temperature
+                )
 
                 if batch_actions is not None:
                     predicted_actions = [convert_maniskill(action) for action in batch_actions]

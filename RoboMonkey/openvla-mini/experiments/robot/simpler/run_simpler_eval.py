@@ -117,7 +117,7 @@ class GenerateConfig:
     reward_server_port: int = 3100
     
     # Language transformation parameters
-    lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
+    lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
     use_generated_rephrases: bool = False
 
 @draccus.wrap()
@@ -215,7 +215,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     break
             
             if matching_task_id is not None:
-                rephrased_list = preloaded_rephrases[matching_task_id]["rephrases"]
+                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
                 # Use the first rephrase (like setting number of samples to 1)
                 task_description = preloaded_rephrases[matching_task_id]["original"] if rephrased_list else original_task_description
                 print(f"Using rephrased instruction: {task_description}")

@@ -1,0 +1,273 @@
+Task suite: simpler_spoon_on_towel
+
+Task: put the spoon on the towel (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=1--success=True--score=0.011--task=put_the_spoon_on_the_towel.mp4
+  Episode 1: Success=True, Steps=63, AvgStepScore=0.011, AvgConsistency=nan
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put the spoon on the towel (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=2--success=False--score=0.123--task=put_the_spoon_on_the_towel.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=0.123, AvgConsistency=nan
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: put the spoon on the towel (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=3--success=False--score=0.069--task=put_the_spoon_on_the_towel.mp4
+  Episode 3: Success=False, Steps=150, AvgStepScore=0.069, AvgConsistency=nan
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: put the spoon on the towel (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=4--success=False--score=0.094--task=put_the_spoon_on_the_towel.mp4
+  Episode 4: Success=False, Steps=150, AvgStepScore=0.094, AvgConsistency=nan
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: put the spoon on the towel (Trial 5/30)
+Starting episode 5...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=5--success=False--score=0.007--task=put_the_spoon_on_the_towel.mp4
+  Episode 5: Success=False, Steps=150, AvgStepScore=0.007, AvgConsistency=nan
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+
+Task: put the spoon on the towel (Trial 6/30)
+Starting episode 6...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=6--success=False--score=-0.008--task=put_the_spoon_on_the_towel.mp4
+  Episode 6: Success=False, Steps=150, AvgStepScore=-0.008, AvgConsistency=nan
+Success: False
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+
+Task: put the spoon on the towel (Trial 7/30)
+Starting episode 7...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=7--success=False--score=0.054--task=put_the_spoon_on_the_towel.mp4
+  Episode 7: Success=False, Steps=150, AvgStepScore=0.054, AvgConsistency=nan
+Success: False
+# episodes completed so far: 7
+# successes: 1 (14.3%)
+
+Task: put the spoon on the towel (Trial 8/30)
+Starting episode 8...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=8--success=False--score=0.022--task=put_the_spoon_on_the_towel.mp4
+  Episode 8: Success=False, Steps=150, AvgStepScore=0.022, AvgConsistency=nan
+Success: False
+# episodes completed so far: 8
+# successes: 1 (12.5%)
+
+Task: put the spoon on the towel (Trial 9/30)
+Starting episode 9...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=9--success=False--score=0.028--task=put_the_spoon_on_the_towel.mp4
+  Episode 9: Success=False, Steps=150, AvgStepScore=0.028, AvgConsistency=nan
+Success: False
+# episodes completed so far: 9
+# successes: 1 (11.1%)
+
+Task: put the spoon on the towel (Trial 10/30)
+Starting episode 10...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=10--success=False--score=0.056--task=put_the_spoon_on_the_towel.mp4
+  Episode 10: Success=False, Steps=150, AvgStepScore=0.056, AvgConsistency=nan
+Success: False
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: put the spoon on the towel (Trial 11/30)
+Starting episode 11...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=11--success=True--score=0.100--task=put_the_spoon_on_the_towel.mp4
+  Episode 11: Success=True, Steps=16, AvgStepScore=0.100, AvgConsistency=nan
+Success: True
+# episodes completed so far: 11
+# successes: 2 (18.2%)
+
+Task: put the spoon on the towel (Trial 12/30)
+Starting episode 12...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=12--success=False--score=0.035--task=put_the_spoon_on_the_towel.mp4
+  Episode 12: Success=False, Steps=150, AvgStepScore=0.035, AvgConsistency=nan
+Success: False
+# episodes completed so far: 12
+# successes: 2 (16.7%)
+
+Task: put the spoon on the towel (Trial 13/30)
+Starting episode 13...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=13--success=False--score=0.028--task=put_the_spoon_on_the_towel.mp4
+  Episode 13: Success=False, Steps=150, AvgStepScore=0.028, AvgConsistency=nan
+Success: False
+# episodes completed so far: 13
+# successes: 2 (15.4%)
+
+Task: put the spoon on the towel (Trial 14/30)
+Starting episode 14...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=14--success=False--score=0.019--task=put_the_spoon_on_the_towel.mp4
+  Episode 14: Success=False, Steps=150, AvgStepScore=0.019, AvgConsistency=nan
+Success: False
+# episodes completed so far: 14
+# successes: 2 (14.3%)
+
+Task: put the spoon on the towel (Trial 15/30)
+Starting episode 15...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=15--success=False--score=0.073--task=put_the_spoon_on_the_towel.mp4
+  Episode 15: Success=False, Steps=150, AvgStepScore=0.073, AvgConsistency=nan
+Success: False
+# episodes completed so far: 15
+# successes: 2 (13.3%)
+
+Task: put the spoon on the towel (Trial 16/30)
+Starting episode 16...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=16--success=False--score=0.041--task=put_the_spoon_on_the_towel.mp4
+  Episode 16: Success=False, Steps=150, AvgStepScore=0.041, AvgConsistency=nan
+Success: False
+# episodes completed so far: 16
+# successes: 2 (12.5%)
+
+Task: put the spoon on the towel (Trial 17/30)
+Starting episode 17...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=17--success=False--score=0.031--task=put_the_spoon_on_the_towel.mp4
+  Episode 17: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 17
+# successes: 2 (11.8%)
+
+Task: put the spoon on the towel (Trial 18/30)
+Starting episode 18...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=18--success=False--score=0.101--task=put_the_spoon_on_the_towel.mp4
+  Episode 18: Success=False, Steps=150, AvgStepScore=0.101, AvgConsistency=nan
+Success: False
+# episodes completed so far: 18
+# successes: 2 (11.1%)
+
+Task: put the spoon on the towel (Trial 19/30)
+Starting episode 19...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=19--success=True--score=0.056--task=put_the_spoon_on_the_towel.mp4
+  Episode 19: Success=True, Steps=28, AvgStepScore=0.056, AvgConsistency=nan
+Success: True
+# episodes completed so far: 19
+# successes: 3 (15.8%)
+
+Task: put the spoon on the towel (Trial 20/30)
+Starting episode 20...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=20--success=False--score=0.027--task=put_the_spoon_on_the_towel.mp4
+  Episode 20: Success=False, Steps=150, AvgStepScore=0.027, AvgConsistency=nan
+Success: False
+# episodes completed so far: 20
+# successes: 3 (15.0%)
+
+Task: put the spoon on the towel (Trial 21/30)
+Starting episode 21...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=21--success=False--score=0.022--task=put_the_spoon_on_the_towel.mp4
+  Episode 21: Success=False, Steps=150, AvgStepScore=0.022, AvgConsistency=nan
+Success: False
+# episodes completed so far: 21
+# successes: 3 (14.3%)
+
+Task: put the spoon on the towel (Trial 22/30)
+Starting episode 22...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=22--success=False--score=0.035--task=put_the_spoon_on_the_towel.mp4
+  Episode 22: Success=False, Steps=150, AvgStepScore=0.035, AvgConsistency=nan
+Success: False
+# episodes completed so far: 22
+# successes: 3 (13.6%)
+
+Task: put the spoon on the towel (Trial 23/30)
+Starting episode 23...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=23--success=True--score=0.062--task=put_the_spoon_on_the_towel.mp4
+  Episode 23: Success=True, Steps=25, AvgStepScore=0.062, AvgConsistency=nan
+Success: True
+# episodes completed so far: 23
+# successes: 4 (17.4%)
+
+Task: put the spoon on the towel (Trial 24/30)
+Starting episode 24...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=24--success=False--score=0.024--task=put_the_spoon_on_the_towel.mp4
+  Episode 24: Success=False, Steps=150, AvgStepScore=0.024, AvgConsistency=nan
+Success: False
+# episodes completed so far: 24
+# successes: 4 (16.7%)
+
+Task: put the spoon on the towel (Trial 25/30)
+Starting episode 25...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=25--success=False--score=0.060--task=put_the_spoon_on_the_towel.mp4
+  Episode 25: Success=False, Steps=150, AvgStepScore=0.060, AvgConsistency=nan
+Success: False
+# episodes completed so far: 25
+# successes: 4 (16.0%)
+
+Task: put the spoon on the towel (Trial 26/30)
+Starting episode 26...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=26--success=True--score=0.041--task=put_the_spoon_on_the_towel.mp4
+  Episode 26: Success=True, Steps=42, AvgStepScore=0.041, AvgConsistency=nan
+Success: True
+# episodes completed so far: 26
+# successes: 5 (19.2%)
+
+Task: put the spoon on the towel (Trial 27/30)
+Starting episode 27...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=27--success=False--score=0.053--task=put_the_spoon_on_the_towel.mp4
+  Episode 27: Success=False, Steps=150, AvgStepScore=0.053, AvgConsistency=nan
+Success: False
+# episodes completed so far: 27
+# successes: 5 (18.5%)
+
+Task: put the spoon on the towel (Trial 28/30)
+Starting episode 28...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=28--success=False--score=0.016--task=put_the_spoon_on_the_towel.mp4
+  Episode 28: Success=False, Steps=150, AvgStepScore=0.016, AvgConsistency=nan
+Success: False
+# episodes completed so far: 28
+# successes: 5 (17.9%)
+
+Task: put the spoon on the towel (Trial 29/30)
+Starting episode 29...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=29--success=False--score=0.060--task=put_the_spoon_on_the_towel.mp4
+  Episode 29: Success=False, Steps=150, AvgStepScore=0.060, AvgConsistency=nan
+Success: False
+# episodes completed so far: 29
+# successes: 5 (17.2%)
+
+Task: put the spoon on the towel (Trial 30/30)
+Starting episode 30...
+Candidate instructions: ['Shift the spoon and lay it down on the towel.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=30--success=False--score=0.030--task=put_the_spoon_on_the_towel.mp4
+  Episode 30: Success=False, Steps=150, AvgStepScore=0.030, AvgConsistency=nan
+Success: False
+# episodes completed so far: 30
+# successes: 5 (16.7%)
+Task 0 ('put the spoon on the towel') Success Rate: 0.17 (5/30)
+Current total success rate: 0.16666666666666666

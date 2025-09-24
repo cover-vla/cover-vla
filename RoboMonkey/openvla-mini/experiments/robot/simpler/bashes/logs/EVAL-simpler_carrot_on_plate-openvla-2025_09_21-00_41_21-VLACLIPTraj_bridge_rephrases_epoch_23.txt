@@ -1,0 +1,273 @@
+Task suite: simpler_carrot_on_plate
+
+Task: put carrot on plate (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=1--success=False--score=0.025--task=put_carrot_on_plate.mp4
+  Episode 1: Success=False, Steps=150, AvgStepScore=0.025, AvgConsistency=nan
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=2--success=False--score=-0.011--task=put_carrot_on_plate.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=-0.011, AvgConsistency=nan
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=3--success=False--score=0.013--task=put_carrot_on_plate.mp4
+  Episode 3: Success=False, Steps=150, AvgStepScore=0.013, AvgConsistency=nan
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=4--success=False--score=0.035--task=put_carrot_on_plate.mp4
+  Episode 4: Success=False, Steps=150, AvgStepScore=0.035, AvgConsistency=nan
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 5/30)
+Starting episode 5...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=5--success=False--score=0.055--task=put_carrot_on_plate.mp4
+  Episode 5: Success=False, Steps=150, AvgStepScore=0.055, AvgConsistency=nan
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 6/30)
+Starting episode 6...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=6--success=False--score=0.080--task=put_carrot_on_plate.mp4
+  Episode 6: Success=False, Steps=150, AvgStepScore=0.080, AvgConsistency=nan
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 7/30)
+Starting episode 7...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=7--success=False--score=0.012--task=put_carrot_on_plate.mp4
+  Episode 7: Success=False, Steps=150, AvgStepScore=0.012, AvgConsistency=nan
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 8/30)
+Starting episode 8...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=8--success=False--score=-0.008--task=put_carrot_on_plate.mp4
+  Episode 8: Success=False, Steps=150, AvgStepScore=-0.008, AvgConsistency=nan
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 9/30)
+Starting episode 9...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=9--success=False--score=0.020--task=put_carrot_on_plate.mp4
+  Episode 9: Success=False, Steps=150, AvgStepScore=0.020, AvgConsistency=nan
+Success: False
+# episodes completed so far: 9
+# successes: 0 (0.0%)
+
+Task: put carrot on plate (Trial 10/30)
+Starting episode 10...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=10--success=True--score=0.082--task=put_carrot_on_plate.mp4
+  Episode 10: Success=True, Steps=29, AvgStepScore=0.082, AvgConsistency=nan
+Success: True
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: put carrot on plate (Trial 11/30)
+Starting episode 11...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=11--success=True--score=0.064--task=put_carrot_on_plate.mp4
+  Episode 11: Success=True, Steps=75, AvgStepScore=0.064, AvgConsistency=nan
+Success: True
+# episodes completed so far: 11
+# successes: 2 (18.2%)
+
+Task: put carrot on plate (Trial 12/30)
+Starting episode 12...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=12--success=False--score=0.036--task=put_carrot_on_plate.mp4
+  Episode 12: Success=False, Steps=150, AvgStepScore=0.036, AvgConsistency=nan
+Success: False
+# episodes completed so far: 12
+# successes: 2 (16.7%)
+
+Task: put carrot on plate (Trial 13/30)
+Starting episode 13...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=13--success=True--score=0.082--task=put_carrot_on_plate.mp4
+  Episode 13: Success=True, Steps=21, AvgStepScore=0.082, AvgConsistency=nan
+Success: True
+# episodes completed so far: 13
+# successes: 3 (23.1%)
+
+Task: put carrot on plate (Trial 14/30)
+Starting episode 14...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=14--success=True--score=0.045--task=put_carrot_on_plate.mp4
+  Episode 14: Success=True, Steps=38, AvgStepScore=0.045, AvgConsistency=nan
+Success: True
+# episodes completed so far: 14
+# successes: 4 (28.6%)
+
+Task: put carrot on plate (Trial 15/30)
+Starting episode 15...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=15--success=False--score=0.010--task=put_carrot_on_plate.mp4
+  Episode 15: Success=False, Steps=150, AvgStepScore=0.010, AvgConsistency=nan
+Success: False
+# episodes completed so far: 15
+# successes: 4 (26.7%)
+
+Task: put carrot on plate (Trial 16/30)
+Starting episode 16...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=16--success=True--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 16: Success=True, Steps=49, AvgStepScore=0.031, AvgConsistency=nan
+Success: True
+# episodes completed so far: 16
+# successes: 5 (31.2%)
+
+Task: put carrot on plate (Trial 17/30)
+Starting episode 17...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=17--success=False--score=0.065--task=put_carrot_on_plate.mp4
+  Episode 17: Success=False, Steps=150, AvgStepScore=0.065, AvgConsistency=nan
+Success: False
+# episodes completed so far: 17
+# successes: 5 (29.4%)
+
+Task: put carrot on plate (Trial 18/30)
+Starting episode 18...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=18--success=False--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 18: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 18
+# successes: 5 (27.8%)
+
+Task: put carrot on plate (Trial 19/30)
+Starting episode 19...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=19--success=False--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 19: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 19
+# successes: 5 (26.3%)
+
+Task: put carrot on plate (Trial 20/30)
+Starting episode 20...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=20--success=False--score=0.037--task=put_carrot_on_plate.mp4
+  Episode 20: Success=False, Steps=150, AvgStepScore=0.037, AvgConsistency=nan
+Success: False
+# episodes completed so far: 20
+# successes: 5 (25.0%)
+
+Task: put carrot on plate (Trial 21/30)
+Starting episode 21...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=21--success=False--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 21: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 21
+# successes: 5 (23.8%)
+
+Task: put carrot on plate (Trial 22/30)
+Starting episode 22...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=22--success=False--score=0.088--task=put_carrot_on_plate.mp4
+  Episode 22: Success=False, Steps=150, AvgStepScore=0.088, AvgConsistency=nan
+Success: False
+# episodes completed so far: 22
+# successes: 5 (22.7%)
+
+Task: put carrot on plate (Trial 23/30)
+Starting episode 23...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=23--success=False--score=0.037--task=put_carrot_on_plate.mp4
+  Episode 23: Success=False, Steps=150, AvgStepScore=0.037, AvgConsistency=nan
+Success: False
+# episodes completed so far: 23
+# successes: 5 (21.7%)
+
+Task: put carrot on plate (Trial 24/30)
+Starting episode 24...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=24--success=False--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 24: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 24
+# successes: 5 (20.8%)
+
+Task: put carrot on plate (Trial 25/30)
+Starting episode 25...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=25--success=False--score=0.088--task=put_carrot_on_plate.mp4
+  Episode 25: Success=False, Steps=150, AvgStepScore=0.088, AvgConsistency=nan
+Success: False
+# episodes completed so far: 25
+# successes: 5 (20.0%)
+
+Task: put carrot on plate (Trial 26/30)
+Starting episode 26...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=26--success=False--score=0.038--task=put_carrot_on_plate.mp4
+  Episode 26: Success=False, Steps=150, AvgStepScore=0.038, AvgConsistency=nan
+Success: False
+# episodes completed so far: 26
+# successes: 5 (19.2%)
+
+Task: put carrot on plate (Trial 27/30)
+Starting episode 27...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=27--success=False--score=0.028--task=put_carrot_on_plate.mp4
+  Episode 27: Success=False, Steps=150, AvgStepScore=0.028, AvgConsistency=nan
+Success: False
+# episodes completed so far: 27
+# successes: 5 (18.5%)
+
+Task: put carrot on plate (Trial 28/30)
+Starting episode 28...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=28--success=False--score=0.023--task=put_carrot_on_plate.mp4
+  Episode 28: Success=False, Steps=150, AvgStepScore=0.023, AvgConsistency=nan
+Success: False
+# episodes completed so far: 28
+# successes: 5 (17.9%)
+
+Task: put carrot on plate (Trial 29/30)
+Starting episode 29...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=29--success=False--score=0.031--task=put_carrot_on_plate.mp4
+  Episode 29: Success=False, Steps=150, AvgStepScore=0.031, AvgConsistency=nan
+Success: False
+# episodes completed so far: 29
+# successes: 5 (17.2%)
+
+Task: put carrot on plate (Trial 30/30)
+Starting episode 30...
+Candidate instructions: ['Relocate the carrot onto the platter.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=30--success=True--score=0.066--task=put_carrot_on_plate.mp4
+  Episode 30: Success=True, Steps=28, AvgStepScore=0.066, AvgConsistency=nan
+Success: True
+# episodes completed so far: 30
+# successes: 6 (20.0%)
+Task 0 ('put carrot on plate') Success Rate: 0.20 (6/30)
+Current total success rate: 0.2

@@ -97,7 +97,7 @@ def process_image(image_path, output_dir="./transfer_images/", crop_scale=0.9, t
         raise Exception(f"Error processing image: {str(e)}")
 
 
-def save_reward_img(image, resize_size, verifier=False):
+def save_reward_img(image, resize_size, verifier=False, save_image_name=None):
 
     if verifier:
         # Encode as JPEG, as done in RLDS dataset builder
@@ -121,11 +121,13 @@ def save_reward_img(image, resize_size, verifier=False):
         
         transfer_root = str(Path("./transfer_images/").absolute())
         os.makedirs(transfer_root, exist_ok=True)
-        Image.fromarray(image.numpy()).save(f"{transfer_root}/reward_img.jpg")
+        if save_image_name is None:
+            save_image_name = "reward_img.jpg"
+        Image.fromarray(image.numpy()).save(f"{transfer_root}/{save_image_name}")
         
         return None
 
-def get_simpler_img(env, obs, resize_size, verifier=False):
+def get_simpler_img(env, obs, resize_size, verifier=False, save_image_name=None):
     """
     Takes in environment and observation and returns resized image as numpy array.
 
@@ -134,7 +136,7 @@ def get_simpler_img(env, obs, resize_size, verifier=False):
     """
     assert isinstance(resize_size, int)
     image = get_image_from_maniskill2_obs_dict(env, obs)
-    return save_reward_img(image, resize_size, verifier=verifier) 
+    return save_reward_img(image, resize_size, verifier=verifier, save_image_name=save_image_name) 
     if not verifier:
         # Preprocess the image the exact same way that the Berkeley Bridge folks did it
         # to minimize distribution shift.

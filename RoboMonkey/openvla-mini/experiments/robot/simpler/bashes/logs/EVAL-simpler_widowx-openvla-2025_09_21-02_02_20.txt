@@ -1,0 +1,4 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/30)
+Starting episode 1...

@@ -1,0 +1,95 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/50)
+Starting episode 1...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=1--success=False--score=0.096--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 1: Success=False, Steps=150, AvgStepScore=0.096, AvgConsistency=0.738
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 2/50)
+Starting episode 2...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=2--success=False--score=0.058--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=0.058, AvgConsistency=0.403
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 3/50)
+Starting episode 3...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=3--success=False--score=0.013--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 3: Success=False, Steps=150, AvgStepScore=0.013, AvgConsistency=0.752
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 4/50)
+Starting episode 4...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=4--success=False--score=0.069--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 4: Success=False, Steps=150, AvgStepScore=0.069, AvgConsistency=0.683
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 5/50)
+Starting episode 5...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=5--success=False--score=0.100--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 5: Success=False, Steps=150, AvgStepScore=0.100, AvgConsistency=0.709
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 6/50)
+Starting episode 6...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=6--success=True--score=0.094--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 6: Success=True, Steps=26, AvgStepScore=0.094, AvgConsistency=0.707
+Success: True
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+
+Task: stack the green block on the yellow block (Trial 7/50)
+Starting episode 7...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=7--success=False--score=0.069--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 7: Success=False, Steps=150, AvgStepScore=0.069, AvgConsistency=0.679
+Success: False
+# episodes completed so far: 7
+# successes: 1 (14.3%)
+
+Task: stack the green block on the yellow block (Trial 8/50)
+Starting episode 8...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=8--success=False--score=0.060--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 8: Success=False, Steps=150, AvgStepScore=0.060, AvgConsistency=0.514
+Success: False
+# episodes completed so far: 8
+# successes: 1 (12.5%)
+
+Task: stack the green block on the yellow block (Trial 9/50)
+Starting episode 9...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=9--success=True--score=0.068--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 9: Success=True, Steps=27, AvgStepScore=0.068, AvgConsistency=0.755
+Success: True
+# episodes completed so far: 9
+# successes: 2 (22.2%)
+
+Task: stack the green block on the yellow block (Trial 10/50)
+Starting episode 10...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=10--success=True--score=0.074--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 10: Success=True, Steps=40, AvgStepScore=0.074, AvgConsistency=0.753
+Success: True
+# episodes completed so far: 10
+# successes: 3 (30.0%)
+
+Task: stack the green block on the yellow block (Trial 11/50)
+Starting episode 11...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']

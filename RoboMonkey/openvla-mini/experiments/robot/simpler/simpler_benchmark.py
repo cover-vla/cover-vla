@@ -52,8 +52,8 @@ task_map = {
     ],
     "simpler_ood":[
         "widowx_redbull_on_plate",
-        "widowx_tennis_ball_in_basket",
         "widowx_zucchini_on_towel",
+        # "widowx_tennis_ball_in_basket",
         # "widowx_toy_dinosaur_on_towel",
     ]
 }

@@ -1,0 +1,32 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Place the green block directly over the yellow block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=1--success=True--score=0.053--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 1: Success=True, Steps=54, AvgStepScore=0.053, AvgConsistency=nan
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: stack the green block on the yellow block (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Place the green block directly over the yellow block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=2--success=False--score=0.122--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=0.122, AvgConsistency=nan
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: stack the green block on the yellow block (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Place the green block directly over the yellow block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_1_consistency_True/episode=3--success=False--score=0.075--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 3: Success=False, Steps=150, AvgStepScore=0.075, AvgConsistency=nan
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: stack the green block on the yellow block (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Place the green block directly over the yellow block.']

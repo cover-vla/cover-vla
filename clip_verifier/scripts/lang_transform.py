@@ -48,9 +48,17 @@ class LangTransform:
             Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
             - Convey the same objective as the original
             - During rephrasing, you should try to understand the meaning of the instruction and simplify the instruction to simple words and actions including verbs and nouns.
-            - Try to paraphrase both the noun and the verb.
+            
+            You should first analyze the instruction, and output the meaning of the instruction, the nouns, verbs, adjectives and adverbs. 
+            Then, you should remove the adverbs as much as possible, and reword the instruction to simply and minimize the length of the rephrased descriptions.
 
             Format your response as:
+            
+            <Meaning of the instruction>
+            Original: <Nouns> three potential replacements: <Nouns>
+            Original: <Verbs> three potential replacements: <Verbs>
+            Original: <Adjectives> three potential replacements: <Adjectives>
+            Original: <Adverbs>
 
             Original Instruction:
             <The user-provided instruction>
@@ -60,6 +68,8 @@ class LangTransform:
             2. <Alternative phrasing 2>
             ...
             {batch_number}. <Alternative phrasing {batch_number}>
+            
+            Note: make sure to check the generated rephrased instructions: they do not have adverbs; have diverse nouns, verbs, adjectives.
             """
         return instruction
 
@@ -68,6 +78,7 @@ class LangTransform:
         if batch_number > 1:
             batch_responses = self.gpt_transform(curr_instruction, transform_type=None, batch_number=batch_number, image=image)
             # print (batch_responses)
+            # input()
             return self.extract_reworded_instructions(batch_responses)
         else:
             if transform_type in self.gpt_transforms:
@@ -134,7 +145,7 @@ class LangTransform:
             system_prompt = self.get_system_prompt('rephrase_batch')
             
         if batch_number > 1:
-            t = 0.5
+            t = 0.8
             instruction = self.get_rephrase_batch(instruction, batch_number=batch_number)
 
         # Create the messages list with content array

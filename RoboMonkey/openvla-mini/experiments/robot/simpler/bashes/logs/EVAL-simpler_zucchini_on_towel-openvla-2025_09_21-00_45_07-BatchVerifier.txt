@@ -1,0 +1,273 @@
+Task suite: simpler_zucchini_on_towel
+
+Task: put the zucchini on the towel (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=1--success=False--rephrase_index=2.mp4
+  Episode 1: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=2--success=True--rephrase_index=2.mp4
+  Episode 2: Success=True, Steps=41, AvgStepScore=nan
+Success: True
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: put the zucchini on the towel (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=3--success=True--rephrase_index=2.mp4
+  Episode 3: Success=True, Steps=45, AvgStepScore=nan
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: put the zucchini on the towel (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=4--success=False--rephrase_index=2.mp4
+  Episode 4: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+
+Task: put the zucchini on the towel (Trial 5/30)
+Starting episode 5...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=5--success=True--rephrase_index=2.mp4
+  Episode 5: Success=True, Steps=105, AvgStepScore=nan
+Success: True
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: put the zucchini on the towel (Trial 6/30)
+Starting episode 6...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=6--success=True--rephrase_index=2.mp4
+  Episode 6: Success=True, Steps=19, AvgStepScore=nan
+Success: True
+# episodes completed so far: 6
+# successes: 4 (66.7%)
+
+Task: put the zucchini on the towel (Trial 7/30)
+Starting episode 7...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=7--success=False--rephrase_index=2.mp4
+  Episode 7: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+
+Task: put the zucchini on the towel (Trial 8/30)
+Starting episode 8...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=8--success=True--rephrase_index=2.mp4
+  Episode 8: Success=True, Steps=27, AvgStepScore=nan
+Success: True
+# episodes completed so far: 8
+# successes: 5 (62.5%)
+
+Task: put the zucchini on the towel (Trial 9/30)
+Starting episode 9...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=9--success=False--rephrase_index=2.mp4
+  Episode 9: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 9
+# successes: 5 (55.6%)
+
+Task: put the zucchini on the towel (Trial 10/30)
+Starting episode 10...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=10--success=True--rephrase_index=2.mp4
+  Episode 10: Success=True, Steps=52, AvgStepScore=nan
+Success: True
+# episodes completed so far: 10
+# successes: 6 (60.0%)
+
+Task: put the zucchini on the towel (Trial 11/30)
+Starting episode 11...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=11--success=False--rephrase_index=2.mp4
+  Episode 11: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 11
+# successes: 6 (54.5%)
+
+Task: put the zucchini on the towel (Trial 12/30)
+Starting episode 12...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=12--success=False--rephrase_index=2.mp4
+  Episode 12: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 12
+# successes: 6 (50.0%)
+
+Task: put the zucchini on the towel (Trial 13/30)
+Starting episode 13...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=13--success=False--rephrase_index=2.mp4
+  Episode 13: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 13
+# successes: 6 (46.2%)
+
+Task: put the zucchini on the towel (Trial 14/30)
+Starting episode 14...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=14--success=False--rephrase_index=2.mp4
+  Episode 14: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 14
+# successes: 6 (42.9%)
+
+Task: put the zucchini on the towel (Trial 15/30)
+Starting episode 15...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=15--success=False--rephrase_index=2.mp4
+  Episode 15: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 15
+# successes: 6 (40.0%)
+
+Task: put the zucchini on the towel (Trial 16/30)
+Starting episode 16...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=16--success=False--rephrase_index=2.mp4
+  Episode 16: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 16
+# successes: 6 (37.5%)
+
+Task: put the zucchini on the towel (Trial 17/30)
+Starting episode 17...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=17--success=False--rephrase_index=2.mp4
+  Episode 17: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 17
+# successes: 6 (35.3%)
+
+Task: put the zucchini on the towel (Trial 18/30)
+Starting episode 18...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=18--success=True--rephrase_index=2.mp4
+  Episode 18: Success=True, Steps=42, AvgStepScore=nan
+Success: True
+# episodes completed so far: 18
+# successes: 7 (38.9%)
+
+Task: put the zucchini on the towel (Trial 19/30)
+Starting episode 19...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=19--success=False--rephrase_index=2.mp4
+  Episode 19: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 19
+# successes: 7 (36.8%)
+
+Task: put the zucchini on the towel (Trial 20/30)
+Starting episode 20...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=20--success=False--rephrase_index=2.mp4
+  Episode 20: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 20
+# successes: 7 (35.0%)
+
+Task: put the zucchini on the towel (Trial 21/30)
+Starting episode 21...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=21--success=True--rephrase_index=2.mp4
+  Episode 21: Success=True, Steps=42, AvgStepScore=nan
+Success: True
+# episodes completed so far: 21
+# successes: 8 (38.1%)
+
+Task: put the zucchini on the towel (Trial 22/30)
+Starting episode 22...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=22--success=True--rephrase_index=2.mp4
+  Episode 22: Success=True, Steps=26, AvgStepScore=nan
+Success: True
+# episodes completed so far: 22
+# successes: 9 (40.9%)
+
+Task: put the zucchini on the towel (Trial 23/30)
+Starting episode 23...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=23--success=True--rephrase_index=2.mp4
+  Episode 23: Success=True, Steps=20, AvgStepScore=nan
+Success: True
+# episodes completed so far: 23
+# successes: 10 (43.5%)
+
+Task: put the zucchini on the towel (Trial 24/30)
+Starting episode 24...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=24--success=False--rephrase_index=2.mp4
+  Episode 24: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 24
+# successes: 10 (41.7%)
+
+Task: put the zucchini on the towel (Trial 25/30)
+Starting episode 25...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=25--success=True--rephrase_index=2.mp4
+  Episode 25: Success=True, Steps=26, AvgStepScore=nan
+Success: True
+# episodes completed so far: 25
+# successes: 11 (44.0%)
+
+Task: put the zucchini on the towel (Trial 26/30)
+Starting episode 26...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=26--success=False--rephrase_index=2.mp4
+  Episode 26: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 26
+# successes: 11 (42.3%)
+
+Task: put the zucchini on the towel (Trial 27/30)
+Starting episode 27...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=27--success=False--rephrase_index=2.mp4
+  Episode 27: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 27
+# successes: 11 (40.7%)
+
+Task: put the zucchini on the towel (Trial 28/30)
+Starting episode 28...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=28--success=False--rephrase_index=2.mp4
+  Episode 28: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 28
+# successes: 11 (39.3%)
+
+Task: put the zucchini on the towel (Trial 29/30)
+Starting episode 29...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=29--success=True--rephrase_index=2.mp4
+  Episode 29: Success=True, Steps=49, AvgStepScore=nan
+Success: True
+# episodes completed so far: 29
+# successes: 12 (41.4%)
+
+Task: put the zucchini on the towel (Trial 30/30)
+Starting episode 30...
+Candidate instructions: ['Transfer the zucchini to the towel.']
+Saved rollout MP4 at path ./rollouts_clip_rephrase_selection/put_the_zucchini_on_the_towel/episode=30--success=False--rephrase_index=2.mp4
+  Episode 30: Success=False, Steps=150, AvgStepScore=nan
+Success: False
+# episodes completed so far: 30
+# successes: 12 (40.0%)
+Task 0 ('put the zucchini on the towel') Success Rate: 0.40 (12/30)
+Current total success rate: 0.4

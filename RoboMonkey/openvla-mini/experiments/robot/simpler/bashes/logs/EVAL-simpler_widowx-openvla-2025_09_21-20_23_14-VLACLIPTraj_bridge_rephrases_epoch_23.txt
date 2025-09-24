@@ -1,0 +1,9 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.', 'Place the jade cube above the amber cube.', 'Set the green object on the yellow object.', 'Position the emerald piece atop the golden piece.', 'Put the verdant cube on the sunny cube.', 'Place the jade block on top of the amber block.', 'Set the green cube above the yellow cube.', 'Position the emerald object over the golden object.', 'Put the verdant piece on the sunny piece.', 'Place the jade piece on top of the amber piece.']
+  [t=0] Using VLA-CLIP scoring only
+  [t=1] Using VLA-CLIP scoring only
+  [t=2] Using VLA-CLIP scoring only
+  [t=3] Using VLA-CLIP scoring only

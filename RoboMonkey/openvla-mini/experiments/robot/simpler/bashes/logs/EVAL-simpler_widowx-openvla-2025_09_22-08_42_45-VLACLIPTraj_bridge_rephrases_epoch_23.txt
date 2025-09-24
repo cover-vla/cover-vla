@@ -1,0 +1,23 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/50)
+Starting episode 1...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=1--success=False--score=0.082--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 1: Success=False, Steps=150, AvgStepScore=0.082, AvgConsistency=0.629
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 2/50)
+Starting episode 2...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=2--success=False--score=0.097--task=stack_the_green_block_on_the_yellow_block.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=0.097, AvgConsistency=0.566
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block (Trial 3/50)
+Starting episode 3...
+Candidate instructions: ['Place the green block directly over the yellow block.', 'Set the green cube atop the yellow cube.', 'Position the emerald block on the golden block.', 'Put the verdant piece above the sunny piece.', 'Place the jade object onto the amber object.', 'Set the green piece over the yellow piece.', 'Position the emerald cube over the golden cube.', 'Put the verdant block over the sunny block.']

@@ -1,0 +1,545 @@
+Task suite: simpler_ood
+
+Task: put redbull can on plate (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=1--success=False--score=0.093--task=put_redbull_can_on_plate.mp4
+  Episode 1: Success=False, Steps=150, AvgStepScore=0.093, AvgConsistency=0.260
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: put redbull can on plate (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=2--success=False--score=0.084--task=put_redbull_can_on_plate.mp4
+  Episode 2: Success=False, Steps=150, AvgStepScore=0.084, AvgConsistency=0.254
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: put redbull can on plate (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=3--success=True--score=0.098--task=put_redbull_can_on_plate.mp4
+  Episode 3: Success=True, Steps=73, AvgStepScore=0.098, AvgConsistency=0.336
+Success: True
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: put redbull can on plate (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=4--success=False--score=0.099--task=put_redbull_can_on_plate.mp4
+  Episode 4: Success=False, Steps=150, AvgStepScore=0.099, AvgConsistency=0.235
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: put redbull can on plate (Trial 5/30)
+Starting episode 5...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=5--success=True--score=0.057--task=put_redbull_can_on_plate.mp4
+  Episode 5: Success=True, Steps=82, AvgStepScore=0.057, AvgConsistency=0.230
+Success: True
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: put redbull can on plate (Trial 6/30)
+Starting episode 6...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=6--success=False--score=0.095--task=put_redbull_can_on_plate.mp4
+  Episode 6: Success=False, Steps=150, AvgStepScore=0.095, AvgConsistency=0.219
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+
+Task: put redbull can on plate (Trial 7/30)
+Starting episode 7...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=7--success=True--score=0.105--task=put_redbull_can_on_plate.mp4
+  Episode 7: Success=True, Steps=38, AvgStepScore=0.105, AvgConsistency=0.268
+Success: True
+# episodes completed so far: 7
+# successes: 3 (42.9%)
+
+Task: put redbull can on plate (Trial 8/30)
+Starting episode 8...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=8--success=False--score=0.042--task=put_redbull_can_on_plate.mp4
+  Episode 8: Success=False, Steps=150, AvgStepScore=0.042, AvgConsistency=0.180
+Success: False
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+
+Task: put redbull can on plate (Trial 9/30)
+Starting episode 9...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=9--success=True--score=0.131--task=put_redbull_can_on_plate.mp4
+  Episode 9: Success=True, Steps=57, AvgStepScore=0.131, AvgConsistency=0.306
+Success: True
+# episodes completed so far: 9
+# successes: 4 (44.4%)
+
+Task: put redbull can on plate (Trial 10/30)
+Starting episode 10...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=10--success=True--score=0.083--task=put_redbull_can_on_plate.mp4
+  Episode 10: Success=True, Steps=66, AvgStepScore=0.083, AvgConsistency=0.315
+Success: True
+# episodes completed so far: 10
+# successes: 5 (50.0%)
+
+Task: put redbull can on plate (Trial 11/30)
+Starting episode 11...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=11--success=True--score=0.114--task=put_redbull_can_on_plate.mp4
+  Episode 11: Success=True, Steps=45, AvgStepScore=0.114, AvgConsistency=0.337
+Success: True
+# episodes completed so far: 11
+# successes: 6 (54.5%)
+
+Task: put redbull can on plate (Trial 12/30)
+Starting episode 12...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=12--success=True--score=0.073--task=put_redbull_can_on_plate.mp4
+  Episode 12: Success=True, Steps=110, AvgStepScore=0.073, AvgConsistency=0.247
+Success: True
+# episodes completed so far: 12
+# successes: 7 (58.3%)
+
+Task: put redbull can on plate (Trial 13/30)
+Starting episode 13...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=13--success=False--score=0.077--task=put_redbull_can_on_plate.mp4
+  Episode 13: Success=False, Steps=150, AvgStepScore=0.077, AvgConsistency=0.181
+Success: False
+# episodes completed so far: 13
+# successes: 7 (53.8%)
+
+Task: put redbull can on plate (Trial 14/30)
+Starting episode 14...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=14--success=True--score=0.112--task=put_redbull_can_on_plate.mp4
+  Episode 14: Success=True, Steps=67, AvgStepScore=0.112, AvgConsistency=0.303
+Success: True
+# episodes completed so far: 14
+# successes: 8 (57.1%)
+
+Task: put redbull can on plate (Trial 15/30)
+Starting episode 15...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=15--success=False--score=0.084--task=put_redbull_can_on_plate.mp4
+  Episode 15: Success=False, Steps=150, AvgStepScore=0.084, AvgConsistency=0.252
+Success: False
+# episodes completed so far: 15
+# successes: 8 (53.3%)
+
+Task: put redbull can on plate (Trial 16/30)
+Starting episode 16...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=16--success=True--score=0.061--task=put_redbull_can_on_plate.mp4
+  Episode 16: Success=True, Steps=50, AvgStepScore=0.061, AvgConsistency=0.200
+Success: True
+# episodes completed so far: 16
+# successes: 9 (56.2%)
+
+Task: put redbull can on plate (Trial 17/30)
+Starting episode 17...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=17--success=True--score=0.105--task=put_redbull_can_on_plate.mp4
+  Episode 17: Success=True, Steps=48, AvgStepScore=0.105, AvgConsistency=0.221
+Success: True
+# episodes completed so far: 17
+# successes: 10 (58.8%)
+
+Task: put redbull can on plate (Trial 18/30)
+Starting episode 18...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=18--success=False--score=0.099--task=put_redbull_can_on_plate.mp4
+  Episode 18: Success=False, Steps=150, AvgStepScore=0.099, AvgConsistency=0.243
+Success: False
+# episodes completed so far: 18
+# successes: 10 (55.6%)
+
+Task: put redbull can on plate (Trial 19/30)
+Starting episode 19...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=19--success=False--score=0.067--task=put_redbull_can_on_plate.mp4
+  Episode 19: Success=False, Steps=150, AvgStepScore=0.067, AvgConsistency=0.124
+Success: False
+# episodes completed so far: 19
+# successes: 10 (52.6%)
+
+Task: put redbull can on plate (Trial 20/30)
+Starting episode 20...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=20--success=False--score=0.088--task=put_redbull_can_on_plate.mp4
+  Episode 20: Success=False, Steps=150, AvgStepScore=0.088, AvgConsistency=0.193
+Success: False
+# episodes completed so far: 20
+# successes: 10 (50.0%)
+
+Task: put redbull can on plate (Trial 21/30)
+Starting episode 21...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=21--success=False--score=0.090--task=put_redbull_can_on_plate.mp4
+  Episode 21: Success=False, Steps=150, AvgStepScore=0.090, AvgConsistency=0.219
+Success: False
+# episodes completed so far: 21
+# successes: 10 (47.6%)
+
+Task: put redbull can on plate (Trial 22/30)
+Starting episode 22...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=22--success=False--score=0.098--task=put_redbull_can_on_plate.mp4
+  Episode 22: Success=False, Steps=150, AvgStepScore=0.098, AvgConsistency=0.250
+Success: False
+# episodes completed so far: 22
+# successes: 10 (45.5%)
+
+Task: put redbull can on plate (Trial 23/30)
+Starting episode 23...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=23--success=False--score=0.099--task=put_redbull_can_on_plate.mp4
+  Episode 23: Success=False, Steps=150, AvgStepScore=0.099, AvgConsistency=0.315
+Success: False
+# episodes completed so far: 23
+# successes: 10 (43.5%)
+
+Task: put redbull can on plate (Trial 24/30)
+Starting episode 24...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=24--success=False--score=0.094--task=put_redbull_can_on_plate.mp4
+  Episode 24: Success=False, Steps=150, AvgStepScore=0.094, AvgConsistency=0.354
+Success: False
+# episodes completed so far: 24
+# successes: 10 (41.7%)
+
+Task: put redbull can on plate (Trial 25/30)
+Starting episode 25...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=25--success=False--score=0.085--task=put_redbull_can_on_plate.mp4
+  Episode 25: Success=False, Steps=150, AvgStepScore=0.085, AvgConsistency=0.322
+Success: False
+# episodes completed so far: 25
+# successes: 10 (40.0%)
+
+Task: put redbull can on plate (Trial 26/30)
+Starting episode 26...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=26--success=False--score=0.102--task=put_redbull_can_on_plate.mp4
+  Episode 26: Success=False, Steps=150, AvgStepScore=0.102, AvgConsistency=0.402
+Success: False
+# episodes completed so far: 26
+# successes: 10 (38.5%)
+
+Task: put redbull can on plate (Trial 27/30)
+Starting episode 27...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=27--success=False--score=0.094--task=put_redbull_can_on_plate.mp4
+  Episode 27: Success=False, Steps=150, AvgStepScore=0.094, AvgConsistency=0.245
+Success: False
+# episodes completed so far: 27
+# successes: 10 (37.0%)
+
+Task: put redbull can on plate (Trial 28/30)
+Starting episode 28...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=28--success=True--score=0.051--task=put_redbull_can_on_plate.mp4
+  Episode 28: Success=True, Steps=28, AvgStepScore=0.051, AvgConsistency=0.189
+Success: True
+# episodes completed so far: 28
+# successes: 11 (39.3%)
+
+Task: put redbull can on plate (Trial 29/30)
+Starting episode 29...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=29--success=False--score=0.112--task=put_redbull_can_on_plate.mp4
+  Episode 29: Success=False, Steps=150, AvgStepScore=0.112, AvgConsistency=0.361
+Success: False
+# episodes completed so far: 29
+# successes: 11 (37.9%)
+
+Task: put redbull can on plate (Trial 30/30)
+Starting episode 30...
+Candidate instructions: ['Position the Red Bull can on the smooth, flat dish', 'Set the Red Bull can on the flat dish.', 'Place the beverage can on the even surface.', 'Arrange the Red Bull can on the level dish.', 'Put the drink can on the flat plate.', 'Position the Red Bull can on the level surface.', 'Set the beverage can on the even plate.', 'Place the Red Bull can on the flat surface.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=30--success=True--score=0.096--task=put_redbull_can_on_plate.mp4
+  Episode 30: Success=True, Steps=35, AvgStepScore=0.096, AvgConsistency=0.283
+Success: True
+# episodes completed so far: 30
+# successes: 12 (40.0%)
+Task 0 ('put redbull can on plate') Success Rate: 0.40 (12/30)
+Current total success rate: 0.4
+
+Task: put the zucchini on the towel (Trial 1/30)
+Starting episode 1...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=31--success=True--score=0.033--task=put_the_zucchini_on_the_towel.mp4
+  Episode 31: Success=True, Steps=90, AvgStepScore=0.033, AvgConsistency=0.274
+Success: True
+# episodes completed so far: 31
+# successes: 13 (41.9%)
+
+Task: put the zucchini on the towel (Trial 2/30)
+Starting episode 2...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=32--success=True--score=0.066--task=put_the_zucchini_on_the_towel.mp4
+  Episode 32: Success=True, Steps=98, AvgStepScore=0.066, AvgConsistency=0.229
+Success: True
+# episodes completed so far: 32
+# successes: 14 (43.8%)
+
+Task: put the zucchini on the towel (Trial 3/30)
+Starting episode 3...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=33--success=False--score=0.053--task=put_the_zucchini_on_the_towel.mp4
+  Episode 33: Success=False, Steps=150, AvgStepScore=0.053, AvgConsistency=0.177
+Success: False
+# episodes completed so far: 33
+# successes: 14 (42.4%)
+
+Task: put the zucchini on the towel (Trial 4/30)
+Starting episode 4...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=34--success=False--score=0.047--task=put_the_zucchini_on_the_towel.mp4
+  Episode 34: Success=False, Steps=150, AvgStepScore=0.047, AvgConsistency=0.116
+Success: False
+# episodes completed so far: 34
+# successes: 14 (41.2%)
+
+Task: put the zucchini on the towel (Trial 5/30)
+Starting episode 5...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=35--success=False--score=0.047--task=put_the_zucchini_on_the_towel.mp4
+  Episode 35: Success=False, Steps=150, AvgStepScore=0.047, AvgConsistency=0.180
+Success: False
+# episodes completed so far: 35
+# successes: 14 (40.0%)
+
+Task: put the zucchini on the towel (Trial 6/30)
+Starting episode 6...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=36--success=True--score=0.011--task=put_the_zucchini_on_the_towel.mp4
+  Episode 36: Success=True, Steps=27, AvgStepScore=0.011, AvgConsistency=0.179
+Success: True
+# episodes completed so far: 36
+# successes: 15 (41.7%)
+
+Task: put the zucchini on the towel (Trial 7/30)
+Starting episode 7...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=37--success=False--score=0.063--task=put_the_zucchini_on_the_towel.mp4
+  Episode 37: Success=False, Steps=150, AvgStepScore=0.063, AvgConsistency=0.254
+Success: False
+# episodes completed so far: 37
+# successes: 15 (40.5%)
+
+Task: put the zucchini on the towel (Trial 8/30)
+Starting episode 8...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=38--success=True--score=0.050--task=put_the_zucchini_on_the_towel.mp4
+  Episode 38: Success=True, Steps=103, AvgStepScore=0.050, AvgConsistency=0.167
+Success: True
+# episodes completed so far: 38
+# successes: 16 (42.1%)
+
+Task: put the zucchini on the towel (Trial 9/30)
+Starting episode 9...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=39--success=True--score=0.056--task=put_the_zucchini_on_the_towel.mp4
+  Episode 39: Success=True, Steps=25, AvgStepScore=0.056, AvgConsistency=0.076
+Success: True
+# episodes completed so far: 39
+# successes: 17 (43.6%)
+
+Task: put the zucchini on the towel (Trial 10/30)
+Starting episode 10...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=40--success=False--score=0.025--task=put_the_zucchini_on_the_towel.mp4
+  Episode 40: Success=False, Steps=150, AvgStepScore=0.025, AvgConsistency=0.200
+Success: False
+# episodes completed so far: 40
+# successes: 17 (42.5%)
+
+Task: put the zucchini on the towel (Trial 11/30)
+Starting episode 11...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=41--success=False--score=0.039--task=put_the_zucchini_on_the_towel.mp4
+  Episode 41: Success=False, Steps=150, AvgStepScore=0.039, AvgConsistency=0.163
+Success: False
+# episodes completed so far: 41
+# successes: 17 (41.5%)
+
+Task: put the zucchini on the towel (Trial 12/30)
+Starting episode 12...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=42--success=False--score=0.056--task=put_the_zucchini_on_the_towel.mp4
+  Episode 42: Success=False, Steps=150, AvgStepScore=0.056, AvgConsistency=0.215
+Success: False
+# episodes completed so far: 42
+# successes: 17 (40.5%)
+
+Task: put the zucchini on the towel (Trial 13/30)
+Starting episode 13...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=43--success=False--score=0.014--task=put_the_zucchini_on_the_towel.mp4
+  Episode 43: Success=False, Steps=150, AvgStepScore=0.014, AvgConsistency=0.130
+Success: False
+# episodes completed so far: 43
+# successes: 17 (39.5%)
+
+Task: put the zucchini on the towel (Trial 14/30)
+Starting episode 14...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=44--success=False--score=0.045--task=put_the_zucchini_on_the_towel.mp4
+  Episode 44: Success=False, Steps=150, AvgStepScore=0.045, AvgConsistency=0.218
+Success: False
+# episodes completed so far: 44
+# successes: 17 (38.6%)
+
+Task: put the zucchini on the towel (Trial 15/30)
+Starting episode 15...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=45--success=True--score=0.056--task=put_the_zucchini_on_the_towel.mp4
+  Episode 45: Success=True, Steps=98, AvgStepScore=0.056, AvgConsistency=0.172
+Success: True
+# episodes completed so far: 45
+# successes: 18 (40.0%)
+
+Task: put the zucchini on the towel (Trial 16/30)
+Starting episode 16...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=46--success=False--score=0.027--task=put_the_zucchini_on_the_towel.mp4
+  Episode 46: Success=False, Steps=150, AvgStepScore=0.027, AvgConsistency=0.218
+Success: False
+# episodes completed so far: 46
+# successes: 18 (39.1%)
+
+Task: put the zucchini on the towel (Trial 17/30)
+Starting episode 17...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=47--success=False--score=0.045--task=put_the_zucchini_on_the_towel.mp4
+  Episode 47: Success=False, Steps=150, AvgStepScore=0.045, AvgConsistency=0.180
+Success: False
+# episodes completed so far: 47
+# successes: 18 (38.3%)
+
+Task: put the zucchini on the towel (Trial 18/30)
+Starting episode 18...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=48--success=False--score=0.050--task=put_the_zucchini_on_the_towel.mp4
+  Episode 48: Success=False, Steps=150, AvgStepScore=0.050, AvgConsistency=0.221
+Success: False
+# episodes completed so far: 48
+# successes: 18 (37.5%)
+
+Task: put the zucchini on the towel (Trial 19/30)
+Starting episode 19...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=49--success=False--score=0.067--task=put_the_zucchini_on_the_towel.mp4
+  Episode 49: Success=False, Steps=150, AvgStepScore=0.067, AvgConsistency=0.261
+Success: False
+# episodes completed so far: 49
+# successes: 18 (36.7%)
+
+Task: put the zucchini on the towel (Trial 20/30)
+Starting episode 20...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=50--success=False--score=0.028--task=put_the_zucchini_on_the_towel.mp4
+  Episode 50: Success=False, Steps=150, AvgStepScore=0.028, AvgConsistency=0.157
+Success: False
+# episodes completed so far: 50
+# successes: 18 (36.0%)
+
+Task: put the zucchini on the towel (Trial 21/30)
+Starting episode 21...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=51--success=False--score=0.011--task=put_the_zucchini_on_the_towel.mp4
+  Episode 51: Success=False, Steps=150, AvgStepScore=0.011, AvgConsistency=0.134
+Success: False
+# episodes completed so far: 51
+# successes: 18 (35.3%)
+
+Task: put the zucchini on the towel (Trial 22/30)
+Starting episode 22...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=52--success=False--score=0.012--task=put_the_zucchini_on_the_towel.mp4
+  Episode 52: Success=False, Steps=150, AvgStepScore=0.012, AvgConsistency=0.143
+Success: False
+# episodes completed so far: 52
+# successes: 18 (34.6%)
+
+Task: put the zucchini on the towel (Trial 23/30)
+Starting episode 23...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=53--success=True--score=0.041--task=put_the_zucchini_on_the_towel.mp4
+  Episode 53: Success=True, Steps=75, AvgStepScore=0.041, AvgConsistency=0.155
+Success: True
+# episodes completed so far: 53
+# successes: 19 (35.8%)
+
+Task: put the zucchini on the towel (Trial 24/30)
+Starting episode 24...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=54--success=False--score=0.036--task=put_the_zucchini_on_the_towel.mp4
+  Episode 54: Success=False, Steps=150, AvgStepScore=0.036, AvgConsistency=0.124
+Success: False
+# episodes completed so far: 54
+# successes: 19 (35.2%)
+
+Task: put the zucchini on the towel (Trial 25/30)
+Starting episode 25...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=55--success=False--score=-0.011--task=put_the_zucchini_on_the_towel.mp4
+  Episode 55: Success=False, Steps=150, AvgStepScore=-0.011, AvgConsistency=0.102
+Success: False
+# episodes completed so far: 55
+# successes: 19 (34.5%)
+
+Task: put the zucchini on the towel (Trial 26/30)
+Starting episode 26...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=56--success=False--score=0.049--task=put_the_zucchini_on_the_towel.mp4
+  Episode 56: Success=False, Steps=150, AvgStepScore=0.049, AvgConsistency=0.198
+Success: False
+# episodes completed so far: 56
+# successes: 19 (33.9%)
+
+Task: put the zucchini on the towel (Trial 27/30)
+Starting episode 27...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=57--success=False--score=0.039--task=put_the_zucchini_on_the_towel.mp4
+  Episode 57: Success=False, Steps=150, AvgStepScore=0.039, AvgConsistency=0.207
+Success: False
+# episodes completed so far: 57
+# successes: 19 (33.3%)
+
+Task: put the zucchini on the towel (Trial 28/30)
+Starting episode 28...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=58--success=True--score=0.041--task=put_the_zucchini_on_the_towel.mp4
+  Episode 58: Success=True, Steps=43, AvgStepScore=0.041, AvgConsistency=0.188
+Success: True
+# episodes completed so far: 58
+# successes: 20 (34.5%)
+
+Task: put the zucchini on the towel (Trial 29/30)
+Starting episode 29...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=59--success=False--score=0.019--task=put_the_zucchini_on_the_towel.mp4
+  Episode 59: Success=False, Steps=150, AvgStepScore=0.019, AvgConsistency=0.225
+Success: False
+# episodes completed so far: 59
+# successes: 20 (33.9%)
+
+Task: put the zucchini on the towel (Trial 30/30)
+Starting episode 30...
+Candidate instructions: ['Transfer the zucchini to the towel.', 'Transfer the zucchini to the towel.', 'Move the zucchini to the cloth.', 'Place the vegetable on the rag.', 'Put the squash onto the fabric.', 'Relocate the courgette to the towel.', 'Shift the zucchini to the fabric.', 'Move the courgette onto the rag.']
+Saved rollout MP4 at path ./rollouts_clip_gaussian_consistency/rephrase_8_consistency_True/episode=60--success=False--score=0.005--task=put_the_zucchini_on_the_towel.mp4
+  Episode 60: Success=False, Steps=150, AvgStepScore=0.005, AvgConsistency=0.120
+Success: False
+# episodes completed so far: 60
+# successes: 20 (33.3%)
+Task 1 ('put the zucchini on the towel') Success Rate: 0.27 (8/30)
+Current total success rate: 0.3333333333333333

@@ -94,36 +94,39 @@ def generate_unique_rephrases(
     Filters very short responses and avoids duplicates and the original text.
     """
     collected: List[str] = []
-    rounds = 0
-    while len(collected) < needed and rounds < MAX_GENERATION_ROUNDS:
-        rounds += 1
-        try:
-            new_instructions = lang_transform.transform(
-                original_instruction, transform_type, batch_number=batch_number
-            )
-        except Exception as e:
-            print(f"    Error during generation round {rounds}: {e}")
-            continue
+    
+    # Generate a larger batch to account for potential duplicates
+    # Request 1.5x what we need to have better chances of getting enough unique ones
+    request_batch_size = max(needed, 10)  # At least 20 to get good variety
+    
+    try:
+        new_instructions = lang_transform.transform(
+            original_instruction, transform_type, batch_number=request_batch_size
+        )
+    except Exception as e:
+        print(f"    Error during generation: {e}")
+        return collected
 
-        if not new_instructions:
-            continue
+    if not new_instructions:
+        return collected
 
-        for candidate in new_instructions:
-            if len(candidate.strip()) < 10:
-                continue
-            norm = normalize_text(candidate)
-            if norm == normalize_text(original_instruction):
-                continue
-            if norm in existing_normalized:
-                continue
-            collected.append(candidate)
-            existing_normalized.add(norm)
-            if len(collected) >= needed:
-                break
+    # Filter and collect unique rephrases
+    for candidate in new_instructions:
+        if len(candidate.strip()) < 10:
+            continue
+        norm = normalize_text(candidate)
+        if norm == normalize_text(original_instruction):
+            continue
+        if norm in existing_normalized:
+            continue
+        collected.append(candidate)
+        existing_normalized.add(norm)
+        if len(collected) >= needed:
+            break
 
     if len(collected) < needed:
         print(
-            f"    Warning: only generated {len(collected)} of {needed} required unique rephrases after {rounds} rounds"
+            f"    Warning: only generated {len(collected)} of {needed} required unique rephrases"
         )
     return collected
 
@@ -147,7 +150,7 @@ def top_up_simpler_rephrases(input_json_path: str, save_in_place: bool = True) -
     for key, entry in instructions_dict.items():
         try:
             original = entry.get("original") or key
-            rephrases: List[str] = entry.get("rephrases", []) or []
+            rephrases: List[str] = entry.get("ert_rephrases", []) or []
             target_count: int = int(entry.get("count", 0))
         except Exception:
             print(f"  Skipping malformed entry for key: {key}")
@@ -176,11 +179,10 @@ def top_up_simpler_rephrases(input_json_path: str, save_in_place: bool = True) -
             existing_normalized=seen,
             needed=needed,
             transform_type=LANG_TRANSFORM_TYPE,
-            batch_number=min(BATCH_NUMBER, max(needed, 5)),
         )
 
         if additions:
-            entry.setdefault("rephrases", []).extend(additions)
+            entry.setdefault("ert_rephrases", []).extend(additions)
             updated_total += len(additions)
             print(f"    Added {len(additions)} new rephrases")
         else:

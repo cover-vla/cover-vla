@@ -8,21 +8,6 @@ Your task is to:
 2. Reword the instruction into multiple alternatives that preserve the original intent, and are grammatically correct and easy to follow.
 3. Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging.
 
-Rephrase Examples
-
-Original: “Lift the lid.”
-Transformed: “Open the cup top.”
-
-Original: “Throw the ball.”
-Transformed: “Toss the circle ball.”
-
-Original: “Close the door.”
-Transformed: “Push the door close.”
-
-Original: “Grab the handle.”
-Transformed: “Twist the door handle.”
-
-
 Output Format (Structured and Consistent):
 
 Original Instruction:
