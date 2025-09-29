@@ -3389,3 +3389,10 @@ Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=484--succe
 Success: False
 # episodes completed so far: 484
 # successes: 202 (41.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 185...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=485--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 485
+# successes: 202 (41.6%)
