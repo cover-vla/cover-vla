@@ -1,0 +1,7 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block (Trial 1/300)
+Starting episode 1...
+Candidate instructions: ['stack the green block on the yellow block']
+  [t=0] Using VLA-CLIP scoring only
+  [t=1] Using VLA-CLIP scoring only

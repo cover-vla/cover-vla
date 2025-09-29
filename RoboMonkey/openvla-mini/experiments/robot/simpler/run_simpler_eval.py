@@ -93,7 +93,7 @@ class GenerateConfig:
     initial_states_type: str = "eval"
     #                                       Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 0                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 30                    # Number of rollouts per task
+    num_trials_per_task: int = 300                    # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -117,7 +117,7 @@ class GenerateConfig:
     reward_server_port: int = 3100
     
     # Language transformation parameters
-    lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
+    lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
     use_generated_rephrases: bool = False
 
 @draccus.wrap()
@@ -217,7 +217,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
                 # Use the first rephrase (like setting number of samples to 1)
-                task_description = preloaded_rephrases[matching_task_id]["original"] if rephrased_list else original_task_description
+                task_description = preloaded_rephrases[matching_task_id]["original"]
                 print(f"Using rephrased instruction: {task_description}")
             else:
                 print(f"No preloaded rephrases found for task: {original_task_description}, using original")

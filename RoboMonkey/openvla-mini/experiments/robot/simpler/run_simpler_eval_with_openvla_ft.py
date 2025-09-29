@@ -459,7 +459,7 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                     raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
             log_file.write(f"Candidate instructions: {candidate_instructions}\n")
             
-            if cfg.clip_select_action_num_candidates == 1:
+            if cfg.clip_select_action_num_candidates == 1 and cfg.lang_transform_type != "no_transform":
                 candidate_instructions = [user_input_language_instruction]
             
             
@@ -491,14 +491,13 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                 #     repeated_instructions = [each_instruction] * repeated_samples
                 #     actions = get_gaussian_vla_action(cfg, repeated_samples, repeated_instructions, image_path, batch_temperature)
                 #     batch_actions.extend(actions)
-                    
+
                 _, batch_actions = get_batch_actions(
                     candidate_instructions, 
                     image_path, 
                     cfg.batch_server_url, 
                     temperature=0
                 )
-
                 if batch_actions is not None:
                     predicted_actions = [convert_maniskill(action) for action in batch_actions]
                 # Default action is the first one

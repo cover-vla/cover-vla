@@ -1,0 +1,5 @@
+Task suite: simpler_ood
+
+Task: put redbull can on plate (Trial 1/300)
+Starting episode 1...
+Candidate instructions: ['put redbull can on plate']

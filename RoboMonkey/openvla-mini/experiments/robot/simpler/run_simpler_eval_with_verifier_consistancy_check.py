@@ -495,8 +495,8 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                     raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
             log_file.write(f"Candidate instructions: {candidate_instructions}\n")
             
-            if cfg.clip_select_action_num_candidates == 1:
-                candidate_instructions = [user_input_language_instruction]
+            # if cfg.clip_select_action_num_candidates == 1:
+            #     candidate_instructions = [user_input_language_instruction]
             
             while t < max_steps + cfg.num_steps_wait:
                 # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
@@ -531,9 +531,11 @@ def eval_simpler_with_verifier(cfg: GenerateConfig) -> None:
                 actual_samples = 5 if repeated_samples >= 5 else repeated_samples
                 for each_instruction in candidate_instructions:
                     batch_input_instructions.extend([each_instruction] * actual_samples)
+                # print (f"batch_input_instructions: {batch_input_instructions}")
                 actions = get_gaussian_vla_action(cfg, actual_samples, repeated_samples, batch_input_instructions, image_path, batch_temperature)
                 batch_actions.extend(actions)
-                
+                # print (f"batch_actions: {batch_actions}")
+                # input()
                 # _, batch_actions = get_batch_actions(
                 #     candidate_instructions, 
                 #     image_path, 

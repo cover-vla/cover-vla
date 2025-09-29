@@ -208,7 +208,7 @@ def analyze_rephrase_folders(base_path):
                 else:
                     experiment_name = item
             elif item.startswith('no_transform_'):
-                # Format: no_transform_X
+                # Format: no_transform_X_consistency_Y or no_transform_X
                 parts = item.split('_')
                 if len(parts) >= 3:
                     transform_num = parts[2]
