@@ -193,3 +193,5 @@ RoboMonkey/openvla-mini/experiments/robot/simpler/rollouts*
 
 *.mp4
 *.pkl
+
+/root/vla-clip/RoboMonkey/openvla-mini/transfer_images/
