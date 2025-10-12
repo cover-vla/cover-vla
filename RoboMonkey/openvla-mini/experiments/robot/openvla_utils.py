@@ -336,7 +336,7 @@ def save_rollout_video_rephrase_selection(rollout_images, idx, success, transfor
 
 def save_rollout_video_simple(rollout_images, idx, success, task_description, log_file=None):
     """Saves an MP4 replay of an episode (simplified version without pkl files)."""
-    rollout_dir = f"./rollouts_clip/robomonkey_rephrase"
+    rollout_dir = f"./rollouts_clip/robomonkey_id"
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
 

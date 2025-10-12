@@ -117,7 +117,7 @@ class GenerateConfig:
     reward_server_port: int = 3100
     
     # Language transformation parameters
-    lang_transform_type: str = "rephrase"            # Type of language transformation (rephrase/no_transform)
+    lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
     use_generated_rephrases: bool = False
 
 @draccus.wrap()

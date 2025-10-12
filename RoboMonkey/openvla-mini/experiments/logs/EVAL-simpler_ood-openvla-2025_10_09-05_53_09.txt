@@ -1,0 +1,4205 @@
+Task suite: simpler_ood
+
+Task: put redbull can on plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=1--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put redbull can on plate
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=2--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put redbull can on plate
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=3--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: put redbull can on plate
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=4--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: put redbull can on plate
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=5--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+
+Task: put redbull can on plate
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=6--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+
+Task: put redbull can on plate
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 5 (71.4%)
+
+Task: put redbull can on plate
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=8--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 6 (75.0%)
+
+Task: put redbull can on plate
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 6 (66.7%)
+
+Task: put redbull can on plate
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=10--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 7 (70.0%)
+
+Task: put redbull can on plate
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=11--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 8 (72.7%)
+
+Task: put redbull can on plate
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=12--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 9 (75.0%)
+
+Task: put redbull can on plate
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=13--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 10 (76.9%)
+
+Task: put redbull can on plate
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=14--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 11 (78.6%)
+
+Task: put redbull can on plate
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=15--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 12 (80.0%)
+
+Task: put redbull can on plate
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=16--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 13 (81.2%)
+
+Task: put redbull can on plate
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=17--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 13 (76.5%)
+
+Task: put redbull can on plate
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=18--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 14 (77.8%)
+
+Task: put redbull can on plate
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 14 (73.7%)
+
+Task: put redbull can on plate
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=20--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 15 (75.0%)
+
+Task: put redbull can on plate
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=21--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 16 (76.2%)
+
+Task: put redbull can on plate
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=22--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 17 (77.3%)
+
+Task: put redbull can on plate
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=23--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 18 (78.3%)
+
+Task: put redbull can on plate
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=24--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 19 (79.2%)
+
+Task: put redbull can on plate
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=25--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 20 (80.0%)
+
+Task: put redbull can on plate
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=26--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 26
+# successes: 21 (80.8%)
+
+Task: put redbull can on plate
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=27--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 27
+# successes: 22 (81.5%)
+
+Task: put redbull can on plate
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=28--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 28
+# successes: 23 (82.1%)
+
+Task: put redbull can on plate
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=29--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 24 (82.8%)
+
+Task: put redbull can on plate
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=30--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 25 (83.3%)
+
+Task: put redbull can on plate
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=31--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 26 (83.9%)
+
+Task: put redbull can on plate
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=32--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 32
+# successes: 27 (84.4%)
+
+Task: put redbull can on plate
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=33--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 28 (84.8%)
+
+Task: put redbull can on plate
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=34--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 34
+# successes: 29 (85.3%)
+
+Task: put redbull can on plate
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=35--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 30 (85.7%)
+
+Task: put redbull can on plate
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=36--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 31 (86.1%)
+
+Task: put redbull can on plate
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=37--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 37
+# successes: 32 (86.5%)
+
+Task: put redbull can on plate
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=38--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 38
+# successes: 33 (86.8%)
+
+Task: put redbull can on plate
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=39--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 39
+# successes: 34 (87.2%)
+
+Task: put redbull can on plate
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=40--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 35 (87.5%)
+
+Task: put redbull can on plate
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=41--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 35 (85.4%)
+
+Task: put redbull can on plate
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=42--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 36 (85.7%)
+
+Task: put redbull can on plate
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=43--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 37 (86.0%)
+
+Task: put redbull can on plate
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=44--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 38 (86.4%)
+
+Task: put redbull can on plate
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=45--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 39 (86.7%)
+
+Task: put redbull can on plate
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=46--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 40 (87.0%)
+
+Task: put redbull can on plate
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=47--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 41 (87.2%)
+
+Task: put redbull can on plate
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=48--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 48
+# successes: 42 (87.5%)
+
+Task: put redbull can on plate
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=49--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 43 (87.8%)
+
+Task: put redbull can on plate
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=50--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 50
+# successes: 44 (88.0%)
+
+Task: put redbull can on plate
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=51--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 51
+# successes: 45 (88.2%)
+
+Task: put redbull can on plate
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=52--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 52
+# successes: 46 (88.5%)
+
+Task: put redbull can on plate
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=53--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 53
+# successes: 47 (88.7%)
+
+Task: put redbull can on plate
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=54--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 54
+# successes: 48 (88.9%)
+
+Task: put redbull can on plate
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=55--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 49 (89.1%)
+
+Task: put redbull can on plate
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=56--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 56
+# successes: 50 (89.3%)
+
+Task: put redbull can on plate
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=57--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 57
+# successes: 50 (87.7%)
+
+Task: put redbull can on plate
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=58--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 58
+# successes: 51 (87.9%)
+
+Task: put redbull can on plate
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=59--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 59
+# successes: 51 (86.4%)
+
+Task: put redbull can on plate
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=60--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 60
+# successes: 52 (86.7%)
+
+Task: put redbull can on plate
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=61--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 61
+# successes: 53 (86.9%)
+
+Task: put redbull can on plate
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=62--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 62
+# successes: 54 (87.1%)
+
+Task: put redbull can on plate
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=63--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 63
+# successes: 55 (87.3%)
+
+Task: put redbull can on plate
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=64--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 64
+# successes: 56 (87.5%)
+
+Task: put redbull can on plate
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=65--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 65
+# successes: 57 (87.7%)
+
+Task: put redbull can on plate
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=66--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 66
+# successes: 58 (87.9%)
+
+Task: put redbull can on plate
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=67--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 67
+# successes: 59 (88.1%)
+
+Task: put redbull can on plate
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=68--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 68
+# successes: 60 (88.2%)
+
+Task: put redbull can on plate
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=69--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 69
+# successes: 61 (88.4%)
+
+Task: put redbull can on plate
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=70--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 70
+# successes: 62 (88.6%)
+
+Task: put redbull can on plate
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=71--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 71
+# successes: 63 (88.7%)
+
+Task: put redbull can on plate
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=72--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 72
+# successes: 64 (88.9%)
+
+Task: put redbull can on plate
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=73--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 73
+# successes: 65 (89.0%)
+
+Task: put redbull can on plate
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=74--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 74
+# successes: 65 (87.8%)
+
+Task: put redbull can on plate
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=75--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 75
+# successes: 66 (88.0%)
+
+Task: put redbull can on plate
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=76--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 76
+# successes: 67 (88.2%)
+
+Task: put redbull can on plate
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=77--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 77
+# successes: 68 (88.3%)
+
+Task: put redbull can on plate
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=78--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 78
+# successes: 69 (88.5%)
+
+Task: put redbull can on plate
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=79--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 79
+# successes: 70 (88.6%)
+
+Task: put redbull can on plate
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=80--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 80
+# successes: 71 (88.8%)
+
+Task: put redbull can on plate
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=81--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 81
+# successes: 72 (88.9%)
+
+Task: put redbull can on plate
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=82--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 82
+# successes: 72 (87.8%)
+
+Task: put redbull can on plate
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=83--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 83
+# successes: 73 (88.0%)
+
+Task: put redbull can on plate
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=84--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 84
+# successes: 74 (88.1%)
+
+Task: put redbull can on plate
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=85--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 85
+# successes: 74 (87.1%)
+
+Task: put redbull can on plate
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=86--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 86
+# successes: 75 (87.2%)
+
+Task: put redbull can on plate
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=87--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 87
+# successes: 76 (87.4%)
+
+Task: put redbull can on plate
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=88--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 88
+# successes: 77 (87.5%)
+
+Task: put redbull can on plate
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=89--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 89
+# successes: 78 (87.6%)
+
+Task: put redbull can on plate
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=90--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 90
+# successes: 79 (87.8%)
+
+Task: put redbull can on plate
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=91--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 91
+# successes: 80 (87.9%)
+
+Task: put redbull can on plate
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=92--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 92
+# successes: 81 (88.0%)
+
+Task: put redbull can on plate
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=93--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 93
+# successes: 82 (88.2%)
+
+Task: put redbull can on plate
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=94--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 94
+# successes: 83 (88.3%)
+
+Task: put redbull can on plate
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=95--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 95
+# successes: 84 (88.4%)
+
+Task: put redbull can on plate
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=96--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 96
+# successes: 85 (88.5%)
+
+Task: put redbull can on plate
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=97--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 97
+# successes: 86 (88.7%)
+
+Task: put redbull can on plate
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=98--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 98
+# successes: 87 (88.8%)
+
+Task: put redbull can on plate
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=99--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 99
+# successes: 88 (88.9%)
+
+Task: put redbull can on plate
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=100--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 100
+# successes: 89 (89.0%)
+
+Task: put redbull can on plate
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=101--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 101
+# successes: 90 (89.1%)
+
+Task: put redbull can on plate
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=102--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 102
+# successes: 90 (88.2%)
+
+Task: put redbull can on plate
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=103--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 103
+# successes: 91 (88.3%)
+
+Task: put redbull can on plate
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=104--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 104
+# successes: 92 (88.5%)
+
+Task: put redbull can on plate
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=105--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 105
+# successes: 93 (88.6%)
+
+Task: put redbull can on plate
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=106--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 106
+# successes: 94 (88.7%)
+
+Task: put redbull can on plate
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=107--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 107
+# successes: 95 (88.8%)
+
+Task: put redbull can on plate
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=108--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 108
+# successes: 96 (88.9%)
+
+Task: put redbull can on plate
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=109--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 109
+# successes: 97 (89.0%)
+
+Task: put redbull can on plate
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=110--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 110
+# successes: 98 (89.1%)
+
+Task: put redbull can on plate
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=111--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 111
+# successes: 99 (89.2%)
+
+Task: put redbull can on plate
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=112--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 112
+# successes: 100 (89.3%)
+
+Task: put redbull can on plate
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=113--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 113
+# successes: 101 (89.4%)
+
+Task: put redbull can on plate
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=114--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 114
+# successes: 102 (89.5%)
+
+Task: put redbull can on plate
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=115--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 115
+# successes: 103 (89.6%)
+
+Task: put redbull can on plate
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=116--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 116
+# successes: 104 (89.7%)
+
+Task: put redbull can on plate
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=117--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 117
+# successes: 105 (89.7%)
+
+Task: put redbull can on plate
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=118--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 118
+# successes: 105 (89.0%)
+
+Task: put redbull can on plate
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=119--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 119
+# successes: 106 (89.1%)
+
+Task: put redbull can on plate
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=120--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 120
+# successes: 107 (89.2%)
+
+Task: put redbull can on plate
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=121--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 121
+# successes: 108 (89.3%)
+
+Task: put redbull can on plate
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=122--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 122
+# successes: 109 (89.3%)
+
+Task: put redbull can on plate
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=123--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 123
+# successes: 110 (89.4%)
+
+Task: put redbull can on plate
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=124--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 124
+# successes: 111 (89.5%)
+
+Task: put redbull can on plate
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=125--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 125
+# successes: 112 (89.6%)
+
+Task: put redbull can on plate
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=126--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 126
+# successes: 113 (89.7%)
+
+Task: put redbull can on plate
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=127--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 127
+# successes: 114 (89.8%)
+
+Task: put redbull can on plate
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=128--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 128
+# successes: 115 (89.8%)
+
+Task: put redbull can on plate
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=129--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 129
+# successes: 116 (89.9%)
+
+Task: put redbull can on plate
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=130--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 130
+# successes: 117 (90.0%)
+
+Task: put redbull can on plate
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=131--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 131
+# successes: 118 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=132--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 132
+# successes: 119 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=133--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 133
+# successes: 120 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=134--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 134
+# successes: 121 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=135--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 135
+# successes: 122 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=136--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 136
+# successes: 123 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=137--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 137
+# successes: 124 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=138--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 138
+# successes: 125 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=139--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 139
+# successes: 126 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=140--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 140
+# successes: 127 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=141--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 141
+# successes: 128 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=142--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 142
+# successes: 129 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=143--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 143
+# successes: 130 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=144--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 144
+# successes: 131 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=145--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 145
+# successes: 132 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=146--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 146
+# successes: 133 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=147--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 147
+# successes: 134 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=148--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 148
+# successes: 135 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=149--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 149
+# successes: 136 (91.3%)
+
+Task: put redbull can on plate
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=150--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 150
+# successes: 137 (91.3%)
+
+Task: put redbull can on plate
+Starting episode 151...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=151--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 151
+# successes: 137 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 152...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=152--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 152
+# successes: 138 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 153...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=153--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 153
+# successes: 139 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 154...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=154--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 154
+# successes: 140 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 155...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=155--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 155
+# successes: 141 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 156...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=156--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 156
+# successes: 142 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 157...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=157--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 157
+# successes: 143 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 158...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=158--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 158
+# successes: 144 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 159...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=159--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 159
+# successes: 145 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 160...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=160--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 160
+# successes: 146 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 161...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=161--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 161
+# successes: 147 (91.3%)
+
+Task: put redbull can on plate
+Starting episode 162...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=162--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 162
+# successes: 148 (91.4%)
+
+Task: put redbull can on plate
+Starting episode 163...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=163--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 163
+# successes: 149 (91.4%)
+
+Task: put redbull can on plate
+Starting episode 164...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=164--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 164
+# successes: 150 (91.5%)
+
+Task: put redbull can on plate
+Starting episode 165...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=165--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 165
+# successes: 151 (91.5%)
+
+Task: put redbull can on plate
+Starting episode 166...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=166--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 166
+# successes: 152 (91.6%)
+
+Task: put redbull can on plate
+Starting episode 167...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=167--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 167
+# successes: 152 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 168...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=168--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 168
+# successes: 153 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 169...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=169--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 169
+# successes: 154 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 170...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=170--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 170
+# successes: 155 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 171...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=171--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 171
+# successes: 156 (91.2%)
+
+Task: put redbull can on plate
+Starting episode 172...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=172--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 172
+# successes: 157 (91.3%)
+
+Task: put redbull can on plate
+Starting episode 173...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=173--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 173
+# successes: 157 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 174...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=174--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 174
+# successes: 158 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 175...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=175--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 175
+# successes: 158 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 176...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=176--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 176
+# successes: 159 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 177...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=177--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 177
+# successes: 160 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 178...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=178--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 178
+# successes: 161 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 179...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=179--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 179
+# successes: 162 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 180...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=180--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 180
+# successes: 163 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 181...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=181--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 181
+# successes: 164 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 182...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=182--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 182
+# successes: 165 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 183...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=183--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 183
+# successes: 166 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 184...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=184--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 184
+# successes: 167 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 185...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=185--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 185
+# successes: 168 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 186...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=186--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 186
+# successes: 169 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 187...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=187--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 187
+# successes: 169 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 188...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=188--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 188
+# successes: 170 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 189...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=189--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 189
+# successes: 171 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 190...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=190--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 190
+# successes: 172 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 191...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=191--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 191
+# successes: 172 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 192...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=192--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 192
+# successes: 173 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 193...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=193--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 193
+# successes: 174 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 194...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=194--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 194
+# successes: 175 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 195...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=195--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 195
+# successes: 176 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 196...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=196--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 196
+# successes: 176 (89.8%)
+
+Task: put redbull can on plate
+Starting episode 197...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=197--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 197
+# successes: 177 (89.8%)
+
+Task: put redbull can on plate
+Starting episode 198...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=198--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 198
+# successes: 178 (89.9%)
+
+Task: put redbull can on plate
+Starting episode 199...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=199--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 199
+# successes: 179 (89.9%)
+
+Task: put redbull can on plate
+Starting episode 200...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=200--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 200
+# successes: 180 (90.0%)
+
+Task: put redbull can on plate
+Starting episode 201...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=201--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 201
+# successes: 181 (90.0%)
+
+Task: put redbull can on plate
+Starting episode 202...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=202--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 202
+# successes: 182 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 203...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=203--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 203
+# successes: 183 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 204...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=204--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 204
+# successes: 184 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 205...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=205--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 205
+# successes: 185 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 206...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=206--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 206
+# successes: 186 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 207...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=207--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 207
+# successes: 187 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 208...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=208--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 208
+# successes: 188 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 209...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=209--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 209
+# successes: 189 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 210...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=210--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 210
+# successes: 190 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 211...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=211--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 211
+# successes: 191 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 212...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=212--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 212
+# successes: 192 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 213...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=213--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 213
+# successes: 193 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 214...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=214--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 214
+# successes: 193 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 215...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=215--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 215
+# successes: 194 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 216...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=216--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 216
+# successes: 195 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 217...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=217--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 217
+# successes: 196 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 218...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=218--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 218
+# successes: 197 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 219...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=219--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 219
+# successes: 198 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 220...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=220--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 220
+# successes: 199 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 221...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=221--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 221
+# successes: 200 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 222...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=222--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 222
+# successes: 201 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 223...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=223--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 223
+# successes: 202 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 224...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=224--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 224
+# successes: 203 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 225...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=225--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 225
+# successes: 204 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 226...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=226--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 226
+# successes: 205 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 227...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=227--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 227
+# successes: 206 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 228...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=228--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 228
+# successes: 207 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 229...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=229--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 229
+# successes: 208 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 230...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=230--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 230
+# successes: 209 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 231...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=231--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 231
+# successes: 210 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 232...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=232--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 232
+# successes: 211 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 233...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=233--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 233
+# successes: 212 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 234...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=234--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 234
+# successes: 213 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 235...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=235--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 235
+# successes: 214 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 236...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=236--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 236
+# successes: 215 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 237...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=237--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 237
+# successes: 216 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 238...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=238--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 238
+# successes: 216 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 239...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=239--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 239
+# successes: 216 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 240...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=240--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 240
+# successes: 217 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 241...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=241--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 241
+# successes: 218 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 242...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=242--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 242
+# successes: 219 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 243...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=243--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 243
+# successes: 220 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 244...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=244--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 244
+# successes: 221 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 245...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=245--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 245
+# successes: 222 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 246...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=246--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 246
+# successes: 223 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 247...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=247--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 247
+# successes: 223 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 248...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=248--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 248
+# successes: 224 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 249...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=249--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 249
+# successes: 225 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 250...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=250--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 250
+# successes: 226 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 251...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=251--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 251
+# successes: 227 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 252...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=252--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 252
+# successes: 228 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 253...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=253--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 253
+# successes: 229 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 254...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=254--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 254
+# successes: 230 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 255...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=255--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 255
+# successes: 231 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 256...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=256--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 256
+# successes: 232 (90.6%)
+
+Task: put redbull can on plate
+Starting episode 257...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=257--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 257
+# successes: 233 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 258...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=258--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 258
+# successes: 234 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 259...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=259--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 259
+# successes: 235 (90.7%)
+
+Task: put redbull can on plate
+Starting episode 260...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=260--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 260
+# successes: 236 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 261...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=261--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 261
+# successes: 237 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 262...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=262--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 262
+# successes: 238 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 263...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=263--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 263
+# successes: 239 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 264...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=264--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 264
+# successes: 240 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 265...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=265--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 265
+# successes: 241 (90.9%)
+
+Task: put redbull can on plate
+Starting episode 266...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=266--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 266
+# successes: 242 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 267...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=267--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 267
+# successes: 243 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 268...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=268--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 268
+# successes: 244 (91.0%)
+
+Task: put redbull can on plate
+Starting episode 269...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=269--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 269
+# successes: 245 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 270...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=270--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 270
+# successes: 246 (91.1%)
+
+Task: put redbull can on plate
+Starting episode 271...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=271--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 271
+# successes: 246 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 272...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=272--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 272
+# successes: 247 (90.8%)
+
+Task: put redbull can on plate
+Starting episode 273...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=273--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 273
+# successes: 247 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 274...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=274--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 274
+# successes: 248 (90.5%)
+
+Task: put redbull can on plate
+Starting episode 275...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=275--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 275
+# successes: 248 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 276...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=276--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 276
+# successes: 249 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 277...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=277--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 277
+# successes: 250 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 278...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=278--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 278
+# successes: 251 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 279...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=279--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 279
+# successes: 252 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 280...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=280--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 280
+# successes: 253 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 281...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=281--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 281
+# successes: 253 (90.0%)
+
+Task: put redbull can on plate
+Starting episode 282...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=282--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 282
+# successes: 254 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 283...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=283--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 283
+# successes: 255 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 284...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=284--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 284
+# successes: 256 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 285...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=285--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 285
+# successes: 257 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 286...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=286--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 286
+# successes: 258 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 287...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=287--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 287
+# successes: 259 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 288...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=288--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 288
+# successes: 260 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 289...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=289--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 289
+# successes: 261 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 290...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=290--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 290
+# successes: 262 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 291...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=291--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 291
+# successes: 263 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 292...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=292--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 292
+# successes: 264 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 293...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=293--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 293
+# successes: 265 (90.4%)
+
+Task: put redbull can on plate
+Starting episode 294...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=294--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 294
+# successes: 265 (90.1%)
+
+Task: put redbull can on plate
+Starting episode 295...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=295--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 295
+# successes: 266 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 296...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=296--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 296
+# successes: 267 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 297...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=297--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 297
+# successes: 268 (90.2%)
+
+Task: put redbull can on plate
+Starting episode 298...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=298--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 298
+# successes: 269 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 299...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=299--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 299
+# successes: 270 (90.3%)
+
+Task: put redbull can on plate
+Starting episode 300...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=300--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 300
+# successes: 271 (90.3%)
+Current task success rate: 0.9033333333333333
+Current total success rate: 0.9033333333333333
+
+Task: put the zucchini on the towel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=301--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 301
+# successes: 271 (90.0%)
+
+Task: put the zucchini on the towel
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=302--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 302
+# successes: 272 (90.1%)
+
+Task: put the zucchini on the towel
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=303--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 303
+# successes: 273 (90.1%)
+
+Task: put the zucchini on the towel
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=304--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 304
+# successes: 274 (90.1%)
+
+Task: put the zucchini on the towel
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=305--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 305
+# successes: 274 (89.8%)
+
+Task: put the zucchini on the towel
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=306--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 306
+# successes: 275 (89.9%)
+
+Task: put the zucchini on the towel
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=307--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 307
+# successes: 275 (89.6%)
+
+Task: put the zucchini on the towel
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=308--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 308
+# successes: 275 (89.3%)
+
+Task: put the zucchini on the towel
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=309--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 309
+# successes: 275 (89.0%)
+
+Task: put the zucchini on the towel
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=310--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 310
+# successes: 276 (89.0%)
+
+Task: put the zucchini on the towel
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=311--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 311
+# successes: 277 (89.1%)
+
+Task: put the zucchini on the towel
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=312--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 312
+# successes: 277 (88.8%)
+
+Task: put the zucchini on the towel
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=313--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 313
+# successes: 277 (88.5%)
+
+Task: put the zucchini on the towel
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=314--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 314
+# successes: 277 (88.2%)
+
+Task: put the zucchini on the towel
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=315--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 315
+# successes: 277 (87.9%)
+
+Task: put the zucchini on the towel
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=316--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 316
+# successes: 277 (87.7%)
+
+Task: put the zucchini on the towel
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=317--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 317
+# successes: 277 (87.4%)
+
+Task: put the zucchini on the towel
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=318--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 318
+# successes: 278 (87.4%)
+
+Task: put the zucchini on the towel
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=319--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 319
+# successes: 278 (87.1%)
+
+Task: put the zucchini on the towel
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=320--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 320
+# successes: 278 (86.9%)
+
+Task: put the zucchini on the towel
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=321--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 321
+# successes: 279 (86.9%)
+
+Task: put the zucchini on the towel
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=322--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 322
+# successes: 279 (86.6%)
+
+Task: put the zucchini on the towel
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=323--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 323
+# successes: 279 (86.4%)
+
+Task: put the zucchini on the towel
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=324--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 324
+# successes: 279 (86.1%)
+
+Task: put the zucchini on the towel
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=325--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 325
+# successes: 280 (86.2%)
+
+Task: put the zucchini on the towel
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=326--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 326
+# successes: 281 (86.2%)
+
+Task: put the zucchini on the towel
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=327--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 327
+# successes: 281 (85.9%)
+
+Task: put the zucchini on the towel
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=328--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 328
+# successes: 282 (86.0%)
+
+Task: put the zucchini on the towel
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=329--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 329
+# successes: 283 (86.0%)
+
+Task: put the zucchini on the towel
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=330--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 330
+# successes: 283 (85.8%)
+
+Task: put the zucchini on the towel
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=331--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 331
+# successes: 283 (85.5%)
+
+Task: put the zucchini on the towel
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=332--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 332
+# successes: 283 (85.2%)
+
+Task: put the zucchini on the towel
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=333--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 333
+# successes: 283 (85.0%)
+
+Task: put the zucchini on the towel
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=334--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 334
+# successes: 284 (85.0%)
+
+Task: put the zucchini on the towel
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=335--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 335
+# successes: 284 (84.8%)
+
+Task: put the zucchini on the towel
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=336--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 336
+# successes: 284 (84.5%)
+
+Task: put the zucchini on the towel
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=337--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 337
+# successes: 284 (84.3%)
+
+Task: put the zucchini on the towel
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=338--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 338
+# successes: 284 (84.0%)
+
+Task: put the zucchini on the towel
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=339--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 339
+# successes: 284 (83.8%)
+
+Task: put the zucchini on the towel
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=340--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 340
+# successes: 284 (83.5%)
+
+Task: put the zucchini on the towel
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=341--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 341
+# successes: 285 (83.6%)
+
+Task: put the zucchini on the towel
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=342--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 342
+# successes: 286 (83.6%)
+
+Task: put the zucchini on the towel
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=343--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 343
+# successes: 287 (83.7%)
+
+Task: put the zucchini on the towel
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=344--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 344
+# successes: 287 (83.4%)
+
+Task: put the zucchini on the towel
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=345--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 345
+# successes: 287 (83.2%)
+
+Task: put the zucchini on the towel
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=346--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 346
+# successes: 287 (82.9%)
+
+Task: put the zucchini on the towel
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=347--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 347
+# successes: 287 (82.7%)
+
+Task: put the zucchini on the towel
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=348--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 348
+# successes: 287 (82.5%)
+
+Task: put the zucchini on the towel
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=349--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 349
+# successes: 287 (82.2%)
+
+Task: put the zucchini on the towel
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=350--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 350
+# successes: 287 (82.0%)
+
+Task: put the zucchini on the towel
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=351--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 351
+# successes: 287 (81.8%)
+
+Task: put the zucchini on the towel
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=352--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 352
+# successes: 288 (81.8%)
+
+Task: put the zucchini on the towel
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=353--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 353
+# successes: 289 (81.9%)
+
+Task: put the zucchini on the towel
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=354--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 354
+# successes: 289 (81.6%)
+
+Task: put the zucchini on the towel
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=355--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 355
+# successes: 289 (81.4%)
+
+Task: put the zucchini on the towel
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=356--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 356
+# successes: 289 (81.2%)
+
+Task: put the zucchini on the towel
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=357--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 357
+# successes: 290 (81.2%)
+
+Task: put the zucchini on the towel
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=358--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 358
+# successes: 291 (81.3%)
+
+Task: put the zucchini on the towel
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=359--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 359
+# successes: 292 (81.3%)
+
+Task: put the zucchini on the towel
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=360--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 360
+# successes: 292 (81.1%)
+
+Task: put the zucchini on the towel
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=361--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 361
+# successes: 292 (80.9%)
+
+Task: put the zucchini on the towel
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=362--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 362
+# successes: 293 (80.9%)
+
+Task: put the zucchini on the towel
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=363--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 363
+# successes: 293 (80.7%)
+
+Task: put the zucchini on the towel
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=364--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 364
+# successes: 293 (80.5%)
+
+Task: put the zucchini on the towel
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=365--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 365
+# successes: 293 (80.3%)
+
+Task: put the zucchini on the towel
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=366--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 366
+# successes: 293 (80.1%)
+
+Task: put the zucchini on the towel
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=367--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 367
+# successes: 293 (79.8%)
+
+Task: put the zucchini on the towel
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=368--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 368
+# successes: 293 (79.6%)
+
+Task: put the zucchini on the towel
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=369--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 369
+# successes: 293 (79.4%)
+
+Task: put the zucchini on the towel
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=370--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 370
+# successes: 293 (79.2%)
+
+Task: put the zucchini on the towel
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=371--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 371
+# successes: 293 (79.0%)
+
+Task: put the zucchini on the towel
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=372--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 372
+# successes: 293 (78.8%)
+
+Task: put the zucchini on the towel
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=373--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 373
+# successes: 293 (78.6%)
+
+Task: put the zucchini on the towel
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=374--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 374
+# successes: 293 (78.3%)
+
+Task: put the zucchini on the towel
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=375--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 375
+# successes: 293 (78.1%)
+
+Task: put the zucchini on the towel
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=376--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 376
+# successes: 293 (77.9%)
+
+Task: put the zucchini on the towel
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=377--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 377
+# successes: 294 (78.0%)
+
+Task: put the zucchini on the towel
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=378--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 378
+# successes: 294 (77.8%)
+
+Task: put the zucchini on the towel
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=379--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 379
+# successes: 294 (77.6%)
+
+Task: put the zucchini on the towel
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=380--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 380
+# successes: 294 (77.4%)
+
+Task: put the zucchini on the towel
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=381--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 381
+# successes: 295 (77.4%)
+
+Task: put the zucchini on the towel
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=382--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 382
+# successes: 295 (77.2%)
+
+Task: put the zucchini on the towel
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=383--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 383
+# successes: 296 (77.3%)
+
+Task: put the zucchini on the towel
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=384--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 384
+# successes: 297 (77.3%)
+
+Task: put the zucchini on the towel
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=385--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 385
+# successes: 298 (77.4%)
+
+Task: put the zucchini on the towel
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=386--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 386
+# successes: 298 (77.2%)
+
+Task: put the zucchini on the towel
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=387--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 387
+# successes: 299 (77.3%)
+
+Task: put the zucchini on the towel
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=388--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 388
+# successes: 299 (77.1%)
+
+Task: put the zucchini on the towel
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=389--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 389
+# successes: 300 (77.1%)
+
+Task: put the zucchini on the towel
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=390--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 390
+# successes: 301 (77.2%)
+
+Task: put the zucchini on the towel
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=391--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 391
+# successes: 301 (77.0%)
+
+Task: put the zucchini on the towel
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=392--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 392
+# successes: 301 (76.8%)
+
+Task: put the zucchini on the towel
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=393--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 393
+# successes: 301 (76.6%)
+
+Task: put the zucchini on the towel
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=394--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 394
+# successes: 301 (76.4%)
+
+Task: put the zucchini on the towel
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=395--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 395
+# successes: 301 (76.2%)
+
+Task: put the zucchini on the towel
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=396--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 396
+# successes: 302 (76.3%)
+
+Task: put the zucchini on the towel
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=397--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 397
+# successes: 302 (76.1%)
+
+Task: put the zucchini on the towel
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=398--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 398
+# successes: 302 (75.9%)
+
+Task: put the zucchini on the towel
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=399--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 399
+# successes: 303 (75.9%)
+
+Task: put the zucchini on the towel
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=400--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 400
+# successes: 303 (75.8%)
+
+Task: put the zucchini on the towel
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=401--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 401
+# successes: 303 (75.6%)
+
+Task: put the zucchini on the towel
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=402--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 402
+# successes: 303 (75.4%)
+
+Task: put the zucchini on the towel
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=403--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 403
+# successes: 304 (75.4%)
+
+Task: put the zucchini on the towel
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=404--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 404
+# successes: 304 (75.2%)
+
+Task: put the zucchini on the towel
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=405--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 405
+# successes: 305 (75.3%)
+
+Task: put the zucchini on the towel
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=406--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 406
+# successes: 305 (75.1%)
+
+Task: put the zucchini on the towel
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=407--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 407
+# successes: 305 (74.9%)
+
+Task: put the zucchini on the towel
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=408--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 408
+# successes: 305 (74.8%)
+
+Task: put the zucchini on the towel
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=409--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 409
+# successes: 305 (74.6%)
+
+Task: put the zucchini on the towel
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=410--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 410
+# successes: 305 (74.4%)
+
+Task: put the zucchini on the towel
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=411--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 411
+# successes: 305 (74.2%)
+
+Task: put the zucchini on the towel
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=412--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 412
+# successes: 305 (74.0%)
+
+Task: put the zucchini on the towel
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=413--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 413
+# successes: 305 (73.8%)
+
+Task: put the zucchini on the towel
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=414--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 414
+# successes: 306 (73.9%)
+
+Task: put the zucchini on the towel
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=415--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 415
+# successes: 306 (73.7%)
+
+Task: put the zucchini on the towel
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=416--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 416
+# successes: 306 (73.6%)
+
+Task: put the zucchini on the towel
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=417--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 417
+# successes: 306 (73.4%)
+
+Task: put the zucchini on the towel
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=418--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 418
+# successes: 307 (73.4%)
+
+Task: put the zucchini on the towel
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=419--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 419
+# successes: 308 (73.5%)
+
+Task: put the zucchini on the towel
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=420--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 420
+# successes: 308 (73.3%)
+
+Task: put the zucchini on the towel
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=421--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 421
+# successes: 309 (73.4%)
+
+Task: put the zucchini on the towel
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=422--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 422
+# successes: 310 (73.5%)
+
+Task: put the zucchini on the towel
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=423--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 423
+# successes: 310 (73.3%)
+
+Task: put the zucchini on the towel
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=424--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 424
+# successes: 310 (73.1%)
+
+Task: put the zucchini on the towel
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=425--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 425
+# successes: 310 (72.9%)
+
+Task: put the zucchini on the towel
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=426--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 426
+# successes: 310 (72.8%)
+
+Task: put the zucchini on the towel
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=427--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 427
+# successes: 310 (72.6%)
+
+Task: put the zucchini on the towel
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=428--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 428
+# successes: 310 (72.4%)
+
+Task: put the zucchini on the towel
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=429--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 429
+# successes: 310 (72.3%)
+
+Task: put the zucchini on the towel
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=430--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 430
+# successes: 310 (72.1%)
+
+Task: put the zucchini on the towel
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=431--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 431
+# successes: 310 (71.9%)
+
+Task: put the zucchini on the towel
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=432--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 432
+# successes: 311 (72.0%)
+
+Task: put the zucchini on the towel
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=433--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 433
+# successes: 312 (72.1%)
+
+Task: put the zucchini on the towel
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=434--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 434
+# successes: 313 (72.1%)
+
+Task: put the zucchini on the towel
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=435--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 435
+# successes: 313 (72.0%)
+
+Task: put the zucchini on the towel
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=436--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 436
+# successes: 313 (71.8%)
+
+Task: put the zucchini on the towel
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=437--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 437
+# successes: 313 (71.6%)
+
+Task: put the zucchini on the towel
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=438--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 438
+# successes: 313 (71.5%)
+
+Task: put the zucchini on the towel
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=439--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 439
+# successes: 313 (71.3%)
+
+Task: put the zucchini on the towel
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=440--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 440
+# successes: 313 (71.1%)
+
+Task: put the zucchini on the towel
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=441--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 441
+# successes: 313 (71.0%)
+
+Task: put the zucchini on the towel
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=442--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 442
+# successes: 313 (70.8%)
+
+Task: put the zucchini on the towel
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=443--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 443
+# successes: 314 (70.9%)
+
+Task: put the zucchini on the towel
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=444--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 444
+# successes: 314 (70.7%)
+
+Task: put the zucchini on the towel
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=445--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 445
+# successes: 315 (70.8%)
+
+Task: put the zucchini on the towel
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=446--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 446
+# successes: 316 (70.9%)
+
+Task: put the zucchini on the towel
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=447--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 447
+# successes: 316 (70.7%)
+
+Task: put the zucchini on the towel
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=448--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 448
+# successes: 316 (70.5%)
+
+Task: put the zucchini on the towel
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=449--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 449
+# successes: 316 (70.4%)
+
+Task: put the zucchini on the towel
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=450--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 450
+# successes: 317 (70.4%)
+
+Task: put the zucchini on the towel
+Starting episode 151...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=451--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 451
+# successes: 317 (70.3%)
+
+Task: put the zucchini on the towel
+Starting episode 152...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=452--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 452
+# successes: 318 (70.4%)
+
+Task: put the zucchini on the towel
+Starting episode 153...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=453--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 453
+# successes: 318 (70.2%)
+
+Task: put the zucchini on the towel
+Starting episode 154...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=454--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 454
+# successes: 319 (70.3%)
+
+Task: put the zucchini on the towel
+Starting episode 155...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=455--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 455
+# successes: 319 (70.1%)
+
+Task: put the zucchini on the towel
+Starting episode 156...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=456--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 456
+# successes: 320 (70.2%)
+
+Task: put the zucchini on the towel
+Starting episode 157...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=457--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 457
+# successes: 320 (70.0%)
+
+Task: put the zucchini on the towel
+Starting episode 158...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=458--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 458
+# successes: 320 (69.9%)
+
+Task: put the zucchini on the towel
+Starting episode 159...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=459--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 459
+# successes: 321 (69.9%)
+
+Task: put the zucchini on the towel
+Starting episode 160...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=460--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 460
+# successes: 321 (69.8%)
+
+Task: put the zucchini on the towel
+Starting episode 161...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=461--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 461
+# successes: 322 (69.8%)
+
+Task: put the zucchini on the towel
+Starting episode 162...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=462--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 462
+# successes: 322 (69.7%)
+
+Task: put the zucchini on the towel
+Starting episode 163...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=463--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 463
+# successes: 322 (69.5%)
+
+Task: put the zucchini on the towel
+Starting episode 164...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=464--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 464
+# successes: 323 (69.6%)
+
+Task: put the zucchini on the towel
+Starting episode 165...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=465--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 465
+# successes: 323 (69.5%)
+
+Task: put the zucchini on the towel
+Starting episode 166...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=466--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 466
+# successes: 324 (69.5%)
+
+Task: put the zucchini on the towel
+Starting episode 167...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=467--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 467
+# successes: 324 (69.4%)
+
+Task: put the zucchini on the towel
+Starting episode 168...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=468--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 468
+# successes: 324 (69.2%)
+
+Task: put the zucchini on the towel
+Starting episode 169...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=469--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 469
+# successes: 324 (69.1%)
+
+Task: put the zucchini on the towel
+Starting episode 170...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=470--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 470
+# successes: 324 (68.9%)
+
+Task: put the zucchini on the towel
+Starting episode 171...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=471--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 471
+# successes: 324 (68.8%)
+
+Task: put the zucchini on the towel
+Starting episode 172...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=472--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 472
+# successes: 325 (68.9%)
+
+Task: put the zucchini on the towel
+Starting episode 173...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=473--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 473
+# successes: 325 (68.7%)
+
+Task: put the zucchini on the towel
+Starting episode 174...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=474--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 474
+# successes: 326 (68.8%)
+
+Task: put the zucchini on the towel
+Starting episode 175...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=475--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 475
+# successes: 326 (68.6%)
+
+Task: put the zucchini on the towel
+Starting episode 176...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=476--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 476
+# successes: 326 (68.5%)
+
+Task: put the zucchini on the towel
+Starting episode 177...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=477--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 477
+# successes: 327 (68.6%)
+
+Task: put the zucchini on the towel
+Starting episode 178...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=478--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 478
+# successes: 328 (68.6%)
+
+Task: put the zucchini on the towel
+Starting episode 179...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=479--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 479
+# successes: 329 (68.7%)
+
+Task: put the zucchini on the towel
+Starting episode 180...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=480--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 480
+# successes: 329 (68.5%)
+
+Task: put the zucchini on the towel
+Starting episode 181...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=481--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 481
+# successes: 329 (68.4%)
+
+Task: put the zucchini on the towel
+Starting episode 182...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=482--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 482
+# successes: 329 (68.3%)
+
+Task: put the zucchini on the towel
+Starting episode 183...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=483--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 483
+# successes: 329 (68.1%)
+
+Task: put the zucchini on the towel
+Starting episode 184...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=484--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 484
+# successes: 329 (68.0%)
+
+Task: put the zucchini on the towel
+Starting episode 185...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=485--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 485
+# successes: 329 (67.8%)
+
+Task: put the zucchini on the towel
+Starting episode 186...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=486--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 486
+# successes: 329 (67.7%)
+
+Task: put the zucchini on the towel
+Starting episode 187...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=487--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 487
+# successes: 330 (67.8%)
+
+Task: put the zucchini on the towel
+Starting episode 188...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=488--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 488
+# successes: 331 (67.8%)
+
+Task: put the zucchini on the towel
+Starting episode 189...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=489--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 489
+# successes: 331 (67.7%)
+
+Task: put the zucchini on the towel
+Starting episode 190...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=490--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 490
+# successes: 331 (67.6%)
+
+Task: put the zucchini on the towel
+Starting episode 191...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=491--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 491
+# successes: 331 (67.4%)
+
+Task: put the zucchini on the towel
+Starting episode 192...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=492--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 492
+# successes: 331 (67.3%)
+
+Task: put the zucchini on the towel
+Starting episode 193...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=493--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 493
+# successes: 331 (67.1%)
+
+Task: put the zucchini on the towel
+Starting episode 194...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=494--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 494
+# successes: 331 (67.0%)
+
+Task: put the zucchini on the towel
+Starting episode 195...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=495--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 495
+# successes: 331 (66.9%)
+
+Task: put the zucchini on the towel
+Starting episode 196...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=496--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 496
+# successes: 331 (66.7%)
+
+Task: put the zucchini on the towel
+Starting episode 197...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=497--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 497
+# successes: 332 (66.8%)
+
+Task: put the zucchini on the towel
+Starting episode 198...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=498--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 498
+# successes: 332 (66.7%)
+
+Task: put the zucchini on the towel
+Starting episode 199...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=499--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 499
+# successes: 332 (66.5%)
+
+Task: put the zucchini on the towel
+Starting episode 200...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=500--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 500
+# successes: 332 (66.4%)
+
+Task: put the zucchini on the towel
+Starting episode 201...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=501--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 501
+# successes: 333 (66.5%)
+
+Task: put the zucchini on the towel
+Starting episode 202...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=502--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 502
+# successes: 333 (66.3%)
+
+Task: put the zucchini on the towel
+Starting episode 203...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=503--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 503
+# successes: 334 (66.4%)
+
+Task: put the zucchini on the towel
+Starting episode 204...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=504--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 504
+# successes: 334 (66.3%)
+
+Task: put the zucchini on the towel
+Starting episode 205...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=505--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 505
+# successes: 334 (66.1%)
+
+Task: put the zucchini on the towel
+Starting episode 206...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=506--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 506
+# successes: 335 (66.2%)
+
+Task: put the zucchini on the towel
+Starting episode 207...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=507--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 507
+# successes: 335 (66.1%)
+
+Task: put the zucchini on the towel
+Starting episode 208...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=508--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 508
+# successes: 335 (65.9%)
+
+Task: put the zucchini on the towel
+Starting episode 209...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=509--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 509
+# successes: 336 (66.0%)
+
+Task: put the zucchini on the towel
+Starting episode 210...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=510--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 510
+# successes: 337 (66.1%)
+
+Task: put the zucchini on the towel
+Starting episode 211...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=511--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 511
+# successes: 337 (65.9%)
+
+Task: put the zucchini on the towel
+Starting episode 212...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=512--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 512
+# successes: 337 (65.8%)
+
+Task: put the zucchini on the towel
+Starting episode 213...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=513--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 513
+# successes: 337 (65.7%)
+
+Task: put the zucchini on the towel
+Starting episode 214...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=514--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 514
+# successes: 337 (65.6%)
+
+Task: put the zucchini on the towel
+Starting episode 215...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=515--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 515
+# successes: 337 (65.4%)
+
+Task: put the zucchini on the towel
+Starting episode 216...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=516--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 516
+# successes: 337 (65.3%)
+
+Task: put the zucchini on the towel
+Starting episode 217...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=517--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 517
+# successes: 337 (65.2%)
+
+Task: put the zucchini on the towel
+Starting episode 218...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=518--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 518
+# successes: 338 (65.3%)
+
+Task: put the zucchini on the towel
+Starting episode 219...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=519--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 519
+# successes: 338 (65.1%)
+
+Task: put the zucchini on the towel
+Starting episode 220...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=520--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 520
+# successes: 338 (65.0%)
+
+Task: put the zucchini on the towel
+Starting episode 221...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=521--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 521
+# successes: 339 (65.1%)
+
+Task: put the zucchini on the towel
+Starting episode 222...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=522--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 522
+# successes: 339 (64.9%)
+
+Task: put the zucchini on the towel
+Starting episode 223...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=523--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 523
+# successes: 340 (65.0%)
+
+Task: put the zucchini on the towel
+Starting episode 224...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=524--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 524
+# successes: 340 (64.9%)
+
+Task: put the zucchini on the towel
+Starting episode 225...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=525--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 525
+# successes: 341 (65.0%)
+
+Task: put the zucchini on the towel
+Starting episode 226...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=526--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 526
+# successes: 341 (64.8%)
+
+Task: put the zucchini on the towel
+Starting episode 227...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=527--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 527
+# successes: 341 (64.7%)
+
+Task: put the zucchini on the towel
+Starting episode 228...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=528--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 528
+# successes: 341 (64.6%)
+
+Task: put the zucchini on the towel
+Starting episode 229...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=529--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 529
+# successes: 341 (64.5%)
+
+Task: put the zucchini on the towel
+Starting episode 230...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=530--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 530
+# successes: 341 (64.3%)
+
+Task: put the zucchini on the towel
+Starting episode 231...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=531--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 531
+# successes: 341 (64.2%)
+
+Task: put the zucchini on the towel
+Starting episode 232...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=532--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 532
+# successes: 341 (64.1%)
+
+Task: put the zucchini on the towel
+Starting episode 233...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=533--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 533
+# successes: 341 (64.0%)
+
+Task: put the zucchini on the towel
+Starting episode 234...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=534--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 534
+# successes: 341 (63.9%)
+
+Task: put the zucchini on the towel
+Starting episode 235...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=535--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 535
+# successes: 341 (63.7%)
+
+Task: put the zucchini on the towel
+Starting episode 236...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=536--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 536
+# successes: 341 (63.6%)
+
+Task: put the zucchini on the towel
+Starting episode 237...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=537--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 537
+# successes: 342 (63.7%)
+
+Task: put the zucchini on the towel
+Starting episode 238...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=538--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 538
+# successes: 343 (63.8%)
+
+Task: put the zucchini on the towel
+Starting episode 239...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=539--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 539
+# successes: 343 (63.6%)
+
+Task: put the zucchini on the towel
+Starting episode 240...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=540--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 540
+# successes: 343 (63.5%)
+
+Task: put the zucchini on the towel
+Starting episode 241...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=541--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 541
+# successes: 344 (63.6%)
+
+Task: put the zucchini on the towel
+Starting episode 242...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=542--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 542
+# successes: 344 (63.5%)
+
+Task: put the zucchini on the towel
+Starting episode 243...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=543--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 543
+# successes: 345 (63.5%)
+
+Task: put the zucchini on the towel
+Starting episode 244...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=544--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 544
+# successes: 345 (63.4%)
+
+Task: put the zucchini on the towel
+Starting episode 245...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=545--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 545
+# successes: 345 (63.3%)
+
+Task: put the zucchini on the towel
+Starting episode 246...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=546--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 546
+# successes: 346 (63.4%)
+
+Task: put the zucchini on the towel
+Starting episode 247...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=547--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 547
+# successes: 347 (63.4%)
+
+Task: put the zucchini on the towel
+Starting episode 248...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=548--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 548
+# successes: 348 (63.5%)
+
+Task: put the zucchini on the towel
+Starting episode 249...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=549--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 549
+# successes: 348 (63.4%)
+
+Task: put the zucchini on the towel
+Starting episode 250...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=550--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 550
+# successes: 348 (63.3%)
+
+Task: put the zucchini on the towel
+Starting episode 251...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=551--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 551
+# successes: 348 (63.2%)
+
+Task: put the zucchini on the towel
+Starting episode 252...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=552--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 552
+# successes: 348 (63.0%)
+
+Task: put the zucchini on the towel
+Starting episode 253...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=553--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 553
+# successes: 348 (62.9%)
+
+Task: put the zucchini on the towel
+Starting episode 254...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=554--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 554
+# successes: 348 (62.8%)
+
+Task: put the zucchini on the towel
+Starting episode 255...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=555--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 555
+# successes: 348 (62.7%)
+
+Task: put the zucchini on the towel
+Starting episode 256...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=556--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 556
+# successes: 348 (62.6%)
+
+Task: put the zucchini on the towel
+Starting episode 257...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=557--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 557
+# successes: 348 (62.5%)
+
+Task: put the zucchini on the towel
+Starting episode 258...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=558--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 558
+# successes: 348 (62.4%)
+
+Task: put the zucchini on the towel
+Starting episode 259...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=559--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 559
+# successes: 349 (62.4%)
+
+Task: put the zucchini on the towel
+Starting episode 260...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=560--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 560
+# successes: 349 (62.3%)
+
+Task: put the zucchini on the towel
+Starting episode 261...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=561--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 561
+# successes: 349 (62.2%)
+
+Task: put the zucchini on the towel
+Starting episode 262...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=562--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 562
+# successes: 349 (62.1%)
+
+Task: put the zucchini on the towel
+Starting episode 263...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=563--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 563
+# successes: 349 (62.0%)
+
+Task: put the zucchini on the towel
+Starting episode 264...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=564--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 564
+# successes: 349 (61.9%)
+
+Task: put the zucchini on the towel
+Starting episode 265...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=565--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 565
+# successes: 349 (61.8%)
+
+Task: put the zucchini on the towel
+Starting episode 266...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=566--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 566
+# successes: 349 (61.7%)
+
+Task: put the zucchini on the towel
+Starting episode 267...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=567--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 567
+# successes: 349 (61.6%)
+
+Task: put the zucchini on the towel
+Starting episode 268...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=568--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 568
+# successes: 349 (61.4%)
+
+Task: put the zucchini on the towel
+Starting episode 269...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=569--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 569
+# successes: 349 (61.3%)
+
+Task: put the zucchini on the towel
+Starting episode 270...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=570--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 570
+# successes: 349 (61.2%)
+
+Task: put the zucchini on the towel
+Starting episode 271...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=571--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 571
+# successes: 349 (61.1%)
+
+Task: put the zucchini on the towel
+Starting episode 272...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=572--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 572
+# successes: 349 (61.0%)
+
+Task: put the zucchini on the towel
+Starting episode 273...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=573--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 573
+# successes: 349 (60.9%)
+
+Task: put the zucchini on the towel
+Starting episode 274...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=574--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 574
+# successes: 350 (61.0%)
+
+Task: put the zucchini on the towel
+Starting episode 275...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=575--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 575
+# successes: 350 (60.9%)
+
+Task: put the zucchini on the towel
+Starting episode 276...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=576--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 576
+# successes: 350 (60.8%)
+
+Task: put the zucchini on the towel
+Starting episode 277...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=577--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 577
+# successes: 350 (60.7%)
+
+Task: put the zucchini on the towel
+Starting episode 278...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=578--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 578
+# successes: 350 (60.6%)
+
+Task: put the zucchini on the towel
+Starting episode 279...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=579--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 579
+# successes: 351 (60.6%)
+
+Task: put the zucchini on the towel
+Starting episode 280...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=580--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 580
+# successes: 351 (60.5%)
+
+Task: put the zucchini on the towel
+Starting episode 281...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=581--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 581
+# successes: 351 (60.4%)
+
+Task: put the zucchini on the towel
+Starting episode 282...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=582--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 582
+# successes: 351 (60.3%)
+
+Task: put the zucchini on the towel
+Starting episode 283...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=583--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 583
+# successes: 352 (60.4%)
+
+Task: put the zucchini on the towel
+Starting episode 284...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=584--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 584
+# successes: 352 (60.3%)
+
+Task: put the zucchini on the towel
+Starting episode 285...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=585--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 585
+# successes: 352 (60.2%)
+
+Task: put the zucchini on the towel
+Starting episode 286...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=586--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 586
+# successes: 352 (60.1%)
+
+Task: put the zucchini on the towel
+Starting episode 287...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=587--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 587
+# successes: 352 (60.0%)
+
+Task: put the zucchini on the towel
+Starting episode 288...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=588--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 588
+# successes: 352 (59.9%)
+
+Task: put the zucchini on the towel
+Starting episode 289...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=589--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 589
+# successes: 352 (59.8%)
+
+Task: put the zucchini on the towel
+Starting episode 290...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=590--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 590
+# successes: 352 (59.7%)
+
+Task: put the zucchini on the towel
+Starting episode 291...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=591--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 591
+# successes: 353 (59.7%)
+
+Task: put the zucchini on the towel
+Starting episode 292...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=592--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 592
+# successes: 354 (59.8%)
+
+Task: put the zucchini on the towel
+Starting episode 293...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=593--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 593
+# successes: 354 (59.7%)
+
+Task: put the zucchini on the towel
+Starting episode 294...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=594--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 594
+# successes: 354 (59.6%)
+
+Task: put the zucchini on the towel
+Starting episode 295...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=595--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 595
+# successes: 355 (59.7%)
+
+Task: put the zucchini on the towel
+Starting episode 296...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=596--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 596
+# successes: 355 (59.6%)
+
+Task: put the zucchini on the towel
+Starting episode 297...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=597--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 597
+# successes: 355 (59.5%)
+
+Task: put the zucchini on the towel
+Starting episode 298...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=598--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 598
+# successes: 355 (59.4%)
+
+Task: put the zucchini on the towel
+Starting episode 299...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=599--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 599
+# successes: 355 (59.3%)
+
+Task: put the zucchini on the towel
+Starting episode 300...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_id/episode=600--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 600
+# successes: 356 (59.3%)
+Current task success rate: 0.2833333333333333
+Current total success rate: 0.5933333333333334

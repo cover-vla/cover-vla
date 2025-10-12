@@ -7,6 +7,13 @@ The data loader also applies a few DROID-specific data filters / transformations
 
 from enum import Enum
 from enum import auto
+import json
+import logging
+from pathlib import Path
+
+import tqdm
+
+import openpi.shared.download as download
 
 
 class DroidActionSpace(Enum):
@@ -31,6 +38,7 @@ class DroidRldsDataset:
         shuffle_buffer_size: int = 250_000,
         num_parallel_reads: int = -1,  # -1 == tf.data.AUTOTUNE -- hack to not import tf at top level
         num_parallel_calls: int = -1,  # -1 == tf.data.AUTOTUNE -- hack to not import tf at top level
+        filter_dict_path=None,  # Path to json file with indices to sample during training
     ):
         # Import tensorflow here to not make it mandatory in case RLDS data loader is not used.
         import dlimp as dl
@@ -40,7 +48,7 @@ class DroidRldsDataset:
         # Configure Tensorflow with *no GPU devices* (to prevent clobber with PyTorch / JAX)
         tf.config.set_visible_devices([], "GPU")
 
-        builder = tfds.builder("droid", data_dir=data_dir)
+        builder = tfds.builder("droid", data_dir=data_dir, version="1.0.1")
         dataset = dl.DLataset.from_rlds(builder, split="train", shuffle=shuffle, num_parallel_reads=num_parallel_reads)
 
         # Filter out any unsuccessful trajectories -- we use the file name to check this
@@ -50,8 +58,40 @@ class DroidRldsDataset:
             )
         )
 
-        # Repeat dataset so we never run out of data.
+        # # Repeat dataset so we never run out of data.
         dataset = dataset.repeat()
+
+        # Load the filter dictionary if provided.
+        # The filter dictionary is a JSON file that maps episode keys to ranges of frames to sample
+        # (e.g.,
+        # {
+        #     "<episode key>": [[0, 100], [200, 300]]
+        # }
+        # means keep frames 0-99 and 200-299).
+        if filter_dict_path is not None:
+            cached_filter_dict_path = download.maybe_download(filter_dict_path)
+            with Path(cached_filter_dict_path).open("r") as f:
+                filter_dict = json.load(f)
+
+            logging.info(f"Using filter dictionary with {len(filter_dict)} episodes")
+
+            keys_tensor = []
+            values_tensor = []
+
+            for episode_key, ranges in tqdm.tqdm(filter_dict.items(), desc="Creating idle filter hash table..."):
+                for start, end in ranges:
+                    for t in range(start, end):
+                        frame_key = f"{episode_key}--{t}"
+                        keys_tensor.append(frame_key)
+                        values_tensor.append(True)
+            self.filter_table = tf.lookup.StaticHashTable(
+                tf.lookup.KeyValueTensorInitializer(keys_tensor, values_tensor), default_value=False
+            )
+            logging.info("Filter hash table initialized")
+        else:
+            self.filter_table = tf.lookup.StaticHashTable(
+                tf.lookup.KeyValueTensorInitializer([""], [True]), default_value=True
+            )
 
         def restructure(traj):
             """Reformat observation and action keys, sample language instruction."""
@@ -80,6 +120,22 @@ class DroidRldsDataset:
                 [traj["language_instruction"], traj["language_instruction_2"], traj["language_instruction_3"]]
             )[0]
 
+            traj_len = tf.shape(traj["action"])[0]
+            indices = tf.as_string(tf.range(traj_len))
+
+            # Data filtering:
+            # Compute a uniquely-identifying step ID by concatenating the recording folderpath, file path,
+            # and each step's time step index. This will index into the filter hash table, and if it returns true,
+            # then the frame passes the filter.
+            step_id = (
+                traj["traj_metadata"]["episode_metadata"]["recording_folderpath"]
+                + "--"
+                + traj["traj_metadata"]["episode_metadata"]["file_path"]
+                + "--"
+                + indices
+            )
+            passes_filter = self.filter_table.lookup(step_id)
+
             return {
                 "actions": actions,
                 "observation": {
@@ -89,6 +145,8 @@ class DroidRldsDataset:
                     "gripper_position": traj["observation"]["gripper_position"],
                 },
                 "prompt": instruction,
+                "step_id": step_id,
+                "passes_filter": passes_filter,
             }
 
         dataset = dataset.traj_map(restructure, num_parallel_calls)
@@ -116,19 +174,21 @@ class DroidRldsDataset:
 
         dataset = dataset.traj_map(chunk_actions, num_parallel_calls)
 
-        def filter_idle(traj):
-            """Filter out chunks with idle actions.
-            --> we filter if at least first half of chunk does not move.
-            """
-            if action_space == DroidActionSpace.JOINT_POSITION:
-                # Compute delta to first position in action chunk
-                return tf.reduce_any(tf.abs(traj["actions"][: action_chunk_size // 2] - traj["actions"][:1]) > 1e-3)
-            return tf.reduce_any(tf.abs(traj["actions"][: action_chunk_size // 2]) > 1e-3)
-
-        dataset = dataset.filter(filter_idle)
-
         # Flatten: map from trajectory dataset to dataset of individual action chunks
         dataset = dataset.flatten(num_parallel_calls=num_parallel_calls)
+
+        # Filter data that doesn't pass the filter
+        def filter_from_dict(frame):
+            return frame["passes_filter"]
+
+        dataset = dataset.filter(filter_from_dict)
+
+        # Remove "passes_filter" key from output
+        def remove_passes_filter(frame):
+            frame.pop("passes_filter")
+            return frame
+
+        dataset = dataset.map(remove_passes_filter)
 
         # Decode images: RLDS saves encoded images, only decode now for efficiency
         def decode_images(traj):

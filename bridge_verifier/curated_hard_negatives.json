@@ -1,0 +1,292 @@
+[
+  {
+    "sample_id": 0,
+    "groundtruth_action": [
+      -5.114564327612925e-11,
+      -1.2105481894675307e-10,
+      -9.31510285573367e-11,
+      2.525703735045681e-07,
+      -9.584495330727805e-08,
+      -5.684571391384452e-08,
+      1.0
+    ],
+    "positive_instructions": {
+      "put small spoon from basket to tray": {
+        "negative_instructions": {}
+      },
+      "transfer the little spoon out of the basket and place it on the tray": {
+        "negative_instructions": {}
+      },
+      "relocate the small utensil from the basket to the serving tray": {
+        "negative_instructions": {}
+      },
+      "arrange the spoon from the basket on the tray": {
+        "negative_instructions": {}
+      },
+      "relocate the small utensil from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small utensil from the basket to the serving tray": {
+        "negative_instructions": {}
+      },
+      "take the spoon out of the basket and put it on the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small utensil from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "shift the small spoon from the basket to the flat tray": {
+        "negative_instructions": {}
+      },
+      "place the small utensil from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "move the small spoon from the basket to the serving tray": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the container onto the platter": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the container into the tray": {
+        "negative_instructions": {}
+      },
+      "move the little spoon out of the basket and onto the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the little spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "position the little spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the tiny spoon from the container to the serving tray": {
+        "negative_instructions": {}
+      },
+      "place the little spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "move the small spoon from the basket onto the flat tray": {
+        "negative_instructions": {}
+      },
+      "shift the small spoon from the basket onto the flat tray": {
+        "negative_instructions": {}
+      },
+      "set the small spoon from the basket on the surface": {
+        "negative_instructions": {}
+      },
+      "move the small spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "place the miniature spoon from the holder onto the serving tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small utensil from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small utensil from the container to the serving tray": {
+        "negative_instructions": {}
+      },
+      "place the small utensil from the basket onto the serving tray": {
+        "negative_instructions": {}
+      },
+      "transfer the tiny spoon from the container to the platform": {
+        "negative_instructions": {}
+      },
+      "set the spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "place the petite spoon from the basket onto the serving tray": {
+        "negative_instructions": {}
+      },
+      "move the small utensil from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "position the small spoon from the basket on the serving surface": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the container onto the tray": {
+        "negative_instructions": {}
+      },
+      "deposit the spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "set the small spoon from the basket onto the flat surface": {
+        "negative_instructions": {}
+      },
+      "position the spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "position the small spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "relocate the small spoon from the basket onto the flat surface": {
+        "negative_instructions": {}
+      },
+      "put the small spoon from the container onto the tray": {
+        "negative_instructions": {}
+      },
+      "place the small utensil from the basket onto the platform": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the basket on the tray": {
+        "negative_instructions": {}
+      }
+    }
+  },
+  {
+    "sample_id": 1,
+    "groundtruth_action": [
+      0.00815527979284525,
+      0.002605537883937359,
+      -0.00971079058945179,
+      -0.04788215458393097,
+      -0.02560991607606411,
+      0.13556690514087677,
+      1.0
+    ],
+    "positive_instructions": {
+      "put small spoon from basket to tray": {
+        "negative_instructions": {}
+      },
+      "transfer the tiny spoon from the holder to the serving tray": {
+        "negative_instructions": {}
+      },
+      "shift the tiny spoon from inside the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "move the tiny spoon from the basket and set it on the tray": {
+        "negative_instructions": {}
+      },
+      "place the small spoon from the basket on the flat tray": {
+        "negative_instructions": {}
+      },
+      "transfer the tiny utensil from the container to the tray": {
+        "negative_instructions": {}
+      },
+      "take the spoon out of the basket and put it on the tray": {
+        "negative_instructions": {}
+      },
+      "set the petite spoon from the basket on the tray": {
+        "negative_instructions": {}
+      },
+      "move the tiny spoon from the basket onto the tray": {
+        "negative_instructions": {
+          "move the tiny spoon from the basket to the tray": {
+            "similarity": 0.9949798583984375,
+            "error": 0.22998932003974915
+          }
+        }
+      },
+      "place the petite spoon from the container onto the serving tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small spoon from the basket onto the serving tray": {
+        "negative_instructions": {
+          "transfer the small spoon from the basket to the serving tray": {
+            "similarity": 0.9958720207214355,
+            "error": 0.19966675341129303
+          }
+        }
+      },
+      "shift the spoon from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the spoon from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the little spoon from the container to the tray": {
+        "negative_instructions": {}
+      },
+      "position the small spoon from the basket on the serving tray": {
+        "negative_instructions": {}
+      },
+      "move the little spoon from the container to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the tiny spoon from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the little spoon from the container to the serving tray": {
+        "negative_instructions": {}
+      },
+      "position the little spoon from the basket onto the tray": {
+        "negative_instructions": {}
+      },
+      "arrange the little spoon from the basket on the tray": {
+        "negative_instructions": {}
+      },
+      "place the small spoon from the basket on the serving tray": {
+        "negative_instructions": {}
+      },
+      "place the small utensil from the basket onto the platform": {
+        "negative_instructions": {}
+      },
+      "place the miniature spoon from the holder to the serving tray": {
+        "negative_instructions": {
+          "place the miniature spoon from the holder onto the serving tray": {
+            "similarity": 0.9932057857513428,
+            "error": 0.331983357667923
+          }
+        }
+      },
+      "move the small spoon from inside the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the basket on the tray": {
+        "negative_instructions": {}
+      },
+      "move the small spoon to the tray from the basket": {
+        "negative_instructions": {}
+      },
+      "place the small utensil from the basket onto the surface": {
+        "negative_instructions": {}
+      },
+      "transfer the little spoon from the basket to the tray": {
+        "negative_instructions": {
+          "transfer the little spoon from the basket onto the tray": {
+            "similarity": 0.9953558444976807,
+            "error": 0.18395696580410004
+          }
+        }
+      },
+      "move the tiny spoon from the container to the platter": {
+        "negative_instructions": {}
+      },
+      "transfer the small spoon from the container to the platter": {
+        "negative_instructions": {}
+      },
+      "set the small spoon from the basket onto the flat surface": {
+        "negative_instructions": {}
+      },
+      "remove the small spoon from the basket and place it on the tray": {
+        "negative_instructions": {}
+      },
+      "move the small spoon from the basket to the flat surface": {
+        "negative_instructions": {
+          "move the small spoon from the basket onto the flat surface": {
+            "similarity": 0.9965585470199585,
+            "error": 0.23223525285720825
+          }
+        }
+      },
+      "place the tiny spoon from the basket onto the tray surface": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the basket to the tray": {
+        "negative_instructions": {}
+      },
+      "transfer the small spoon from the container onto the tray": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the container into the serving tray": {
+        "negative_instructions": {}
+      },
+      "place the tiny spoon from the container onto the serving tray": {
+        "negative_instructions": {}
+      },
+      "position the small spoon from the basket on the flat tray": {
+        "negative_instructions": {}
+      }
+    }
+  }
+]

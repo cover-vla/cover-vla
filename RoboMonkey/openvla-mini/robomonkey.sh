@@ -7,8 +7,8 @@ python experiments/robot/simpler/run_simpler_eval.py \
   --task_suite_name simpler_ood
 
 
-xvfb-run --auto-servernum -s "-screen 0 640x480x24" \
-python experiments/robot/simpler/run_simpler_eval.py \
-  --initial_samples 9 \
-  --augmented_samples 32 \
-  --task_suite_name simpler_widowx
+# xvfb-run --auto-servernum -s "-screen 0 640x480x24" \
+# python experiments/robot/simpler/run_simpler_eval.py \
+#   --initial_samples 9 \
+#   --augmented_samples 32 \
+#   --task_suite_name simpler_widowx

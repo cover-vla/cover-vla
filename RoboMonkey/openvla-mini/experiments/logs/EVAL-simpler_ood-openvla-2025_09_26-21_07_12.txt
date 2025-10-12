@@ -3396,3 +3396,810 @@ Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=485--succe
 Success: False
 # episodes completed so far: 485
 # successes: 202 (41.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 186...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=486--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 486
+# successes: 202 (41.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 187...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=487--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 487
+# successes: 202 (41.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 188...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=488--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 488
+# successes: 202 (41.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 189...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=489--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 489
+# successes: 203 (41.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 190...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=490--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 490
+# successes: 203 (41.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 191...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=491--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 491
+# successes: 203 (41.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 192...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=492--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 492
+# successes: 203 (41.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 193...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=493--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 493
+# successes: 203 (41.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 194...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=494--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 494
+# successes: 203 (41.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 195...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=495--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 495
+# successes: 204 (41.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 196...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=496--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 496
+# successes: 204 (41.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 197...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=497--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 497
+# successes: 205 (41.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 198...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=498--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 498
+# successes: 205 (41.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 199...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=499--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 499
+# successes: 205 (41.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 200...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=500--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 500
+# successes: 205 (41.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 201...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=501--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 501
+# successes: 205 (40.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 202...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=502--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 502
+# successes: 206 (41.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 203...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=503--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 503
+# successes: 207 (41.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 204...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=504--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 504
+# successes: 207 (41.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 205...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=505--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 505
+# successes: 207 (41.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 206...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=506--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 506
+# successes: 207 (40.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 207...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=507--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 507
+# successes: 207 (40.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 208...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=508--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 508
+# successes: 207 (40.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 209...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=509--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 509
+# successes: 207 (40.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 210...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=510--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 510
+# successes: 208 (40.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 211...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=511--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 511
+# successes: 208 (40.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 212...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=512--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 512
+# successes: 208 (40.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 213...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=513--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 513
+# successes: 208 (40.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 214...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=514--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 514
+# successes: 208 (40.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 215...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=515--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 515
+# successes: 208 (40.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 216...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=516--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 516
+# successes: 208 (40.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 217...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=517--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 517
+# successes: 209 (40.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 218...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=518--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 518
+# successes: 210 (40.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 219...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=519--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 519
+# successes: 210 (40.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 220...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=520--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 520
+# successes: 210 (40.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 221...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=521--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 521
+# successes: 210 (40.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 222...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=522--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 522
+# successes: 210 (40.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 223...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=523--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 523
+# successes: 211 (40.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 224...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=524--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 524
+# successes: 211 (40.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 225...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=525--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 525
+# successes: 211 (40.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 226...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=526--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 526
+# successes: 212 (40.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 227...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=527--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 527
+# successes: 212 (40.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 228...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=528--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 528
+# successes: 212 (40.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 229...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=529--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 529
+# successes: 212 (40.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 230...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=530--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 530
+# successes: 212 (40.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 231...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=531--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 531
+# successes: 212 (39.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 232...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=532--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 532
+# successes: 212 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 233...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=533--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 533
+# successes: 212 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 234...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=534--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 534
+# successes: 212 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 235...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=535--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 535
+# successes: 213 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 236...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=536--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 536
+# successes: 213 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 237...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=537--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 537
+# successes: 214 (39.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 238...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=538--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 538
+# successes: 214 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 239...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=539--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 539
+# successes: 214 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 240...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=540--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 540
+# successes: 214 (39.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 241...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=541--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 541
+# successes: 215 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 242...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=542--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 542
+# successes: 215 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 243...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=543--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 543
+# successes: 216 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 244...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=544--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 544
+# successes: 216 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 245...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=545--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 545
+# successes: 216 (39.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 246...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=546--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 546
+# successes: 217 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 247...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=547--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 547
+# successes: 218 (39.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 248...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=548--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 548
+# successes: 219 (40.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 249...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=549--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 549
+# successes: 219 (39.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 250...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=550--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 550
+# successes: 219 (39.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 251...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=551--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 551
+# successes: 219 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 252...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=552--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 552
+# successes: 219 (39.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 253...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=553--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 553
+# successes: 219 (39.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 254...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=554--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 554
+# successes: 219 (39.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 255...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=555--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 555
+# successes: 220 (39.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 256...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=556--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 556
+# successes: 220 (39.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 257...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=557--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 557
+# successes: 220 (39.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 258...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=558--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 558
+# successes: 220 (39.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 259...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=559--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 559
+# successes: 221 (39.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 260...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=560--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 560
+# successes: 221 (39.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 261...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=561--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 561
+# successes: 221 (39.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 262...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=562--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 562
+# successes: 221 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 263...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=563--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 563
+# successes: 221 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 264...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=564--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 564
+# successes: 222 (39.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 265...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=565--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 565
+# successes: 223 (39.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 266...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=566--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 566
+# successes: 223 (39.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 267...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=567--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 567
+# successes: 223 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 268...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=568--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 568
+# successes: 223 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 269...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=569--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 569
+# successes: 224 (39.4%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 270...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=570--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 570
+# successes: 224 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 271...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=571--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 571
+# successes: 224 (39.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 272...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=572--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 572
+# successes: 224 (39.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 273...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=573--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 573
+# successes: 225 (39.3%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 274...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=574--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 574
+# successes: 225 (39.2%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 275...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=575--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 575
+# successes: 225 (39.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 276...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=576--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 576
+# successes: 225 (39.1%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 277...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=577--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 577
+# successes: 225 (39.0%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 278...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=578--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 578
+# successes: 225 (38.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 279...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=579--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 579
+# successes: 225 (38.9%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 280...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=580--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 580
+# successes: 225 (38.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 281...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=581--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 581
+# successes: 225 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 282...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=582--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 582
+# successes: 225 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 283...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=583--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 583
+# successes: 226 (38.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 284...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=584--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 584
+# successes: 226 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 285...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=585--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 585
+# successes: 226 (38.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 286...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=586--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 586
+# successes: 227 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 287...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=587--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 587
+# successes: 227 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 288...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=588--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 588
+# successes: 227 (38.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 289...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=589--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 589
+# successes: 227 (38.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 290...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=590--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 590
+# successes: 227 (38.5%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 291...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=591--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 591
+# successes: 228 (38.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 292...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=592--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 592
+# successes: 229 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 293...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=593--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 593
+# successes: 229 (38.6%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 294...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=594--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 594
+# successes: 230 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 295...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=595--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 595
+# successes: 231 (38.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 296...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=596--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 596
+# successes: 231 (38.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 297...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=597--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 597
+# successes: 231 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 298...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=598--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 598
+# successes: 232 (38.8%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 299...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=599--success=False--task=put_the_zucchini_on_the_towel.mp4
+Success: False
+# episodes completed so far: 599
+# successes: 232 (38.7%)
+
+Task: Transfer the zucchini to the towel.
+Starting episode 300...
+Saved rollout MP4 at path ./rollouts_clip/robomonkey_rephrase/episode=600--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 600
+# successes: 233 (38.8%)
+Current task success rate: 0.22333333333333333
+Current total success rate: 0.3883333333333333

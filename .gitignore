@@ -193,3 +193,6 @@ RoboMonkey/openvla-mini/experiments/robot/simpler/rollouts*
 
 *.mp4
 *.pkl
+
+bridge_verifier/bridge_dataset_with_hard_negatives_images
+openpi_old/
