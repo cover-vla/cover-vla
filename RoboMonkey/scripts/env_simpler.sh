@@ -24,15 +24,15 @@ full_path=$(realpath $0)
 dir_path=$(dirname $full_path)
 
 # Create and activate environment
-if ! conda env list | grep -qE "^\s*simpler_env\s"; then
+if ! conda env list | grep -qE "^\s*simpler_pi\s"; then
     echo "Creating simpler_env environment..."
-    $HOME/miniconda3/bin/conda create -n simpler_env python=3.10 -y
+    $HOME/miniconda3/bin/conda create -n simpler_pi python=3.10 -y
 else
     echo "Conda environment 'simpler_env' already exists. Skipping creation."
 fi
 
 source $HOME/miniconda3/etc/profile.d/conda.sh
-conda activate simpler_env
+conda activate simpler_pi
 
 cd "$dir_path/../SimplerEnv"
 sudo apt-get install -y libvulkan1 cudnn9-cuda-12 libx11-6

@@ -12,6 +12,11 @@ from PIL import Image
 import os
 from pathlib import Path
 
+# Add INT-ACT imports for BridgeSimplerAdapter
+import sys
+sys.path.append('/root/vla-clip/INT-ACT')
+from src.experiments.env_adapters.simpler import BridgeSimplerAdapter
+
 def process_image(image_path, output_dir="./transfer_images/", crop_scale=0.9, target_size=(224, 224), batch_size=1):
     """
     Process an image by center-cropping and resizing using TensorFlow.
@@ -170,6 +175,40 @@ def get_simpler_dummy_action(model_family: str):
         return np.array([0, 0, 0, 0, 0, 0, -1])
 
 
+def create_bridge_adapter_wrapper(action_ensemble_temp=-0.8):
+    """
+    Creates a BridgeSimplerAdapter wrapper for proper action post-processing.
+    This integrates the INT-ACT BridgeSimplerAdapter for consistent action handling.
+    
+    Args:
+        action_ensemble_temp (float): Temperature for action ensembling (negative = more recent actions get more weight)
+    """
+    # Create a minimal config object that the BridgeSimplerAdapter expects
+    # We avoid using the full INT-ACT config classes to prevent environment variable dependencies
+    class EnvConfig:
+        def __init__(self):
+            self.dataset_statistics_path = "/root/vla-clip/INT-ACT/config/dataset/bridge_statistics.json"
+            self.image_size = (224, 224)
+            self.action_normalization_type = "bound"
+            self.state_normalization_type = "bound"
+    
+    class ModelConfig:
+        def __init__(self):
+            self.chunk_size = 4  # Default action chunk size
+            self.action_ensemble_temp = action_ensemble_temp  # Configurable temperature for action ensembling
+    
+    class Config:
+        def __init__(self):
+            self.env = EnvConfig()
+            self.use_bf16 = False  # Default to float32
+            self.seed = 42  # Default seed
+            self.model_cfg = ModelConfig()
+    
+    config = Config()
+    adapter = BridgeSimplerAdapter(config)
+    return adapter
+
+
 def convert_maniskill(action):
     """
     Applies transforms to raw VLA action that Maniskill simpler_env env expects.
@@ -186,3 +225,30 @@ def convert_maniskill(action):
 
     # Binarize final gripper dimension & map to [-1...1]
     return normalize_gripper_action(action)
+
+
+def convert_maniskill_with_bridge_adapter(action, action_ensemble_temp=-0.8):
+    """
+    Uses BridgeSimplerAdapter for proper action post-processing.
+    This ensures consistency with INT-ACT's action processing pipeline.
+    
+    Args:
+        action: Raw action from model
+        action_ensemble_temp (float): Temperature for action ensembling
+    """
+    # Create adapter if it doesn't exist (singleton pattern)
+    # Use a unique key that includes temperature to ensure correct configuration
+    adapter_key = f'_adapter_temp_{action_ensemble_temp}'
+    if not hasattr(convert_maniskill_with_bridge_adapter, adapter_key):
+        setattr(convert_maniskill_with_bridge_adapter, adapter_key, create_bridge_adapter_wrapper(action_ensemble_temp))
+    
+    adapter = getattr(convert_maniskill_with_bridge_adapter, adapter_key)
+    
+    # BridgeSimplerAdapter expects actions with batch dimension
+    action_batch = action.reshape(1, -1)
+    
+    # Use the adapter's postprocess method
+    processed_action = adapter.postprocess(action_batch)
+    
+    # Return single action (remove batch dimension)
+    return processed_action[0]
