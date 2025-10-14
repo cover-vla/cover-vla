@@ -301,6 +301,9 @@ class PI0Policy(PreTrainedPolicy):
             # effectively has shape (chunk_size, batch_size, *), hence the transpose.
 
             self._action_queue.extend(actions.transpose(0, 1))
+        # Print shape of action queue
+        action_queue_array = torch.stack(list(self._action_queue)) if len(self._action_queue) > 0 else torch.empty(0)
+        print(f"Action queue shape: {action_queue_array.shape}")
         return self._action_queue
 
     def forward(self, batch: dict[str, Tensor], noise=None, time=None) -> tuple[Tensor, dict[str, Tensor]]:

@@ -37,6 +37,7 @@ from experiments.robot.simpler.simpler_utils_robomonkey import (
     get_simpler_dummy_action,
     get_simpler_env,
     get_simpler_img,
+    create_bridge_adapter_wrapper,
 )
 
 # Append current directory so that interpreter can find experiments.robot
@@ -90,14 +91,10 @@ def load_rephrases(task_suite_name: str):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
     
-    try:
-        with open(json_path, 'r') as f:
-            all_rephrases = json.load(f)
-        # The new format has an "instructions" key containing the task data
-        return all_rephrases.get("instructions", {})
-    except FileNotFoundError:
-        print(f"Warning: Could not find rephrase file {json_path}. Using empty rephrases.")
-        return {}
+    with open(json_path, 'r') as f:
+        all_rephrases = json.load(f)
+    # The new format has an "instructions" key containing the task data
+    return all_rephrases.get("instructions", {})
 
 
 @dataclass
@@ -148,7 +145,6 @@ class GenerateConfig:
     
     # Language transformation parameters
     lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
-    use_generated_rephrases: bool = False
     
     # Batch inference parameters
     batch_inference_size: int = 5                        # Number of samples for batch inference (same instruction repeated)
@@ -218,6 +214,11 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     
     # Load pre-generated rephrases if available
     preloaded_rephrases = load_rephrases(cfg.task_suite_name)
+    
+    # Create adapter for preprocessing (singleton pattern)
+    if not hasattr(pi0_policy, '_preprocess_adapter'):
+        pi0_policy._preprocess_adapter = create_bridge_adapter_wrapper(cfg.action_ensemble_temp)
+    preprocess_adapter = pi0_policy._preprocess_adapter
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
@@ -256,11 +257,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             else:
                 print(f"No preloaded rephrases found for task: {original_task_description}, using original")
                 task_description = original_task_description
-            if cfg.use_generated_rephrases and matching_task_id is not None:
-                # Generate rephrases on-the-fly
-                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases_easy"]
-                task_description = rephrased_list[0]
-        print ("rollou with task description:", task_description)
+
         # Start episodes
         task_episodes, task_successes = 0, 0
         for _ in tqdm.tqdm(range(cfg.num_trials_per_task)):
@@ -312,15 +309,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 image_history = replay_images[-cfg.obs_history :]
                 if len(image_history) < cfg.obs_history:
                     image_history.extend([replay_images[-1]] * (cfg.obs_history - len(image_history)))
-
-                # Use BridgeSimplerAdapter for proper observation preprocessing
-                # This ensures consistency with INT-ACT's preprocessing pipeline
-                from experiments.robot.simpler.simpler_utils_robomonkey import create_bridge_adapter_wrapper
-                
-                # Create adapter for preprocessing (singleton pattern)
-                if not hasattr(pi0_policy, '_preprocess_adapter'):
-                    pi0_policy._preprocess_adapter = create_bridge_adapter_wrapper(cfg.action_ensemble_temp)
-                preprocess_adapter = pi0_policy._preprocess_adapter
                 
                 # Prepare observations in the format expected by BridgeSimplerAdapter
                 # BridgeSimplerAdapter expects obs["agent"]["eef_pos"] with quaternion format
@@ -355,14 +343,16 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 # Determine expected image feature key from the policy config
                 image_feature_keys = list(pi0_policy.config.image_features.keys())
-                if len(image_feature_keys) == 0:
-                    raise RuntimeError("PI0Policy has no image features configured; cannot provide observations.")
                 image_key = image_feature_keys[0]
                 
                 # Create batch of language instructions (same instruction repeated for batch inference)
                 batch_size = cfg.batch_inference_size
-                batch_task_instructions = [processed_obs['task']] * batch_size
-                
+                # processed_obs['task'] is already a list from BridgeSimplerAdapter
+                single_task = processed_obs['task']  # Already a list
+                # Create list of identical task lists by extending the original list
+                batch_task_instructions = []
+                for _ in range(batch_size):
+                    batch_task_instructions.extend(single_task)
                 # Create batch observation dict for LeRobot PI0
                 # Replicate image and state to match batch size
                 batch_image = processed_obs['observation.images.top'].repeat(batch_size, 1, 1, 1)
@@ -376,19 +366,20 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 with torch.no_grad():
                     action_queue = pi0_policy.select_action(observation)
-                    # select_action returns batch of actions; get the first one
-                    action = action_queue.popleft().cpu().numpy()
-                
-                # DEBUG: Check batch inference results
-                print(f"\n=== BATCH INFERENCE (batch_size={batch_size}, temp={cfg.action_ensemble_temp}) ===")
-                print(f"Task instruction: {processed_obs['task']}")
-                print(f"PI0 raw action shape: {action.shape}")
-                print(f"PI0 raw action (first sample): {action[0]}")
-                if batch_size > 1:
-                    print(f"PI0 raw action (all samples):")
-                    for i in range(batch_size):
-                        print(f"  Sample {i+1}: {action[i]}")
-                print("=== END BATCH INFERENCE ===\n")
+                    # select_action returns a deque; get the first batch of actions
+                    action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
+                    
+                # print ("action shape:", action.shape)
+                # # DEBUG: Check batch inference results
+                # print(f"\n=== BATCH INFERENCE (batch_size={batch_size}, temp={cfg.action_ensemble_temp}) ===")
+                # print(f"Task instruction: {single_task}")
+                # print(f"PI0 raw action shape: {action.shape}")
+                # print(f"PI0 raw action (first sample): {action[0]}")
+                # if batch_size > 1:
+                #     print(f"PI0 raw action (all samples):")
+                #     for i in range(batch_size):
+                #         print(f"  Sample {i+1}: {action[i]}")
+                # print("=== END BATCH INFERENCE ===\n")
                 
                 # Process action using BridgeSimplerAdapter
                 # Use the first action from the batch for environment execution
