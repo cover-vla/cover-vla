@@ -28,7 +28,6 @@ from typing import Optional, Union
 import draccus
 import numpy as np
 import tqdm
-from transforms3d.euler import euler2quat
 
 import wandb
 from experiments.robot.simpler.simpler_benchmark import get_benchmark
@@ -39,6 +38,7 @@ from experiments.robot.simpler.simpler_utils_robomonkey import (
     get_simpler_img,
     create_bridge_adapter_wrapper,
 )
+from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
@@ -106,7 +106,8 @@ class GenerateConfig:
     #################################################################################################################
     model_family: str = "openvla"                    # Model family
     hf_token: str = Path(".hf_token")                       # Model family
-    pretrained_checkpoint: Union[str, Path] = "juexzz/INTACT-pi0-finetune-bridge"     # Pretrained checkpoint path
+    # pretrained_checkpoint: Union[str, Path] = "juexzz/INTACT-pi0-finetune-bridge"     # Pretrained checkpoint path
+    pretrained_checkpoint: Union[str, Path] = "juexzz/INTACT-pi0-finetune-rephrase-bridge"     # Pretrained checkpoint path
     load_in_8bit: bool = False                       # (For OpenVLA only) Load with 8-bit quantization
     load_in_4bit: bool = False                       # (For OpenVLA only) Load with 4-bit quantization
 
@@ -120,7 +121,7 @@ class GenerateConfig:
     initial_states_type: str = "eval"
     #                                       Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
     num_steps_wait: int = 0                         # Number of steps to wait for objects to stabilize in sim
-    num_trials_per_task: int = 300                    # Number of rollouts per task
+    num_trials_per_task: int = 30                    # Number of rollouts per task
 
     #################################################################################################################
     # Utils
@@ -147,7 +148,7 @@ class GenerateConfig:
     lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
     
     # Batch inference parameters
-    batch_inference_size: int = 5                        # Number of samples for batch inference (same instruction repeated)
+    batch_inference_size: int = 1                        # Number of samples for batch inference (same instruction repeated)
     
     # Action ensemble parameters (for temporal ensembling)
     action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
@@ -299,11 +300,11 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     pbar.update(1)
                     continue
 
-                # Get preprocessed image
-                img = get_simpler_img(env, obs, resize_size)
-
-                # Save preprocessed image for replay video
-                replay_images.append(img)
+                # Get raw image from environment (let BridgeSimplerAdapter handle preprocessing)
+                # This matches INT-ACT's approach: pass raw images to adapter for consistent preprocessing
+                raw_img = get_image_from_maniskill2_obs_dict(env, obs)
+                
+                replay_images.append(raw_img)
 
                 # buffering #obs_history images, optionally
                 image_history = replay_images[-cfg.obs_history :]
@@ -311,23 +312,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     image_history.extend([replay_images[-1]] * (cfg.obs_history - len(image_history)))
                 
                 # Prepare observations in the format expected by BridgeSimplerAdapter
-                # BridgeSimplerAdapter expects obs["agent"]["eef_pos"] with quaternion format
-                tcp_pose = obs["extra"]["tcp_pose"]  # [x, y, z, rx, ry, rz, gripper] (7D)
-                
-                # Convert euler angles to quaternion for Bridge format
-                x, y, z, rx, ry, rz, gripper = tcp_pose
-                qx, qy, qz, qw = euler2quat(rx, ry, rz, axes='sxyz')  # Convert euler to quaternion
-                
-                # BridgeSimplerAdapter expects [x, y, z, qx, qy, qz, qw, gripper] (8D)
-                eef_pos_bridge_format = np.array([x, y, z, qx, qy, qz, qw, gripper])
-                
+                # INT-ACT passes raw observation directly - obs["agent"]["eef_pos"] already has correct format!
                 obs_for_adapter = {
-                    'observation.images.top': img,  # Raw image from environment
-                    'observation.state': {
-                        'agent': {
-                            'eef_pos': eef_pos_bridge_format  # Bridge format: pos + quat + gripper
-                        }
-                    },
+                    'observation.images.top': raw_img,  # Raw image from environment
+                    'observation.state': obs,  # Raw observation state (matches INT-ACT exactly)
                     'task': task_description
                 }
                 
@@ -388,7 +376,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 # Execute action in environment
                 obs, reward, done, trunc, info = env.step(processed_action)
-                print("Executed action:", processed_action)
+                # print("Executed action:", processed_action)
                 if done:
                     task_successes += 1
                     total_successes += 1
