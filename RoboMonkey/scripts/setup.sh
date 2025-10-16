@@ -40,6 +40,9 @@ retry_with_limit() {
 # retry_with_limit "bash scripts/env_sglang.sh" "env_sglang.sh"
 
 # Step 4: Run env_simpler.sh
-retry_with_limit "bash scripts/env_simpler.sh" "env_simpler.sh"
+# retry_with_limit "bash scripts/env_simpler.sh" "env_simpler.sh"
+
+# Step 5: Run env_simpler_pi.sh
+retry_with_limit "bash scripts/env_simpler_pi.sh" "env_simpler_pi.sh"
 
 echo "✅ All setup steps completed successfully."

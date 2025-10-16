@@ -1,5 +1,0 @@
-Task suite: simpler_zucchini_on_towel
-
-Task: put the zucchini on the towel (Trial 1/30)
-Starting episode 1...
-Candidate instructions: ['Move the zucchini to the cloth.']

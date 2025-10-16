@@ -1,0 +1,11 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=1--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 2...

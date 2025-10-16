@@ -35,11 +35,13 @@ from experiments.robot.simpler.simpler_utils_robomonkey import (
     convert_maniskill_with_bridge_adapter,
     get_simpler_dummy_action,
     get_simpler_env,
-    get_simpler_img,
+    save_reward_img,
     create_bridge_adapter_wrapper,
 )
 from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 import imageio
+from experiments.robot.token_action_converter import TokenActionConverter
+from experiments.robot.openvla_utils import get_rewards, generate_augmented_samples_from_batch
 # Append current directory so that interpreter can find experiments.robot
 sys.path.append("../..")
 import time
@@ -66,9 +68,9 @@ def set_seed_everywhere(seed):
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_robomonkey_rephrase/transform_{transformation_type}"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_robomonkey_original/transform_{transformation_type}"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -96,10 +98,12 @@ def load_rephrases(task_suite_name: str):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
     
+
     with open(json_path, 'r') as f:
         all_rephrases = json.load(f)
     # The new format has an "instructions" key containing the task data
     return all_rephrases.get("instructions", {})
+
 
 
 @dataclass
@@ -144,8 +148,8 @@ class GenerateConfig:
     # fmt: on
 
     # Robomonkey Config
-    initial_samples: int = 5
     augmented_samples: int = 32
+    reward_server_port: int = 3100                     # Port for RoboMonkey reward model server
     # Action chunking (match INT-ACT style multi-step actions)
     n_action_steps: int = 4
     
@@ -153,8 +157,7 @@ class GenerateConfig:
     lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
     
     # Batch inference parameters
-    batch_inference_size: int = 1                        # Number of samples for batch inference (same instruction repeated)
-    
+    batch_inference_size: int = 41                        # Number of samples for batch inference (same instruction repeated)
     # Action ensemble parameters (for temporal ensembling)
     action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
 
@@ -165,7 +168,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
     assert not (cfg.load_in_8bit and cfg.load_in_4bit), "Cannot use both 8-bit and 4-bit quantization!"
 
-    assert cfg.initial_samples > 0, "Invalid initial_samples: should be > 0"
+    assert cfg.batch_inference_size > 0, "Invalid batch_inference_size: should be > 0"
     assert cfg.augmented_samples > 0, "Invalid augmented_samples: should be > 0"
 
     # Set random seed
@@ -222,6 +225,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     if not hasattr(pi0_policy, '_preprocess_adapter'):
         pi0_policy._preprocess_adapter = create_bridge_adapter_wrapper(cfg.action_ensemble_temp)
     preprocess_adapter = pi0_policy._preprocess_adapter
+    
+    # load robomonkey action converter
+    action_converter = TokenActionConverter()
+
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
@@ -358,7 +365,13 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     action_queue = pi0_policy.select_action(observation)
                     # select_action returns a deque; get the first batch of actions
                     action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
-                    
+                action_id = np.array([action_converter.action_to_token(act) for act in action])
+                # augmented_action_id, augmented_action = generate_augmented_samples_from_batch(action, num_samples=cfg.augmented_samples)
+                save_reward_img(raw_img)
+                # Use absolute path so the reward server can find the image
+                image_path = "/root/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler/bashes/transfer_images/reward_img_robomonkey.jpg"
+                rewards = get_rewards(task_description, image_path, action_id, cfg)
+                selected_index = np.argmax(rewards)
                 # print ("action shape:", action.shape)
                 # # DEBUG: Check batch inference results
                 # print(f"\n=== BATCH INFERENCE (batch_size={batch_size}, temp={cfg.action_ensemble_temp}) ===")
@@ -372,8 +385,12 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 # print("=== END BATCH INFERENCE ===\n")
                 
                 # Process action using BridgeSimplerAdapter
-                # Use the first action from the batch for environment execution
-                action_for_env = action[0:1]  # Keep batch dimension for adapter
+                # Use the selected action from the batch for environment execution
+                action_for_env = action[selected_index:selected_index+1]
+                action_binary = action.copy() 
+                action_binary[:, -1] = np.where(action[:, -1] > 0.5, 1.0, 0.0)
+                action_for_env = action_binary[selected_index:selected_index+1]
+                # print ("action_for_env:", action_for_env)
                 processed_action = convert_maniskill_with_bridge_adapter(action_for_env, cfg.action_ensemble_temp)
                 
                 # Execute action in environment

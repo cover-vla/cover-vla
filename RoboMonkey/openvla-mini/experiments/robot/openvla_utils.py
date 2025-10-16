@@ -484,6 +484,8 @@ def apply_center_crop(im, t_h, t_w):
     crop_w = int((im.shape[-2] - t_w) / 2)
     return im[..., crop_h : crop_h + t_h, crop_w : crop_w + t_w, :]
 
+def preprocess_image_for_reward(image):
+    return None
 #
 def get_vla_action(vla, processor, base_vla_name, obs, task_label, unnorm_key, center_crop=False, cfg=None):
     """Generates an action with the VLA policy."""

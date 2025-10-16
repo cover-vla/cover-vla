@@ -1,0 +1,50 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=1--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=3--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: stack the green block on the yellow block
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=4--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=5--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=6--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 3 (50.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_no_transform/episode=7--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 3 (42.9%)

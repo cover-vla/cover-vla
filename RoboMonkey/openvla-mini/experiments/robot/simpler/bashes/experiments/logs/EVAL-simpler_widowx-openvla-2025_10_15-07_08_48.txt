@@ -1,0 +1,37 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0
+
+Task: put eggplant into yellow basket
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=2--success=True--task=put_eggplant_into_yellow_basket.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+Current task success rate: 1.0
+Current total success rate: 0.5
+
+Task: put carrot on plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=3--success=True--task=put_carrot_on_plate.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+Current task success rate: 1.0
+Current total success rate: 0.6666666666666666
+
+Task: put the spoon on the towel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=4--success=True--task=put_the_spoon_on_the_towel.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+Current task success rate: 1.0
+Current total success rate: 0.75

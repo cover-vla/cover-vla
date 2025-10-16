@@ -45,6 +45,9 @@ class TokenActionConverter:
 
     def action_to_token(self, actions):
         """Convert actions back to token IDs."""
+        # Convert to numpy array and handle different input types
+        actions = np.array(actions)
+        
         # First, normalize the actions back to [-1, 1] range
         action_norm_stats = self.norm_stats[self.unnorm_key]["action"]
         mask = action_norm_stats.get(
@@ -58,6 +61,7 @@ class TokenActionConverter:
             2 * (actions - action_low) / (action_high - action_low) - 1,
             actions
         )
+        
         discretized_actions = np.array([
             np.abs(self.bin_centers - val).argmin()
             for val in normalized_actions

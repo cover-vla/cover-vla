@@ -1,0 +1,19 @@
+Task suite: simpler_ood
+
+Task: put redbull can on plate
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=1--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: put the zucchini on the towel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/episode=2--success=True--task=put_the_zucchini_on_the_towel.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0

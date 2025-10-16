@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to analyze success rates from OpenVLA fine-tuned model rollouts.
+Script to analyze success rates from OpenPI rollouts.
 Creates bar plots showing success rates and variances for each task across three seeds.
 """
 
@@ -40,12 +40,13 @@ def analyze_rollout_folder(folder_path, ood_indicator=False):
     """
     results = defaultdict(lambda: defaultdict(list))
     
-    # Walk through the folder structure
+    seeds_found = False
+    # First, try the original seed-based directory structure
     for root, dirs, files in os.walk(folder_path):
-        # Check if we're in a seed folder
         if 'seed_' in root:
             seed_match = re.search(r'seed_(\d+)', root)
             if seed_match:
+                seeds_found = True
                 seed = int(seed_match.group(1))
                 
                 # Find task folder
@@ -59,21 +60,39 @@ def analyze_rollout_folder(folder_path, ood_indicator=False):
                     continue
                 
                 # Analyze video files in this task folder
-                video_files = [f for f in files if f.endswith('.mp4')]
-                
-                for video_file in video_files:
+                for video_file in files:
+                    if not video_file.endswith('.mp4'):
+                        continue
                     success = extract_success_from_filename(video_file)
                     if success is not None:
                         results[task_name][seed].append(success)
+    
+    # If no seeds found, fall back to a flat recursive scan and use a pseudo-seed 0
+    if not seeds_found:
+        for root, dirs, files in os.walk(folder_path):
+            for video_file in files:
+                if not video_file.endswith('.mp4'):
+                    continue
+                success = extract_success_from_filename(video_file)
+                if success is None:
+                    continue
+                # Try to extract task name from filename first
+                task_match = re.search(r'--task=([^\.]+)', video_file)
+                if task_match:
+                    task_name = task_match.group(1)
+                else:
+                    # Fallback: use the immediate directory name as task
+                    task_name = os.path.basename(root)
+                results[task_name][0].append(success)
     
     return results
 
 def analyze_rollouts_normal_rephrase(base_path):
     """
-    Analyze rollouts_openvla_ft_normal_rephrase directory.
+    Analyze rollouts_*_normal_rephrase-style directory (legacy support).
     
     Args:
-        base_path: Path to the rollouts_openvla_ft_normal_rephrase directory
+        base_path: Path to the rollouts_*_normal_rephrase directory
     
     Returns:
         Dictionary with rollouts experiment data
@@ -113,8 +132,8 @@ def analyze_rollouts_normal_rephrase(base_path):
                     if success is not None:
                         experiment_results[task_name].append(success)
     
-    # Store results with the specified label
-    results["openvla_instruct_aug_Original"] = experiment_results
+    # Store results with the specified label (renamed to OpenPI)
+    results["openpi_instruct_aug_Original"] = experiment_results
     
     return results
 
@@ -192,45 +211,50 @@ def analyze_rephrase_folders(base_path):
     """
     results = {}
     
-    # Find all experiment folders (rephrase_* and no_transform_*)
+    # Find all experiment folders
     for item in os.listdir(base_path):
-        if (item.startswith('rephrase_') or item.startswith('no_transform_')) and os.path.isdir(os.path.join(base_path, item)):
-            folder_path = os.path.join(base_path, item)
-            
-            # Extract experiment info from folder name
-            if item.startswith('rephrase_'):
-                # Format: rephrase_X_consistency_Y
-                parts = item.split('_')
-                if len(parts) >= 3:
-                    rephrase_num = parts[1]
-                    consistency = parts[3] if len(parts) > 3 else "Unknown"
-                    experiment_name = f"Rephrase_{rephrase_num}_Consistency_{consistency}"
+        item_path = os.path.join(base_path, item)
+        if not os.path.isdir(item_path):
+            continue
+
+        experiment_name = None
+        # Support legacy naming: rephrase_* and no_transform_*
+        if item.startswith('rephrase_'):
+            parts = item.split('_')
+            if len(parts) >= 3:
+                rephrase_num = parts[1]
+                consistency = parts[3] if len(parts) > 3 else "Unknown"
+                experiment_name = f"Rephrase_{rephrase_num}_Consistency_{consistency}"
+            else:
+                experiment_name = item
+        elif item.startswith('no_transform_'):
+            experiment_name = "Original_Instruction"
+        # Support new naming: transform_no_transform and transform_rephrase
+        elif item == 'transform_no_transform':
+            experiment_name = "openpi_rephrase_no_transform"
+        elif item == 'transform_rephrase':
+            experiment_name = "openpi_rephrase_rephrase"
+        else:
+            # Skip unrelated directories
+            continue
+
+        # Analyze this folder recursively
+        experiment_results = defaultdict(list)
+        for root, dirs, files in os.walk(item_path):
+            for file in files:
+                if not file.endswith('.mp4'):
+                    continue
+                success = extract_success_from_filename(file)
+                if success is None:
+                    continue
+                task_match = re.search(r'--task=([^\.]+)', file)
+                if task_match:
+                    task_name = task_match.group(1)
                 else:
-                    experiment_name = item
-            elif item.startswith('no_transform_'):
-                # Format: no_transform_X_consistency_Y or no_transform_X
-                parts = item.split('_')
-                if len(parts) >= 3:
-                    transform_num = parts[2]
-                    experiment_name = f"Original_Instruction"
-                else:
-                    experiment_name = "Original_Instruction"
-            
-            # Analyze this folder
-            experiment_results = defaultdict(list)
-            
-            # Get all video files in this folder
-            for file in os.listdir(folder_path):
-                if file.endswith('.mp4'):
-                    success = extract_success_from_filename(file)
-                    if success is not None:
-                        # Extract task name from filename
-                        task_match = re.search(r'--task=([^\.]+)', file)
-                        if task_match:
-                            task_name = task_match.group(1)
-                            experiment_results[task_name].append(success)
-            
-            results[experiment_name] = experiment_results
+                    task_name = os.path.basename(root)
+                experiment_results[task_name].append(success)
+
+        results[experiment_name] = experiment_results
     
     return results
 
@@ -301,25 +325,25 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
     # Create a DataFrame for plotting
     plot_data = []
     
-    # Add OpenVLA instruction augmented data
+    # Add OpenPI original/no_transform data
     for task_name in stats_in_dist:
         stats = stats_in_dist[task_name]
         for i, seed in enumerate(stats['seeds']):
             plot_data.append({
                 'Task': task_name.replace('_', ' ').title(),
-                'Experiment': 'OpenVLA_Instruction_Augmented',
+                'Experiment': 'openpi_original_no_transform',
                 'Success Rate': stats['success_rates'][i],
                 'Episode Count': stats['episode_counts'][i],
                 'Data Type': 'Original'
             })
     
-    # Add OOD data (if exists)
+    # Add original/rephrase data (if exists)
     for task_name in stats_ood:
         stats = stats_ood[task_name]
         for i, seed in enumerate(stats['seeds']):
             plot_data.append({
                 'Task': task_name.replace('_', ' ').title(),
-                'Experiment': 'OpenVLA_OOD',
+                'Experiment': 'openpi_original_rephrase',
                 'Success Rate': stats['success_rates'][i],
                 'Episode Count': stats['episode_counts'][i],
                 'Data Type': 'Original'
@@ -363,17 +387,18 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
     
     # Create color palette for different experiments
     experiment_colors = {
-        'OpenVLA_Instruction_Augmented': '#2E86AB',  # Blue
-        'OpenVLA_OOD': '#A23B72',                   # Pink
-        'Original_Instruction': '#FF6B35',           # Orange
-        'openvla_instruct_aug_Original': '#8B5CF6',  # Purple
-        'RoboMonkey': '#E74C3C',                    # Red
-        'robomonkey_id': '#16A085',                 # Teal
+        'openpi_original_no_transform': '#2E86AB',   # Blue
+        'openpi_original_rephrase': '#A23B72',       # Pink
+        'openpi_rephrase_no_transform': '#FF6B35',   # Orange
+        'openpi_rephrase_rephrase': '#8B5CF6',       # Purple
+        'openpi_instruct_aug_Original': '#8B5CF6',   # Legacy support
+        'RoboMonkey': '#E74C3C',                     # Red
+        'robomonkey_id': '#16A085',                  # Teal
     }
     
     # Add colors for all other experiments (rephrase, etc.)
     other_experiments = [exp for exp in df['Experiment'].unique() 
-                        if exp not in ['OpenVLA_Instruction_Augmented', 'OpenVLA_OOD', 'Original_Instruction', 'openvla_instruct_aug_Original', 'RoboMonkey', 'robomonkey_id']]
+                        if exp not in ['openpi_original_no_transform', 'openpi_original_rephrase', 'openpi_rephrase_no_transform', 'openpi_rephrase_rephrase', 'openpi_instruct_aug_Original', 'RoboMonkey', 'robomonkey_id']]
     other_colors = plt.cm.Set3(np.linspace(0, 1, len(other_experiments)))
     for i, exp in enumerate(other_experiments):
         experiment_colors[exp] = other_colors[i]
@@ -513,7 +538,7 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
         
         plt.xlabel('Tasks', fontsize=12)
         plt.ylabel('Success Rate', fontsize=12)
-        plt.title('Original OpenVLA Fine-Tuned Model Results', fontsize=14, fontweight='bold')
+        plt.title('Original OpenPI Results', fontsize=14, fontweight='bold')
         plt.xticks(range(len(original_summary['Task'].unique())), 
                   original_summary['Task'].unique(), rotation=45, ha='right')
         plt.ylim(0, 1)
@@ -627,10 +652,10 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
 def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats):
     """Print detailed summary statistics."""
     print("="*80)
-    print("OPENVLA FINE-TUNED MODEL - SUCCESS RATE ANALYSIS")
+    print("OPENPI - SUCCESS RATE ANALYSIS")
     print("="*80)
     
-    print("\nOPENVLA INSTRUCTION AUGMENTED TASKS:")
+    print("\nOPENPI INSTRUCTION AUGMENTED TASKS:")
     print("-" * 50)
     for task_name, stats in stats_in_dist.items():
         print(f"\nTask: {task_name.replace('_', ' ').title()}")
@@ -642,7 +667,7 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
             print(f"    Seed {seed}: {stats['success_rates'][i]:.3f} ({stats['total_successes'][i]}/{stats['episode_counts'][i]})")
     
     if stats_ood:
-        print("\nOPENVLA OUT-OF-DISTRIBUTION TASKS:")
+        print("\nOPENPI OUT-OF-DISTRIBUTION TASKS:")
         print("-" * 50)
         for task_name, stats in stats_ood.items():
             print(f"\nTask: {task_name.replace('_', ' ').title()}")
@@ -692,12 +717,12 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
             all_robomonkey_rates.append(task_stats['success_rate'])
     
     if all_in_dist_rates:
-        print(f"OpenVLA Instruction Augmented Average Success Rate: {np.mean(all_in_dist_rates):.3f} ± {np.std(all_in_dist_rates):.3f}")
-        print(f"OpenVLA Instruction Augmented Tasks: {len(stats_in_dist)}")
+        print(f"OpenPI Instruction Augmented Average Success Rate: {np.mean(all_in_dist_rates):.3f} ± {np.std(all_in_dist_rates):.3f}")
+        print(f"OpenPI Instruction Augmented Tasks: {len(stats_in_dist)}")
     
     if all_ood_rates:
-        print(f"OpenVLA OOD Average Success Rate: {np.mean(all_ood_rates):.3f} ± {np.std(all_ood_rates):.3f}")
-        print(f"OpenVLA OOD Tasks: {len(stats_ood)}")
+        print(f"OpenPI OOD Average Success Rate: {np.mean(all_ood_rates):.3f} ± {np.std(all_ood_rates):.3f}")
+        print(f"OpenPI OOD Tasks: {len(stats_ood)}")
     
     if all_rephrase_rates:
         print(f"Rephrase Experiments Average Success Rate: {np.mean(all_rephrase_rates):.3f} ± {np.std(all_rephrase_rates):.3f}")
@@ -712,7 +737,7 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
 def main():
     """Main analysis function."""
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Analyze OpenVLA success rates with optional filtering')
+    parser = argparse.ArgumentParser(description='Analyze OpenPI success rates with optional filtering')
     parser.add_argument('--include-insufficient', action='store_true', 
                        help='Include tasks with only one experiment type (default: filter them out)')
     parser.add_argument('--output-dir', default='./analysis_plots',
@@ -720,14 +745,15 @@ def main():
     args = parser.parse_args()
     
     # Define paths
-    in_dist_path = "./rollouts_openvla_ft"
-    ood_path = "./rollouts_openvla_ft_ood"
-    rephrase_path = "./rollouts_clip_gaussian_consistency"
-    rollouts_normal_rephrase_path = "./rollouts_openvla_ft_normal_rephrase"
+    # Updated paths to reflect new folder naming/layout
+    in_dist_path = "./rollouts_openpi_original/transform_no_transform"
+    ood_path = "./rollouts_openpi_original/transform_rephrase"
+    rephrase_path = "./rollouts_openpi_rephrase"
+    rollouts_normal_rephrase_path = "./rollouts_openpi_original"  # still parsed via analyze_rephrase_folders for transform_* subdirs
     robomonkey_path = "./robomonkey"
     robomonkey_id_path = "./robomonkey_id"
     
-    print("Analyzing OpenVLA Fine-Tuned Model Rollouts...")
+    print("Analyzing OpenPI Rollouts...")
     print(f"In-Distribution path: {in_dist_path}")
     print(f"Out-of-Distribution path: {ood_path}")
     print(f"Rephrase experiments path: {rephrase_path}")
