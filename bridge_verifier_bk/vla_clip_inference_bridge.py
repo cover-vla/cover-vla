@@ -128,7 +128,8 @@ class VLA_CLIP_Bridge_Inference:
             # text_tokens should be (num_histories, seq_len)
             if text_tokens.shape[0] != num_histories:
                 text_tokens = text_tokens.repeat(num_histories, 1)
-
+            
+            # Use the bridge model's forward method
             image_logits, action_logits = self.model(img_batch, text_tokens, history_batch)
             
             # Get similarity scores from the model output
@@ -140,8 +141,7 @@ class VLA_CLIP_Bridge_Inference:
         
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
         return predicted_history, history_scores
-    
-    @torch.no_grad()
+
     def get_history_score(self, image, instruction, action_history):
         """
         Calculates the VLA-CLIP cosine similarity score between an agent view image/instruction
@@ -153,78 +153,27 @@ class VLA_CLIP_Bridge_Inference:
         Returns:
             score: Float similarity score tensor (on the model's device).
         """
-        # Preprocess the image
         if isinstance(image, np.ndarray):
             image = Image.fromarray(image.astype('uint8'))
         img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
         
-        # Tokenize instruction(s)
-        if isinstance(instruction, list):
-            assert len(instruction) == len(action_history), "Number of instructions must match number of action histories."
-            # Tokenize each instruction and stack into a batch
-            text_tokens = clip.tokenize(instruction).to(self.device)
+        if isinstance(instruction, str):
+            text_tokens = clip.tokenize([instruction]).to(self.device)
         else:
-            text_tokens = clip.tokenize([instruction]).to(self.device)  # Make it batch size 1
-
+            text_tokens = instruction.to(self.device)
+            if text_tokens.ndim == 1:
+                text_tokens = text_tokens.unsqueeze(0)
+        
+        history_tensor = torch.tensor(action_history, dtype=torch.float32).unsqueeze(0).to(self.device)
+        if history_tensor.ndim == 2:
+            history_tensor = history_tensor.unsqueeze(0)
+        
         with torch.no_grad():
-            history_batch = torch.tensor(np.array(action_history), dtype=torch.float32).to(self.device)
-            num_histories = history_batch.shape[0]
-            img_batch = img_tensor.repeat(num_histories, 1, 1, 1)
-            # text_tokens should be (num_histories, seq_len)
-            if text_tokens.shape[0] != num_histories:
-                text_tokens = text_tokens.repeat(num_histories, 1)
-            
-        with torch.no_grad():
-            score = self.get_similarity_score(img_batch, text_tokens, history_batch)
+            image_logits, action_logits = self.model(img_tensor, text_tokens, history_tensor)
+            # Return the similarity score (diagonal element)
+            score = image_logits[0, 0]
         
         return score
-
-    @torch.no_grad()
-    def get_similarity_score(self, img_batch, text_tokens, history_batch):
-        
-        with torch.no_grad():
-            # Extract features up to the normalized representations
-            patch_features, text_features = self.model.extract_clip_features(img_batch, text_tokens)
-            
-            # Text-aware visual features
-            text_aware_features = self.model.text_aware_visual_extraction(patch_features, text_features)
-            vision_token = self.model.vision_poolings(text_aware_features)
-            
-            # Text pooling
-            text_token = self.model.text_pooling(text_features)
-            combined_features = torch.cat([text_token, vision_token], dim=-1)
-            combined_features = self.model.input_projection(combined_features)
-            combined_features = combined_features / combined_features.norm(dim=-1, keepdim=True)
-            
-            # Encode action history (this already handles batches!)
-            action_histories = history_batch.float().to(self.device)
-            
-            if self.use_transformer:
-                # Transformer path
-                padding_mask = (action_histories[:, :, 0] == ACTION_PADDING_VALUE)
-                encoded_steps = self.model.single_step_action_encoder(action_histories)
-                encoded_steps_permuted = encoded_steps.permute(1, 0, 2)
-                transformer_output_permuted = self.model.trajectory_encoder(encoded_steps_permuted, src_key_padding_mask=padding_mask)
-                transformer_output = transformer_output_permuted.permute(1, 0, 2)
-                
-                mask_expanded = (~padding_mask).unsqueeze(-1).float()
-                summed_features = (transformer_output * mask_expanded).sum(dim=1)
-                num_non_padded = mask_expanded.sum(dim=1)
-                num_non_padded = torch.clamp(num_non_padded, min=1e-9)
-                projected_trajectory = summed_features / num_non_padded
-            else:
-                # MLP path
-                batch_size = action_histories.shape[0]
-                flat_actions = action_histories.reshape(batch_size, -1)
-                projected_trajectory = self.model.complex_action_encoder(flat_actions)
-            
-            # Normalize action history features
-            projected_trajectory = projected_trajectory / projected_trajectory.norm(dim=-1, keepdim=True)
-            
-            # Return cosine similarity (dot product of normalized vectors)
-            similarity = torch.matmul(combined_features, projected_trajectory.T)
-            scores = torch.diag(similarity).cpu().numpy()
-        return scores
 
 def sample_and_test_bridge(bridge_dataset_dict, model_path, history_length, use_transformer=False, num_samples=10, action_pool_size=20, images_folder=None):
     """
