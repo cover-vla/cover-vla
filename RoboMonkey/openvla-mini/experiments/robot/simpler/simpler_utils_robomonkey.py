@@ -245,10 +245,13 @@ def convert_maniskill_with_bridge_adapter(action, action_ensemble_temp=-0.8):
     adapter = getattr(convert_maniskill_with_bridge_adapter, adapter_key)
     
     # BridgeSimplerAdapter expects actions with batch dimension
-    action_batch = action.reshape(1, -1)
+    if action.ndim == 1:
+        action_batch = action.reshape(1, -1)
+    else:
+        action_batch = action
     
     # Use the adapter's postprocess method
     processed_action = adapter.postprocess(action_batch)
     
     # Return single action (remove batch dimension)
-    return processed_action[0]
+    return processed_action

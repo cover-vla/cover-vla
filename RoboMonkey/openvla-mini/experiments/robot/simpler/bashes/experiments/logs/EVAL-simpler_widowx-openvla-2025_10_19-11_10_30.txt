@@ -1,0 +1,10 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 2...

@@ -66,9 +66,9 @@ def set_seed_everywhere(seed):
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}_test"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}_test"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -89,6 +89,10 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
 sys.path.append('/root/vla-clip/lerobot_intact')
 from lerobot.common.policies.pi0.modeling_pi0 import PI0Policy
 import torch
+
+# Import ensemble model for similarity scoring
+sys.path.append('/root/vla-clip/bridge_verifier/ensemble_eval')
+from efficient_ensemble_merged import EfficientEnsembleMerged
 
 def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
@@ -142,7 +146,7 @@ class GenerateConfig:
     seed: int = 7                                    # Random Seed (for reproducibility)
 
     # fmt: on
-
+    use_verifier: bool = True                          # Whether to use the verifier model for similarity scoring
     # Robomonkey Config
     initial_samples: int = 5
     augmented_samples: int = 32
@@ -207,6 +211,11 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     # Apply configured number of action steps (multi-step chunking)
     pi0_policy.config.n_action_steps = int(cfg.n_action_steps)
     print(f"PI0Policy device: {pi0_policy.config.device}")
+    
+    # Initialize ensemble model for similarity scoring
+    print("Loading ensemble model for similarity scoring...")
+    ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt")
+    print("Ensemble model loaded successfully!")
     
     # Initialize SIMPLER task suite
 
@@ -273,6 +282,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             # Setup
             t = 0
             replay_images = []
+            action_history = []  # Track actions for similarity scoring
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -356,29 +366,41 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 with torch.no_grad():
                     action_queue = pi0_policy.select_action(observation)
-                    # select_action returns a deque; get the first batch of actions
-                    action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
+                action_queue_np = np.array(np.zeros((cfg.n_action_steps, batch_size, 7)))
+                for i in range(min(cfg.n_action_steps, len(action_queue))):
+                    action_queue_np[i] = action_queue.popleft().cpu().numpy()
+                processed_future_actions_batch = [convert_maniskill_with_bridge_adapter(action_queue_np[i], cfg.action_ensemble_temp) for i in range(cfg.n_action_steps)]
+                
+                if cfg.use_verifier:
+                    num_past = min(len(action_history), 6)
+                    future_actions = np.stack(processed_future_actions_batch)  # (cfg.n_action_steps, batch_size, action_dim)
+                    future_actions_transposed = future_actions.transpose(1, 0, 2)  # (batch_size, cfg.n_action_steps, action_dim)
                     
-                # print ("action shape:", action.shape)
-                # # DEBUG: Check batch inference results
-                # print(f"\n=== BATCH INFERENCE (batch_size={batch_size}, temp={cfg.action_ensemble_temp}) ===")
-                # print(f"Task instruction: {single_task}")
-                # print(f"PI0 raw action shape: {action.shape}")
-                # print(f"PI0 raw action (first sample): {action[0]}")
-                # if batch_size > 1:
-                #     print(f"PI0 raw action (all samples):")
-                #     for i in range(batch_size):
-                #         print(f"  Sample {i+1}: {action[i]}")
-                # print("=== END BATCH INFERENCE ===\n")
+                    if num_past > 0:
+                        past_actions = np.stack(action_history[-num_past:])
+                        past_actions = np.expand_dims(past_actions, axis=0).repeat(batch_size, axis=0) # (cfg.batch_inference_size, num_past, action_dim)
+                        # Concatenate along timestep dimension
+                        processed_full_trajectory = np.concatenate([past_actions, future_actions_transposed], axis=1)  # (cfg.batch_inference_size, num_past+cfg.n_action_steps, action_dim)
+                    else:
+                        processed_full_trajectory = future_actions_transposed
+                    action_histories_list = [processed_full_trajectory[i] for i in range(batch_size)]
+                    images_list = [raw_img] * batch_size
+              
+                    max_score, max_instruction, max_action_history = ensemble_model.compute_max_similarity_scores_batch(
+                        images=images_list,
+                        instructions=batch_task_instructions.copy(),
+                        all_action_histories=action_histories_list
+                    )
+                    
+                    execute_action = max_action_history[num_past]
+                else:
+                    execute_action = processed_future_actions_batch[0][0]
+                    
+                action_history.append(execute_action)
                 
-                # Process action using BridgeSimplerAdapter
-                # Use the first action from the batch for environment execution
-                action_for_env = action[0:1]  # Keep batch dimension for adapter
-                processed_action = convert_maniskill_with_bridge_adapter(action_for_env, cfg.action_ensemble_temp)
-                
-                # Execute action in environment
-                obs, reward, done, trunc, info = env.step(processed_action)
-                # print("Executed action:", processed_action)
+                    
+                obs, reward, done, trunc, info = env.step(execute_action)    
+                    
                 if done:
                     task_successes += 1
                     total_successes += 1

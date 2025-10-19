@@ -305,6 +305,105 @@ class EfficientEnsembleMerged:
         
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
         return predicted_history, history_scores
+    
+    def compute_max_similarity_scores_batch(self, images, instructions, all_action_histories):
+        """
+        Compute maximum similarity scores between each (image, language) pair and all actions.
+        
+        Args:
+            images: List of PIL Images or numpy arrays
+            instructions: List of instruction strings
+            all_action_histories: List of ALL possible action history arrays
+            
+        Returns:
+            max_similarity_scores: List of maximum similarity scores (one per image+instruction pair)
+        """
+        batch_size = len(images)
+        num_actions = len(all_action_histories)
+        
+        # print(f"Computing max similarity scores for {batch_size} (image, language) pairs against {num_actions} actions...")
+        
+        # Step 1: Loop to encode image and text features individually
+        patch_features_list = []
+        text_features_list = []
+        
+        for i in range(batch_size):
+            # Preprocess image and text individually
+            if isinstance(images[i], np.ndarray):
+                image = Image.fromarray(images[i].astype('uint8'))
+            else:
+                image = images[i]
+            img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+            
+            if isinstance(instructions[i], str):
+                text_tokens = self.tokenizer([instructions[i]], context_length=self.siglip_model.context_length).to(self.device)
+            else:
+                text_tokens = instructions[i].to(self.device)
+                if text_tokens.ndim == 1:
+                    text_tokens = text_tokens.unsqueeze(0)
+            
+            # Extract features for this sample
+            patch_features, text_features = self.extract_shared_features(img_tensor, text_tokens)
+            patch_features_list.append(patch_features)
+            text_features_list.append(text_features)
+        
+        # Step 2: Stack features into batch tensors
+        patch_features_batch = torch.cat(patch_features_list, dim=0)  # (batch_size, num_patches, dim)
+        text_features_batch = torch.cat(text_features_list, dim=0)    # (batch_size, num_tokens, dim)
+        
+        # Step 3: Convert all action histories to batch tensor (pad to same length)
+        max_history_len = max(len(ah) for ah in all_action_histories)
+        action_histories_np = [np.array(ah) for ah in all_action_histories]
+        action_dim = action_histories_np[0].shape[1] if len(action_histories_np[0].shape) > 1 else 1
+        
+        padded_action_histories = []
+        for ah in action_histories_np:
+            if len(ah) < max_history_len:
+                padding = np.zeros((max_history_len - len(ah), action_dim))
+                padded_ah = np.vstack([padding, ah])
+            else:
+                padded_ah = ah
+            padded_action_histories.append(padded_ah)
+        
+        action_histories_batch = torch.tensor(np.array(padded_action_histories), dtype=torch.float32).to(self.device)
+        
+        # Step 4: Process through each model in batch
+        all_image_text_embeds = []
+        all_action_embeds = []
+        
+        for model_idx in range(self.num_models):
+            # Process all samples in one forward pass
+            img_text_embeds, action_embeds = self.get_embeddings_from_model_batch(
+                model_idx, patch_features_batch, text_features_batch, action_histories_batch
+            )
+            all_image_text_embeds.append(img_text_embeds)
+            all_action_embeds.append(action_embeds)
+        
+        # Step 5: Stack and average across models
+        all_image_text_embeds = torch.stack(all_image_text_embeds)  # (num_models, batch_size, 512)
+        all_action_embeds = torch.stack(all_action_embeds)  # (num_models, num_actions, 512)
+        
+        fused_image_text = all_image_text_embeds.mean(dim=0)  # (batch_size, 512)
+        fused_action = all_action_embeds.mean(dim=0)  # (num_actions, 512)
+        
+        # Step 6: Re-normalize
+        fused_image_text = fused_image_text / fused_image_text.norm(dim=-1, keepdim=True)
+        fused_action = fused_action / fused_action.norm(dim=-1, keepdim=True)
+        
+        # Step 7: Compute similarity matrix between all (image, language) pairs and all actions
+        similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (batch_size, num_actions)
+        
+        # Step 8: Find maximum similarity score for each (image, language) pair
+        max_similarity_scores = similarity_matrix.max(dim=1)[0]  # (batch_size,)
+        max_similarity_scores_np = max_similarity_scores.cpu().numpy()
+        
+        # Find the overall maximum across all pairs
+        max_idx = max_similarity_scores_np.argmax()
+        max_score = max_similarity_scores_np[max_idx]
+        max_instruction = instructions[max_idx]
+        max_action_history = all_action_histories[max_idx]
+        
+        return max_score, max_instruction, max_action_history
 
 
 def sample_and_test_bridge_merged_ensemble(bridge_dataset_dict, merged_checkpoint_path,
