@@ -1,0 +1,46 @@
+Task suite: simpler_widowx
+
+Task: Place the green block directly over the yellow block.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=3--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=4--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=5--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=6--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+
+Task: Place the green block directly over the yellow block.
+Starting episode 7...

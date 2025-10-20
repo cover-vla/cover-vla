@@ -1,0 +1,4 @@
+Task suite: simpler_widowx
+
+Task: Place the green block directly over the yellow block.
+Starting episode 1...

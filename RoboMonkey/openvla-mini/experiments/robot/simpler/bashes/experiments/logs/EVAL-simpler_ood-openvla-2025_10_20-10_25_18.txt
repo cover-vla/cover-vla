@@ -1,0 +1,4 @@
+Task suite: simpler_ood
+
+Task: put redbull can on plate
+Starting episode 1...

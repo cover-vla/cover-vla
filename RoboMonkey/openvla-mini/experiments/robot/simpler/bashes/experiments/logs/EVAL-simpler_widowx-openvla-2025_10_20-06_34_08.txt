@@ -6,3 +6,418 @@ Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/epi
 Success: False
 # episodes completed so far: 1
 # successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=3--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=4--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=5--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=6--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=7--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=8--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=9--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 1 (11.1%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=10--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=11--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 1 (9.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=12--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 1 (8.3%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=13--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 1 (7.7%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=14--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 1 (7.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=15--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 1 (6.7%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=16--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 1 (6.2%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=17--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 1 (5.9%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=18--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 1 (5.6%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=19--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 2 (10.5%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=20--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 2 (10.0%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=21--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 21
+# successes: 2 (9.5%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=22--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 2 (9.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=23--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 2 (8.7%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=24--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 24
+# successes: 2 (8.3%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=25--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 2 (8.0%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=26--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 2 (7.7%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=27--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 2 (7.4%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=28--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 2 (7.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=29--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 2 (6.9%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=30--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 3 (10.0%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=31--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 31
+# successes: 3 (9.7%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=32--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 3 (9.4%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=33--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 33
+# successes: 3 (9.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=34--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 3 (8.8%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=35--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 35
+# successes: 3 (8.6%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=36--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 36
+# successes: 3 (8.3%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=37--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 3 (8.1%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=38--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 3 (7.9%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=39--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 3 (7.7%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=40--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 40
+# successes: 3 (7.5%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=41--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 3 (7.3%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=42--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 4 (9.5%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=43--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 43
+# successes: 4 (9.3%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=44--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 5 (11.4%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=45--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 45
+# successes: 5 (11.1%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=46--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 46
+# successes: 5 (10.9%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=47--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 6 (12.8%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=48--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 6 (12.5%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=49--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 49
+# successes: 6 (12.2%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=50--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 6 (12.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=51--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 51
+# successes: 6 (11.8%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=52--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 52
+# successes: 6 (11.5%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=53--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 53
+# successes: 6 (11.3%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=54--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 54
+# successes: 6 (11.1%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=55--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 55
+# successes: 7 (12.7%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=56--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 56
+# successes: 7 (12.5%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=57--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 57
+# successes: 7 (12.3%)
+
+Task: Position the emerald block on the golden block.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=58--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 58
+# successes: 7 (12.1%)
+
+Task: Place the jade object onto the amber object.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=59--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 59
+# successes: 7 (11.9%)
+
+Task: Put the verdant block over the sunny block.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=60--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 60
+# successes: 7 (11.7%)
+Current task success rate: 0.11666666666666667
+Current total success rate: 0.11666666666666667

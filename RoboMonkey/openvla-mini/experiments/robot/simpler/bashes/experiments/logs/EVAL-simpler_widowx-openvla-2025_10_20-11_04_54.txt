@@ -1,0 +1,204 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=3--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: stack the green block on the yellow block
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=4--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=5--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=6--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 4 (66.7%)
+
+Task: stack the green block on the yellow block
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=7--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+
+Task: stack the green block on the yellow block
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=8--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 5 (62.5%)
+
+Task: stack the green block on the yellow block
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=9--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 6 (66.7%)
+
+Task: stack the green block on the yellow block
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=10--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 6 (60.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=11--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 7 (63.6%)
+
+Task: stack the green block on the yellow block
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=12--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 8 (66.7%)
+
+Task: stack the green block on the yellow block
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=13--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 9 (69.2%)
+
+Task: stack the green block on the yellow block
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=14--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 14
+# successes: 10 (71.4%)
+
+Task: stack the green block on the yellow block
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=15--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 11 (73.3%)
+
+Task: stack the green block on the yellow block
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=16--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 12 (75.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=17--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 17
+# successes: 13 (76.5%)
+
+Task: stack the green block on the yellow block
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=18--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 14 (77.8%)
+
+Task: stack the green block on the yellow block
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=19--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 15 (78.9%)
+
+Task: stack the green block on the yellow block
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=20--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 16 (80.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=21--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 17 (81.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=22--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 17 (77.3%)
+
+Task: stack the green block on the yellow block
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=23--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 17 (73.9%)
+
+Task: stack the green block on the yellow block
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=24--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 18 (75.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=25--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 18 (72.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=26--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 18 (69.2%)
+
+Task: stack the green block on the yellow block
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=27--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 18 (66.7%)
+
+Task: stack the green block on the yellow block
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=28--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 28
+# successes: 19 (67.9%)
+
+Task: stack the green block on the yellow block
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform_test/episode=29--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 20 (69.0%)

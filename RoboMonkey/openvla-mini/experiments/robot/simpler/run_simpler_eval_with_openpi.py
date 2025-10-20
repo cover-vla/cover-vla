@@ -255,6 +255,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         # Use rephrased instruction if available
         if cfg.lang_transform_type == "no_transform":
             task_description = original_task_description
+            rephrased_list = None
         else:
             # Find matching task in preloaded rephrases
             matching_task_id = None
@@ -271,7 +272,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             else:
                 print(f"No preloaded rephrases found for task: {original_task_description}, using original")
                 task_description = original_task_description
+                rephrased_list = None
 
+        if cfg.lang_transform_type == "no_transform":
+            assert cfg.lang_rephrase_num == 1, "Language rephrase number must be 1 for no transformation"
         # Start episodes
         task_episodes, task_successes = 0, 0
         for _ in tqdm.tqdm(range(cfg.num_trials_per_task)):
@@ -349,11 +353,14 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 # Create batch of language instructions (same instruction repeated for batch inference)
                 batch_size = cfg.policy_batch_inference_size * cfg.lang_rephrase_num
-                full_instruction_list = [task_description] + rephrased_list
-                batch_langauge_instructions = []
+                if rephrased_list is not None:
+                    full_instruction_list = [task_description] + rephrased_list
+                else:
+                    full_instruction_list = [task_description]
+                batch_language_instructions = []
                 for num in range(cfg.lang_rephrase_num):
                     for _ in range(cfg.policy_batch_inference_size):
-                        batch_langauge_instructions.append(full_instruction_list[num])
+                        batch_language_instructions.append(full_instruction_list[num])
 
                     
                 # Create batch observation dict for LeRobot PI0
@@ -364,21 +371,41 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 observation = {
                     image_key: batch_image,  # [batch_size, 3, 224, 224]
                     "observation.state": batch_state,  # [batch_size, 7]
-                    "task": batch_langauge_instructions,  # List of 5 identical instructions
+                    "task": batch_language_instructions,  # List of 5 identical instructions
                 }
                 
                 with torch.no_grad():
                     action_queue = pi0_policy.select_action(observation)
-                action_queue_np = np.array(np.zeros((cfg.n_action_steps, batch_size, 7)))
-                for i in range(min(cfg.n_action_steps, len(action_queue))):
-                    action_queue_np[i] = action_queue.popleft().cpu().numpy()
-                processed_future_actions_batch = [convert_maniskill_with_bridge_adapter(action_queue_np[i], cfg.action_ensemble_temp) for i in range(cfg.n_action_steps)]
-                
+
+                # Process each action step individually in parallel
+                processed_future_actions_batch = []
+                for i in range(cfg.n_action_steps):
+                    if i < len(action_queue):
+                        # Get single action (batch_size, 7) and process it
+                        single_action = action_queue.popleft().cpu().numpy()  # Shape: (batch_size, 7)
+                        
+                        processed_actions_for_step = []
+                        for batch_idx in range(batch_size):
+                            sample_1x7 = single_action[batch_idx:batch_idx+1]          # (1,7)
+                            # print ("batch_idx:", batch_idx, "sample_1x7:", sample_1x7)
+                            processed_1x7 = convert_maniskill_with_bridge_adapter(sample_1x7, cfg.action_ensemble_temp)
+                            # print ("processed_1x7:", processed_1x7)
+                            # ensure (1,7) ndarray
+                            processed_1x7 = np.asarray(processed_1x7, dtype=np.float32)
+                            processed_actions_for_step.append(processed_1x7)
+
+                        # stack to (batch,1,7) then squeeze to (batch,7)
+                        processed_batch = np.vstack(processed_actions_for_step)        # (batch, 1, 7) if adapter returns (1,7)
+                        processed_batch = processed_batch.reshape(batch_size, 7)       # -> (batch,7)
+                        processed_future_actions_batch.append(processed_batch)
+                    else:
+                        # Handle case where we don't have enough action steps
+                        processed_future_actions_batch.append(np.zeros((batch_size, 7)))
+                    
                 if cfg.use_verifier:
                     num_past = min(len(action_history), 6)
                     future_actions = np.stack(processed_future_actions_batch)  # (cfg.n_action_steps, batch_size, action_dim)
                     future_actions_transposed = future_actions.transpose(1, 0, 2)  # (batch_size, cfg.n_action_steps, action_dim)
-                    
                     if num_past > 0:
                         past_actions = np.stack(action_history[-num_past:])
                         past_actions = np.expand_dims(past_actions, axis=0).repeat(batch_size, axis=0) # (cfg.batch_inference_size, num_past, action_dim)
@@ -388,23 +415,45 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                         processed_full_trajectory = future_actions_transposed
                     action_histories_list = [processed_full_trajectory[i] for i in range(batch_size)]
                     images_list = [process_raw_image_to_jpg(raw_img)] * batch_size
-                    
-                    
                     max_score, max_instruction, max_action_history, _ = ensemble_model.compute_max_similarity_scores_batch(
                         images=images_list[0:1],
-                        instructions=batch_langauge_instructions[0:1].copy(),
+                        instructions=[task_description],
                         all_action_histories=action_histories_list[0:1]
                     )
                     if max_score < 0.05:
               
                         max_score, max_instruction, max_action_history, best_action_idx = ensemble_model.compute_max_similarity_scores_batch(
                             images=images_list,
-                            instructions=batch_langauge_instructions.copy(),
+                            instructions=[task_description] * batch_size,
                             all_action_histories=action_histories_list
                         )
-                    
                     execute_action = max_action_history[num_past].copy()  # shape (7,)
-                    task_description = max_instruction.strip()
+
+                    # Collect last-dimension values (gripper commands) from all candidate trajectories
+                    grippers = []
+                    for ah in action_histories_list:  # each ah is an array with shape (num_past + n_action_steps, 7)
+                        if ah.shape[0] > num_past:    # safety check
+                            grippers.append(float(ah[num_past, -1]))
+
+                    if grippers:
+                        grippers = np.asarray(grippers, dtype=np.float32)
+                        
+                        # Count votes: >= 0 is +1 (closed), < 0 is -1 (open)
+                        close_votes = int((grippers >= 0).sum())
+                        open_votes  = int((grippers < 0).sum())
+
+                        if close_votes > open_votes:
+                            execute_action[-1] = 1.0   # Close gripper
+                        elif open_votes > close_votes:
+                            execute_action[-1] = -1.0  # Open gripper
+                        else:
+                            # Tie → default to the verifier's selected action's sign
+                            execute_action[-1] = 1.0 if execute_action[-1] >= 0 else -1.0
+
+                    # Ensure exactly -1 or 1
+                    execute_action[-1] = float(np.sign(execute_action[-1]))
+                    
+                    task_description = max_instruction
                 else:
                     execute_action = processed_future_actions_batch[0][0]
                     

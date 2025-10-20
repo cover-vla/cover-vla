@@ -359,7 +359,6 @@ class EfficientEnsembleMerged:
         max_history_len = max(len(ah) for ah in all_action_histories)
         action_histories_np = [np.array(ah) for ah in all_action_histories]
         action_dim = action_histories_np[0].shape[1] if len(action_histories_np[0].shape) > 1 else 1
-        
         padded_action_histories = []
         for ah in action_histories_np:
             if len(ah) < max_history_len:
@@ -368,7 +367,6 @@ class EfficientEnsembleMerged:
             else:
                 padded_ah = ah
             padded_action_histories.append(padded_ah)
-        
         action_histories_batch = torch.tensor(np.array(padded_action_histories), dtype=torch.float32).to(self.device)
         
         # Step 4: Process through each model in batch
@@ -382,21 +380,18 @@ class EfficientEnsembleMerged:
             )
             all_image_text_embeds.append(img_text_embeds)
             all_action_embeds.append(action_embeds)
-        
         # Step 5: Stack and average across models
         all_image_text_embeds = torch.stack(all_image_text_embeds)  # (num_models, batch_size, 512)
         all_action_embeds = torch.stack(all_action_embeds)  # (num_models, num_actions, 512)
         
         fused_image_text = all_image_text_embeds.mean(dim=0)  # (batch_size, 512)
         fused_action = all_action_embeds.mean(dim=0)  # (num_actions, 512)
-        
         # Step 6: Re-normalize
         fused_image_text = fused_image_text / fused_image_text.norm(dim=-1, keepdim=True)
         fused_action = fused_action / fused_action.norm(dim=-1, keepdim=True)
         
         # Step 7: Compute similarity matrix between all (image, language) pairs and all actions
         similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (batch_size, num_actions)
-        
         # Step 8: Find the overall maximum across ALL combinations
         # Flatten the similarity matrix to find the absolute best combination
         flat_similarities = similarity_matrix.flatten()  # (batch_size * num_actions,)

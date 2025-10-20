@@ -1,0 +1,141 @@
+Task suite: simpler_ood
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=1--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Put the drink can on the flat plate.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=2--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=3--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=4--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: Position the Red Bull can on the level surface.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=5--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 1 (20.0%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=6--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 1 (16.7%)
+
+Task: Set the Red Bull can on the flat dish.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 1 (14.3%)
+
+Task: Put the drink can on the flat plate.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=8--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 1 (12.5%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 9
+# successes: 1 (11.1%)
+
+Task: Put the drink can on the flat plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=10--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=11--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 1 (9.1%)
+
+Task: Position the Red Bull can on the level surface.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=12--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 1 (8.3%)
+
+Task: Place the Red Bull can on the flat surface.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=13--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 1 (7.7%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=14--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 1 (7.1%)
+
+Task: Put the drink can on the flat plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=15--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 1 (6.7%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=16--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 1 (6.2%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=17--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 1 (5.9%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=18--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 1 (5.6%)
+
+Task: Set the Red Bull can on the flat dish.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 1 (5.3%)
+
+Task: Place the beverage can on the even surface.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=20--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 1 (5.0%)

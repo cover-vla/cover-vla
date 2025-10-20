@@ -1,0 +1,15 @@
+Task suite: simpler_widowx
+
+Task: Place the green block directly over the yellow block.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Put the verdant piece above the sunny piece.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
