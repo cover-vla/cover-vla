@@ -1,0 +1,29 @@
+Task suite: simpler_ood
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=1--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=2--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=3--success=False--task=put_redbull_can_on_plate.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase_test/episode=4--success=True--task=put_redbull_can_on_plate.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 2 (50.0%)

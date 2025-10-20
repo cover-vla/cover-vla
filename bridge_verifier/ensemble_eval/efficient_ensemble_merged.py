@@ -309,6 +309,7 @@ class EfficientEnsembleMerged:
     def compute_max_similarity_scores_batch(self, images, instructions, all_action_histories):
         """
         Compute maximum similarity scores between each (image, language) pair and all actions.
+        Returns the single best action across all combinations.
         
         Args:
             images: List of PIL Images or numpy arrays
@@ -316,7 +317,10 @@ class EfficientEnsembleMerged:
             all_action_histories: List of ALL possible action history arrays
             
         Returns:
-            max_similarity_scores: List of maximum similarity scores (one per image+instruction pair)
+            max_score: Highest similarity score across all combinations
+            max_instruction: Instruction that achieved the highest score
+            max_action_history: Action history that achieved the highest score
+            best_action_idx: Index of the best action in all_action_histories
         """
         batch_size = len(images)
         num_actions = len(all_action_histories)
@@ -393,17 +397,20 @@ class EfficientEnsembleMerged:
         # Step 7: Compute similarity matrix between all (image, language) pairs and all actions
         similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (batch_size, num_actions)
         
-        # Step 8: Find maximum similarity score for each (image, language) pair
-        max_similarity_scores = similarity_matrix.max(dim=1)[0]  # (batch_size,)
-        max_similarity_scores_np = max_similarity_scores.cpu().numpy()
+        # Step 8: Find the overall maximum across ALL combinations
+        # Flatten the similarity matrix to find the absolute best combination
+        flat_similarities = similarity_matrix.flatten()  # (batch_size * num_actions,)
+        max_flat_idx = flat_similarities.argmax()
         
-        # Find the overall maximum across all pairs
-        max_idx = max_similarity_scores_np.argmax()
-        max_score = max_similarity_scores_np[max_idx]
-        max_instruction = instructions[max_idx]
-        max_action_history = all_action_histories[max_idx]
+        # Convert flat index back to (batch_idx, action_idx)
+        batch_idx = max_flat_idx // num_actions
+        action_idx = max_flat_idx % num_actions
         
-        return max_score, max_instruction, max_action_history
+        max_score = flat_similarities[max_flat_idx].item()
+        max_instruction = instructions[batch_idx]
+        max_action_history = all_action_histories[action_idx]
+        
+        return max_score, max_instruction, max_action_history, action_idx
 
 
 def sample_and_test_bridge_merged_ensemble(bridge_dataset_dict, merged_checkpoint_path,

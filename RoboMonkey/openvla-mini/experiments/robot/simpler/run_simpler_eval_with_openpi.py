@@ -37,6 +37,7 @@ from experiments.robot.simpler.simpler_utils_robomonkey import (
     get_simpler_env,
     get_simpler_img,
     create_bridge_adapter_wrapper,
+    process_raw_image_to_jpg,
 )
 from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 import imageio
@@ -155,9 +156,10 @@ class GenerateConfig:
     
     # Language transformation parameters
     lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
+    lang_rephrase_num: int = 8
     
     # Batch inference parameters
-    batch_inference_size: int = 1                        # Number of samples for batch inference (same instruction repeated)
+    policy_batch_inference_size: int = 2                        # Number of samples for batch inference (same instruction repeated)
     
     # Action ensemble parameters (for temporal ensembling)
     action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
@@ -346,13 +348,14 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 image_key = image_feature_keys[0]
                 
                 # Create batch of language instructions (same instruction repeated for batch inference)
-                batch_size = cfg.batch_inference_size
-                # processed_obs['task'] is already a list from BridgeSimplerAdapter
-                single_task = processed_obs['task']  # Already a list
-                # Create list of identical task lists by extending the original list
-                batch_task_instructions = []
-                for _ in range(batch_size):
-                    batch_task_instructions.extend(single_task)
+                batch_size = cfg.policy_batch_inference_size * cfg.lang_rephrase_num
+                full_instruction_list = [task_description] + rephrased_list
+                batch_langauge_instructions = []
+                for num in range(cfg.lang_rephrase_num):
+                    for _ in range(cfg.policy_batch_inference_size):
+                        batch_langauge_instructions.append(full_instruction_list[num])
+
+                    
                 # Create batch observation dict for LeRobot PI0
                 # Replicate image and state to match batch size
                 batch_image = processed_obs['observation.images.top'].repeat(batch_size, 1, 1, 1)
@@ -361,7 +364,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 observation = {
                     image_key: batch_image,  # [batch_size, 3, 224, 224]
                     "observation.state": batch_state,  # [batch_size, 7]
-                    "task": batch_task_instructions,  # List of 5 identical instructions
+                    "task": batch_langauge_instructions,  # List of 5 identical instructions
                 }
                 
                 with torch.no_grad():
@@ -384,15 +387,24 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     else:
                         processed_full_trajectory = future_actions_transposed
                     action_histories_list = [processed_full_trajectory[i] for i in range(batch_size)]
-                    images_list = [raw_img] * batch_size
-              
-                    max_score, max_instruction, max_action_history = ensemble_model.compute_max_similarity_scores_batch(
-                        images=images_list,
-                        instructions=batch_task_instructions.copy(),
-                        all_action_histories=action_histories_list
-                    )
+                    images_list = [process_raw_image_to_jpg(raw_img)] * batch_size
                     
-                    execute_action = max_action_history[num_past]
+                    
+                    max_score, max_instruction, max_action_history, _ = ensemble_model.compute_max_similarity_scores_batch(
+                        images=images_list[0:1],
+                        instructions=batch_langauge_instructions[0:1].copy(),
+                        all_action_histories=action_histories_list[0:1]
+                    )
+                    if max_score < 0.05:
+              
+                        max_score, max_instruction, max_action_history, best_action_idx = ensemble_model.compute_max_similarity_scores_batch(
+                            images=images_list,
+                            instructions=batch_langauge_instructions.copy(),
+                            all_action_histories=action_histories_list
+                        )
+                    
+                    execute_action = max_action_history[num_past].copy()  # shape (7,)
+                    task_description = max_instruction.strip()
                 else:
                     execute_action = processed_future_actions_batch[0][0]
                     
@@ -406,6 +418,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     total_successes += 1
                     break
                 t += 1
+                
+                # Update progress bar with similarity score if verifier is used
+                if cfg.use_verifier:
+                    pbar.set_description(f"Episode steps (score: {max_score:.3f})")
                 pbar.update(1)
 
 

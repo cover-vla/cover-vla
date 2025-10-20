@@ -11,6 +11,7 @@ import numpy as np
 from PIL import Image
 import os
 from pathlib import Path
+from typing import Union
 
 # Add INT-ACT imports for BridgeSimplerAdapter
 import sys
@@ -255,3 +256,81 @@ def convert_maniskill_with_bridge_adapter(action, action_ensemble_temp=-0.8):
     
     # Return single action (remove batch dimension)
     return processed_action
+
+
+
+def process_raw_image_to_jpg(
+    image: Union[str, Path, np.ndarray, tf.Tensor],
+    max_res: int = 256,
+) -> np.ndarray:
+    """
+    Process a raw image into a JPG following the rlds_dataset_mod format.
+    
+    This function:W
+    1. Loads the image (if path is provided)
+    2. Resizes it to max_res x max_res (default 256x256)
+    3. Converts to uint8 format
+    4. Optionally saves as JPEG
+    5. Returns the processed image as numpy array
+    
+    Args:
+        image: Input image as file path (str/Path), numpy array, or TensorFlow tensor
+        max_res: Maximum resolution for both width and height (default: 256)
+    
+    Returns:
+        Processed image as numpy array (uint8, shape: [max_res, max_res, 3])
+    
+    Example:
+        >>> # From file path
+        >>> processed = process_raw_image_to_jpg("input.png", "output.jpg")
+        >>> 
+        >>> # From numpy array
+        >>> img_array = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)
+        >>> processed = process_raw_image_to_jpg(img_array, "output.jpg")
+    """
+    # Load image if path is provided
+    if isinstance(image, (str, Path)):
+        image = tf.io.read_file(str(image))
+        image = tf.image.decode_image(image, channels=3, expand_animations=False)
+    
+    # Convert numpy array to tensor
+    if isinstance(image, np.ndarray):
+        image = tf.convert_to_tensor(image)
+    
+    # Ensure the image is a tensor
+    if not isinstance(image, tf.Tensor):
+        raise TypeError(f"Unsupported image type: {type(image)}")
+    
+    # Ensure 3D tensor [height, width, channels]
+    if len(image.shape) == 2:
+        image = tf.expand_dims(image, axis=-1)
+        image = tf.repeat(image, 3, axis=-1)  # Convert grayscale to RGB
+    elif len(image.shape) != 3:
+        raise ValueError(f"Expected 2D or 3D image, got shape: {image.shape}")
+    
+    # Ensure 3 channels (RGB)
+    if image.shape[-1] == 1:
+        image = tf.repeat(image, 3, axis=-1)
+    elif image.shape[-1] == 4:  # RGBA to RGB
+        image = image[..., :3]
+    elif image.shape[-1] != 3:
+        raise ValueError(f"Expected 1, 3, or 4 channels, got: {image.shape[-1]}")
+    
+    # Resize to max_res x max_res using bilinear interpolation
+    # This matches the format used in rlds_dataset_mod (ResizeAndJpegEncode.mod_dataset)
+    size = (max_res, max_res)
+    image_resized = tf.image.resize(
+        image,
+        size,
+        method=tf.image.ResizeMethod.BILINEAR,
+        preserve_aspect_ratio=False,
+        antialias=True,
+    )
+    
+    # Cast to uint8 (following the rlds_dataset_mod format)
+    image_resized = tf.cast(image_resized, tf.uint8)
+    
+    # Convert to numpy for output
+    image_np = image_resized.numpy()
+    
+    return image_np

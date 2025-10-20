@@ -318,7 +318,7 @@ def calculate_rephrase_statistics(rephrase_results):
     
     return stats
 
-def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats, robomonkey_id_stats=None, output_dir='./analysis_plots', filter_insufficient=True):
+def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats, robomonkey_id_stats=None, stats_in_dist_test=None, stats_ood_test=None, output_dir='./analysis_plots', filter_insufficient=True):
     """Create bar plots for success rates including rephrase experiments."""
     os.makedirs(output_dir, exist_ok=True)
     
@@ -347,6 +347,32 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
                 'Success Rate': stats['success_rates'][i],
                 'Episode Count': stats['episode_counts'][i],
                 'Data Type': 'Original'
+            })
+    
+    # Add OpenPI original/no_transform TEST data
+    stats_in_dist_test = stats_in_dist_test or {}
+    for task_name in stats_in_dist_test:
+        stats = stats_in_dist_test[task_name]
+        for i, seed in enumerate(stats['seeds']):
+            plot_data.append({
+                'Task': task_name.replace('_', ' ').title(),
+                'Experiment': 'openpi_original_no_transform_test',
+                'Success Rate': stats['success_rates'][i],
+                'Episode Count': stats['episode_counts'][i],
+                'Data Type': 'Test'
+            })
+    
+    # Add original/rephrase TEST data (if exists)
+    stats_ood_test = stats_ood_test or {}
+    for task_name in stats_ood_test:
+        stats = stats_ood_test[task_name]
+        for i, seed in enumerate(stats['seeds']):
+            plot_data.append({
+                'Task': task_name.replace('_', ' ').title(),
+                'Experiment': 'openpi_original_rephrase_test',
+                'Success Rate': stats['success_rates'][i],
+                'Episode Count': stats['episode_counts'][i],
+                'Data Type': 'Test'
             })
     
     # Add rephrase data
@@ -395,10 +421,13 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
         'RoboMonkey': '#E74C3C',                     # Red
         'robomonkey_id': '#16A085',                  # Teal
     }
+    # Colors for new TEST experiments
+    experiment_colors['openpi_original_no_transform_test'] = '#7FB3D5'  # Light Blue
+    experiment_colors['openpi_original_rephrase_test'] = '#D988BC'      # Light Pink
     
     # Add colors for all other experiments (rephrase, etc.)
     other_experiments = [exp for exp in df['Experiment'].unique() 
-                        if exp not in ['openpi_original_no_transform', 'openpi_original_rephrase', 'openpi_rephrase_no_transform', 'openpi_rephrase_rephrase', 'openpi_instruct_aug_Original', 'RoboMonkey', 'robomonkey_id']]
+                        if exp not in ['openpi_original_no_transform', 'openpi_original_rephrase', 'openpi_original_no_transform_test', 'openpi_original_rephrase_test', 'openpi_rephrase_no_transform', 'openpi_rephrase_rephrase', 'openpi_instruct_aug_Original', 'RoboMonkey', 'robomonkey_id']]
     other_colors = plt.cm.Set3(np.linspace(0, 1, len(other_experiments)))
     for i, exp in enumerate(other_experiments):
         experiment_colors[exp] = other_colors[i]
@@ -502,9 +531,10 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
     plt.savefig(os.path.join(output_dir, 'success_rates_all_experiments.png'), dpi=300, bbox_inches='tight')
     plt.show()
     
-    # Create separate plots for original vs rephrase data
+    # Create separate plots for original vs rephrase vs test data
     original_data = df_filtered[df_filtered['Data Type'] == 'Original']
     rephrase_data = df_filtered[df_filtered['Data Type'] == 'Rephrase']
+    test_data = df_filtered[df_filtered['Data Type'] == 'Test']
     robomonkey_data = df_filtered[df_filtered['Data Type'] == 'RoboMonkey']
     
     if not original_data.empty:
@@ -598,6 +628,58 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
         plt.savefig(os.path.join(output_dir, 'success_rates_rephrase.png'), dpi=300, bbox_inches='tight')
         plt.show()
     
+    if not test_data.empty:
+        # Test data plot - include both original and test experiments
+        plt.figure(figsize=(16, 10))
+        
+        # Combine original and test data for comparison
+        original_and_test_data = df_filtered[df_filtered['Data Type'].isin(['Original', 'Test'])]
+        
+        # Get all experiments (original + test)
+        all_experiments = sorted(original_and_test_data['Experiment'].unique())
+        
+        # Create grouped bar plot for all experiments
+        all_tasks_combined = sorted(original_and_test_data['Task'].unique())
+        x_pos = np.arange(len(all_tasks_combined))
+        width = 0.8 / len(all_experiments)
+        
+        for i, experiment in enumerate(all_experiments):
+            exp_data = original_and_test_data[original_and_test_data['Experiment'] == experiment]
+            
+            # Calculate means for each task
+            task_means = []
+            for task in all_tasks_combined:
+                task_data = exp_data[exp_data['Task'] == task]
+                if not task_data.empty:
+                    task_means.append(task_data['Success Rate'].iloc[0])  # Single value per experiment
+                else:
+                    task_means.append(0)
+            
+            bars = plt.bar(x_pos + i * width, task_means, width, 
+                          alpha=0.8, color=experiment_colors[experiment],
+                          edgecolor='black', linewidth=0.5,
+                          label=experiment)
+            
+            # Add value labels
+            for j, (bar, mean_val) in enumerate(zip(bars, task_means)):
+                if mean_val > 0:
+                    height = bar.get_height()
+                    plt.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                            f'{mean_val:.3f}', ha='center', va='bottom', fontsize=8)
+        
+        plt.xlabel('Tasks', fontsize=12)
+        plt.ylabel('Success Rate', fontsize=12)
+        plt.title('Original vs Test Experiments - Success Rates Comparison', fontsize=14, fontweight='bold')
+        plt.xticks(x_pos + width * (len(all_experiments) - 1) / 2, 
+                  all_tasks_combined, rotation=45, ha='right')
+        plt.ylim(0, 1)
+        plt.grid(True, alpha=0.3)
+        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, 'success_rates_test.png'), dpi=300, bbox_inches='tight')
+        plt.show()
+    
     if not robomonkey_data.empty:
         # RoboMonkey data plot
         plt.figure(figsize=(16, 8))
@@ -649,7 +731,7 @@ def create_bar_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats,
     
     return df
 
-def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats):
+def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonkey_stats, stats_in_dist_test=None, stats_ood_test=None):
     """Print detailed summary statistics."""
     print("="*80)
     print("OPENPI - SUCCESS RATE ANALYSIS")
@@ -670,6 +752,31 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
         print("\nOPENPI OUT-OF-DISTRIBUTION TASKS:")
         print("-" * 50)
         for task_name, stats in stats_ood.items():
+            print(f"\nTask: {task_name.replace('_', ' ').title()}")
+            print(f"  Overall Success Rate: {stats['mean_success_rate']:.3f} ± {stats['std_success_rate']:.3f}")
+            print(f"  Total Episodes: {stats['overall_total_episodes']}")
+            print(f"  Total Successes: {stats['overall_total_successes']}")
+            print("  Per Seed:")
+            for i, seed in enumerate(stats['seeds']):
+                print(f"    Seed {seed}: {stats['success_rates'][i]:.3f} ({stats['total_successes'][i]}/{stats['episode_counts'][i]})")
+    
+    # Add TEST statistics
+    if stats_in_dist_test:
+        print("\nOPENPI INSTRUCTION AUGMENTED TEST TASKS:")
+        print("-" * 50)
+        for task_name, stats in stats_in_dist_test.items():
+            print(f"\nTask: {task_name.replace('_', ' ').title()}")
+            print(f"  Overall Success Rate: {stats['mean_success_rate']:.3f} ± {stats['std_success_rate']:.3f}")
+            print(f"  Total Episodes: {stats['overall_total_episodes']}")
+            print(f"  Total Successes: {stats['overall_total_successes']}")
+            print("  Per Seed:")
+            for i, seed in enumerate(stats['seeds']):
+                print(f"    Seed {seed}: {stats['success_rates'][i]:.3f} ({stats['total_successes'][i]}/{stats['episode_counts'][i]})")
+    
+    if stats_ood_test:
+        print("\nOPENPI OUT-OF-DISTRIBUTION TEST TASKS:")
+        print("-" * 50)
+        for task_name, stats in stats_ood_test.items():
             print(f"\nTask: {task_name.replace('_', ' ').title()}")
             print(f"  Overall Success Rate: {stats['mean_success_rate']:.3f} ± {stats['std_success_rate']:.3f}")
             print(f"  Total Episodes: {stats['overall_total_episodes']}")
@@ -705,6 +812,8 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
     
     all_in_dist_rates = [stats['mean_success_rate'] for stats in stats_in_dist.values()]
     all_ood_rates = [stats['mean_success_rate'] for stats in stats_ood.values()]
+    all_in_dist_test_rates = [stats['mean_success_rate'] for stats in (stats_in_dist_test or {}).values()]
+    all_ood_test_rates = [stats['mean_success_rate'] for stats in (stats_ood_test or {}).values()]
     all_rephrase_rates = []
     all_robomonkey_rates = []
     
@@ -723,6 +832,14 @@ def print_summary_statistics(stats_in_dist, stats_ood, rephrase_stats, robomonke
     if all_ood_rates:
         print(f"OpenPI OOD Average Success Rate: {np.mean(all_ood_rates):.3f} ± {np.std(all_ood_rates):.3f}")
         print(f"OpenPI OOD Tasks: {len(stats_ood)}")
+    
+    if all_in_dist_test_rates:
+        print(f"OpenPI Instruction Augmented TEST Average Success Rate: {np.mean(all_in_dist_test_rates):.3f} ± {np.std(all_in_dist_test_rates):.3f}")
+        print(f"OpenPI Instruction Augmented TEST Tasks: {len(stats_in_dist_test)}")
+    
+    if all_ood_test_rates:
+        print(f"OpenPI OOD TEST Average Success Rate: {np.mean(all_ood_test_rates):.3f} ± {np.std(all_ood_test_rates):.3f}")
+        print(f"OpenPI OOD TEST Tasks: {len(stats_ood_test)}")
     
     if all_rephrase_rates:
         print(f"Rephrase Experiments Average Success Rate: {np.mean(all_rephrase_rates):.3f} ± {np.std(all_rephrase_rates):.3f}")
@@ -747,7 +864,9 @@ def main():
     # Define paths
     # Updated paths to reflect new folder naming/layout
     in_dist_path = "./rollouts_openpi_original/transform_no_transform"
+    in_dist_path_test = "./rollouts_openpi_original/transform_no_transform_test"
     ood_path = "./rollouts_openpi_original/transform_rephrase"
+    ood_path_test = "./rollouts_openpi_original/transform_rephrase_test"
     rephrase_path = "./rollouts_openpi_rephrase"
     rollouts_normal_rephrase_path = "./rollouts_openpi_original"  # still parsed via analyze_rephrase_folders for transform_* subdirs
     robomonkey_path = "./robomonkey"
@@ -756,6 +875,8 @@ def main():
     print("Analyzing OpenPI Rollouts...")
     print(f"In-Distribution path: {in_dist_path}")
     print(f"Out-of-Distribution path: {ood_path}")
+    print(f"In-Distribution TEST path: {in_dist_path_test}")
+    print(f"Out-of-Distribution TEST path: {ood_path_test}")
     print(f"Rephrase experiments path: {rephrase_path}")
     print(f"Rollouts normal rephrase path: {rollouts_normal_rephrase_path}")
     print(f"RoboMonkey path: {robomonkey_path}")
@@ -771,6 +892,16 @@ def main():
     print("Analyzing out-of-distribution rollouts...")
     results_ood = analyze_rollout_folder(ood_path, ood_indicator=True)
     stats_ood = calculate_statistics(results_ood)
+    
+    # Analyze TEST in-distribution data
+    print("Analyzing in-distribution TEST rollouts...")
+    results_in_dist_test = analyze_rollout_folder(in_dist_path_test, ood_indicator=False)
+    stats_in_dist_test = calculate_statistics(results_in_dist_test)
+    
+    # Analyze TEST OOD data
+    print("Analyzing out-of-distribution TEST rollouts...")
+    results_ood_test = analyze_rollout_folder(ood_path_test, ood_indicator=True)
+    stats_ood_test = calculate_statistics(results_ood_test)
     
     # Analyze rephrase experiments
     print("Analyzing rephrase experiments...")
@@ -800,16 +931,19 @@ def main():
     filter_insufficient = not args.include_insufficient
     summary_stats = create_bar_plots(stats_in_dist, stats_ood, stats_rephrase, stats_robomonkey,
                                    robomonkey_id_stats=stats_robomonkey_id,
+                                   stats_in_dist_test=stats_in_dist_test,
+                                   stats_ood_test=stats_ood_test,
                                    output_dir=args.output_dir, filter_insufficient=filter_insufficient)
     
     # Print summary
-    print_summary_statistics(stats_in_dist, stats_ood, stats_rephrase, stats_robomonkey)
+    print_summary_statistics(stats_in_dist, stats_ood, stats_rephrase, stats_robomonkey, stats_in_dist_test, stats_ood_test)
     
     print(f"\nAnalysis complete! Plots saved to '{args.output_dir}/'")
     print("Files generated:")
     print("  - success_rates_all_experiments.png")
     print("  - success_rates_original.png")
     print("  - success_rates_rephrase.png")
+    print("  - success_rates_test.png")
     print("  - success_rates_robomonkey.png")
 
 if __name__ == "__main__":
