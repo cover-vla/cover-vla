@@ -1,0 +1,353 @@
+Task suite: simpler_put_eggplant_in_basket
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=1--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=2--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=3--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=4--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=5--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=6--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=7--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=8--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=9--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=10--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=11--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=12--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 11 (91.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=13--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 12 (92.3%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=14--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 12 (85.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=15--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 15
+# successes: 13 (86.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=16--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 16
+# successes: 14 (87.5%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=17--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 14 (82.4%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=18--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 14 (77.8%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=19--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 15 (78.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=20--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 16 (80.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=21--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 17 (81.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=22--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 22
+# successes: 18 (81.8%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=23--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 18 (78.3%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=24--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 24
+# successes: 19 (79.2%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=25--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 19 (76.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=26--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 26
+# successes: 20 (76.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=27--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 27
+# successes: 21 (77.8%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=28--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 28
+# successes: 22 (78.6%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=29--success=False--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 22 (75.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=30--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 23 (76.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=31--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 31
+# successes: 24 (77.4%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=32--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 32
+# successes: 25 (78.1%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=33--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 26 (78.8%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=34--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 34
+# successes: 27 (79.4%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=35--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 28 (80.0%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=36--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 29 (80.6%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=37--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 37
+# successes: 30 (81.1%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=38--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 38
+# successes: 31 (81.6%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=39--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 39
+# successes: 32 (82.1%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=40--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 33 (82.5%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=41--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 41
+# successes: 34 (82.9%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=42--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 35 (83.3%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=43--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 36 (83.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=44--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 44
+# successes: 37 (84.1%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=45--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 45
+# successes: 38 (84.4%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=46--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 39 (84.8%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=47--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 40 (85.1%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=48--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 48
+# successes: 41 (85.4%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=49--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 42 (85.7%)
+
+Task: Drop the toy eggplant into the golden compartment.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/lang_1_sample_1/episode=50--success=True--task=drop_the_toy_eggplant_into_the_golden_compartment_.mp4
+Success: True
+# episodes completed so far: 50
+# successes: 43 (86.0%)
+Current task success rate: 0.86
+Current total success rate: 0.86

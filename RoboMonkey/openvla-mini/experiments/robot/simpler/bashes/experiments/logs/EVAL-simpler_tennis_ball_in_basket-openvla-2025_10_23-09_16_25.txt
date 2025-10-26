@@ -1,0 +1,353 @@
+Task suite: simpler_tennis_ball_in_basket
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=1--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=2--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=3--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=4--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 4
+# successes: 3 (75.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=5--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=6--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 3 (50.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=7--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=8--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 4 (50.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=9--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 5 (55.6%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=10--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 10
+# successes: 6 (60.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=11--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 6 (54.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=12--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 12
+# successes: 7 (58.3%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=13--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 13
+# successes: 8 (61.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=14--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 8 (57.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=15--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 8 (53.3%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=16--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 8 (50.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=17--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 8 (47.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=18--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 18
+# successes: 9 (50.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=19--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 19
+# successes: 10 (52.6%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=20--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 20
+# successes: 11 (55.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=21--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 21
+# successes: 12 (57.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=22--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 12 (54.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=23--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 23
+# successes: 13 (56.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=24--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 24
+# successes: 13 (54.2%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=25--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 25
+# successes: 14 (56.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=26--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 26
+# successes: 15 (57.7%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=27--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 27
+# successes: 16 (59.3%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=28--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 16 (57.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=29--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 29
+# successes: 17 (58.6%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=30--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 30
+# successes: 18 (60.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=31--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 31
+# successes: 18 (58.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=32--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 18 (56.2%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=33--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 33
+# successes: 19 (57.6%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=34--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 34
+# successes: 20 (58.8%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=35--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 35
+# successes: 21 (60.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=36--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 36
+# successes: 22 (61.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=37--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 37
+# successes: 23 (62.2%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=38--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 23 (60.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=39--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 39
+# successes: 24 (61.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=40--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 40
+# successes: 24 (60.0%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=41--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 24 (58.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=42--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 42
+# successes: 25 (59.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=43--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 43
+# successes: 26 (60.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=44--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 44
+# successes: 26 (59.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=45--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 45
+# successes: 26 (57.8%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=46--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 46
+# successes: 26 (56.5%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=47--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 47
+# successes: 27 (57.4%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=48--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 27 (56.2%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=49--success=True--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: True
+# episodes completed so far: 49
+# successes: 28 (57.1%)
+
+Task: Drop the tennis ball into the oblong yellow container.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=50--success=False--task=drop_the_tennis_ball_into_the_oblong_yellow_container_.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 28 (56.0%)
+Current task success rate: 0.56
+Current total success rate: 0.56

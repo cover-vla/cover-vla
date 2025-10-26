@@ -228,7 +228,7 @@ def convert_maniskill(action):
     return normalize_gripper_action(action)
 
 
-def convert_maniskill_with_bridge_adapter(action, action_ensemble_temp=-0.8):
+def convert_maniskill_with_bridge_adapter(action, verifier_action=False, action_ensemble_temp=-0.8):
     """
     Uses BridgeSimplerAdapter for proper action post-processing.
     This ensures consistency with INT-ACT's action processing pipeline.
@@ -245,15 +245,16 @@ def convert_maniskill_with_bridge_adapter(action, action_ensemble_temp=-0.8):
     
     adapter = getattr(convert_maniskill_with_bridge_adapter, adapter_key)
     
-    # BridgeSimplerAdapter expects actions with batch dimension
+
     action_batch = action.reshape(1, -1)
     
     # Use the adapter's postprocess method
-    processed_action = adapter.postprocess(action_batch)
-    
-    # Return single action (remove batch dimension)
-    return processed_action
-
+    if verifier_action:
+        verified_action = adapter.postprocess_verifier(action_batch)
+        return verified_action[0]
+    else:
+        execution_action = adapter.postprocess(action_batch)
+        return execution_action[0]
 
 
 def process_raw_image_to_jpg(

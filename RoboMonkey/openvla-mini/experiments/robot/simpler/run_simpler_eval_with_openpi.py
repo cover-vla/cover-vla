@@ -21,10 +21,11 @@ import itertools
 import os
 import sys
 import json
+import pickle
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
-
+from collections import deque
 import draccus
 import numpy as np
 import tqdm
@@ -64,12 +65,12 @@ def set_seed_everywhere(seed):
         torch.cuda.manual_seed(seed)
         torch.cuda.manual_seed_all(seed)
 
-def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, log_file=None):
+def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}_test"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}_test"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -85,6 +86,28 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
     if log_file is not None:
         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
     return mp4_path
+
+def save_episode_data_openpi(episode_data, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
+    """Saves episode data (verifier scores, instructions, actions) to a pickle file."""
+    if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+    elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+    else:
+        raise ValueError(f"Invalid model name: {model_name}")
+
+    os.makedirs(rollout_dir, exist_ok=True)
+    processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+    
+    pkl_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.pkl"
+    
+    with open(pkl_path, 'wb') as f:
+        pickle.dump(episode_data, f)
+    
+    print(f"Saved episode data at path {pkl_path}")
+    if log_file is not None:
+        log_file.write(f"Saved episode data at path {pkl_path}\n")
+    return pkl_path
 
 # import sys
 sys.path.append('/root/vla-clip/lerobot_intact')
@@ -105,6 +128,39 @@ def load_rephrases(task_suite_name: str):
         all_rephrases = json.load(f)
     # The new format has an "instructions" key containing the task data
     return all_rephrases.get("instructions", {})
+
+def process_inputs(batch_size, predefined_action_queue, verifier_action=False, action_history=[],cfg=None):
+    processed_future_actions_batch = []
+    for i in range(cfg.n_action_steps):
+        # Get single action (batch_size, 7) and process it
+        single_action = predefined_action_queue[i].cpu().numpy()  # Shape: (batch_size, 7)
+        processed_execution_actions_for_step = []
+        for batch_idx in range(batch_size):
+            sample_1x7 = single_action[batch_idx:batch_idx+1]          # (1,7)
+            processed_execution_1x7 = convert_maniskill_with_bridge_adapter(sample_1x7, verifier_action=verifier_action, action_ensemble_temp=-0.8)
+            # print ("processed_1x7:", processed_1x7)
+            # ensure (1,7) ndarray
+            processed_execution_1x7 = np.asarray(processed_execution_1x7)
+            processed_execution_actions_for_step.append(processed_execution_1x7)
+
+        # stack to (batch,1,7) then squeeze to (batch,7)
+        processed_batch = np.vstack(processed_execution_actions_for_step)        # (batch, 1, 7) if adapter returns (1,7)
+        processed_batch = processed_batch.reshape(batch_size, 7)       # -> (batch,7)
+        processed_future_actions_batch.append(processed_batch)
+        
+    num_past = min(len(action_history), 6)
+    future_actions = np.stack(processed_future_actions_batch)  # (cfg.n_action_steps, batch_size, action_dim)
+    future_actions_transposed = future_actions.transpose(1, 0, 2)  # (batch_size, cfg.n_action_steps, action_dim)
+    if num_past > 0:
+        past_actions = np.stack(action_history[-num_past:])
+        past_actions = np.expand_dims(past_actions, axis=0).repeat(batch_size, axis=0) # (cfg.batch_inference_size, num_past, action_dim)
+        # Concatenate along timestep dimension
+        processed_full_trajectory = np.concatenate([past_actions, future_actions_transposed], axis=1)  # (cfg.batch_inference_size, num_past+cfg.n_action_steps, action_dim)
+    else:
+        processed_full_trajectory = future_actions_transposed
+    action_histories_list = [processed_full_trajectory[i] for i in range(batch_size)]
+        
+    return action_histories_list
 
 
 @dataclass
@@ -157,7 +213,6 @@ class GenerateConfig:
     # Language transformation parameters
     lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
     lang_rephrase_num: int = 8
-    
     # Batch inference parameters
     policy_batch_inference_size: int = 2                        # Number of samples for batch inference (same instruction repeated)
     
@@ -213,12 +268,13 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     # Apply configured number of action steps (multi-step chunking)
     pi0_policy.config.n_action_steps = int(cfg.n_action_steps)
     print(f"PI0Policy device: {pi0_policy.config.device}")
-    
-    # Initialize ensemble model for similarity scoring
-    print("Loading ensemble model for similarity scoring...")
-    ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt")
-    print("Ensemble model loaded successfully!")
-    
+    if cfg.use_verifier:
+        # Initialize ensemble model for similarity scoring
+        print("Loading ensemble model for similarity scoring...")
+        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt", device="cuda:1")
+        print("Ensemble model loaded successfully!")
+    else:
+        ensemble_model = None
     # Initialize SIMPLER task suite
 
     task_suite = get_benchmark(cfg.task_suite_name)()
@@ -239,14 +295,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
         # Get task
         task = task_suite.get_task(task_id)
-
-        # Get default SIMPLER envs
-        if cfg.initial_states_type == "eval":
-            seeds = itertools.count(1000)
-        elif cfg.initial_states_type == "train":
-            seeds = itertools.count(0)
-        else:
-            raise ValueError("Unsupported initial states type")
+        seeds = itertools.count(1000)
 
         # Initialize LIBERO environment and task description
         env = get_simpler_env(task, cfg.model_family)
@@ -266,22 +315,21 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
-                # Use the first rephrase (like setting number of samples to 1)
                 task_description = preloaded_rephrases[matching_task_id]["original"]
+                # task_description = rephrased_list[cfg.instruction_index]
                 print(f"Using rephrased instruction: {task_description}")
             else:
-                print(f"No preloaded rephrases found for task: {original_task_description}, using original")
-                task_description = original_task_description
-                rephrased_list = None
+                raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
 
         if cfg.lang_transform_type == "no_transform":
             assert cfg.lang_rephrase_num == 1, "Language rephrase number must be 1 for no transformation"
         # Start episodes
         task_episodes, task_successes = 0, 0
-        for _ in tqdm.tqdm(range(cfg.num_trials_per_task)):
+        for trail_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
-
+            if trail_idx % 50 == 0:
+                seeds = itertools.count(1000)
             # Reset environment to specified seed (initial state)
             obs, reset_info = env.reset(seed=next(seeds))
 
@@ -289,6 +337,19 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             t = 0
             replay_images = []
             action_history = []  # Track actions for similarity scoring
+            # action_queue = None  # Deque of length n_action_steps; regenerate only when empty
+            
+            # Track episode data for saving
+            episode_data = {
+                'verifier_scores': [],
+                'selected_instructions': [],
+                'execute_actions': [],
+                'step_timestamps': [],
+                'original_task_description': original_task_description,
+                'used_task_description': task_description,
+                'success': False,
+                'episode_length': 0
+            }
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -336,7 +397,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     'observation.state': obs,  # Raw observation state (matches INT-ACT exactly)
                     'task': task_description
                 }
-                
                 # Use BridgeSimplerAdapter preprocessing
                 processed_obs = preprocess_adapter.preprocess(obs_for_adapter)
                 
@@ -353,15 +413,22 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 
                 # Create batch of language instructions (same instruction repeated for batch inference)
                 batch_size = cfg.policy_batch_inference_size * cfg.lang_rephrase_num
-                if rephrased_list is not None:
-                    full_instruction_list = [task_description] + rephrased_list
+                
+                # 1) Build the unique instruction list
+                if rephrased_list is not None and cfg.lang_rephrase_num > 1:
+                    unique_prompts = [task_description] + rephrased_list[: cfg.lang_rephrase_num - 1]
                 else:
-                    full_instruction_list = [task_description]
-                batch_language_instructions = []
-                for num in range(cfg.lang_rephrase_num):
-                    for _ in range(cfg.policy_batch_inference_size):
-                        batch_language_instructions.append(full_instruction_list[num])
+                    # no rephrases -> just the original
+                    unique_prompts = [task_description]
+                    # (optional) keep configs consistent
+                    # assert cfg.lang_rephrase_num == 1
 
+                # 2) Repeat each instruction cfg.policy_batch_inference_size times
+                task_list = []
+                for p in unique_prompts:
+                    task_list.extend([p] * cfg.policy_batch_inference_size)
+                    
+                assert len(task_list) == batch_size, "Batch size mismatch"
                     
                 # Create batch observation dict for LeRobot PI0
                 # Replicate image and state to match batch size
@@ -371,97 +438,121 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 observation = {
                     image_key: batch_image,  # [batch_size, 3, 224, 224]
                     "observation.state": batch_state,  # [batch_size, 7]
-                    "task": batch_language_instructions,  # List of 5 identical instructions
+                    "task": task_list,  # List instructions
                 }
-                
+                # if len(task_list) > 40:
+                #     # use batches of 40 to inference the model to resolve the memory issue
+                #     if t % cfg.n_action_steps == 0:
+                #         per_step_chunks = None
+                #         for i in range(0, len(task_list), 40):
+                #             batch_task_list = task_list[i:i+40]
+                #             batch_observation = {
+                #                 image_key: batch_image[i:i+40],
+                #                 "observation.state": batch_state[i:i+40],
+                #                 "task": batch_task_list,
+                #             }
+                #             with torch.no_grad():
+                #                 # Returns a deque of length n_action_steps, each a tensor [chunk_batch, action_dim]
+                #                 batch_action_queue = pi0_policy.select_action(batch_observation)
+                #             if per_step_chunks is None:
+                #                 per_step_chunks = [[] for _ in range(len(batch_action_queue))]
+                #             for step_idx, step_tensor in enumerate(batch_action_queue):
+                #                 per_step_chunks[step_idx].append(step_tensor)
+                #         # Concatenate per-step tensors across chunks and rebuild a deque of length n_action_steps
+                #         concatenated_steps = [torch.cat(chunks, dim=0) for chunks in per_step_chunks]
+                #         action_queue = deque(concatenated_steps)
+                # else:
                 with torch.no_grad():
                     action_queue = pi0_policy.select_action(observation)
-
-                # Process each action step individually in parallel
-                processed_future_actions_batch = []
-                for i in range(cfg.n_action_steps):
-                    if i < len(action_queue):
-                        # Get single action (batch_size, 7) and process it
-                        single_action = action_queue.popleft().cpu().numpy()  # Shape: (batch_size, 7)
-                        
-                        processed_actions_for_step = []
-                        for batch_idx in range(batch_size):
-                            sample_1x7 = single_action[batch_idx:batch_idx+1]          # (1,7)
-                            # print ("batch_idx:", batch_idx, "sample_1x7:", sample_1x7)
-                            processed_1x7 = convert_maniskill_with_bridge_adapter(sample_1x7, cfg.action_ensemble_temp)
-                            # print ("processed_1x7:", processed_1x7)
-                            # ensure (1,7) ndarray
-                            processed_1x7 = np.asarray(processed_1x7, dtype=np.float32)
-                            processed_actions_for_step.append(processed_1x7)
-
-                        # stack to (batch,1,7) then squeeze to (batch,7)
-                        processed_batch = np.vstack(processed_actions_for_step)        # (batch, 1, 7) if adapter returns (1,7)
-                        processed_batch = processed_batch.reshape(batch_size, 7)       # -> (batch,7)
-                        processed_future_actions_batch.append(processed_batch)
-                    else:
-                        # Handle case where we don't have enough action steps
-                        processed_future_actions_batch.append(np.zeros((batch_size, 7)))
-                    
-                if cfg.use_verifier:
+                # print ("action_queue:", len(action_queue), "t:", t)
+                if cfg.use_verifier and t % cfg.n_action_steps == 0:
+                    assert len(action_queue) == cfg.n_action_steps, f"Action queue length should be {cfg.n_action_steps}, but got {len(action_queue)}"
                     num_past = min(len(action_history), 6)
-                    future_actions = np.stack(processed_future_actions_batch)  # (cfg.n_action_steps, batch_size, action_dim)
-                    future_actions_transposed = future_actions.transpose(1, 0, 2)  # (batch_size, cfg.n_action_steps, action_dim)
-                    if num_past > 0:
-                        past_actions = np.stack(action_history[-num_past:])
-                        past_actions = np.expand_dims(past_actions, axis=0).repeat(batch_size, axis=0) # (cfg.batch_inference_size, num_past, action_dim)
-                        # Concatenate along timestep dimension
-                        processed_full_trajectory = np.concatenate([past_actions, future_actions_transposed], axis=1)  # (cfg.batch_inference_size, num_past+cfg.n_action_steps, action_dim)
-                    else:
-                        processed_full_trajectory = future_actions_transposed
-                    action_histories_list = [processed_full_trajectory[i] for i in range(batch_size)]
+                    # Create a proper copy of the action_queue by converting to list and back to deque
+                    predefined_action_queue = list(action_queue)
+                    action_queue.popleft()
+                    action_histories_list = process_inputs(batch_size, predefined_action_queue, verifier_action=True, action_history=action_history.copy(), cfg=cfg)
+                    # print ("action_histories_list:", action_histories_list)
                     images_list = [process_raw_image_to_jpg(raw_img)] * batch_size
-                    max_score, max_instruction, max_action_history, _ = ensemble_model.compute_max_similarity_scores_batch(
-                        images=images_list[0:1],
-                        instructions=[task_description],
-                        all_action_histories=action_histories_list[0:1]
+                    # print ("image_list shape:", np.array(images_list).shape)
+                    # print ("action_histories_list shape:", np.array(action_histories_list).shape)
+                    # print ("task_description shape:", np.array([task_description] * cfg.policy_batch_inference_size).shape)
+                    # print ("cfg.n_action_steps:", cfg.n_action_steps)
+                    max_score, max_instruction, max_action_history, global_action_idx = ensemble_model.compute_max_similarity_scores_batch(
+                        images=images_list[0:cfg.policy_batch_inference_size],
+                        instructions=[task_description] * cfg.policy_batch_inference_size,
+                        all_action_histories=action_histories_list[0:cfg.policy_batch_inference_size],
+                        cfg_repeat_language_instructions=cfg.policy_batch_inference_size
                     )
-                    if max_score < 0.05:
-              
-                        max_score, max_instruction, max_action_history, best_action_idx = ensemble_model.compute_max_similarity_scores_batch(
+                    if max_score < 0.1:
+                        max_score, max_instruction, max_action_history, global_action_idx = ensemble_model.compute_max_similarity_scores_batch(
                             images=images_list,
-                            instructions=[task_description] * batch_size,
-                            all_action_histories=action_histories_list
+                            instructions=task_list,
+                            all_action_histories=action_histories_list,
+                            cfg_repeat_language_instructions=cfg.policy_batch_inference_size
                         )
-                    execute_action = max_action_history[num_past].copy()  # shape (7,)
+                    # Select action from execution-format actions, not verification-format
+                    # The verifier gives us the best trajectory index, but we need to get the corresponding execution action from processed execution actions
+                    execution_action_histories_list = process_inputs(batch_size, predefined_action_queue, verifier_action=False, action_history=action_history.copy(), cfg=cfg)
+                    execute_action = execution_action_histories_list[global_action_idx][num_past].copy()  # shape (7,)
 
-                    # Collect last-dimension values (gripper commands) from all candidate trajectories
-                    grippers = []
-                    for ah in action_histories_list:  # each ah is an array with shape (num_past + n_action_steps, 7)
-                        if ah.shape[0] > num_past:    # safety check
-                            grippers.append(float(ah[num_past, -1]))
+                    # Get the group of actions corresponding to the selected global_action_idx
+                    group_start = (global_action_idx // cfg.policy_batch_inference_size) * cfg.policy_batch_inference_size
+                    group_end = group_start + cfg.policy_batch_inference_size
+                    stacked_histories = np.stack(execution_action_histories_list[group_start:group_end])  # (batch_size, num_past + n_action_steps, 7)
+                    # print ("stacked_histories:", stacked_histories.shape)
+                    # print ("stacked_histories:", stacked_histories)
+                    grippers = stacked_histories[:, num_past, -1]  # (batch_size,) - extract gripper values at timestep num_past
+                    # print ("grippers:", grippers)
+                    # Count votes: >= 0 is +1 (closed), < 0 is -1 (open)
+                    close_votes = int((grippers >= 0).sum())
+                    open_votes  = int((grippers < 0).sum())
 
-                    if grippers:
-                        grippers = np.asarray(grippers, dtype=np.float32)
-                        
-                        # Count votes: >= 0 is +1 (closed), < 0 is -1 (open)
-                        close_votes = int((grippers >= 0).sum())
-                        open_votes  = int((grippers < 0).sum())
-
-                        if close_votes > open_votes:
-                            execute_action[-1] = 1.0   # Close gripper
-                        elif open_votes > close_votes:
-                            execute_action[-1] = -1.0  # Open gripper
-                        else:
-                            # Tie → default to the verifier's selected action's sign
-                            execute_action[-1] = 1.0 if execute_action[-1] >= 0 else -1.0
+                    if close_votes > open_votes:
+                        execute_action[-1] = 1.0   # Open gripper
+                    elif open_votes > close_votes:
+                        execute_action[-1] = -1.0  # Close gripper
+                    else:
+                        # Tie → default to the verifier's selected action's sign
+                        execute_action[-1] = 1.0 if execute_action[-1] >= 0 else -1.0
 
                     # Ensure exactly -1 or 1
                     execute_action[-1] = float(np.sign(execute_action[-1]))
                     
+                    # Store verifier data
+                    episode_data['verifier_scores'].append(max_score)
+                    episode_data['selected_instructions'].append(max_instruction)
+                    episode_data['execute_actions'].append(execute_action.copy())
+                    episode_data['step_timestamps'].append(t)
+                    
                     task_description = max_instruction
                 else:
-                    execute_action = processed_future_actions_batch[0][0]
+                    single_action = action_queue.popleft().cpu().numpy()
+                    action_for_env = single_action[0:1]
+                    execute_action = convert_maniskill_with_bridge_adapter(action_for_env, verifier_action=False, action_ensemble_temp=cfg.action_ensemble_temp)
+                    # Store data for non-verifier case
+                    episode_data['verifier_scores'].append(None)
+                    episode_data['selected_instructions'].append(task_description)
+                    episode_data['execute_actions'].append(execute_action.copy())
+                    episode_data['step_timestamps'].append(t)
                     
-                action_history.append(execute_action)
-                
-                    
+                # If verifier is used, also add action to history with verifier_action=True
+                if cfg.use_verifier:
+                    if t % cfg.n_action_steps == 0:
+                        processed_action_for_history = max_action_history[num_past].copy()
+                    else:
+                        processed_action_for_history = convert_maniskill_with_bridge_adapter(
+                            single_action[0:1], verifier_action=True, action_ensemble_temp=cfg.action_ensemble_temp
+                        )
+                        # print ("processed_action_for_history:", processed_action_for_history)
+                        # input("processed_action_for_history")
+                    action_history.append(processed_action_for_history)
+
+                # print ("execute_action:", execute_action)
+                # print ("insturction:", task_description)
+                # input()
+                # print ("execute_action:", execute_action)
                 obs, reward, done, trunc, info = env.step(execute_action)    
-                    
                 if done:
                     task_successes += 1
                     total_successes += 1
@@ -478,12 +569,30 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             task_episodes += 1
             total_episodes += 1
 
+            # Update episode data with final information
+            episode_data['success'] = done
+            episode_data['episode_length'] = t
+
+            action_queue.clear()
             # Save a replay video of the episode
             save_rollout_video_openpi(
                 replay_images, total_episodes, success=done, 
                 task_description=original_task_description, 
                 transformation_type=cfg.lang_transform_type,
                 model_name=cfg.pretrained_checkpoint,
+                lang_rephrase_num=cfg.lang_rephrase_num,
+                policy_batch_inference_size=cfg.policy_batch_inference_size,
+                log_file=log_file
+            )
+            
+            # Save episode data to pickle file
+            save_episode_data_openpi(
+                episode_data, total_episodes, success=done, 
+                task_description=original_task_description, 
+                transformation_type=cfg.lang_transform_type,
+                model_name=cfg.pretrained_checkpoint,
+                lang_rephrase_num=cfg.lang_rephrase_num,
+                policy_batch_inference_size=cfg.policy_batch_inference_size,
                 log_file=log_file
             )
 

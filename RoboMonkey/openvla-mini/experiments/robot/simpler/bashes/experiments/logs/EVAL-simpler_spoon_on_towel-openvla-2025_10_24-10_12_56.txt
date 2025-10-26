@@ -1,0 +1,4 @@
+Task suite: simpler_spoon_on_towel
+
+Task: Move the spoon to lie on the towel.
+Starting episode 1...

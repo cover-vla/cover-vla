@@ -365,25 +365,14 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     action_queue = pi0_policy.select_action(observation)
                     # select_action returns a deque; get the first batch of actions
                     action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
-                action_id = np.array([action_converter.action_to_token(act) for act in action])
+                    verifier_action = convert_maniskill_with_bridge_adapter(action, verifier_action=True)
+                verifier_action_id = np.array([action_converter.action_to_token(act) for act in verifier_action])
                 # augmented_action_id, augmented_action = generate_augmented_samples_from_batch(action, num_samples=cfg.augmented_samples)
                 save_reward_img(raw_img)
                 # Use absolute path so the reward server can find the image
                 image_path = "/root/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler/bashes/transfer_images/reward_img_robomonkey.jpg"
-                rewards = get_rewards(task_description, image_path, action_id, cfg)
+                rewards = get_rewards(task_description, image_path, verifier_action_id, cfg)
                 selected_index = np.argmax(rewards)
-                # print ("action shape:", action.shape)
-                # # DEBUG: Check batch inference results
-                # print(f"\n=== BATCH INFERENCE (batch_size={batch_size}, temp={cfg.action_ensemble_temp}) ===")
-                # print(f"Task instruction: {single_task}")
-                # print(f"PI0 raw action shape: {action.shape}")
-                # print(f"PI0 raw action (first sample): {action[0]}")
-                # if batch_size > 1:
-                #     print(f"PI0 raw action (all samples):")
-                #     for i in range(batch_size):
-                #         print(f"  Sample {i+1}: {action[i]}")
-                # print("=== END BATCH INFERENCE ===\n")
-                
                 # Process action using BridgeSimplerAdapter
                 # Use the selected action from the batch for environment execution
                 action_for_env = action[selected_index:selected_index+1]
@@ -391,7 +380,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 action_binary[:, -1] = np.where(action[:, -1] > 0.5, 1.0, 0.0)
                 action_for_env = action_binary[selected_index:selected_index+1]
                 # print ("action_for_env:", action_for_env)
-                processed_action = convert_maniskill_with_bridge_adapter(action_for_env, cfg.action_ensemble_temp)
+                processed_action = convert_maniskill_with_bridge_adapter(action_for_env, verifier_action=False, action_ensemble_temp=cfg.action_ensemble_temp)
                 
                 # Execute action in environment
                 obs, reward, done, trunc, info = env.step(processed_action)

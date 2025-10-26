@@ -1,0 +1,1203 @@
+Task suite: simpler_tennis_ball_in_basket
+
+Task: put tennis ball into yellow basket
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=1--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=1--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=2--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=2--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=3--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=3--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=4--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=4--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=5--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=5--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=6--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=6--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=7--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=7--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 7 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=8--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=8--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=9--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=9--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=10--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=10--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=11--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=11--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=12--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=12--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 12
+# successes: 10 (83.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=13--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=13--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 13
+# successes: 10 (76.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=14--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=14--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 14
+# successes: 10 (71.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=15--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=15--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 15
+# successes: 10 (66.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=16--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=16--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 16
+# successes: 10 (62.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=17--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=17--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 10 (58.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=18--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=18--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 18
+# successes: 11 (61.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=19--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=19--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 19
+# successes: 12 (63.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=20--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=20--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 20
+# successes: 13 (65.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=21--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=21--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 13 (61.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=22--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=22--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 13 (59.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=23--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=23--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 23
+# successes: 13 (56.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=24--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=24--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 24
+# successes: 14 (58.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=25--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=25--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 25
+# successes: 15 (60.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=26--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=26--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 26
+# successes: 16 (61.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=27--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=27--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 27
+# successes: 16 (59.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=28--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=28--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 28
+# successes: 17 (60.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=29--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=29--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 29
+# successes: 17 (58.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=30--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=30--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 17 (56.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=31--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=31--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 31
+# successes: 18 (58.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=32--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=32--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 18 (56.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=33--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=33--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 33
+# successes: 19 (57.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=34--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=34--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 34
+# successes: 19 (55.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=35--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=35--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 35
+# successes: 20 (57.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=36--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=36--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 36
+# successes: 21 (58.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=37--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=37--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 37
+# successes: 21 (56.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=38--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=38--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 38
+# successes: 22 (57.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=39--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=39--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 39
+# successes: 23 (59.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=40--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=40--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 40
+# successes: 23 (57.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=41--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=41--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 41
+# successes: 24 (58.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=42--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=42--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 24 (57.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=43--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=43--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 43
+# successes: 24 (55.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=44--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=44--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 44
+# successes: 24 (54.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=45--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=45--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 45
+# successes: 25 (55.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=46--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=46--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 46
+# successes: 26 (56.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=47--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=47--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 47
+# successes: 27 (57.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=48--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=48--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 48
+# successes: 28 (58.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=49--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=49--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 28 (57.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=50--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=50--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 50
+# successes: 29 (58.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=51--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=51--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 51
+# successes: 29 (56.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=52--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=52--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 52
+# successes: 30 (57.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=53--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=53--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 53
+# successes: 31 (58.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=54--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=54--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 54
+# successes: 32 (59.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=55--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=55--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 55
+# successes: 33 (60.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=56--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=56--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 56
+# successes: 34 (60.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=57--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=57--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 35 (61.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=58--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=58--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 58
+# successes: 36 (62.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=59--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=59--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 59
+# successes: 37 (62.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=60--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=60--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 60
+# successes: 37 (61.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=61--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=61--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 61
+# successes: 38 (62.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=62--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=62--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 62
+# successes: 39 (62.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=63--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=63--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 63
+# successes: 40 (63.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=64--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=64--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 40 (62.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=65--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=65--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 65
+# successes: 41 (63.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=66--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=66--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 66
+# successes: 41 (62.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=67--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=67--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 41 (61.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=68--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=68--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 68
+# successes: 42 (61.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=69--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=69--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 69
+# successes: 43 (62.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=70--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=70--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 43 (61.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=71--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=71--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 71
+# successes: 43 (60.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=72--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=72--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 43 (59.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=73--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=73--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 73
+# successes: 44 (60.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=74--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=74--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 74
+# successes: 45 (60.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=75--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=75--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 75
+# successes: 46 (61.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=76--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=76--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 76
+# successes: 47 (61.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=77--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=77--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 77
+# successes: 48 (62.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=78--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=78--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 49 (62.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=79--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=79--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 79
+# successes: 50 (63.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=80--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=80--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 80
+# successes: 51 (63.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=81--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=81--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 51 (63.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=82--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=82--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 82
+# successes: 52 (63.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=83--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=83--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 52 (62.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=84--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=84--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 84
+# successes: 53 (63.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=85--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=85--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 85
+# successes: 54 (63.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=86--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=86--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 86
+# successes: 55 (64.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=87--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=87--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 55 (63.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=88--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=88--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 88
+# successes: 56 (63.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=89--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=89--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 89
+# successes: 56 (62.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=90--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=90--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 90
+# successes: 56 (62.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=91--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=91--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 91
+# successes: 56 (61.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=92--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=92--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 92
+# successes: 56 (60.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=93--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=93--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 56 (60.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=94--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=94--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 94
+# successes: 57 (60.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=95--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=95--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 95
+# successes: 58 (61.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=96--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=96--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 96
+# successes: 59 (61.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=97--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=97--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 97
+# successes: 60 (61.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=98--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=98--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 98
+# successes: 61 (62.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=99--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=99--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 99
+# successes: 62 (62.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=100--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=100--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 100
+# successes: 63 (63.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=101--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=101--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 63 (62.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 102
+# successes: 64 (62.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 103
+# successes: 65 (63.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 104
+# successes: 66 (63.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=105--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=105--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 105
+# successes: 67 (63.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=106--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=106--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 106
+# successes: 68 (64.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 107
+# successes: 69 (64.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 108
+# successes: 70 (64.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=109--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=109--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 109
+# successes: 70 (64.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=110--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=110--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 70 (63.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=111--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=111--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 111
+# successes: 71 (64.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 112
+# successes: 72 (64.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=113--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=113--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 113
+# successes: 72 (63.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=114--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=114--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 114
+# successes: 73 (64.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=115--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=115--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 115
+# successes: 74 (64.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 74 (63.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=117--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=117--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 117
+# successes: 74 (63.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 118
+# successes: 75 (63.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=119--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=119--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 119
+# successes: 76 (63.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 120
+# successes: 77 (64.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=121--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=121--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 121
+# successes: 77 (63.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=122--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=122--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 122
+# successes: 78 (63.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=123--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=123--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 123
+# successes: 78 (63.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 124
+# successes: 79 (63.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 125
+# successes: 80 (64.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 126
+# successes: 81 (64.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=127--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=127--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 81 (63.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=128--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=128--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 128
+# successes: 82 (64.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 129
+# successes: 83 (64.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=130--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=130--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 130
+# successes: 84 (64.6%)
+
+Task: put tennis ball into yellow basket
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 131
+# successes: 85 (64.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=132--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=132--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 132
+# successes: 86 (65.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=133--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=133--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 86 (64.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=134--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=134--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 134
+# successes: 87 (64.9%)
+
+Task: put tennis ball into yellow basket
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 88 (65.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 136
+# successes: 89 (65.4%)
+
+Task: put tennis ball into yellow basket
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=137--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=137--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 137
+# successes: 89 (65.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 138
+# successes: 90 (65.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 139
+# successes: 91 (65.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=140--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=140--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 140
+# successes: 91 (65.0%)
+
+Task: put tennis ball into yellow basket
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 141
+# successes: 92 (65.2%)
+
+Task: put tennis ball into yellow basket
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 142
+# successes: 93 (65.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 143
+# successes: 94 (65.7%)
+
+Task: put tennis ball into yellow basket
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 94 (65.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=145--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=145--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 145
+# successes: 94 (64.8%)
+
+Task: put tennis ball into yellow basket
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 146
+# successes: 95 (65.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 96 (65.3%)
+
+Task: put tennis ball into yellow basket
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=148--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=148--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 148
+# successes: 97 (65.5%)
+
+Task: put tennis ball into yellow basket
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=149--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=149--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 97 (65.1%)
+
+Task: put tennis ball into yellow basket
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=150--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=150--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 150
+# successes: 98 (65.3%)
+Current task success rate: 0.6533333333333333
+Current total success rate: 0.6533333333333333

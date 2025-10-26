@@ -18,10 +18,10 @@ def get_benchmark(benchmark_name):
 
 task_map = {
     "simpler_widowx": [
-        "widowx_stack_cube",
         "widowx_put_eggplant_in_basket",
-        "widowx_carrot_on_plate",
         "widowx_spoon_on_towel",
+        "widowx_stack_cube",
+        "widowx_carrot_on_plate",
     ],
     "simpler_stack_cube": [
         "widowx_stack_cube",
@@ -53,7 +53,7 @@ task_map = {
     "simpler_ood":[
         "widowx_redbull_on_plate",
         "widowx_zucchini_on_towel",
-        # "widowx_tennis_ball_in_basket",
+        "widowx_tennis_ball_in_basket",
         # "widowx_toy_dinosaur_on_towel",
     ]
 }

@@ -1,0 +1,12 @@
+Task suite: simpler_widowx
+
+Task: nestle the play aubergine in the gold vessel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_7/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_7/episode=1--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Set the model eggplant in the gilded bowl.
+Starting episode 2...

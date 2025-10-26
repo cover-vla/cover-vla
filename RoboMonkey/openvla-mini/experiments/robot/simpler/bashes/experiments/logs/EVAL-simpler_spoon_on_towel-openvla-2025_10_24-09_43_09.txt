@@ -1,0 +1,4 @@
+Task suite: simpler_spoon_on_towel
+
+Task: Put the spoon gently on the towel.
+Starting episode 1...

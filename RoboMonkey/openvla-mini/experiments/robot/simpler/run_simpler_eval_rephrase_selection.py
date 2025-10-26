@@ -1,35 +1,4 @@
-"""
-run_simpler_eval_with_verifier.py
 
-Runs a model in a SimplerEnv environment with batch language instruction processing
-and VLA-CLIP trajectory-based action verification.
-
-Usage:
-    # OpenVLA with batch verifier:
-    python experiments/robot/simpler/run_simpler_eval_with_verifier.py \
-        --model_family openvla \
-        --pretrained_checkpoint <VLA_CHECKPOINT_PATH> \
-        --task_suite_name [ simpler_widowx ... ] \
-        # --- Batch Language Verifier Args ---
-        --use_batch_verifier True \
-        --batch_server_url http://localhost:3200 \
-        # --- Trajectory VLA-CLIP Scorer Args ---
-        --use_vla_clip_trajectory_scorer True \
-        --vla_clip_traj_model_path <TRAJ_CLIP_CHECKPOINT_PATH> \
-        --vla_clip_history_length <HISTORY_LENGTH> \
-        --vla_clip_use_transformer [ True | False ] \
-        # --- Language Generation Args ---
-        --clip_select_action_num_candidates 3 \
-        --clip_select_action_strategy [ highest_score | softmax_sample ] \
-        --vla_clip_score_threshold 0.5 \
-        --lang_transform_type [ rephrase | no_transform ] \
-        # --- Other Args ---
-        --center_crop [ True | False ] \
-        --run_id_note <OPTIONAL TAG> \
-        --use_wandb [ True | False ] \
-        --wandb_project <PROJECT> \
-        --wandb_entity <ENTITY>
-"""
 
 import itertools
 import os
@@ -58,7 +27,6 @@ from experiments.robot.simpler.simpler_utils import (
 sys.path.append("../..")
 from experiments.robot.openvla_utils import (
     save_rollout_video_rephrase_selection,
-    get_gaussian_vla_action,
 )
 from experiments.robot.openvla_utils import get_processor
 from experiments.robot.robot_utils import (

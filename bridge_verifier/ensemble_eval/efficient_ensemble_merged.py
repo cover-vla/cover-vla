@@ -306,7 +306,7 @@ class EfficientEnsembleMerged:
         history_scores = {str(i): float(scores[i]) for i in range(len(scores))}
         return predicted_history, history_scores
     
-    def compute_max_similarity_scores_batch(self, images, instructions, all_action_histories):
+    def compute_max_similarity_scores_batch(self, images, instructions, all_action_histories, cfg_repeat_language_instructions=1):
         """
         Compute maximum similarity scores between each (image, language) pair and all actions.
         Returns the single best action across all combinations.
@@ -356,13 +356,13 @@ class EfficientEnsembleMerged:
         text_features_batch = torch.cat(text_features_list, dim=0)    # (batch_size, num_tokens, dim)
         
         # Step 3: Convert all action histories to batch tensor (pad to same length)
-        max_history_len = max(len(ah) for ah in all_action_histories)
+        max_history_len = 10
         action_histories_np = [np.array(ah) for ah in all_action_histories]
         action_dim = action_histories_np[0].shape[1] if len(action_histories_np[0].shape) > 1 else 1
         padded_action_histories = []
         for ah in action_histories_np:
             if len(ah) < max_history_len:
-                padding = np.zeros((max_history_len - len(ah), action_dim))
+                padding = np.ones((max_history_len - len(ah), action_dim)) * -5
                 padded_ah = np.vstack([padding, ah])
             else:
                 padded_ah = ah
@@ -392,20 +392,40 @@ class EfficientEnsembleMerged:
         
         # Step 7: Compute similarity matrix between all (image, language) pairs and all actions
         similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (batch_size, num_actions)
-        # Step 8: Find the overall maximum across ALL combinations
-        # Flatten the similarity matrix to find the absolute best combination
-        flat_similarities = similarity_matrix.flatten()  # (batch_size * num_actions,)
-        max_flat_idx = flat_similarities.argmax()
+
+        # --- Group repeated language instructions ---
+        group_size = cfg_repeat_language_instructions  # e.g., 2
+        num_groups = batch_size // group_size
+
+        avg_scores_per_group = []
+        for g in range(num_groups):
+            start, end = g * group_size, (g + 1) * group_size
+            # Only compare each language group against its corresponding action group
+            group_scores = similarity_matrix[start:end, start:end]  # (group_size, group_size)
+            group_avg = group_scores.mean(dim=0)                   # average across language repeats
+            avg_scores_per_group.append(group_avg.unsqueeze(0))   # shape (1, group_size)
+
+        scores = torch.cat(avg_scores_per_group, dim=0)  # (num_groups, group_size)
+
+        # --- Pick the best language group and best action within it ---
+        best_scores, best_action_indices = scores.max(dim=1)  # per-group best action
+        best_group_score, best_group_idx = best_scores.max(dim=0)           # overall best group (language)
+        best_action_idx = best_action_indices[best_group_idx]
+
+        # Retrieve corresponding items
+        max_score = best_group_score.item()
+        max_instruction = instructions[best_group_idx * group_size]  # take first of that group
         
-        # Convert flat index back to (batch_idx, action_idx)
-        batch_idx = max_flat_idx // num_actions
-        action_idx = max_flat_idx % num_actions
+        # best_action_idx is now the index within the group, so we need to map it to global index
+        global_action_idx = best_group_idx * group_size + best_action_idx
+        max_action_history = all_action_histories[global_action_idx]
         
-        max_score = flat_similarities[max_flat_idx].item()
-        max_instruction = instructions[batch_idx]
-        max_action_history = all_action_histories[action_idx]
-        
-        return max_score, max_instruction, max_action_history, action_idx
+        start = best_group_idx * group_size
+        best_action_group = all_action_histories[start:(best_group_idx + 1) * group_size]
+
+        # return max_score, max_instruction, max_action_history, best_action_idx, scores, best_action_group, global_action_idx
+        return max_score, max_instruction, max_action_history, global_action_idx
+
 
 
 def sample_and_test_bridge_merged_ensemble(bridge_dataset_dict, merged_checkpoint_path,

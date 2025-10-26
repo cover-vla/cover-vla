@@ -1,0 +1,353 @@
+Task suite: simpler_spoon_on_towel
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=1--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=2--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=3--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=4--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=5--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=6--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=7--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=8--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=9--success=True--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: True
+# episodes completed so far: 9
+# successes: 1 (11.1%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=10--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=11--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 11
+# successes: 1 (9.1%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=12--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 12
+# successes: 1 (8.3%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=13--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 13
+# successes: 1 (7.7%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=14--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 14
+# successes: 1 (7.1%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=15--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 15
+# successes: 1 (6.7%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=16--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 16
+# successes: 1 (6.2%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=17--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 17
+# successes: 1 (5.9%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=18--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 18
+# successes: 1 (5.6%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=19--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 19
+# successes: 1 (5.3%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=20--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 20
+# successes: 1 (5.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=21--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 21
+# successes: 1 (4.8%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=22--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 22
+# successes: 1 (4.5%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=23--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 23
+# successes: 1 (4.3%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=24--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 24
+# successes: 1 (4.2%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=25--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 25
+# successes: 1 (4.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=26--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 26
+# successes: 1 (3.8%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=27--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 27
+# successes: 1 (3.7%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=28--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 28
+# successes: 1 (3.6%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=29--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 29
+# successes: 1 (3.4%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=30--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 30
+# successes: 1 (3.3%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=31--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 31
+# successes: 1 (3.2%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=32--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 32
+# successes: 1 (3.1%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=33--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 33
+# successes: 1 (3.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=34--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 34
+# successes: 1 (2.9%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=35--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 35
+# successes: 1 (2.9%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=36--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 36
+# successes: 1 (2.8%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=37--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 37
+# successes: 1 (2.7%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=38--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 38
+# successes: 1 (2.6%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=39--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 39
+# successes: 1 (2.6%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=40--success=True--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: True
+# episodes completed so far: 40
+# successes: 2 (5.0%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=41--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 41
+# successes: 2 (4.9%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=42--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 42
+# successes: 2 (4.8%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=43--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 43
+# successes: 2 (4.7%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=44--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 44
+# successes: 2 (4.5%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=45--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 45
+# successes: 2 (4.4%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=46--success=True--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: True
+# episodes completed so far: 46
+# successes: 3 (6.5%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=47--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 47
+# successes: 3 (6.4%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=48--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 48
+# successes: 3 (6.2%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=49--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 49
+# successes: 3 (6.1%)
+
+Task: Ensure the spoon rests flat on the towel.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original_selection/transform_rephrase/episode=50--success=False--task=ensure_the_spoon_rests_flat_on_the_towel_.mp4
+Success: False
+# episodes completed so far: 50
+# successes: 3 (6.0%)
+Current task success rate: 0.06
+Current total success rate: 0.06

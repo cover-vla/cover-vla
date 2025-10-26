@@ -1,0 +1,17 @@
+Task suite: simpler_widowx
+
+Task: stack the green block on the yellow block
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: stack the green block on the yellow block
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_no_transform/lang_1_sample_1/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
