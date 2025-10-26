@@ -352,6 +352,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     batch_task_instructions.extend(single_task)
                 # Create batch observation dict for LeRobot PI0
                 # Replicate image and state to match batch size
+                # test 
                 batch_image = processed_obs['observation.images.top'].repeat(batch_size, 1, 1, 1)
                 batch_state = processed_obs['observation.state'].repeat(batch_size, 1)
                 
