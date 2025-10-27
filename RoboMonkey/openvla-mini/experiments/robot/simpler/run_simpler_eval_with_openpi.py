@@ -271,7 +271,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     if cfg.use_verifier:
         # Initialize ensemble model for similarity scoring
         print("Loading ensemble model for similarity scoring...")
-        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt", device="cuda:1")
+        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt")
         print("Ensemble model loaded successfully!")
     else:
         ensemble_model = None

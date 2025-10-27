@@ -1,0 +1,11 @@
+Task suite: simpler_widowx
+
+Task: nestle the play aubergine in the gold vessel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_robomonkey_original/transform_rephrase/episode=1--success=False--task=put_eggplant_into_yellow_basket.mp4
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: nestle the play aubergine in the gold vessel
+Starting episode 2...

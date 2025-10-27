@@ -68,9 +68,9 @@ def set_seed_everywhere(seed):
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_robomonkey_rephrase/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/robomonkey"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_robomonkey_original/transform_{transformation_type}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/robomonkey"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -352,7 +352,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     batch_task_instructions.extend(single_task)
                 # Create batch observation dict for LeRobot PI0
                 # Replicate image and state to match batch size
-                # test 
                 batch_image = processed_obs['observation.images.top'].repeat(batch_size, 1, 1, 1)
                 batch_state = processed_obs['observation.state'].repeat(batch_size, 1)
                 
@@ -361,13 +360,15 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     "observation.state": batch_state,  # [batch_size, 7]
                     "task": batch_task_instructions,  # List of 5 identical instructions
                 }
-                
+                verifier_action_list = []
                 with torch.no_grad():
                     action_queue = pi0_policy.select_action(observation)
                     # select_action returns a deque; get the first batch of actions
                     action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
-                    verifier_action = convert_maniskill_with_bridge_adapter(action, verifier_action=True)
-                verifier_action_id = np.array([action_converter.action_to_token(act) for act in verifier_action])
+                    for i in range(batch_size):
+                        verifier_action = convert_maniskill_with_bridge_adapter(action[i:i+1], verifier_action=True)
+                        verifier_action_list.append(verifier_action)
+                verifier_action_id = np.array([action_converter.action_to_token(act) for act in verifier_action_list])
                 # augmented_action_id, augmented_action = generate_augmented_samples_from_batch(action, num_samples=cfg.augmented_samples)
                 save_reward_img(raw_img)
                 # Use absolute path so the reward server can find the image
