@@ -1,0 +1,4 @@
+Task suite: simpler_widowx
+
+Task: put eggplant into yellow basket
+Starting episode 1...

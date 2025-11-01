@@ -1,0 +1,2059 @@
+Task suite: simpler_ood
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=1--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=1--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=2--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=2--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=3--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=3--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=4--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=4--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=5--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=5--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=6--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=6--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=7--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=8--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=8--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 1 (12.5%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=9--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 9
+# successes: 1 (11.1%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=10--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=10--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 1 (10.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=11--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=11--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 11
+# successes: 1 (9.1%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=12--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=12--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 12
+# successes: 1 (8.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=13--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=13--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 13
+# successes: 1 (7.7%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=14--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=14--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 14
+# successes: 1 (7.1%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=15--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=15--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 15
+# successes: 1 (6.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=16--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=16--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 16
+# successes: 1 (6.2%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=17--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=17--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 1 (5.9%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=18--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=18--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 18
+# successes: 1 (5.6%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=19--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 19
+# successes: 1 (5.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=20--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=20--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 20
+# successes: 1 (5.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=21--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=21--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 1 (4.8%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=22--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=22--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 1 (4.5%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=23--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=23--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 23
+# successes: 1 (4.3%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=24--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=24--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 24
+# successes: 1 (4.2%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=25--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=25--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 25
+# successes: 1 (4.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=26--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=26--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 26
+# successes: 1 (3.8%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=27--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=27--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 27
+# successes: 2 (7.4%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=28--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=28--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 28
+# successes: 2 (7.1%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=29--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=29--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 29
+# successes: 2 (6.9%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=30--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=30--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 2 (6.7%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=31--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=31--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 31
+# successes: 2 (6.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=32--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=32--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 2 (6.2%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=33--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=33--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 33
+# successes: 2 (6.1%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=34--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=34--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 34
+# successes: 3 (8.8%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=35--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=35--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 35
+# successes: 3 (8.6%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=36--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=36--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 36
+# successes: 3 (8.3%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=37--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=37--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 37
+# successes: 3 (8.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=38--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=38--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 38
+# successes: 3 (7.9%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=39--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=39--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 39
+# successes: 3 (7.7%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=40--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=40--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 40
+# successes: 3 (7.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=41--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=41--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 41
+# successes: 3 (7.3%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=42--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=42--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 3 (7.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=43--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=43--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 43
+# successes: 3 (7.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=44--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=44--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 44
+# successes: 3 (6.8%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=45--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=45--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 45
+# successes: 3 (6.7%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=46--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=46--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 46
+# successes: 3 (6.5%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=47--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=47--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 47
+# successes: 3 (6.4%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=48--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=48--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 48
+# successes: 3 (6.2%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=49--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=49--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 3 (6.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=50--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=50--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 50
+# successes: 3 (6.0%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=51--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=51--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 51
+# successes: 3 (5.9%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=52--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=52--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 52
+# successes: 3 (5.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=53--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=53--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 53
+# successes: 3 (5.7%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=54--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=54--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 54
+# successes: 3 (5.6%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=55--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=55--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 55
+# successes: 4 (7.3%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=56--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=56--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 56
+# successes: 4 (7.1%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=57--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=57--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 5 (8.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=58--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=58--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 58
+# successes: 5 (8.6%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=59--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=59--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 59
+# successes: 5 (8.5%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=60--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=60--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 60
+# successes: 5 (8.3%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=61--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=61--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 61
+# successes: 5 (8.2%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=62--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=62--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 62
+# successes: 5 (8.1%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=63--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=63--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 5 (7.9%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=64--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=64--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 5 (7.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=65--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=65--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 65
+# successes: 5 (7.7%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=66--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=66--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 66
+# successes: 6 (9.1%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=67--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=67--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 6 (9.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=68--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=68--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 68
+# successes: 7 (10.3%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=69--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=69--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 69
+# successes: 7 (10.1%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=70--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=70--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 7 (10.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=71--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=71--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 71
+# successes: 8 (11.3%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=72--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=72--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 8 (11.1%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=73--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=73--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 8 (11.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=74--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=74--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 8 (10.8%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=75--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=75--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 75
+# successes: 8 (10.7%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=76--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=76--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 76
+# successes: 9 (11.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=77--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=77--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 77
+# successes: 9 (11.7%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=78--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=78--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 10 (12.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=79--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=79--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 79
+# successes: 10 (12.7%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=80--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=80--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 80
+# successes: 10 (12.5%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=81--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=81--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 10 (12.3%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=82--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=82--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 10 (12.2%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=83--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=83--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 10 (12.0%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=84--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=84--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 10 (11.9%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=85--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=85--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 85
+# successes: 10 (11.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=86--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=86--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 86
+# successes: 10 (11.6%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=87--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=87--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 10 (11.5%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=88--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=88--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 88
+# successes: 11 (12.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=89--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=89--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 89
+# successes: 11 (12.4%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=90--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=90--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 90
+# successes: 11 (12.2%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=91--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=91--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 91
+# successes: 11 (12.1%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=92--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=92--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 92
+# successes: 11 (12.0%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=93--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=93--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 11 (11.8%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=94--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=94--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 94
+# successes: 11 (11.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=95--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=95--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 95
+# successes: 12 (12.6%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=96--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=96--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 96
+# successes: 13 (13.5%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=97--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=97--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 97
+# successes: 13 (13.4%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=98--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=98--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 98
+# successes: 13 (13.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=99--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=99--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 99
+# successes: 13 (13.1%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=100--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=100--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 100
+# successes: 13 (13.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=101--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=101--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 13 (12.9%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=102--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=102--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 102
+# successes: 13 (12.7%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=103--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=103--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 103
+# successes: 13 (12.6%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=104--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=104--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 104
+# successes: 13 (12.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=105--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=105--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 13 (12.4%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=106--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=106--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 13 (12.3%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=107--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=107--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 107
+# successes: 13 (12.1%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=108--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=108--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 108
+# successes: 13 (12.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=109--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=109--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 109
+# successes: 13 (11.9%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=110--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=110--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 13 (11.8%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=111--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=111--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 13 (11.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=112--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=112--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 112
+# successes: 13 (11.6%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=113--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=113--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 113
+# successes: 14 (12.4%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=114--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=114--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 114
+# successes: 14 (12.3%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=115--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=115--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 14 (12.2%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=116--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=116--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 14 (12.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=117--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=117--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 117
+# successes: 14 (12.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=118--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=118--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 118
+# successes: 14 (11.9%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=119--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=119--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 14 (11.8%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=120--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=120--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 120
+# successes: 15 (12.5%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=121--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=121--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 121
+# successes: 16 (13.2%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=122--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=122--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 16 (13.1%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=123--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=123--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 123
+# successes: 16 (13.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=124--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=124--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 124
+# successes: 17 (13.7%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=125--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=125--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 125
+# successes: 17 (13.6%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=126--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=126--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 126
+# successes: 17 (13.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=127--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=127--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 17 (13.4%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=128--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=128--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 128
+# successes: 18 (14.1%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=129--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=129--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 129
+# successes: 18 (14.0%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=130--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=130--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 130
+# successes: 18 (13.8%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=131--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=131--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 131
+# successes: 18 (13.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=132--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=132--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 18 (13.6%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=133--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=133--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 18 (13.5%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=134--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=134--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 134
+# successes: 18 (13.4%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=135--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=135--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 135
+# successes: 18 (13.3%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=136--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=136--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 136
+# successes: 18 (13.2%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=137--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=137--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 137
+# successes: 18 (13.1%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=138--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=138--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 138
+# successes: 19 (13.8%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=139--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=139--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 139
+# successes: 19 (13.7%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=140--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=140--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 140
+# successes: 19 (13.6%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=141--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=141--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 141
+# successes: 19 (13.5%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=142--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=142--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 142
+# successes: 19 (13.4%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=143--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=143--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 143
+# successes: 19 (13.3%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=144--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=144--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 19 (13.2%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=145--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=145--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 145
+# successes: 19 (13.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=146--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=146--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 146
+# successes: 19 (13.0%)
+
+Task: Position the Red Bull drink on the smooth dish.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=147--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=147--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 147
+# successes: 19 (12.9%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=148--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=148--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 148
+# successes: 20 (13.5%)
+
+Task: Set the Red Bull can on the flat plate.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=149--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=149--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 20 (13.4%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=150--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=150--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 150
+# successes: 20 (13.3%)
+Current task success rate: 0.13333333333333333
+Current total success rate: 0.13333333333333333
+
+Task: Deposit The Elongated Squash Onto The Fabric Surface 
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=151--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=151--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 151
+# successes: 21 (13.9%)
+
+Task: Put the green squash on the fabric.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=152--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=152--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 152
+# successes: 21 (13.8%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=153--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=153--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 153
+# successes: 21 (13.7%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=154--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=154--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 154
+# successes: 22 (14.3%)
+
+Task: Put the green squash on the fabric.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=155--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=155--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 155
+# successes: 23 (14.8%)
+
+Task: Put the green squash on the fabric.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=156--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=156--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 156
+# successes: 24 (15.4%)
+
+Task: Put the green squash on the fabric.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=157--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=157--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 157
+# successes: 24 (15.3%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=158--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=158--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 158
+# successes: 24 (15.2%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=159--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=159--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 159
+# successes: 24 (15.1%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=160--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=160--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 160
+# successes: 24 (15.0%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=161--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=161--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 161
+# successes: 24 (14.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=162--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=162--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 162
+# successes: 24 (14.8%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=163--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=163--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 163
+# successes: 24 (14.7%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=164--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=164--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 164
+# successes: 25 (15.2%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=165--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=165--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 165
+# successes: 26 (15.8%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=166--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=166--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 166
+# successes: 27 (16.3%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=167--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=167--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 167
+# successes: 27 (16.2%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=168--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=168--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 168
+# successes: 28 (16.7%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=169--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=169--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 169
+# successes: 28 (16.6%)
+
+Task: Put the green squash on the fabric.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=170--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=170--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 170
+# successes: 28 (16.5%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=171--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=171--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 171
+# successes: 29 (17.0%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=172--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=172--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 172
+# successes: 30 (17.4%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=173--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=173--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 173
+# successes: 30 (17.3%)
+
+Task: Put the green squash on the fabric.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=174--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=174--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 174
+# successes: 31 (17.8%)
+
+Task: Put the green squash on the fabric.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=175--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=175--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 175
+# successes: 32 (18.3%)
+
+Task: Put the green squash on the fabric.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=176--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=176--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 176
+# successes: 33 (18.8%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=177--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=177--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 177
+# successes: 34 (19.2%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=178--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=178--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 178
+# successes: 34 (19.1%)
+
+Task: Put the green squash on the fabric.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=179--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=179--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 179
+# successes: 34 (19.0%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=180--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=180--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 180
+# successes: 34 (18.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=181--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=181--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 181
+# successes: 34 (18.8%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=182--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=182--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 182
+# successes: 34 (18.7%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=183--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=183--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 183
+# successes: 34 (18.6%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=184--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=184--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 184
+# successes: 34 (18.5%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=185--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=185--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 185
+# successes: 34 (18.4%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=186--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=186--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 186
+# successes: 34 (18.3%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=187--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=187--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 187
+# successes: 34 (18.2%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=188--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=188--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 188
+# successes: 34 (18.1%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=189--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=189--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 189
+# successes: 35 (18.5%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=190--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=190--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 190
+# successes: 36 (18.9%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=191--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=191--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 191
+# successes: 37 (19.4%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=192--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=192--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 192
+# successes: 37 (19.3%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=193--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=193--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 193
+# successes: 37 (19.2%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=194--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=194--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 194
+# successes: 37 (19.1%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=195--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=195--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 195
+# successes: 38 (19.5%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=196--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=196--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 196
+# successes: 38 (19.4%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=197--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=197--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 197
+# successes: 38 (19.3%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=198--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=198--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 198
+# successes: 39 (19.7%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=199--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=199--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 199
+# successes: 40 (20.1%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=200--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=200--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 200
+# successes: 41 (20.5%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=201--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=201--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 201
+# successes: 41 (20.4%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=202--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=202--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 202
+# successes: 42 (20.8%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=203--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=203--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 203
+# successes: 43 (21.2%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=204--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=204--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 204
+# successes: 43 (21.1%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=205--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=205--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 205
+# successes: 43 (21.0%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=206--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=206--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 206
+# successes: 43 (20.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=207--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=207--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 207
+# successes: 43 (20.8%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=208--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=208--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 208
+# successes: 43 (20.7%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=209--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=209--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 209
+# successes: 43 (20.6%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=210--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=210--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 210
+# successes: 43 (20.5%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=211--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=211--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 211
+# successes: 43 (20.4%)
+
+Task: Put the green squash on the fabric.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=212--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=212--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 212
+# successes: 44 (20.8%)
+
+Task: Put the green squash on the fabric.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=213--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=213--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 213
+# successes: 44 (20.7%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=214--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=214--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 214
+# successes: 44 (20.6%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=215--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=215--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 215
+# successes: 45 (20.9%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=216--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=216--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 216
+# successes: 45 (20.8%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=217--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=217--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 217
+# successes: 45 (20.7%)
+
+Task: Put the green squash on the fabric.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=218--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=218--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 218
+# successes: 46 (21.1%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=219--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=219--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 219
+# successes: 46 (21.0%)
+
+Task: Put the green squash on the fabric.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=220--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=220--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 220
+# successes: 46 (20.9%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=221--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=221--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 221
+# successes: 47 (21.3%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=222--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=222--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 222
+# successes: 48 (21.6%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=223--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=223--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 223
+# successes: 48 (21.5%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=224--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=224--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 224
+# successes: 48 (21.4%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=225--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=225--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 225
+# successes: 49 (21.8%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=226--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=226--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 226
+# successes: 49 (21.7%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=227--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=227--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 227
+# successes: 50 (22.0%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=228--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=228--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 228
+# successes: 50 (21.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=229--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=229--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 229
+# successes: 51 (22.3%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=230--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=230--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 230
+# successes: 52 (22.6%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=231--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=231--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 231
+# successes: 52 (22.5%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=232--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=232--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 232
+# successes: 52 (22.4%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=233--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=233--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 233
+# successes: 52 (22.3%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=234--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=234--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 234
+# successes: 52 (22.2%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=235--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=235--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 235
+# successes: 52 (22.1%)
+
+Task: Put the green squash on the fabric.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=236--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=236--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 236
+# successes: 52 (22.0%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=237--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=237--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 237
+# successes: 52 (21.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=238--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=238--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 238
+# successes: 52 (21.8%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=239--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=239--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 239
+# successes: 52 (21.8%)
+
+Task: Put the green squash on the fabric.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=240--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=240--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 240
+# successes: 52 (21.7%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=241--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=241--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 241
+# successes: 53 (22.0%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=242--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=242--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 242
+# successes: 54 (22.3%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=243--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=243--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 243
+# successes: 54 (22.2%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=244--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=244--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 244
+# successes: 54 (22.1%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=245--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=245--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 245
+# successes: 54 (22.0%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=246--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=246--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 246
+# successes: 54 (22.0%)
+
+Task: Set the elongated zucchini on the textile layer.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=247--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=247--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 247
+# successes: 55 (22.3%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=248--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=248--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 248
+# successes: 56 (22.6%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=249--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=249--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 249
+# successes: 56 (22.5%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=250--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=250--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 250
+# successes: 57 (22.8%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=251--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=251--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 251
+# successes: 58 (23.1%)
+
+Task: Place the green vegetable on the material surface.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=252--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=252--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 252
+# successes: 58 (23.0%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=253--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=253--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 253
+# successes: 58 (22.9%)
+
+Task: Position the elongated squash on top of the cloth.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=254--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=254--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 254
+# successes: 58 (22.8%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=255--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=255--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 255
+# successes: 58 (22.7%)
+
+Task: Lay the lengthy gourd onto the material surface.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=256--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=256--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 256
+# successes: 58 (22.7%)
+
+Task: Rest the cylindrical vegetable on the fabric.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=257--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=257--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 257
+# successes: 58 (22.6%)

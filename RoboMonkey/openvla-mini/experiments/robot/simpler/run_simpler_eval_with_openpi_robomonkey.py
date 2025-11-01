@@ -24,6 +24,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
+from collections import deque
 
 import draccus
 import numpy as np
@@ -46,6 +47,43 @@ from experiments.robot.openvla_utils import get_rewards, generate_augmented_samp
 sys.path.append("../..")
 import time
 import random
+
+
+def temporal_ensemble_action_chunks(action_chunks_history, current_chunk, temperature=-0.8, max_history=4):
+    """
+    Apply temporal ensemble to the current action chunk using history.
+    
+    Args:
+        action_chunks_history: List of previous action chunks (each chunk is shape [batch_size, action_dim])
+        current_chunk: Current action chunk (shape [batch_size, action_dim])
+        temperature: Temperature for weighting (negative = more recent actions get more weight)
+        max_history: Maximum number of history chunks to use
+    
+    Returns:
+        Ensembled action chunk (shape [batch_size, action_dim])
+    """
+    # Combine history and current chunk
+    all_chunks = action_chunks_history + [current_chunk]
+    
+    # Limit to max_history most recent chunks
+    if len(all_chunks) > max_history:
+        all_chunks = all_chunks[-max_history:]
+    
+    num_chunks = len(all_chunks)
+    
+    # Compute exponential weights: more recent chunks get exponentially more weight
+    # weights = exp(-temperature * age), where age is 0 for most recent, increasing for older
+    ages = np.arange(num_chunks)  # [0, 1, 2, ...] for most recent to oldest
+    weights = np.exp(-temperature * ages)
+    weights = weights / weights.sum()  # Normalize
+    
+    # Stack chunks: (num_chunks, batch_size, action_dim)
+    stacked_chunks = np.stack(all_chunks, axis=0)
+    
+    # Apply weighted average: (batch_size, action_dim)
+    ensembled_chunk = np.sum(weights[:, None, None] * stacked_chunks, axis=0)
+    
+    return ensembled_chunk
 
 # Define constants locally to avoid importing problematic modules
 DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
@@ -280,6 +318,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             # Setup
             t = 0
             replay_images = []
+            action_chunks_history = []  # Track action chunks for temporal ensemble
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -362,11 +401,36 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 }
                 verifier_action_list = []
                 with torch.no_grad():
+                    # Generate action chunk every step (reset queue to force new generation)
+                    pi0_policy.reset()  # Reset action queue to generate new chunk every step
                     action_queue = pi0_policy.select_action(observation)
-                    # select_action returns a deque; get the first batch of actions
-                    action = action_queue.popleft().cpu().numpy()  # Shape: [batch_size, action_dim]
+                    # Get the first action from the chunk (shape: [batch_size, action_dim])
+                    current_action_chunk = action_queue.popleft().cpu().numpy()
+                    
+                    # Apply temporal ensemble to the current action chunk
+                    if len(action_chunks_history) > 0:
+                        ensembled_action_chunk = temporal_ensemble_action_chunks(
+                            action_chunks_history, 
+                            current_action_chunk, 
+                            temperature=cfg.action_ensemble_temp,
+                            max_history=cfg.n_action_steps
+                        )
+                    else:
+                        # No history yet, use current chunk as-is
+                        ensembled_action_chunk = current_action_chunk
+                    
+                    # Add current chunk to history (use original, not ensembled)
+                    action_chunks_history.append(current_action_chunk.copy())
+                    # Limit history size
+                    if len(action_chunks_history) > cfg.n_action_steps:
+                        action_chunks_history.pop(0)
+                    
+                    # Use ensembled action chunk for verifier evaluation
                     for i in range(batch_size):
-                        verifier_action = convert_maniskill_with_bridge_adapter(action[i:i+1], verifier_action=True)
+                        verifier_action = convert_maniskill_with_bridge_adapter(
+                            ensembled_action_chunk[i:i+1], 
+                            verifier_action=True
+                        )
                         verifier_action_list.append(verifier_action)
                 verifier_action_id = np.array([action_converter.action_to_token(act) for act in verifier_action_list])
                 save_reward_img(raw_img)
@@ -374,14 +438,12 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 image_path = "/root/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler/bashes/transfer_images/reward_img_robomonkey.jpg"
                 rewards = get_rewards(task_description, image_path, verifier_action_id, cfg)
                 selected_index = np.argmax(rewards)
-                # Process action using BridgeSimplerAdapter
-                # Use the selected action from the batch for environment execution
                 # selected_index = 0
-                # action_for_env = action[selected_index:selected_index+1]
-                action_binary = action.copy() 
-                action_binary[:, -1] = np.where(action[:, -1] > 0.5, 1.0, 0.0)
+                
+                # Use the ensembled action chunk for execution (not the original)
+                action_binary = ensembled_action_chunk.copy()
+                action_binary[:, -1] = np.where(ensembled_action_chunk[:, -1] > 0.5, 1.0, 0.0)
                 action_for_env = action_binary[selected_index:selected_index+1]
-                # print ("action_for_env:", action_for_env)
                 processed_action = convert_maniskill_with_bridge_adapter(action_for_env, verifier_action=False, action_ensemble_temp=cfg.action_ensemble_temp)
                 
                 # Execute action in environment

@@ -12,18 +12,18 @@ export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
 
 CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi_robomonkey.py \
     --task_suite_name simpler_widowx \
-    --lang_transform_type rephrase \
+    --lang_transform_type no_transform \
     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
     --num_trials_per_task 250 \
     --batch_inference_size 9
 
 
-CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi_robomonkey.py \
-    --task_suite_name simpler_ood \
-    --lang_transform_type rephrase \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-    --num_trials_per_task 250 \
-    --batch_inference_size 9
+# CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi_robomonkey.py \
+#     --task_suite_name simpler_ood \
+#     --lang_transform_type rephrase \
+#     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+#     --num_trials_per_task 250 \
+#     --batch_inference_size 9
 
 # ## rephrased finetuned openpi
 

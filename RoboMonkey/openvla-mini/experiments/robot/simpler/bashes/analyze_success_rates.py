@@ -2294,6 +2294,175 @@ def create_folder_label(base_name, relative_path):
     
     return label
 
+def analyze_language_diversity_from_pickles(base_path="./"):
+    """Analyze language instruction diversity from pickle files.
+    
+    Returns: dict[task_name][eval_folder][success/failure] -> list of diversity counts
+    where diversity count is the number of unique instructions used in an episode.
+    """
+    lang_diversity_data = defaultdict(lambda: defaultdict(lambda: {'success': [], 'failure': []}))
+    
+    # Find all pickle files in rollout directories
+    pickle_files = []
+    for item in os.listdir(base_path):
+        if item.startswith('rollouts_'):
+            rollouts_dir = os.path.join(base_path, item)
+            if os.path.isdir(rollouts_dir):
+                # Find all pickle files recursively
+                pattern = os.path.join(rollouts_dir, "**", "*.pkl")
+                pickle_files.extend(glob.glob(pattern, recursive=True))
+    
+    print(f"Found {len(pickle_files)} pickle files to analyze for language diversity")
+    
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+)', re.IGNORECASE)
+    
+    for pickle_file in pickle_files:
+        try:
+            with open(pickle_file, 'rb') as f:
+                episode_data = pickle.load(f)
+            
+            # Extract task name from filename
+            filename = os.path.basename(pickle_file)
+            task_match = re.search(r'--task=([^\.]+)', filename)
+            if not task_match:
+                continue
+            task_name = task_match.group(1)
+            
+            # Extract success/failure from filename
+            success_match = re.search(r'--success=([^\-]+)', filename)
+            is_success = success_match.group(1) == 'True' if success_match else False
+            
+            # Extract evaluation folder (lang_X_sample_Y) from directory path
+            relative_path = os.path.relpath(os.path.dirname(pickle_file), base_path)
+            m = lang_folder_regex.search(relative_path)
+            if m:
+                eval_folder = m.group(1)
+            else:
+                # Fallback: use the immediate directory name
+                eval_folder = os.path.basename(os.path.dirname(pickle_file))
+            
+            # Extract selected instructions
+            selected_instructions = episode_data.get('selected_instructions', [])
+            if not selected_instructions:
+                # Try alternative key names
+                selected_instructions = episode_data.get('selected_language', [])
+            
+            if selected_instructions:
+                # Count unique instructions (diversity)
+                unique_instructions = set(selected_instructions)
+                diversity_count = len(unique_instructions)
+                
+                # Store data based on success/failure
+                outcome_key = 'success' if is_success else 'failure'
+                lang_diversity_data[task_name][eval_folder][outcome_key].append(diversity_count)
+        
+        except Exception as e:
+            print(f"Error loading {pickle_file}: {e}")
+            continue
+    
+    return lang_diversity_data
+
+def plot_language_diversity(lang_diversity_data, output_dir='./analysis_plots'):
+    """Create plots showing language instruction diversity for each task.
+    
+    Creates separate plots for success and failure cases, with bars for each evaluation folder.
+    """
+    if not lang_diversity_data:
+        print("No language diversity data found for plotting")
+        return []
+    
+    # Create language_plots directory
+    language_plots_dir = os.path.join(output_dir, 'language_plots')
+    os.makedirs(language_plots_dir, exist_ok=True)
+    
+    saved_paths = []
+    
+    # Get all unique tasks
+    all_tasks = sorted(lang_diversity_data.keys())
+    
+    print(f"\nCreating language diversity plots for {len(all_tasks)} tasks...")
+    
+    for task_name in all_tasks:
+        task_data = lang_diversity_data[task_name]
+        
+        # Get all evaluation folders for this task
+        eval_folders = sorted(task_data.keys())
+        
+        if not eval_folders:
+            continue
+        
+        # Create two plots: one for success, one for failure
+        for outcome in ['success', 'failure']:
+            # Collect data for this outcome
+            eval_folder_data = {}
+            for eval_folder in eval_folders:
+                diversity_counts = task_data[eval_folder][outcome]
+                if diversity_counts:  # Only include if we have data
+                    eval_folder_data[eval_folder] = diversity_counts
+            
+            if not eval_folder_data:
+                continue
+            
+            # Create the plot
+            plt.figure(figsize=(14, 8))
+            
+            # Prepare data for plotting
+            eval_folders_with_data = sorted(eval_folder_data.keys())
+            means = []
+            stds = []
+            counts = []
+            
+            for eval_folder in eval_folders_with_data:
+                diversity_counts = eval_folder_data[eval_folder]
+                means.append(np.mean(diversity_counts))
+                stds.append(np.std(diversity_counts))
+                counts.append(len(diversity_counts))
+            
+            # Create bar plot
+            x_pos = np.arange(len(eval_folders_with_data))
+            width = 0.7
+            
+            bars = plt.bar(x_pos, means, width, yerr=stds, capsize=5, alpha=0.8,
+                          color='green' if outcome == 'success' else 'red',
+                          edgecolor='black', linewidth=1.5)
+            
+            # Add value labels on bars
+            for i, (bar, mean_val, std_val, count) in enumerate(zip(bars, means, stds, counts)):
+                height = bar.get_height()
+                plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.1,
+                        f'{mean_val:.2f}±{std_val:.2f}\n(n={count})',
+                        ha='center', va='bottom', fontsize=9, fontweight='bold')
+            
+            # Customize plot
+            task_display_name = task_name.replace('_', ' ').title()
+            outcome_display = outcome.capitalize()
+            
+            plt.xlabel('Evaluation Folder (Language Sample)', fontsize=12, fontweight='bold')
+            plt.ylabel('Language Diversity (Number of Unique Instructions)', fontsize=12, fontweight='bold')
+            plt.title(f'Language Instruction Diversity: {task_display_name} - {outcome_display} Episodes', 
+                     fontsize=14, fontweight='bold')
+            plt.xticks(x_pos, eval_folders_with_data, rotation=45, ha='right', fontsize=10)
+            plt.grid(True, alpha=0.3, axis='y')
+            
+            # Set y-axis to start from 0 or slightly below
+            max_mean = max(means) if means else 1
+            max_std = max(stds) if stds else 0
+            plt.ylim(0, max_mean + max_std * 2 + 1)
+            
+            plt.tight_layout()
+            
+            # Save plot
+            safe_task_name = re.sub(r'[^A-Za-z0-9_.-]+', '_', task_name)
+            out_path = os.path.join(language_plots_dir, f'{safe_task_name}_{outcome}_language_diversity.png')
+            plt.savefig(out_path, dpi=300, bbox_inches='tight')
+            plt.close()
+            saved_paths.append(out_path)
+            
+            print(f"  Saved: {out_path}")
+    
+    print(f"\nLanguage diversity plots saved to: {language_plots_dir}")
+    return saved_paths
+
 def main():
     """Main analysis function."""
     # Parse command line arguments
@@ -2378,6 +2547,15 @@ def main():
         print("\nCreating per-task similarity vs time plots (saved into folder per language)...")
         plot_similarity_vs_time_per_task(group_task_similarity, output_root=args.output_dir, max_steps=150)
     
+    # Language diversity analysis
+    print("\nAnalyzing language instruction diversity from pickle files...")
+    lang_diversity_data = analyze_language_diversity_from_pickles(base_path="./")
+    if lang_diversity_data:
+        print("\nCreating language diversity plots...")
+        plot_language_diversity(lang_diversity_data, output_dir=args.output_dir)
+    else:
+        lang_diversity_data = None
+    
     # Per-folder evaluation plots (e.g., for each subfolder under rollouts_openpi_original)
     print("\nAnalyzing per-folder evaluation statistics (e.g., rollouts_openpi_original subfolders)...")
     rollout_folders_to_analyze = [
@@ -2417,6 +2595,10 @@ def main():
     print("  - similarity_vs_time_by_language_folders.png (Normalized time vs similarity with success/failure trajectories)")
     print("  - <lang_x_sample_y>/ (Per-task similarity vs time plots organized by language folder)")
     print("  - evaluation_mean_std_<subfolder>.png (Per-folder evaluation plots for rollouts_openpi_original subfolders)")
+    if lang_diversity_data:
+        print("  - language_plots/ (Directory containing language diversity plots)")
+        print("    - <task_name>_success_language_diversity.png (Language diversity for successful episodes)")
+        print("    - <task_name>_failure_language_diversity.png (Language diversity for failed episodes)")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,18 @@
+Task suite: simpler_widowx
+
+Task: put eggplant into yellow basket
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/robomonkey/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: put eggplant into yellow basket
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_no_transform/robomonkey/episode=2--success=True--task=put_eggplant_into_yellow_basket.mp4
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: put eggplant into yellow basket
+Starting episode 3...
