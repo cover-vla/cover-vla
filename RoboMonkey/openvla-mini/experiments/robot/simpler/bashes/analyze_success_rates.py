@@ -1251,7 +1251,9 @@ def create_folder_label_from_path(relative_path):
 
 def plot_verifier_scores_over_time(verifier_data, output_dir='./analysis_plots'):
     """Create plots showing verifier scores over timesteps for each task and experiment."""
-    os.makedirs(output_dir, exist_ok=True)
+    # Create subdirectory for verifier scores
+    verifier_scores_dir = os.path.join(output_dir, 'verifier_scores')
+    os.makedirs(verifier_scores_dir, exist_ok=True)
     
     # Create a comprehensive plot with all experiments
     plt.figure(figsize=(20, 12))
@@ -1334,7 +1336,7 @@ def plot_verifier_scores_over_time(verifier_data, output_dir='./analysis_plots')
         plt.ylim(-0.1, 0.4)
     
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, 'verifier_scores_over_time.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(verifier_scores_dir, 'verifier_scores_over_time.png'), dpi=300, bbox_inches='tight')
     plt.show()
     
     # Create individual plots for each experiment
@@ -1415,14 +1417,16 @@ def plot_verifier_scores_over_time(verifier_data, output_dir='./analysis_plots')
         
         plt.suptitle(f'Verifier Scores Over Time - {exp_name}', fontsize=16, fontweight='bold')
         plt.tight_layout()
-        plt.savefig(os.path.join(output_dir, f'verifier_scores_{exp_name}.png'), dpi=300, bbox_inches='tight')
+        plt.savefig(os.path.join(verifier_scores_dir, f'verifier_scores_{exp_name}.png'), dpi=300, bbox_inches='tight')
         plt.show()
     
     return verifier_data
 
 def plot_verifier_score_distributions(verifier_data, output_dir='./analysis_plots'):
     """Create histogram plots showing the distribution of verifier scores for success vs failure."""
-    os.makedirs(output_dir, exist_ok=True)
+    # Create subdirectory for verifier distributions
+    verifier_dist_dir = os.path.join(output_dir, 'verifier_distributions')
+    os.makedirs(verifier_dist_dir, exist_ok=True)
     
     # Create plots for each experiment
     for exp_name, exp_data in verifier_data.items():
@@ -1488,7 +1492,7 @@ def plot_verifier_score_distributions(verifier_data, output_dir='./analysis_plot
         
         plt.suptitle(f'Verifier Score Distributions - {exp_name}', fontsize=16, fontweight='bold')
         plt.tight_layout()
-        plt.savefig(os.path.join(output_dir, f'verifier_distributions_{exp_name}.png'), dpi=300, bbox_inches='tight')
+        plt.savefig(os.path.join(verifier_dist_dir, f'verifier_distributions_{exp_name}.png'), dpi=300, bbox_inches='tight')
         plt.show()
     
     # Create a combined plot with all experiments
@@ -1557,10 +1561,643 @@ def plot_verifier_score_distributions(verifier_data, output_dir='./analysis_plot
     
     plt.suptitle('Verifier Score Distributions - All Experiments', fontsize=16, fontweight='bold')
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, 'verifier_distributions_all_experiments.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(verifier_dist_dir, 'verifier_distributions_all_experiments.png'), dpi=300, bbox_inches='tight')
     plt.show()
     
     return verifier_data
+
+def _normalize_episode_scores_to_fixed_steps(verifier_scores, step_timestamps, max_steps=150, max_episode_steps=150):
+    """Map an episode's (timestamp -> score) to a fixed-length array of size max_steps.
+    Collapses multiple samples mapped to the same normalized index by averaging.
+    Returns a numpy array of shape (max_steps,) filled with NaNs where no data.
+    """
+    if verifier_scores is None:
+        return np.full((max_steps,), np.nan, dtype=float)
+    # If timestamps missing or mismatched, fallback to indices
+    if not step_timestamps or len(step_timestamps) != len(verifier_scores):
+        step_timestamps = list(range(len(verifier_scores)))
+
+    # Collect valid (timestamp, score)
+    pairs = [(t, s) for t, s in zip(step_timestamps, verifier_scores) if s is not None]
+    if not pairs:
+        return np.full((max_steps,), np.nan, dtype=float)
+
+    # Aggregate scores per normalized index
+    idx_to_scores = defaultdict(list)
+    for t, s in pairs:
+        # Clamp t in case of anomalies and map to global 150-step timeline
+        tt = max(0.0, float(t))
+        # Normalize using global max_episode_steps, not per-episode length
+        denom = float(max(1, max_episode_steps - 1))
+        idx = int(round((tt / denom) * (max_steps - 1)))
+        idx = max(0, min(max_steps - 1, idx))
+        idx_to_scores[idx].append(float(s))
+
+    normalized = np.full((max_steps,), np.nan, dtype=float)
+    for idx, vals in idx_to_scores.items():
+        if vals:
+            normalized[idx] = float(np.mean(vals))
+    return normalized
+
+def analyze_similarity_trajectories_from_pickles(base_path="./", max_steps=150, max_episode_steps=150):
+    """Scan rollout pickle files, group episodes by language folder (e.g., lang1_sample_1),
+    and build success/failure normalized similarity trajectories.
+
+    Returns: dict[group_name] -> { 'success': List[np.ndarray], 'failure': List[np.ndarray] }
+    """
+    group_data = defaultdict(lambda: {'success': [], 'failure': []})
+
+    # Discover pickle files
+    pickle_files = []
+    for item in os.listdir(base_path):
+        if item.startswith('rollouts_'):
+            rollouts_dir = os.path.join(base_path, item)
+            if os.path.isdir(rollouts_dir):
+                pattern = os.path.join(rollouts_dir, "**", "*.pkl")
+                pickle_files.extend(glob.glob(pattern, recursive=True))
+
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+)', re.IGNORECASE)
+
+    for pickle_file in pickle_files:
+        try:
+            with open(pickle_file, 'rb') as f:
+                episode_data = pickle.load(f)
+
+            # Determine success from filename
+            filename = os.path.basename(pickle_file)
+            success_match = re.search(r'--success=([^\-]+)', filename)
+            is_success = success_match.group(1) == 'True' if success_match else False
+
+            # Extract language folder name from relative path
+            relative_path = os.path.relpath(os.path.dirname(pickle_file), base_path)
+            m = lang_folder_regex.search(relative_path)
+            if m:
+                group_name = m.group(1)
+            else:
+                # Fallback to last directory component
+                group_name = os.path.basename(os.path.dirname(pickle_file))
+
+            # Extract similarity scores and timestamps
+            verifier_scores = episode_data.get('verifier_scores', [])
+            step_timestamps = episode_data.get('step_timestamps', [])
+
+            normalized = _normalize_episode_scores_to_fixed_steps(
+                verifier_scores, step_timestamps, max_steps=max_steps, max_episode_steps=max_episode_steps
+            )
+
+            key = 'success' if is_success else 'failure'
+            group_data[group_name][key].append(normalized)
+
+        except Exception as e:
+            print(f"Error processing {pickle_file}: {e}")
+            continue
+
+    return group_data
+
+def plot_similarity_vs_time_by_folder(group_data, output_dir='./analysis_plots', max_steps=150):
+    """Create one big figure with subplots per language folder (lang*_sample*).
+    Each subplot shows mean similarity vs normalized time for success and failure, with variance.
+    """
+    if not group_data:
+        print("No similarity trajectory data found for plotting")
+        return None
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    groups = sorted(group_data.keys())
+    n_groups = len(groups)
+    n_cols = min(3, n_groups)
+    n_rows = (n_groups + n_cols - 1) // n_cols
+
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(7*n_cols, 4.5*n_rows), sharex=False, sharey=False)
+    if n_groups == 1:
+        axes = [axes]
+    elif n_rows == 1:
+        axes = axes if n_groups > 1 else [axes]
+    else:
+        axes = axes.flatten()
+
+    x = np.linspace(0.0, 1.0, max_steps)
+    y_min, y_max = 0.0, 1.0
+
+    def _interpolate_nan_series(y):
+        y = np.asarray(y, dtype=float)
+        n = y.shape[0]
+        x_idx = np.arange(n)
+        mask = ~np.isnan(y)
+        if mask.sum() == 0:
+            return y
+        if mask.sum() == 1:
+            # Keep a flat value only at the observed index; leave others NaN
+            y_out = np.full_like(y, np.nan)
+            y_out[mask] = y[mask][0]
+            return y_out
+        first = x_idx[mask][0]
+        last = x_idx[mask][-1]
+        y_out = y.copy()
+        internal = (x_idx >= first) & (x_idx <= last)
+        y_out[internal] = np.interp(x_idx[internal], x_idx[mask], y[mask])
+        return y_out
+
+    for i, group_name in enumerate(groups):
+        ax = axes[i]
+        data = group_data[group_name]
+
+        # Gather episodes
+        succ_eps = data['success']
+        fail_eps = data['failure']
+
+        # Compute q1, q99 over all samples in this folder (ignore NaNs)
+        combined_arrays = []
+        if succ_eps:
+            combined_arrays.append(np.vstack(succ_eps))
+        if fail_eps:
+            combined_arrays.append(np.vstack(fail_eps))
+        q1, q99 = None, None
+        if combined_arrays:
+            all_stack = np.vstack(combined_arrays)
+            all_vals = all_stack[~np.isnan(all_stack)]
+            if all_vals.size > 0:
+                q1 = float(np.percentile(all_vals, 1))
+                q99 = float(np.percentile(all_vals, 99))
+
+        def _normalize_stack(stack):
+            if q1 is None or q99 is None or q99 <= q1:
+                return stack
+            denom = max(1e-6, (q99 - q1))
+            out = (stack - q1) / denom
+            out = np.clip(out, 0.0, 1.0)
+            return out
+
+        # Success
+        if succ_eps:
+            succ_stack = np.vstack(succ_eps)
+            succ_stack = _normalize_stack(succ_stack)
+            succ_mean = np.nanmean(succ_stack, axis=0)
+            succ_std = np.nanstd(succ_stack, axis=0)
+            succ_mean = _interpolate_nan_series(succ_mean)
+            succ_std = _interpolate_nan_series(succ_std)
+            ax.plot(x, succ_mean, color='green', label=f'Success (n={len(succ_eps)})', linewidth=2)
+            ax.fill_between(x, succ_mean - succ_std, succ_mean + succ_std, color='green', alpha=0.2, linewidth=0)
+
+        # Failure
+        if fail_eps:
+            fail_stack = np.vstack(fail_eps)
+            fail_stack = _normalize_stack(fail_stack)
+            fail_mean = np.nanmean(fail_stack, axis=0)
+            fail_std = np.nanstd(fail_stack, axis=0)
+            fail_mean = _interpolate_nan_series(fail_mean)
+            fail_std = _interpolate_nan_series(fail_std)
+            ax.plot(x, fail_mean, color='red', label=f'Failure (n={len(fail_eps)})', linewidth=2)
+            ax.fill_between(x, fail_mean - fail_std, fail_mean + fail_std, color='red', alpha=0.2, linewidth=0)
+
+        ax.set_title(group_name, fontsize=12, fontweight='bold')
+        ax.set_xlabel('Normalized Time (0–1)')
+        ax.set_ylabel('Similarity (q1–q99 normalized)')
+        ax.tick_params(labelleft=True)
+        ax.grid(True, alpha=0.3)
+        ax.set_xlim(0.0, 1.0)
+        ax.set_ylim(y_min, y_max)
+        ax.legend(fontsize=9)
+
+    # Hide unused axes
+    for j in range(n_groups, len(axes)):
+        axes[j].set_visible(False)
+
+    plt.suptitle('Task Completion Time (Normalized to 150 steps) vs Similarity Score', fontsize=16, fontweight='bold')
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    out_path = os.path.join(output_dir, 'similarity_vs_time_by_language_folders.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.show()
+
+    print(f"Saved similarity vs time plot: {out_path}")
+    return out_path
+
+def analyze_similarity_trajectories_by_folder_and_task(base_path="./", max_steps=150, max_episode_steps=150):
+    """Build nested trajectories grouped by language folder and task.
+    Returns: dict[group][task] -> { 'success': [np.ndarray], 'failure': [np.ndarray] }
+    """
+    group_task_data = defaultdict(lambda: defaultdict(lambda: {'success': [], 'failure': []}))
+
+    pickle_files = []
+    for item in os.listdir(base_path):
+        if item.startswith('rollouts_'):
+            rollouts_dir = os.path.join(base_path, item)
+            if os.path.isdir(rollouts_dir):
+                pattern = os.path.join(rollouts_dir, "**", "*.pkl")
+                pickle_files.extend(glob.glob(pattern, recursive=True))
+
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+)', re.IGNORECASE)
+
+    for pickle_file in pickle_files:
+        try:
+            with open(pickle_file, 'rb') as f:
+                episode_data = pickle.load(f)
+
+            filename = os.path.basename(pickle_file)
+            success_match = re.search(r'--success=([^\-]+)', filename)
+            is_success = success_match.group(1) == 'True' if success_match else False
+
+            # Group (language folder) from path
+            relative_path = os.path.relpath(os.path.dirname(pickle_file), base_path)
+            m = lang_folder_regex.search(relative_path)
+            if m:
+                group_name = m.group(1)
+            else:
+                group_name = os.path.basename(os.path.dirname(pickle_file))
+
+            # Task from filename
+            task_match = re.search(r'--task=([^\.]+)', filename)
+            if not task_match:
+                continue
+            task_name = task_match.group(1)
+
+            verifier_scores = episode_data.get('verifier_scores', [])
+            step_timestamps = episode_data.get('step_timestamps', [])
+
+            normalized = _normalize_episode_scores_to_fixed_steps(
+                verifier_scores, step_timestamps, max_steps=max_steps, max_episode_steps=max_episode_steps
+            )
+
+            key = 'success' if is_success else 'failure'
+            group_task_data[group_name][task_name][key].append(normalized)
+        except Exception as e:
+            print(f"Error processing {pickle_file}: {e}")
+            continue
+
+    return group_task_data
+
+def plot_similarity_vs_time_per_task(group_task_data, output_root='./analysis_plots', max_steps=150):
+    """For each language folder, create a directory with one plot per task.
+    Y-axis is q1–q99 normalized per folder, X is normalized time (0–1).
+    """
+    if not group_task_data:
+        print("No per-task similarity trajectory data found for plotting")
+        return []
+
+    os.makedirs(output_root, exist_ok=True)
+
+    def _interpolate_nan_series(y):
+        y = np.asarray(y, dtype=float)
+        n = y.shape[0]
+        x_idx = np.arange(n)
+        mask = ~np.isnan(y)
+        if mask.sum() == 0:
+            return y
+        if mask.sum() == 1:
+            y_out = np.full_like(y, np.nan)
+            y_out[mask] = y[mask][0]
+            return y_out
+        first = x_idx[mask][0]
+        last = x_idx[mask][-1]
+        y_out = y.copy()
+        internal = (x_idx >= first) & (x_idx <= last)
+        y_out[internal] = np.interp(x_idx[internal], x_idx[mask], y[mask])
+        return y_out
+
+    saved_paths = []
+    x = np.linspace(0.0, 1.0, max_steps)
+
+    for group_name, tasks in group_task_data.items():
+        # Compute per-folder q1, q99 across all tasks
+        combined = []
+        for task_name, data in tasks.items():
+            if data['success']:
+                combined.append(np.vstack(data['success']))
+            if data['failure']:
+                combined.append(np.vstack(data['failure']))
+        q1 = q99 = None
+        if combined:
+            all_stack = np.vstack(combined)
+            all_vals = all_stack[~np.isnan(all_stack)]
+            if all_vals.size > 0:
+                q1 = float(np.percentile(all_vals, 1))
+                q99 = float(np.percentile(all_vals, 99))
+
+        def _normalize_stack(stack):
+            if q1 is None or q99 is None or q99 <= q1:
+                return stack
+            denom = max(1e-6, (q99 - q1))
+            out = (stack - q1) / denom
+            out = np.clip(out, 0.0, 1.0)
+            return out
+
+        # Prepare folder
+        folder_dir = os.path.join(output_root, group_name)
+        os.makedirs(folder_dir, exist_ok=True)
+
+        for task_name, data in tasks.items():
+            succ_eps = data['success']
+            fail_eps = data['failure']
+            if not succ_eps and not fail_eps:
+                continue
+
+            plt.figure(figsize=(8, 5))
+
+            # Success line
+            if succ_eps:
+                succ_stack = _normalize_stack(np.vstack(succ_eps))
+                succ_mean = np.nanmean(succ_stack, axis=0)
+                succ_std = np.nanstd(succ_stack, axis=0)
+                succ_mean = _interpolate_nan_series(succ_mean)
+                succ_std = _interpolate_nan_series(succ_std)
+                plt.plot(x, succ_mean, color='green', label=f'Success (n={len(succ_eps)})', linewidth=2)
+                plt.fill_between(x, succ_mean - succ_std, succ_mean + succ_std, color='green', alpha=0.2, linewidth=0)
+
+            # Failure line
+            if fail_eps:
+                fail_stack = _normalize_stack(np.vstack(fail_eps))
+                fail_mean = np.nanmean(fail_stack, axis=0)
+                fail_std = np.nanstd(fail_stack, axis=0)
+                fail_mean = _interpolate_nan_series(fail_mean)
+                fail_std = _interpolate_nan_series(fail_std)
+                plt.plot(x, fail_mean, color='red', label=f'Failure (n={len(fail_eps)})', linewidth=2)
+                plt.fill_between(x, fail_mean - fail_std, fail_mean + fail_std, color='red', alpha=0.2, linewidth=0)
+
+            title_task = task_name.replace('_', ' ').title()
+            plt.title(f"{group_name} — {title_task}", fontsize=12, fontweight='bold')
+            plt.xlabel('Normalized Time (0–1)')
+            plt.ylabel('Similarity (q1–q99 normalized)')
+            plt.grid(True, alpha=0.3)
+            plt.xlim(0.0, 1.0)
+            plt.ylim(0.0, 1.0)
+            plt.legend(fontsize=9)
+            plt.tight_layout()
+
+            safe_task = re.sub(r'[^A-Za-z0-9_.-]+', '_', task_name)
+            out_path = os.path.join(folder_dir, f"{safe_task}.png")
+            plt.savefig(out_path, dpi=300, bbox_inches='tight')
+            plt.close()
+            saved_paths.append(out_path)
+
+        print(f"Saved per-task similarity plots in: {folder_dir}")
+
+    return saved_paths
+
+def analyze_rollouts_per_subfolder(base_rollout_path):
+    """Analyze rollouts grouped by immediate subdirectories (e.g., transform_rephrase, rephrase_ablation).
+    Returns dict[subfolder_name] -> dict[task] -> evaluations (same format as analyze_rollout_folder_recursive).
+    
+    For ablation folders (folders ending with '_ablation'), returns dict[subfolder_name] -> dict[sub_subfolder_name] -> overall_stats
+    where each sub-subfolder (like lang_1_sample_1) is treated as a separate experiment.
+    """
+    results = {}
+    if not os.path.exists(base_rollout_path):
+        print(f"Warning: Base rollout path {base_rollout_path} does not exist")
+        return results
+
+    # Iterate over immediate subdirectories
+    for subdir in os.listdir(base_rollout_path):
+        subdir_path = os.path.join(base_rollout_path, subdir)
+        if not os.path.isdir(subdir_path):
+            continue
+
+        # Check if this is an ablation folder
+        is_ablation = subdir.endswith('_ablation')
+        
+        if is_ablation:
+            # For ablation folders, treat each sub-subfolder as a separate experiment
+            ablation_results = {}
+            for sub_subdir in os.listdir(subdir_path):
+                sub_subdir_path = os.path.join(subdir_path, sub_subdir)
+                if not os.path.isdir(sub_subdir_path):
+                    continue
+                
+                # Analyze this sub-subfolder
+                sub_subfolder_results = defaultdict(dict)
+                for root, dirs, files in os.walk(sub_subdir_path):
+                    video_files = [f for f in files if f.endswith('.mp4')]
+                    if not video_files:
+                        continue
+
+                    # Group videos by task
+                    task_episodes = defaultdict(list)
+                    for video_file in video_files:
+                        success = extract_success_from_filename(video_file)
+                        episode_num = extract_episode_number(video_file)
+                        if success is not None and episode_num is not None:
+                            task_match = re.search(r'--task=([^\.]+)', video_file)
+                            if task_match:
+                                task_name = task_match.group(1)
+                                task_episodes[task_name].append((episode_num, success))
+
+                    # Group episodes into evaluations for each task
+                    for task_name, episode_data in task_episodes.items():
+                        if episode_data:
+                            evaluations = group_episodes_by_evaluation(episode_data)
+                            if task_name not in sub_subfolder_results:
+                                sub_subfolder_results[task_name] = evaluations
+                            else:
+                                # Merge evaluations if task appears multiple times
+                                for eval_name, eval_data in evaluations.items():
+                                    if eval_name not in sub_subfolder_results[task_name]:
+                                        sub_subfolder_results[task_name][eval_name] = eval_data
+                
+                if sub_subfolder_results:
+                    ablation_results[sub_subdir] = dict(sub_subfolder_results)
+                    print(f"    Analyzed ablation sub-subfolder: {sub_subdir} with {len(sub_subfolder_results)} tasks")
+            
+            if ablation_results:
+                results[subdir] = ablation_results
+                print(f"  Analyzed ablation folder: {subdir} with {len(ablation_results)} sub-experiments")
+        else:
+            # Regular processing for non-ablation folders
+            subfolder_results = defaultdict(dict)
+            for root, dirs, files in os.walk(subdir_path):
+                video_files = [f for f in files if f.endswith('.mp4')]
+                if not video_files:
+                    continue
+
+                # Group videos by task
+                task_episodes = defaultdict(list)
+                for video_file in video_files:
+                    success = extract_success_from_filename(video_file)
+                    episode_num = extract_episode_number(video_file)
+                    if success is not None and episode_num is not None:
+                        task_match = re.search(r'--task=([^\.]+)', video_file)
+                        if task_match:
+                            task_name = task_match.group(1)
+                            task_episodes[task_name].append((episode_num, success))
+
+                # Group episodes into evaluations for each task
+                for task_name, episode_data in task_episodes.items():
+                    if episode_data:
+                        evaluations = group_episodes_by_evaluation(episode_data)
+                        # Aggregate across all folders in this subfolder
+                        if task_name not in subfolder_results:
+                            subfolder_results[task_name] = evaluations
+                        else:
+                            # Merge evaluations if task appears in multiple sub-sub-folders
+                            for eval_name, eval_data in evaluations.items():
+                                if eval_name not in subfolder_results[task_name]:
+                                    subfolder_results[task_name][eval_name] = eval_data
+
+            if subfolder_results:
+                results[subdir] = dict(subfolder_results)
+                print(f"  Analyzed subfolder: {subdir} with {len(subfolder_results)} tasks")
+
+    return results
+
+def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_plots'):
+    """Create one evaluation plot per subfolder (like evaluation_mean_std_openpi_original_rephrase.png).
+    Each plot shows mean and std across evaluation periods.
+    
+    For ablation folders: creates grouped bars with tasks on X-axis and multiple bars per task (one per subfolder)
+    For regular folders: each bar represents a task
+    """
+    if not per_folder_stats:
+        print("No per-folder evaluation data found")
+        return []
+
+    os.makedirs(output_dir, exist_ok=True)
+    saved_paths = []
+
+    for folder_name, task_stats in per_folder_stats.items():
+        if not task_stats:
+            continue
+
+        # Check if this is an ablation folder
+        is_ablation = folder_name.endswith('_ablation')
+        
+        # Collect data for plotting
+        plot_data = []
+        
+        if is_ablation:
+            # For ablation folders, create grouped bars: X-axis=tasks, multiple bars per task (one per subfolder)
+            for subfolder_name, subfolder_tasks in task_stats.items():
+                for task_name, task_data in subfolder_tasks.items():
+                    if isinstance(task_data, dict) and any(isinstance(v, dict) and 'success_rate' in v for v in task_data.values()):
+                        # Get the 4 main evaluation periods (Eval_1, Eval_2, Eval_3, Eval_4)
+                        eval_rates = []
+                        for eval_name in ['Eval_1', 'Eval_2', 'Eval_3', 'Eval_4']:
+                            if eval_name in task_data and isinstance(task_data[eval_name], dict) and 'success_rate' in task_data[eval_name]:
+                                eval_rates.append(task_data[eval_name]['success_rate'])
+                        
+                        if len(eval_rates) >= 2:  # Need at least 2 evaluations to calculate std
+                            plot_data.append({
+                                'Subfolder': subfolder_name.replace('_', ' ').title(),
+                                'Task': task_name.replace('_', ' ').title(),
+                                'Mean': np.mean(eval_rates),
+                                'Std': np.std(eval_rates),
+                                'N': len(eval_rates)
+                            })
+        else:
+            # Regular processing for non-ablation folders: plot by task
+            for task_name, task_data in task_stats.items():
+                if isinstance(task_data, dict) and any(isinstance(v, dict) and 'success_rate' in v for v in task_data.values()):
+                    # Get the 4 main evaluation periods (Eval_1, Eval_2, Eval_3, Eval_4)
+                    eval_rates = []
+                    for eval_name in ['Eval_1', 'Eval_2', 'Eval_3', 'Eval_4']:
+                        if eval_name in task_data and isinstance(task_data[eval_name], dict) and 'success_rate' in task_data[eval_name]:
+                            eval_rates.append(task_data[eval_name]['success_rate'])
+
+                    if len(eval_rates) >= 2:  # Need at least 2 evaluations to calculate std
+                        plot_data.append({
+                            'Task': task_name.replace('_', ' ').title(),
+                            'Mean': np.mean(eval_rates),
+                            'Std': np.std(eval_rates),
+                            'N': len(eval_rates)
+                        })
+
+        if not plot_data:
+            continue
+
+        # Create the plot
+        plt.figure(figsize=(14, 8))
+        df = pd.DataFrame(plot_data)
+        
+        if is_ablation:
+            # Grouped bar plot: tasks on X-axis, multiple bars per task
+            tasks = sorted(df['Task'].unique())
+            subfolders = sorted(df['Subfolder'].unique())
+            
+            x_pos = np.arange(len(tasks))
+            width = 0.8 / len(subfolders)
+            
+            colors = plt.cm.Set3(np.linspace(0, 1, len(subfolders)))
+            
+            for i, subfolder in enumerate(subfolders):
+                subfolder_data = df[df['Subfolder'] == subfolder]
+                
+                task_means = []
+                task_stds = []
+                
+                for task in tasks:
+                    task_data = subfolder_data[subfolder_data['Task'] == task]
+                    if not task_data.empty:
+                        task_means.append(task_data['Mean'].iloc[0])
+                        task_stds.append(task_data['Std'].iloc[0])
+                    else:
+                        task_means.append(0)
+                        task_stds.append(0)
+                
+                bars = plt.bar(x_pos + i * width, task_means, width,
+                              yerr=task_stds, capsize=3, alpha=0.8,
+                              color=colors[i], edgecolor='black', linewidth=0.5,
+                              label=subfolder)
+                
+                # Add value labels
+                for bar, mean_val, std_val in zip(bars, task_means, task_stds):
+                    if mean_val > 0:
+                        height = bar.get_height()
+                        plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.01,
+                                f'{mean_val:.3f}±{std_val:.3f}', ha='center', va='bottom', fontsize=6)
+            
+            plt.xlabel('Tasks', fontsize=14, fontweight='bold')
+            plt.ylabel('Success Rate (Mean ± Std across evaluations)', fontsize=14, fontweight='bold')
+            plt.title(f'{folder_name.replace("_", " ").title()} - Mean and Std Across Evaluation Periods', 
+                     fontsize=16, fontweight='bold')
+            plt.xticks(x_pos + width * (len(subfolders) - 1) / 2, 
+                      tasks, rotation=45, ha='right', fontsize=10)
+            plt.ylim(0, 1.1)
+            plt.grid(True, alpha=0.3, axis='y')
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
+        else:
+            # Single bar per task
+            tasks = sorted(df['Task'].unique())
+            x_pos = np.arange(len(tasks))
+            width = 0.6
+
+            means = []
+            stds = []
+            for task in tasks:
+                task_data = df[df['Task'] == task]
+                if not task_data.empty:
+                    means.append(task_data['Mean'].iloc[0])
+                    stds.append(task_data['Std'].iloc[0])
+                else:
+                    means.append(0)
+                    stds.append(0)
+
+            bars = plt.bar(x_pos, means, width,
+                          yerr=stds, capsize=3, alpha=0.8,
+                          color='#2E86AB', edgecolor='black', linewidth=0.5)
+
+            # Add value labels
+            for bar, mean_val, std_val in zip(bars, means, stds):
+                if mean_val > 0:
+                    height = bar.get_height()
+                    plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.01,
+                            f'{mean_val:.3f}±{std_val:.3f}', ha='center', va='bottom', fontsize=8)
+
+            plt.xlabel('Tasks', fontsize=14, fontweight='bold')
+            plt.ylabel('Success Rate (Mean ± Std across evaluations)', fontsize=14, fontweight='bold')
+            plt.title(f'{folder_name.replace("_", " ").title()} - Mean and Std Across Evaluation Periods', 
+                     fontsize=16, fontweight='bold')
+            plt.xticks(x_pos, tasks, rotation=45, ha='right', fontsize=10)
+            plt.ylim(0, 1.1)
+            plt.grid(True, alpha=0.3, axis='y')
+        
+        plt.tight_layout()
+
+        safe_folder_name = folder_name.replace('/', '_').replace(' ', '_')
+        out_path = os.path.join(output_dir, f'evaluation_mean_std_{safe_folder_name}.png')
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        saved_paths.append(out_path)
+        print(f"  Saved: {out_path}")
+
+    return saved_paths
 
 def discover_rollout_folders(base_path="./"):
     """Discover all folders that start with 'rollouts' and return their analysis results."""
@@ -1726,6 +2363,34 @@ def main():
         
         print("\nCreating verifier score distribution plots...")
         plot_verifier_score_distributions(verifier_data, output_dir=args.output_dir)
+
+    # Similarity vs time by language folder
+    print("\nAnalyzing similarity trajectories grouped by language folders...")
+    group_similarity = analyze_similarity_trajectories_from_pickles(base_path="./", max_steps=150)
+    if group_similarity:
+        print("\nCreating similarity vs time subplots (per language folder)...")
+        plot_similarity_vs_time_by_folder(group_similarity, output_dir=args.output_dir, max_steps=150)
+
+    # Per-task similarity plots under each language folder
+    print("\nAnalyzing per-task similarity trajectories by language folders...")
+    group_task_similarity = analyze_similarity_trajectories_by_folder_and_task(base_path="./", max_steps=150)
+    if group_task_similarity:
+        print("\nCreating per-task similarity vs time plots (saved into folder per language)...")
+        plot_similarity_vs_time_per_task(group_task_similarity, output_root=args.output_dir, max_steps=150)
+    
+    # Per-folder evaluation plots (e.g., for each subfolder under rollouts_openpi_original)
+    print("\nAnalyzing per-folder evaluation statistics (e.g., rollouts_openpi_original subfolders)...")
+    rollout_folders_to_analyze = [
+        "./rollouts_openpi_original",
+        # Add more base rollout folders here if needed
+    ]
+    for rollout_base in rollout_folders_to_analyze:
+        if os.path.exists(rollout_base):
+            print(f"  Processing: {rollout_base}")
+            per_folder_stats = analyze_rollouts_per_subfolder(rollout_base)
+            if per_folder_stats:
+                print(f"\nCreating per-folder evaluation plots for {rollout_base}...")
+                create_per_folder_evaluation_plots(per_folder_stats, output_dir=args.output_dir)
     
     # Print summary
     print_summary_statistics(stats_in_dist, stats_ood, stats_rephrase, stats_robomonkey, stats_in_dist_test, stats_ood_test)
@@ -1741,9 +2406,17 @@ def main():
     print("  - success_rates_test.png")
     print("  - success_rates_robomonkey.png")
     if verifier_data:
-        print("  - verifier_scores_over_time.png (Verifier scores over timesteps for all experiments)")
+        print("  - verifier_scores/ (Directory containing verifier score plots over time)")
+        print("    - verifier_scores_over_time.png")
         for exp_name in verifier_data.keys():
-            print(f"  - verifier_scores_{exp_name}.png (Verifier scores for {exp_name})")
+            print(f"    - verifier_scores_{exp_name}.png")
+        print("  - verifier_distributions/ (Directory containing verifier score distribution plots)")
+        print("    - verifier_distributions_all_experiments.png")
+        for exp_name in verifier_data.keys():
+            print(f"    - verifier_distributions_{exp_name}.png")
+    print("  - similarity_vs_time_by_language_folders.png (Normalized time vs similarity with success/failure trajectories)")
+    print("  - <lang_x_sample_y>/ (Per-task similarity vs time plots organized by language folder)")
+    print("  - evaluation_mean_std_<subfolder>.png (Per-folder evaluation plots for rollouts_openpi_original subfolders)")
 
 if __name__ == "__main__":
     main()

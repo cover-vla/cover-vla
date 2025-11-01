@@ -284,7 +284,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     
     # Load pre-generated rephrases if available
     preloaded_rephrases = load_rephrases(cfg.task_suite_name)
-    
+    action_queue = None
     # Create adapter for preprocessing (singleton pattern)
     if not hasattr(pi0_policy, '_preprocess_adapter'):
         pi0_policy._preprocess_adapter = create_bridge_adapter_wrapper(cfg.action_ensemble_temp)
@@ -440,31 +440,12 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     "observation.state": batch_state,  # [batch_size, 7]
                     "task": task_list,  # List instructions
                 }
-                # if len(task_list) > 40:
-                #     # use batches of 40 to inference the model to resolve the memory issue
-                #     if t % cfg.n_action_steps == 0:
-                #         per_step_chunks = None
-                #         for i in range(0, len(task_list), 40):
-                #             batch_task_list = task_list[i:i+40]
-                #             batch_observation = {
-                #                 image_key: batch_image[i:i+40],
-                #                 "observation.state": batch_state[i:i+40],
-                #                 "task": batch_task_list,
-                #             }
-                #             with torch.no_grad():
-                #                 # Returns a deque of length n_action_steps, each a tensor [chunk_batch, action_dim]
-                #                 batch_action_queue = pi0_policy.select_action(batch_observation)
-                #             if per_step_chunks is None:
-                #                 per_step_chunks = [[] for _ in range(len(batch_action_queue))]
-                #             for step_idx, step_tensor in enumerate(batch_action_queue):
-                #                 per_step_chunks[step_idx].append(step_tensor)
-                #         # Concatenate per-step tensors across chunks and rebuild a deque of length n_action_steps
-                #         concatenated_steps = [torch.cat(chunks, dim=0) for chunks in per_step_chunks]
-                #         action_queue = deque(concatenated_steps)
-                # else:
-                with torch.no_grad():
-                    action_queue = pi0_policy.select_action(observation)
-                # print ("action_queue:", len(action_queue), "t:", t)
+                # Only call select_action every n_action_steps to avoid interfering with policy's internal queue management
+                if t % cfg.n_action_steps == 0:
+                    with torch.no_grad():
+                        output_action_queue = pi0_policy.select_action(observation, noise_std=1.7)
+                        action_queue = output_action_queue.copy()
+                        output_action_queue.clear()
                 if cfg.use_verifier and t % cfg.n_action_steps == 0:
                     assert len(action_queue) == cfg.n_action_steps, f"Action queue length should be {cfg.n_action_steps}, but got {len(action_queue)}"
                     num_past = min(len(action_history), 6)
@@ -495,7 +476,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     # The verifier gives us the best trajectory index, but we need to get the corresponding execution action from processed execution actions
                     execution_action_histories_list = process_inputs(batch_size, predefined_action_queue, verifier_action=False, action_history=action_history.copy(), cfg=cfg)
                     execute_action = execution_action_histories_list[global_action_idx][num_past].copy()  # shape (7,)
-
+                    # print ("selected action:", execution_action_histories_list[global_action_idx])
                     # Get the group of actions corresponding to the selected global_action_idx
                     group_start = (global_action_idx // cfg.policy_batch_inference_size) * cfg.policy_batch_inference_size
                     group_end = group_start + cfg.policy_batch_inference_size
@@ -519,6 +500,21 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     # Ensure exactly -1 or 1
                     execute_action[-1] = float(np.sign(execute_action[-1]))
                     
+                    # Extract remaining actions from the selected batch item (global_action_idx) from the original policy output
+                    # predefined_action_queue still contains all n_action_steps timesteps (before popleft)
+                    # We executed action from timestep 0, batch item global_action_idx
+                    # Now extract remaining actions from timesteps 1, 2, 3 for batch item global_action_idx
+                    selected_action_chunk = deque()
+                    for timestep_idx in range(1, cfg.n_action_steps):
+                        # Get the action tensor for this timestep (shape: batch_size, 7)
+                        timestep_actions = predefined_action_queue[timestep_idx]
+                        # Extract the action for the selected batch item
+                        selected_action = timestep_actions[global_action_idx:global_action_idx+1]  # shape (1, 7)
+                        selected_action_chunk.append(selected_action)
+                    
+                    # Replace action_queue with the selected chunk actions (now contains only actions for selected batch item)
+                    action_queue = selected_action_chunk
+                    
                     # Store verifier data
                     episode_data['verifier_scores'].append(max_score)
                     episode_data['selected_instructions'].append(max_instruction)
@@ -527,10 +523,13 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     
                     task_description = max_instruction
                 else:
+                    # Use actions from queue (either from verifier-selected chunk or from regular policy)
+                    # action_queue should exist from previous call to select_action at n_action_steps boundary
                     single_action = action_queue.popleft().cpu().numpy()
                     action_for_env = single_action[0:1]
                     execute_action = convert_maniskill_with_bridge_adapter(action_for_env, verifier_action=False, action_ensemble_temp=cfg.action_ensemble_temp)
                     # Store data for non-verifier case
+                    # print ("execute_action no verifier:", execute_action)
                     episode_data['verifier_scores'].append(None)
                     episode_data['selected_instructions'].append(task_description)
                     episode_data['execute_actions'].append(execute_action.copy())

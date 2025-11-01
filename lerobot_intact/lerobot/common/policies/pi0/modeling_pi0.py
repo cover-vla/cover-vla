@@ -261,7 +261,7 @@ class PI0Policy(PreTrainedPolicy):
         return self.parameters()
 
     @torch.no_grad
-    def select_action(self, batch: dict[str, Tensor], noise: Tensor | None = None) -> Tensor:
+    def select_action(self, batch: dict[str, Tensor], noise: Tensor | None = None, noise_std: float = 1.0) -> Tensor:
         """Select a single action given environment observations.
 
         This method wraps `select_actions` in order to return one action at a time for execution in the
@@ -283,7 +283,7 @@ class PI0Policy(PreTrainedPolicy):
             lang_tokens, lang_masks = self.prepare_language(batch)
 
             actions = self.model.sample_actions(
-                images, img_masks, lang_tokens, lang_masks, state, noise=noise
+                images, img_masks, lang_tokens, lang_masks, state, noise=noise, noise_std=noise_std
             )
 
             actions = actions[:, : self.config.n_action_steps]
@@ -499,10 +499,10 @@ class PI0FlowMatching(nn.Module):
         for params in self.state_proj.parameters():
             params.requires_grad = self.config.train_state_proj
 
-    def sample_noise(self, shape, device):
+    def sample_noise(self, shape, device, noise_std=1.0):
         noise = torch.normal(
             mean=0.0,
-            std=1.0,
+            std=noise_std,
             size=shape,
             dtype=torch.float32,
             device=device,
@@ -669,14 +669,14 @@ class PI0FlowMatching(nn.Module):
         losses = F.mse_loss(u_t, v_t, reduction="none")
         return losses
 
-    def sample_actions(self, images, img_masks, lang_tokens, lang_masks, state, noise=None) -> Tensor:
+    def sample_actions(self, images, img_masks, lang_tokens, lang_masks, state, noise=None, noise_std=1.0) -> Tensor:
         """Do a full inference forward and compute the action (batch_size x num_steps x num_motors)"""
         bsize = state.shape[0]
         device = state.device
 
         if noise is None:
             actions_shape = (bsize, self.config.chunk_size, self.config.max_action_dim)
-            noise = self.sample_noise(actions_shape, device)
+            noise = self.sample_noise(actions_shape, device, noise_std)
 
         prefix_embs, prefix_pad_masks, prefix_att_masks = self.embed_prefix(
             images, img_masks, lang_tokens, lang_masks

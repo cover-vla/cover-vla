@@ -45,23 +45,30 @@ class LangTransform:
 
     def get_rephrase_batch(self, instruction, batch_number=1):
         instruction = f"""
-            Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that:
-            - Convey the same objective as the original
-            - During rephrasing, you should try to understand the meaning of the instruction and simplify the instruction to simple words and actions including verbs and nouns.
-            
-            You should first analyze the instruction, and output the meaning of the instruction, the nouns, verbs, adjectives and adverbs. 
-            Then, you should remove the adverbs as much as possible, and reword the instruction to simply and minimize the length of the rephrased descriptions.
+            Given the original instruction: "{instruction}", generate {batch_number} reworded instructions that convey the same objective.
 
-            Format your response as:
+            Guidelines for rephrasing:
+            1. Use simple, clear words and actions (focus on verbs and nouns)
+            2. Remove adverbs whenever possible
+            3. Keep descriptions concise but complete
+            4. Infer and include object colors when they can be reasonably deduced (e.g., apples are typically red, strawberries are red)
+            5. Use diverse vocabulary across rephrases (vary nouns, verbs, and adjectives)
+            6. Ensure each rephrase maintains the same core meaning and task objective
             
-            <Meaning of the instruction>
-            Original: <Nouns> three potential replacements: <Nouns>
-            Original: <Verbs> three potential replacements: <Verbs>
-            Original: <Adjectives> three potential replacements: <Adjectives>
-            Original: <Adverbs>
+            Examples:
+            Original: "put apple on the desk"
+            Reworded: "pick up the red apple and place it on the desk", "take the apple and put it on the desk", "place the red apple on the desk"
+            
+            Original: "put cooking pot in the green basket"
+            Reworded: "move the silver cooking pot to the green basket", "take the cooking pot and put it in the green basket", "put the cooking pot into the green basket"
+            
+            Original: "put strawberry on top of the fridge"
+            Reworded: "put the red fruit on the fridge", "place the red berry on the top of the fridge", "set the red berry on the top of the refrigerator"
+            
+            Format your response as:
 
             Original Instruction:
-            <The user-provided instruction>
+            {instruction}
 
             Reworded Instructions:
             1. <Alternative phrasing 1>
@@ -69,7 +76,7 @@ class LangTransform:
             ...
             {batch_number}. <Alternative phrasing {batch_number}>
             
-            Note: make sure to check the generated rephrased instructions: they do not have adverbs; have diverse nouns, verbs, adjectives.
+            Important: Ensure all rephrased instructions avoid adverbs, use diverse vocabulary, and maintain the same objective as the original.
             """
         return instruction
 

@@ -6,18 +6,7 @@ You will be given:
 Your task is to:
 1. Understand the meaning of the original instruction.
 2. Reword the instruction into multiple alternatives that preserve the original intent, and are grammatically correct and easy to follow.
-3. Try to generate a mixture of easy and hard rephrases. You can try some simple ones with only 1 or 2 words different, and also include some rephrases that are more challenging.
-
-Output Format (Structured and Consistent):
-
-Original Instruction:
-<The user-provided instruction>
-
-Reworded Instructions:
-1. <Alternative phrasing 1>
-2. <Alternative phrasing 2>
-3. <Alternative phrasing 3>
-...
+3. Try to generate easy rephrases.
 
 Guidelines:
 - Reworded instructions can be diverse in terms of words, but the meaning should be the same.

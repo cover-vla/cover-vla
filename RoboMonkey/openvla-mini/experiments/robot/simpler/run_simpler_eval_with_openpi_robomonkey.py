@@ -358,7 +358,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 observation = {
                     image_key: batch_image,  # [batch_size, 3, 224, 224]
                     "observation.state": batch_state,  # [batch_size, 7]
-                    "task": batch_task_instructions,  # List of 5 identical instructions
+                    "task": batch_task_instructions,  # List of batch_size identical instructions
                 }
                 verifier_action_list = []
                 with torch.no_grad():
@@ -369,7 +369,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                         verifier_action = convert_maniskill_with_bridge_adapter(action[i:i+1], verifier_action=True)
                         verifier_action_list.append(verifier_action)
                 verifier_action_id = np.array([action_converter.action_to_token(act) for act in verifier_action_list])
-                # augmented_action_id, augmented_action = generate_augmented_samples_from_batch(action, num_samples=cfg.augmented_samples)
                 save_reward_img(raw_img)
                 # Use absolute path so the reward server can find the image
                 image_path = "/root/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler/bashes/transfer_images/reward_img_robomonkey.jpg"
@@ -377,7 +376,8 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 selected_index = np.argmax(rewards)
                 # Process action using BridgeSimplerAdapter
                 # Use the selected action from the batch for environment execution
-                action_for_env = action[selected_index:selected_index+1]
+                # selected_index = 0
+                # action_for_env = action[selected_index:selected_index+1]
                 action_binary = action.copy() 
                 action_binary[:, -1] = np.where(action[:, -1] > 0.5, 1.0, 0.0)
                 action_for_env = action_binary[selected_index:selected_index+1]

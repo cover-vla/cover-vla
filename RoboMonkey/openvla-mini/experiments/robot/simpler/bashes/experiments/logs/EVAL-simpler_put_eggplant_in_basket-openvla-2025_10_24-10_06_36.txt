@@ -1,4 +1,0 @@
-Task suite: simpler_put_eggplant_in_basket
-
-Task: Place the toy aubergine in the gold-colored box.
-Starting episode 1...

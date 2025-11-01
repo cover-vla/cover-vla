@@ -1,4 +1,0 @@
-Task suite: simpler_put_eggplant_in_basket
-
-Task: Fit the play aubergine into the gold box.
-Starting episode 1...

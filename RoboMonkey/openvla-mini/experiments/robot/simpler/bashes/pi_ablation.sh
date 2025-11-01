@@ -17,17 +17,17 @@ export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
         --num_trials_per_task 150 \
         --use_verifier True \
-        --policy_batch_inference_size 5 \
-        --lang_rephrase_num 2
+        --policy_batch_inference_size 1 \
+        --lang_rephrase_num 8
 
     CUDA_VISIBLE_DEVICES=3 python ../run_simpler_eval_with_openpi.py \
-        --task_suite_name simpler_ood \
+        --task_suite_name simpler_widowx \
         --lang_transform_type rephrase \
         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
         --num_trials_per_task 150 \
         --use_verifier True \
         --policy_batch_inference_size 5 \
-        --lang_rephrase_num 2
+        --lang_rephrase_num 8
 ) &
 
 (
@@ -37,8 +37,26 @@ export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
         --num_trials_per_task 150 \
         --use_verifier True \
-        --policy_batch_inference_size 5 \
-        --lang_rephrase_num 4
+        --policy_batch_inference_size 3 \
+        --lang_rephrase_num 8
+
+    CUDA_VISIBLE_DEVICES=2 python ../run_simpler_eval_with_openpi.py \
+        --task_suite_name simpler_ood \
+        --lang_transform_type rephrase \
+        --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+        --num_trials_per_task 150 \
+        --use_verifier True \
+        --policy_batch_inference_size 3 \
+        --lang_rephrase_num 8
+
+    CUDA_VISIBLE_DEVICES=2 python ../run_simpler_eval_with_openpi.py \
+        --task_suite_name simpler_ood \
+        --lang_transform_type rephrase \
+        --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+        --num_trials_per_task 150 \
+        --use_verifier True \
+        --policy_batch_inference_size 1 \
+        --lang_rephrase_num 8
 
     CUDA_VISIBLE_DEVICES=2 python ../run_simpler_eval_with_openpi.py \
         --task_suite_name simpler_ood \
@@ -47,7 +65,7 @@ export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
         --num_trials_per_task 150 \
         --use_verifier True \
         --policy_batch_inference_size 5 \
-        --lang_rephrase_num 4
+        --lang_rephrase_num 8
 ) &
 
 wait

@@ -1,4 +1,0 @@
-Task suite: simpler_widowx
-
-Task: Drop The Toy Eggplant Into The Golden Compartment
-Starting episode 1...
