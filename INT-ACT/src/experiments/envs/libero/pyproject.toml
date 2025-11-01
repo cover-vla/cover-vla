@@ -1,0 +1,35 @@
+[project]
+name = "libero-experiment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "lerobot",
+    "libero",
+    "draccus",
+    "policy-server-client",
+    "torch==2.5.1", # there is a small change in 2.6.0 that breaks libero. It's easy to fix in libero's code but we decided to respect their versioning
+    "torchvision==0.20.1",
+    "hydra-core==1.2.0",
+    "numpy>=1.22.4",
+    "wandb>=0.13.1",
+    "easydict==1.9",
+    "transformers>=4.48.0",
+    "tensorflow==2.15.0",
+    "opencv-python",
+    "robomimic==0.2.0",
+    "einops",
+    "thop==0.1.1-2209072238",
+    "robosuite==1.4.0",
+    "bddl==1.0.1",
+    "future==0.18.2",
+    "matplotlib==3.5.3",
+    "cloudpickle==2.1.0",
+    "gym==0.25.2"
+]
+
+[tool.uv.sources]
+libero = { path = "../../../../third_party/LIBERO", editable = true }
+policy-server-client = { path = "../../../../packages/policy-server-client", editable = true }
+lerobot = { path = "../../../../third_party/lerobot", editable = true }

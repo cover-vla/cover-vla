@@ -1,0 +1,17 @@
+# our pi0_baseline on fractal
+name: "pi0_baseline_fractal"
+model_cfg: !include ../models/pi0_baseline_fractal.json
+freeze_lm_head: true
+
+n_epochs: 10
+
+data:
+  train:
+    dataset_mix: fractal
+    split: train[:95%]
+  val:
+    dataset_mix: fractal
+    split: train[95%:]
+    shuffle_buffer_size: 10000
+  train_episode_count: 3786400
+

@@ -1,0 +1,58 @@
+name: pi0_finetune
+seed: 42
+model_cfg: !include ../../models/pi0_finetune_bridge.json
+
+eval_cfg:
+  simulator_name: "simpler"
+  env_adapter: "BridgeSimplerAdapter"
+  task_list: [
+    # # * original tasks
+    # "widowx_spoon_on_towel",
+    # "widowx_carrot_on_plate",
+    # "widowx_stack_cube",
+    # "widowx_put_eggplant_in_basket",
+    # # * object distraction
+    # "widowx_spoon_on_towel_distract",
+    # "widowx_carrot_on_plate_distract",
+    # "widowx_carrot_on_keyboard_distract",
+    # "widowx_coke_can_on_plate_distract",
+    # "widowx_coke_can_on_keyboard_distract",
+    # # * generatization test
+    # "widowx_cube_on_plate_clean", # seen source and target, unseen combination
+    # "widowx_small_plate_on_green_cube_clean", # seen source and target, unseen combination (a reverse)
+    # "widowx_coke_can_on_plate_clean", # ood source
+    # "widowx_pepsi_on_plate_clean", # another OOD source besides coke can, also a texture difference
+    # "widowx_carrot_on_sponge_clean", # seen source and target, unseen combination
+    # "widowx_eggplant_on_sponge_clean",
+    # "widowx_carrot_on_keyboard_clean", # ood target
+    # "widowx_coke_can_on_keyboard_clean",
+    # # * language variation
+    "widowx_carrot_on_plate_lang_common", # rabbit, no distract
+    "widowx_carrot_on_plate_lang_action",
+    "widowx_carrot_on_plate_lang_neg",
+    "widowx_carrot_on_plate_lang_neg_action", # on the table not on the plate
+    "widowx_carrot_on_plate_lang_common_distract", # rabbit
+    "widowx_spoon_on_towel_lang_action",
+    "widowx_spoon_on_towel_lang_common",
+    "widowx_spoon_on_towel_lang_common_distract",
+    # "widowx_stack_cube_lang_action",
+    # "widowx_eggplant_in_basket_lang_action",
+    # "widowx_eggplant_in_basket_lang_color",
+    # "widowx_eggplant_in_basket_lang_common",
+    # "widowx_carrot_on_keyboard_lang_common",
+    # "widowx_coke_can_on_plate_lang_common",
+    # "widowx_coke_can_on_plate_lang_neg",
+    # "widowx_coke_can_on_plate_lang_common_distract", # thirsty
+  ]
+
+  n_eval_episode: 24
+  n_video: 24
+  recording: True
+  pretrained_model_path: ./log/train/pi0_finetune_bridge/2025-03-11_22-42-06-42/checkpoint
+  pretrained_model_gradient_step_cnt: [1513, 3026, 4539, 7565, 15130, 22695]
+
+env:
+  dataset_statistics_path: ./config/dataset/bridge_statistics.json
+
+wandb:
+  project: "vla_benchmark"

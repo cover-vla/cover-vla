@@ -1,0 +1,24 @@
+[submodule "third_party/LIBERO"]
+	path = third_party/LIBERO
+	url = https://github.com/Lifelong-Robot-Learning/LIBERO.git
+	branch = master
+[submodule "third_party/lerobot"]
+	path = third_party/lerobot
+	url = https://github.com/IrvingF7/lerobot.git
+	branch = pi0
+[submodule "third_party/SimplerEnv"]
+	path = third_party/SimplerEnv
+	url = https://github.com/juexZZ/SimplerEnv.git
+	branch = my-changes-after-allen
+[submodule "third_party/SimplerEnv_MS3"]
+	path = third_party/SimplerEnv_MS3
+	url = https://github.com/IrvingF7/SimplerEnv_MS3.git
+	branch = maniskill3
+[submodule "third_party/ManiSkill"]
+	path = third_party/ManiSkill
+	url = https://github.com/IrvingF7/ManiSkill.git
+	branch = main
+[submodule "third_party/ManiSkill2_real2sim"]
+	path = third_party/ManiSkill2_real2sim
+	url = https://github.com/juexZZ/ManiSkill2_real2sim.git
+	branch = main

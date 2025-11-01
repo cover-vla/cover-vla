@@ -1,0 +1,25 @@
+name: pi0_baseline_bridge_simplerMS3_rotation_fix
+seed: 42
+model_cfg: !include ../../models/pi0_baseline_bridge.json
+
+eval_cfg:
+  simulator_name: "simplerMS3"
+  env_adapter: "BridgeSimplerBatchAdapter"
+  task_list: [
+    # "widowx_carrot_on_plate",
+    # "widowx_put_eggplant_in_basket",
+    # "widowx_spoon_on_towel",
+    # "widowx_stack_cube",
+    "widowx_coke_can_on_plate",
+    # "widowx_eggplant_on_carrot"
+  ]
+
+  n_eval_episode: 240
+  n_video: 240
+  n_parallel_eval: 60
+  recording: True
+  pretrained_model_path: ./log/train/pi0_baseline_bridge/2025-03-04_00-00-38-42/checkpoint
+  pretrained_model_gradient_step_cnt: [1513, 3026, 4539, 7565, 15130, 22695]
+
+env:
+  dataset_statistics_path: ./config/dataset/bridge_statistics.json

@@ -1,0 +1,78 @@
+name: sptialvla_finetune_bridge_simpler
+seed: 42
+model_cfg: !include ../../models/spatialvla_finetune_bridge.json
+
+eval_cfg:
+  simulator_name: "simpler"
+  env_adapter: "BridgeSimplerSpatialVLAAdapter"
+  task_list: [
+    # * original tasks
+    "widowx_spoon_on_towel",
+    "widowx_carrot_on_plate",
+    "widowx_stack_cube",
+    "widowx_put_eggplant_in_basket",
+    # * object distraction
+    "widowx_spoon_on_towel_distract",
+    "widowx_carrot_on_plate_distract",
+    "widowx_carrot_on_keyboard_distract",
+    "widowx_coke_can_on_plate_distract",
+    "widowx_coke_can_on_keyboard_distract",
+    # * generatization test
+    "widowx_cube_on_plate_clean", # seen source and target, unseen combination
+    "widowx_small_plate_on_green_cube_clean", # seen source and target, unseen combination (a reverse)
+    "widowx_coke_can_on_plate_clean", # ood source
+    "widowx_pepsi_on_plate_clean", # another OOD source besides coke can, also a texture difference
+    "widowx_carrot_on_sponge_clean", # seen source and target, unseen combination
+    "widowx_eggplant_on_sponge_clean",
+    "widowx_carrot_on_keyboard_clean", # ood target
+    "widowx_coke_can_on_keyboard_clean",
+    # * language variation
+    "widowx_carrot_on_plate_lang_common", # rabbit, no distract
+    "widowx_carrot_on_plate_lang_action",
+    "widowx_carrot_on_plate_lang_neg",
+    "widowx_carrot_on_plate_lang_neg_action", # on the table not on the plate
+    "widowx_carrot_on_plate_lang_common_distract", # rabbit
+    "widowx_spoon_on_towel_lang_action",
+    "widowx_spoon_on_towel_lang_common",
+    "widowx_spoon_on_towel_lang_common_distract",
+    "widowx_stack_cube_lang_action",
+    "widowx_eggplant_in_basket_lang_action",
+    "widowx_eggplant_in_basket_lang_color",
+    "widowx_eggplant_in_basket_lang_common",
+    "widowx_carrot_on_keyboard_lang_common",
+    "widowx_coke_can_on_plate_lang_common",
+    "widowx_coke_can_on_plate_lang_neg",
+    "widowx_coke_can_on_plate_lang_common_distract", # thirsty
+    * new
+    "widowx_orange_juice_on_plate_clean",
+    "widowx_orange_juice_on_plate_distract",
+    "widowx_orange_juice_on_plate_lang_neg",
+    "widowx_orange_juice_on_plate_lang_common",
+    "widowx_orange_juice_on_plate_lang_common_distract",
+    "widowx_orange_juice_on_plate_lang_common_distractv2",
+    "widowx_nut_on_plate_clean",
+    "widowx_nut_on_plate_lang_common",
+    "widowx_eggplant_on_keyboard_clean",
+    "widowx_carrot_on_ramekin_clean",
+    "widowx_carrot_on_wheel_clean",
+    "widowx_coke_can_on_ramekin_clean",
+    "widowx_coke_can_on_wheel_clean",
+    "widowx_nut_on_wheel_clean",
+    "widowx_cube_on_plate_lang_shape",
+    "widowx_spoon_on_towel_lang_neg",
+    "widowx_spoon_on_towel_lang_color",
+    "widowx_carrot_on_plate_lang_color",
+  ]
+
+  n_eval_episode: 24
+  n_video: 24
+  recording: True
+  pretrained_model_path: "IPEC-COMMUNITY/spatialvla-4b-224-sft-bridge"
+  action_step: 1 # OpenVLA-like models usually use action emsemble to fold 4 future steps in to 1
+  unnorm_key: "bridge_orig/1.0.0"
+
+env:
+  dataset_statistics_path: ./config/dataset/bridge_statistics.json
+
+wandb:
+  project: "vla_benchmark"

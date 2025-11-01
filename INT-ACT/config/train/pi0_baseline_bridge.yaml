@@ -1,0 +1,5 @@
+# our pi0_baseline.
+# max_dim set to 7. language token max set to 72. all hyperparameters follows Allen
+name: "pi0_baseline_bridge"
+model_cfg: !include ../models/pi0_baseline_bridge.json
+freeze_lm_head: true

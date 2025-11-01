@@ -1,0 +1,6 @@
+# our pi0_baseline.
+# max_dim set to 7. language token max set to 72.
+name: "pi0_baseline_bridge_freeze_vlm"
+model_cfg: !include ../models/pi0_baseline_bridge.json
+# freeze_lm_head: true
+freeze_vlm: true

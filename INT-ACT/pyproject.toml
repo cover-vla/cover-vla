@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "INT-ACT"
+version = "0.0.1"
+readme = "README.md"
+description = "Official repo of From Intention to Execution: Probing the Generalization Boundaries of Vision-Language-Action Models"
+authors = [
+    {name = "Irving Fang", email = "irving.fang@nyu.edu"},
+    {name = "Juexiao Zhang", email = "juexiao.zhang@nyu.edu"}
+]
+requires-python = ">=3.10, <3.13"
+
+dependencies = [
+    "lerobot",
+    "transformers==4.48.3",
+    "opencv-python>=4.11.0",
+    "pytest",
+    "policy-server-client",
+    "numpy==1.26.4", # it's important to use pre-2.0 numpy. 2.0 has breaking changes and lots of donwstream packages haven't updated yet
+    "torch==2.6.0",
+    "bitsandbytes",
+    "einops",
+    "draccus",
+    "protobuf==3.20.3",
+    "tensorflow==2.15.0",
+    "tensorflow_datasets==4.9.2",
+    "tensorflow_graphics",
+    "evaluate",
+]
+
+[tool.ruff]
+line-length = 170
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", "I", "RUF", "W"]
+ignore = ["F722"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.uv.sources]
+policy-server-client = { workspace = true }
+lerobot = { path = "./third_party/lerobot", editable = true }
+
+[tool.uv.workspace]
+members = ["packages/policy-server-client"]

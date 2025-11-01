@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magma_policy_server"
+version = "0.0.1"
+description = "policy environment for magma"
+authors = [
+    {name = "Irving Fang", email = "irving.fang@nyu.edu"},
+    {name = "Juexiao Zhang", email = "place@holder.com"}
+]
+requires-python = ">=3.10, <3.13"
+
+dependencies = [
+    "lerobot",
+    "transformers==4.49.0",
+    "opencv-python>=4.11.0",
+    "pytest",
+    "policy-server-client",
+    "numpy==1.26.4", # it's important to use pre-2.0 numpy. 2.0 has breaking changes and lots of donwstream packages haven't updated yet
+    "scipy<=1.12.0,>=1.6.0",
+    "torch==2.6.0",
+    "draccus",
+    "protobuf==3.20.3",
+    "open-clip-torch>=2.32.0",
+    "flash-attn",
+    "accelerate>=1.6.0",
+]
+
+
+[tool.ruff]
+line-length = 170
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", "I", "RUF", "W"]
+ignore = ["F722"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.uv.sources]
+policy-server-client = { path = "../../../../packages/policy-server-client", editable = true }
+lerobot = { path = "../../../../third_party/lerobot", editable = true }
+
+[tool.uv]
+no-build-isolation-package = ['flash-attn']

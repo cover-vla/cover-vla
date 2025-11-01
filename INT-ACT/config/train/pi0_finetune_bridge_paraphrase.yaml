@@ -1,0 +1,8 @@
+# our pi0 finetune on bridge.
+# max_dim set to 32. language token max set to 72. all hyperparameters follows Allen
+name: "pi0_finetune_paraphrase"
+
+model_cfg: !include ../models/pi0_finetune_bridge.json
+freeze_lm_head: true
+load_from_checkpoint: "lerobot/pi0"
+task_paraphrase: true

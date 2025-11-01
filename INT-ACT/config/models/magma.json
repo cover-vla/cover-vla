@@ -1,0 +1,7 @@
+{
+    "type": "magma",
+    "n_obs_steps": 1,
+    "device": "cpu",
+    "use_amp": true,
+    "chunk_size": 4
+}

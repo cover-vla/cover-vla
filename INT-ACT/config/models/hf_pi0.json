@@ -1,0 +1,78 @@
+{
+    "type": "pi0",
+    "n_obs_steps": 1,
+    "normalization_mapping": {
+        "VISUAL": "IDENTITY",
+        "STATE": "MEAN_STD",
+        "ACTION": "MEAN_STD"
+    },
+    "input_features": {
+        "observation.images.top": {
+          "shape": [
+            3,
+            224,
+            224
+          ],
+          "type": "VISUAL"
+        },
+        "observation.images.left": {
+          "shape": [
+            3,
+            224,
+            224
+          ],
+          "type": "VISUAL"
+        },
+        "observation.images.right": {
+          "shape": [
+            3,
+            224,
+            224
+          ],
+          "type": "VISUAL"
+        },
+        "observation.state": {
+          "shape": [
+            7
+          ],
+          "type": "STATE"
+        }
+    },
+    "output_features": {
+        "action": {
+            "type": "ACTION",
+            "shape": [
+                7
+            ]
+        }
+    },
+    "chunk_size": 4,
+    "n_action_steps": 4,
+    "max_state_dim": 32,
+    "max_action_dim": 32,
+    "resize_imgs_with_padding": [
+        224,
+        224
+    ],
+    "empty_cameras": 0,
+    "adapt_to_pi_aloha": false,
+    "use_delta_joint_actions_aloha": false,
+    "tokenizer_max_length": 72,
+    "proj_width": 1024,
+    "num_steps": 10,
+    "use_cache": true,
+    "attention_implementation": "eager",
+    "freeze_vision_encoder": false,
+    "train_expert_only": false,
+    "train_state_proj": true,
+    "optimizer_lr": 2.5e-05,
+    "optimizer_betas": [
+        0.9,
+        0.95
+    ],
+    "optimizer_eps": 1e-08,
+    "optimizer_weight_decay": 1e-10,
+    "scheduler_warmup_steps": 1000,
+    "scheduler_decay_steps": 30000,
+    "scheduler_decay_lr": 2.5e-06
+}

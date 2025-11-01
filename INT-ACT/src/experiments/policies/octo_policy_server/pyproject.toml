@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "octo_policy_server"
+version = "0.0.1"
+description = "policy environment for octo"
+authors = [
+    {name = "Irving Fang", email = "irving.fang@nyu.edu"},
+    {name = "Juexiao Zhang", email = "place@holder.com"}
+]
+requires-python = ">=3.10, <3.13"
+
+dependencies = [
+    "lerobot",
+    "opencv-python>=4.11.0",
+    "transformers==4.48.3",
+    "pytest",
+    "policy-server-client",
+    "numpy==1.26.4", # it's important to use pre-2.0 numpy. 2.0 has breaking changes and lots of donwstream packages haven't updated yet
+    "scipy<=1.12.0,>=1.6.0",
+    "torch==2.6.0",
+    "draccus",
+    "protobuf==3.20.3",
+    "accelerate>=1.6.0",
+    "jax[cuda12-pip]==0.4.20",
+    "jaxlib",
+    "flax==0.8.1",
+    "dlimp",
+    "octo",
+    "distrax==0.1.5",
+    "tensorflow_probability==0.23.0",
+    "scipy<=1.12.0,>=1.6.0"
+]
+
+
+[tool.ruff]
+line-length = 170
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", "I", "RUF", "W"]
+ignore = ["F722"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.uv.sources]
+policy-server-client = { path = "../../../../packages/policy-server-client", editable = true }
+lerobot = { path = "../../../../third_party/lerobot", editable = true }
+jaxlib = { url = "https://storage.googleapis.com/jax-releases/cuda12/jaxlib-0.4.20+cuda12.cudnn89-cp310-cp310-manylinux2014_x86_64.whl" }
+dlimp = { git = "https://github.com/kvablack/dlimp", rev = "5edaa4691567873d495633f2708982b42edf1972" }
+octo = { git = "https://github.com/octo-models/octo", branch = "main" }

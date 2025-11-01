@@ -1,0 +1,31 @@
+[project]
+name = "simplerMS3-experiment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "lerobot",
+    "draccus",
+    "policy-server-client",
+    "simpler-env",
+    "mani_skill",
+    "pytest>=8.3.5",
+    # "tensorflow>=2.15.0",
+    "torch==2.6.0",
+    "torchvision==0.21.0",
+    # # maniskill dependencies
+    "numpy<=1.26.4", # it's important to use pre-2.0 numpy. 2.0 has breaking changes and lots of donwstream packages haven't updated yet
+    # # Simpler dependencies
+    "transformers>=4.48.3",
+]
+
+[tool.uv.sources]
+simpler-env = { path = "../../../../third_party/SimplerEnv_MS3", editable = true }
+mani_skill = { path = "../../../../third_party/ManiSkill/", editable = true }
+policy-server-client = { path = "../../../../packages/policy-server-client", editable = true }
+lerobot = { path = "../../../../third_party/lerobot", editable = true }
+
+# [tool.uv.pip]
+# # Allow all pre-release versions when resolving or installing
+# prerelease = "allow"

@@ -1,0 +1,7 @@
+{
+    "type": "octo",
+    "n_obs_steps": 2,
+    "device": "cpu",
+    "use_amp": true,
+    "chunk_size": 4
+}
