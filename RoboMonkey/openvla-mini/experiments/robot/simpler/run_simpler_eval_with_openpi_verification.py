@@ -218,6 +218,11 @@ class GenerateConfig:
     
     # Action ensemble parameters (for temporal ensembling)
     action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
+    
+    # Language consistency verification parameters
+    action_distance_threshold: float = 0.5               # L2 distance threshold for triggering regeneration (average across n_action_steps)
+    language_diversity_threshold: int = 3                 # Max number of unique languages in recent selections before warning
+    use_adaptive_threshold: bool = False                  # If True, adapt threshold based on observed distances in episode
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -353,6 +358,16 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 'success': False,
                 'episode_length': 0
             }
+            
+            # In-memory tracking for language verification (NOT saved to pickle)
+            # Track all language selections and their actions during this episode
+            language_selection_history = []  # List of dicts: {step, selected_instruction, instruction_idx, all_actions_from_instruction}
+            current_selected_instruction = None
+            current_selected_instruction_idx = None
+            current_selected_instruction_actions = []  # All actions from current instruction's batch
+            
+            # Track action distances for adaptive threshold (if enabled)
+            observed_action_distances = []  # List of all observed action distances for adaptive threshold
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -503,20 +518,234 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     # Ensure exactly -1 or 1
                     execute_action[-1] = float(np.sign(execute_action[-1]))
                     
-                    # Extract remaining actions from the selected batch item (global_action_idx) from the original policy output
-                    # predefined_action_queue still contains all n_action_steps timesteps (before popleft)
-                    # We executed action from timestep 0, batch item global_action_idx
-                    # Now extract remaining actions from timesteps 1, 2, 3 for batch item global_action_idx
-                    selected_action_chunk = deque()
-                    for timestep_idx in range(1, cfg.n_action_steps):
-                        # Get the action tensor for this timestep (shape: batch_size, 7)
-                        timestep_actions = predefined_action_queue[timestep_idx]
-                        # Extract the action for the selected batch item
-                        selected_action = timestep_actions[global_action_idx:global_action_idx+1]  # shape (1, 7)
-                        selected_action_chunk.append(selected_action)
+                    # Determine which instruction was selected (which instruction group does global_action_idx belong to)
+                    instruction_idx = global_action_idx // cfg.policy_batch_inference_size
+                    selected_instruction_text = task_list[global_action_idx]  # The actual instruction text
                     
-                    # Replace action_queue with the selected chunk actions (now contains only actions for selected batch item)
-                    action_queue = selected_action_chunk
+                    # Extract ALL actions from the selected instruction's batch for all n_action_steps
+                    # predefined_action_queue contains all n_action_steps timesteps (before popleft)
+                    # Extract actions from the selected instruction group (group_start to group_end) for all timesteps
+                    selected_instruction_all_actions = []
+                    for timestep_idx in range(cfg.n_action_steps):
+                        timestep_actions = predefined_action_queue[timestep_idx]  # Shape: (batch_size, 7)
+                        # Get all actions from this instruction's group (all policy_batch_inference_size actions)
+                        instruction_group_actions = timestep_actions[group_start:group_end].cpu().numpy()  # Shape: (policy_batch_inference_size, 7)
+                        selected_instruction_all_actions.append(instruction_group_actions)
+                    
+                    # Language consistency verification
+                    need_more_samples = False
+                    languages_to_regenerate = set()  # Track which instruction indices need more samples
+                    
+                    if language_selection_history:
+                        # Check 1: Language diversity - count unique instructions used recently
+                        recent_selections = language_selection_history[-3:]  # Last 3 selections
+                        unique_recent_instructions = set(sel['instruction_idx'] for sel in recent_selections)
+                        if len(unique_recent_instructions) > cfg.language_diversity_threshold:
+                            # Too diverse - language switching too frequently
+                            print(f"Warning: High language diversity detected. Recent selections: {unique_recent_instructions}")
+                            languages_to_regenerate.update(unique_recent_instructions)
+                        
+                        # Check 2: Compare entire action chunks from previous language selections with current selection
+                        # Compare all n_action_steps actions, not just the first one
+                        for prev_selection in language_selection_history:
+                            prev_instruction_idx = prev_selection['instruction_idx']
+                            prev_action_chunk = prev_selection['all_actions_from_instruction']  # List of (policy_batch_inference_size, 7) arrays, length n_action_steps
+                            current_action_chunk = selected_instruction_all_actions  # List of (policy_batch_inference_size, 7) arrays, length n_action_steps
+                            
+                            # Compute mean action for each timestep across the batch dimension
+                            # Then compute total distance across all timesteps
+                            total_distance = 0.0
+                            for timestep_idx in range(cfg.n_action_steps):
+                                prev_actions_at_timestep = prev_action_chunk[timestep_idx]  # Shape: (policy_batch_inference_size, 7)
+                                current_actions_at_timestep = current_action_chunk[timestep_idx]  # Shape: (policy_batch_inference_size, 7)
+                                
+                                # Compute mean action across batch dimension
+                                prev_mean_action = np.mean(prev_actions_at_timestep, axis=0)  # Shape: (7,)
+                                current_mean_action = np.mean(current_actions_at_timestep, axis=0)  # Shape: (7,)
+                                
+                                # L2 distance at this timestep
+                                timestep_distance = np.linalg.norm(prev_mean_action - current_mean_action)
+                                total_distance += timestep_distance
+                            
+                            # Average distance across all timesteps
+                            avg_action_distance = total_distance / cfg.n_action_steps
+                            
+                            # Track observed distances for adaptive threshold
+                            observed_action_distances.append(avg_action_distance)
+                            
+                            # Determine threshold (adaptive or fixed)
+                            if cfg.use_adaptive_threshold and len(observed_action_distances) > 5:
+                                # Use 75th percentile of observed distances as threshold
+                                threshold = np.percentile(observed_action_distances, 75)
+                            else:
+                                threshold = cfg.action_distance_threshold
+                            
+                            # Check if average action distance exceeds threshold
+                            if avg_action_distance > threshold:
+                                print(f"Warning: Large action chunk difference ({avg_action_distance:.3f}) between instruction {prev_instruction_idx} and {instruction_idx} at step {t} (threshold: {threshold:.3f})")
+                                need_more_samples = True
+                                languages_to_regenerate.add(prev_instruction_idx)
+                                languages_to_regenerate.add(instruction_idx)
+                    
+                    # If actions are inconsistent, regenerate only selected languages with more samples
+                    if need_more_samples and languages_to_regenerate:
+                        print(f"Regenerating actions with increased samples for languages: {languages_to_regenerate}...")
+                        
+                        # Build new task_list: ONLY include languages that need regeneration (with more samples)
+                        # Don't include other languages at all
+                        increased_samples_per_lang = cfg.policy_batch_inference_size * 2  # Double samples for selected languages
+                        increased_task_list = []
+                        
+                        for lang_idx, prompt in enumerate(unique_prompts):
+                            if lang_idx in languages_to_regenerate:
+                                # Only include languages that need regeneration
+                                increased_task_list.extend([prompt] * increased_samples_per_lang)
+                        
+                        increased_batch_size = len(increased_task_list)
+                        
+                        # Regenerate observation with increased batch
+                        increased_batch_image = processed_obs['observation.images.top'].repeat(increased_batch_size, 1, 1, 1)
+                        increased_batch_state = processed_obs['observation.state'].repeat(increased_batch_size, 1)
+                        
+                        increased_observation = {
+                            image_key: increased_batch_image,
+                            "observation.state": increased_batch_state,
+                            "task": increased_task_list,
+                        }
+                        
+                        # Regenerate actions with increased batch
+                        with torch.no_grad():
+                            increased_output_action_queue = pi0_policy.select_action(increased_observation, noise_std=action_noise_std)
+                            increased_action_queue = increased_output_action_queue.copy()
+                            increased_output_action_queue.clear()
+                        
+                        # Update predefined_action_queue with new larger batch
+                        predefined_action_queue = list(increased_action_queue)
+                        increased_action_queue.popleft()
+                        
+                        # Re-run verifier with increased batch
+                        increased_action_histories_list = process_inputs(
+                            increased_batch_size, predefined_action_queue, 
+                            verifier_action=True, 
+                            action_history=action_history.copy(), 
+                            cfg=cfg
+                        )
+                        increased_images_list = [process_raw_image_to_jpg(raw_img)] * increased_batch_size
+                        
+                        # Build instruction list for verifier (same as increased_task_list - only selected languages)
+                        increased_verifier_instructions = increased_task_list.copy()
+                        
+                        max_score, max_instruction, max_action_history, global_action_idx = ensemble_model.compute_max_similarity_scores_batch(
+                            images=increased_images_list[0:increased_samples_per_lang],
+                            instructions=increased_verifier_instructions[0:increased_samples_per_lang],
+                            all_action_histories=increased_action_histories_list[0:increased_samples_per_lang],
+                            cfg_repeat_language_instructions=increased_samples_per_lang
+                        )
+                        if max_score < 0.1:
+                            max_score, max_instruction, max_action_history, global_action_idx = ensemble_model.compute_max_similarity_scores_batch(
+                                images=increased_images_list,
+                                instructions=increased_verifier_instructions,
+                                all_action_histories=increased_action_histories_list,
+                                cfg_repeat_language_instructions=increased_samples_per_lang
+                            )
+                        
+                        # Determine instruction_idx - map global_action_idx back to original lang_idx
+                        # Find which language group the global_action_idx belongs to in the reduced batch
+                        new_instruction_idx = None
+                        new_group_start = None
+                        new_group_end = None
+                        current_idx = 0
+                        
+                        # Iterate through only the languages we regenerated
+                        for orig_lang_idx in sorted(languages_to_regenerate):
+                            lang_size = increased_samples_per_lang
+                            if current_idx <= global_action_idx < current_idx + lang_size:
+                                new_instruction_idx = orig_lang_idx  # Map back to original language index
+                                new_group_start = current_idx
+                                new_group_end = current_idx + lang_size
+                                break
+                            current_idx += lang_size
+                        
+                        if new_instruction_idx is None:
+                            # Fallback: assume it's the first language
+                            new_instruction_idx = sorted(languages_to_regenerate)[0]
+                            new_group_start = 0
+                            new_group_end = increased_samples_per_lang
+                        
+                        instruction_idx = new_instruction_idx
+                        selected_instruction_text = increased_verifier_instructions[global_action_idx]
+                        group_start = new_group_start
+                        group_end = new_group_end
+                        
+                        # Re-extract all actions from selected instruction
+                        selected_instruction_all_actions = []
+                        for timestep_idx in range(cfg.n_action_steps):
+                            timestep_actions = predefined_action_queue[timestep_idx]
+                            instruction_group_actions = timestep_actions[group_start:group_end].cpu().numpy()
+                            selected_instruction_all_actions.append(instruction_group_actions)
+                        
+                        # Re-process execution actions
+                        execution_action_histories_list = process_inputs(
+                            increased_batch_size, predefined_action_queue, 
+                            verifier_action=False, 
+                            action_history=action_history.copy(), 
+                            cfg=cfg
+                        )
+                        execute_action = execution_action_histories_list[global_action_idx][num_past].copy()
+                        
+                        # Re-vote on gripper
+                        stacked_histories = np.stack(execution_action_histories_list[group_start:group_end])
+                        grippers = stacked_histories[:, num_past, -1]
+                        close_votes = int((grippers >= 0).sum())
+                        open_votes = int((grippers < 0).sum())
+                        if close_votes > open_votes:
+                            execute_action[-1] = 1.0
+                        elif open_votes > close_votes:
+                            execute_action[-1] = -1.0
+                        else:
+                            execute_action[-1] = 1.0 if execute_action[-1] >= 0 else -1.0
+                        execute_action[-1] = float(np.sign(execute_action[-1]))
+                        
+                        # Update action_queue with new larger batch selection
+                        selected_action_chunk = deque()
+                        for timestep_idx in range(1, cfg.n_action_steps):
+                            timestep_actions = predefined_action_queue[timestep_idx]
+                            selected_action = timestep_actions[global_action_idx:global_action_idx+1]
+                            selected_action_chunk.append(selected_action)
+                        action_queue = selected_action_chunk
+                    
+                    # Store tracking information in memory (NOT in episode_data for pickle)
+                    language_selection_history.append({
+                        'verifier_step': t,
+                        'selected_instruction': selected_instruction_text,
+                        'instruction_idx': instruction_idx,
+                        'instruction_in_unique_prompts': unique_prompts[instruction_idx] if instruction_idx < len(unique_prompts) else None,
+                        'all_actions_from_instruction': selected_instruction_all_actions,  # List of (policy_batch_inference_size, 7) arrays
+                        'verifier_score': float(max_score),
+                        'global_action_idx': int(global_action_idx)
+                    })
+                    
+                    # Update current tracking variables
+                    current_selected_instruction = selected_instruction_text
+                    current_selected_instruction_idx = instruction_idx
+                    current_selected_instruction_actions = selected_instruction_all_actions
+                    
+                    # Extract remaining actions from the selected batch item (only if we didn't regenerate)
+                    if not need_more_samples:
+                        # predefined_action_queue still contains all n_action_steps timesteps (before popleft)
+                        # We executed action from timestep 0, batch item global_action_idx
+                        # Now extract remaining actions from timesteps 1, 2, 3 for batch item global_action_idx
+                        selected_action_chunk = deque()
+                        for timestep_idx in range(1, cfg.n_action_steps):
+                            # Get the action tensor for this timestep (shape: batch_size, 7)
+                            timestep_actions = predefined_action_queue[timestep_idx]
+                            # Extract the action for the selected batch item
+                            selected_action = timestep_actions[global_action_idx:global_action_idx+1]  # shape (1, 7)
+                            selected_action_chunk.append(selected_action)
+                        
+                        # Replace action_queue with the selected chunk actions (now contains only actions for selected batch item)
+                        action_queue = selected_action_chunk
+                    # If need_more_samples, action_queue was already updated in the regeneration block
                     
                     # Store verifier data
                     episode_data['verifier_scores'].append(max_score)
@@ -531,6 +760,16 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     single_action = action_queue.popleft().cpu().numpy()
                     action_for_env = single_action[0:1]
                     execute_action = convert_maniskill_with_bridge_adapter(action_for_env, verifier_action=False, action_ensemble_temp=cfg.action_ensemble_temp)
+                    
+                    # Track which instruction group we're using (if verifier was used previously)
+                    # If current_selected_instruction is set, we're using actions from that instruction
+                    if current_selected_instruction is not None:
+                        # We're continuing to use actions from the previously selected instruction
+                        # Find which timestep in the action sequence we're at
+                        # Since we popleft() one action each step, we can track how many actions we've used
+                        # from the current_selected_instruction_actions
+                        pass  # This information is already captured in language_selection_tracking
+                    
                     # Store data for non-verifier case
                     # print ("execute_action no verifier:", execute_action)
                     episode_data['verifier_scores'].append(None)

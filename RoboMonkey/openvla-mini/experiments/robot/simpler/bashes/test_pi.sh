@@ -11,15 +11,15 @@ cd "$SCRIPT_DIR"
 export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
 
 (
-for repeated_sample in 1 3 5; do
+for lang_sample_num in 1 8; do
     CUDA_VISIBLE_DEVICES=2 python ../run_simpler_eval_with_openpi.py \
         --task_suite_name simpler_widowx \
         --lang_transform_type rephrase \
         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
         --num_trials_per_task 150 \
         --use_verifier True \
-        --policy_batch_inference_size $repeated_sample \
-        --lang_rephrase_num 8 &
+        --policy_batch_inference_size 1 \
+        --lang_rephrase_num $lang_sample_num &
 
     CUDA_VISIBLE_DEVICES=3 python ../run_simpler_eval_with_openpi.py \
         --task_suite_name simpler_ood \
@@ -27,37 +27,37 @@ for repeated_sample in 1 3 5; do
         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
         --num_trials_per_task 150 \
         --use_verifier True \
-        --policy_batch_inference_size $repeated_sample \
-        --lang_rephrase_num 8 &
+        --policy_batch_inference_size 1 \
+        --lang_rephrase_num $lang_sample_num &
     
     wait  # Wait for both commands to finish before next iteration
 done
-) &
+)
 
-(
+# (
 
-for rephrase_num in 1 2 4; do
+# for rephrase_num in 1 2 4; do
 
-    CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-        --task_suite_name simpler_widowx \
-        --lang_transform_type rephrase \
-        --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-        --num_trials_per_task 150 \
-        --use_verifier True \
-        --policy_batch_inference_size 5 \
-        --lang_rephrase_num $rephrase_num &
+#     CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
+#         --task_suite_name simpler_widowx \
+#         --lang_transform_type rephrase \
+#         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+#         --num_trials_per_task 150 \
+#         --use_verifier True \
+#         --policy_batch_inference_size 5 \
+#         --lang_rephrase_num $rephrase_num &
 
-    CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi.py \
-        --task_suite_name simpler_ood \
-        --lang_transform_type rephrase \
-        --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-        --num_trials_per_task 150 \
-        --use_verifier True \
-        --policy_batch_inference_size 5 \
-        --lang_rephrase_num $rephrase_num &
+#     CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi.py \
+#         --task_suite_name simpler_ood \
+#         --lang_transform_type rephrase \
+#         --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+#         --num_trials_per_task 150 \
+#         --use_verifier True \
+#         --policy_batch_inference_size 5 \
+#         --lang_rephrase_num $rephrase_num &
     
-    wait  # Wait for both commands to finish before next iteration
-done
-) &
+#     wait  # Wait for both commands to finish before next iteration
+# done
+# ) &
 
 wait
