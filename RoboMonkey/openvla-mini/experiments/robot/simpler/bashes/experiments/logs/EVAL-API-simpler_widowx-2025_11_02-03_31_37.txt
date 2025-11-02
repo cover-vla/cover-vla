@@ -1,0 +1,4 @@
+Task suite: simpler_widowx
+
+Task: nestle the play aubergine in the gold vessel
+Starting episode 1...

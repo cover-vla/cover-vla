@@ -3965,3 +3965,845 @@ Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_
 Success: False
 # episodes completed so far: 495
 # successes: 273 (55.2%)
+
+Task: Move the carrot to the platter.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=496--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=496--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 496
+# successes: 274 (55.2%)
+
+Task: Place the carrot on the platter.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=497--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=497--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 497
+# successes: 274 (55.1%)
+
+Task: Move the carrot to the platter.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=498--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=498--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 498
+# successes: 275 (55.2%)
+
+Task: Place the carrot on the platter.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=499--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=499--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 499
+# successes: 276 (55.3%)
+
+Task: Move the carrot to the platter.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=500--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=500--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 500
+# successes: 276 (55.2%)
+
+Task: Move the carrot to the platter.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=501--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=501--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 501
+# successes: 277 (55.3%)
+
+Task: Place the carrot on the platter.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=502--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=502--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 502
+# successes: 277 (55.2%)
+
+Task: Place the carrot on the platter.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=503--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=503--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 503
+# successes: 277 (55.1%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=504--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=504--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 504
+# successes: 277 (55.0%)
+
+Task: Move the carrot to the platter.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=505--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=505--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 505
+# successes: 277 (54.9%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=506--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=506--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 506
+# successes: 277 (54.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=507--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=507--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 507
+# successes: 277 (54.6%)
+
+Task: Place the carrot on the platter.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=508--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=508--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 508
+# successes: 277 (54.5%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=509--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=509--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 509
+# successes: 277 (54.4%)
+
+Task: Place the carrot on the platter.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=510--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=510--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 510
+# successes: 278 (54.5%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=511--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=511--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 511
+# successes: 279 (54.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=512--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=512--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 512
+# successes: 279 (54.5%)
+
+Task: Place the carrot on the platter.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=513--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=513--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 513
+# successes: 280 (54.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=514--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=514--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 514
+# successes: 281 (54.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=515--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=515--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 515
+# successes: 281 (54.6%)
+
+Task: Place the carrot on the platter.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=516--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=516--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 516
+# successes: 281 (54.5%)
+
+Task: Move the carrot to the platter.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=517--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=517--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 517
+# successes: 281 (54.4%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=518--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=518--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 518
+# successes: 281 (54.2%)
+
+Task: Place the carrot on the platter.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=519--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=519--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 519
+# successes: 281 (54.1%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=520--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=520--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 520
+# successes: 281 (54.0%)
+
+Task: Place the carrot on the platter.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=521--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=521--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 521
+# successes: 281 (53.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=522--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=522--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 522
+# successes: 281 (53.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=523--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=523--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 523
+# successes: 281 (53.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=524--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=524--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 524
+# successes: 281 (53.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=525--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=525--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 525
+# successes: 282 (53.7%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=526--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=526--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 526
+# successes: 283 (53.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=527--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=527--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 527
+# successes: 283 (53.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=528--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=528--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 528
+# successes: 284 (53.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=529--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=529--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 529
+# successes: 284 (53.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=530--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=530--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 530
+# successes: 284 (53.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=531--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=531--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 531
+# successes: 284 (53.5%)
+
+Task: Move the carrot to the platter.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=532--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=532--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 532
+# successes: 284 (53.4%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=533--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=533--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 533
+# successes: 284 (53.3%)
+
+Task: Place the carrot on the platter.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=534--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=534--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 534
+# successes: 285 (53.4%)
+
+Task: Move the carrot to the platter.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=535--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=535--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 535
+# successes: 286 (53.5%)
+
+Task: Move the carrot to the platter.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=536--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=536--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 536
+# successes: 287 (53.5%)
+
+Task: Place the carrot on the platter.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=537--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=537--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 537
+# successes: 288 (53.6%)
+
+Task: Place the carrot on the platter.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=538--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=538--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 538
+# successes: 288 (53.5%)
+
+Task: Place the carrot on the platter.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=539--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=539--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 539
+# successes: 289 (53.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=540--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=540--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 540
+# successes: 290 (53.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=541--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=541--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 541
+# successes: 291 (53.8%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=542--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=542--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 542
+# successes: 291 (53.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=543--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=543--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 543
+# successes: 292 (53.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=544--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=544--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 544
+# successes: 292 (53.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=545--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=545--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 545
+# successes: 293 (53.8%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=546--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=546--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 546
+# successes: 294 (53.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=547--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=547--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 547
+# successes: 294 (53.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=548--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=548--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 548
+# successes: 295 (53.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=549--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=549--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 549
+# successes: 295 (53.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=550--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=550--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 550
+# successes: 295 (53.6%)
+
+Task: Place the carrot on the platter.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=551--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=551--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 551
+# successes: 295 (53.5%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=552--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=552--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 552
+# successes: 295 (53.4%)
+
+Task: Place the carrot on the platter.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=553--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=553--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 553
+# successes: 295 (53.3%)
+
+Task: Move the carrot to the platter.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=554--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=554--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 554
+# successes: 295 (53.2%)
+
+Task: Move the carrot to the platter.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=555--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=555--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 555
+# successes: 295 (53.2%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=556--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=556--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 556
+# successes: 295 (53.1%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=557--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=557--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 557
+# successes: 295 (53.0%)
+
+Task: Place the carrot on the platter.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=558--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=558--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 558
+# successes: 296 (53.0%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=559--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=559--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 559
+# successes: 297 (53.1%)
+
+Task: Move the carrot to the platter.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=560--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=560--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 560
+# successes: 298 (53.2%)
+
+Task: Move the carrot to the platter.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=561--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=561--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 561
+# successes: 299 (53.3%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=562--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=562--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 562
+# successes: 299 (53.2%)
+
+Task: Place the carrot on the platter.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=563--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=563--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 563
+# successes: 299 (53.1%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=564--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=564--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 564
+# successes: 299 (53.0%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=565--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=565--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 565
+# successes: 300 (53.1%)
+
+Task: Place the carrot on the platter.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=566--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=566--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 566
+# successes: 301 (53.2%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=567--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=567--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 567
+# successes: 302 (53.3%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=568--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=568--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 568
+# successes: 302 (53.2%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=569--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=569--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 569
+# successes: 302 (53.1%)
+
+Task: Place the carrot on the platter.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=570--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=570--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 570
+# successes: 303 (53.2%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=571--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=571--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 571
+# successes: 303 (53.1%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=572--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=572--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 572
+# successes: 303 (53.0%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=573--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=573--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 573
+# successes: 303 (52.9%)
+
+Task: Place the carrot on the platter.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=574--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=574--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 574
+# successes: 303 (52.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=575--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=575--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 575
+# successes: 303 (52.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=576--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=576--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 576
+# successes: 304 (52.8%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=577--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=577--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 577
+# successes: 305 (52.9%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=578--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=578--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 578
+# successes: 306 (52.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=579--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=579--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 579
+# successes: 306 (52.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=580--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=580--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 580
+# successes: 306 (52.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=581--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=581--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 581
+# successes: 306 (52.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=582--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=582--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 582
+# successes: 306 (52.6%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=583--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=583--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 583
+# successes: 307 (52.7%)
+
+Task: Move the carrot to the platter.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=584--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=584--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 584
+# successes: 308 (52.7%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=585--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=585--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 585
+# successes: 309 (52.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=586--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=586--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 586
+# successes: 310 (52.9%)
+
+Task: Place the carrot on the platter.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=587--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=587--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 587
+# successes: 310 (52.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=588--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=588--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 588
+# successes: 310 (52.7%)
+
+Task: Place the carrot on the platter.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=589--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=589--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 589
+# successes: 311 (52.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=590--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=590--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 590
+# successes: 311 (52.7%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=591--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=591--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 591
+# successes: 312 (52.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=592--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=592--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 592
+# successes: 313 (52.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=593--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=593--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 593
+# successes: 314 (53.0%)
+
+Task: Place the carrot on the platter.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=594--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=594--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 594
+# successes: 314 (52.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=595--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=595--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 595
+# successes: 315 (52.9%)
+
+Task: Put the orange carrot on the platter.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=596--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=596--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 596
+# successes: 315 (52.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=597--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=597--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 597
+# successes: 316 (52.9%)
+
+Task: Move the carrot to the platter.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=598--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=598--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 598
+# successes: 316 (52.8%)
+
+Task: Move the carrot to the platter.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=599--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=599--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 599
+# successes: 316 (52.8%)
+
+Task: Place the carrot on the platter.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=600--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=600--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 600
+# successes: 317 (52.8%)
+Current task success rate: 0.42
+Current total success rate: 0.5283333333333333

@@ -1,22 +1,22 @@
 """
-run_libero_eval.py
+run_simpler_api.py
 
-Runs a model in a LIBERO simulation environment.
-
-This variant delegates action inference to the external PI0 API server
-instead of performing local inference. All other evaluation logic remains
-the same (task loops, video/log saving, etc.).
+Runs evaluation using the SIMPLER server API instead of local model inference.
 
 Usage:
-    # Ensure the PI0 API server is running (port 5001 by default):
-    #   conda activate sglang
-    #   cd ~/vla-api/lab_infer
-    #   python pi0_server.py
-
-    # Then run evaluation here:
-    python experiments/robot/simpler/run_simpler_eval_with_openpi_server.ppy \
-        --task_suite_name simpler_widowx \
-        --run_id_note api
+    # First, start the server:
+    # conda activate <env> && \
+    # cd ~/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler && \
+    # python simpler_server.py
+    
+    # Then run this script:
+    python experiments/robot/simpler/run_simpler_api.py \
+        --task_suite_name [ simpler_widowx ... ] \
+        --api_url http://localhost:5001 \
+        --run_id_note <OPTIONAL TAG> \
+        --use_wandb [ True | False ] \
+        --wandb_project <PROJECT> \
+        --wandb_entity <ENTITY>
 """
 
 import itertools
@@ -24,50 +24,29 @@ import os
 import sys
 import json
 import pickle
+import base64
+import requests
+import numpy as np
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
-
-import base64
-import io
-import requests
+from collections import deque
 import draccus
-import numpy as np
 import tqdm
-
-import wandb
-from experiments.robot.simpler.simpler_benchmark import get_benchmark
-from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
-import imageio
-from PIL import Image
-
-# Append current directory so that interpreter can find experiments.robot
-sys.path.append("../..")
 import time
 import random
 
+import wandb
+from experiments.robot.simpler.simpler_benchmark import get_benchmark
+from experiments.robot.simpler.simpler_utils_robomonkey import (
+    get_simpler_dummy_action,
+    get_simpler_env,
+)
+from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
+import imageio
+
 # Define constants locally to avoid importing problematic modules
 DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
-
-
-def get_image_resize_size(cfg):
-    """Get image resize size based on model family."""
-    return 224
-
-
-def set_seed_everywhere(seed):
-    """Set random seed for reproducibility."""
-    random.seed(seed)
-    np.random.seed(seed)
-    try:
-        import torch
-        torch.manual_seed(seed)
-        if torch.cuda.is_available():
-            torch.cuda.manual_seed(seed)
-            torch.cuda.manual_seed_all(seed)
-    except Exception:
-        pass
-
 
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves an MP4 replay of an episode."""
@@ -76,10 +55,11 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
         rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
     else:
-        rollout_dir = f"./rollouts_openpi_api/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        raise ValueError(f"Invalid model name: {model_name}")
 
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+    
     mp4_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.mp4"
     video_writer = imageio.get_writer(mp4_path, fps=30)
     for img in rollout_images:
@@ -90,7 +70,6 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
         log_file.write(f"Saved rollout MP4 at path {mp4_path}\n")
     return mp4_path
 
-
 def save_episode_data_openpi(episode_data, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves episode data (verifier scores, instructions, actions) to a pickle file."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
@@ -98,53 +77,127 @@ def save_episode_data_openpi(episode_data, idx, success, task_description, trans
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
         rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
     else:
-        rollout_dir = f"./rollouts_openpi_api/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        raise ValueError(f"Invalid model name: {model_name}")
 
     os.makedirs(rollout_dir, exist_ok=True)
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")
+    
     pkl_path = f"{rollout_dir}/episode={idx}--success={success}--task={processed_task_description}.pkl"
+    
     with open(pkl_path, 'wb') as f:
         pickle.dump(episode_data, f)
+    
     print(f"Saved episode data at path {pkl_path}")
     if log_file is not None:
         log_file.write(f"Saved episode data at path {pkl_path}\n")
     return pkl_path
 
-
 def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
+    
     with open(json_path, 'r') as f:
         all_rephrases = json.load(f)
     return all_rephrases.get("instructions", {})
 
+def save_image_to_disk(image_array, output_dir="./temp_images"):
+    """Save numpy image array to disk and return the path."""
+    import os
+    import tempfile
+    
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Convert numpy array to PIL Image
+    if image_array.dtype != np.uint8:
+        # Normalize to 0-255 if needed
+        image_array = ((image_array - image_array.min()) / (image_array.max() - image_array.min() + 1e-8) * 255).astype(np.uint8)
+    
+    from PIL import Image
+    image = Image.fromarray(image_array)
+    
+    # Save to temporary file
+    temp_file = tempfile.NamedTemporaryFile(dir=output_dir, suffix='.png', delete=False)
+    image_path = temp_file.name
+    image.save(image_path, format="PNG")
+    temp_file.close()
+    
+    return image_path
 
-def encode_image_to_base64(image_np: np.ndarray) -> str:
-    """Encode HxWxC uint8 image to base64 JPEG string."""
-    if image_np.dtype != np.uint8:
-        image_np = image_np.astype(np.uint8)
-    image = Image.fromarray(image_np)
-    buffer = io.BytesIO()
-    image.save(buffer, format='JPEG')
-    return base64.b64encode(buffer.getvalue()).decode('utf-8')
+def convert_to_serializable(obj):
+    """Recursively convert numpy arrays and other non-serializable objects to JSON-serializable formats."""
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, (np.integer, np.floating)):
+        return obj.item()
+    elif isinstance(obj, dict):
+        return {key: convert_to_serializable(value) for key, value in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [convert_to_serializable(item) for item in obj]
+    else:
+        return obj
 
+def call_api_for_action(api_url, instruction, image_array, observation_state, action_history, 
+                        rephrased_list=None, lang_rephrase_num=1, policy_batch_inference_size=2,
+                        use_verifier=True, action_queue=None, timestep=0, n_action_steps=4, action_ensemble_temp=-0.8,
+                        temp_image_dir="./temp_images"):
+    """Call the API to get the next action."""
+    # Save image to disk and get path
+    image_path = save_image_to_disk(image_array, output_dir=temp_image_dir)
+    
+    # Convert action_queue if it exists (may contain numpy arrays or tensors)
+    action_queue_serialized = None
+    if action_queue is not None:
+        if isinstance(action_queue, list):
+            action_queue_serialized = [convert_to_serializable(item) for item in action_queue]
+        else:
+            action_queue_serialized = convert_to_serializable(action_queue)
+    
+    payload = {
+        'instruction': instruction,
+        'image_path': image_path,  # Send path instead of base64
+        'observation_state': convert_to_serializable(observation_state),
+        'action_history': convert_to_serializable(action_history),
+        'rephrased_list': rephrased_list,
+        'lang_rephrase_num': lang_rephrase_num,
+        'policy_batch_inference_size': policy_batch_inference_size,
+        'use_verifier': use_verifier,
+        'action_queue': action_queue_serialized,
+        'timestep': timestep,
+        'n_action_steps': n_action_steps,
+        'action_ensemble_temp': action_ensemble_temp,
+    }
+    
+    response = requests.post(
+        f"{api_url}/process_action",
+        json=payload,
+        headers={"Content-Type": "application/json"},
+        timeout=30
+    )
+    response.raise_for_status()
+    result = response.json()
+    
+    # Clean up temporary image file after server has loaded it
+    import os
+    if os.path.exists(image_path):
+        os.remove(image_path)
+    
+    return result
 
 @dataclass
 class GenerateConfig:
     # fmt: off
 
     #################################################################################################################
-    # Model/API-specific parameters
+    # API Configuration
     #################################################################################################################
-    model_family: str = "openvla"                    # Model family (kept for parity)
-    hf_token: str = Path(".hf_token")               # Unused here; passed server-side
-    pretrained_checkpoint: Union[str, Path] = "juexzz/INTACT-pi0-finetune-rephrase-bridge"
+    api_url: str = "http://localhost:5001"              # URL of the SIMPLER server API
 
-    # Remote servers
-    pi0_api_url: str = "http://localhost:5001"      # PI0 API base URL
-
-    center_crop: bool = True                         # Parity with original
+    #################################################################################################################
+    # Model-specific parameters (used for saving rollouts)
+    #################################################################################################################
+    model_family: str = "openvla"                    # Model family
+    pretrained_checkpoint: Union[str, Path] = "juexzz/INTACT-pi0-finetune-rephrase-bridge"     # Pretrained checkpoint path (used for directory structure)
     obs_history: int = 1                             # Number of images to pass in from history
 
     #################################################################################################################
@@ -152,75 +205,49 @@ class GenerateConfig:
     #################################################################################################################
     task_suite_name: str = "simpler_widowx"          # Task suite.
     initial_states_type: str = "eval"
-    num_steps_wait: int = 0
-    num_trials_per_task: int = 300
+    num_steps_wait: int = 0                         # Number of steps to wait for objects to stabilize in sim
+    num_trials_per_task: int = 300                    # Number of rollouts per task
 
     #################################################################################################################
     # Utils
     #################################################################################################################
-    run_id_note: Optional[str] = None
-    local_log_dir: str = "./experiments/logs"
+    run_id_note: Optional[str] = None                # Extra note to add in run ID for logging
+    local_log_dir: str = "./experiments/logs"        # Local directory for eval logs
     prefix: str = ''
 
-    use_wandb: bool = False
-    wandb_project: str = "prismatic"
-    wandb_entity: Optional[str] = None
+    use_wandb: bool = False                          # Whether to also log results in Weights & Biases
+    wandb_project: str = "prismatic"        # Name of W&B project to log to (use default!)
+    wandb_entity: Optional[str] = None          # Name of entity to log under
 
     seed: int = 7                                    # Random Seed (for reproducibility)
 
-    # Server-driven inference controls (mirrors original config fields)
-    n_action_steps: int = 4
-    lang_transform_type: str = "no_transform"
-    lang_rephrase_num: int = 1                       # default 1 when no transform
-    policy_batch_inference_size: int = 2
-
     # fmt: on
-
-
-def initialize_pi0_remote(pi0_api_url: str, checkpoint: Union[str, Path]):
-    """Initialize remote PI0 model via API."""
-    try:
-        resp = requests.post(f"{pi0_api_url}/initialize", json={"pi0_checkpoint": str(checkpoint)}, timeout=120)
-        resp.raise_for_status()
-        print(f"Initialized remote PI0 model: {resp.json()}")
-    except Exception as e:
-        print(f"Warning: failed to initialize remote PI0 model at {pi0_api_url}: {e}")
-
-
-def request_actions_from_server(pi0_api_url: str, instruction: str, image_np: np.ndarray, state_vec: Union[list, np.ndarray], policy_batch_inference_size: int, lang_rephrase_num: int):
-    """Call PI0 API to get actions for a single timestep."""
-    image_b64 = encode_image_to_base64(image_np)
-    if isinstance(state_vec, np.ndarray):
-        state_payload = state_vec.tolist()
-    else:
-        state_payload = state_vec
-    payload = {
-        "instruction": instruction,
-        "image": image_b64,
-        "state": state_payload,
-        "policy_batch_inference_size": int(policy_batch_inference_size),
-        "lang_rephrase_num": int(lang_rephrase_num),
-    }
-    resp = requests.post(f"{pi0_api_url}/process_image", json=payload, timeout=120)
-    resp.raise_for_status()
-    return resp.json()
-
+    use_verifier: bool = True                          # Whether to use the verifier model for similarity scoring
+    # Action chunking (match INT-ACT style multi-step actions)
+    n_action_steps: int = 4
+    
+    # Language transformation parameters
+    lang_transform_type: str = "no_transform"            # Type of language transformation (rephrase/no_transform)
+    lang_rephrase_num: int = 8
+    # Batch inference parameters
+    policy_batch_inference_size: int = 2                        # Number of samples for batch inference (same instruction repeated)
+    
+    # Action ensemble parameters (for temporal ensembling)
+    action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
-    assert cfg.pretrained_checkpoint is not None, "cfg.pretrained_checkpoint must not be None!"
-    if "image_aug" in str(cfg.pretrained_checkpoint):
-        assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
-
-    # Enforce no-rephrase count when no_transform
-    if cfg.lang_transform_type == "no_transform":
-        assert cfg.lang_rephrase_num == 1, "Language rephrase number must be 1 for no transformation"
+    # Check API connectivity
+    health_response = requests.get(f"{cfg.api_url}/health", timeout=5)
+    health_response.raise_for_status()
+    print(f"Successfully connected to API at {cfg.api_url}")
 
     # Set random seed
-    set_seed_everywhere(cfg.seed)
+    random.seed(cfg.seed)
+    np.random.seed(cfg.seed)
 
     # Initialize local logging
-    run_id = f"{cfg.prefix}EVAL-{cfg.task_suite_name}-{cfg.model_family}-{DATE_TIME}"
+    run_id = f"{cfg.prefix}EVAL-API-{cfg.task_suite_name}-{DATE_TIME}"
     if cfg.run_id_note is not None:
         run_id += f"--{cfg.run_id_note}"
     os.makedirs(cfg.local_log_dir, exist_ok=True)
@@ -236,16 +263,13 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             name=run_id,
         )
 
-    # Initialize remote PI0 server with the desired checkpoint
-    initialize_pi0_remote(cfg.pi0_api_url, cfg.pretrained_checkpoint)
-
     # Initialize SIMPLER task suite
     task_suite = get_benchmark(cfg.task_suite_name)()
     num_tasks_in_suite = task_suite.n_tasks
     print(f"Task suite: {cfg.task_suite_name}")
     log_file.write(f"Task suite: {cfg.task_suite_name}\n")
-
-    # Load pre-generated rephrases if needed
+    
+    # Load pre-generated rephrases if available
     preloaded_rephrases = load_rephrases(cfg.task_suite_name)
 
     # Start evaluation
@@ -256,12 +280,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         seeds = itertools.count(1000)
 
         # Initialize LIBERO environment and task description
-        env = task_suite.get_env(task) if hasattr(task_suite, 'get_env') else None
-        if env is None:
-            from experiments.robot.simpler.simpler_utils_robomonkey import get_simpler_env as _get_env
-            env = _get_env(task, cfg.model_family)
+        env = get_simpler_env(task, cfg.model_family)
         original_task_description = env.get_language_instruction()
-
+        
         # Use rephrased instruction if available
         if cfg.lang_transform_type == "no_transform":
             task_description = original_task_description
@@ -272,6 +293,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 if task_key == original_task_description:
                     matching_task_id = task_key
                     break
+            
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
                 task_description = preloaded_rephrases[matching_task_id]["original"]
@@ -279,6 +301,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             else:
                 raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
 
+        if cfg.lang_transform_type == "no_transform":
+            assert cfg.lang_rephrase_num == 1, "Language rephrase number must be 1 for no transformation"
+        
         # Start episodes
         task_episodes, task_successes = 0, 0
         for trail_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
@@ -286,13 +311,16 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             log_file.write(f"\nTask: {task_description}\n")
             if trail_idx % 50 == 0:
                 seeds = itertools.count(1000)
+            
             # Reset environment to specified seed (initial state)
             obs, reset_info = env.reset(seed=next(seeds))
 
             # Setup
             t = 0
             replay_images = []
-
+            action_history = []
+            action_queue = None
+            
             # Track episode data for saving
             episode_data = {
                 'verifier_scores': [],
@@ -304,30 +332,22 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 'success': False,
                 'episode_length': 0
             }
-
-            if cfg.task_suite_name == "libero_spatial":
-                max_steps = 220
-            elif cfg.task_suite_name == "libero_object":
-                max_steps = 280
-            elif cfg.task_suite_name == "libero_goal":
-                max_steps = 300
-            elif cfg.task_suite_name == "libero_10":
-                max_steps = 520
-            elif cfg.task_suite_name == "libero_90":
-                max_steps = 400
-            elif cfg.task_suite_name.startswith("simpler"):
+            
+            if cfg.task_suite_name.startswith("simpler"):
                 max_steps = 150
             else:
-                raise NotImplementedError
+                raise NotImplementedError(f"Unknown task suite: {cfg.task_suite_name}")
 
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
-            # Create progress bar for each episode
             pbar = tqdm.tqdm(total=max_steps + cfg.num_steps_wait, desc=f"Episode steps")
+            
+            max_score = None
+            
             while t < max_steps + cfg.num_steps_wait:
-                # IMPORTANT: Do nothing for first few timesteps if configured
+                # Wait for objects to stabilize
                 if t < cfg.num_steps_wait:
-                    obs, reward, done, trunc, info = env.step(np.array([0, 0, 0, 0, 0, 0, -1]))
+                    obs, reward, done, trunc, info = env.step(get_simpler_dummy_action(cfg.model_family))
                     t += 1
                     pbar.update(1)
                     continue
@@ -336,52 +356,68 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 raw_img = get_image_from_maniskill2_obs_dict(env, obs)
                 replay_images.append(raw_img)
 
-                # For API call, we pass the current single instruction (no local rephrasing here)
-                try:
-                    api_result = request_actions_from_server(
-                        cfg.pi0_api_url,
-                        instruction=task_description,
-                        image_np=raw_img,
-                        state_vec=obs,
-                        policy_batch_inference_size=cfg.policy_batch_inference_size,
-                        lang_rephrase_num=cfg.lang_rephrase_num,
-                    )
-                except Exception as e:
-                    print(f"Error calling PI0 API: {e}")
-                    # Fallback to no-op step
-                    obs, reward, done, trunc, info = env.step(np.array([0, 0, 0, 0, 0, 0, -1]))
-                    t += 1
-                    pbar.update(1)
-                    continue
+                # Extract observation state - pass full obs dict to match original format
+                # The adapter expects obs["agent"]["eef_pos"] with 8 elements (xyz + quaternion xyzw + gripper)
+                # So we pass the full obs dict, not just eef_pos
+                observation_state = obs
 
-                # Parse action; take the first step of the predicted chunk for this timestep
-                actions = api_result.get('actions', [])
-                if len(actions) == 0:
-                    # Fallback if server returned nothing
-                    next_action = np.array([0, 0, 0, 0, 0, 0, -1], dtype=np.float32)
-                else:
-                    first = actions[0]
-                    # Normalize to shape (7,)
-                    next_action = np.array(first, dtype=np.float32).reshape(-1)
-                    if next_action.shape[0] != 7:
-                        # If server returned [[...]]
-                        next_action = np.array(first, dtype=np.float32).reshape(-1)
-                        if next_action.shape[0] != 7:
-                            raise ValueError(f"Invalid action shape from server: {np.array(first).shape}")
-
-                # Log placeholders for parity
-                episode_data['verifier_scores'].append(None)
-                episode_data['selected_instructions'].append(task_description)
-                episode_data['execute_actions'].append(next_action.copy())
+                # Call API to get action
+                api_response = call_api_for_action(
+                    api_url=cfg.api_url,
+                    instruction=task_description,
+                    image_array=raw_img,
+                    observation_state=observation_state,
+                    action_history=action_history,
+                    rephrased_list=rephrased_list,
+                    lang_rephrase_num=cfg.lang_rephrase_num,
+                    policy_batch_inference_size=cfg.policy_batch_inference_size,
+                    use_verifier=cfg.use_verifier,
+                    action_queue=action_queue,
+                    timestep=t,
+                    n_action_steps=cfg.n_action_steps,
+                    action_ensemble_temp=cfg.action_ensemble_temp,
+                    temp_image_dir="./temp_images"  # Directory for temporary images
+                )
+                
+                if api_response.get('status') != 'success':
+                    raise ValueError(f"API returned error: {api_response.get('error')}")
+                
+                # Extract action and metadata
+                execute_action = np.array(api_response['action'])
+                selected_instruction = api_response.get('selected_instruction', task_description)
+                verifier_score = api_response.get('verifier_score')
+                action_queue = api_response.get('action_queue')
+                action_history_update = api_response.get('action_history_update')
+                
+                # Update task description if verifier selected a different instruction
+                if selected_instruction != task_description:
+                    task_description = selected_instruction
+                
+                # Update action history
+                if action_history_update is not None:
+                    action_history.append(np.array(action_history_update))
+                
+                # Store episode data
+                episode_data['verifier_scores'].append(verifier_score)
+                episode_data['selected_instructions'].append(selected_instruction)
+                episode_data['execute_actions'].append(execute_action.copy())
                 episode_data['step_timestamps'].append(t)
+                
+                max_score = verifier_score if verifier_score is not None else max_score
 
-                # Step environment
-                obs, reward, done, trunc, info = env.step(next_action)
+                # Execute action in environment
+                obs, reward, done, trunc, info = env.step(execute_action)
+                
                 if done:
                     task_successes += 1
                     total_successes += 1
                     break
+                
                 t += 1
+                
+                # Update progress bar
+                if cfg.use_verifier and max_score is not None:
+                    pbar.set_description(f"Episode steps (score: {max_score:.3f})")
                 pbar.update(1)
 
             pbar.close()
@@ -394,21 +430,21 @@ def eval_simpler(cfg: GenerateConfig) -> None:
 
             # Save a replay video of the episode
             save_rollout_video_openpi(
-                replay_images, total_episodes, success=done,
-                task_description=original_task_description,
+                replay_images, total_episodes, success=done, 
+                task_description=original_task_description, 
                 transformation_type=cfg.lang_transform_type,
-                model_name=str(cfg.pretrained_checkpoint),
+                model_name=cfg.pretrained_checkpoint,
                 lang_rephrase_num=cfg.lang_rephrase_num,
                 policy_batch_inference_size=cfg.policy_batch_inference_size,
                 log_file=log_file
             )
-
+            
             # Save episode data to pickle file
             save_episode_data_openpi(
-                episode_data, total_episodes, success=done,
-                task_description=original_task_description,
+                episode_data, total_episodes, success=done, 
+                task_description=original_task_description, 
                 transformation_type=cfg.lang_transform_type,
-                model_name=str(cfg.pretrained_checkpoint),
+                model_name=cfg.pretrained_checkpoint,
                 lang_rephrase_num=cfg.lang_rephrase_num,
                 policy_batch_inference_size=cfg.policy_batch_inference_size,
                 log_file=log_file
@@ -418,7 +454,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             if cfg.use_wandb and ((done and task_successes < 5) or (not done and task_episodes - task_successes < 5)):
                 group = "success" if done else "failure"
                 idx = task_successes if done else task_episodes - task_successes
-                wandb.log({f"{task_description}/{group}/{idx}": wandb.Video(np.array(replay_images).transpose(0, 3, 1, 2))})
+                wandb.log(
+                    {f"{task_description}/{group}/{idx}": wandb.Video(np.array(replay_images).transpose(0, 3, 1, 2))}
+                )
 
             # Log current results
             print(f"Success: {done}")
@@ -456,8 +494,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         )
         wandb.save(local_log_filepath)
 
-
 if __name__ == "__main__":
     eval_simpler()
-
 

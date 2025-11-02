@@ -3131,3 +3131,477 @@ Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_
 Success: True
 # episodes completed so far: 391
 # successes: 129 (33.0%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=392--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=392--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 392
+# successes: 130 (33.2%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=393--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=393--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 393
+# successes: 130 (33.1%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=394--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=394--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 394
+# successes: 131 (33.2%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=395--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=395--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 395
+# successes: 132 (33.4%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=396--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=396--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 396
+# successes: 132 (33.3%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=397--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=397--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 397
+# successes: 133 (33.5%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=398--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=398--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 398
+# successes: 134 (33.7%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=399--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=399--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 399
+# successes: 134 (33.6%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=400--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=400--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 400
+# successes: 134 (33.5%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=401--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=401--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 401
+# successes: 134 (33.4%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=402--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=402--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 402
+# successes: 134 (33.3%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=403--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=403--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 403
+# successes: 134 (33.3%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=404--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=404--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 404
+# successes: 134 (33.2%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=405--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=405--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 405
+# successes: 134 (33.1%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=406--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=406--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 406
+# successes: 134 (33.0%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=407--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=407--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 407
+# successes: 135 (33.2%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=408--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=408--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 408
+# successes: 136 (33.3%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=409--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=409--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 409
+# successes: 136 (33.3%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=410--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=410--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 410
+# successes: 136 (33.2%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=411--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=411--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 411
+# successes: 136 (33.1%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=412--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=412--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 412
+# successes: 137 (33.3%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=413--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=413--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 413
+# successes: 137 (33.2%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=414--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=414--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 414
+# successes: 137 (33.1%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=415--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=415--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 415
+# successes: 138 (33.3%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=416--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=416--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 416
+# successes: 138 (33.2%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=417--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=417--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 417
+# successes: 138 (33.1%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=418--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=418--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 418
+# successes: 138 (33.0%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=419--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=419--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 419
+# successes: 138 (32.9%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=420--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=420--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 420
+# successes: 138 (32.9%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=421--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=421--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 421
+# successes: 138 (32.8%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=422--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=422--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 422
+# successes: 138 (32.7%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=423--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=423--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 423
+# successes: 139 (32.9%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=424--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=424--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 424
+# successes: 139 (32.8%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=425--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=425--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 425
+# successes: 139 (32.7%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=426--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=426--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 426
+# successes: 139 (32.6%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=427--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=427--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 427
+# successes: 140 (32.8%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=428--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=428--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 428
+# successes: 141 (32.9%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=429--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=429--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 429
+# successes: 142 (33.1%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=430--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=430--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 430
+# successes: 142 (33.0%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=431--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=431--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 431
+# successes: 142 (32.9%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=432--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=432--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 432
+# successes: 143 (33.1%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=433--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=433--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 433
+# successes: 144 (33.3%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=434--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=434--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 434
+# successes: 145 (33.4%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=435--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=435--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 435
+# successes: 145 (33.3%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=436--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=436--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 436
+# successes: 145 (33.3%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=437--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=437--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 437
+# successes: 145 (33.2%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=438--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=438--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 438
+# successes: 145 (33.1%)
+
+Task: Insert the tennis ball into the sunny container.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=439--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=439--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 439
+# successes: 145 (33.0%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=440--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=440--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 440
+# successes: 145 (33.0%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=441--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=441--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 441
+# successes: 145 (32.9%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=442--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=442--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 442
+# successes: 145 (32.8%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=443--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=443--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 443
+# successes: 146 (33.0%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=444--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=444--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 444
+# successes: 146 (32.9%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=445--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=445--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 445
+# successes: 146 (32.8%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=446--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=446--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 446
+# successes: 146 (32.7%)
+
+Task: Place the tennis ball in the bright container.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=447--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=447--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 447
+# successes: 147 (32.9%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=448--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=448--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 448
+# successes: 147 (32.8%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=449--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=449--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 449
+# successes: 148 (33.0%)
+
+Task: Put the tennis ball inside the sunlit container.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=450--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_5/episode=450--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 450
+# successes: 148 (32.9%)
+Current task success rate: 0.38
+Current total success rate: 0.3288888888888889
