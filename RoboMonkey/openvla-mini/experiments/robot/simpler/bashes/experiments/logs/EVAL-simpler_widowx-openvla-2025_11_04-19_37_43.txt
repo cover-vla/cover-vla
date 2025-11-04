@@ -1,0 +1,92 @@
+Task suite: simpler_widowx
+
+Task: nestle the play aubergine in the gold vessel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=1--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Place the plastic vegetable in the golden container.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=2--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=2--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Place the toy aubergine in the gold receptacle.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=3--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=3--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: Place the toy aubergine in the gold receptacle.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=4--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=4--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: Place the toy eggplant in the golden vessel.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=5--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=5--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 5
+# successes: 4 (80.0%)
+
+Task: Place the toy eggplant in the golden vessel.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=6--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=6--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 6
+# successes: 5 (83.3%)
+
+Task: Place the plastic vegetable in the golden container.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=7--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=7--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 6 (85.7%)
+
+Task: Place the toy eggplant in the golden vessel.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=8--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=8--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 7 (87.5%)
+
+Task: Place the play eggplant in the gilded receptacle.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=9--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=9--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 8 (88.9%)
+
+Task: Place the toy eggplant in the golden vessel.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=10--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=10--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+
+Task: Place the toy aubergine in the gold receptacle.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=11--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_5/episode=11--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: Place the plastic vegetable in the golden container.
+Starting episode 12...

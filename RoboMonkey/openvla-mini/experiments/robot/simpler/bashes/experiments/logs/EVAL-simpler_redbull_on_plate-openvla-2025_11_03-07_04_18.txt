@@ -1,0 +1,1203 @@
+Task suite: simpler_redbull_on_plate
+
+Task: Position the Red Bull can on the smooth, flat dish
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=1--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=1--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=2--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=2--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=3--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=3--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=4--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=4--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=5--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=5--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=6--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=6--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=7--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=8--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=8--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 8
+# successes: 2 (25.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=9--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 9
+# successes: 2 (22.2%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=10--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=10--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 2 (20.0%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=11--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=11--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 11
+# successes: 2 (18.2%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=12--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=12--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 12
+# successes: 2 (16.7%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=13--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=13--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 13
+# successes: 2 (15.4%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=14--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=14--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 14
+# successes: 2 (14.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=15--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=15--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 15
+# successes: 3 (20.0%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=16--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=16--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 16
+# successes: 4 (25.0%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=17--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=17--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 17
+# successes: 5 (29.4%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=18--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=18--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 18
+# successes: 6 (33.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=19--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 19
+# successes: 6 (31.6%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=20--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=20--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 20
+# successes: 6 (30.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=21--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=21--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 6 (28.6%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=22--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=22--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 6 (27.3%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=23--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=23--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 23
+# successes: 6 (26.1%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=24--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=24--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 24
+# successes: 7 (29.2%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=25--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=25--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 25
+# successes: 8 (32.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=26--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=26--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 26
+# successes: 9 (34.6%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=27--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=27--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 27
+# successes: 10 (37.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=28--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=28--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 28
+# successes: 10 (35.7%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=29--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=29--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 29
+# successes: 10 (34.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=30--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=30--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 10 (33.3%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=31--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=31--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 31
+# successes: 11 (35.5%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=32--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=32--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 11 (34.4%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=33--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=33--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 33
+# successes: 11 (33.3%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=34--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=34--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 34
+# successes: 11 (32.4%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=35--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=35--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 35
+# successes: 11 (31.4%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=36--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=36--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 36
+# successes: 12 (33.3%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=37--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=37--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 37
+# successes: 13 (35.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=38--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=38--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 38
+# successes: 13 (34.2%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=39--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=39--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 39
+# successes: 13 (33.3%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=40--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=40--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 40
+# successes: 13 (32.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=41--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=41--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 41
+# successes: 13 (31.7%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=42--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=42--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 13 (31.0%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=43--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=43--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 43
+# successes: 13 (30.2%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=44--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=44--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 44
+# successes: 14 (31.8%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=45--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=45--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 45
+# successes: 14 (31.1%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=46--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=46--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 46
+# successes: 15 (32.6%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=47--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=47--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 47
+# successes: 16 (34.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=48--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=48--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 48
+# successes: 17 (35.4%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=49--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=49--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 17 (34.7%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=50--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=50--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 50
+# successes: 18 (36.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=51--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=51--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 51
+# successes: 18 (35.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=52--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=52--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 52
+# successes: 18 (34.6%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=53--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=53--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 53
+# successes: 18 (34.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=54--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=54--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 54
+# successes: 18 (33.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=55--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=55--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 55
+# successes: 18 (32.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=56--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=56--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 56
+# successes: 18 (32.1%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=57--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=57--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 57
+# successes: 18 (31.6%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=58--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=58--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 58
+# successes: 19 (32.8%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=59--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=59--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 59
+# successes: 19 (32.2%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=60--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=60--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 60
+# successes: 20 (33.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=61--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=61--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 61
+# successes: 21 (34.4%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=62--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=62--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 62
+# successes: 22 (35.5%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=63--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=63--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 63
+# successes: 23 (36.5%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=64--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=64--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 23 (35.9%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=65--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=65--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 65
+# successes: 23 (35.4%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=66--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=66--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 66
+# successes: 23 (34.8%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=67--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=67--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 23 (34.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=68--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=68--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 68
+# successes: 24 (35.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=69--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=69--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 69
+# successes: 24 (34.8%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=70--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=70--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 70
+# successes: 25 (35.7%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=71--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=71--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 71
+# successes: 25 (35.2%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=72--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=72--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 25 (34.7%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=73--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=73--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 25 (34.2%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=74--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=74--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 25 (33.8%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=75--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=75--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 75
+# successes: 26 (34.7%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=76--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=76--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 76
+# successes: 27 (35.5%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=77--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=77--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 77
+# successes: 28 (36.4%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=78--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=78--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 29 (37.2%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=79--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=79--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 79
+# successes: 30 (38.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=80--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=80--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 80
+# successes: 31 (38.8%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=81--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=81--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 31 (38.3%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=82--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=82--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 31 (37.8%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=83--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=83--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 31 (37.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=84--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=84--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 31 (36.9%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=85--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=85--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 85
+# successes: 32 (37.6%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=86--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=86--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 86
+# successes: 32 (37.2%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=87--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=87--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 32 (36.8%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=88--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=88--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 88
+# successes: 33 (37.5%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=89--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=89--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 89
+# successes: 33 (37.1%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=90--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=90--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 90
+# successes: 33 (36.7%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=91--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=91--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 91
+# successes: 33 (36.3%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=92--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=92--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 92
+# successes: 33 (35.9%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=93--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=93--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 33 (35.5%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=94--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=94--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 94
+# successes: 34 (36.2%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=95--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=95--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 95
+# successes: 34 (35.8%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=96--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=96--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 96
+# successes: 34 (35.4%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=97--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=97--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 97
+# successes: 34 (35.1%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=98--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=98--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 98
+# successes: 34 (34.7%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=99--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=99--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 99
+# successes: 35 (35.4%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=100--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=100--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 100
+# successes: 35 (35.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=101--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=101--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 35 (34.7%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=102--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=102--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 102
+# successes: 35 (34.3%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=103--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=103--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 103
+# successes: 35 (34.0%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=104--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=104--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 104
+# successes: 35 (33.7%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=105--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=105--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 35 (33.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=106--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=106--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 35 (33.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=107--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=107--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 107
+# successes: 35 (32.7%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=108--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=108--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 108
+# successes: 35 (32.4%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=109--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=109--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 109
+# successes: 35 (32.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=110--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=110--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 35 (31.8%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=111--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=111--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 35 (31.5%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=112--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=112--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 112
+# successes: 35 (31.2%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=113--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=113--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 113
+# successes: 35 (31.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=114--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=114--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 114
+# successes: 36 (31.6%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=115--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=115--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 36 (31.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=116--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=116--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 36 (31.0%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=117--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=117--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 117
+# successes: 37 (31.6%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=118--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=118--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 118
+# successes: 38 (32.2%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=119--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=119--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 38 (31.9%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=120--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=120--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 120
+# successes: 39 (32.5%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=121--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=121--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 121
+# successes: 40 (33.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=122--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=122--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 40 (32.8%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=123--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=123--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 123
+# successes: 41 (33.3%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=124--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=124--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 124
+# successes: 42 (33.9%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=125--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=125--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 125
+# successes: 42 (33.6%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=126--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=126--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 126
+# successes: 43 (34.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=127--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=127--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 43 (33.9%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=128--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=128--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 128
+# successes: 43 (33.6%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=129--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=129--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 129
+# successes: 43 (33.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=130--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=130--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 130
+# successes: 43 (33.1%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=131--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=131--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 131
+# successes: 44 (33.6%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=132--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=132--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 44 (33.3%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=133--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=133--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 44 (33.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=134--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=134--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 134
+# successes: 44 (32.8%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=135--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=135--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 45 (33.3%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=136--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=136--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 136
+# successes: 46 (33.8%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=137--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=137--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 137
+# successes: 46 (33.6%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=138--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=138--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 138
+# successes: 47 (34.1%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=139--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=139--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 139
+# successes: 47 (33.8%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=140--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=140--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 140
+# successes: 47 (33.6%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=141--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=141--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 141
+# successes: 48 (34.0%)
+
+Task: Put the Red Bull can onto the smooth dish.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=142--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=142--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 142
+# successes: 49 (34.5%)
+
+Task: Lay the Red Bull can on the smooth platter.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=143--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=143--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 143
+# successes: 49 (34.3%)
+
+Task: Place the Red Bull can on the flat dish.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=144--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=144--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 49 (34.0%)
+
+Task: Set the energy drink can on the flat plate.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=145--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=145--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 145
+# successes: 50 (34.5%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=146--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=146--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 146
+# successes: 51 (34.9%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=147--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=147--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 52 (35.4%)
+
+Task: Arrange the Red Bull can on the flat tray.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=148--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=148--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 148
+# successes: 53 (35.8%)
+
+Task: Position the energy drink can on the smooth dish.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=149--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=149--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 53 (35.6%)
+
+Task: Place the Red Bull drink onto the flat plate.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=150--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_8_sample_1/episode=150--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 150
+# successes: 53 (35.3%)
+Current task success rate: 0.35333333333333333
+Current total success rate: 0.35333333333333333

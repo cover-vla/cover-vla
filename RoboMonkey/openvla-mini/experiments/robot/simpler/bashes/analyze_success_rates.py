@@ -532,8 +532,10 @@ def create_evaluation_plots(stats_in_dist, stats_ood, rephrase_stats, robomonkey
     plt.savefig(os.path.join(output_dir, 'evaluation_mean_std_across_4_periods.png'), dpi=300, bbox_inches='tight')
     plt.show()
     
-    # Create separate plots for specific experiment types
-    create_separate_experiment_plots(all_stats, output_dir)
+    # NOTE: Removed create_separate_experiment_plots because it incorrectly groups experiments
+    # from different folders (e.g., transform_rephrase and rephrase_ablation) together.
+    # Separate plots for each folder are created by create_per_folder_evaluation_plots instead.
+    # create_separate_experiment_plots(all_stats, output_dir)
     
     # Print summary
     print("\n" + "="*80)
@@ -2001,40 +2003,90 @@ def analyze_rollouts_per_subfolder(base_rollout_path):
                 results[subdir] = ablation_results
                 print(f"  Analyzed ablation folder: {subdir} with {len(ablation_results)} sub-experiments")
         else:
-            # Regular processing for non-ablation folders
-            subfolder_results = defaultdict(dict)
-            for root, dirs, files in os.walk(subdir_path):
-                video_files = [f for f in files if f.endswith('.mp4')]
-                if not video_files:
-                    continue
+            # For non-ablation folders with subfolders, treat each sub-subfolder as separate (like ablation folders)
+            # First check if this folder has immediate subdirectories with videos
+            immediate_subdirs = [d for d in os.listdir(subdir_path) 
+                                if os.path.isdir(os.path.join(subdir_path, d))]
+            
+            # If there are subdirectories, treat them separately (like ablation folders)
+            if immediate_subdirs:
+                subfolder_results = {}
+                for sub_subdir in immediate_subdirs:
+                    sub_subdir_path = os.path.join(subdir_path, sub_subdir)
+                    if not os.path.isdir(sub_subdir_path):
+                        continue
+                    
+                    # Analyze this sub-subfolder
+                    sub_subfolder_results = defaultdict(dict)
+                    for root, dirs, files in os.walk(sub_subdir_path):
+                        video_files = [f for f in files if f.endswith('.mp4')]
+                        if not video_files:
+                            continue
 
-                # Group videos by task
-                task_episodes = defaultdict(list)
-                for video_file in video_files:
-                    success = extract_success_from_filename(video_file)
-                    episode_num = extract_episode_number(video_file)
-                    if success is not None and episode_num is not None:
-                        task_match = re.search(r'--task=([^\.]+)', video_file)
-                        if task_match:
-                            task_name = task_match.group(1)
-                            task_episodes[task_name].append((episode_num, success))
+                        # Group videos by task
+                        task_episodes = defaultdict(list)
+                        for video_file in video_files:
+                            success = extract_success_from_filename(video_file)
+                            episode_num = extract_episode_number(video_file)
+                            if success is not None and episode_num is not None:
+                                task_match = re.search(r'--task=([^\.]+)', video_file)
+                                if task_match:
+                                    task_name = task_match.group(1)
+                                    task_episodes[task_name].append((episode_num, success))
 
-                # Group episodes into evaluations for each task
-                for task_name, episode_data in task_episodes.items():
-                    if episode_data:
-                        evaluations = group_episodes_by_evaluation(episode_data)
-                        # Aggregate across all folders in this subfolder
-                        if task_name not in subfolder_results:
-                            subfolder_results[task_name] = evaluations
-                        else:
-                            # Merge evaluations if task appears in multiple sub-sub-folders
-                            for eval_name, eval_data in evaluations.items():
-                                if eval_name not in subfolder_results[task_name]:
-                                    subfolder_results[task_name][eval_name] = eval_data
+                        # Group episodes into evaluations for each task
+                        for task_name, episode_data in task_episodes.items():
+                            if episode_data:
+                                evaluations = group_episodes_by_evaluation(episode_data)
+                                if task_name not in sub_subfolder_results:
+                                    sub_subfolder_results[task_name] = evaluations
+                                else:
+                                    # Merge evaluations if task appears multiple times
+                                    for eval_name, eval_data in evaluations.items():
+                                        if eval_name not in sub_subfolder_results[task_name]:
+                                            sub_subfolder_results[task_name][eval_name] = eval_data
+                    
+                    if sub_subfolder_results:
+                        subfolder_results[sub_subdir] = dict(sub_subfolder_results)
+                        print(f"    Analyzed sub-subfolder: {sub_subdir} with {len(sub_subfolder_results)} tasks")
+                
+                if subfolder_results:
+                    results[subdir] = subfolder_results
+                    print(f"  Analyzed folder: {subdir} with {len(subfolder_results)} sub-experiments")
+            else:
+                # No subdirectories - process directly
+                subfolder_results = defaultdict(dict)
+                for root, dirs, files in os.walk(subdir_path):
+                    video_files = [f for f in files if f.endswith('.mp4')]
+                    if not video_files:
+                        continue
 
-            if subfolder_results:
-                results[subdir] = dict(subfolder_results)
-                print(f"  Analyzed subfolder: {subdir} with {len(subfolder_results)} tasks")
+                    # Group videos by task
+                    task_episodes = defaultdict(list)
+                    for video_file in video_files:
+                        success = extract_success_from_filename(video_file)
+                        episode_num = extract_episode_number(video_file)
+                        if success is not None and episode_num is not None:
+                            task_match = re.search(r'--task=([^\.]+)', video_file)
+                            if task_match:
+                                task_name = task_match.group(1)
+                                task_episodes[task_name].append((episode_num, success))
+
+                    # Group episodes into evaluations for each task
+                    for task_name, episode_data in task_episodes.items():
+                        if episode_data:
+                            evaluations = group_episodes_by_evaluation(episode_data)
+                            if task_name not in subfolder_results:
+                                subfolder_results[task_name] = evaluations
+                            else:
+                                # Merge evaluations if task appears multiple times
+                                for eval_name, eval_data in evaluations.items():
+                                    if eval_name not in subfolder_results[task_name]:
+                                        subfolder_results[task_name][eval_name] = eval_data
+
+                if subfolder_results:
+                    results[subdir] = dict(subfolder_results)
+                    print(f"  Analyzed subfolder: {subdir} with {len(subfolder_results)} tasks")
 
     return results
 
@@ -2042,8 +2094,11 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
     """Create one evaluation plot per subfolder (like evaluation_mean_std_openpi_original_rephrase.png).
     Each plot shows mean and std across evaluation periods.
     
-    For ablation folders: creates grouped bars with tasks on X-axis and multiple bars per task (one per subfolder)
-    For regular folders: each bar represents a task
+    For folders with subfolders (ablation folders, transform_rephrase, etc.): 
+        creates grouped bars with tasks on X-axis and multiple bars per task (one per subfolder)
+    For folders without subfolders: shows each evaluation period (Eval_1-4) as separate bars per task
+    
+    Adds dashed reference lines for no-transform baseline for rephrase and ablation plots.
     """
     if not per_folder_stats:
         print("No per-folder evaluation data found")
@@ -2051,18 +2106,60 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
 
     os.makedirs(output_dir, exist_ok=True)
     saved_paths = []
+    
+    # Extract no-transform baseline data if available
+    no_transform_baseline = {}
+    if 'transform_no_transform' in per_folder_stats:
+        no_transform_stats = per_folder_stats['transform_no_transform']
+        # Handle both nested and flat structures
+        if isinstance(no_transform_stats, dict) and any(
+            isinstance(v, dict) and any(isinstance(vv, dict) for vv in v.values())
+            for v in no_transform_stats.values()
+        ):
+            # Nested structure - aggregate across subfolders
+            for subfolder_name, subfolder_tasks in no_transform_stats.items():
+                for task_name, task_data in subfolder_tasks.items():
+                    if isinstance(task_data, dict) and any(isinstance(v, dict) and 'success_rate' in v for v in task_data.values()):
+                        eval_rates = []
+                        for eval_name in ['Eval_1', 'Eval_2', 'Eval_3', 'Eval_4']:
+                            if eval_name in task_data and isinstance(task_data[eval_name], dict) and 'success_rate' in task_data[eval_name]:
+                                eval_rates.append(task_data[eval_name]['success_rate'])
+                        if eval_rates:
+                            task_key = task_name.replace('_', ' ').title()
+                            if task_key not in no_transform_baseline:
+                                no_transform_baseline[task_key] = []
+                            no_transform_baseline[task_key].extend(eval_rates)
+        else:
+            # Flat structure - direct task stats
+            for task_name, task_data in no_transform_stats.items():
+                if isinstance(task_data, dict) and any(isinstance(v, dict) and 'success_rate' in v for v in task_data.values()):
+                    eval_rates = []
+                    for eval_name in ['Eval_1', 'Eval_2', 'Eval_3', 'Eval_4']:
+                        if eval_name in task_data and isinstance(task_data[eval_name], dict) and 'success_rate' in task_data[eval_name]:
+                            eval_rates.append(task_data[eval_name]['success_rate'])
+                    if eval_rates:
+                        task_key = task_name.replace('_', ' ').title()
+                        no_transform_baseline[task_key] = eval_rates
+        
+        # Calculate mean for each task
+        for task_key in no_transform_baseline:
+            no_transform_baseline[task_key] = np.mean(no_transform_baseline[task_key])
 
     for folder_name, task_stats in per_folder_stats.items():
         if not task_stats:
             continue
 
-        # Check if this is an ablation folder
-        is_ablation = folder_name.endswith('_ablation')
+        # Check if this folder has subfolders (ablation folders or folders like transform_rephrase with subfolders)
+        # The structure will be dict[subfolder_name] -> dict[task] -> evaluations
+        is_nested = isinstance(task_stats, dict) and any(
+            isinstance(v, dict) and any(isinstance(vv, dict) for vv in v.values())
+            for v in task_stats.values()
+        )
         
         # Collect data for plotting
         plot_data = []
         
-        if is_ablation:
+        if is_nested:
             # For ablation folders, create grouped bars: X-axis=tasks, multiple bars per task (one per subfolder)
             for subfolder_name, subfolder_tasks in task_stats.items():
                 for task_name, task_data in subfolder_tasks.items():
@@ -2082,22 +2179,18 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
                                 'N': len(eval_rates)
                             })
         else:
-            # Regular processing for non-ablation folders: plot by task
+            # Regular processing for non-ablation folders: show each evaluation period separately
             for task_name, task_data in task_stats.items():
                 if isinstance(task_data, dict) and any(isinstance(v, dict) and 'success_rate' in v for v in task_data.values()):
-                    # Get the 4 main evaluation periods (Eval_1, Eval_2, Eval_3, Eval_4)
-                    eval_rates = []
+                    # Get individual evaluation periods (Eval_1, Eval_2, Eval_3, Eval_4)
                     for eval_name in ['Eval_1', 'Eval_2', 'Eval_3', 'Eval_4']:
                         if eval_name in task_data and isinstance(task_data[eval_name], dict) and 'success_rate' in task_data[eval_name]:
-                            eval_rates.append(task_data[eval_name]['success_rate'])
-
-                    if len(eval_rates) >= 2:  # Need at least 2 evaluations to calculate std
-                        plot_data.append({
-                            'Task': task_name.replace('_', ' ').title(),
-                            'Mean': np.mean(eval_rates),
-                            'Std': np.std(eval_rates),
-                            'N': len(eval_rates)
-                        })
+                            eval_data = task_data[eval_name]
+                            plot_data.append({
+                                'Task': task_name.replace('_', ' ').title(),
+                                'Evaluation': eval_name.replace('_', ' '),
+                                'SuccessRate': eval_data['success_rate']
+                            })
 
         if not plot_data:
             continue
@@ -2106,7 +2199,7 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
         plt.figure(figsize=(14, 8))
         df = pd.DataFrame(plot_data)
         
-        if is_ablation:
+        if is_nested:
             # Grouped bar plot: tasks on X-axis, multiple bars per task
             tasks = sorted(df['Task'].unique())
             subfolders = sorted(df['Subfolder'].unique())
@@ -2143,6 +2236,20 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
                         plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.01,
                                 f'{mean_val:.3f}±{std_val:.3f}', ha='center', va='bottom', fontsize=6)
             
+            # Add no-transform baseline reference lines for rephrase and ablation plots
+            if no_transform_baseline and folder_name != 'transform_no_transform' and (folder_name.endswith('_ablation') or 'rephrase' in folder_name):
+                baseline_label_added = False
+                for j, task in enumerate(tasks):
+                    if task in no_transform_baseline:
+                        baseline_rate = no_transform_baseline[task]
+                        # Calculate the x-position range for this task's bars
+                        task_x_start = x_pos[j] - width * (len(subfolders) - 1) / 2
+                        task_x_end = x_pos[j] + width * len(subfolders) / 2
+                        plt.hlines(y=baseline_rate, xmin=task_x_start, xmax=task_x_end,
+                                  color='black', linestyle='--', linewidth=1.5, alpha=0.7,
+                                  label='No-Transform Baseline' if not baseline_label_added else '')
+                        baseline_label_added = True
+            
             plt.xlabel('Tasks', fontsize=14, fontweight='bold')
             plt.ylabel('Success Rate (Mean ± Std across evaluations)', fontsize=14, fontweight='bold')
             plt.title(f'{folder_name.replace("_", " ").title()} - Mean and Std Across Evaluation Periods', 
@@ -2153,40 +2260,60 @@ def create_per_folder_evaluation_plots(per_folder_stats, output_dir='./analysis_
             plt.grid(True, alpha=0.3, axis='y')
             plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
         else:
-            # Single bar per task
+            # Grouped bar plot: tasks on X-axis, multiple bars per task (one per evaluation period)
             tasks = sorted(df['Task'].unique())
+            evaluations = ['Eval 1', 'Eval 2', 'Eval 3', 'Eval 4']
+            
             x_pos = np.arange(len(tasks))
-            width = 0.6
-
-            means = []
-            stds = []
-            for task in tasks:
-                task_data = df[df['Task'] == task]
-                if not task_data.empty:
-                    means.append(task_data['Mean'].iloc[0])
-                    stds.append(task_data['Std'].iloc[0])
-                else:
-                    means.append(0)
-                    stds.append(0)
-
-            bars = plt.bar(x_pos, means, width,
-                          yerr=stds, capsize=3, alpha=0.8,
-                          color='#2E86AB', edgecolor='black', linewidth=0.5)
-
-            # Add value labels
-            for bar, mean_val, std_val in zip(bars, means, stds):
-                if mean_val > 0:
-                    height = bar.get_height()
-                    plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.01,
-                            f'{mean_val:.3f}±{std_val:.3f}', ha='center', va='bottom', fontsize=8)
-
+            width = 0.8 / len(evaluations)
+            
+            colors = plt.cm.viridis(np.linspace(0, 1, len(evaluations)))
+            
+            for i, eval_name in enumerate(evaluations):
+                eval_data = df[df['Evaluation'] == eval_name]
+                
+                task_rates = []
+                for task in tasks:
+                    task_data = eval_data[eval_data['Task'] == task]
+                    if not task_data.empty:
+                        task_rates.append(task_data['SuccessRate'].iloc[0])
+                    else:
+                        task_rates.append(0)
+                
+                bars = plt.bar(x_pos + i * width, task_rates, width,
+                              alpha=0.8, color=colors[i], edgecolor='black', linewidth=0.5,
+                              label=eval_name)
+                
+                # Add value labels
+                for bar, rate in zip(bars, task_rates):
+                    if rate > 0:
+                        height = bar.get_height()
+                        plt.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                                f'{rate:.3f}', ha='center', va='bottom', fontsize=7)
+            
+            # Add no-transform baseline reference lines for rephrase plots
+            if no_transform_baseline and folder_name != 'transform_no_transform' and 'rephrase' in folder_name:
+                baseline_label_added = False
+                for j, task in enumerate(tasks):
+                    if task in no_transform_baseline:
+                        baseline_rate = no_transform_baseline[task]
+                        # Calculate the x-position range for this task's bars
+                        task_x_start = x_pos[j] - width * (len(evaluations) - 1) / 2
+                        task_x_end = x_pos[j] + width * len(evaluations) / 2
+                        plt.hlines(y=baseline_rate, xmin=task_x_start, xmax=task_x_end,
+                                  color='black', linestyle='--', linewidth=1.5, alpha=0.7,
+                                  label='No-Transform Baseline' if not baseline_label_added else '')
+                        baseline_label_added = True
+            
             plt.xlabel('Tasks', fontsize=14, fontweight='bold')
-            plt.ylabel('Success Rate (Mean ± Std across evaluations)', fontsize=14, fontweight='bold')
-            plt.title(f'{folder_name.replace("_", " ").title()} - Mean and Std Across Evaluation Periods', 
+            plt.ylabel('Success Rate', fontsize=14, fontweight='bold')
+            plt.title(f'{folder_name.replace("_", " ").title()} - Success Rate Across Evaluation Periods', 
                      fontsize=16, fontweight='bold')
-            plt.xticks(x_pos, tasks, rotation=45, ha='right', fontsize=10)
+            plt.xticks(x_pos + width * (len(evaluations) - 1) / 2, 
+                      tasks, rotation=45, ha='right', fontsize=10)
             plt.ylim(0, 1.1)
             plt.grid(True, alpha=0.3, axis='y')
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
         
         plt.tight_layout()
 
@@ -2314,7 +2441,7 @@ def analyze_language_diversity_from_pickles(base_path="./"):
     
     print(f"Found {len(pickle_files)} pickle files to analyze for language diversity")
     
-    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+)', re.IGNORECASE)
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+(?:_verification)?)', re.IGNORECASE)
     
     for pickle_file in pickle_files:
         try:
@@ -2463,6 +2590,392 @@ def plot_language_diversity(lang_diversity_data, output_dir='./analysis_plots'):
     print(f"\nLanguage diversity plots saved to: {language_plots_dir}")
     return saved_paths
 
+def analyze_language_switching_frequency_from_pickles(base_path="./"):
+    """Analyze language instruction switching frequency from pickle files.
+    
+    Counts the number of language transitions (switches) in each episode.
+    A transition occurs when the instruction changes from one to another.
+    
+    Returns: dict[task_name][eval_folder][success/failure] -> list of transition counts
+    where transition count is the number of language switches in an episode.
+    """
+    lang_switching_data = defaultdict(lambda: defaultdict(lambda: {'success': [], 'failure': []}))
+    
+    # Find all pickle files in rollout directories
+    pickle_files = []
+    for item in os.listdir(base_path):
+        if item.startswith('rollouts_'):
+            rollouts_dir = os.path.join(base_path, item)
+            if os.path.isdir(rollouts_dir):
+                # Find all pickle files recursively
+                pattern = os.path.join(rollouts_dir, "**", "*.pkl")
+                pickle_files.extend(glob.glob(pattern, recursive=True))
+    
+    print(f"Found {len(pickle_files)} pickle files to analyze for language switching frequency")
+    
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+(?:_verification)?)', re.IGNORECASE)
+    
+    for pickle_file in pickle_files:
+        try:
+            with open(pickle_file, 'rb') as f:
+                episode_data = pickle.load(f)
+            
+            # Extract task name from filename
+            filename = os.path.basename(pickle_file)
+            task_match = re.search(r'--task=([^\.]+)', filename)
+            if not task_match:
+                continue
+            task_name = task_match.group(1)
+            
+            # Extract success/failure from filename
+            success_match = re.search(r'--success=([^\-]+)', filename)
+            is_success = success_match.group(1) == 'True' if success_match else False
+            
+            # Extract evaluation folder (lang_X_sample_Y) from directory path
+            relative_path = os.path.relpath(os.path.dirname(pickle_file), base_path)
+            m = lang_folder_regex.search(relative_path)
+            if m:
+                eval_folder = m.group(1)
+            else:
+                # Fallback: use the immediate directory name
+                eval_folder = os.path.basename(os.path.dirname(pickle_file))
+            
+            # Extract selected instructions
+            selected_instructions = episode_data.get('selected_instructions', [])
+            if not selected_instructions:
+                # Try alternative key names
+                selected_instructions = episode_data.get('selected_language', [])
+            
+            if selected_instructions and len(selected_instructions) > 1:
+                # Count language transitions/switches
+                transition_count = 0
+                for i in range(1, len(selected_instructions)):
+                    # Count a transition if the instruction changes
+                    if selected_instructions[i] != selected_instructions[i-1]:
+                        transition_count += 1
+                
+                # Store data based on success/failure
+                outcome_key = 'success' if is_success else 'failure'
+                lang_switching_data[task_name][eval_folder][outcome_key].append(transition_count)
+        
+        except Exception as e:
+            print(f"Error loading {pickle_file}: {e}")
+            continue
+    
+    return lang_switching_data
+
+def plot_language_switching_frequency(lang_switching_data, output_dir='./analysis_plots'):
+    """Create plots showing language instruction switching frequency for each task.
+    
+    Creates separate plots for success and failure cases, with bars for each evaluation folder.
+    """
+    if not lang_switching_data:
+        print("No language switching frequency data found for plotting")
+        return []
+    
+    # Create language_frequency directory
+    language_frequency_dir = os.path.join(output_dir, 'language_frequency')
+    os.makedirs(language_frequency_dir, exist_ok=True)
+    
+    saved_paths = []
+    
+    # Get all unique tasks
+    all_tasks = sorted(lang_switching_data.keys())
+    
+    print(f"\nCreating language switching frequency plots for {len(all_tasks)} tasks...")
+    
+    for task_name in all_tasks:
+        task_data = lang_switching_data[task_name]
+        
+        # Get all evaluation folders for this task
+        eval_folders = sorted(task_data.keys())
+        
+        if not eval_folders:
+            continue
+        
+        # Create two plots: one for success, one for failure
+        for outcome in ['success', 'failure']:
+            # Collect data for this outcome
+            eval_folder_data = {}
+            for eval_folder in eval_folders:
+                transition_counts = task_data[eval_folder][outcome]
+                if transition_counts:  # Only include if we have data
+                    eval_folder_data[eval_folder] = transition_counts
+            
+            if not eval_folder_data:
+                continue
+            
+            # Create the plot
+            plt.figure(figsize=(14, 8))
+            
+            # Prepare data for plotting
+            eval_folders_with_data = sorted(eval_folder_data.keys())
+            means = []
+            stds = []
+            counts = []
+            
+            for eval_folder in eval_folders_with_data:
+                transition_counts = eval_folder_data[eval_folder]
+                means.append(np.mean(transition_counts))
+                stds.append(np.std(transition_counts))
+                counts.append(len(transition_counts))
+            
+            # Create bar plot
+            x_pos = np.arange(len(eval_folders_with_data))
+            width = 0.7
+            
+            bars = plt.bar(x_pos, means, width, yerr=stds, capsize=5, alpha=0.8,
+                          color='green' if outcome == 'success' else 'red',
+                          edgecolor='black', linewidth=1.5)
+            
+            # Add value labels on bars
+            for i, (bar, mean_val, std_val, count) in enumerate(zip(bars, means, stds, counts)):
+                height = bar.get_height()
+                plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.1,
+                        f'{mean_val:.2f}±{std_val:.2f}\n(n={count})',
+                        ha='center', va='bottom', fontsize=9, fontweight='bold')
+            
+            # Customize plot
+            task_display_name = task_name.replace('_', ' ').title()
+            outcome_display = outcome.capitalize()
+            
+            plt.xlabel('Evaluation Folder (Language Sample)', fontsize=12, fontweight='bold')
+            plt.ylabel('Language Switching Frequency (Number of Transitions)', fontsize=12, fontweight='bold')
+            plt.title(f'Language Instruction Switching Frequency: {task_display_name} - {outcome_display} Episodes', 
+                     fontsize=14, fontweight='bold')
+            plt.xticks(x_pos, eval_folders_with_data, rotation=45, ha='right', fontsize=10)
+            plt.grid(True, alpha=0.3, axis='y')
+            
+            # Set y-axis to start from 0 or slightly below
+            max_mean = max(means) if means else 1
+            max_std = max(stds) if stds else 0
+            plt.ylim(0, max_mean + max_std * 2 + 1)
+            
+            plt.tight_layout()
+            
+            # Save plot
+            safe_task_name = re.sub(r'[^A-Za-z0-9_.-]+', '_', task_name)
+            out_path = os.path.join(language_frequency_dir, f'{safe_task_name}_{outcome}_language_frequency.png')
+            plt.savefig(out_path, dpi=300, bbox_inches='tight')
+            plt.close()
+            saved_paths.append(out_path)
+            
+            print(f"  Saved: {out_path}")
+    
+    print(f"\nLanguage switching frequency plots saved to: {language_frequency_dir}")
+    return saved_paths
+
+def analyze_completion_time_from_pickles(base_path="./", episodes_per_evaluation=50):
+    """Analyze completion time (episode_length) from pickle files.
+    
+    Groups ALL episodes (including failures) into evaluation periods (50 episodes each),
+    then computes mean completion time only for successful episodes within each period.
+    Returns mean/std across evaluation periods.
+    
+    Returns: dict[task_name][eval_folder] -> list of mean completion times per evaluation period
+    """
+    # First, collect all episode data grouped by task, eval_folder, and episode number
+    # Store both success status and episode_length for each episode
+    episode_data_dict = defaultdict(lambda: defaultdict(dict))  # task -> eval_folder -> episode_num -> {'success': bool, 'length': int}
+    
+    # Find all pickle files in rollout directories
+    pickle_files = []
+    for item in os.listdir(base_path):
+        if item.startswith('rollouts_'):
+            rollouts_dir = os.path.join(base_path, item)
+            if os.path.isdir(rollouts_dir):
+                # Find all pickle files recursively
+                pattern = os.path.join(rollouts_dir, "**", "*.pkl")
+                pickle_files.extend(glob.glob(pattern, recursive=True))
+    
+    print(f"Found {len(pickle_files)} pickle files to analyze for completion time")
+    
+    lang_folder_regex = re.compile(r'(lang_?\d+_sample_?\d+(?:_verification)?)', re.IGNORECASE)
+    
+    for pickle_file in pickle_files:
+        try:
+            with open(pickle_file, 'rb') as f:
+                episode_data = pickle.load(f)
+            
+            # Extract task name from filename
+            filename = os.path.basename(pickle_file)
+            task_match = re.search(r'--task=([^\.]+)', filename)
+            if not task_match:
+                continue
+            task_name = task_match.group(1)
+            
+            # Extract success/failure from filename
+            success_match = re.search(r'--success=([^\-]+)', filename)
+            is_success = success_match.group(1) == 'True' if success_match else False
+            
+            # Extract episode number
+            episode_match = re.search(r'episode=(\d+)', filename)
+            if not episode_match:
+                continue
+            episode_num = int(episode_match.group(1))
+            
+            # Extract evaluation folder (lang_X_sample_Y) from directory path
+            relative_path = os.path.relpath(os.path.dirname(pickle_file), base_path)
+            m = lang_folder_regex.search(relative_path)
+            if m:
+                eval_folder = m.group(1)
+            else:
+                # Fallback: use the immediate directory name
+                eval_folder = os.path.basename(os.path.dirname(pickle_file))
+            
+            # Extract episode_length (completion time)
+            episode_length = episode_data.get('episode_length')
+            if episode_length is not None:
+                episode_data_dict[task_name][eval_folder][episode_num] = {
+                    'success': is_success,
+                    'length': episode_length
+                }
+        
+        except Exception as e:
+            print(f"Error loading {pickle_file}: {e}")
+            continue
+    
+    # Now group episodes into evaluation periods and compute mean completion time per period
+    completion_time_data = defaultdict(lambda: defaultdict(list))  # task -> eval_folder -> list of eval period means
+    
+    for task_name in episode_data_dict:
+        for eval_folder in episode_data_dict[task_name]:
+            episodes = episode_data_dict[task_name][eval_folder]
+            if not episodes:
+                continue
+            
+            # Sort episodes by episode number
+            sorted_episodes = sorted(episodes.items())
+            
+            # Group into evaluation periods
+            current_eval_episodes = []
+            eval_period_means = []
+            
+            for episode_num, episode_info in sorted_episodes:
+                current_eval_episodes.append(episode_info)
+                
+                # When we reach episodes_per_evaluation, compute mean for successful episodes only
+                if len(current_eval_episodes) == episodes_per_evaluation:
+                    # Filter to only successful episodes and compute mean
+                    success_lengths = [ep['length'] for ep in current_eval_episodes if ep['success']]
+                    if success_lengths:  # Only compute if we have at least one success
+                        eval_mean = np.mean(success_lengths)
+                        eval_period_means.append(eval_mean)
+                    current_eval_episodes = []
+            
+            # Handle remaining episodes if >= 30 (following the same threshold as group_episodes_by_evaluation)
+            if len(current_eval_episodes) >= 30:
+                success_lengths = [ep['length'] for ep in current_eval_episodes if ep['success']]
+                if success_lengths:  # Only compute if we have at least one success
+                    eval_mean = np.mean(success_lengths)
+                    eval_period_means.append(eval_mean)
+            
+            # Store the evaluation period means
+            if eval_period_means:
+                completion_time_data[task_name][eval_folder] = eval_period_means
+    
+    return completion_time_data
+
+def plot_completion_time(completion_time_data, output_dir='./analysis_plots'):
+    """Create plots showing average completion time for each task.
+    
+    Creates plots only for success cases, with bars for each evaluation folder.
+    The data in completion_time_data is already grouped by evaluation periods (50 episodes each),
+    so we compute mean/std across evaluation periods.
+    """
+    if not completion_time_data:
+        print("No completion time data found for plotting")
+        return []
+    
+    # Create completion_time directory
+    completion_time_dir = os.path.join(output_dir, 'completion_time')
+    os.makedirs(completion_time_dir, exist_ok=True)
+    
+    saved_paths = []
+    
+    # Get all unique tasks
+    all_tasks = sorted(completion_time_data.keys())
+    
+    print(f"\nCreating completion time plots for {len(all_tasks)} tasks...")
+    
+    for task_name in all_tasks:
+        task_data = completion_time_data[task_name]
+        
+        # Get all evaluation folders for this task
+        eval_folders = sorted(task_data.keys())
+        
+        if not eval_folders:
+            continue
+        
+        # Collect data for success cases only
+        eval_folder_data = {}
+        for eval_folder in eval_folders:
+            eval_period_means = task_data[eval_folder]  # List of means for each evaluation period
+            if eval_period_means:  # Only include if we have data
+                eval_folder_data[eval_folder] = eval_period_means
+        
+        if not eval_folder_data:
+            continue
+        
+        # Create the plot
+        plt.figure(figsize=(14, 8))
+        
+        # Prepare data for plotting
+        eval_folders_with_data = sorted(eval_folder_data.keys())
+        means = []
+        stds = []
+        counts = []
+        
+        for eval_folder in eval_folders_with_data:
+            eval_period_means = eval_folder_data[eval_folder]  # List of means across evaluation periods
+            # Compute mean and std across evaluation periods
+            means.append(np.mean(eval_period_means))
+            stds.append(np.std(eval_period_means))
+            counts.append(len(eval_period_means))  # Number of evaluation periods
+        
+        # Create bar plot
+        x_pos = np.arange(len(eval_folders_with_data))
+        width = 0.7
+        
+        bars = plt.bar(x_pos, means, width, yerr=stds, capsize=5, alpha=0.8,
+                      color='green', edgecolor='black', linewidth=1.5)
+        
+        # Add value labels on bars
+        for i, (bar, mean_val, std_val, count) in enumerate(zip(bars, means, stds, counts)):
+            height = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width()/2., height + std_val + 0.1,
+                    f'{mean_val:.2f}±{std_val:.2f}\n(n={count})',
+                    ha='center', va='bottom', fontsize=9, fontweight='bold')
+        
+        # Customize plot
+        task_display_name = task_name.replace('_', ' ').title()
+        
+        plt.xlabel('Evaluation Folder (Language Sample)', fontsize=12, fontweight='bold')
+        plt.ylabel('Average Completion Time (Number of Steps)', fontsize=12, fontweight='bold')
+        plt.title(f'Average Completion Time: {task_display_name} - Success Episodes', 
+                 fontsize=14, fontweight='bold')
+        plt.xticks(x_pos, eval_folders_with_data, rotation=45, ha='right', fontsize=10)
+        plt.grid(True, alpha=0.3, axis='y')
+        
+        # Set y-axis to start from 0 or slightly below
+        max_mean = max(means) if means else 1
+        max_std = max(stds) if stds else 0
+        plt.ylim(0, max_mean + max_std * 2 + 1)
+        
+        plt.tight_layout()
+        
+        # Save plot
+        safe_task_name = re.sub(r'[^A-Za-z0-9_.-]+', '_', task_name)
+        out_path = os.path.join(completion_time_dir, f'{safe_task_name}_success_completion_time.png')
+        plt.savefig(out_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        saved_paths.append(out_path)
+        
+        print(f"  Saved: {out_path}")
+    
+    print(f"\nCompletion time plots saved to: {completion_time_dir}")
+    return saved_paths
+
 def main():
     """Main analysis function."""
     # Parse command line arguments
@@ -2556,6 +3069,24 @@ def main():
     else:
         lang_diversity_data = None
     
+    # Language switching frequency analysis
+    print("\nAnalyzing language instruction switching frequency from pickle files...")
+    lang_switching_data = analyze_language_switching_frequency_from_pickles(base_path="./")
+    if lang_switching_data:
+        print("\nCreating language switching frequency plots...")
+        plot_language_switching_frequency(lang_switching_data, output_dir=args.output_dir)
+    else:
+        lang_switching_data = None
+    
+    # Completion time analysis
+    print("\nAnalyzing completion time from pickle files...")
+    completion_time_data = analyze_completion_time_from_pickles(base_path="./")
+    if completion_time_data:
+        print("\nCreating completion time plots...")
+        plot_completion_time(completion_time_data, output_dir=args.output_dir)
+    else:
+        completion_time_data = None
+    
     # Per-folder evaluation plots (e.g., for each subfolder under rollouts_openpi_original)
     print("\nAnalyzing per-folder evaluation statistics (e.g., rollouts_openpi_original subfolders)...")
     rollout_folders_to_analyze = [
@@ -2576,8 +3107,8 @@ def main():
     print(f"\nAnalysis complete! Plots saved to '{args.output_dir}/'")
     print("Files generated:")
     print("  - evaluation_mean_std_across_4_periods.png (Combined plot: Shows mean and std across evaluation periods for all experiments)")
-    print("  - evaluation_mean_std_openpi_original_rephrase.png (NEW: Separate plot for rephrase experiments)")
-    print("  - evaluation_mean_std_openpi_original_no_transform.png (NEW: Separate plot for no_transform experiments)")
+    print("  - evaluation_mean_std_<subfolder>.png (Separate plots for each subfolder under rollouts_openpi_original)")
+    print("    Examples: evaluation_mean_std_transform_rephrase.png, evaluation_mean_std_sample_ablation.png, etc.")
     print("  - success_rates_all_experiments.png")
     print("  - success_rates_original.png")
     print("  - success_rates_rephrase.png")
@@ -2599,6 +3130,13 @@ def main():
         print("  - language_plots/ (Directory containing language diversity plots)")
         print("    - <task_name>_success_language_diversity.png (Language diversity for successful episodes)")
         print("    - <task_name>_failure_language_diversity.png (Language diversity for failed episodes)")
+    if lang_switching_data:
+        print("  - language_frequency/ (Directory containing language switching frequency plots)")
+        print("    - <task_name>_success_language_frequency.png (Language switching frequency for successful episodes)")
+        print("    - <task_name>_failure_language_frequency.png (Language switching frequency for failed episodes)")
+    if completion_time_data:
+        print("  - completion_time/ (Directory containing completion time plots)")
+        print("    - <task_name>_success_completion_time.png (Average completion time for successful episodes)")
 
 if __name__ == "__main__":
     main()

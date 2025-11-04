@@ -1,0 +1,1203 @@
+Task suite: simpler_spoon_on_towel
+
+Task: Set the spoon in the center of the towel
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=1--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=1--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=2--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=2--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=3--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=3--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=4--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=4--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=5--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=5--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=6--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=6--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=7--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=7--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=8--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=8--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=9--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=9--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 4 (44.4%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=10--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=10--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 4 (40.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=11--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=11--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 5 (45.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=12--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=12--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 12
+# successes: 5 (41.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=13--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=13--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 13
+# successes: 5 (38.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=14--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=14--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 14
+# successes: 6 (42.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=15--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=15--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 15
+# successes: 6 (40.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=16--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=16--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 16
+# successes: 6 (37.5%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=17--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=17--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 6 (35.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=18--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=18--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 18
+# successes: 6 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=19--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=19--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 19
+# successes: 7 (36.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=20--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=20--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 20
+# successes: 7 (35.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=21--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=21--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 7 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=22--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=22--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 7 (31.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=23--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=23--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 23
+# successes: 8 (34.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=24--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=24--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 24
+# successes: 8 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=25--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=25--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 25
+# successes: 8 (32.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=26--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=26--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 26
+# successes: 9 (34.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=27--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=27--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 27
+# successes: 10 (37.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=28--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=28--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 28
+# successes: 10 (35.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=29--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=29--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 29
+# successes: 10 (34.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=30--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=30--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 10 (33.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=31--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=31--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 31
+# successes: 10 (32.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=32--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=32--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 32
+# successes: 11 (34.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=33--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=33--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 33
+# successes: 11 (33.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=34--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=34--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 34
+# successes: 11 (32.4%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=35--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=35--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 35
+# successes: 12 (34.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=36--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=36--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 36
+# successes: 13 (36.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=37--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=37--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 37
+# successes: 13 (35.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=38--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=38--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 38
+# successes: 13 (34.2%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=39--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=39--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 39
+# successes: 13 (33.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=40--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=40--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 40
+# successes: 14 (35.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=41--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=41--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 41
+# successes: 15 (36.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=42--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=42--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 15 (35.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=43--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=43--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 43
+# successes: 16 (37.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=44--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=44--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 44
+# successes: 17 (38.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=45--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=45--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 45
+# successes: 18 (40.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=46--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=46--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 46
+# successes: 18 (39.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=47--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=47--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 47
+# successes: 19 (40.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=48--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=48--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 48
+# successes: 20 (41.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=49--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=49--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 20 (40.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=50--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=50--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 50
+# successes: 21 (42.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=51--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=51--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 51
+# successes: 22 (43.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=52--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=52--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 52
+# successes: 22 (42.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=53--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=53--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 53
+# successes: 22 (41.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=54--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=54--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 54
+# successes: 22 (40.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=55--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=55--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 55
+# successes: 22 (40.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=56--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=56--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 56
+# successes: 22 (39.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=57--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=57--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 57
+# successes: 22 (38.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=58--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=58--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 58
+# successes: 22 (37.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=59--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=59--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 59
+# successes: 23 (39.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=60--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=60--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 60
+# successes: 23 (38.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=61--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=61--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 61
+# successes: 23 (37.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=62--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=62--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 62
+# successes: 23 (37.1%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=63--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=63--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 23 (36.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=64--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=64--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 64
+# successes: 24 (37.5%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=65--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=65--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 65
+# successes: 24 (36.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=66--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=66--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 66
+# successes: 24 (36.4%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=67--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=67--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 67
+# successes: 25 (37.3%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=68--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=68--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 68
+# successes: 25 (36.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=69--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=69--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 69
+# successes: 26 (37.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=70--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=70--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 26 (37.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=71--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=71--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 71
+# successes: 27 (38.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=72--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=72--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 27 (37.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=73--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=73--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 27 (37.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=74--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=74--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 27 (36.5%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=75--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=75--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 75
+# successes: 27 (36.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=76--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=76--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 76
+# successes: 28 (36.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=77--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=77--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 77
+# successes: 28 (36.4%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=78--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=78--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 29 (37.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=79--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=79--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 79
+# successes: 29 (36.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=80--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=80--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 80
+# successes: 30 (37.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=81--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=81--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 30 (37.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=82--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=82--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 30 (36.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=83--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=83--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 30 (36.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=84--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=84--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 30 (35.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=85--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=85--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 85
+# successes: 31 (36.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=86--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=86--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 86
+# successes: 31 (36.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=87--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=87--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 31 (35.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=88--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=88--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 88
+# successes: 31 (35.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=89--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=89--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 89
+# successes: 32 (36.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=90--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=90--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 90
+# successes: 33 (36.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=91--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=91--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 91
+# successes: 34 (37.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=92--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=92--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 92
+# successes: 35 (38.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=93--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=93--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 35 (37.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=94--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=94--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 94
+# successes: 35 (37.2%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=95--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=95--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 95
+# successes: 36 (37.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=96--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=96--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 96
+# successes: 37 (38.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=97--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=97--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 97
+# successes: 38 (39.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=98--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=98--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 98
+# successes: 39 (39.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=99--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=99--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 99
+# successes: 39 (39.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=100--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=100--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 100
+# successes: 40 (40.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=101--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=101--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 40 (39.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=102--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=102--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 102
+# successes: 40 (39.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=103--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=103--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 103
+# successes: 41 (39.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=104--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=104--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 104
+# successes: 42 (40.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=105--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=105--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 42 (40.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=106--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=106--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 42 (39.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=107--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=107--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 107
+# successes: 42 (39.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=108--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=108--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 108
+# successes: 43 (39.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=109--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=109--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 109
+# successes: 43 (39.4%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=110--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=110--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 43 (39.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=111--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=111--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 43 (38.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=112--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=112--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 112
+# successes: 43 (38.4%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=113--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=113--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 113
+# successes: 43 (38.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=114--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=114--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 114
+# successes: 44 (38.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=115--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=115--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 44 (38.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=116--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=116--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 44 (37.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=117--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=117--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 117
+# successes: 45 (38.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=118--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=118--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 118
+# successes: 45 (38.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=119--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=119--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 45 (37.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=120--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=120--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 120
+# successes: 45 (37.5%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=121--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=121--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 121
+# successes: 45 (37.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=122--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=122--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 45 (36.9%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=123--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=123--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 123
+# successes: 45 (36.6%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=124--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=124--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 124
+# successes: 45 (36.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=125--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=125--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 125
+# successes: 45 (36.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=126--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=126--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 126
+# successes: 46 (36.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=127--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=127--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 46 (36.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=128--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=128--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 128
+# successes: 46 (35.9%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=129--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=129--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 129
+# successes: 46 (35.7%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=130--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=130--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 130
+# successes: 47 (36.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=131--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=131--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 131
+# successes: 47 (35.9%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=132--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=132--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 47 (35.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=133--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=133--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 47 (35.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=134--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=134--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 134
+# successes: 48 (35.8%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=135--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=135--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 49 (36.3%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=136--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=136--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 136
+# successes: 50 (36.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=137--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=137--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 137
+# successes: 50 (36.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=138--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=138--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 138
+# successes: 50 (36.2%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=139--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=139--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 139
+# successes: 51 (36.7%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=140--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=140--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 140
+# successes: 52 (37.1%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=141--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=141--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 141
+# successes: 53 (37.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=142--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=142--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 142
+# successes: 54 (38.0%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=143--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=143--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 143
+# successes: 54 (37.8%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=144--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=144--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 144
+# successes: 55 (38.2%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=145--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=145--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 145
+# successes: 56 (38.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=146--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=146--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 146
+# successes: 57 (39.0%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=147--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=147--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 58 (39.5%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=148--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=148--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 148
+# successes: 59 (39.9%)
+
+Task: Carefully transfer the spoon to the middle of the towel.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=149--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=149--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 59 (39.6%)
+
+Task: Put the utensil in the core of the napkin.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=150--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_5_test/episode=150--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 150
+# successes: 60 (40.0%)
+Current task success rate: 0.4
+Current total success rate: 0.4

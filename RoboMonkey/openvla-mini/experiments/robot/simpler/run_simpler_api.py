@@ -360,13 +360,18 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 # The adapter expects obs["agent"]["eef_pos"] with 8 elements (xyz + quaternion xyzw + gripper)
                 # So we pass the full obs dict, not just eef_pos
                 observation_state = obs
+                
+                # Print only agent eef_pos for debugging (keep dict structure)
+                eef_pos = observation_state.get('agent', {}).get('eef_pos', None)
+                obs_server_format = {'agent': {'eef_pos': eef_pos}} if eef_pos is not None else {}
+                # print(f"Observation state (eef_pos only): {obs_server_format}")
 
                 # Call API to get action
                 api_response = call_api_for_action(
                     api_url=cfg.api_url,
                     instruction=task_description,
                     image_array=raw_img,
-                    observation_state=observation_state,
+                    observation_state=obs_server_format,
                     action_history=action_history,
                     rephrased_list=rephrased_list,
                     lang_rephrase_num=cfg.lang_rephrase_num,

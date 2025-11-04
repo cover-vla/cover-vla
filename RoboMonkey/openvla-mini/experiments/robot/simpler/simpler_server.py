@@ -379,6 +379,7 @@ if __name__ == "__main__":
     
     # Run the server
     port = int(os.getenv('PORT', 5001))
-    logger.info(f"Starting SIMPLER server on port {port}...")
-    app.run(host='0.0.0.0', port=port, debug=False)
+    host = os.getenv('HOST', '127.0.0.1')  # Default to localhost, can be overridden with HOST env var
+    logger.info(f"Starting SIMPLER server on {host}:{port}...")
+    app.run(host=host, port=port, debug=False)
 

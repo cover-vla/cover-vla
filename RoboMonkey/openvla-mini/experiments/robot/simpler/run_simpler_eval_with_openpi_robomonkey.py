@@ -403,7 +403,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 with torch.no_grad():
                     # Generate action chunk every step (reset queue to force new generation)
                     pi0_policy.reset()  # Reset action queue to generate new chunk every step
-                    action_queue = pi0_policy.select_action(observation)
+                    action_queue = pi0_policy.select_action(observation, noise_std=1.7)
                     # Get the first action from the chunk (shape: [batch_size, action_dim])
                     current_action_chunk = action_queue.popleft().cpu().numpy()
                     

@@ -54,18 +54,28 @@ class LangTransform:
             4. Infer and include object colors when they can be reasonably deduced (e.g., apples are typically red, strawberries are red)
             5. Use diverse vocabulary across rephrases (vary nouns, verbs, and adjectives)
             6. Ensure each rephrase maintains the same core meaning and task objective
+            7. Try to generate as diverse as possible rephrases.
+            
             
             Examples:
             Original: "put apple on the desk"
-            Reworded: "pick up the red apple and place it on the desk", "take the apple and put it on the desk", "place the red apple on the desk"
+            Reworded: "pick up the red apple and place it on the desk", "take the apple and put it on the desk", "place the red fruit on the desk"
             
             Original: "put cooking pot in the green basket"
-            Reworded: "move the silver cooking pot to the green basket", "take the cooking pot and put it in the green basket", "put the cooking pot into the green basket"
+            Reworded: "move the silver cooking pot to the green basket", "take the cooking pot and put it in the green basket", "put the utensil into the green basket"
             
             Original: "put strawberry on top of the fridge"
             Reworded: "put the red fruit on the fridge", "place the red berry on the top of the fridge", "set the red berry on the top of the refrigerator"
             
+            Original: "lift the water bottle and place it on the desk"
+            Reworded: "pick up the transparent bottle and place it on the wooden desk", "take the hydration bottle and put it on the desk", "place the water on the desk"
+            
             Format your response as:
+            <Meaning of the instruction>
+            Original: <Nouns> as many as possible potential replacements: <Nouns>
+            Original: <Verbs> as many as possible potential replacements: <Verbs>
+            Original: <Adjectives> as many as possible potential replacements: <Adjectives>
+            Original: <Adverbs>
 
             Original Instruction:
             {instruction}

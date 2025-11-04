@@ -68,9 +68,9 @@ def set_seed_everywhere(seed):
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_verification"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_verification"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -90,9 +90,9 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
 def save_episode_data_openpi(episode_data, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves episode data (verifier scores, instructions, actions) to a pickle file."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_verification"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_verification"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -222,7 +222,7 @@ class GenerateConfig:
     # Language consistency verification parameters
     action_distance_threshold: float = 0.5               # L2 distance threshold for triggering regeneration (average across n_action_steps)
     language_diversity_threshold: int = 3                 # Max number of unique languages in recent selections before warning
-    use_adaptive_threshold: bool = False                  # If True, adapt threshold based on observed distances in episode
+    use_adaptive_threshold: bool = True                  # If True, adapt threshold based on observed distances in episode
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -309,6 +309,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         env = get_simpler_env(task, cfg.model_family)
         original_task_description = env.get_language_instruction()
         
+        # Track action distances for adaptive threshold (per task, persists across episodes)
+        observed_action_distances_per_task = []  # List of all observed action distances for adaptive threshold within this task
+        
         # Use rephrased instruction if available
         if cfg.lang_transform_type == "no_transform":
             task_description = original_task_description
@@ -365,9 +368,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             current_selected_instruction = None
             current_selected_instruction_idx = None
             current_selected_instruction_actions = []  # All actions from current instruction's batch
-            
-            # Track action distances for adaptive threshold (if enabled)
-            observed_action_distances = []  # List of all observed action distances for adaptive threshold
             if cfg.task_suite_name == "libero_spatial":
                 max_steps = 220  # longest training demo has 193 steps
             elif cfg.task_suite_name == "libero_object":
@@ -519,12 +519,13 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     execute_action[-1] = float(np.sign(execute_action[-1]))
                     
                     # Determine which instruction was selected (which instruction group does global_action_idx belong to)
-                    instruction_idx = global_action_idx // cfg.policy_batch_inference_size
+                    instruction_idx = int(global_action_idx // cfg.policy_batch_inference_size)  # Ensure it's an int, not a tensor
                     selected_instruction_text = task_list[global_action_idx]  # The actual instruction text
                     
                     # Extract ALL actions from the selected instruction's batch for all n_action_steps
                     # predefined_action_queue contains all n_action_steps timesteps (before popleft)
                     # Extract actions from the selected instruction group (group_start to group_end) for all timesteps
+                    # NOTE: We extract here for verification, but if we regenerate, we'll re-extract with the new batch
                     selected_instruction_all_actions = []
                     for timestep_idx in range(cfg.n_action_steps):
                         timestep_actions = predefined_action_queue[timestep_idx]  # Shape: (batch_size, 7)
@@ -534,21 +535,43 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     
                     # Language consistency verification
                     need_more_samples = False
-                    languages_to_regenerate = set()  # Track which instruction indices need more samples
+                    languages_to_regenerate = []  # Track which instruction indices need more samples (ordered list for FIFO)
                     
                     if language_selection_history:
                         # Check 1: Language diversity - count unique instructions used recently
                         recent_selections = language_selection_history[-3:]  # Last 3 selections
                         unique_recent_instructions = set(sel['instruction_idx'] for sel in recent_selections)
-                        if len(unique_recent_instructions) > cfg.language_diversity_threshold:
+                        # If we have more unique instructions than threshold (e.g., if threshold=3 and we have 3+ unique in last 3 selections)
+                        if len(unique_recent_instructions) >= cfg.language_diversity_threshold:
                             # Too diverse - language switching too frequently
                             print(f"Warning: High language diversity detected. Recent selections: {unique_recent_instructions}")
-                            languages_to_regenerate.update(unique_recent_instructions)
+                            # Add languages in order (newest first from recent_selections)
+                            for sel in reversed(recent_selections):  # Add in reverse order so oldest is first
+                                lang_idx = sel['instruction_idx']
+                                if lang_idx not in languages_to_regenerate:
+                                    languages_to_regenerate.append(lang_idx)
+                        
+                        # Determine threshold once before the loop (adaptive or fixed)
+                        # Use per-task observed distances for adaptive threshold
+                        if cfg.use_adaptive_threshold and len(observed_action_distances_per_task) > 5:
+                            # Use 75th percentile of observed distances as threshold
+                            threshold = np.percentile(observed_action_distances_per_task, 75)
+                        else:
+                            threshold = cfg.action_distance_threshold
                         
                         # Check 2: Compare entire action chunks from previous language selections with current selection
                         # Compare all n_action_steps actions, not just the first one
+                        # Track all distances for this comparison round
+                        comparison_distances = []
                         for prev_selection in language_selection_history:
                             prev_instruction_idx = prev_selection['instruction_idx']
+                            # Ensure both are ints for comparison (in case they were stored as tensors)
+                            prev_instruction_idx = int(prev_instruction_idx) if not isinstance(prev_instruction_idx, int) else prev_instruction_idx
+                            
+                            # Skip comparison if it's the same instruction (comparing same instruction at different timesteps is not useful)
+                            if prev_instruction_idx == instruction_idx:
+                                continue
+                            
                             prev_action_chunk = prev_selection['all_actions_from_instruction']  # List of (policy_batch_inference_size, 7) arrays, length n_action_steps
                             current_action_chunk = selected_instruction_all_actions  # List of (policy_batch_inference_size, 7) arrays, length n_action_steps
                             
@@ -569,23 +592,39 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                             
                             # Average distance across all timesteps
                             avg_action_distance = total_distance / cfg.n_action_steps
-                            
-                            # Track observed distances for adaptive threshold
-                            observed_action_distances.append(avg_action_distance)
-                            
-                            # Determine threshold (adaptive or fixed)
-                            if cfg.use_adaptive_threshold and len(observed_action_distances) > 5:
-                                # Use 75th percentile of observed distances as threshold
-                                threshold = np.percentile(observed_action_distances, 75)
-                            else:
-                                threshold = cfg.action_distance_threshold
+                            comparison_distances.append(avg_action_distance)
                             
                             # Check if average action distance exceeds threshold
                             if avg_action_distance > threshold:
                                 print(f"Warning: Large action chunk difference ({avg_action_distance:.3f}) between instruction {prev_instruction_idx} and {instruction_idx} at step {t} (threshold: {threshold:.3f})")
                                 need_more_samples = True
-                                languages_to_regenerate.add(prev_instruction_idx)
-                                languages_to_regenerate.add(instruction_idx)
+                                # Add languages in order: prev first (older), then current (newer)
+                                if prev_instruction_idx not in languages_to_regenerate:
+                                    languages_to_regenerate.append(prev_instruction_idx)
+                                if instruction_idx not in languages_to_regenerate:
+                                    languages_to_regenerate.append(instruction_idx)
+                        
+                        # Track the minimum distance from this comparison round for adaptive threshold
+                        # This represents how different the current selection is from the closest previous selection
+                        # Add to per-task list (persists across episodes within the same task)
+                        if comparison_distances:
+                            min_distance_this_round = min(comparison_distances)
+                            observed_action_distances_per_task.append(min_distance_this_round)
+                    
+                    # Limit languages_to_regenerate to maximum 4 unique languages (FIFO: keep last 4 unique, remove oldest)
+                    # First, get unique languages while preserving order (FIFO)
+                    seen = set()
+                    unique_languages = []
+                    for lang_idx in languages_to_regenerate:
+                        if lang_idx not in seen:
+                            seen.add(lang_idx)
+                            unique_languages.append(lang_idx)
+                    
+                    # If more than 4 unique languages, keep only the last 4 (most recent)
+                    if len(unique_languages) > 4:
+                        unique_languages = unique_languages[-4:]
+                    
+                    languages_to_regenerate = unique_languages
                     
                     # If actions are inconsistent, regenerate only selected languages with more samples
                     if need_more_samples and languages_to_regenerate:
@@ -656,7 +695,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                         new_group_end = None
                         current_idx = 0
                         
-                        # Iterate through only the languages we regenerated
+                        # Iterate through only the languages we regenerated (in sorted order to match how we built increased_task_list)
                         for orig_lang_idx in sorted(languages_to_regenerate):
                             lang_size = increased_samples_per_lang
                             if current_idx <= global_action_idx < current_idx + lang_size:
@@ -667,14 +706,15 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                             current_idx += lang_size
                         
                         if new_instruction_idx is None:
-                            # Fallback: assume it's the first language
+                            # Fallback: This should not happen, but handle edge case
+                            print(f"Warning: Could not map global_action_idx {global_action_idx} to language index. Using first language.")
                             new_instruction_idx = sorted(languages_to_regenerate)[0]
                             new_group_start = 0
                             new_group_end = increased_samples_per_lang
                         
-                        instruction_idx = new_instruction_idx
-                        selected_instruction_text = increased_verifier_instructions[global_action_idx]
-                        group_start = new_group_start
+                        instruction_idx = int(new_instruction_idx)  # Ensure it's an int
+                        selected_instruction_text = increased_verifier_instructions[global_action_idx]  # This is correct - global_action_idx is into increased_batch_size
+                        group_start = new_group_start  # Indices into increased_batch_size
                         group_end = new_group_end
                         
                         # Re-extract all actions from selected instruction
@@ -715,6 +755,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                         action_queue = selected_action_chunk
                     
                     # Store tracking information in memory (NOT in episode_data for pickle)
+                    # Limit history to 4 most recent entries (FIFO - remove oldest when adding new)
                     language_selection_history.append({
                         'verifier_step': t,
                         'selected_instruction': selected_instruction_text,
@@ -724,6 +765,9 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                         'verifier_score': float(max_score),
                         'global_action_idx': int(global_action_idx)
                     })
+                    # Keep only the 4 most recent selections
+                    if len(language_selection_history) > 4:
+                        language_selection_history.pop(0)  # Remove oldest entry
                     
                     # Update current tracking variables
                     current_selected_instruction = selected_instruction_text
@@ -748,12 +792,15 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     # If need_more_samples, action_queue was already updated in the regeneration block
                     
                     # Store verifier data
+                    # Note: If we regenerated, max_instruction and max_score are from the regenerated batch
+                    # If we didn't regenerate, they're from the original batch
                     episode_data['verifier_scores'].append(max_score)
-                    episode_data['selected_instructions'].append(max_instruction)
+                    episode_data['selected_instructions'].append(selected_instruction_text)  # Use selected_instruction_text which is updated after regeneration
                     episode_data['execute_actions'].append(execute_action.copy())
                     episode_data['step_timestamps'].append(t)
                     
-                    task_description = max_instruction
+                    # Update task_description with the final selected instruction (after regeneration if it happened)
+                    task_description = selected_instruction_text
                 else:
                     # Use actions from queue (either from verifier-selected chunk or from regular policy)
                     # action_queue should exist from previous call to select_action at n_action_steps boundary
