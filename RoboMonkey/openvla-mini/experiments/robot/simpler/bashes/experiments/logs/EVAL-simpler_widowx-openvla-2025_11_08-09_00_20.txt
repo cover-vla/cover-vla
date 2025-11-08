@@ -1,0 +1,73 @@
+Task suite: simpler_widowx
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=1--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=2--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=2--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=3--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=3--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=4--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=4--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=5--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=5--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=6--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=6--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=7--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=7--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 7 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=8--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=8--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+
+Task: Position the vegetable in the yellow holder.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=9--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=9--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 9 (100.0%)

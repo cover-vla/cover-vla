@@ -123,77 +123,13 @@ def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     # Make the path relative to this script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval_vlm.json')
     
     with open(json_path, 'r') as f:
         all_rephrases = json.load(f)
     # The new format has an "instructions" key containing the task data
     return all_rephrases.get("instructions", {})
 
-class QwenEmbedder:
-    """Qwen3-based text embedder for computing instruction embeddings."""
-    
-    def __init__(self, model_name: str = "Qwen/Qwen3-Embedding-0.6B", device: str = "auto"):
-        """Initialize Qwen3 embedder."""
-        if device == "auto":
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-        
-        self.device = device
-        self.model = SentenceTransformer(model_name, device=device)
-        print(f"Initialized Qwen3 embedder: {model_name} on {device}")
-    
-    def embed_texts(self, texts: List[str], batch_size: int = 32) -> np.ndarray:
-        """Compute Qwen3 embeddings for a list of texts using query prompt."""
-        embeddings = self.model.encode(
-            texts, 
-            prompt_name="query",
-            batch_size=batch_size,
-            convert_to_numpy=True,
-            show_progress_bar=True
-        )
-        return embeddings
-
-def compute_rephrase_embeddings(rephrases_data: Dict, num_clusters: int):
-    """
-    Compute Qwen3 embeddings for rephrases and cluster them into specified number of clusters.
-    Returns clustered rephrases for each task.
-    
-    Args:
-        rephrases_data: Dictionary from load_rephrases() containing task rephrases
-        num_clusters: Number of clusters to create (e.g., 4 or 8)
-    
-    Returns:
-        Dictionary mapping task_key -> List[str] of clustered rephrases (one per cluster)
-    """
-    from sklearn.cluster import KMeans
-    
-    print(f"Computing Qwen3 embeddings and clustering into {num_clusters} clusters...")
-    
-    # Initialize embedder
-    embedder = QwenEmbedder()
-    
-    # Compute embeddings for all rephrases
-    embeddings = embedder.embed_texts(rephrases_data, batch_size=32)
-    
-    # Cluster embeddings using KMeans
-    kmeans = KMeans(n_clusters=num_clusters, random_state=42, n_init=10)
-    cluster_labels = kmeans.fit_predict(embeddings)
-    
-    # Select one representative rephrase from each cluster (closest to cluster center)
-    clustered_rephrases = []
-    
-    for cluster_id in range(num_clusters):
-        cluster_indices = np.where(cluster_labels == cluster_id)[0]
-        cluster_embeddings = embeddings[cluster_indices]
-        cluster_center = kmeans.cluster_centers_[cluster_id]
-        
-        # Find rephrase closest to cluster center
-        distances = np.linalg.norm(cluster_embeddings - cluster_center, axis=1)
-        closest_idx = cluster_indices[np.argmin(distances)]
-        clustered_rephrases.append(rephrases_data[closest_idx])
-    
-    print(f"Clustering complete! Processed {len(clustered_rephrases)} clusters.")
-    return clustered_rephrases
 
 def process_inputs(batch_size, predefined_action_queue, verifier_action=False, action_history=[],cfg=None):
     processed_future_actions_batch = []
@@ -337,7 +273,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     if cfg.use_verifier:
         # Initialize ensemble model for similarity scoring
         print("Loading ensemble model for similarity scoring...")
-        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt")
+        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_182123_trainable_only.pt")
         print("Ensemble model loaded successfully!")
     else:
         ensemble_model = None
@@ -359,6 +295,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     
     # use pre-defined action noise std 
     action_noise_std = 1.0 if cfg.policy_batch_inference_size > 1 else 1.0
+    
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
@@ -375,6 +312,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         if cfg.lang_transform_type == "no_transform":
             task_description = original_task_description
             rephrased_list = None
+            matching_task_id = None
         else:
             # Find matching task in preloaded rephrases
             matching_task_id = None
@@ -384,13 +322,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     break
             
             if matching_task_id is not None:
-                # rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
-                # Cluster rephrases if using rephrase transformation
-                if cfg.lang_rephrase_num > 1:
-                    print(f"Clustering rephrases into {cfg.lang_rephrase_num} clusters...")
-                    rephrased_list = compute_rephrase_embeddings(preloaded_rephrases[matching_task_id]["ert_rephrases"], num_clusters=cfg.lang_rephrase_num)
-                else:
-                    rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"][:1] 
+                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"][:cfg.lang_rephrase_num] 
             else:
                 raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
 
@@ -415,7 +347,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             t = 0
             replay_images = []
             action_history = []  # Track actions for similarity scoring
-            # action_queue = None  # Deque of length n_action_steps; regenerate only when empty
             
             # Track episode data for saving
             episode_data = {

@@ -51,9 +51,9 @@ DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
 def save_rollout_video_openpi(rollout_images, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves an MP4 replay of an episode."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_api"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_api"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -73,9 +73,9 @@ def save_rollout_video_openpi(rollout_images, idx, success, task_description, tr
 def save_episode_data_openpi(episode_data, idx, success, task_description, transformation_type, model_name, lang_rephrase_num, policy_batch_inference_size, log_file=None):
     """Saves episode data (verifier scores, instructions, actions) to a pickle file."""
     if model_name == "juexzz/INTACT-pi0-finetune-rephrase-bridge":
-        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_rephrase/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_api"
     elif model_name == "juexzz/INTACT-pi0-finetune-bridge":
-        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}"
+        rollout_dir = f"./rollouts_openpi_original/transform_{transformation_type}/lang_{lang_rephrase_num}_sample_{policy_batch_inference_size}_api"
     else:
         raise ValueError(f"Invalid model name: {model_name}")
 
@@ -95,18 +95,15 @@ def save_episode_data_openpi(episode_data, idx, success, task_description, trans
 def load_rephrases(task_suite_name: str):
     """Load pre-generated rephrases for the task suite."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval.json')
+    json_path = os.path.join(script_dir, 'simpler_rephrased_final_eval_vlm.json')
     
     with open(json_path, 'r') as f:
         all_rephrases = json.load(f)
     return all_rephrases.get("instructions", {})
 
-def save_image_to_disk(image_array, output_dir="./temp_images"):
-    """Save numpy image array to disk and return the path."""
-    import os
-    import tempfile
-    
-    os.makedirs(output_dir, exist_ok=True)
+def image_array_to_base64(image_array):
+    """Convert numpy image array to base64 encoded string."""
+    import io
     
     # Convert numpy array to PIL Image
     if image_array.dtype != np.uint8:
@@ -116,13 +113,13 @@ def save_image_to_disk(image_array, output_dir="./temp_images"):
     from PIL import Image
     image = Image.fromarray(image_array)
     
-    # Save to temporary file
-    temp_file = tempfile.NamedTemporaryFile(dir=output_dir, suffix='.png', delete=False)
-    image_path = temp_file.name
-    image.save(image_path, format="PNG")
-    temp_file.close()
+    # Convert to base64
+    buffer = io.BytesIO()
+    image.save(buffer, format="PNG")
+    image_bytes = buffer.getvalue()
+    image_base64 = base64.b64encode(image_bytes).decode('utf-8')
     
-    return image_path
+    return image_base64
 
 def convert_to_serializable(obj):
     """Recursively convert numpy arrays and other non-serializable objects to JSON-serializable formats."""
@@ -137,35 +134,26 @@ def convert_to_serializable(obj):
     else:
         return obj
 
-def call_api_for_action(api_url, instruction, image_array, observation_state, action_history, 
-                        rephrased_list=None, lang_rephrase_num=1, policy_batch_inference_size=2,
-                        use_verifier=True, action_queue=None, timestep=0, n_action_steps=4, action_ensemble_temp=-0.8,
-                        temp_image_dir="./temp_images"):
-    """Call the API to get the next action."""
-    # Save image to disk and get path
-    image_path = save_image_to_disk(image_array, output_dir=temp_image_dir)
+def call_api_for_action(api_url, instruction, original_instruction, image_array, observation_state, timestep=0):
+    """Call the API to get the next action.
     
-    # Convert action_queue if it exists (may contain numpy arrays or tensors)
-    action_queue_serialized = None
-    if action_queue is not None:
-        if isinstance(action_queue, list):
-            action_queue_serialized = [convert_to_serializable(item) for item in action_queue]
-        else:
-            action_queue_serialized = convert_to_serializable(action_queue)
+    Args:
+        api_url: URL of the API server
+        instruction: Current instruction (may be updated by verifier)
+        original_instruction: Original instruction for matching rephrased list
+        image_array: Image as numpy array
+        observation_state: Observation state dict
+        timestep: Current timestep (used for action queue tracking)
+    """
+    # Convert image array to base64
+    image_base64 = image_array_to_base64(image_array)
     
     payload = {
         'instruction': instruction,
-        'image_path': image_path,  # Send path instead of base64
+        'original_instruction': original_instruction,  # Used for matching rephrased instructions
+        'image': image_base64,  # Send base64 encoded image directly
         'observation_state': convert_to_serializable(observation_state),
-        'action_history': convert_to_serializable(action_history),
-        'rephrased_list': rephrased_list,
-        'lang_rephrase_num': lang_rephrase_num,
-        'policy_batch_inference_size': policy_batch_inference_size,
-        'use_verifier': use_verifier,
-        'action_queue': action_queue_serialized,
-        'timestep': timestep,
-        'n_action_steps': n_action_steps,
-        'action_ensemble_temp': action_ensemble_temp,
+        'timestep': timestep,  # Server uses this to track action queues and reset history
     }
     
     response = requests.post(
@@ -176,11 +164,6 @@ def call_api_for_action(api_url, instruction, image_array, observation_state, ac
     )
     response.raise_for_status()
     result = response.json()
-    
-    # Clean up temporary image file after server has loaded it
-    import os
-    if os.path.exists(image_path):
-        os.remove(image_path)
     
     return result
 
@@ -287,6 +270,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         if cfg.lang_transform_type == "no_transform":
             task_description = original_task_description
             rephrased_list = None
+            matching_task_id = None
         else:
             matching_task_id = None
             for task_key, task_data in preloaded_rephrases.items():
@@ -296,8 +280,6 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"]
-                task_description = preloaded_rephrases[matching_task_id]["original"]
-                print(f"Using rephrased instruction: {task_description}")
             else:
                 raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
 
@@ -307,6 +289,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         # Start episodes
         task_episodes, task_successes = 0, 0
         for trail_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
+            if matching_task_id is not None:
+                task_description = preloaded_rephrases[matching_task_id]["original"]
+            else:
+                task_description = original_task_description
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
             if trail_idx % 50 == 0:
@@ -318,8 +304,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             # Setup
             t = 0
             replay_images = []
-            action_history = []
-            action_queue = None
+            # action_history and action_queue are now tracked server-side, no need to track here
             
             # Track episode data for saving
             episode_data = {
@@ -367,21 +352,14 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 # print(f"Observation state (eef_pos only): {obs_server_format}")
 
                 # Call API to get action
+                # Server now handles: action_queue, action_history, rephrased_list automatically
                 api_response = call_api_for_action(
                     api_url=cfg.api_url,
                     instruction=task_description,
+                    original_instruction=original_task_description,  # Used for matching rephrased instructions
                     image_array=raw_img,
                     observation_state=obs_server_format,
-                    action_history=action_history,
-                    rephrased_list=rephrased_list,
-                    lang_rephrase_num=cfg.lang_rephrase_num,
-                    policy_batch_inference_size=cfg.policy_batch_inference_size,
-                    use_verifier=cfg.use_verifier,
-                    action_queue=action_queue,
-                    timestep=t,
-                    n_action_steps=cfg.n_action_steps,
-                    action_ensemble_temp=cfg.action_ensemble_temp,
-                    temp_image_dir="./temp_images"  # Directory for temporary images
+                    timestep=t  # Server uses this to track queues and reset history at t=0
                 )
                 
                 if api_response.get('status') != 'success':
@@ -391,16 +369,11 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 execute_action = np.array(api_response['action'])
                 selected_instruction = api_response.get('selected_instruction', task_description)
                 verifier_score = api_response.get('verifier_score')
-                action_queue = api_response.get('action_queue')
-                action_history_update = api_response.get('action_history_update')
+                # action_queue and action_history_update are no longer returned - server tracks them
                 
                 # Update task description if verifier selected a different instruction
                 if selected_instruction != task_description:
                     task_description = selected_instruction
-                
-                # Update action history
-                if action_history_update is not None:
-                    action_history.append(np.array(action_history_update))
                 
                 # Store episode data
                 episode_data['verifier_scores'].append(verifier_score)

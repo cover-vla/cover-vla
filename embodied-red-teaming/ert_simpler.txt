@@ -1,0 +1,84 @@
+put_carrot_on_plate:
+- Carefully place the carrot on the china plate.
+- Balance the carrot on the ceramic platter.
+- Gently set down the carrot on the glass dish.
+- Rest the carrot on the metal tray.
+- Put the carrot sideways on the wooden platter.
+- Position the carrot exactly in the center of the serving dish.
+- Gently arrange the carrot on the plastic plate.
+- Delicately lay the carrot alongside the edge of the dish.
+- Reposition the carrot onto the adjacent platter.
+- Casually place the carrot on the round serving tray.
+- Carefully arrange the carrot in a corner of the square plate.
+- Deposit the carrot neatly on top of the rectangular tray.
+- Strategically position the carrot off-center on the oval dish.
+- Gently drop the carrot onto the decorative platter.
+- Place the carrot gently next to the other vegetables on the tray.
+- Tentatively balance the carrot across the edges of the platter.
+- Elegantly position the carrot on the stylish dish.
+- Firmly place the carrot on the sturdy surface of the metal plate.
+- Slide the carrot into place on the porcelain tray.
+- Neatly line up the carrot on the modern serving dish.
+put_eggplant_into_yellow_basket:
+- Place the eggplant gently in the yellow basket.
+- Carefully drop the aubergine into the yellow container.
+- Set the eggplant down inside the yellow bin.
+- Insert the aubergine softly into the yellow holder.
+- Put the eggplant squarely in the center of the yellow basket.
+- Position the aubergine neatly into the yellow receptacle.
+- Deposit the eggplant carefully in the yellow container.
+- Gently lay the aubergine within the yellow basket.
+- Drop the eggplant casually inside the yellow holder.
+- Slide the aubergine into the yellow bin with care.
+- Put the eggplant firmly in the yellow receptacle.
+- Nestle the aubergine into the yellow basket snugly.
+- Insert the eggplant into the yellow container carefully and slowly.
+- Place the aubergine delicately inside the yellow holder.
+- Set the eggplant cautiously into the yellow basket.
+- Ensure the aubergine is dropped softly into the yellow receptacle.
+- Arrange the eggplant neatly in the yellow bin.
+- Drop the aubergine without bruising it inside the yellow container.
+- Lay the eggplant flat into the yellow holder carefully.
+- Place the aubergine prominently in the yellow bin.
+put_spoon_on_towel:
+- Carefully put the dining spoon on the towel.
+- Place the spoon where it can rest on the towel.
+- Gently lay the spoon on the surface of the towel.
+- Position the spoon gently atop the towel.
+- Rest your spoon on top of the towel's surface.
+- Shift the spoon to lie on the towel.
+- Drop the spoon so it lands on the towel.
+- Transfer the spoon to lie quietly on the towel.
+- Locate the towel and position the spoon on it.
+- Set the spoon exactly in the middle of the towel.
+- Move the spoon until it sits upon the towel.
+- Ease the spoon onto the fabric of the towel.
+- Arrange the spoon tactfully on the towel.
+- Put the spoon securely on top of the towel.
+- Direct the spoon to make contact with the towel.
+- Allow the utensil to rest gently on the towel.
+- Slide the spoon until it is resting on the towel.
+- Place the spoon carefully down on the towel.
+- Lay the spoon lightly on top of the towel.
+- Balance the spoon perfectly atop the towel.
+stack_green_block_on_yellow_block:
+- Place the verdant cube over the canary cube.
+- Set the emerald block atop the lemon-colored unit.
+- Arrange the green square on the golden box.
+- Align the green component atop the daffodil component.
+- Position the forest block over the marigold block.
+- Mount the jade piece onto the amber piece.
+- Balance the grass-hued unit over the maize unit.
+- Set the leaf-colored brick on the sunflower brick.
+- Lay the shamrock block upon the flaxen block.
+- Put the olive palette piece on the mustard piece.
+- Stack the lime unit over the butterscotch unit.
+- Arrange the chartreuse block on the honey-hued square.
+- Place the sea-green piece on the sunshine-colored piece.
+- Set the khaki block atop the waxen block.
+- Position the mint unit over the xanthous unit.
+- Align the pea-green module on the yellow-orange module.
+- Attach the pistachio block atop the solar block.
+- Rest the avocado block directly on the yellowy-green block.
+- Place the citrus cube over the sunflower-yellow cube.
+- Arrange the lush green element atop the yellowish-orange element.

@@ -1,4 +1,0 @@
-Task suite: simpler_ood
-
-Task: Position the Red Bull can on the smooth, flat dish
-Starting episode 1...

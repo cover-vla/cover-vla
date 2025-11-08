@@ -1,10 +1,28 @@
 """
 Server API for SIMPLER evaluation pipeline.
 
+Key Features:
+    - Server-side action_queue storage: Action queues are stored server-side per session/episode,
+      eliminating the need for clients to send action_queue back and forth. Clients only need to
+      provide a consistent session_id (or episode_id) across requests.
+    
+    - Server-side rephrased_list loading: Rephrased instructions are automatically loaded from JSON
+      files based on the instruction text, eliminating the need for clients to load and pass them.
+
 Usage:
     conda activate <env> && \
     cd ~/vla-clip/RoboMonkey/openvla-mini/experiments/robot/simpler && \
     python simpler_server.py
+    
+Environment Variables:
+    - REPHRASED_JSON_PATH: Path to rephrased instructions JSON file (default: simpler_rephrased_final_eval_vlm.json)
+    - PRETRAINED_CHECKPOINT: Model checkpoint path
+    - USE_VERIFIER: Whether to use verifier (default: True)
+    - N_ACTION_STEPS: Number of action steps (default: 4)
+    - ACTION_ENSEMBLE_TEMP: Action ensemble temperature (default: -0.8)
+    - VERIFIER_PATH: Path to verifier model
+    - PORT: Server port (default: 5001)
+    - HOST: Server host (default: 0.0.0.0)
 """
 
 import os
@@ -30,6 +48,17 @@ pi0_policy = None
 ensemble_model = None
 preprocess_adapter = None
 
+# Session storage for action queues (keyed by batch_number)
+action_queue_storage = {}
+# Storage for action histories - single history that persists across batches (maintains last 6 actions)
+# Assumes episodes are sequential and always start at timestep 0
+# Reset when timestep == 0 (new episode starts)
+current_action_history = []
+
+# Load rephrased instructions cache
+rephrased_instructions_cache = None
+rephrased_json_path = None
+
 # Image files are now saved by client and passed as paths
 # No need for server-side upload folder
 
@@ -46,6 +75,54 @@ from experiments.robot.simpler.simpler_utils_robomonkey import (
     process_raw_image_to_jpg,
 )
 
+def load_rephrased_instructions():
+    """Load rephrased instructions from JSON file."""
+    global rephrased_instructions_cache, rephrased_json_path
+    
+    if rephrased_instructions_cache is not None:
+        return rephrased_instructions_cache
+    
+    # Get path from environment or use default
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    rephrased_json_path = os.getenv('REPHRASED_JSON_PATH', 
+                                     os.path.join(script_dir, 'simpler_rephrased_final_eval_vlm.json'))
+    
+    if not os.path.exists(rephrased_json_path):
+        raise FileNotFoundError(f"Rephrased JSON file not found at {rephrased_json_path}")
+    
+    with open(rephrased_json_path, 'r') as f:
+        all_rephrases = json.load(f)
+    rephrased_instructions_cache = all_rephrases.get("instructions", {})
+    logger.info(f"Loaded {len(rephrased_instructions_cache)} rephrased instruction sets from {rephrased_json_path}")
+    return rephrased_instructions_cache
+
+def get_rephrased_list_for_instruction(original_instruction: str):
+    """Get rephrased list for a given original instruction using exact match.
+    
+    Args:
+        original_instruction: The original instruction text to match against 'rephrases_original' field
+    
+    Returns:
+        List of rephrased instructions
+    
+    Raises:
+        ValueError: If no matching rephrased instructions are found
+    """
+    rephrased_instructions = load_rephrased_instructions()
+    
+    if not rephrased_instructions:
+        raise ValueError("No rephrased instructions loaded from JSON file")
+    
+    # Use exact match against rephrases_original field (normalized)
+    normalized_original = original_instruction.lower().strip()
+    
+    for key, entry in rephrased_instructions.items():
+        entry_original = entry.get("rephrases_original", "").lower().strip()
+        if entry_original == normalized_original:
+            return entry.get("ert_rephrases", [])
+    
+    raise ValueError(f"No rephrased instructions found for original instruction: {original_instruction}")
+
 def initialize_models():
     """Initialize PI0 policy and ensemble verifier models."""
     global pi0_policy, ensemble_model, preprocess_adapter
@@ -59,7 +136,7 @@ def initialize_models():
     use_verifier = os.getenv('USE_VERIFIER', 'True').lower() == 'true'
     n_action_steps = int(os.getenv('N_ACTION_STEPS', '4'))
     action_ensemble_temp = float(os.getenv('ACTION_ENSEMBLE_TEMP', '-0.8'))
-    verifier_path = os.getenv('VERIFIER_PATH', '/root/vla-clip/bridge_verifier/ensemble_789_trainable_only.pt')
+    verifier_path = os.getenv('VERIFIER_PATH', '/root/vla-clip/bridge_verifier/ensemble_182123_trainable_only.pt')
     
     logger.info(f"Loading PI0 policy from {pretrained_checkpoint}...")
     pi0_policy = PI0Policy.from_pretrained(pretrained_checkpoint)
@@ -79,6 +156,9 @@ def initialize_models():
     # Create adapter for preprocessing
     preprocess_adapter = create_bridge_adapter_wrapper(action_ensemble_temp)
     pi0_policy._preprocess_adapter = preprocess_adapter
+    
+    # Preload rephrased instructions
+    load_rephrased_instructions()
     
     logger.info("Models initialized successfully!")
 
@@ -132,10 +212,31 @@ def health_check():
     """Health check endpoint."""
     return jsonify({'status': 'healthy', 'models_loaded': pi0_policy is not None})
 
+@app.route('/reset_session', methods=['POST'])
+def reset_session():
+    """Reset/clear action queue and history."""
+    global action_queue_storage, current_action_history
+    data = request.json
+    timestep = int(data.get('timestep', 0))
+    n_action_steps = 4
+    batch_number = timestep // n_action_steps
+    
+    cleared_queue = batch_number in action_queue_storage
+    
+    if batch_number in action_queue_storage:
+        del action_queue_storage[batch_number]
+    # Reset action history
+    current_action_history = []
+    
+    return jsonify({
+        'status': 'success', 
+        'message': f'Reset batch {batch_number} and cleared action history'
+    })
+
 @app.route('/process_action', methods=['POST'])
 def process_action():
     """Main endpoint for processing action requests."""
-    global pi0_policy, ensemble_model, preprocess_adapter
+    global pi0_policy, ensemble_model, preprocess_adapter, action_queue_storage
     
     # Initialize models if not already loaded
     if pi0_policy is None:
@@ -144,31 +245,46 @@ def process_action():
     # Get data from request
     data = request.json
     instruction = data.get('instruction')
-    image_path = data.get('image_path')  # Path to image file instead of base64
+    original_instruction = data.get('original_instruction', instruction)  # Use original_instruction if provided, fallback to instruction
+    image_base64 = data.get('image')  # Base64 encoded image
     observation_state = data.get('observation_state')  # [7] array
-    action_history = data.get('action_history', [])  # List of [7] arrays
-    rephrased_list = data.get('rephrased_list', None)  # Optional list of rephrased instructions
-    lang_rephrase_num = int(data.get('lang_rephrase_num', 1))
-    policy_batch_inference_size = int(data.get('policy_batch_inference_size', 2))
-    use_verifier = data.get('use_verifier', True)
-    action_queue = data.get('action_queue', None)  # Optional existing action queue
+    # Retrieve action_history from server-side storage instead of client input
+    # Load rephrased_list from server-side JSON using exact match on original_instruction
+    rephrased_list = get_rephrased_list_for_instruction(original_instruction) if original_instruction else None
+    lang_rephrase_num = 8
+    policy_batch_inference_size = 5
+    use_verifier = True
     timestep = int(data.get('timestep', 0))
-    n_action_steps = int(data.get('n_action_steps', 4))
-    action_ensemble_temp = float(data.get('action_ensemble_temp', -0.8))
+    n_action_steps = 4
+    action_ensemble_temp = -0.8
     
-    if not instruction or not image_path or observation_state is None:
-        return jsonify({'error': 'Missing required fields: instruction, image_path, or observation_state'}), 400
+    # Use batch number as key - timestep tells us which batch we're in
+    # If timestep % n_action_steps == 0, we generate new actions
+    # Otherwise, we use the stored queue from the previous request
+    batch_number = timestep // n_action_steps
+    
+    # Retrieve action_queue from server-side storage
+    action_queue = action_queue_storage.get(batch_number, None)
+    
+    # Reset action_history when starting a new episode (timestep == 0)
+    global current_action_history
+    if timestep == 0:
+        current_action_history = []
+    action_history = current_action_history  # Use the persistent history
+    
+    if not instruction or not image_base64 or observation_state is None:
+        return jsonify({'error': 'Missing required fields: instruction, image, or observation_state'}), 400
     
     # Convert lists back to numpy arrays (JSON deserializes arrays as lists)
     if isinstance(observation_state, dict) and 'agent' in observation_state:
         if 'eef_pos' in observation_state['agent']:
             observation_state['agent']['eef_pos'] = np.array(observation_state['agent']['eef_pos'])
     
-    # Load image from disk path
-    if not os.path.exists(image_path):
-        return jsonify({'error': f'Image file not found: {image_path}'}), 400
-    
-    image = Image.open(image_path)
+    # Load image from base64
+    import base64
+    import io
+    image_data = base64.b64decode(image_base64)
+    image = Image.open(io.BytesIO(image_data))
     raw_img = np.array(image)
     
     # Prepare observation for adapter (matching original format)
@@ -229,7 +345,7 @@ def process_action():
     # Generate new actions if needed (at n_action_steps boundary)
     if timestep % n_action_steps == 0:
         with torch.no_grad():
-            output_action_queue = pi0_policy.select_action(observation, noise_std=1.7)
+            output_action_queue = pi0_policy.select_action(observation, noise_std=1.0)
             action_queue = output_action_queue.copy()
             output_action_queue.clear()
         
@@ -307,8 +423,14 @@ def process_action():
             
             action_queue = selected_action_chunk
             
-            # Update action history
+            # Store action_queue in server-side storage
+            action_queue_storage[batch_number] = action_queue
+            
+            # Update action history server-side
             processed_action_for_history = max_action_history[num_past].copy()
+            # Append to stored history and keep only last 6 actions
+            current_action_history.append(processed_action_for_history)
+            current_action_history = current_action_history[-6:]  # Keep only last 6
             
             response_data['action'] = execute_action.tolist()
             response_data['selected_instruction'] = max_instruction
@@ -317,7 +439,8 @@ def process_action():
                 aq.cpu().numpy().tolist() if isinstance(aq, torch.Tensor) else aq.tolist() 
                 for aq in action_queue
             ]
-            response_data['action_history_update'] = processed_action_for_history.tolist()
+            # No need to return action_history_update - client doesn't need it anymore
+            response_data['action_history_update'] = None
         else:
             # No verifier - use first action from queue
             single_action = action_queue.popleft().cpu().numpy()
@@ -326,6 +449,13 @@ def process_action():
                 action_for_env, verifier_action=False, action_ensemble_temp=action_ensemble_temp
             )
             
+            # Store remaining action_queue in server-side storage
+            action_queue_storage[batch_number] = action_queue
+            
+            # Update action history server-side (even without verifier, for consistency)
+            current_action_history.append(execute_action.copy())
+            current_action_history = current_action_history[-6:]  # Keep only last 6
+            
             response_data['action'] = execute_action.tolist()
             response_data['selected_instruction'] = instruction  # Keep original instruction
             response_data['verifier_score'] = None
@@ -333,11 +463,15 @@ def process_action():
                 aq.cpu().numpy().tolist() if isinstance(aq, torch.Tensor) else aq.tolist() 
                 for aq in action_queue
             ]
-            response_data['action_history_update'] = None  # No history update when verifier not used
+            response_data['action_history_update'] = None  # No need to return - tracked server-side
     else:
-        # Use existing action queue
-        if action_queue:
-            # Convert action_queue back to deque
+        # Use existing action queue from server-side storage
+        if action_queue is None:
+            return jsonify({'error': f'No action queue available for batch {batch_number} (timestep {timestep}). This should not happen if timestep is sequential.'}), 400
+        
+        # action_queue from storage should be a deque of tensors
+        if not isinstance(action_queue, deque):
+            # If somehow stored as list, convert back to deque
             action_queue_deque = deque()
             for aq_item in action_queue:
                 if isinstance(aq_item, list):
@@ -345,31 +479,43 @@ def process_action():
                 else:
                     aq_tensor = aq_item
                 action_queue_deque.append(aq_tensor)
-            
-            single_action = action_queue_deque.popleft().cpu().numpy()
-            action_for_env = single_action[0:1]
-            execute_action = convert_maniskill_with_bridge_adapter(
-                action_for_env, verifier_action=False, action_ensemble_temp=action_ensemble_temp
+            action_queue = action_queue_deque
+        
+        if len(action_queue) == 0:
+            return jsonify({'error': 'Action queue is empty'}), 400
+        
+        single_action = action_queue.popleft()
+        # Ensure it's a tensor
+        if isinstance(single_action, list):
+            single_action = torch.tensor(single_action, device=policy_device)
+        single_action_np = single_action.cpu().numpy()
+        action_for_env = single_action_np[0:1]
+        execute_action = convert_maniskill_with_bridge_adapter(
+            action_for_env, verifier_action=False, action_ensemble_temp=action_ensemble_temp
+        )
+        
+        # Update stored action_queue
+        action_queue_storage[batch_number] = action_queue
+        
+        response_data['action'] = execute_action.tolist()
+        response_data['selected_instruction'] = instruction  # Keep same instruction when not at boundary
+        response_data['verifier_score'] = None  # No verifier score when not at boundary
+        response_data['action_queue'] = [
+            aq.cpu().numpy().tolist() if isinstance(aq, torch.Tensor) else aq.tolist() 
+            for aq in action_queue
+        ]
+        
+        # Update action history server-side
+        if use_verifier and ensemble_model is not None:
+            processed_action_for_history = convert_maniskill_with_bridge_adapter(
+                single_action_np[0:1], verifier_action=True, action_ensemble_temp=action_ensemble_temp
             )
-            
-            response_data['action'] = execute_action.tolist()
-            response_data['selected_instruction'] = instruction  # Keep same instruction when not at boundary
-            response_data['verifier_score'] = None  # No verifier score when not at boundary
-            response_data['action_queue'] = [
-                aq.cpu().numpy().tolist() if isinstance(aq, torch.Tensor) else aq.tolist() 
-                for aq in action_queue_deque
-            ]
-            
-            # Update action history if verifier is used (matching original - updates even when not at boundary)
-            if use_verifier and ensemble_model is not None:
-                processed_action_for_history = convert_maniskill_with_bridge_adapter(
-                    single_action[0:1], verifier_action=True, action_ensemble_temp=action_ensemble_temp
-                )
-                response_data['action_history_update'] = processed_action_for_history.tolist()
-            else:
-                response_data['action_history_update'] = None
+            current_action_history.append(processed_action_for_history)
         else:
-            return jsonify({'error': 'No action queue provided and not at n_action_steps boundary'}), 400
+            current_action_history.append(execute_action.copy())
+        current_action_history = current_action_history[-6:]  # Keep only last 6
+        
+        response_data['action_history_update'] = None  # No need to return - tracked server-side
     
     return jsonify(response_data)
 
@@ -379,7 +525,8 @@ if __name__ == "__main__":
     
     # Run the server
     port = int(os.getenv('PORT', 5001))
-    host = os.getenv('HOST', '127.0.0.1')  # Default to localhost, can be overridden with HOST env var
+    host = os.getenv('HOST', '0.0.0.0')  # Default to 0.0.0.0 to accept connections from any network interface
     logger.info(f"Starting SIMPLER server on {host}:{port}...")
+    logger.info(f"Server accessible at http://<server_ip>:{port}")
     app.run(host=host, port=port, debug=False)
 

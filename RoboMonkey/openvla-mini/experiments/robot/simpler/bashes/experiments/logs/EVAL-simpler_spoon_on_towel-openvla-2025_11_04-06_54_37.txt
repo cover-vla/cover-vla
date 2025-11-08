@@ -1,4 +1,0 @@
-Task suite: simpler_spoon_on_towel
-
-Task: Set the spoon in the center of the towel
-Starting episode 1...

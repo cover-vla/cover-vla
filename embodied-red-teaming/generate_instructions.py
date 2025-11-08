@@ -71,7 +71,7 @@ class EmbodiedRedTeamModel:
         (openai.RateLimitError, openai.BadRequestError),
         on_backoff=backoff_hdlr,
     )
-    def __call__(self, task: str, image_url: str = None, examples: List[str] = [], num_instructions: int = 10, return_all_annotations=False):
+    def __call__(self, task: str, image_url: str = None, examples: List[str] = [], num_instructions: int = 20, return_all_annotations=False):
 
         # Compose example sets
         if len(examples) > 0:

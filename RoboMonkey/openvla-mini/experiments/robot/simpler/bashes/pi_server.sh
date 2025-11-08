@@ -15,8 +15,8 @@ CUDA_VISIBLE_DEVICES=1 python ../run_simpler_api.py \
     --task_suite_name simpler_widowx \
     --lang_transform_type rephrase \
     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 2 \
-    --lang_rephrase_num 2
+    --num_trials_per_task 50 \
+    --use_verifier False \
+    --policy_batch_inference_size 1 \
+    --lang_rephrase_num 1
 

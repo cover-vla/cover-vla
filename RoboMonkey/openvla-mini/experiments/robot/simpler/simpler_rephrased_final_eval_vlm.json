@@ -1,0 +1,125 @@
+{
+  "timestamp": "20250807_212358",
+  "instructions": {
+    "put the zucchini on the towel": {
+      "original": "Set the green squash straight on the patterned cloth.",
+      "ert_rephrases": [
+        "Place the green squash upright on the blue plate.",
+        "Put the zucchini vertically on the cloth.",
+        "Position the squash straight on the fabric.",
+        "Place the zucchini upright on the plate.",
+        "Set the green vegetable vertically on the patterned fabric.",
+        "Put the squash straight on the cloth.",
+        "Position the zucchini on the blue cloth, standing up.",
+        "Place the squash vertically on the plate."
+      ],
+      "rephrases_original": "put the zucchini on the towel",
+      "random_rephrases": "Put the squash straight on the cloth.",
+      "count": 8
+    },
+    "put redbull can on plate": {
+      "original": "Strategically position the energy can on the wide platter.",
+      "ert_rephrases": [
+        "Place the blue can on the yellow plate.",
+        "Put the energy drink on the large plate.",
+        "Set the blue drink can onto the dish.",
+        "Lay the blue can on the wide plate.",
+        "Position the energy drink on the yellow platter.",
+        "Put the blue can onto the big dish.",
+        "Place the drink can on the spacious plate.",
+        "Set the blue can on the yellow platter."
+      ],
+      "rephrases_original": "put redbull can on plate",
+      "random_rephrases": "Put the energy drink on the large plate.",
+      "count": 8
+    },
+    "stack the green block on the yellow block": {
+      "original": "Arrange the lush green element atop the yellowish-orange element.",
+      "ert_rephrases": [
+        "Place the green cube on the yellow block.",
+        "Put the grassy block on top of the yellow piece.",
+        "Set the green block over the yellow cube.",
+        "Stack the green piece onto the yellowish block.",
+        "Position the lush cube above the yellow element.",
+        "Place the green cube on the yellow cube.",
+        "Set the green block on top of the yellow block.",
+        "Put the green element over the yellow cube."
+      ],
+      "rephrases_original": "stack the green block on the yellow block",
+      "random_rephrases": "Set the green block over the yellow cube.",
+      "count": 8
+    },
+    "put the spoon on the towel": {
+      "original": "Set the spoon exactly in the middle of the towel.",
+      "ert_rephrases": [
+        "Place the spoon in the center of the towel.",
+        "Put the utensil on the middle of the cloth.",
+        "Position the scoop at the center of the fabric.",
+        "Lay the green-handled spoon in the middle of the blue towel.",
+        "Set the utensil in the central part of the towel.",
+        "Position the spoon on the center of the blue towel.",
+        "Lay the green-handled spoon in the middle of the fabric.",
+        "Set the spoon in the center of the towel."
+      ],
+      "rephrases_original": "put the spoon on the towel",
+      "random_rephrases": "Put the utensil on the middle of the cloth.",
+      "test_rephrases": [
+        "Carefully transfer the spoon to the middle of the towel.",
+        "Put the utensil in the core of the napkin."
+      ],
+      "count": 8
+    },
+    "put carrot on plate": {
+      "original": "Balance the carrot on the ceramic platter.",
+      "ert_rephrases": [
+        "Place the carrot on the green dish.",
+        "Set the orange vegetable on the small plate.",
+        "Position the carrot upright on the platter.",
+        "Stand the carrot on the green plate.",
+        "Set the vegetable on the round dish.",
+        "Position the carrot on the small platter.",
+        "Balance the orange carrot on the green dish.",
+        "Place the vegetable on the ceramic plate."
+      ],
+      "rephrases_original": "put carrot on plate",
+      "random_rephrases":  "Place the carrot on the green dish.",
+      "test_rephrases": [
+        "Transfer the carrot to the platter.",
+        "Move the carrot to the platter."
+      ],
+      "count": 8
+    },
+    "put eggplant into yellow basket": {
+      "original": "Arrange the eggplant neatly in the yellow bin.",
+      "ert_rephrases": [
+        "Place the vegetable in the yellow rack.",
+        "Put the eggplant in the yellow holder.",
+        "Set the purple vegetable into the yellow bin.",
+        "Organize the eggplant in the yellow rack.",
+        "Position the vegetable in the yellow holder.",
+        "Place the purple vegetable in the yellow container.",
+        "Set the eggplant into the dish rack.",
+        "Move the purple produce to the yellow bin."
+      ],
+      "rephrases_original": "put eggplant into yellow basket",
+      "random_rephrases": "Position the vegetable in the yellow holder.",
+      "count": 8
+    },
+    "put tennis ball into yellow basket": {
+      "original": "Rest the tennis equipment in the basket that is of yellow hue.",
+      "ert_rephrases": [
+        "Place the tennis ball in the yellow rack.",
+        "Set the tennis ball into the yellow container.",
+        "Lay the tennis ball inside the lemon-colored basket.",
+        "Put the green ball in the golden rack.",
+        "Position the tennis equipment in the yellow dish rack.",
+        "Rest the green ball into the yellow basket.",
+        "Place the tennis ball inside the yellow holder.",
+        "Lay the tennis ball in the yellow dish rack."
+      ],
+      "rephrases_original": "put tennis ball into yellow basket",
+      "random_rephrases": "Position the tennis equipment in the yellow dish rack.",
+      "count": 8
+    }
+  }
+}

@@ -1,0 +1,1203 @@
+Task suite: simpler_tennis_ball_in_basket
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=1--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=1--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=2--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=2--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=3--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=3--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 2 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=4--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=4--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=5--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=5--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 3 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=6--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=6--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 3 (50.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=7--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=7--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 4 (57.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=8--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=8--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 8
+# successes: 4 (50.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=9--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=9--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 5 (55.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=10--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=10--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 10
+# successes: 6 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=11--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=11--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 7 (63.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=12--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=12--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 12
+# successes: 8 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=13--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=13--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 13
+# successes: 9 (69.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=14--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=14--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 14
+# successes: 9 (64.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=15--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=15--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 15
+# successes: 10 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=16--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=16--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 16
+# successes: 10 (62.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=17--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=17--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 10 (58.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=18--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=18--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 18
+# successes: 11 (61.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=19--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=19--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 19
+# successes: 12 (63.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=20--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=20--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 20
+# successes: 12 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=21--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=21--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 12 (57.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=22--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=22--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 12 (54.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=23--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=23--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 23
+# successes: 12 (52.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=24--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=24--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 24
+# successes: 13 (54.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=25--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=25--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 25
+# successes: 14 (56.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=26--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=26--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 26
+# successes: 14 (53.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=27--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=27--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 27
+# successes: 14 (51.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=28--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=28--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 28
+# successes: 15 (53.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=29--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=29--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 29
+# successes: 16 (55.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=30--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=30--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 16 (53.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=31--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=31--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 31
+# successes: 17 (54.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=32--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=32--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 17 (53.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=33--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=33--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 33
+# successes: 18 (54.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=34--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=34--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 34
+# successes: 18 (52.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=35--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=35--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 35
+# successes: 19 (54.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=36--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=36--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 36
+# successes: 20 (55.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=37--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=37--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 37
+# successes: 21 (56.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=38--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=38--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 38
+# successes: 22 (57.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=39--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=39--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 39
+# successes: 23 (59.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=40--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=40--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 40
+# successes: 24 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=41--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=41--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 41
+# successes: 24 (58.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=42--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=42--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 24 (57.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=43--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=43--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 43
+# successes: 25 (58.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=44--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=44--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 44
+# successes: 26 (59.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=45--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=45--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 45
+# successes: 27 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=46--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=46--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 46
+# successes: 28 (60.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=47--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=47--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 47
+# successes: 29 (61.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=48--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=48--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 48
+# successes: 30 (62.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=49--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=49--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 49
+# successes: 31 (63.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=50--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=50--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 50
+# successes: 31 (62.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=51--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=51--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 51
+# successes: 32 (62.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=52--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=52--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 52
+# successes: 33 (63.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=53--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=53--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 53
+# successes: 34 (64.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=54--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=54--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 54
+# successes: 35 (64.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=55--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=55--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 55
+# successes: 35 (63.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=56--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=56--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 56
+# successes: 36 (64.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=57--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=57--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 37 (64.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=58--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=58--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 58
+# successes: 38 (65.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=59--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=59--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 59
+# successes: 39 (66.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=60--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=60--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 60
+# successes: 40 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=61--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=61--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 61
+# successes: 41 (67.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=62--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=62--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 62
+# successes: 42 (67.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=63--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=63--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 42 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=64--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=64--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 64
+# successes: 43 (67.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=65--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=65--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 65
+# successes: 44 (67.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=66--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=66--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 66
+# successes: 45 (68.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=67--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=67--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 45 (67.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=68--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=68--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 68
+# successes: 46 (67.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=69--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=69--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 69
+# successes: 47 (68.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=70--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=70--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 70
+# successes: 48 (68.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=71--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=71--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 71
+# successes: 48 (67.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=72--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=72--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 48 (66.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=73--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=73--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 73
+# successes: 49 (67.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=74--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=74--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 74
+# successes: 50 (67.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=75--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=75--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 75
+# successes: 51 (68.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=76--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=76--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 76
+# successes: 52 (68.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=77--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=77--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 77
+# successes: 53 (68.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=78--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=78--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 54 (69.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=79--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=79--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 79
+# successes: 55 (69.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=80--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=80--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 80
+# successes: 56 (70.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=81--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=81--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 56 (69.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=82--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=82--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 82
+# successes: 57 (69.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=83--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=83--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 83
+# successes: 58 (69.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=84--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=84--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 58 (69.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=85--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=85--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 85
+# successes: 59 (69.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=86--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=86--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 86
+# successes: 60 (69.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=87--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=87--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 87
+# successes: 61 (70.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=88--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=88--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 88
+# successes: 62 (70.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=89--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=89--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 89
+# successes: 63 (70.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=90--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=90--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 90
+# successes: 64 (71.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=91--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=91--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 91
+# successes: 65 (71.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=92--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=92--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 92
+# successes: 65 (70.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=93--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=93--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 93
+# successes: 66 (71.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=94--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=94--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 94
+# successes: 66 (70.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=95--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=95--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 95
+# successes: 66 (69.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=96--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=96--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 96
+# successes: 67 (69.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=97--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=97--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 97
+# successes: 68 (70.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=98--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=98--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 98
+# successes: 69 (70.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=99--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=99--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 99
+# successes: 69 (69.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=100--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=100--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 100
+# successes: 70 (70.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=101--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=101--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 101
+# successes: 71 (70.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 102
+# successes: 72 (70.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 103
+# successes: 73 (70.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 104
+# successes: 74 (71.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=105--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=105--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 74 (70.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=106--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=106--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 106
+# successes: 75 (70.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 107
+# successes: 76 (71.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 108
+# successes: 77 (71.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=109--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=109--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 109
+# successes: 78 (71.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=110--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=110--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 78 (70.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=111--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=111--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 78 (70.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 112
+# successes: 79 (70.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=113--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=113--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 113
+# successes: 80 (70.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=114--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=114--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 114
+# successes: 81 (71.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=115--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=115--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 115
+# successes: 82 (71.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 82 (70.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=117--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=117--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 117
+# successes: 83 (70.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 118
+# successes: 84 (71.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=119--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=119--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 84 (70.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 120
+# successes: 85 (70.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=121--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=121--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 121
+# successes: 86 (71.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=122--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=122--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 86 (70.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=123--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=123--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 123
+# successes: 87 (70.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 124
+# successes: 88 (71.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 125
+# successes: 89 (71.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 126
+# successes: 90 (71.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=127--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=127--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 127
+# successes: 91 (71.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=128--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=128--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 128
+# successes: 92 (71.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 129
+# successes: 93 (72.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=130--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=130--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 130
+# successes: 94 (72.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 131
+# successes: 95 (72.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=132--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=132--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 132
+# successes: 96 (72.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=133--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=133--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 133
+# successes: 97 (72.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=134--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=134--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 134
+# successes: 98 (73.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 99 (73.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 136
+# successes: 100 (73.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=137--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=137--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 137
+# successes: 101 (73.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 138
+# successes: 102 (73.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 139
+# successes: 103 (74.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=140--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=140--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 140
+# successes: 104 (74.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 141
+# successes: 105 (74.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 142
+# successes: 106 (74.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 143
+# successes: 107 (74.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 107 (74.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=145--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=145--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 145
+# successes: 108 (74.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 146
+# successes: 109 (74.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 110 (74.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=148--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=148--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 148
+# successes: 111 (75.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=149--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=149--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 149
+# successes: 112 (75.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=150--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_rephrase/lang_1_sample_1/episode=150--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 150
+# successes: 112 (74.7%)
+Current task success rate: 0.7466666666666667
+Current total success rate: 0.7466666666666667

@@ -10,76 +10,21 @@ cd "$SCRIPT_DIR"
 # Set environment variables
 export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
 
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_widowx \
+CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi_random.py \
+    --task_suite_name simpler_widowx \
     --lang_transform_type rephrase \
     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
     --num_trials_per_task 150 \
-    --use_verifier True \
+    --use_verifier False \
     --policy_batch_inference_size 1 \
     --lang_rephrase_num 1
 
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_ood \
+CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi_random.py \
+    --task_suite_name simpler_ood \
     --lang_transform_type rephrase \
     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
     --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1 
-
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_widowx \
-    --lang_transform_type no_transform \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1 
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_ood \
-    --lang_transform_type no_transform \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_widowx \
-    --lang_transform_type no_transform \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_ood \
-    --lang_transform_type no_transform \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_widowx \
-    --lang_transform_type rephrase \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 1 \
-    --lang_rephrase_num 1
-
-CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name  simpler_ood \
-    --lang_transform_type rephrase \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
+    --use_verifier False \
     --policy_batch_inference_size 1 \
     --lang_rephrase_num 1
 
