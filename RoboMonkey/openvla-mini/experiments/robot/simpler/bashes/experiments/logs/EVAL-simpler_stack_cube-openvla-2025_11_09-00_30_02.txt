@@ -1,0 +1,1203 @@
+Task suite: simpler_stack_cube
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=1--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=2--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=3--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=3--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=4--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=4--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=5--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=5--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=6--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=6--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=7--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=7--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=8--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=8--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=9--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=9--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 9
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=10--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=10--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=11--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=11--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 11
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=12--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=12--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 12
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=13--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=13--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 13
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=14--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=14--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 14
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=15--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=15--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 15
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=16--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=16--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 16
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=17--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=17--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=18--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=18--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 18
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=19--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=19--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 19
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=20--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=20--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 20
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=21--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=21--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=22--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=22--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=23--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=23--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 23
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=24--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=24--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 24
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=25--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=25--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 25
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=26--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=26--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 26
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=27--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=27--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 27
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=28--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=28--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 28
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=29--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=29--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 29
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=30--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=30--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=31--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=31--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 31
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=32--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=32--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=33--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=33--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 33
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=34--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=34--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 34
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=35--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=35--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 35
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=36--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=36--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 36
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=37--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=37--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 37
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=38--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=38--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 38
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=39--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=39--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 39
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=40--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=40--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 40
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=41--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=41--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 41
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=42--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=42--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=43--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=43--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 43
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=44--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=44--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 44
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=45--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=45--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 45
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=46--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=46--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 46
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=47--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=47--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 47
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=48--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=48--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 48
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=49--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=49--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=50--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=50--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 50
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=51--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=51--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 51
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=52--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=52--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 52
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=53--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=53--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 53
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=54--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=54--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 54
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=55--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=55--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 55
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=56--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=56--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 56
+# successes: 0 (0.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=57--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=57--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 1 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=58--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=58--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 58
+# successes: 1 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=59--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=59--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 59
+# successes: 1 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=60--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=60--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 60
+# successes: 1 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=61--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=61--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 61
+# successes: 1 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=62--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=62--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 62
+# successes: 1 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=63--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=63--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 1 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=64--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=64--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 1 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=65--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=65--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 65
+# successes: 1 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=66--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=66--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 66
+# successes: 1 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=67--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=67--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 1 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=68--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=68--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 68
+# successes: 1 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=69--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=69--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 69
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=70--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=70--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=71--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=71--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 71
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=72--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=72--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=73--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=73--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=74--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=74--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 1 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=75--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=75--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 75
+# successes: 1 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=76--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=76--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 76
+# successes: 1 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=77--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=77--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 77
+# successes: 1 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=78--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=78--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 78
+# successes: 1 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=79--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=79--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 79
+# successes: 1 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=80--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=80--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 80
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=81--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=81--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=82--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=82--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=83--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=83--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=84--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=84--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=85--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=85--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 85
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=86--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=86--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 86
+# successes: 1 (1.2%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=87--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=87--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=88--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=88--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 88
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=89--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=89--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 89
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=90--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=90--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 90
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=91--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=91--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 91
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=92--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=92--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 92
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=93--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=93--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=94--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=94--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 94
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=95--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=95--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 95
+# successes: 1 (1.1%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=96--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=96--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 96
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=97--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=97--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 97
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=98--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=98--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 98
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=99--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=99--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 99
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=100--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=100--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 100
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=101--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=101--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=102--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=102--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 102
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=103--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=103--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 103
+# successes: 1 (1.0%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=104--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=104--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 104
+# successes: 2 (1.9%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=105--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=105--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 2 (1.9%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=106--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=106--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 2 (1.9%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=107--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=107--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 107
+# successes: 2 (1.9%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=108--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=108--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 108
+# successes: 2 (1.9%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=109--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=109--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 109
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=110--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=110--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=111--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=111--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=112--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=112--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 112
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=113--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=113--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 113
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=114--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=114--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 114
+# successes: 2 (1.8%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=115--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=115--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=116--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=116--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=117--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=117--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 117
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=118--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=118--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 118
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=119--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=119--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=120--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=120--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 120
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=121--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=121--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 121
+# successes: 2 (1.7%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=122--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=122--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=123--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=123--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 123
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=124--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=124--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 124
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=125--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=125--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 125
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=126--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=126--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 126
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=127--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=127--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=128--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=128--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 128
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=129--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=129--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 129
+# successes: 2 (1.6%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=130--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=130--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 130
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=131--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=131--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 131
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=132--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=132--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=133--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=133--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=134--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=134--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 134
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=135--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=135--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 135
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=136--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=136--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 136
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=137--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=137--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 137
+# successes: 2 (1.5%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=138--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=138--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 138
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=139--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=139--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 139
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=140--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=140--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 140
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=141--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=141--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 141
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=142--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=142--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 142
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=143--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=143--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 143
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=144--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=144--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=145--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=145--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 145
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=146--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=146--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 146
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=147--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=147--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 147
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=148--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=148--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 148
+# successes: 2 (1.4%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=149--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=149--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 2 (1.3%)
+
+Task: Put the grassy block on top of the yellow piece.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=150--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_random/episode=150--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 150
+# successes: 2 (1.3%)
+Current task success rate: 0.013333333333333334
+Current total success rate: 0.013333333333333334

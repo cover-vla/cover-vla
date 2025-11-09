@@ -46,7 +46,7 @@
         "Put the green element over the yellow cube."
       ],
       "rephrases_original": "stack the green block on the yellow block",
-      "random_rephrases": "Set the green block over the yellow cube.",
+      "random_rephrases": "Put the grassy block on top of the yellow piece.",
       "count": 8
     },
     "put the spoon on the towel": {
@@ -82,7 +82,7 @@
         "Place the vegetable on the ceramic plate."
       ],
       "rephrases_original": "put carrot on plate",
-      "random_rephrases":  "Place the carrot on the green dish.",
+      "random_rephrases": "Place the carrot on the green dish.",
       "test_rephrases": [
         "Transfer the carrot to the platter.",
         "Move the carrot to the platter."
@@ -119,6 +119,22 @@
       ],
       "rephrases_original": "put tennis ball into yellow basket",
       "random_rephrases": "Position the tennis equipment in the yellow dish rack.",
+      "count": 8
+    },
+    "put coke can on snoop dogg": {
+      "original": "Give snoop dogg a can of coke.",
+      "ert_rephrases": [
+        "Place the Coke can on the first photo.",
+        "Set the soda on the left picture.",
+        "Put the Coke on the image on the left.",
+        "Position the can of cola above the leftmost photograph.",
+        "Move the Coke to the left photo.",
+        "Put the drink on the leftmost image.",
+        "Place the soda can over the first picture.",
+        "Set the cola on the photograph on the left."
+      ],
+      "rephrases_original": "put coke can on snoop dogg",
+      "random_rephrases": "",
       "count": 8
     }
   }

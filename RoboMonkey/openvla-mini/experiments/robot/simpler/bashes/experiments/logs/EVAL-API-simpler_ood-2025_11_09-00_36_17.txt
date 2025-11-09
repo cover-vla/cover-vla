@@ -1,0 +1,1207 @@
+Task suite: simpler_ood
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=1--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=1--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=2--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=2--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=3--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=3--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=4--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=4--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 2 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=5--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=5--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 5
+# successes: 2 (40.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=6--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=6--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 6
+# successes: 2 (33.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=7--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=7--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 7
+# successes: 2 (28.6%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=8--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=8--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 3 (37.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=9--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=9--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 9
+# successes: 3 (33.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=10--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=10--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 3 (30.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=11--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=11--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 4 (36.4%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=12--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=12--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 12
+# successes: 5 (41.7%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=13--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=13--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 13
+# successes: 6 (46.2%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=14--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=14--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 14
+# successes: 7 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=15--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=15--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 15
+# successes: 8 (53.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=16--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=16--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 16
+# successes: 9 (56.2%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=17--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=17--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 17
+# successes: 9 (52.9%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=18--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=18--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 18
+# successes: 9 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=19--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=19--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 19
+# successes: 9 (47.4%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=20--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=20--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 20
+# successes: 10 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=21--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=21--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 10 (47.6%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=22--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=22--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 22
+# successes: 10 (45.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=23--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=23--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 23
+# successes: 11 (47.8%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=24--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=24--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 24
+# successes: 12 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=25--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=25--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 25
+# successes: 13 (52.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=26--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=26--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 26
+# successes: 13 (50.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=27--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=27--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 27
+# successes: 14 (51.9%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=28--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=28--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 28
+# successes: 15 (53.6%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=29--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=29--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 29
+# successes: 16 (55.2%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=30--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=30--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 30
+# successes: 17 (56.7%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=31--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=31--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 31
+# successes: 17 (54.8%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=32--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=32--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 32
+# successes: 18 (56.2%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=33--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=33--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 33
+# successes: 18 (54.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=34--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=34--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 34
+# successes: 19 (55.9%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=35--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=35--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 35
+# successes: 20 (57.1%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=36--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=36--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 36
+# successes: 20 (55.6%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=37--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=37--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 37
+# successes: 21 (56.8%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=38--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=38--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 38
+# successes: 21 (55.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=39--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=39--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 39
+# successes: 22 (56.4%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=40--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=40--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 40
+# successes: 23 (57.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=41--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=41--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 41
+# successes: 24 (58.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=42--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=42--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 24 (57.1%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=43--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=43--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 43
+# successes: 24 (55.8%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=44--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=44--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 44
+# successes: 24 (54.5%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=45--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=45--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 45
+# successes: 25 (55.6%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=46--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=46--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 46
+# successes: 25 (54.3%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=47--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=47--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 47
+# successes: 25 (53.2%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=48--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=48--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 48
+# successes: 25 (52.1%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=49--success=False--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=49--success=False--task=put_redbull_can_on_plate.pkl
+Success: False
+# episodes completed so far: 49
+# successes: 25 (51.0%)
+
+Task: Strategically position the energy can on the wide platter.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=50--success=True--task=put_redbull_can_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=50--success=True--task=put_redbull_can_on_plate.pkl
+Success: True
+# episodes completed so far: 50
+# successes: 26 (52.0%)
+Current task success rate: 0.52
+Current total success rate: 0.52
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=51--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=51--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 51
+# successes: 27 (52.9%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=52--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=52--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 52
+# successes: 28 (53.8%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=53--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=53--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 53
+# successes: 29 (54.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=54--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=54--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 54
+# successes: 30 (55.6%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=55--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=55--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 55
+# successes: 31 (56.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=56--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=56--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 56
+# successes: 31 (55.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=57--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=57--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 32 (56.1%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=58--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=58--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 58
+# successes: 32 (55.2%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=59--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=59--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 59
+# successes: 32 (54.2%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=60--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=60--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 60
+# successes: 33 (55.0%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=61--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=61--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 61
+# successes: 34 (55.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=62--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=62--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 62
+# successes: 35 (56.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=63--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=63--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 35 (55.6%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=64--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=64--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 35 (54.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=65--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=65--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 65
+# successes: 36 (55.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=66--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=66--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 66
+# successes: 36 (54.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=67--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=67--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 36 (53.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=68--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=68--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 68
+# successes: 37 (54.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=69--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=69--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 69
+# successes: 37 (53.6%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=70--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=70--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 37 (52.9%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=71--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=71--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 71
+# successes: 38 (53.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=72--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=72--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 72
+# successes: 39 (54.2%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=73--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=73--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 39 (53.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=74--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=74--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 39 (52.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=75--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=75--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 75
+# successes: 40 (53.3%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=76--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=76--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 76
+# successes: 40 (52.6%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=77--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=77--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 77
+# successes: 41 (53.2%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=78--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=78--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 42 (53.8%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=79--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=79--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 79
+# successes: 43 (54.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=80--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=80--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 80
+# successes: 43 (53.8%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=81--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=81--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 43 (53.1%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=82--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=82--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 43 (52.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=83--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=83--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 43 (51.8%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=84--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=84--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 84
+# successes: 44 (52.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=85--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=85--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 85
+# successes: 45 (52.9%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=86--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=86--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 86
+# successes: 46 (53.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=87--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=87--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 87
+# successes: 47 (54.0%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=88--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=88--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 88
+# successes: 48 (54.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=89--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=89--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 89
+# successes: 49 (55.1%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=90--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=90--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 90
+# successes: 50 (55.6%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=91--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=91--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 91
+# successes: 51 (56.0%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=92--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=92--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 92
+# successes: 52 (56.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=93--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=93--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 93
+# successes: 53 (57.0%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=94--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=94--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 94
+# successes: 53 (56.4%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=95--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=95--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 95
+# successes: 54 (56.8%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=96--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=96--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 96
+# successes: 54 (56.2%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=97--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=97--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 97
+# successes: 54 (55.7%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=98--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=98--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 98
+# successes: 54 (55.1%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=99--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=99--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 99
+# successes: 54 (54.5%)
+
+Task: Set the green squash straight on the patterned cloth.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=100--success=False--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=100--success=False--task=put_the_zucchini_on_the_towel.pkl
+Success: False
+# episodes completed so far: 100
+# successes: 54 (54.0%)
+Current task success rate: 0.56
+Current total success rate: 0.54
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=101--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=101--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 101
+# successes: 55 (54.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=102--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 102
+# successes: 56 (54.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=103--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 103
+# successes: 57 (55.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=104--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 104
+# successes: 58 (55.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=105--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=105--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 58 (55.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=106--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=106--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 58 (54.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=107--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 107
+# successes: 59 (55.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=108--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 108
+# successes: 60 (55.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=109--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=109--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 109
+# successes: 61 (56.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=110--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=110--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 110
+# successes: 62 (56.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=111--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=111--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 111
+# successes: 63 (56.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=112--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 112
+# successes: 64 (57.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=113--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=113--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 113
+# successes: 65 (57.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=114--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=114--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 114
+# successes: 65 (57.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=115--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=115--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 65 (56.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=116--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 65 (56.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=117--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=117--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 117
+# successes: 66 (56.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=118--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 118
+# successes: 67 (56.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=119--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=119--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 119
+# successes: 68 (57.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=120--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 120
+# successes: 69 (57.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=121--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=121--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 121
+# successes: 70 (57.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=122--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=122--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 122
+# successes: 71 (58.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=123--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=123--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 123
+# successes: 72 (58.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=124--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 124
+# successes: 73 (58.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=125--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 125
+# successes: 74 (59.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=126--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 126
+# successes: 75 (59.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=127--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=127--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 75 (59.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=128--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=128--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 128
+# successes: 75 (58.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=129--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 129
+# successes: 76 (58.9%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=130--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=130--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 130
+# successes: 76 (58.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=131--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 131
+# successes: 77 (58.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=132--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=132--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 77 (58.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=133--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=133--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 133
+# successes: 78 (58.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=134--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=134--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 134
+# successes: 78 (58.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=135--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 79 (58.5%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=136--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 136
+# successes: 80 (58.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=137--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=137--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 137
+# successes: 81 (59.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=138--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 138
+# successes: 82 (59.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=139--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 139
+# successes: 83 (59.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=140--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=140--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 140
+# successes: 84 (60.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=141--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 141
+# successes: 85 (60.3%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=142--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 142
+# successes: 86 (60.6%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=143--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 143
+# successes: 87 (60.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=144--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 87 (60.4%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=145--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=145--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 145
+# successes: 88 (60.7%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=146--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 146
+# successes: 89 (61.0%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=147--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 90 (61.2%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=148--success=False--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=148--success=False--task=put_tennis_ball_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 148
+# successes: 90 (60.8%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=149--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=149--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 149
+# successes: 91 (61.1%)
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=150--success=True--task=put_tennis_ball_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_api/episode=150--success=True--task=put_tennis_ball_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 150
+# successes: 92 (61.3%)
+Current task success rate: 0.76
+Current total success rate: 0.6133333333333333

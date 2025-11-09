@@ -101,6 +101,8 @@ class LangTransform:
         
         if batch_number > 1:
             batch_responses = self.gpt_transform(curr_instruction, batch_number=batch_number, image=image)
+            print (batch_responses)
+            print ("--------------------------------")
             return self.extract_reworded_instructions(batch_responses)
 
 

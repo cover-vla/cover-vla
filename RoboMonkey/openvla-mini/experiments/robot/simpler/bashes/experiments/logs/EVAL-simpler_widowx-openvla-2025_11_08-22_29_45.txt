@@ -1,0 +1,1609 @@
+Task suite: simpler_widowx
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1001--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1001--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1002--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1002--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1003--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1003--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1004--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1004--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 4 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1005--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1005--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 5 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1006--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1006--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 6
+# successes: 6 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1007--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1007--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 7 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1008--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1008--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 8 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1009--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1009--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 9 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1010--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1010--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 10
+# successes: 9 (90.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1011--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1011--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 11
+# successes: 10 (90.9%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1012--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1012--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 12
+# successes: 11 (91.7%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1013--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1013--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 13
+# successes: 12 (92.3%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1014--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1014--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 14
+# successes: 13 (92.9%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1015--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1015--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 15
+# successes: 13 (86.7%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1016--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1016--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 16
+# successes: 14 (87.5%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1017--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1017--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 17
+# successes: 15 (88.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1018--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1018--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 18
+# successes: 15 (83.3%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1019--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1019--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 19
+# successes: 16 (84.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1020--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1020--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 20
+# successes: 17 (85.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1021--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1021--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 21
+# successes: 17 (81.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1022--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1022--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 22
+# successes: 18 (81.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1023--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1023--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 23
+# successes: 19 (82.6%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1024--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1024--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 24
+# successes: 19 (79.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1025--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1025--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 25
+# successes: 20 (80.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1026--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1026--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 26
+# successes: 21 (80.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1027--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1027--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 27
+# successes: 22 (81.5%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1028--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1028--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 28
+# successes: 23 (82.1%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1029--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1029--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 29
+# successes: 24 (82.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1030--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1030--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 30
+# successes: 24 (80.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1031--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1031--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 31
+# successes: 24 (77.4%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1032--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1032--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 32
+# successes: 24 (75.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1033--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1033--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 33
+# successes: 25 (75.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1034--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1034--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 34
+# successes: 26 (76.5%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1035--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1035--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 35
+# successes: 26 (74.3%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1036--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1036--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 36
+# successes: 26 (72.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1037--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1037--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 37
+# successes: 26 (70.3%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1038--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1038--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 38
+# successes: 27 (71.1%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1039--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1039--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 39
+# successes: 28 (71.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1040--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1040--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 40
+# successes: 28 (70.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1041--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1041--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 41
+# successes: 28 (68.3%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1042--success=False--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1042--success=False--task=put_eggplant_into_yellow_basket.pkl
+Success: False
+# episodes completed so far: 42
+# successes: 28 (66.7%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1043--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1043--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 43
+# successes: 29 (67.4%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1044--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1044--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 44
+# successes: 30 (68.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1045--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1045--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 45
+# successes: 31 (68.9%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1046--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1046--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 46
+# successes: 32 (69.6%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1047--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1047--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 47
+# successes: 33 (70.2%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1048--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1048--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 48
+# successes: 34 (70.8%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1049--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1049--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 49
+# successes: 35 (71.4%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1050--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1050--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 50
+# successes: 36 (72.0%)
+Current task success rate: 0.72
+Current total success rate: 0.72
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1051--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1051--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 51
+# successes: 36 (70.6%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1052--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1052--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 52
+# successes: 36 (69.2%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1053--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1053--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 53
+# successes: 36 (67.9%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1054--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1054--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 54
+# successes: 36 (66.7%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1055--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1055--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 55
+# successes: 36 (65.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1056--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1056--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 56
+# successes: 37 (66.1%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1057--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1057--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 57
+# successes: 38 (66.7%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1058--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1058--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 58
+# successes: 38 (65.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1059--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1059--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 59
+# successes: 38 (64.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1060--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1060--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 60
+# successes: 38 (63.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1061--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1061--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 61
+# successes: 38 (62.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1062--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1062--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 62
+# successes: 38 (61.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1063--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1063--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 63
+# successes: 38 (60.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1064--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1064--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 64
+# successes: 38 (59.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1065--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1065--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 65
+# successes: 38 (58.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1066--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1066--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 66
+# successes: 39 (59.1%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1067--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1067--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 67
+# successes: 39 (58.2%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1068--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1068--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 68
+# successes: 39 (57.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1069--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1069--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 69
+# successes: 40 (58.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1070--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1070--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 70
+# successes: 40 (57.1%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1071--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1071--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 71
+# successes: 40 (56.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1072--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1072--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 72
+# successes: 40 (55.6%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1073--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1073--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 73
+# successes: 40 (54.8%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1074--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1074--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 74
+# successes: 40 (54.1%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1075--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1075--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 75
+# successes: 40 (53.3%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1076--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1076--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 76
+# successes: 40 (52.6%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1077--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1077--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 77
+# successes: 40 (51.9%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1078--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1078--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 78
+# successes: 41 (52.6%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1079--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1079--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 79
+# successes: 42 (53.2%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1080--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1080--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 80
+# successes: 43 (53.8%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1081--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1081--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 81
+# successes: 43 (53.1%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1082--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1082--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 82
+# successes: 43 (52.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1083--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1083--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 83
+# successes: 43 (51.8%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1084--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1084--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 84
+# successes: 43 (51.2%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1085--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1085--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 85
+# successes: 43 (50.6%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1086--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1086--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 86
+# successes: 43 (50.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1087--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1087--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 87
+# successes: 43 (49.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1088--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1088--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 88
+# successes: 43 (48.9%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1089--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1089--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 89
+# successes: 44 (49.4%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1090--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1090--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 90
+# successes: 45 (50.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1091--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1091--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 91
+# successes: 45 (49.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1092--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1092--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 92
+# successes: 46 (50.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1093--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1093--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 93
+# successes: 46 (49.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1094--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1094--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 94
+# successes: 47 (50.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1095--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1095--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 95
+# successes: 48 (50.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1096--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1096--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 96
+# successes: 49 (51.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1097--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1097--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 97
+# successes: 50 (51.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1098--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1098--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 98
+# successes: 50 (51.0%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1099--success=True--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1099--success=True--task=put_the_spoon_on_the_towel.pkl
+Success: True
+# episodes completed so far: 99
+# successes: 51 (51.5%)
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1100--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1100--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 100
+# successes: 51 (51.0%)
+Current task success rate: 0.3
+Current total success rate: 0.51
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1101--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1101--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 101
+# successes: 51 (50.5%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1102--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1102--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 102
+# successes: 51 (50.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1103--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1103--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 103
+# successes: 51 (49.5%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1104--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1104--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 104
+# successes: 51 (49.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1105--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1105--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 105
+# successes: 51 (48.6%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1106--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1106--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 106
+# successes: 51 (48.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1107--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1107--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 107
+# successes: 51 (47.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1108--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1108--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 108
+# successes: 51 (47.2%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1109--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1109--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 109
+# successes: 52 (47.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1110--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1110--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 110
+# successes: 52 (47.3%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1111--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1111--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 111
+# successes: 52 (46.8%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1112--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1112--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 112
+# successes: 52 (46.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1113--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1113--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 113
+# successes: 52 (46.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1114--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1114--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 114
+# successes: 52 (45.6%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1115--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1115--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 115
+# successes: 52 (45.2%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1116--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1116--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 116
+# successes: 52 (44.8%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1117--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1117--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 117
+# successes: 52 (44.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1118--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1118--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 118
+# successes: 52 (44.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1119--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1119--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 119
+# successes: 52 (43.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1120--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1120--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 120
+# successes: 52 (43.3%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1121--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1121--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 121
+# successes: 53 (43.8%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1122--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1122--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 122
+# successes: 53 (43.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1123--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1123--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 123
+# successes: 53 (43.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1124--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1124--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 124
+# successes: 53 (42.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1125--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1125--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 125
+# successes: 53 (42.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1126--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1126--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 126
+# successes: 53 (42.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1127--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1127--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 127
+# successes: 53 (41.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1128--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1128--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 128
+# successes: 54 (42.2%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1129--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1129--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 129
+# successes: 54 (41.9%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1130--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1130--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 130
+# successes: 55 (42.3%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1131--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1131--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 131
+# successes: 55 (42.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1132--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1132--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 132
+# successes: 55 (41.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1133--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1133--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 133
+# successes: 55 (41.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1134--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1134--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 134
+# successes: 55 (41.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1135--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1135--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 135
+# successes: 56 (41.5%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1136--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1136--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 136
+# successes: 56 (41.2%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1137--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1137--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 137
+# successes: 57 (41.6%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1138--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1138--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 138
+# successes: 57 (41.3%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1139--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1139--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 139
+# successes: 57 (41.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1140--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1140--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 140
+# successes: 57 (40.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1141--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1141--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 141
+# successes: 57 (40.4%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1142--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1142--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 142
+# successes: 57 (40.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1143--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1143--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 143
+# successes: 57 (39.9%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1144--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1144--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 144
+# successes: 57 (39.6%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1145--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1145--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 145
+# successes: 58 (40.0%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1146--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1146--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 146
+# successes: 58 (39.7%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1147--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1147--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 147
+# successes: 59 (40.1%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1148--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1148--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 148
+# successes: 59 (39.9%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1149--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1149--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 149
+# successes: 59 (39.6%)
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1150--success=True--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1150--success=True--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: True
+# episodes completed so far: 150
+# successes: 60 (40.0%)
+Current task success rate: 0.18
+Current total success rate: 0.4
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1151--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1151--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 151
+# successes: 60 (39.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1152--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1152--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 152
+# successes: 60 (39.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1153--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1153--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 153
+# successes: 61 (39.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1154--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1154--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 154
+# successes: 61 (39.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1155--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1155--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 155
+# successes: 62 (40.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1156--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1156--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 156
+# successes: 63 (40.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1157--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1157--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 157
+# successes: 63 (40.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1158--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1158--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 158
+# successes: 64 (40.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1159--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1159--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 159
+# successes: 65 (40.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1160--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1160--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 160
+# successes: 65 (40.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1161--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1161--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 161
+# successes: 65 (40.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1162--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1162--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 162
+# successes: 66 (40.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1163--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1163--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 163
+# successes: 66 (40.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1164--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1164--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 164
+# successes: 67 (40.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1165--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1165--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 165
+# successes: 67 (40.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1166--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1166--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 166
+# successes: 67 (40.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1167--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1167--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 167
+# successes: 68 (40.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1168--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1168--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 168
+# successes: 69 (41.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1169--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1169--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 169
+# successes: 70 (41.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1170--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1170--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 170
+# successes: 71 (41.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1171--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1171--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 171
+# successes: 72 (42.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1172--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1172--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 172
+# successes: 72 (41.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1173--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1173--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 173
+# successes: 73 (42.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1174--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1174--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 174
+# successes: 74 (42.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1175--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1175--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 175
+# successes: 74 (42.3%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1176--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1176--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 176
+# successes: 75 (42.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1177--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1177--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 177
+# successes: 75 (42.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1178--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1178--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 178
+# successes: 76 (42.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1179--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1179--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 179
+# successes: 77 (43.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1180--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1180--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 180
+# successes: 78 (43.3%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1181--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1181--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 181
+# successes: 78 (43.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1182--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1182--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 182
+# successes: 78 (42.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1183--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1183--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 183
+# successes: 79 (43.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1184--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1184--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 184
+# successes: 80 (43.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1185--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1185--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 185
+# successes: 81 (43.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1186--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1186--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 186
+# successes: 81 (43.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1187--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1187--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 187
+# successes: 81 (43.3%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1188--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1188--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 188
+# successes: 81 (43.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1189--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1189--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 189
+# successes: 81 (42.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1190--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1190--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 190
+# successes: 81 (42.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1191--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1191--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 191
+# successes: 81 (42.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1192--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1192--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 192
+# successes: 82 (42.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1193--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1193--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 193
+# successes: 82 (42.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1194--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1194--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 194
+# successes: 83 (42.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1195--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1195--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 195
+# successes: 84 (43.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1196--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1196--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 196
+# successes: 84 (42.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1197--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1197--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 197
+# successes: 85 (43.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1198--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1198--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 198
+# successes: 86 (43.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1199--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1199--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 199
+# successes: 86 (43.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1200--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1/episode=1200--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 200
+# successes: 87 (43.5%)
+Current task success rate: 0.54
+Current total success rate: 0.435

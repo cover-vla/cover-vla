@@ -1,0 +1,4 @@
+Task suite: simpler_tennis_ball_in_basket
+
+Task: Rest the tennis equipment in the basket that is of yellow hue.
+Starting episode 1...
