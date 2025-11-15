@@ -1,0 +1,28 @@
+Task suite: simpler_widowx
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 1...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=1--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 2...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=2--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=2--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 2 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=3--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_2/episode=3--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 3 (100.0%)
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 4...

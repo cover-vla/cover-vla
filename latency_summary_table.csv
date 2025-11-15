@@ -1,0 +1,8 @@
+Directory,Num Episodes,VLA Latency (ms),VLA Throughput (inf/s),Image-Text Encoder Latency (ms),Image-Text Encoder Throughput (inf/s),Action Encoder Latency (ms),Action Encoder Throughput (inf/s)
+lang_1_sample_1_latency,1,352.8 ± 53.4,2.83,39.01 ± 1.23,25.64,6.88 ± 0.17,145.38
+lang_1_sample_2_latency,1,354.1 ± 52.5,2.82,64.88 ± 1.65,15.41,7.31 ± 0.17,136.73
+lang_2_sample_2_latency,1,381.6 ± 48.6,2.62,79.72 ± 21.05,12.54,7.57 ± 0.12,132.14
+lang_2_sample_4_latency,1,423.8 ± 64.7,2.36,124.97 ± 28.65,8.00,7.55 ± 0.29,132.37
+lang_4_sample_4_latency,1,531.8 ± 51.9,1.88,179.40 ± 123.94,5.57,7.63 ± 0.12,131.12
+lang_4_sample_8_latency,3,750.3 ± 16.8,1.33,306.37 ± 192.12,3.43,7.63 ± 0.13,131.11
+lang_8_sample_5_latency,3,856.6 ± 18.8,1.17,262.53 ± 289.83,3.93,7.55 ± 0.13,132.46

@@ -3169,3 +3169,1041 @@ Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonk
 Success: False
 # episodes completed so far: 452
 # successes: 44 (9.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 3...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=453--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 453
+# successes: 44 (9.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 4...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=454--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 454
+# successes: 44 (9.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 5...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=455--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 455
+# successes: 44 (9.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 6...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=456--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 456
+# successes: 44 (9.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 7...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=457--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 457
+# successes: 44 (9.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 8...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=458--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 458
+# successes: 44 (9.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 9...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=459--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 459
+# successes: 44 (9.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 10...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=460--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 460
+# successes: 44 (9.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 11...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=461--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 461
+# successes: 44 (9.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 12...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=462--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 462
+# successes: 44 (9.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 13...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=463--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 463
+# successes: 44 (9.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 14...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=464--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 464
+# successes: 44 (9.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 15...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=465--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 465
+# successes: 44 (9.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 16...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=466--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 466
+# successes: 44 (9.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 17...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=467--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 467
+# successes: 44 (9.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 18...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=468--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 468
+# successes: 44 (9.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 19...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=469--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 469
+# successes: 44 (9.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 20...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=470--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 470
+# successes: 44 (9.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 21...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=471--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 471
+# successes: 44 (9.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 22...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=472--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 472
+# successes: 44 (9.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 23...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=473--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 473
+# successes: 44 (9.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 24...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=474--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 474
+# successes: 44 (9.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 25...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=475--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 475
+# successes: 44 (9.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 26...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=476--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 476
+# successes: 44 (9.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 27...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=477--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 477
+# successes: 44 (9.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 28...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=478--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 478
+# successes: 44 (9.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 29...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=479--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 479
+# successes: 44 (9.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 30...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=480--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 480
+# successes: 44 (9.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 31...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=481--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 481
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 32...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=482--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 482
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 33...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=483--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 483
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 34...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=484--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 484
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 35...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=485--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 485
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 36...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=486--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 486
+# successes: 44 (9.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 37...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=487--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 487
+# successes: 44 (9.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 38...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=488--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 488
+# successes: 44 (9.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 39...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=489--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 489
+# successes: 44 (9.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 40...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=490--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 490
+# successes: 44 (9.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 41...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=491--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 491
+# successes: 44 (9.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 42...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=492--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 492
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 43...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=493--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 493
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 44...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=494--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 494
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 45...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=495--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 495
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 46...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=496--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 496
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 47...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=497--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 497
+# successes: 44 (8.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 48...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=498--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 498
+# successes: 44 (8.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 49...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=499--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 499
+# successes: 44 (8.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 50...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=500--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 500
+# successes: 44 (8.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 51...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=501--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 501
+# successes: 44 (8.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 52...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=502--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 502
+# successes: 44 (8.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 53...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=503--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 503
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 54...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=504--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 504
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 55...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=505--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 505
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 56...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=506--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 506
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 57...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=507--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 507
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 58...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=508--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 508
+# successes: 44 (8.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 59...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=509--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 509
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 60...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=510--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 510
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 61...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=511--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 511
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 62...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=512--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 512
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 63...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=513--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 513
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 64...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=514--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 514
+# successes: 44 (8.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 65...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=515--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 515
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 66...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=516--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 516
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 67...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=517--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 517
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 68...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=518--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 518
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 69...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=519--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 519
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 70...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=520--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 520
+# successes: 44 (8.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 71...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=521--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 521
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 72...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=522--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 522
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 73...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=523--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 523
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 74...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=524--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 524
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 75...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=525--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 525
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 76...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=526--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 526
+# successes: 44 (8.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 77...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=527--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 527
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 78...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=528--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 528
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 79...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=529--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 529
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 80...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=530--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 530
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 81...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=531--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 531
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 82...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=532--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 532
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 83...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=533--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 533
+# successes: 44 (8.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 84...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=534--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 534
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 85...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=535--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 535
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 86...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=536--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 536
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 87...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=537--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 537
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 88...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=538--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 538
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 89...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=539--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 539
+# successes: 44 (8.2%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 90...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=540--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 540
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 91...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=541--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 541
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 92...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=542--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 542
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 93...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=543--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 543
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 94...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=544--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 544
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 95...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=545--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 545
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 96...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=546--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 546
+# successes: 44 (8.1%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 97...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=547--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 547
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 98...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=548--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 548
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 99...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=549--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 549
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 100...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=550--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 550
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 101...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=551--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 551
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 102...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=552--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 552
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 103...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=553--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 553
+# successes: 44 (8.0%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 104...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=554--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 554
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 105...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=555--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 555
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 106...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=556--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 556
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 107...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=557--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 557
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 108...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=558--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 558
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 109...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=559--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 559
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=560--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 560
+# successes: 44 (7.9%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=561--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 561
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=562--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 562
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=563--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 563
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=564--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 564
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=565--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 565
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=566--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 566
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=567--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 567
+# successes: 44 (7.8%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=568--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 568
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=569--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 569
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=570--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 570
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=571--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 571
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=572--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 572
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=573--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 573
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=574--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 574
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=575--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 575
+# successes: 44 (7.7%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=576--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 576
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=577--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 577
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=578--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 578
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=579--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 579
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=580--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 580
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=581--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 581
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=582--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 582
+# successes: 44 (7.6%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=583--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 583
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=584--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 584
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=585--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 585
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=586--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 586
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=587--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 587
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=588--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 588
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=589--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 589
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=590--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 590
+# successes: 44 (7.5%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=591--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 591
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=592--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 592
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=593--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 593
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=594--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 594
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=595--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 595
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=596--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 596
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=597--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 597
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=598--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 598
+# successes: 44 (7.4%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=599--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 599
+# successes: 44 (7.3%)
+
+Task: Position the carrot exactly in the center of the serving dish.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/robomonkey/episode=600--success=False--task=put_carrot_on_plate.mp4
+Success: False
+# episodes completed so far: 600
+# successes: 44 (7.3%)
+Current task success rate: 0.0
+Current total success rate: 0.07333333333333333

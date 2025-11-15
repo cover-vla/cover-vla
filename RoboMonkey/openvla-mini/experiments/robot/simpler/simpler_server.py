@@ -62,6 +62,21 @@ rephrased_json_path = None
 # Image files are now saved by client and passed as paths
 # No need for server-side upload folder
 
+# Storage for step data (inputs and outputs)
+# Format: list of dicts, each containing:
+# {
+#   'timestep': int,
+#   'instruction': str,
+#   'original_instruction': str,
+#   'observation_state': array/dict,
+#   'image_shape': tuple,  # shape of the image
+#   'execute_action': list,
+#   'selected_instruction': str,
+#   'verifier_score': float or None,
+#   'batch_number': int
+# }
+step_data_log = []
+
 # Import required modules
 sys.path.append('/root/vla-clip/lerobot_intact')
 from lerobot.common.policies.pi0.modeling_pi0 import PI0Policy

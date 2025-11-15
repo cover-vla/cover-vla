@@ -1,0 +1,12 @@
+Directory,Episode,VLA Latency (ms),VLA Throughput (inf/s),Image-Text Encoder Latency (ms),Image-Text Encoder Throughput (inf/s),Action Encoder Latency (ms),Action Encoder Throughput (inf/s),Success,Episode Length
+lang_1_sample_1_latency,episode=1--success=False--task=put_carrot_on_plate,352.8,2.83,39.01,25.64,6.88,145.38,False,150
+lang_1_sample_2_latency,episode=1--success=False--task=put_carrot_on_plate,354.1,2.82,64.88,15.41,7.31,136.73,False,150
+lang_2_sample_2_latency,episode=1--success=True--task=put_carrot_on_plate,381.6,2.62,79.72,12.54,7.57,132.14,True,144
+lang_2_sample_4_latency,episode=1--success=True--task=put_carrot_on_plate,423.8,2.36,124.97,8.00,7.55,132.37,True,105
+lang_4_sample_4_latency,episode=1--success=False--task=put_carrot_on_plate,531.8,1.88,179.40,5.57,7.63,131.12,False,150
+lang_4_sample_8_latency,episode=1--success=False--task=put_carrot_on_plate,754.9,1.32,406.39,2.46,7.61,131.48,False,150
+lang_4_sample_8_latency,episode=2--success=False--task=put_carrot_on_plate,748.1,1.34,242.08,4.13,7.64,130.92,False,150
+lang_4_sample_8_latency,episode=3--success=False--task=put_carrot_on_plate,747.9,1.34,270.64,3.69,7.64,130.93,False,150
+lang_8_sample_5_latency,episode=1--success=False--task=put_carrot_on_plate,862.1,1.16,269.44,3.71,7.58,132.00,False,150
+lang_8_sample_5_latency,episode=2--success=False--task=put_carrot_on_plate,854.3,1.17,205.18,4.87,7.55,132.41,False,150
+lang_8_sample_5_latency,episode=3--success=False--task=put_carrot_on_plate,853.2,1.17,312.98,3.20,7.52,132.96,False,150

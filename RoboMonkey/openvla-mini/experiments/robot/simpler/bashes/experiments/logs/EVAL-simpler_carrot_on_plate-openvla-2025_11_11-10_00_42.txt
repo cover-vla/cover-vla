@@ -1,0 +1,63 @@
+Task suite: simpler_carrot_on_plate
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 1...
+
+Latency Statistics for Episode 1:
+  VLA Total Inference: mean=754.93ms, median=746.26ms, count=38
+  Verifier Total Inference: mean=466.43ms, median=220.11ms, count=38
+    - Image+Text Encoder: mean=406.39ms, median=212.12ms
+    - Action Encoder: mean=7.61ms, median=7.60ms
+  Total Step: mean=336.24ms, median=4.17ms
+  Throughput:
+    - VLA Total: 1.32 inf/s
+    - Verifier Total: 2.14 inf/s
+    - Verifier Image+Text Encoder: 2.46 inf/s
+    - Verifier Action Encoder: 131.48 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=1--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=1--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 2...
+
+Latency Statistics for Episode 2:
+  VLA Total Inference: mean=748.10ms, median=747.70ms, count=38
+  Verifier Total Inference: mean=258.08ms, median=221.08ms, count=38
+    - Image+Text Encoder: mean=242.08ms, median=213.07ms
+    - Action Encoder: mean=7.64ms, median=7.60ms
+  Total Step: mean=265.69ms, median=4.21ms
+  Throughput:
+    - VLA Total: 1.34 inf/s
+    - Verifier Total: 3.87 inf/s
+    - Verifier Image+Text Encoder: 4.13 inf/s
+    - Verifier Action Encoder: 130.92 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=2--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=2--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 3...
+
+Latency Statistics for Episode 3:
+  VLA Total Inference: mean=747.93ms, median=747.47ms, count=38
+  Verifier Total Inference: mean=294.81ms, median=216.64ms, count=38
+    - Image+Text Encoder: mean=270.64ms, median=208.62ms
+    - Action Encoder: mean=7.64ms, median=7.61ms
+  Total Step: mean=277.62ms, median=4.09ms
+  Throughput:
+    - VLA Total: 1.34 inf/s
+    - Verifier Total: 3.39 inf/s
+    - Verifier Image+Text Encoder: 3.69 inf/s
+    - Verifier Action Encoder: 130.93 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=3--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_4_sample_8_latency/episode=3--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0

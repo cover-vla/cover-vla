@@ -1,0 +1,65 @@
+Task suite: simpler_widowx
+
+Task: Arrange the eggplant neatly in the yellow bin.
+Starting episode 1...
+
+Latency Statistics for Episode 1:
+  VLA Total Inference: mean=383.72ms, median=346.37ms, count=8
+  Total Step: mean=106.79ms, median=4.10ms
+  Throughput:
+    - VLA Total: 2.61 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=1--success=True--task=put_eggplant_into_yellow_basket.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=1--success=True--task=put_eggplant_into_yellow_basket.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
+
+Task: Set the spoon exactly in the middle of the towel.
+Starting episode 1...
+
+Latency Statistics for Episode 2:
+  VLA Total Inference: mean=346.87ms, median=346.85ms, count=38
+  Total Step: mean=92.19ms, median=4.40ms
+  Throughput:
+    - VLA Total: 2.88 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=2--success=False--task=put_the_spoon_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=2--success=False--task=put_the_spoon_on_the_towel.pkl
+Success: False
+# episodes completed so far: 2
+# successes: 1 (50.0%)
+Current task success rate: 0.0
+Current total success rate: 0.5
+
+Task: Arrange the lush green element atop the yellowish-orange element.
+Starting episode 1...
+
+Latency Statistics for Episode 3:
+  VLA Total Inference: mean=346.71ms, median=346.95ms, count=38
+  Total Step: mean=92.40ms, median=4.62ms
+  Throughput:
+    - VLA Total: 2.88 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=3--success=False--task=stack_the_green_block_on_the_yellow_block.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=3--success=False--task=stack_the_green_block_on_the_yellow_block.pkl
+Success: False
+# episodes completed so far: 3
+# successes: 1 (33.3%)
+Current task success rate: 0.0
+Current total success rate: 0.3333333333333333
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 1...
+
+Latency Statistics for Episode 4:
+  VLA Total Inference: mean=345.10ms, median=343.72ms, count=38
+  Total Step: mean=91.79ms, median=4.47ms
+  Throughput:
+    - VLA Total: 2.90 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=4--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_1_sample_1_latency/episode=4--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 4
+# successes: 1 (25.0%)
+Current task success rate: 0.0
+Current total success rate: 0.25

@@ -1,0 +1,23 @@
+Task suite: simpler_carrot_on_plate
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 1...
+
+Latency Statistics for Episode 1:
+  VLA Total Inference: mean=381.63ms, median=373.61ms, count=37
+  Verifier Total Inference: mean=87.69ms, median=74.14ms, count=37
+    - Image+Text Encoder: mean=79.72ms, median=66.02ms
+    - Action Encoder: mean=7.57ms, median=7.56ms
+  Total Step: mean=131.48ms, median=4.57ms
+  Throughput:
+    - VLA Total: 2.62 inf/s
+    - Verifier Total: 11.40 inf/s
+    - Verifier Image+Text Encoder: 12.54 inf/s
+    - Verifier Action Encoder: 132.14 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_2_latency/episode=1--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_2_sample_2_latency/episode=1--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 1 (100.0%)
+Current task success rate: 1.0
+Current total success rate: 1.0
