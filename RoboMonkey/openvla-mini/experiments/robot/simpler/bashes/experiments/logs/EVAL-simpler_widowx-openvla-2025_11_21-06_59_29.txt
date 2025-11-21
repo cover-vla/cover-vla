@@ -1,0 +1,45 @@
+Task suite: simpler_widowx (LATENCY ANALYSIS MODE - no env, using dummy images)
+Using dummy image of shape (224, 224, 3) for latency analysis
+
+Task: put the zucchini on the towel
+Starting episode 1...
+
+Latency Statistics for Episode 1:
+  VLA Total Inference: mean=562.37ms, median=514.16ms, count=5
+  Verifier Total Inference: mean=2611.40ms, median=2603.61ms, count=5
+    - Image+Text Encoder: mean=2174.78ms, median=2167.03ms
+    - Action Encoder: mean=4.82ms, median=4.86ms
+  Total Step: mean=1458.75ms, median=1.18ms
+  Throughput:
+    - VLA Total: 1.78 inf/s
+    - Verifier Total: 0.38 inf/s
+    - Verifier Image+Text Encoder: 0.46 inf/s
+    - Verifier Action Encoder: 207.59 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_64_latency/episode=1--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_64_latency/episode=1--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 2...
+
+Latency Statistics for Episode 2:
+  VLA Total Inference: mean=514.51ms, median=514.46ms, count=5
+  Verifier Total Inference: mean=2609.79ms, median=2601.87ms, count=5
+    - Image+Text Encoder: mean=2172.78ms, median=2164.86ms
+    - Action Encoder: mean=4.75ms, median=4.66ms
+  Total Step: mean=1446.10ms, median=1.34ms
+  Throughput:
+    - VLA Total: 1.94 inf/s
+    - Verifier Total: 0.38 inf/s
+    - Verifier Image+Text Encoder: 0.46 inf/s
+    - Verifier Action Encoder: 210.61 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_64_latency/episode=2--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_64_latency/episode=2--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 3...

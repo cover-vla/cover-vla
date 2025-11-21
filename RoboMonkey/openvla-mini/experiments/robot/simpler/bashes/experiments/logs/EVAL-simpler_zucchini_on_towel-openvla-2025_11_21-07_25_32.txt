@@ -1,0 +1,5 @@
+Task suite: simpler_zucchini_on_towel (LATENCY ANALYSIS MODE - no env, using dummy images)
+Using dummy image of shape (224, 224, 3) for latency analysis
+
+Task: put the zucchini on the towel
+Starting episode 1...

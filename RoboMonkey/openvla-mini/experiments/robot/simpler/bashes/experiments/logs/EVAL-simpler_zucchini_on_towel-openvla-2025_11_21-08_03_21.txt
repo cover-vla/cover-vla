@@ -1,0 +1,204 @@
+Task suite: simpler_zucchini_on_towel (LATENCY ANALYSIS MODE - no env, using dummy images)
+Using dummy image of shape (224, 224, 3) for latency analysis
+
+Task: put the zucchini on the towel
+Starting episode 1...
+
+Latency Statistics for Episode 1:
+  VLA Total Inference: mean=800.35ms, median=769.53ms, count=8
+  Verifier Total Inference: mean=4555.47ms, median=4562.88ms, count=8
+    - Image+Text Encoder: mean=3491.83ms, median=3498.91ms
+    - Action Encoder: mean=28.89ms, median=28.71ms
+  Total Step: mean=2660.49ms, median=2.43ms
+  Throughput:
+    - VLA Total: 1.25 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 34.62 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=1--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=1--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 1
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 2...
+
+Latency Statistics for Episode 2:
+  VLA Total Inference: mean=770.08ms, median=769.51ms, count=8
+  Verifier Total Inference: mean=4640.23ms, median=4564.70ms, count=8
+    - Image+Text Encoder: mean=3576.20ms, median=3499.87ms
+    - Action Encoder: mean=29.31ms, median=29.79ms
+  Total Step: mean=2663.57ms, median=1.24ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.28 inf/s
+    - Verifier Action Encoder: 34.12 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=2--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=2--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 2
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 3...
+
+Latency Statistics for Episode 3:
+  VLA Total Inference: mean=767.84ms, median=767.62ms, count=8
+  Verifier Total Inference: mean=4603.52ms, median=4589.05ms, count=8
+    - Image+Text Encoder: mean=3545.81ms, median=3521.57ms
+    - Action Encoder: mean=26.35ms, median=29.10ms
+  Total Step: mean=2645.43ms, median=1.36ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.28 inf/s
+    - Verifier Action Encoder: 37.95 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=3--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=3--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 3
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 4...
+
+Latency Statistics for Episode 4:
+  VLA Total Inference: mean=768.53ms, median=768.59ms, count=8
+  Verifier Total Inference: mean=4492.84ms, median=4505.42ms, count=8
+    - Image+Text Encoder: mean=3428.31ms, median=3440.47ms
+    - Action Encoder: mean=29.72ms, median=29.74ms
+  Total Step: mean=2606.14ms, median=1.42ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 33.65 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=4--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=4--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 4
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 5...
+
+Latency Statistics for Episode 5:
+  VLA Total Inference: mean=767.98ms, median=765.90ms, count=8
+  Verifier Total Inference: mean=4513.85ms, median=4445.91ms, count=8
+    - Image+Text Encoder: mean=3466.92ms, median=3405.61ms
+    - Action Encoder: mean=20.42ms, median=29.36ms
+  Total Step: mean=2627.67ms, median=1.20ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 48.96 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=5--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=5--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 5
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 6...
+
+Latency Statistics for Episode 6:
+  VLA Total Inference: mean=768.70ms, median=768.73ms, count=8
+  Verifier Total Inference: mean=4514.01ms, median=4512.12ms, count=8
+    - Image+Text Encoder: mean=3456.05ms, median=3475.83ms
+    - Action Encoder: mean=26.69ms, median=30.01ms
+  Total Step: mean=2654.86ms, median=1.19ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 37.46 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=6--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=6--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 6
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 7...
+
+Latency Statistics for Episode 7:
+  VLA Total Inference: mean=766.73ms, median=765.31ms, count=8
+  Verifier Total Inference: mean=4657.93ms, median=4486.40ms, count=8
+    - Image+Text Encoder: mean=3604.89ms, median=3452.18ms
+    - Action Encoder: mean=23.57ms, median=29.99ms
+  Total Step: mean=2676.29ms, median=1.16ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.21 inf/s
+    - Verifier Image+Text Encoder: 0.28 inf/s
+    - Verifier Action Encoder: 42.43 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=7--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=7--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 7
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 8...
+
+Latency Statistics for Episode 8:
+  VLA Total Inference: mean=767.84ms, median=766.58ms, count=8
+  Verifier Total Inference: mean=4578.21ms, median=4490.06ms, count=8
+    - Image+Text Encoder: mean=3513.72ms, median=3425.82ms
+    - Action Encoder: mean=29.80ms, median=30.00ms
+  Total Step: mean=2644.67ms, median=1.18ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.28 inf/s
+    - Verifier Action Encoder: 33.56 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=8--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=8--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 8
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 9...
+
+Latency Statistics for Episode 9:
+  VLA Total Inference: mean=766.74ms, median=765.80ms, count=8
+  Verifier Total Inference: mean=4534.60ms, median=4555.49ms, count=8
+    - Image+Text Encoder: mean=3469.97ms, median=3490.68ms
+    - Action Encoder: mean=32.28ms, median=29.98ms
+  Total Step: mean=2615.99ms, median=1.32ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 30.98 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=9--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=9--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 9
+# successes: 0 (0.0%)
+
+Task: put the zucchini on the towel
+Starting episode 10...
+
+Latency Statistics for Episode 10:
+  VLA Total Inference: mean=769.44ms, median=769.48ms, count=8
+  Verifier Total Inference: mean=4499.23ms, median=4497.40ms, count=8
+    - Image+Text Encoder: mean=3450.59ms, median=3458.92ms
+    - Action Encoder: mean=21.44ms, median=29.83ms
+  Total Step: mean=2616.17ms, median=1.17ms
+  Throughput:
+    - VLA Total: 1.30 inf/s
+    - Verifier Total: 0.22 inf/s
+    - Verifier Image+Text Encoder: 0.29 inf/s
+    - Verifier Action Encoder: 46.64 inf/s
+Saved rollout MP4 at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=10--success=True--task=put_the_zucchini_on_the_towel.mp4
+Saved episode data at path ./rollouts_openpi_rephrase/transform_no_transform/lang_1_sample_100_latency/episode=10--success=True--task=put_the_zucchini_on_the_towel.pkl
+Success: True
+# episodes completed so far: 10
+# successes: 0 (0.0%)
+Current task success rate: 0.0
+Current total success rate: 0.0

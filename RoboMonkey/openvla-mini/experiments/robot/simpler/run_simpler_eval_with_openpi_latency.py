@@ -1,20 +1,28 @@
 """
-run_libero_eval.py
+run_simpler_eval_with_openpi_latency.py
 
-Runs a model in a LIBERO simulation environment.
+Runs a model in a SIMPLER simulation environment with latency analysis support.
 
+Features:
+    - Full simulation mode: Runs actual environment with real observations
+    - Latency-only mode: Skips environment initialization and uses dummy images for pure inference benchmarking
+    
 Usage:
-    # OpenVLA:
-    # IMPORTANT: Set `center_crop=True` if model is fine-tuned with augmentations
-    python experiments/robot/simpler/run_simpler_eval.py \
-        --model_family openvla \
+    # Latency-only mode (for pure inference benchmarking):
+    python experiments/robot/simpler/run_simpler_eval_with_openpi_latency.py \
         --pretrained_checkpoint <CHECKPOINT_PATH> \
-        --task_suite_name [ simpler_widowx ... ] \
-        --center_crop [ True | False ] \
-        --run_id_note <OPTIONAL TAG TO INSERT INTO RUN ID FOR LOGGING> \
-        --use_wandb [ True | False ] \
-        --wandb_project <PROJECT> \
-        --wandb_entity <ENTITY>
+        --latency_only_mode True \
+        --latency_test_steps 20 \
+        --lang_rephrase_num 8 \
+        --policy_batch_inference_size 2
+    
+    # Full simulation mode:
+    python experiments/robot/simpler/run_simpler_eval_with_openpi_latency.py \
+        --pretrained_checkpoint <CHECKPOINT_PATH> \
+        --latency_only_mode False \
+        --task_suite_name simpler_widowx \
+        --center_crop True \
+        --use_wandb False
 """
 
 import itertools
@@ -419,6 +427,11 @@ class GenerateConfig:
     
     # Action ensemble parameters (for temporal ensembling)
     action_ensemble_temp: float = -0.8                   # Temperature for action ensembling (negative = more recent actions get more weight)
+    
+    # Latency analysis mode
+    latency_only_mode: bool = True                       # If True, skip env initialization and use dummy images for pure latency testing
+    latency_test_steps: int = 20                         # Number of steps to run for latency analysis (when latency_only_mode=True)
+    latency_test_instruction: str = "put redbull can on plate"  # Instruction to use for latency testing (when latency_only_mode=True)
 
 @draccus.wrap()
 def eval_simpler(cfg: GenerateConfig) -> None:
@@ -481,11 +494,16 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         ensemble_model = None
         verifier_timing_wrapper = None
     # Initialize SIMPLER task suite
-
-    task_suite = get_benchmark(cfg.task_suite_name)()
-    num_tasks_in_suite = task_suite.n_tasks
-    print(f"Task suite: {cfg.task_suite_name}")
-    log_file.write(f"Task suite: {cfg.task_suite_name}\n")
+    if cfg.latency_only_mode:
+        # For latency analysis, we don't need the actual environment
+        num_tasks_in_suite = 1  # Only run one "task" for latency analysis
+        print(f"Task suite: {cfg.task_suite_name} (LATENCY ANALYSIS MODE - no env, using dummy images)")
+        log_file.write(f"Task suite: {cfg.task_suite_name} (LATENCY ANALYSIS MODE - no env, using dummy images)\n")
+    else:
+        task_suite = get_benchmark(cfg.task_suite_name)()
+        num_tasks_in_suite = task_suite.n_tasks
+        print(f"Task suite: {cfg.task_suite_name}")
+        log_file.write(f"Task suite: {cfg.task_suite_name}\n")
     
     # Load pre-generated rephrases if available
     preloaded_rephrases = load_rephrases(cfg.task_suite_name)
@@ -500,16 +518,29 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     action_noise_std = 1.0 if cfg.policy_batch_inference_size > 1 else 1.0
     
 
+    # Create a dummy image for latency testing if in latency-only mode
+    if cfg.latency_only_mode:
+        dummy_image = np.random.randint(0, 255, (224, 224, 3), dtype=np.uint8)
+        print(f"Using dummy image of shape {dummy_image.shape} for latency analysis")
+        log_file.write(f"Using dummy image of shape {dummy_image.shape} for latency analysis\n")
+    else:
+        dummy_image = None
+    
     # Start evaluation
     total_episodes, total_successes = 0, 0
     for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
         # Get task
-        task = task_suite.get_task(task_id)
-        seeds = itertools.count(1000)
-
-        # Initialize LIBERO environment and task description
-        env = get_simpler_env(task, cfg.model_family)
-        original_task_description = env.get_language_instruction()
+        if not cfg.latency_only_mode:
+            task = task_suite.get_task(task_id)
+            seeds = itertools.count(1000)
+            # Initialize environment
+            env = get_simpler_env(task, cfg.model_family)
+            original_task_description = "put redbull can on plate"  # TODO: Get from task
+        else:
+            # For latency analysis, skip env creation
+            task = None
+            env = None
+            original_task_description = cfg.latency_test_instruction
         
         # Use rephrased instruction if available
         if cfg.lang_transform_type == "no_transform":
@@ -523,11 +554,12 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 if task_key == original_task_description:
                     matching_task_id = task_key
                     break
-            
-            if matching_task_id is not None:
-                rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"][:cfg.lang_rephrase_num] 
-            else:
-                raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
+            rephrased_list = ["put redbull can on plate"]
+            # if matching_task_id is not None:
+            #     rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"][:cfg.lang_rephrase_num] 
+            #     rephrased_list = ["put redbull can on plate"]
+            # else:
+            #     raise ValueError(f"No preloaded rephrases found for task: {original_task_description}")
 
         if cfg.lang_transform_type == "no_transform":
             assert cfg.lang_rephrase_num == 1, "Language rephrase number must be 1 for no transformation"
@@ -541,10 +573,19 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             # print(f"Using task description: {task_description}")
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
-            if trail_idx % 50 == 0:
-                seeds = itertools.count(1000)
-            # Reset environment to specified seed (initial state)
-            obs, reset_info = env.reset(seed=next(seeds))
+            
+            if not cfg.latency_only_mode:
+                if trail_idx % 50 == 0:
+                    seeds = itertools.count(1000)
+                # Reset environment to specified seed (initial state)
+                obs, reset_info = env.reset(seed=next(seeds))
+            else:
+                # Create dummy observation for latency testing
+                obs = {
+                    "agent": {
+                        "eef_pos": np.array([0.5, 0.0, 0.3, 0.0, 0.0, 0.0, 0.0, 1.0])  # 7D state
+                    }
+                }
 
             # Setup
             t = 0
@@ -587,20 +628,30 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             print(f"Starting episode {task_episodes+1}...")
             log_file.write(f"Starting episode {task_episodes+1}...\n")
             # Create progress bar for each episode
-            pbar = tqdm.tqdm(total=max_steps + cfg.num_steps_wait, desc=f"Episode steps")
-            while t < max_steps + cfg.num_steps_wait:
+            if cfg.latency_only_mode:
+                # For latency analysis, we run a fixed number of steps (no env waiting)
+                total_steps = cfg.latency_test_steps
+            else:
+                total_steps = max_steps + cfg.num_steps_wait
+                
+            pbar = tqdm.tqdm(total=total_steps, desc=f"Episode steps")
+            while t < total_steps:
                 # try:
                 # IMPORTANT: Do nothing for the first few timesteps because the simulator drops objects
-                # and we need to wait for them to fall
-                if t < cfg.num_steps_wait:
+                # and we need to wait for them to fall (skip in latency-only mode)
+                if not cfg.latency_only_mode and t < cfg.num_steps_wait:
                     obs, reward, done, trunc, info = env.step(get_simpler_dummy_action(cfg.model_family))
                     t += 1
                     pbar.update(1)
                     continue
 
-                # Get raw image from environment (let BridgeSimplerAdapter handle preprocessing)
-                # This matches INT-ACT's approach: pass raw images to adapter for consistent preprocessing
-                raw_img = get_image_from_maniskill2_obs_dict(env, obs)
+                # Get raw image from environment
+                if cfg.latency_only_mode:
+                    # Use dummy image for latency testing
+                    raw_img = dummy_image.copy()
+                else:
+                    # Get image from actual environment
+                    raw_img = get_image_from_maniskill2_obs_dict(env, obs)
                 
                 replay_images.append(raw_img)
 
@@ -700,7 +751,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                             all_action_histories=action_histories_list[0:cfg.policy_batch_inference_size],
                             cfg_repeat_language_instructions=cfg.policy_batch_inference_size
                         )
-                    if max_score < 0.1:
+                    if max_score < 0.5:
                         with torch.no_grad():
                             max_score, max_instruction, max_action_history, global_action_idx = ensemble_model.compute_max_similarity_scores_batch(
                                 images=images_list,
@@ -817,11 +868,18 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 # print ("insturction:", task_description)
                 # input()
                 # print ("execute_action:", execute_action)
-                obs, reward, done, trunc, info = env.step(execute_action)    
-                if done:
-                    task_successes += 1
-                    total_successes += 1
-                    break
+                
+                if cfg.latency_only_mode:
+                    # For latency analysis, simulate completion after testing steps
+                    done = (t >= cfg.latency_test_steps - 1)
+                else:
+                    # Step the actual environment
+                    obs, reward, done, trunc, info = env.step(execute_action)    
+                    if done:
+                        task_successes += 1
+                        total_successes += 1
+                        break
+                
                 t += 1
                 
                 # Update progress bar with similarity score if verifier is used
