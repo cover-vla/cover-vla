@@ -4477,3 +4477,333 @@ Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16
 Success: False
 # episodes completed so far: 559
 # successes: 357 (63.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 110...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=560--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=560--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 560
+# successes: 357 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 111...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=561--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=561--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 561
+# successes: 357 (63.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 112...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=562--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=562--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 562
+# successes: 358 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 113...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=563--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=563--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 563
+# successes: 359 (63.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 114...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=564--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=564--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 564
+# successes: 360 (63.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 115...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=565--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=565--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 565
+# successes: 360 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 116...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=566--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=566--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 566
+# successes: 361 (63.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 117...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=567--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=567--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 567
+# successes: 362 (63.8%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 118...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=568--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=568--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 568
+# successes: 362 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 119...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=569--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=569--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 569
+# successes: 362 (63.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 120...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=570--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=570--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 570
+# successes: 363 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 121...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=571--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=571--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 571
+# successes: 364 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 122...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=572--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=572--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 572
+# successes: 364 (63.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 123...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=573--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=573--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 573
+# successes: 365 (63.7%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 124...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=574--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=574--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 574
+# successes: 365 (63.6%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 125...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=575--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=575--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 575
+# successes: 365 (63.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 126...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=576--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=576--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 576
+# successes: 366 (63.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 127...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=577--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=577--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 577
+# successes: 366 (63.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 128...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=578--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=578--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 578
+# successes: 367 (63.5%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 129...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=579--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=579--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 579
+# successes: 367 (63.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 130...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=580--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=580--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 580
+# successes: 368 (63.4%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 131...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=581--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=581--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 581
+# successes: 368 (63.3%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 132...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=582--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=582--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 582
+# successes: 368 (63.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 133...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=583--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=583--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 583
+# successes: 369 (63.3%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 134...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=584--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=584--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 584
+# successes: 369 (63.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 135...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=585--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=585--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 585
+# successes: 370 (63.2%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 136...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=586--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=586--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 586
+# successes: 370 (63.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 137...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=587--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=587--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 587
+# successes: 370 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 138...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=588--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=588--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 588
+# successes: 370 (62.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 139...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=589--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=589--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 589
+# successes: 371 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 140...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=590--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=590--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 590
+# successes: 372 (63.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 141...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=591--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=591--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 591
+# successes: 373 (63.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 142...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=592--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=592--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 592
+# successes: 373 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 143...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=593--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=593--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 593
+# successes: 374 (63.1%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 144...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=594--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=594--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 594
+# successes: 374 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 145...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=595--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=595--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 595
+# successes: 375 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 146...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=596--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=596--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 596
+# successes: 375 (62.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 147...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=597--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=597--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 597
+# successes: 376 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 148...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=598--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=598--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 598
+# successes: 377 (63.0%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 149...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=599--success=False--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=599--success=False--task=put_carrot_on_plate.pkl
+Success: False
+# episodes completed so far: 599
+# successes: 377 (62.9%)
+
+Task: Balance the carrot on the ceramic platter.
+Starting episode 150...
+Saved rollout MP4 at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=600--success=True--task=put_carrot_on_plate.mp4
+Saved episode data at path ./rollouts_openpi_original/transform_rephrase/lang_16_sample_1/episode=600--success=True--task=put_carrot_on_plate.pkl
+Success: True
+# episodes completed so far: 600
+# successes: 378 (63.0%)
+Current task success rate: 0.5733333333333334
+Current total success rate: 0.63

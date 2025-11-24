@@ -2,173 +2,117 @@
   "timestamp": "20250807_212358",
   "instructions": {
     "put the zucchini on the towel": {
-      "original": "Arrange the zucchini diagonally across the striped towel.",
+      "original": "Set the green squash straight on the patterned cloth.",
       "ert_rephrases": [
-        "Position the zucchini diagonally on the striped cloth.",
-        "Lay the squash across the patterned towel at an angle.",
-        "Set the zucchini at an angle on the striped towel.",
-        "Place the squash diagonally across the towel.",
-        "Arrange the zucchini on the towel so that it is diagonal.",
-        "Position the squash at a diagonal across the striped cloth.",
-        "Place the zucchini at an angle on the patterned towel.",
-        "Lay the zucchini diagonally across the towel.",
-        "Set the squash on the cloth diagonally.",
-        "Arrange the squash at an angle on the striped towel.",
-        "Lay the zucchini across the patterned cloth at a diagonal.",
-        "Position the squash diagonally on the towel.",
-        "Place the zucchini on the cloth so it forms a diagonal.",
-        "Set the squash at an angle across the striped towel.",
-        "Arrange the zucchini diagonally on the patterned cloth.",
-        "Position the squash across the cloth in a diagonal arrangement."
+        "Place the green squash upright on the decorative fabric.",
+        "Position the vegetable vertically on the designed textile.",
+        "Put the green produce straight on the patterned material.",
+        "Arrange the squash upright on the decorative cloth.",
+        "Place the green vegetable vertically on the patterned fabric.",
+        "Set the green produce upright on the designed textile.",
+        "Position the squash straight on the decorative material.",
+        "Put the green squash upright on the designed fabric."
       ],
       "rephrases_original": "put the zucchini on the towel",
-      "count": 16
+      "count": 8
     },
     "put redbull can on plate": {
-      "original": "Arrange the energy can neatly on the serving dish.",
+      "original": "Strategically position the energy can on the wide platter.",
       "ert_rephrases": [
-        "Place the energy can on the platter in an orderly manner.",
-        "Set the beverage can carefully on the serving plate.",
-        "Position the soda can tidily on the tray.",
-        "Organize the drink can on the platter without clutter.",
-        "Lay the energy can on the tray in a tidy fashion.",
-        "Arrange the beverage can on the serving plate in a clean way.",
-        "Set the soda can on the platter with precision.",
-        "Position the drink can neatly on the serving dish.",
-        "Place the beverage can methodically on the tray.",
-        "Organize the soda can on the serving plate so it looks neat.",
-        "Lay the drink can carefully on the platter.",
-        "Arrange the energy can on the tray in a tidy order.",
-        "Position the beverage can on the platter cleanly.",
-        "Set the drink can on the serving dish without disorder.",
-        "Place the soda can on the serving plate in a clean manner.",
-        "Organize the energy can on the tray with neatness."
+        "Place the energy drink on the large tray.",
+        "Set the beverage can on the broad dish.",
+        "Arrange the energy can onto the wide tray.",
+        "Put the energy drink on the large dish.",
+        "Position the beverage can on the broad platter.",
+        "Place the energy can on the large serving platter.",
+        "Set the drink can on the wide dish.",
+        "Arrange the energy drink on the broad tray."
       ],
       "rephrases_original": "put redbull can on plate",
-      "count": 16
+      "count": 8
     },
     "stack the green block on the yellow block": {
       "original": "Arrange the lush green element atop the yellowish-orange element.",
       "ert_rephrases": [
-        "Place the green object on top of the yellow-orange one.",
-        "Set the green item above the orange-yellow object.",
-        "Position the leafy element over the tangerine-colored piece.",
-        "Put the green piece atop the amber item.",
-        "Lay the emerald object on the sunset-colored element.",
-        "Stack the verdant item over the citrus-hued piece.",
-        "Arrange the vibrant green object atop the orange-yellow item.",
-        "Place the foliage-like piece on the tangerine-colored element.",
-        "Set the lush green element above the amber object.",
-        "Position the rich green piece over the yellowish-orange item.",
-        "Put the dense green element on the sunset-colored piece.",
-        "Lay the green object atop the citrus-hued item.",
-        "Stack the leafy piece above the orange-yellow element.",
-        "Arrange the emerald item over the yellow-orange object.",
-        "Place the vibrant green element on the tangerine-colored piece.",
-        "Set the verdant object atop the amber element."
+        "Place the green object on top of the orange object.",
+        "Set the green item over the yellow-orange piece.",
+        "Position the verdant piece above the amber component.",
+        "Put the green component on top of the gold item.",
+        "Place the green piece atop the orange item.",
+        "Set the leafy element over the yellow-orange part.",
+        "Position the green article above the golden object.",
+        "Put the verdant element on the top of the amber piece."
       ],
       "rephrases_original": "stack the green block on the yellow block",
-      "count": 16
+      "count": 8
     },
     "put the spoon on the towel": {
       "original": "Set the spoon exactly in the middle of the towel.",
       "ert_rephrases": [
-        "Place the spoon at the center of the towel.",
-        "Put the utensil in the middle of the fabric.",
-        "Position the spoon in the middle of the towel.",
-        "Locate the center of the cloth and place the spoon there.",
-        "Set the utensil in the center of the towel.",
-        "Put the spoon in the center of the cloth.",
-        "Arrange the utensil at the middle of the towel.",
-        "Position the spoon at the halfway point of the fabric.",
-        "Lay the utensil right in the center of the towel.",
-        "Place the spoon halfway down the cloth.",
-        "Put the utensil at the precise middle of the fabric.",
-        "Set the spoon at the towel's center.",
-        "Place the utensil directly in the cloth's middle.",
-        "Position the spoon in the fabric's halfway point.",
-        "Lay the utensil in the middle of the cloth.",
-        "Arrange the spoon directly at the towel's center."
+        "Place the spoon in the center of the towel.",
+        "Position the utensil at the midpoint of the cloth.",
+        "Put the spoon in the middle of the towel.",
+        "Set the utensil right at the center of the cloth.",
+        "Place the spoon directly in the center of the towel.",
+        "Position the spoon at the towel's center.",
+        "Put the utensil in the exact center of the towel.",
+        "Place the spoon precisely in the towel's middle."
       ],
       "rephrases_original": "put the spoon on the towel",
       "test_rephrases": [
         "Carefully transfer the spoon to the middle of the towel.",
         "Put the utensil in the core of the napkin."
       ],
-      "count": 16
+      "count": 8
     },
     "put carrot on plate": {
-      "original": "Position the carrot exactly in the center of the serving dish.",
+      "original": "Balance the carrot on the ceramic platter.",
       "ert_rephrases": [
-        "Place the carrot in the center of the serving dish.",
-        "Set the carrot right in the middle of the serving dish.",
-        "Put the carrot precisely at the center of the serving dish.",
-        "Arrange the carrot in the middle of the serving dish.",
-        "Locate the carrot directly in the center of the serving dish.",
-        "Lay the carrot in the central part of the serving dish.",
-        "Situate the carrot exactly in the middle of the serving dish.",
-        "Position the carrot in the exact center of the serving dish.",
-        "Place the carrot centrally on the serving dish.",
-        "Set the carrot in the central spot of the serving dish.",
-        "Put the carrot precisely in the center of the serving platter.",
-        "Arrange the carrot in the exact middle of the serving platter.",
-        "Lay the carrot directly in the center of the serving plate.",
-        "Locate the carrot in the central area of the serving plate.",
-        "Situate the carrot in the middle of the serving platter.",
-        "Position the carrot at the core of the serving dish."
+        "Set the carrot upright on the ceramic plate.",
+        "Position the orange vegetable so it stands still on the ceramic dish.",
+        "Steady the carrot on the ceramic platter.",
+        "Place the carrot carefully so it doesn't fall over on the ceramic plate.",
+        "Make sure the carrot remains balanced on the ceramic dish.",
+        "Stabilize the orange vegetable on the ceramic platter.",
+        "Arrange the carrot so it stays upright on the ceramic plate.",
+        "Keep the carrot in a balanced position on the ceramic dish."
       ],
       "rephrases_original": "put carrot on plate",
       "test_rephrases": [
         "Transfer the carrot to the platter.",
         "Move the carrot to the platter."
       ],
-      "count": 16
+      "count": 8
     },
     "put eggplant into yellow basket": {
       "original": "Arrange the eggplant neatly in the yellow bin.",
       "ert_rephrases": [
-        "Place the vegetable inside the yellow bin.",
-        "Put the eggplant in the yellow container.",
-        "Organize the aubergine in the yellow box.",
-        "Set the vegetable into the yellow crate.",
-        "Position the eggplant in the bright bin.",
-        "Place the aubergine in the colored container.",
-        "Arrange the vegetable in the yellow crate.",
-        "Put the aubergine into the yellow box.",
-        "Organize the eggplant in the colored bin.",
-        "Place the vegetable into the bright container.",
-        "Set the aubergine inside the colored crate.",
-        "Position the vegetable in the yellow box.",
-        "Arrange the aubergine into the bright bin.",
-        "Put the vegetable in the colored crate.",
-        "Organize the eggplant inside the yellow container.",
-        "Place the aubergine into the bright box."
+        "Place the vegetable in an orderly fashion into the yellow container.",
+        "Organize the eggplant inside the lemon-colored basket.",
+        "Position the produce tidily in the yellow box.",
+        "Set the vegetable neatly in the yellow bin.",
+        "Arrange the produce in an orderly manner within the yellow container.",
+        "Stack the eggplant carefully in the yellow basket.",
+        "Keep the vegetable organized inside the lemon-colored box.",
+        "Place the produce tidily in the yellow container."
       ],
       "rephrases_original": "put eggplant into yellow basket",
-      "count": 16
+      "count": 8
     },
     "put tennis ball into yellow basket": {
-      "original": "Transfer the spherical green toy into the container that is yellow.",
+      "original": "Rest the tennis equipment in the basket that is of yellow hue.",
       "ert_rephrases": [
-        "Move the green ball into the yellow container.",
-        "Put the spherical toy inside the yellow box.",
-        "Place the round, green object in the yellow vessel.",
-        "Insert the green toy into the yellow bin.",
-        "Transfer the green spherical toy to the yellow box.",
-        "Relocate the round toy into the yellow container.",
-        "Position the green ball into the yellow vessel.",
-        "Move the spherical green object to the yellow bin.",
-        "Put the green ball inside the yellow vessel.",
-        "Place the spherical toy into the yellow container.",
-        "Transfer the round, green ball to the yellow box.",
-        "Insert the green object into the yellow container.",
-        "Position the toy into the yellow bin.",
-        "Relocate the green sphere to the yellow vessel.",
-        "Move the round toy into the yellow box.",
-        "Place the green ball in the yellow bin."
+        "Place the tennis gear into the yellow basket.",
+        "Put the tennis equipment in the yellow-colored container.",
+        "Set the tennis items in the bright yellow basket.",
+        "Lay the tennis gear inside the yellow container.",
+        "Put the tennis set into the basket that is yellow.",
+        "Place the tennis items in the lemon-colored basket.",
+        "Rest the tennis gear inside the basket that is yellow.",
+        "Set the tennis equipment into the yellow-hued basket."
       ],
       "rephrases_original": "put tennis ball into yellow basket",
-      "count": 16
+      "count": 8
     }
   }
 }
