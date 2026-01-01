@@ -1,2 +1,0 @@
-Task suite: simpler_widowx (LATENCY ANALYSIS MODE - no env, using dummy images)
-Using dummy image of shape (224, 224, 3) for latency analysis
