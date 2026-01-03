@@ -4,14 +4,14 @@ from pathlib import Path
 import argparse
 from typing import List, Set, Optional, Dict
 import sys
-sys.path.append("/root/vla-clip/clip_verifier/scripts")
+sys.path.append("/root/vla-clip/bridge_verifier")
 from lang_transform_vlm import LangTransform
 
 BATCH_NUMBER = 100
 LANG_TRANSFORM_TYPE = "rephrase"
 MAX_DUPLICATE_REPLACEMENT_ATTEMPTS = 5  # Maximum attempts to replace duplicates
 MAX_GENERATION_ROUNDS = 50  # Safety cap to avoid infinite loops when topping up
-INITIAL_FRAME_DIR = "/root/vla-clip/clip_verifier/scripts/initial_frame"
+INITIAL_FRAME_DIR = "/root/vla-clip/bridge_verifier/initial_frame"
 
 def check_and_replace_duplicates(lang_transform, original_instruction, instructions, image_path, max_attempts=MAX_DUPLICATE_REPLACEMENT_ATTEMPTS):
     """
