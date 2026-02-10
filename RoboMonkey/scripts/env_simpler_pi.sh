@@ -53,15 +53,6 @@ pip install distrax==0.1.5 flax==0.8.1 wandb==0.20.1 mediapy==1.2.0 tf_keras==2.
 pip install chex==0.1.2
 check_status "SimplerPi additional dependencies"
 
-# OpenVLA-mini setup
-echo "Setting up OpenVLA-mini..."
-cd "$dir_path/../openvla-mini"
-pip install -e .
-pip install -r requirements-min.txt
-pip install draccus==0.8.0 rich==14.0.0 accelerate==1.8.0 tensorflow==2.15.0 tensorflow-graphics==2021.12.3 jsonlines==4.0.0 robosuite==1.4.0 bddl==3.5.0 easydict==1.13 gym==0.23.0 PyOpenGL-accelerate==3.1.9 scikit-learn==1.7.0
-pip install ml_dtypes==0.5.0
-check_status "OpenVLA-mini setup"
-
 # Environment variables
 export MUJOCO_GL=osmesa
 export PYOPENGL_PLATFORM=osmesa
