@@ -8,13 +8,6 @@ import time
 import numpy as np
 import torch
 
-from experiments.robot.openvla_utils import (
-    get_prismatic_vla,
-    get_prismatic_vla_action,
-    get_vla,
-    get_vla_action,
-)
-
 # Initialize important constants and pretty-printing mode in NumPy.
 ACTION_DIM = 7
 DATE = time.strftime("%Y_%m_%d")
@@ -53,6 +46,8 @@ def set_seed_everywhere(seed: int):
 
 def get_model(cfg, wrap_diffusion_policy_for_droid=False):
     """Load model for evaluation."""
+    from openvla_utils import get_prismatic_vla, get_vla
+    
     if cfg.model_family == "prismatic":
         model = get_prismatic_vla(cfg)
     elif cfg.model_family == "openvla":
@@ -80,6 +75,8 @@ def get_image_resize_size(cfg):
 
 def get_action(cfg, model, obs, task_label, processor=None):
     """Queries the model to get an action."""
+    from openvla_utils import get_prismatic_vla_action, get_vla_action
+    
     if cfg.model_family == "prismatic":
         action = get_prismatic_vla_action(
             model, processor, cfg.pretrained_checkpoint, obs, task_label, cfg.unnorm_key, center_crop=cfg.center_crop

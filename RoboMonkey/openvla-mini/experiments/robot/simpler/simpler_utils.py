@@ -3,14 +3,11 @@ import simpler_env
 import tensorflow as tf
 from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 from transforms3d.euler import euler2axangle
-
-from experiments.robot.robot_utils import normalize_gripper_action
-from PIL import Image
-import tensorflow as tf
-import numpy as np
 from PIL import Image
 import os
 from pathlib import Path
+
+from experiments.robot.robot_utils import normalize_gripper_action
 
 def process_image(image_path, output_dir="./transfer_images/", crop_scale=0.9, target_size=(224, 224), batch_size=1):
     """

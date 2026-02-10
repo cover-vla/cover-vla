@@ -14,11 +14,9 @@ import numpy as np
 import random
 from tqdm import tqdm
 
-# Add parent directory to path for imports
-# sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from model import TextAwareVisualExtraction, ModelConfig
-from finetune_trajectory_bridge_ddp import VLA_SigLIP2_Bridge
+# Use relative imports for package modules
+from .model import TextAwareVisualExtraction, ModelConfig
+from .finetune_trajectory_bridge_ddp import VLA_SigLIP2_Bridge
 import argparse
 import json
 

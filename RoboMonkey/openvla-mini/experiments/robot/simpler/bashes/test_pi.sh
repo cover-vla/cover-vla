@@ -1,14 +1,23 @@
 #!/bin/bash
 
+# NOTE: Activate the 'cover' virtual environment first:
+#   source /home/xilunz/rebuttal/vla-clip/.venv_cover/bin/activate
+# And set environment variables:
+export MUJOCO_GL=oPLsmesa
+export PYOPENGL_ATFORM=osmesa
+
 # Set the base directory to the script location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Set environment variables
-export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
+# Add openvla-mini root to PYTHONPATH (go up 4 levels: bashes -> simpler -> robot -> experiments -> openvla-mini)
+OPENVLA_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
+export PYTHONPATH="$OPENVLA_ROOT:$PYTHONPATH"
+export PRISMATIC_DATA_ROOT=.
 
 
-# CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi.py \
+# CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
 #     --task_suite_name simpler_widowx \
 #     --lang_transform_type rephrase \
 #     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
@@ -17,31 +26,13 @@ export PRISMATIC_DATA_ROOT=. && export PYTHONPATH=.
 #     --policy_batch_inference_size 1 \
 #     --lang_rephrase_num 1 &
 
-# CUDA_VISIBLE_DEVICES=1 python ../run_simpler_eval_with_openpi.py \
-#     --task_suite_name simpler_tennis_ball_in_basket \
-#     --lang_transform_type rephrase \
-#     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-#     --num_trials_per_task 150 \
-#     --use_verifier False \
-#     --policy_batch_inference_size 1 \
-#     --lang_rephrase_num 1 &
-
-CUDA_VISIBLE_DEVICES=2 python ../run_simpler_eval_with_openpi.py \
+CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
     --task_suite_name simpler_tennis_ball_in_basket \
     --lang_transform_type rephrase \
     --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
-    --num_trials_per_task 150 \
+    --num_trials_per_task 50 \
     --use_verifier True \
-    --policy_batch_inference_size 5 \
-    --lang_rephrase_num 8 &
-
-CUDA_VISIBLE_DEVICES=3 python ../run_simpler_eval_with_openpi.py \
-    --task_suite_name simpler_tennis_ball_in_basket \
-    --lang_transform_type rephrase \
-    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-rephrase-bridge \
-    --num_trials_per_task 150 \
-    --use_verifier True \
-    --policy_batch_inference_size 5 \
-    --lang_rephrase_num 8 &
+    --policy_batch_inference_size 3 \
+    --lang_rephrase_num 8
 
 wait

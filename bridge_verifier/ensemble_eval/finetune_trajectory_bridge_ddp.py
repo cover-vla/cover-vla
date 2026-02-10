@@ -13,7 +13,7 @@ from PIL import Image
 from typing import Optional
 import os
 from tqdm import tqdm
-from model import TextAwareVisualExtraction, AttentionPooling, ModelConfig
+from .model import TextAwareVisualExtraction, AttentionPooling, ModelConfig
 import numpy as np
 # Remove pickle import, add ijson for streaming JSON
 import ijson

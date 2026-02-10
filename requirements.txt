@@ -1,0 +1,86 @@
+# Core dependencies
+setuptools<70.0.0  # sapien needs pkg_resources from older setuptools
+numpy>=1.26.4,<2.0  # Keep numpy 1.x for compatibility
+
+# TensorFlow and related
+tensorflow[and-cuda]
+tensorflow-probability
+tensorflow-datasets
+tensorflow-hub
+tf-agents
+tf-keras
+dm-reverb[tensorflow]
+
+# JAX ecosystem (let uv resolve compatible versions)
+jax
+jaxlib
+flax==0.8.1
+distrax==0.1.5
+chex>=0.1.8
+optax
+
+# PyTorch (for PI0 policy)
+torch>=2.4.0
+torchvision
+transformers>=4.48.0
+
+# Data processing
+rlds==0.1.8
+apache-beam
+tfds-nightly==4.9.4.dev202403220044
+tfp-nightly==0.25.0.dev20240322
+
+# Utilities
+pandas==2.3.0
+openpyxl==3.1.5
+matplotlib==3.10.3
+mediapy==1.2.0
+scipy==1.12.0
+einops==0.8.1
+pillow
+transforms3d
+imageio
+imageio[ffmpeg]
+tqdm
+draccus
+
+# ManiSkill2 dependencies (needed since we install it with --no-deps)
+sapien==2.2.2
+gymnasium>=0.28.1,<1.0
+h5py
+pyyaml
+GitPython
+tabulate
+gdown>=4.6.0
+opencv-python
+trimesh
+rtree
+ruckig
+
+# ML utilities
+wandb==0.20.1
+ml-collections
+
+# Web/API
+fastapi
+uvicorn
+openai
+
+# Text processing
+ftfy
+regex
+ijson
+
+# Plotting
+plotly
+ipython==8.22.2
+
+# Build tools
+coacd
+
+# Testing
+pytest
+
+# Git dependencies
+simulated-annealing @ git+https://github.com/nathanrooy/simulated-annealing@293e2b0ad88f81668e98ae104ee204d41b8b34f5
+json-numpy

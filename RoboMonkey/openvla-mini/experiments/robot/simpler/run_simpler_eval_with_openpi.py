@@ -41,13 +41,11 @@ from experiments.robot.simpler.eval_utils import (
 )
 from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 
-# PI0 policy imports
-sys.path.append('/root/vla-clip/lerobot_intact')
+# PI0 policy imports (installed as module via env_simpler_pi.sh)
 from lerobot.common.policies.pi0.modeling_pi0 import PI0Policy
 
-# Ensemble verifier imports
-sys.path.append('/root/vla-clip/bridge_verifier/ensemble_eval')
-from efficient_ensemble_merged import EfficientEnsembleMerged
+# Ensemble verifier imports (installed as module via env_simpler_pi.sh)
+from bridge_verifier.ensemble_eval import EfficientEnsembleMerged
 
 # Constants
 DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")

@@ -3,7 +3,7 @@
 # Exit on error
 set -e
 
-echo "Starting setup process..."
+echo "Starting setup process with uv..."
 
 # Function to check command status
 check_status() {
@@ -15,58 +15,93 @@ check_status() {
     fi
 }
 
-# Initialize conda in the current shell
-echo "Initializing conda..."
-$HOME/miniconda3/bin/conda init bash
-source ~/.bashrc
+# Check if uv is installed
+if ! command -v uv &> /dev/null; then
+    echo "uv not found. Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.local/bin:$PATH"
+fi
 
 full_path=$(realpath $0)
 dir_path=$(dirname $full_path)
 
-# Create and activate environment
-if ! conda env list | grep -qE "^\s*simpler_pi\s"; then
-    echo "Creating simpler_pi environment..."
-    $HOME/miniconda3/bin/conda create -n simpler_pi python=3.10 -y
-else
-    echo "Conda environment 'simpler_pi' already exists. Skipping creation."
-fi
+# Set up base paths for easier navigation
+VLA_CLIP_ROOT="$(cd "$dir_path/../.." && pwd)"
+echo "VLA-CLIP root: $VLA_CLIP_ROOT"
 
-source $HOME/miniconda3/etc/profile.d/conda.sh
-conda activate simpler_pi
-
-cd "$dir_path/../SimplerEnv"
+# Install system dependencies first
+echo "Installing system dependencies..."
 sudo apt-get install -y libvulkan1 libx11-6
-pip install --upgrade pip
-pip install -r requirements_full_install.txt --use-deprecated=legacy-resolver
-pip install tensorflow-probability==0.24.0
-check_status "SimplerPi base setup"
+check_status "System dependencies installation"
 
-# Additional SimplerEnv dependencies
-pip install -e ./ManiSkill2_real2sim/
-pip install -e .
-pip install pandas==2.3.0 openpyxl==3.1.5 matplotlib==3.10.3 mediapy==1.2.0
-pip install tensorflow[and-cuda]==2.18.0
-pip install "git+https://github.com/nathanrooy/simulated-annealing@293e2b0ad88f81668e98ae104ee204d41b8b34f5"
-pip install flax==0.8.1
-pip install dlimp "git+https://github.com/kvablack/dlimp@d08da3852c149548aaa8551186d619d87375df08"
-pip install distrax==0.1.5 flax==0.8.1 wandb==0.20.1 mediapy==1.2.0 tf_keras==2.19.0 einops==0.8.1
-pip install chex==0.1.2
-check_status "SimplerPi additional dependencies"
+# Create virtual environment
+cd "$VLA_CLIP_ROOT"
+VENV_PATH="$VLA_CLIP_ROOT/.venv_cover"
 
-# Environment variables
+echo "Creating virtual environment 'cover'..."
+uv venv "$VENV_PATH" --python 3.10
+check_status "Virtual environment creation"
+
+# Activate the virtual environment
+echo "Activating virtual environment..."
+source "$VENV_PATH/bin/activate"
+
+# Install setuptools first (needed for pkg_resources which sapien requires)
+echo "Installing setuptools..."
+uv pip install 'setuptools<70.0.0'
+check_status "Setuptools installation"
+
+# Install all dependencies from requirements.txt
+echo "Installing all dependencies from requirements.txt..."
+echo "This may take a while as uv resolves all dependencies..."
+uv pip install -r "$VLA_CLIP_ROOT/requirements.txt"
+check_status "Dependencies installation"
+
+# Install SimplerEnv without dependencies (it has dlimp which conflicts with TF 2.18)
+echo "Installing SimplerEnv packages without dependencies..."
+cd "$VLA_CLIP_ROOT/RoboMonkey/SimplerEnv"
+uv pip install --no-deps -e ./ManiSkill2_real2sim/
+uv pip install --no-deps -e .
+check_status "SimplerEnv installation"
+
+# Install local editable packages
+echo "Installing local packages..."
+cd "$VLA_CLIP_ROOT/lerobot_intact"
+uv pip install -e ".[pi0]"
+check_status "LeRobot installation with PI0 support"
+
+cd "$VLA_CLIP_ROOT/bridge_verifier"
+uv pip install -e .
+check_status "Bridge Verifier installation"
+
+cd "$VLA_CLIP_ROOT/RoboMonkey/openvla-mini"
+uv pip install -e .
+check_status "OpenVLA-mini installation"
+
+# Set environment variables
 export MUJOCO_GL=osmesa
 export PYOPENGL_PLATFORM=osmesa
 
-# Additional packages
-pip install fastapi uvicorn json_numpy flax==0.8.1
-check_status "Additional packages installation"
+# Set PYTHONPATH to include openvla-mini root
+OPENVLA_ROOT="$VLA_CLIP_ROOT/RoboMonkey/openvla-mini"
+export PYTHONPATH="$OPENVLA_ROOT:$PYTHONPATH"
+echo "PYTHONPATH updated to include: $OPENVLA_ROOT"
 
-pip install ftfy regex tqdm
-pip install git+https://github.com/openai/CLIP.git
-pip install ijson
-pip install openai
 
-cd ../../lerobot_intact
-pip install -e .
-
-pip install numpy==1.26.4 transformers==4.51.3
+echo ""
+echo "============================================"
+echo "Setup complete!"
+echo "============================================"
+echo "Your environment 'cover' is ready to use."
+echo ""
+echo "To activate the environment (run this in your shell):"
+echo "  source $VLA_CLIP_ROOT/.venv_cover/bin/activate"
+echo ""
+echo "Set environment variables:"
+echo "  export MUJOCO_GL=osmesa"
+echo "  export PYOPENGL_PLATFORM=osmesa"
+echo ""
+echo "To run experiments:"
+echo "  cd $OPENVLA_ROOT/experiments/robot/simpler/bashes"
+echo "  ./test_pi.sh"
+echo ""

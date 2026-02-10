@@ -24,8 +24,12 @@ import torch
 from PIL import Image
 from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_obs_dict
 
-# INT-ACT imports for BridgeSimplerAdapter
-sys.path.append('/root/vla-clip/INT-ACT')
+# Add INT-ACT to path for BridgeSimplerAdapter (only importing one class, no full install needed)
+_vla_clip_root = Path(__file__).resolve().parents[5]  # Go up to vla-clip root
+_int_act_path = _vla_clip_root / "INT-ACT"
+if str(_int_act_path) not in sys.path:
+    sys.path.append(str(_int_act_path))
+
 from src.experiments.env_adapters.simpler import BridgeSimplerAdapter
 
 
