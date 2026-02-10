@@ -158,7 +158,10 @@ def eval_simpler(cfg: GenerateConfig) -> None:
     # Initialize verifier model
     if cfg.use_verifier:
         print("Loading ensemble model for similarity scoring...")
-        ensemble_model = EfficientEnsembleMerged("/root/vla-clip/bridge_verifier/ensemble_182123_trainable_only.pt")
+        # Use dynamic path relative to the VLA-CLIP root
+        vla_clip_root = Path(__file__).resolve().parents[5]
+        ensemble_checkpoint_path = vla_clip_root / "bridge_verifier" / "cover_verifier_bridge.pt"
+        ensemble_model = EfficientEnsembleMerged(str(ensemble_checkpoint_path))
         print("Ensemble model loaded successfully!")
     else:
         ensemble_model = None

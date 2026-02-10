@@ -78,6 +78,11 @@ cd "$VLA_CLIP_ROOT/RoboMonkey/openvla-mini"
 uv pip install -e .
 check_status "OpenVLA-mini installation"
 
+# Ensure transformers and torch are at correct versions (may be downgraded by dependencies)
+echo "Ensuring correct transformers and PyTorch versions..."
+uv pip install 'transformers==4.48.3' 'torch>=2.4.0' torchvision 'numpy>=1.26.4,<2.0' --upgrade
+check_status "Final dependency version check"
+
 # Set environment variables
 export MUJOCO_GL=osmesa
 export PYOPENGL_PLATFORM=osmesa

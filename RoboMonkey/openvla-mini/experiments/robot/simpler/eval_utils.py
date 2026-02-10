@@ -115,7 +115,9 @@ def create_bridge_adapter_wrapper(action_ensemble_temp=-0.8):
     """
     class EnvConfig:
         def __init__(self):
-            self.dataset_statistics_path = "/root/vla-clip/INT-ACT/config/dataset/bridge_statistics.json"
+            # Use dynamic path relative to this file
+            vla_clip_root = Path(__file__).resolve().parents[5]
+            self.dataset_statistics_path = str(vla_clip_root / "INT-ACT" / "config" / "dataset" / "bridge_statistics.json")
             self.image_size = (224, 224)
             self.action_normalization_type = "bound"
             self.state_normalization_type = "bound"

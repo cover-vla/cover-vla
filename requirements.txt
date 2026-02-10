@@ -22,7 +22,7 @@ optax
 # PyTorch (for PI0 policy)
 torch>=2.4.0
 torchvision
-transformers>=4.48.0
+transformers==4.48.3
 
 # Data processing
 rlds==0.1.8

@@ -95,7 +95,7 @@ class EfficientEnsembleMerged:
             print(f"  [{i+1}/{self.num_models}] Loading trainable components...")
             
             # Create fresh modules and load state
-            from model import TextAwareVisualExtraction, AttentionPooling
+            from .model import TextAwareVisualExtraction, AttentionPooling
             
             # Initialize modules with correct dimensions
             text_aware = TextAwareVisualExtraction(
