@@ -15,7 +15,7 @@ import random
 from tqdm import tqdm
 
 # Add parent directory to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from model import TextAwareVisualExtraction, ModelConfig
 from finetune_trajectory_bridge_ddp import VLA_SigLIP2_Bridge
@@ -327,33 +327,55 @@ class EfficientEnsembleMerged:
         
         # print(f"Computing max similarity scores for {batch_size} (image, language) pairs against {num_actions} actions...")
         
-        # Step 1: Loop to encode image and text features individually
-        patch_features_list = []
-        text_features_list = []
+        # OPTIMIZATION: Check if all instructions are the same (common case)
+        # If so, only encode once instead of repeating
+        all_same_instruction = len(set(instructions)) == 1 if isinstance(instructions[0], str) else False
         
-        for i in range(batch_size):
-            # Preprocess image and text individually
-            if isinstance(images[i], np.ndarray):
-                image = Image.fromarray(images[i].astype('uint8'))
+        if all_same_instruction and batch_size > 1:
+            # Optimized path: encode image and text only once
+            if isinstance(images[0], np.ndarray):
+                image = Image.fromarray(images[0].astype('uint8'))
             else:
-                image = images[i]
+                image = images[0]
             img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            if isinstance(instructions[i], str):
-                text_tokens = self.tokenizer([instructions[i]], context_length=self.siglip_model.context_length).to(self.device)
-            else:
-                text_tokens = instructions[i].to(self.device)
-                if text_tokens.ndim == 1:
-                    text_tokens = text_tokens.unsqueeze(0)
+            text_tokens = self.tokenizer([instructions[0]], context_length=self.siglip_model.context_length).to(self.device)
             
-            # Extract features for this sample
+            # Extract features once
             patch_features, text_features = self.extract_shared_features(img_tensor, text_tokens)
-            patch_features_list.append(patch_features)
-            text_features_list.append(text_features)
-        
-        # Step 2: Stack features into batch tensors
-        patch_features_batch = torch.cat(patch_features_list, dim=0)  # (batch_size, num_patches, dim)
-        text_features_batch = torch.cat(text_features_list, dim=0)    # (batch_size, num_tokens, dim)
+            patch_features_batch = patch_features  # (1, num_patches, dim)
+            text_features_batch = text_features    # (1, num_tokens, dim)
+            # Set batch_size to 1 for embedding computation
+            embedding_batch_size = 1
+        else:
+            # Original path: encode each pair separately
+            patch_features_list = []
+            text_features_list = []
+            
+            for i in range(batch_size):
+                # Preprocess image and text individually
+                if isinstance(images[i], np.ndarray):
+                    image = Image.fromarray(images[i].astype('uint8'))
+                else:
+                    image = images[i]
+                img_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+                
+                if isinstance(instructions[i], str):
+                    text_tokens = self.tokenizer([instructions[i]], context_length=self.siglip_model.context_length).to(self.device)
+                else:
+                    text_tokens = instructions[i].to(self.device)
+                    if text_tokens.ndim == 1:
+                        text_tokens = text_tokens.unsqueeze(0)
+                
+                # Extract features for this sample
+                patch_features, text_features = self.extract_shared_features(img_tensor, text_tokens)
+                patch_features_list.append(patch_features)
+                text_features_list.append(text_features)
+            
+            # Stack features into batch tensors
+            patch_features_batch = torch.cat(patch_features_list, dim=0)  # (batch_size, num_patches, dim)
+            text_features_batch = torch.cat(text_features_list, dim=0)    # (batch_size, num_tokens, dim)
+            embedding_batch_size = batch_size
         
         # Step 3: Convert all action histories to batch tensor (pad to same length)
         max_history_len = 10
@@ -381,42 +403,49 @@ class EfficientEnsembleMerged:
             all_image_text_embeds.append(img_text_embeds)
             all_action_embeds.append(action_embeds)
         # Step 5: Stack and average across models
-        all_image_text_embeds = torch.stack(all_image_text_embeds)  # (num_models, batch_size, 512)
+        all_image_text_embeds = torch.stack(all_image_text_embeds)  # (num_models, embedding_batch_size, 512)
         all_action_embeds = torch.stack(all_action_embeds)  # (num_models, num_actions, 512)
         
-        fused_image_text = all_image_text_embeds.mean(dim=0)  # (batch_size, 512)
+        fused_image_text = all_image_text_embeds.mean(dim=0)  # (embedding_batch_size, 512)
         fused_action = all_action_embeds.mean(dim=0)  # (num_actions, 512)
         # Step 6: Re-normalize
         fused_image_text = fused_image_text / fused_image_text.norm(dim=-1, keepdim=True)
         fused_action = fused_action / fused_action.norm(dim=-1, keepdim=True)
         
         # Step 7: Compute similarity matrix between all (image, language) pairs and all actions
-        similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (batch_size, num_actions)
+        similarity_matrix = torch.matmul(fused_image_text, fused_action.T)  # (embedding_batch_size, num_actions)
 
-        # --- Group repeated language instructions ---
+        # --- Use the reference instruction to compare against all actions ---
         group_size = cfg_repeat_language_instructions  # e.g., 2
-        num_groups = batch_size // group_size
-
-        avg_scores_per_group = []
-        for g in range(num_groups):
-            start, end = g * group_size, (g + 1) * group_size
-            # Only compare each language group against its corresponding action group
-            group_scores = similarity_matrix[start:end, start:end]  # (group_size, group_size)
-            group_avg = group_scores.mean(dim=0)                   # average across language repeats
-            avg_scores_per_group.append(group_avg.unsqueeze(0))   # shape (1, group_size)
-
-        scores = torch.cat(avg_scores_per_group, dim=0)  # (num_groups, group_size)
-
-        # --- Pick the best language group and best action within it ---
-        best_scores, best_action_indices = scores.max(dim=1)  # per-group best action
-        best_group_score, best_group_idx = best_scores.max(dim=0)           # overall best group (language)
-        best_action_idx = best_action_indices[best_group_idx]
+        num_groups = num_actions // group_size
+        
+        # If optimized path (embedding_batch_size=1), we already have the single row
+        # Otherwise take first row (all rows are identical since instructions are all task_description)
+        if embedding_batch_size == 1:
+            reference_scores = similarity_matrix[0, :]  # (num_actions,) - already single comparison
+        else:
+            reference_scores = similarity_matrix[0, :]  # (num_actions,) - take first of identical rows
+        
+        # Reshape to organize by language groups
+        reference_scores = reference_scores.view(num_groups, group_size)  # (num_groups, group_size)
+        
+        # --- Pick the best language group based on AVERAGE score ---
+        avg_scores_per_language = reference_scores.mean(dim=1)  # (num_groups,) - average across actions per language
+        best_group_score, best_group_idx = avg_scores_per_language.max(dim=0)  # pick language with highest avg
+        
+        # --- Within the selected language, pick the best action ---
+        best_action_scores = reference_scores[best_group_idx]  # (group_size,) - get all action scores for selected language
+        max_score, best_action_idx = best_action_scores.max(dim=0)  # pick best action within that language
 
         # Retrieve corresponding items
-        max_score = best_group_score.item()
-        max_instruction = instructions[best_group_idx * group_size]  # take first of that group
+        max_score = max_score.item()
+        # If all instructions are the same, just return the first one
+        if all_same_instruction and batch_size > 1:
+            max_instruction = instructions[0]
+        else:
+            max_instruction = instructions[min(best_group_idx * group_size, len(instructions) - 1)]
         
-        # best_action_idx is now the index within the group, so we need to map it to global index
+        # Map to global action index
         global_action_idx = best_group_idx * group_size + best_action_idx
         max_action_history = all_action_histories[global_action_idx]
         

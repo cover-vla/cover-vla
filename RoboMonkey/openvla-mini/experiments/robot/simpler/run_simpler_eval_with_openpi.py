@@ -30,7 +30,6 @@ from experiments.robot.simpler.simpler_benchmark import get_benchmark
 from experiments.robot.simpler.eval_utils import (
     convert_maniskill_with_bridge_adapter,
     create_bridge_adapter_wrapper,
-    get_image_resize_size,
     get_simpler_dummy_action,
     get_simpler_env,
     load_rephrases,
@@ -247,17 +246,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             }
             
             # Set max steps based on task suite
-            if cfg.task_suite_name == "libero_spatial":
-                max_steps = 220
-            elif cfg.task_suite_name == "libero_object":
-                max_steps = 280
-            elif cfg.task_suite_name == "libero_goal":
-                max_steps = 300
-            elif cfg.task_suite_name == "libero_10":
-                max_steps = 520
-            elif cfg.task_suite_name == "libero_90":
-                max_steps = 400
-            elif cfg.task_suite_name.startswith("simpler"):
+            if cfg.task_suite_name.startswith("simpler"):
                 max_steps = 150
             else:
                 raise NotImplementedError
@@ -352,25 +341,27 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     images_list = [process_raw_image_to_jpg(raw_img)] * batch_size
                     
                     with torch.no_grad():
-                        # First try with original instruction only
+                        # First try with original instruction only (high confidence)
                         max_score, max_instruction, max_action_history, global_action_idx = \
                             ensemble_model.compute_max_similarity_scores_batch(
-                                images=images_list[0:cfg.policy_batch_inference_size],
-                                instructions=[task_description] * cfg.policy_batch_inference_size,
-                                all_action_histories=action_histories_list[0:cfg.policy_batch_inference_size],
-                                cfg_repeat_language_instructions=cfg.policy_batch_inference_size
+                                images=images_list[0:1],
+                                instructions=[task_description],
+                                all_action_histories=action_histories_list[0:1],
+                                cfg_repeat_language_instructions=1
                             )
                     
-                    # If score is too low, try with all rephrased instructions
+                    # If score is too low, try with all rephrased instructions (low confidence)
                     if max_score < 0.1:
                         with torch.no_grad():
-                            max_score, max_instruction, max_action_history, global_action_idx = \
+                            max_score, _ , max_action_history, global_action_idx = \
                                 ensemble_model.compute_max_similarity_scores_batch(
                                     images=images_list,
-                                    instructions=task_list,
+                                    instructions=[task_description] * batch_size,
                                     all_action_histories=action_histories_list,
                                     cfg_repeat_language_instructions=cfg.policy_batch_inference_size
                                 )
+                        # Map global_action_idx back to the corresponding rephrase instruction
+                        max_instruction = task_list[global_action_idx]
                     
                     # Get execution-format actions (not verification-format)
                     execution_action_histories_list = process_inputs(
