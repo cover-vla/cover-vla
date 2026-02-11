@@ -74,6 +74,7 @@ ijson
 # Plotting
 plotly
 ipython==8.22.2
+seaborn
 
 # Build tools
 coacd
