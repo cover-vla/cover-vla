@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: simpler_env
-Version: 0.0.1
-Author: Xuanlin Li
-Requires-Python: >=3.10
-License-File: LICENSE
-Dynamic: author
-Dynamic: license-file
-Dynamic: requires-python

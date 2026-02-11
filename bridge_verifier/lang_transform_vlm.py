@@ -4,6 +4,7 @@ import string
 import json
 import re
 import os
+from pathlib import Path
 import numpy as np
 import cv2
 import base64
@@ -217,6 +218,7 @@ class LangTransform:
             return None
         
     def get_system_prompt(self):
-        with open('/root/vla-clip/clip_verifier/system_prompts/rephrase_batch.txt', 'r', encoding='utf-8') as file:
+        prompt_path = Path(__file__).resolve().parent / "system_prompts" / "rephrase_batch.txt"
+        with open(prompt_path, 'r', encoding='utf-8') as file:
             return file.read()
     

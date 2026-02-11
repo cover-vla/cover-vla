@@ -1,71 +1,124 @@
-# vla-comp
+# VLA-CLIP
 
-## Step 1: Generate Rephrases from LIBERO (no-ops) Dataset
+Vision-Language-Action models with instruction verification for robot manipulation.
 
-To generate rephrased language instructions (including positive and negative rephrases), run:
+This repository contains the CoVer (CoVer_VLA) pipeline for evaluating PI0 policies with an action verifier on the SIMPLER benchmark.
+
+## Overview
+
+| Component | Description |
+|-----------|-------------|
+| **PI0 Policy** | Vision-language-action model (from LeRobot) for action generation |
+| **Action Verifier** | Ensemble model that scores action-instruction alignment |
+| **SIMPLER Benchmark** | Robot manipulation tasks in simulation |
+
+## Quick Start
+
+### 1. Setup
+
+From the repository root (`vla-clip/`), run the environment setup script:
 
 ```bash
-cd openvla/experiments/robot/libero
-python generate_libero_rephrases.py
+bash CoVer_VLA/scripts/env_simpler_pi.sh
 ```
 
-- **Purpose:** This script processes the LIBERO benchmark tasks and generates multiple rephrasings for each instruction, including positive and negative variants.  
-- **Configuration:** You can set the output path, number of rephrases, and task suite to process by editing the script variables at the top of `generate_libero_rephrases.py`.
-- **Note:** Negative rephrases are currently not used for training, as generating random actions as negative labels is not convincing.
+This script will:
+- Install [uv](https://github.com/astral-sh/uv) (if not present)
+- Create a virtual environment at `.venv_cover`
+- Install dependencies (TensorFlow, PyTorch, SimplerEnv, LeRobot with PI0, Bridge Verifier, etc.)
+- Set up PYTHONPATH for the inference package
+
+**Requirements:** Linux, Python 3.10, CUDA-capable GPU.
+
+### 2. Activate Environment
+
+```bash
+source .venv_cover/bin/activate
+export MUJOCO_GL=osmesa
+export PYOPENGL_PLATFORM=osmesa
+```
+
+### 3. Run Inference
+
+```bash
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
+./test_pi.sh
+```
+
+Or run a single task with custom arguments:
+
+```bash
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
+python ../run_simpler_eval_with_openpi.py \
+    --task_suite_name simpler_widowx \
+    --lang_transform_type rephrase \
+    --pretrained_checkpoint juexzz/INTACT-pi0-finetune-bridge \
+    --num_trials_per_task 100 \
+    --use_verifier True \
+    --policy_batch_inference_size 5 \
+    --lang_rephrase_num 8
+```
+
+### 4. Visualize Results
+
+After running inference, analyze success rates and generate plots:
+
+```bash
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
+python analyze_success_rate.py --output-dir ./analysis_plots
+```
+
+Plots are saved to `./analysis_plots/` including:
+- Success rates across experiments
+- Verifier score distributions over time
+- Per-task similarity trajectories
+- Evaluation statistics by rollout folder
 
 ---
 
-## Step 2: Generate Dataset for Verifier Training
+## Project Structure
 
-After generating rephrases, you need to create an augmented dataset for training the trajectory verifier. At this step, the libero dataset will be loaded along with the rephrased instructions and the script will generate a dataset for training the verifier. (with each positive rephrases, we will use the same action as the original instruction). The dataset contains "action history", "wrist-image", "agent_view_image" and "language instruction".
-
-One example is:
-
-```bash
-cd clip_verifier/scripts
-python augment_dataset.py
 ```
-Note: The script is for generating dataset for both positive and negative rephrases.(We dont use negative rephrases for now)
+vla-clip/
+├── CoVer_VLA/
+│   ├── scripts/env_simpler_pi.sh   # Setup script
+│   ├── inference/                  # Evaluation and inference
+│   │   └── experiments/robot/simpler/
+│   │       ├── run_simpler_eval_with_openpi.py
+│   │       ├── bashes/
+│   │       │   ├── test_pi.sh
+│   │       │   └── analyze_success_rate.py
+│   │       └── ...
+│   └── SimplerEnv/                 # Simulation environment
+├── bridge_verifier/                # Action verifier model
+├── lerobot_custom/                 # LeRobot with PI0 policy
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## Step 3: Train the Verifier
+## Output Locations
 
-In this setting, we use InfoNCE loss to train the trajectory verifier, we treat only the diagnal as positive samples and the rest as negative samples. You can train the trajectory verifier using one of the provided bash scripts in `clip_verifier/bash/`:
-One example is:
-
-```bash
-bash clip_verifier/bash/finetune_trajectory_transformer.sh
-```
-
-
-- **Purpose:** These scripts launch training for the verifier model using the specified dataset and configuration.
-- **Configuration:**  
-  - `--epochs`: Number of training epochs  
-  - `--batch_size`: Batch size  
-  - `--lr`: Learning rate  
-  - `--history_length`: Length of action history  (This should be the same as the history length used for generating training data)
-  - `--augmented_dataset`: Path to the `.pkl` dataset  
-  - `--save_name`: Name for saving the trained model  
-  - `--use_transformer`: Use transformer-based model  
-  - `--use_wandb`: Enable Weights & Biases logging  
-  - `--resume`: (Optional) Resume from a checkpoint
-
-You can modify these parameters by editing the corresponding bash script or passing them directly to the Python script.
+| Output | Path |
+|--------|------|
+| Logs | `experiments/logs/` (relative to CWD) |
+| Rollout videos | `rollouts_openpi_original/` or `rollouts_openpi_rephrase/` |
+| Episode data (pickle) | Same as rollout videos |
+| Analysis plots | `./analysis_plots/` (or `--output-dir`) |
 
 ---
 
-## Step 4: Evaluate the Verifier with VLA rollouts
+## Key Arguments
 
-Here, we rollout the VLA model with the verifier to get the trajectory scores. The proposed langauge instruction in the rollouts are pre-generated rephrases. (If its in-distribution, we use the language instructions that we generated in step 1)
+| Argument | Description |
+|----------|-------------|
+| `--task_suite_name` | `simpler_widowx`, `simpler_ood`, `simpler_put_eggplant_in_basket`, etc. |
+| `--use_verifier` | Enable/disable action verifier |
+| `--policy_batch_inference_size` | Actions sampled per instruction |
+| `--lang_rephrase_num` | Number of language rephrases |
+| `--num_trials_per_task` | Episodes per task |
 
-Load rephrases are processed in the function: `def load_rephrases(task_suite_name):`
+---
 
-One example is:
-
-```bash
-cd openvla
-bash run_gpu0.sh
-```
-
-Note: The script is for evaluating the VLA model with the verifier.
+For more details, see [CoVer_VLA/README.md](CoVer_VLA/README.md).

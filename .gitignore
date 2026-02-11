@@ -188,8 +188,8 @@ openpi/checkpoints
 openpi/rollouts*
 
 
-RoboMonkey/openvla-mini/experiments/robot/simpler/logs/
-RoboMonkey/openvla-mini/experiments/robot/simpler/rollouts*
+CoVer_VLA/inference/experiments/robot/simpler/logs/
+CoVer_VLA/inference/experiments/robot/simpler/rollouts*
 
 *.mp4
 *.pkl

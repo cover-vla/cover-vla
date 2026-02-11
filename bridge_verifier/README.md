@@ -175,7 +175,7 @@ python augment_bridge_dataset.py \
 
 #### Inference Example (TODO)
 ```bash
-cd /root/vla-clip/bridge_verifier
+cd bridge_verifier  # from vla-clip root
 
 # Download the model checkpoint
 aws s3 cp s3://bridge-data-bucket/rephrase/bridge_rephrases_epoch_20.pt ./bridge_rephrases_epoch_20.pt
