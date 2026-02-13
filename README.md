@@ -1,19 +1,21 @@
 <h2 align="center">Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</h2>
 
-<p align="center">
+<!-- <p align="center">
   <sub><a href="https://www.linkedin.com/in/jackykwok02/">Jacky Kwok</a><sup>1,†</sup>, <a href="https://xilunzhangrobo.github.io/">Xilun Zhang</a><sup>1,†</sup>, <a href="https://www.mengdixu.me/">Mengdi Xu</a><sup>1</sup>, <a href="https://sites.google.com/view/yuejiangliu/home">Yuejiang Liu</a><sup>1,§</sup>, <a href="https://www.azaliamirhoseini.com/">Azalia Mirhoseini</a><sup>1,§</sup>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a><sup>1,§</sup>, <a href="https://stanfordasl.github.io//people/prof-marco-pavone/">Marco Pavone</a><sup>1,2,§</sup></sub>
 </p>
 
 <p align="center">
   <sub><sup>1</sup>Stanford University &emsp; <sup>2</sup>NVIDIA Research &emsp; †Equal contribution &emsp; §Equal advising</sub>
-</p>
+</p> -->
 
 <p align="center">
   <a href="https://arxiv.org/abs/2602.12281"><img src="https://img.shields.io/badge/arXiv-2602.12281-df2a2a?style=for-the-badge" alt="arXiv"/></a>
-  <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+  &emsp;&emsp;
+  <!-- <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a> -->
   <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
+  &emsp;&emsp;
   <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a>
+  <!-- <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a> -->
 </p>
 
 <div align="center">

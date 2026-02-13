@@ -15,7 +15,7 @@ import random
 from tqdm import tqdm
 
 # Use relative imports for package modules
-from .model import TextAwareVisualExtraction, ModelConfig
+from .model import ModelConfig
 from .finetune_trajectory_bridge_ddp import VLA_SigLIP2_Bridge
 import argparse
 import json
@@ -34,21 +34,23 @@ class EfficientEnsembleMerged:
         self.device = device
         
         print(f"Loading merged checkpoint: {os.path.basename(merged_checkpoint_path)}")
-        merged_checkpoint = torch.load(merged_checkpoint_path, map_location=device)
-        
-        # Extract configuration
-        self.backbone = merged_checkpoint['backbone']
-        self.use_transformer = merged_checkpoint['use_transformer']
-        self.history_length = merged_checkpoint['history_length']
-        self.action_dim = merged_checkpoint['action_dim']
-        self.num_models = merged_checkpoint['num_models']
-        
-        print(f"  Configuration:")
-        print(f"    Backbone: {self.backbone}")
-        print(f"    Models: {self.num_models}")
-        print(f"    Use transformer: {self.use_transformer}")
-        print(f"    History length: {self.history_length}")
-        print(f"    Source checkpoints: {merged_checkpoint['source_checkpoints']}")
+        merged_checkpoint = torch.load(merged_checkpoint_path, map_location=device, weights_only=False)
+
+        # Support weights-only checkpoints (no metadata)
+        if "ensemble_components" in merged_checkpoint and "backbone" not in merged_checkpoint:
+            # Default config for CoVer-BridgeV2 weights-only
+            self.backbone = "hf-hub:timm/ViT-L-16-SigLIP2-384"
+            self.use_transformer = True
+            self.history_length = 10
+            self.action_dim = 7
+            self.num_models = len(merged_checkpoint["ensemble_components"])
+            print(f"  (weights-only checkpoint, using default config)")
+        else:
+            self.backbone = merged_checkpoint["backbone"]
+            self.use_transformer = merged_checkpoint["use_transformer"]
+            self.history_length = merged_checkpoint["history_length"]
+            self.action_dim = merged_checkpoint["action_dim"]
+            self.num_models = merged_checkpoint["num_models"]
         
         # Load SigLIP encoder from HuggingFace
         print(f"\nLoading shared SigLIP encoder from HuggingFace: {self.backbone}")
@@ -322,9 +324,7 @@ class EfficientEnsembleMerged:
         """
         batch_size = len(images)
         num_actions = len(all_action_histories)
-        
-        # print(f"Computing max similarity scores for {batch_size} (image, language) pairs against {num_actions} actions...")
-        
+                
         # OPTIMIZATION: Check if all instructions are the same (common case)
         # If so, only encode once instead of repeating
         all_same_instruction = len(set(instructions)) == 1 if isinstance(instructions[0], str) else False
