@@ -1,7 +1,7 @@
 <h2 align="center">Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</h2>
 
 <p align="center">
-  <sub><a href="https://www.linkedin.com/in/jackykwok02/">Jacky Kwok</a><sup>1,†</sup>, <a href="https://xilunzhangrobo.github.io/">Xilun Zhang<sup>1,†</sup>, <a href="https://www.mengdixu.me/">Mengdi Xu<sup>1</sup>, <a href="https://sites.google.com/view/yuejiangliu/home">Yuejiang Liu<sup>1,§</sup>, <a href="https://www.azaliamirhoseini.com/">Azalia Mirhoseini<sup>1,§</sup>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn<sup>1,§</sup>, <a href="https://stanfordasl.github.io//people/prof-marco-pavone/">Marco Pavone<sup>1,2,§</sup></sub>
+  <sub><a href="https://www.linkedin.com/in/jackykwok02/">Jacky Kwok</a><sup>1,†</sup>, <a href="https://xilunzhangrobo.github.io/">Xilun Zhang</a><sup>1,†</sup>, <a href="https://www.mengdixu.me/">Mengdi Xu</a><sup>1</sup>, <a href="https://sites.google.com/view/yuejiangliu/home">Yuejiang Liu</a><sup>1,§</sup>, <a href="https://www.azaliamirhoseini.com/">Azalia Mirhoseini</a><sup>1,§</sup>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a><sup>1,§</sup>, <a href="https://stanfordasl.github.io//people/prof-marco-pavone/">Marco Pavone</a><sup>1,2,§</sup></sub>
 </p>
 
 <p align="center">
