@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2602.12281"><img src="https://img.shields.io/badge/arXiv-2602.12281-df2a2a?style=for-the-badge" alt="arXiv"/></a>
   <a href="https://github.com/XilunZhangRobo/vla-clip/tree/CoVer-release"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
   <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
   <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
@@ -16,12 +17,6 @@
 </p>
 
 ---
-
-## 📋 To-Do
-
-- [x] Initial release to Bridge env *(done)*
-- [ ] Develop CoVer verifier server
-- [ ] Update DROID evaluation script with PolaRis
 
 ## Table of contents
 - [To-Do](#-to-do)
@@ -151,18 +146,28 @@ Success rates under red-teaming instructions (8 rephrases, 5 action samples per 
 
 Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `rollouts_openpi_original/` or `rollouts_openpi_rephrase/`.
 
+## 📋 To-Do
+
+- [x] Initial release to Bridge env
+- [ ] Develop CoVer verifier server
+- [ ] Update DROID evaluation script with PolaRis
+
 ## 📚 Acknowledgements
 
-We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [SimplerEnv](https://github.com/simpler-env/SimplerEnv), [CoVer](https://github.com/stanfordasl/CoVer), and related projects for their contributions to the open-source community. Our implementation builds upon these projects.
+We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [SimplerEnv](https://github.com/simpler-env/SimplerEnv),[INT-ACT](https://github.com/ai4ce/INT-ACT), [Polaris](https://polaris-evals.github.io/),and related projects for their contributions to the open-source community. Our implementation builds upon these projects.
 
 If you find this project helpful, please consider citing:
 
 ```bibtex
-@article{kwok25cover,
-  title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment},
-  author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025},
+@misc{kwok2026scalingverificationeffectivescaling,
+      title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment}, 
+      author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
+      year={2026},
+      eprint={2602.12281},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2602.12281}, 
+}
 }
 ```
 

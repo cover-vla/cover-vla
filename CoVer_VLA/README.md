@@ -4,7 +4,7 @@
 
 **Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment**
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/XXXX.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2602.12281-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/2602.12281)
 [![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://cover-vla.github.io)
 [![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
 [![License](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
@@ -215,11 +215,14 @@ We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [Simp
 If you find this project helpful, please consider citing:
 
 ```bibtex
-@article{kwok25cover,
-  title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment},
-  author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025},
+@misc{kwok2026scalingverificationeffectivescaling,
+      title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment}, 
+      author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
+      year={2026},
+      eprint={2602.12281},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2602.12281}, 
 }
 ```
 
