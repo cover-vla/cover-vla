@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="../assets/inference-teaser-1.png" width="800" alt="CoVer-VLA Inference Pipeline Teaser"/>
+    <img src="../assets/inference_teaser.png" width="800" alt="CoVer-VLA Inference Pipeline Teaser"/>
 
 **Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment**
 

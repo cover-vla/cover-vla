@@ -1,15 +1,21 @@
-# VLA-CLIP
+# CoVer-VLA
 
 <div align="center">
-  <img src="assets/cover-teaser-1.png" width="800" alt="CoVer-VLA Teaser"/>
+  <img src="assets/main_teaser.png" width="800" alt="CoVer-VLA Teaser"/>
 </div>
 
-**Vision-Language-Action Models with Instruction Verification for Robot Manipulation**
+<p align="center">
+  <b>Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</b>
+</p>
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/XXXX.XXXXX)
-[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://cover-vla.github.io)
-[![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
-[![License](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
+<p align="center">
+  <a href="https://github.com/XilunZhangRobo/vla-clip/tree/CoVer-release"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+  <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
+  <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a>
+</p>
+
+---
 
 ## 📋 To-Do
 
@@ -18,8 +24,8 @@
 - [ ] Update DROID evaluation script with PolaRis
 
 ## Table of contents
-- [To-Do](#to-do)
-- [Setup](#setup)
+- [To-Do](#-to-do)
+- [Setup](#-setup)
 - [Action Verifier](#action-verifier)
 - [SIMPLER Environment](#simpler-environment)
 - [Evaluation Results](#evaluation-results)
