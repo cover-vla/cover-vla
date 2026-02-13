@@ -1,20 +1,24 @@
-# CoVer-VLA
-
-<div align="center">
-  <img src="assets/main_teaser.png" width="800" alt="CoVer-VLA Teaser"/>
-</div>
+<h2 align="center">Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</h2>
 
 <p align="center">
-  <b>Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</b>
+  <sub>Jacky Kwok<sup>1,†</sup>, Xilun Zhang<sup>1,†</sup>, Mengdi Xu<sup>1</sup>, Yuejiang Liu<sup>1,§</sup>, Azalia Mirhoseini<sup>1,§</sup>, Chelsea Finn<sup>1,§</sup>, Marco Pavone<sup>1,2,§</sup></sub>
+</p>
+
+<p align="center">
+  <sub><sup>1</sup>Stanford University &emsp; <sup>2</sup>NVIDIA Research &emsp; †Equal contribution &emsp; §Equal advising</sub>
 </p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2602.12281"><img src="https://img.shields.io/badge/arXiv-2602.12281-df2a2a?style=for-the-badge" alt="arXiv"/></a>
-  <a href="https://github.com/XilunZhangRobo/vla-clip/tree/CoVer-release"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+  <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
   <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
   <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a>
 </p>
+
+<div align="center">
+  <img src="assets/main_teaser.png" width="800" alt="CoVer-VLA Teaser"/>
+</div>
 
 ---
 
@@ -32,7 +36,7 @@
 Clone this repository:
 
 ```bash
-git clone https://github.com/XilunZhangRobo/vla-clip.git --branch CoVer-release
+git clone https://github.com/cover-vla/cover-vla.git
 ```
 
 Use the provided script to set up all dependencies:
@@ -146,9 +150,10 @@ Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `ro
 
 ## 📋 To-Do
 
-- [x] Initial release to Bridge env
+- [x] Initial release on inference pipeline for Bridge env
+- [ ] Release verifier training pipeline
 - [ ] Develop CoVer verifier server
-- [ ] Update DROID evaluation script with PolaRis
+- [ ] Update DROID evaluation script and checkpointswith PolaRis
 
 ## 📚 Acknowledgements
 

@@ -17,7 +17,6 @@
 - [Download Verifier Checkpoint](#-download-verifier-checkpoint)
 - [Run Inference](#-run-inference)
 - [Visualize Results](#-visualize-results)
-- [Acknowledgements](#-acknowledgements)
 
 ---
 
