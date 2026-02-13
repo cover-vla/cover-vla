@@ -19,11 +19,11 @@
 ---
 
 ## Table of contents
-- [To-Do](#-to-do)
 - [Setup](#-setup)
 - [Action Verifier](#action-verifier)
 - [SIMPLER Environment](#simpler-environment)
 - [Evaluation Results](#evaluation-results)
+- [To-Do](#-to-do)
 - [Acknowledgements](#acknowledgements)
 - [Troubleshooting](#troubleshooting)
 
@@ -32,7 +32,7 @@
 Clone this repository:
 
 ```bash
-git clone --recurse-submodules https://github.com/XilunZhangRobo/vla-clip.git --branch CoVer-release
+git clone https://github.com/XilunZhangRobo/vla-clip.git --branch CoVer-release
 ```
 
 Use the provided script to set up all dependencies:
@@ -70,8 +70,6 @@ Activate the environment and run the evaluation script as follows:
 
 ```bash
 source .venv_cover/bin/activate
-export MUJOCO_GL=osmesa
-export PYOPENGL_PLATFORM=osmesa
 
 cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 ./test_pi.sh

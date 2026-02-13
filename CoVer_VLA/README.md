@@ -52,8 +52,6 @@ This script:
 
 ```bash
 source <vla-clip-root>/.venv_cover/bin/activate
-export MUJOCO_GL=osmesa
-export PYOPENGL_PLATFORM=osmesa
 ```
 
 ---
@@ -180,59 +178,3 @@ python analyze_success_rate.py --output-dir ./my_plots --include-insufficient
 | Episode data (.pkl) | Same as rollout videos |
 
 ---
-
-## 📊 Evaluation Results (Reference)
-
-CoVer achieves **22% gain** in-distribution and **13% gain** out-of-distribution on the SIMPLER benchmark (8 rephrases, 5 action samples per rephrase, red-teaming instructions).
-
-**In-Distribution (ID):**
-
-| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
-|------|-----|------------|----------------------|
-| Carrot on Plate | 48 ± 4 | 48 ± 4 | 52 ± 8 |
-| Eggplant in Basket | 74 ± 3 | 89 ± 8 | 95 ± 2 |
-| Spoon on Towel | 27 ± 4 | 40 ± 6 | 59 ± 5 |
-| Block Stacking | 17 ± 1 | 51 ± 4 | 56 ± 0 |
-| **Average** | **41.5** | **57.0** | **65.5** |
-
-**Out-of-Distribution (OOD):**
-
-| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
-|------|-----|------------|----------------------|
-| Redbull on Plate | 6 ± 1 | 51 ± 3 | 46 ± 3 |
-| Zucchini on Towel | 30 ± 3 | 41 ± 1 | 55 ± 6 |
-| Tennis in Basket | 53 ± 5 | 91 ± 3 | 85 ± 1 |
-| **Average** | **29.7** | **61.0** | **62.0** |
-
-See the [main README](../README.md) for PolaRiS and real-world results.
-
----
-
-## 📚 Acknowledgements
-
-We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [SimplerEnv](https://github.com/simpler-env/SimplerEnv), [CoVer](https://github.com/stanfordasl/CoVer), and related projects for their contributions.
-
-If you find this project helpful, please consider citing:
-
-```bibtex
-@misc{kwok2026scalingverificationeffectivescaling,
-      title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment}, 
-      author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
-      year={2026},
-      eprint={2602.12281},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2602.12281}, 
-}
-```
-
----
-
-## 🔎 Troubleshooting
-
-**No Vulkan extensions found:** Run the Vulkan setup script (if available):
-```bash
-bash scripts/vulkan.sh
-```
-
-**Display/OpenGL issues:** Ensure `MUJOCO_GL=osmesa` and `PYOPENGL_PLATFORM=osmesa` are set for headless rendering.
