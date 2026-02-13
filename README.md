@@ -1,9 +1,13 @@
 # VLA-CLIP
 
+<div align="center">
+  <img src="assets/cover-teaser-1.png" width="800" alt="CoVer-VLA Teaser"/>
+</div>
+
 **Vision-Language-Action Models with Instruction Verification for Robot Manipulation**
 
 [![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/XXXX.XXXXX)
-[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](#)
+[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://cover-vla.github.io)
 [![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
 [![License](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
 
@@ -27,7 +31,7 @@
 Clone this repository:
 
 ```bash
-git clone --recurse-submodules <REPO_URL>
+git clone --recurse-submodules https://github.com/XilunZhangRobo/vla-clip.git --branch CoVer-release
 ```
 
 Use the provided script to set up all dependencies:
@@ -107,10 +111,37 @@ python analyze_success_rate.py --output-dir ./analysis_plots
 
 ## 📊 Evaluation Results
 
-| Task | Policy Batch | Lang Rephrases | Seed 1 | Seed 2 | Seed 3 | Average | Baseline | Success Rate ↑ |
-|------|--------------|----------------|--------|--------|--------|---------|----------|----------------|
-| Task A | - | - | - | - | - | - | - | - |
-| Task B | - | - | - | - | - | - | - | - |
+### SIMPLER Benchmark
+
+Success rates under red-teaming instructions (8 rephrases, 5 action samples per rephrase). CoVer achieves **22% gain** in-distribution and **13% gain** out-of-distribution over scaling policy learning alone.
+
+**In-Distribution (ID):**
+
+| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
+|------|-----|------------|----------------------|
+| Carrot on Plate | 48 ± 4 | 48 ± 4 | 52 ± 8 |
+| Eggplant in Basket | 74 ± 3 | 89 ± 8 | 95 ± 2 |
+| Spoon on Towel | 27 ± 4 | 40 ± 6 | 59 ± 5 |
+| Block Stacking | 17 ± 1 | 51 ± 4 | 56 ± 0 |
+| **Average** | **41.5** | **57.0** | **65.5** |
+
+**Out-of-Distribution (OOD):**
+
+| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
+|------|-----|------------|----------------------|
+| Redbull on Plate | 6 ± 1 | 51 ± 3 | 46 ± 3 |
+| Zucchini on Towel | 30 ± 3 | 41 ± 1 | 55 ± 6 |
+| Tennis in Basket | 53 ± 5 | 91 ± 3 | 85 ± 1 |
+| **Average** | **29.7** | **61.0** | **62.0** |
+
+### PolaRiS Benchmark
+
+| Task | π0.5 Task Progress | π0.5 Success | π0.5 + CoVer Progress | π0.5 + CoVer Success |
+|------|-------------------|--------------|------------------------|---------------------|
+| PanClean | 48.4 ± 1.9 | 10.7 ± 0.9 | 70.4 ± 4.0 | 33.3 ± 6.6 |
+| BlockStack | 33.1 ± 1.3 | 0.0 ± 0.0 | 44.3 ± 2.5 | 0.7 ± 0.9 |
+| FoodBussing | 38.3 ± 2.4 | 0.7 ± 0.9 | 47.0 ± 4.1 | 5.3 ± 1.9 |
+| **Average** | **40.0** | **3.8** | **53.9 (+13.9↑)** | **13.1 (+9.3↑)** |
 
 Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `rollouts_openpi_original/` or `rollouts_openpi_rephrase/`.
 
@@ -121,9 +152,9 @@ We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [Simp
 If you find this project helpful, please consider citing:
 
 ```bibtex
-@article{vla-clip2025,
-  title={VLA-CLIP: Vision-Language-Action Models with Instruction Verification for Robot Manipulation},
-  author={Author names},
+@article{kwok25cover,
+  title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment},
+  author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2025},
 }

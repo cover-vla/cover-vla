@@ -174,25 +174,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-openvla/modified_libero_rlds/
-openvla/run
-openvla/wandb
-openvla/rollouts*
-
-openvla-oft/rollouts*
-
-openpi/.github
-openpi/.venv
-openpi/.vscode
-openpi/checkpoints
-openpi/rollouts*
-
 
 CoVer_VLA/inference/experiments/robot/simpler/logs/
 CoVer_VLA/inference/experiments/robot/simpler/rollouts*
 
 *.mp4
 *.pkl
-
-bridge_verifier/bridge_dataset_with_hard_negatives_images
-openpi_old/

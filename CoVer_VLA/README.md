@@ -1,12 +1,12 @@
 
 <div align="center">
-    <img src="assets/banner.png" height=100 alt="CoVer VLA logo"/>
+    <img src="../assets/inference-teaser-1.png" width="800" alt="CoVer-VLA Inference Pipeline Teaser"/>
 
-**Scaling Test-Time Sampling and Verification for Vision-Language-Action Models**
+**Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment**
 
-[![arXiv](https://img.shields.io/badge/arXiv-2506.17811-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/2506.17811)
-[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://robomonkey-vla.github.io/)
-[![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/robomonkey-vla)
+[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/XXXX.XXXXX)
+[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://cover-vla.github.io)
+[![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
 [![License](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
 
 </div>
@@ -183,26 +183,42 @@ python analyze_success_rate.py --output-dir ./my_plots --include-insufficient
 
 ## 📊 Evaluation Results (Reference)
 
-| Task                | Initial Samples | Augmented Samples | Seed 1 | Seed 2 | Seed 3 | Average | Baseline | Success Rate ↑ |
-|---------------------|-----------------|-------------------|--------|--------|--------|---------|----------|----------------|
-| Eggplant in Basket  | 9               | 32                | 76%    | 66%    | 78%    | 73%     | 54%      | **+19%**       |
-| Carrot on Plate     | 5               | 16                | 24%    | 24%    | 26%    | 25%     | 20%      | **+5%**        |
-| Spoon on Towel      | 5               | 32                | 46%    | 46%    | 50%    | 47%     | 45%      | **+2%**         |
-| Stack Cube          | 9               | 32                | 46%    | 40%    | 48%    | 45%     | 35%      | **+10%**       |
+CoVer achieves **22% gain** in-distribution and **13% gain** out-of-distribution on the SIMPLER benchmark (8 rephrases, 5 action samples per rephrase, red-teaming instructions).
+
+**In-Distribution (ID):**
+
+| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
+|------|-----|------------|----------------------|
+| Carrot on Plate | 48 ± 4 | 48 ± 4 | 52 ± 8 |
+| Eggplant in Basket | 74 ± 3 | 89 ± 8 | 95 ± 2 |
+| Spoon on Towel | 27 ± 4 | 40 ± 6 | 59 ± 5 |
+| Block Stacking | 17 ± 1 | 51 ± 4 | 56 ± 0 |
+| **Average** | **41.5** | **57.0** | **65.5** |
+
+**Out-of-Distribution (OOD):**
+
+| Task | π0 | π0 + CoVer | π0 (rephrase) + CoVer |
+|------|-----|------------|----------------------|
+| Redbull on Plate | 6 ± 1 | 51 ± 3 | 46 ± 3 |
+| Zucchini on Towel | 30 ± 3 | 41 ± 1 | 55 ± 6 |
+| Tennis in Basket | 53 ± 5 | 91 ± 3 | 85 ± 1 |
+| **Average** | **29.7** | **61.0** | **62.0** |
+
+See the [main README](../README.md) for PolaRiS and real-world results.
 
 ---
 
 ## 📚 Acknowledgements
 
-We thank the authors of [OpenVLA](https://github.com/openvla/openvla), [SGLang](https://github.com/sgl-project/sglang), [SimplerEnv](https://github.com/simpler-env/SimplerEnv), [LLaVA-RLHF](https://github.com/llava-rlhf/LLaVA-RLHF), and [OpenVLA-mini](https://github.com/Stanford-ILIAD/openvla-mini) for their contributions.
+We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [SimplerEnv](https://github.com/simpler-env/SimplerEnv), [CoVer](https://github.com/stanfordasl/CoVer), and related projects for their contributions.
 
 If you find this project helpful, please consider citing:
 
 ```bibtex
-@article{kwok25robomonkey,
-  title={RoboMonkey: Scaling Test-Time Sampling and Verification for Vision-Language-Action Models},
-  author={Jacky Kwok and Christopher Agia and Rohan Sinha and Matt Foutter and Shulu Li and Ion Stoica and Azalia Mirhoseini and Marco Pavone},
-  journal={arXiv preprint arXiv:2506.17811},
+@article{kwok25cover,
+  title={Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment},
+  author={Jacky Kwok and Xilun Zhang and Mengdi Xu and Yuejiang Liu and Azalia Mirhoseini and Chelsea Finn and Marco Pavone},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2025},
 }
 ```
