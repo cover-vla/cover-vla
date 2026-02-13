@@ -22,7 +22,6 @@
   <img src="assets/main_teaser.png" width="800" alt="CoVer-VLA Teaser"/>
 </div>
 
----
 
 ## Table of contents
 - [Setup](#-setup)

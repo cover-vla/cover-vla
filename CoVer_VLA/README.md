@@ -1,14 +1,17 @@
+<h2 align="center">Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment</h2>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2602.12281"><img src="https://img.shields.io/badge/arXiv-2602.12281-df2a2a?style=for-the-badge" alt="arXiv"/></a>
+  &emsp;&emsp;
+  <!-- <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a> -->
+  <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
+  &emsp;&emsp;
+  <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
+  <!-- <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a> -->
+</p>
 
 <div align="center">
-    <img src="../assets/inference_teaser.png" width="800" alt="CoVer-VLA Inference Pipeline Teaser"/>
-
-**Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment**
-
-[![arXiv](https://img.shields.io/badge/arXiv-2602.12281-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/2602.12281)
-[![Project Website](https://img.shields.io/badge/Project-Website-blue?style=for-the-badge)](https://cover-vla.github.io)
-[![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
-[![License](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
-
+  <img src="../assets/inference_teaser.png" width="800" alt="CoVer-VLA Inference Pipeline Teaser"/>
 </div>
 
 ## Table of contents
@@ -18,7 +21,6 @@
 - [Run Inference](#-run-inference)
 - [Visualize Results](#-visualize-results)
 
----
 
 ## 🛠️ Setup
 
@@ -53,7 +55,6 @@ This script:
 source <vla-clip-root>/.venv_cover/bin/activate
 ```
 
----
 
 ## 📥 Download Verifier Checkpoint
 
@@ -77,7 +78,6 @@ The checkpoint will be saved to `bridge_verifier/cover_verifier_bridge.pt`, whic
 
 **Hugging Face:** [stanfordasl/CoVer-BridgeV2](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
 
----
 
 ## 🚀 Run Inference
 
@@ -125,7 +125,6 @@ python ../run_simpler_eval_with_openpi.py \
     --lang_rephrase_num 1
 ```
 
----
 
 ## 📊 Visualize Results
 
@@ -166,7 +165,6 @@ python analyze_success_rate.py --output-dir ./my_plots --include-insufficient
 - `--output-dir`: Where to save plots (default: `./analysis_plots`)
 - `--include-insufficient`: Include tasks with only one experiment type (default: filter out)
 
----
 
 ## 📁 Output Locations
 
@@ -175,5 +173,3 @@ python analyze_success_rate.py --output-dir ./my_plots --include-insufficient
 | Text logs | `experiments/logs/EVAL-<task>-<model>-<timestamp>.txt` |
 | Rollout videos (.mp4) | `rollouts_openpi_*/transform_*/lang_*_sample_*/` |
 | Episode data (.pkl) | Same as rollout videos |
-
----
