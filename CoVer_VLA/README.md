@@ -14,6 +14,7 @@
 ## Table of contents
 
 - [Setup](#-setup)
+- [Download Verifier Checkpoint](#-download-verifier-checkpoint)
 - [Run Inference](#-run-inference)
 - [Visualize Results](#-visualize-results)
 - [Acknowledgements](#-acknowledgements)
@@ -54,6 +55,30 @@ source <vla-clip-root>/.venv_cover/bin/activate
 export MUJOCO_GL=osmesa
 export PYOPENGL_PLATFORM=osmesa
 ```
+
+---
+
+## 📥 Download Verifier Checkpoint
+
+The CoVer action verifier requires a pretrained checkpoint (~312MB). Download it from Hugging Face:
+
+```bash
+cd <vla-clip-root>/bridge_verifier
+huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
+cd ..
+```
+
+Or with the newer CLI:
+
+```bash
+cd <vla-clip-root>/bridge_verifier
+hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
+cd ..
+```
+
+The checkpoint will be saved to `bridge_verifier/cover_verifier_bridge.pt`, which is automatically loaded when running inference with `--use_verifier True`.
+
+**Hugging Face:** [stanfordasl/CoVer-BridgeV2](https://huggingface.co/stanfordasl/CoVer-BridgeV2)
 
 ---
 
