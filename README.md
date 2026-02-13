@@ -43,6 +43,7 @@ git clone https://github.com/cover-vla/cover-vla.git
 Use the provided script to set up all dependencies:
 
 ```bash
+cd cover-vla
 bash CoVer_VLA/scripts/env_simpler_pi.sh
 ```
 

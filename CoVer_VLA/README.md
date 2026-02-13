@@ -52,7 +52,8 @@ This script:
 ### Activate Environment
 
 ```bash
-source <vla-clip-root>/.venv_cover/bin/activate
+cd cover-vla
+source .venv_cover/bin/activate
 ```
 
 
@@ -61,7 +62,7 @@ source <vla-clip-root>/.venv_cover/bin/activate
 The CoVer action verifier requires a pretrained checkpoint (~312MB). Download it from Hugging Face:
 
 ```bash
-cd <vla-clip-root>/bridge_verifier
+cd ../bridge_verifier
 huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
 cd ..
 ```
@@ -69,7 +70,7 @@ cd ..
 Or with the newer CLI:
 
 ```bash
-cd <vla-clip-root>/bridge_verifier
+cd ../bridge_verifier
 hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
 cd ..
 ```
@@ -84,7 +85,7 @@ The checkpoint will be saved to `bridge_verifier/cover_verifier_bridge.pt`, whic
 ### Option 1: Run via test script
 
 ```bash
-cd <vla-clip-root>/CoVer_VLA/inference/experiments/robot/simpler/bashes
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 ./test_pi.sh
 ```
 
@@ -93,7 +94,7 @@ This runs evaluation on `simpler_widowx` and `simpler_ood` with the verifier ena
 ### Option 2: Run with custom arguments
 
 ```bash
-cd <vla-clip-root>/CoVer_VLA/inference/experiments/robot/simpler/bashes
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 python ../run_simpler_eval_with_openpi.py \
     --task_suite_name simpler_widowx \
     --lang_transform_type rephrase \
@@ -112,7 +113,7 @@ python ../run_simpler_eval_with_openpi.py \
 | `--use_verifier` | `True` | Use action verifier to select best action |
 | `--policy_batch_inference_size` | `2` | Number of actions sampled per instruction |
 | `--lang_rephrase_num` | `8` | Number of language rephrases |
-| `--num_trials_per_task` | `300` | Episodes per task |
+| `--num_trials_per_task` | `100` | Episodes per task |
 | `--pretrained_checkpoint` | `juexzz/INTACT-pi0-finetune-rephrase-bridge` | PI0 model (or `juexzz/INTACT-pi0-finetune-bridge`) |
 
 ### Baseline without verifier
@@ -138,7 +139,7 @@ After inference, rollout videos and episode data are saved under:
 To generate analysis plots:
 
 ```bash
-cd <vla-clip-root>/CoVer_VLA/inference/experiments/robot/simpler/bashes
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 python analyze_success_rate.py --output-dir ./analysis_plots
 ```
 
