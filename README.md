@@ -38,12 +38,12 @@ Clone this repository:
 
 ```bash
 git clone https://github.com/cover-vla/cover-vla.git
+cd cover-vla
 ```
 
-Use the provided script to set up all dependencies:
+Use the provided script to set up all dependencies (run from **repo root**):
 
 ```bash
-cd cover-vla
 bash CoVer_VLA/scripts/env_simpler_pi.sh
 ```
 
@@ -51,15 +51,17 @@ This script will:
 - Install [uv](https://github.com/astral-sh/uv) (if not present)
 - Create a virtual environment at `.venv_cover`
 - Install dependencies (TensorFlow, PyTorch, SimplerEnv, LeRobot with PI0, Bridge Verifier, etc.)
-- Set up PYTHONPATH for the inference package
 
 **Requirements:** Linux, Python 3.10, CUDA-capable GPU.
 
+**Important:** Always run from the `cover-vla` repo root, and activate the environment (`source .venv_cover/bin/activate`) before running any Python scripts or `huggingface-cli`.
+
 ## ✅ Action Verifier
 
-Download the pretrained checkpoint and spin up the action verifier:
+Download the pretrained checkpoint. **Activate the environment first** (huggingface-cli is provided by the venv):
 
 ```bash
+source .venv_cover/bin/activate
 cd bridge_verifier
 huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
 # Or: hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
@@ -72,18 +74,21 @@ The checkpoint (~312MB) will be saved to `bridge_verifier/cover_verifier_bridge.
 
 ### Running VLA-CLIP
 
-Activate the environment and run the evaluation script as follows:
+Activate the environment and run from **repo root** (`cover-vla/`):
 
 ```bash
+cd cover-vla
 source .venv_cover/bin/activate
-
 cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 ./test_pi.sh
 ```
 
-Or run a single task with custom arguments:
+Or run a single task with custom arguments (from the `bashes` directory, env activated):
 
 ```bash
+cd cover-vla
+source .venv_cover/bin/activate
+cd CoVer_VLA/inference/experiments/robot/simpler/bashes
 python ../run_simpler_eval_with_openpi.py \
     --task_suite_name simpler_widowx \
     --lang_transform_type rephrase \
@@ -108,7 +113,7 @@ To disable the verifier and use the base policy only:
 
 ### Visualize Results
 
-After running inference, analyze success rates and generate plots:
+After running inference, analyze success rates and generate plots (from the same `bashes` directory, with env activated):
 
 ```bash
 python analyze_success_rate.py --output-dir ./analysis_plots

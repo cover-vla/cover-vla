@@ -59,10 +59,11 @@ source .venv_cover/bin/activate
 
 ## 📥 Download Verifier Checkpoint
 
-The CoVer action verifier requires a pretrained checkpoint (~312MB). Download it from Hugging Face:
+The CoVer action verifier requires a pretrained checkpoint (~312MB). Download it from Hugging Face. **Activate the environment first** (huggingface-cli is provided by the venv):
 
 ```bash
-cd ../bridge_verifier
+source .venv_cover/bin/activate
+cd bridge_verifier
 huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
 cd ..
 ```
@@ -70,7 +71,8 @@ cd ..
 Or with the newer CLI:
 
 ```bash
-cd ../bridge_verifier
+source .venv_cover/bin/activate
+cd bridge_verifier
 hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
 cd ..
 ```

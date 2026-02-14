@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# NOTE: Activate the 'cover' virtual environment first:
-#   source /home/xilunz/rebuttal/vla-clip/.venv_cover/bin/activate
+# NOTE: Activate the environment first (from repo root):
+#   source .venv_cover/bin/activate
 # And set environment variables:
 export MUJOCO_GL=osmesa
 export PYOPENGL_PLATFORM=osmesa
@@ -11,9 +11,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Set environment variables
-# Add inference root to PYTHONPATH (go up 4 levels: bashes -> simpler -> robot -> experiments -> inference)
+# Add repo root so bridge_verifier can be imported (go up 6 levels to cover-vla root)
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../../../../.." && pwd)"
+# Add inference root for experiments.robot.simpler imports
 INFERENCE_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
-export PYTHONPATH="$INFERENCE_ROOT:$PYTHONPATH"
+export PYTHONPATH="$REPO_ROOT:$INFERENCE_ROOT:$PYTHONPATH"
 export PRISMATIC_DATA_ROOT=.
 
 CUDA_VISIBLE_DEVICES=0 python ../run_simpler_eval_with_openpi.py \
