@@ -14,7 +14,7 @@
   <!-- <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a> -->
   <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
   &emsp;&emsp;
-  <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
+  <a href="https://huggingface.co/cover-vla"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
   <!-- <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a> -->
 </p>
 
@@ -63,8 +63,8 @@ Download the pretrained checkpoint. **Activate the environment first** (huggingf
 ```bash
 source .venv_cover/bin/activate
 cd bridge_verifier
-huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
-# Or: hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
+huggingface-cli download cover-vla/cover-vla-bridge cover_verifier_bridge.pt --local-dir .
+# Or: hf download cover-vla/cover-vla-bridge cover_verifier_bridge.pt --local-dir .
 cd ..
 ```
 
