@@ -25,7 +25,7 @@
 
 ## Table of contents
 - [Setup](#-setup)
-- [Action Verifier](#action-verifier)
+- [Verifier](#verifier)
 - [SIMPLER Environment](#simpler-environment)
 - [Evaluation Results](#evaluation-results)
 - [To-Do](#-to-do)
@@ -56,7 +56,7 @@ This script will:
 
 **Important:** Always run from the `cover-vla` repo root, and activate the environment (`source .venv_cover/bin/activate`) before running any Python scripts or `huggingface-cli`.
 
-## ✅ Action Verifier
+## ✅ Verifier
 
 Download the pretrained checkpoint. **Activate the environment first** (huggingface-cli is provided by the venv):
 
@@ -208,7 +208,7 @@ vla-clip/
 │   │       │   └── analyze_success_rate.py
 │   │       └── ...
 │   └── SimplerEnv/                 # Simulation environment
-├── bridge_verifier/                # Action verifier model
+├── bridge_verifier/                # Verifier model
 ├── lerobot_custom/                 # LeRobot with PI0 policy
 ├── requirements.txt
 └── README.md
