@@ -24,15 +24,16 @@
 
 
 ## Table of contents
-- [Setup](#-setup)
+- [Setup](#setup)
 - [Verifier](#verifier)
 - [SIMPLER Environment](#simpler-environment)
-- [Polaris Environment](#polaris-environment)
+- [PolaRiS Evaluation](#polaris-evaluation)
 - [Evaluation Results](#evaluation-results)
-- [To-Do](#-to-do)
+- [To-Do](#to-do)
 - [Acknowledgements](#acknowledgements)
 - [Troubleshooting](#troubleshooting)
 
+<a id="setup"></a>
 ## 🛠️ Setup
 
 Clone this repository:
@@ -57,6 +58,7 @@ This script will:
 
 **Important:** Always run from the `cover-vla` repo root, and activate the environment (`source .venv_cover/bin/activate`) before running any Python scripts or `huggingface-cli`.
 
+<a id="verifier"></a>
 ## ✅ Verifier
 
 Download the pretrained checkpoint. **Activate the environment first** (huggingface-cli is provided by the venv):
@@ -71,6 +73,7 @@ cd ..
 
 The checkpoint (~312MB) will be saved to `bridge_verifier/cover_verifier_bridge.pt`.
 
+<a id="simpler-environment"></a>
 ## 🤖 SIMPLER Environment
 
 ### Running VLA-CLIP
@@ -120,9 +123,12 @@ After running inference, analyze success rates and generate plots (from the same
 python analyze_success_rate.py --output-dir ./analysis_plots
 ```
 
-## 📊 PolaRiS Environment
-For the PolaRiS evaluation setups, please refer to cover-vla-polaris repository [here](https://github.com/cover-vla/cover-vla-polaris).
+<a id="polaris-evaluation"></a>
+## 📊 PolaRiS Evaluation
+For the PolaRiS evaluation setup and instructions, see the setup guide in
+[cover-vla/cover-vla-polaris](https://github.com/cover-vla/cover-vla-polaris).
 
+<a id="evaluation-results"></a>
 ## 📊 Evaluation Results
 
 ### SIMPLER Benchmark
@@ -159,6 +165,7 @@ Success rates under red-teaming instructions (8 rephrases, 5 action samples per 
 
 Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `rollouts_openpi_original/` or `rollouts_openpi_rephrase/`.
 
+<a id="to-do"></a>
 ## 📋 To-Do
 
 - [x] Initial release on inference pipeline for Bridge env
@@ -166,6 +173,7 @@ Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `ro
 - [ ] Develop CoVer verifier server
 - [x] Update DROID evaluation script and checkpoints with PolaRis
 
+<a id="acknowledgements"></a>
 ## 📚 Acknowledgements
 
 We thank the authors of [LeRobot](https://github.com/huggingface/lerobot), [SimplerEnv](https://github.com/simpler-env/SimplerEnv),[INT-ACT](https://github.com/ai4ce/INT-ACT), [Polaris](https://polaris-evals.github.io/),and related projects for their contributions to the open-source community. Our implementation builds upon these projects.
@@ -185,6 +193,7 @@ If you find this project helpful, please consider citing:
 }
 ```
 
+<a id="troubleshooting"></a>
 ## 🔎 Troubleshooting
 
 **MuJoCo / OpenGL rendering:** If you encounter display or rendering issues, ensure:
