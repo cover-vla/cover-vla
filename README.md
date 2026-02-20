@@ -27,6 +27,7 @@
 - [Setup](#-setup)
 - [Action Verifier](#action-verifier)
 - [SIMPLER Environment](#simpler-environment)
+- [Polaris Environment](#polaris-environment)
 - [Evaluation Results](#evaluation-results)
 - [To-Do](#-to-do)
 - [Acknowledgements](#acknowledgements)
@@ -119,6 +120,9 @@ After running inference, analyze success rates and generate plots (from the same
 python analyze_success_rate.py --output-dir ./analysis_plots
 ```
 
+## 📊 PolaRiS Environment
+For the PolaRiS evaluation setups, please refer to cover-vla-polaris repository [here](https://github.com/cover-vla/cover-vla-polaris).
+
 ## 📊 Evaluation Results
 
 ### SIMPLER Benchmark
@@ -144,14 +148,14 @@ Success rates under red-teaming instructions (8 rephrases, 5 action samples per 
 | Tennis in Basket | 53 ± 5 | 91 ± 3 | 85 ± 1 |
 | **Average** | **29.7** | **61.0** | **62.0** |
 
-### PolaRiS Benchmark
+<!-- ### PolaRiS Benchmark
 
 | Task | π0.5 Task Progress | π0.5 Success | π0.5 + CoVer Progress | π0.5 + CoVer Success |
 |------|-------------------|--------------|------------------------|---------------------|
 | PanClean | 48.4 ± 1.9 | 10.7 ± 0.9 | 70.4 ± 4.0 | 33.3 ± 6.6 |
 | BlockStack | 33.1 ± 1.3 | 0.0 ± 0.0 | 44.3 ± 2.5 | 0.7 ± 0.9 |
 | FoodBussing | 38.3 ± 2.4 | 0.7 ± 0.9 | 47.0 ± 4.1 | 5.3 ± 1.9 |
-| **Average** | **40.0** | **3.8** | **53.9 (+13.9↑)** | **13.1 (+9.3↑)** |
+| **Average** | **40.0** | **3.8** | **53.9 (+13.9↑)** | **13.1 (+9.3↑)** | -->
 
 Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `rollouts_openpi_original/` or `rollouts_openpi_rephrase/`.
 
@@ -160,7 +164,7 @@ Logs are saved under: `experiments/logs/` (relative to CWD). Rollout videos: `ro
 - [x] Initial release on inference pipeline for Bridge env
 - [ ] Release verifier training pipeline
 - [ ] Develop CoVer verifier server
-- [ ] Update DROID evaluation script and checkpointswith PolaRis
+- [x] Update DROID evaluation script and checkpoints with PolaRis
 
 ## 📚 Acknowledgements
 
