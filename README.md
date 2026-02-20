@@ -14,7 +14,7 @@
   <!-- <a href="https://github.com/cover-vla/cover-vla"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github" alt="GitHub"/></a> -->
   <a href="https://cover-vla.github.io"><img src="https://img.shields.io/badge/Project-Website-0066FF?style=for-the-badge" alt="Website"/></a>
   &emsp;&emsp;
-  <a href="https://huggingface.co/stanfordasl/CoVer-BridgeV2"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
+  <a href="https://huggingface.co/cover-vla"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-FFD700?style=for-the-badge" alt="Models"/></a>
   <!-- <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2E8B57?style=for-the-badge" alt="License"/></a> -->
 </p>
 
@@ -25,7 +25,7 @@
 
 ## Table of contents
 - [Setup](#-setup)
-- [Action Verifier](#action-verifier)
+- [Verifier](#verifier)
 - [SIMPLER Environment](#simpler-environment)
 - [Polaris Environment](#polaris-environment)
 - [Evaluation Results](#evaluation-results)
@@ -57,15 +57,15 @@ This script will:
 
 **Important:** Always run from the `cover-vla` repo root, and activate the environment (`source .venv_cover/bin/activate`) before running any Python scripts or `huggingface-cli`.
 
-## ✅ Action Verifier
+## ✅ Verifier
 
 Download the pretrained checkpoint. **Activate the environment first** (huggingface-cli is provided by the venv):
 
 ```bash
 source .venv_cover/bin/activate
 cd bridge_verifier
-huggingface-cli download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
-# Or: hf download stanfordasl/CoVer-BridgeV2 cover_verifier_bridge.pt --local-dir .
+huggingface-cli download cover-vla/cover-vla-bridge cover_verifier_bridge.pt --local-dir .
+# Or: hf download cover-vla/cover-vla-bridge cover_verifier_bridge.pt --local-dir .
 cd ..
 ```
 
@@ -212,7 +212,7 @@ vla-clip/
 │   │       │   └── analyze_success_rate.py
 │   │       └── ...
 │   └── SimplerEnv/                 # Simulation environment
-├── bridge_verifier/                # Action verifier model
+├── bridge_verifier/                # Verifier model
 ├── lerobot_custom/                 # LeRobot with PI0 policy
 ├── requirements.txt
 └── README.md
