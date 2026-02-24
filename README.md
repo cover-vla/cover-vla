@@ -210,7 +210,9 @@ export PYOPENGL_PLATFORM=osmesa
 ## Project Structure
 
 ```
-vla-clip/
+cover-vla/
+├── assets/                         # Figures and images
+├── bridge_verifier/                # Verifier model
 ├── CoVer_VLA/
 │   ├── scripts/env_simpler_pi.sh   # Setup script
 │   ├── inference/                  # Evaluation and inference
@@ -221,7 +223,7 @@ vla-clip/
 │   │       │   └── analyze_success_rate.py
 │   │       └── ...
 │   └── SimplerEnv/                 # Simulation environment
-├── bridge_verifier/                # Verifier model
+├── INT-ACT/                        # INT-ACT baseline code
 ├── lerobot_custom/                 # LeRobot with PI0 policy
 ├── requirements.txt
 └── README.md
