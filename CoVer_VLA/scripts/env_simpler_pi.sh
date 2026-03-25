@@ -46,6 +46,10 @@ check_status "Virtual environment creation"
 echo "Activating virtual environment..."
 source "$VENV_PATH/bin/activate"
 
+# PyTorch wheel index must not shadow PyPI (setuptools, apache-beam, etc.): merge indexes.
+PYTORCH_WHL_INDEX="https://download.pytorch.org/whl/cu128"
+UV_PYTORCH_OPTS=(--extra-index-url "$PYTORCH_WHL_INDEX" --index-strategy unsafe-best-match)
+
 # Install setuptools first (needed for pkg_resources which sapien requires)
 echo "Installing setuptools..."
 uv pip install 'setuptools<70.0.0'
@@ -54,7 +58,7 @@ check_status "Setuptools installation"
 # Install all dependencies from requirements.txt
 echo "Installing all dependencies from requirements.txt..."
 echo "This may take a while as uv resolves all dependencies..."
-uv pip install -r "$VLA_CLIP_ROOT/requirements.txt"
+uv pip install "${UV_PYTORCH_OPTS[@]}" -r "$VLA_CLIP_ROOT/requirements.txt"
 check_status "Dependencies installation"
 
 # Install SimplerEnv without dependencies (it has dlimp which conflicts with TF 2.18)
@@ -80,7 +84,9 @@ check_status "Inference package installation"
 
 # Ensure transformers and torch are at correct versions (may be downgraded by dependencies)
 echo "Ensuring correct transformers and PyTorch versions..."
-uv pip install 'transformers==4.48.3' 'torch>=2.4.0' torchvision 'numpy>=1.26.4,<2.0' --upgrade
+uv pip install "${UV_PYTORCH_OPTS[@]}" \
+  'transformers==4.48.3' 'torch==2.11.0+cu128' 'torchvision==0.26.0+cu128' \
+  'numpy>=1.26.4,<2.0'
 check_status "Final dependency version check"
 
 # Set environment variables

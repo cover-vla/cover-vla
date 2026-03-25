@@ -26,7 +26,7 @@ transformers==4.48.3
 
 # Data processing
 rlds==0.1.8
-apache-beam
+apache-beam==2.71.0
 tfds-nightly==4.9.4.dev202403220044
 tfp-nightly==0.25.0.dev20240322
 
