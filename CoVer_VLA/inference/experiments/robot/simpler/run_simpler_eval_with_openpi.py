@@ -7,7 +7,6 @@ This script evaluates vision-language-action policies on SIMPLER benchmark tasks
 - Action verification and selection using ensemble model
 - Multi-step action chunking
 
-For paper: "RoboMonkey: Improving Robot Manipulation through Language Instruction Verification"
 """
 
 import itertools

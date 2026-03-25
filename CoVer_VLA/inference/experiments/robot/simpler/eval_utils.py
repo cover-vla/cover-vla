@@ -5,7 +5,6 @@ Consolidated utility functions for running evaluations with PI0 and RoboMonkey v
 This module contains all helper functions for environment setup, action processing,
 image processing, data loading, and logging.
 
-For paper: "RoboMonkey: Improving Robot Manipulation through Language Instruction Verification"
 """
 
 import json
