@@ -25,6 +25,7 @@ import tqdm
 import wandb
 
 # SIMPLER environment imports
+from experiments.robot.simpler.prompt_utils import build_unique_prompts
 from experiments.robot.simpler.simpler_benchmark import get_benchmark
 from experiments.robot.simpler.eval_utils import (
     convert_maniskill_with_bridge_adapter,
@@ -202,12 +203,8 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             matching_task_id = None
         else:
             # Find matching task in preloaded rephrases
-            matching_task_id = None
-            for task_key, task_data in preloaded_rephrases.items():
-                if task_key == original_task_description:
-                    matching_task_id = task_key
-                    break
-            
+            matching_task_id = original_task_description if original_task_description in preloaded_rephrases else None
+
             if matching_task_id is not None:
                 rephrased_list = preloaded_rephrases[matching_task_id]["ert_rephrases"][:cfg.lang_rephrase_num] 
             else:
@@ -215,7 +212,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
 
         # Run episodes for this task
         task_episodes, task_successes = 0, 0
-        for trail_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
+        for trial_idx in tqdm.tqdm(range(cfg.num_trials_per_task)):
             if matching_task_id is not None:
                 task_description = preloaded_rephrases[matching_task_id]["original"]
             else:
@@ -224,7 +221,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
             print(f"\nTask: {task_description}")
             log_file.write(f"\nTask: {task_description}\n")
             
-            if trail_idx % 50 == 0:
+            if trial_idx % 50 == 0:
                 seeds = itertools.count(1000)
             
             obs, reset_info = env.reset(seed=next(seeds))
@@ -263,6 +260,11 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     pbar.update(1)
                     continue
 
+                # Step count since the wait loop ended -- action-chunk boundaries are aligned
+                # to this instead of the raw `t` so the queue is always populated before use,
+                # regardless of whether num_steps_wait is a multiple of n_action_steps.
+                real_step = t - cfg.num_steps_wait
+
                 # Get raw image from environment
                 raw_img = get_image_from_maniskill2_obs_dict(env, obs)
                 replay_images.append(raw_img)
@@ -295,10 +297,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 batch_size = cfg.policy_batch_inference_size * cfg.lang_rephrase_num
                 
                 # Build unique instruction list
-                if rephrased_list is not None and cfg.lang_rephrase_num > 1:
-                    unique_prompts = [task_description] + rephrased_list[:cfg.lang_rephrase_num - 1]
-                else:
-                    unique_prompts = [task_description]
+                unique_prompts = build_unique_prompts(task_description, rephrased_list, cfg.lang_rephrase_num)
 
                 # Repeat each instruction for batch inference
                 task_list = []
@@ -318,14 +317,14 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 }
                 
                 # Call select_action every n_action_steps
-                if t % cfg.n_action_steps == 0:
+                if real_step % cfg.n_action_steps == 0:
                     with torch.no_grad():
                         output_action_queue = pi0_policy.select_action(observation, noise_std=action_noise_std)
                         action_queue = output_action_queue.copy()
                         output_action_queue.clear()
-                
+
                 # Use verifier to select best action
-                if cfg.use_verifier and t % cfg.n_action_steps == 0:
+                if cfg.use_verifier and real_step % cfg.n_action_steps == 0:
                     assert len(action_queue) == cfg.n_action_steps, \
                         f"Action queue length should be {cfg.n_action_steps}, but got {len(action_queue)}"
                     
@@ -422,8 +421,15 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                     
                 # Update action history for verifier
                 if cfg.use_verifier:
-                    if t % cfg.n_action_steps == 0:
+                    if real_step % cfg.n_action_steps == 0:
+                        # Sync the recorded gripper with the voted decision actually executed
+                        # above, not the pre-vote prediction for the selected sample. Verifier-
+                        # format gripper uses a {0, 1} convention (BridgeSimplerAdapter.
+                        # postprocess_gripper_verifier) rather than execution-format's {-1, +1}
+                        # (postprocess_gripper), so translate the vote instead of copying
+                        # execute_action's value directly.
                         processed_action_for_history = max_action_history[num_past].copy()
+                        processed_action_for_history[-1] = 1.0 if execute_action[-1] > 0 else 0.0
                     else:
                         processed_action_for_history = convert_maniskill_with_bridge_adapter(
                             single_action[0:1], verifier_action=True, action_ensemble_temp=cfg.action_ensemble_temp
@@ -482,7 +488,7 @@ def eval_simpler(cfg: GenerateConfig) -> None:
                 group = "success" if done else "failure"
                 idx = task_successes if done else task_episodes - task_successes
                 video_array = np.array(replay_images).transpose(0, 3, 1, 2)
-                wandb.log({f"{task_description}/{group}/{idx}": wandb.Video(video_array)})
+                wandb.log({f"{original_task_description}/{group}/{idx}": wandb.Video(video_array)})
 
             # Log episode results
             success_rate = total_successes / total_episodes * 100
@@ -503,8 +509,8 @@ def eval_simpler(cfg: GenerateConfig) -> None:
         
         if cfg.use_wandb:
             wandb.log({
-                f"success_rate/{task_description}": task_success_rate,
-                f"num_episodes/{task_description}": task_episodes,
+                f"success_rate/{original_task_description}": task_success_rate,
+                f"num_episodes/{original_task_description}": task_episodes,
             })
 
     # Finalize logging

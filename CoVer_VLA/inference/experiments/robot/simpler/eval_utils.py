@@ -68,11 +68,11 @@ def set_seed_everywhere(seed):
 
 def get_simpler_env(task, model_family):
     """Initialize and return the SIMPLER environment.
-    
+
     Args:
         task: Task object from SIMPLER benchmark
         model_family: Model family name (e.g., 'openvla')
-        
+
     Returns:
         SIMPLER environment instance
     """
